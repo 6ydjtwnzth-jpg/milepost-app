@@ -1,0 +1,22 @@
+EX.r2=[
+ {q:"Ascolta: a che ora si è alzato?",au:"土曜日[どようび] は 九時[くじ] ごろ 起[お]きました 。",o:["verso le nove","alle sette","verso le undici"],e:"九時[くじ] ごろ = verso le nove."},
+ {q:"Ascolta: dove si sono incontrati?",au:"えき の 東口[ひがしぐち] で 会[あ]いました 。",o:["all'uscita est della stazione","davanti alla banca","all'uscita ovest"],e:"東口[ひがしぐち] = uscita est."},
+ {q:"Ascolta: che cosa propone?",au:"いっしょに ひる ごはん を 食[た]べません か 。",o:["di pranzare insieme","di cucinare insieme","di andare al cinema"],e:"〜ません か = invito."},
+ {q:"Ascolta: che cosa non si può fare?",au:"ここ で しゃしん を とって は いけません 。",o:["fare foto","mangiare","parlare"],e:"〜て は いけません = è vietato."},
+ {q:"«Perché studi giapponese?»",o:["どうして 日本語[にほんご] を 勉強[べんきょう]します か 。","どこ 日本語[にほんご] を 勉強[べんきょう]します か 。","いつ 日本語[にほんご] を 勉強[べんきょう]します か 。"],e:"どうして = perché."},
+ {q:"«Ieri non ho studiato.»",o:["きのう は 勉強[べんきょう]しません でした 。","きのう は 勉強[べんきょう]しました 。","きのう に 勉強[べんきょう]しません 。"],e:"ません でした."},
+ {q:"«Mi piace il sushi.»",o:["すし が 好[す]き です 。","すし を 好[す]き です 。","すし に 好[す]き です 。"],e:"好[す]き vuole が."},
+ {q:"«Il gatto è sotto il tavolo.»",o:["ねこ は テーブル の 下[した] に います 。","ねこ は テーブル の 下[した] に あります 。","ねこ は 下[した] の テーブル に います 。"],e:"Animali: います; riferimento の posizione."},
+ {q:"Forma -te di 帰[かえ]る (tornare):",o:["帰[かえ]って","帰[かえ]て","帰[かえ]りて"],e:"帰[かえ]る è del gruppo 1: る → って."},
+ {q:"Forma -te di 遊[あそ]ぶ (divertirsi):",o:["遊[あそ]んで","遊[あそ]って","遊[あそ]びて"],e:"-ぶ → んで."},
+ {q:"«Posso entrare?»",o:["入[はい]って も いい です か 。","入[はい]って ください か 。","入[はい]ります も いい です か 。"],e:"〜て も いい です か."},
+ {q:"«tre fogli»",o:["三枚[さんまい]","三本[さんぼん]","三杯[さんばい]"],e:"枚[まい] = oggetti piatti."},
+ {q:"«Io prendo questo.» (al ristorante)",o:["わたし は これ に します 。","わたし は これ が します 。","わたし は これ で します 。"],e:"〜 に します."},
+ {t:"ord",q:"Componi: «Vada dritto per questa strada, per favore.»",w:["この","道[みち]","を","まっすぐ","行[い]って","ください","。"],a:["この 道[みち] を まっすぐ 行[い]って ください 。"]},
+ {t:"ord",q:"Componi: «Domenica non andiamo al parco?»",w:["日曜日[にちようび]","に","こうえん","に","行[い]きません","か","。"],a:["日曜日[にちようび] に こうえん に 行[い]きません か 。"]},
+ {t:"type",q:"Passato cortese di 会[あ]います (incontrare):",a:["会[あ]いました"],full:"会[あ]いました"},
+ {t:"type",q:"Forma -te di 聞[き]く:",a:["聞[き]いて"],full:"聞[き]いて"},
+ {t:"dict",au:"えき の ちかく に コンビニ が あります 。"},
+ {t:"say",it:"Racconta: «Sabato sono andato a vedere un film con un amico.»",jp:"土曜日[どようび] に ともだち と えいが を 見[み]に 行[い]きました 。"},
+ {t:"say",it:"Al ristorante: «Il conto, per favore. Era tutto buonissimo.»",jp:"お会計[かいけい] お願[ねが]いします 。 ごちそうさま でした 。"}
+];

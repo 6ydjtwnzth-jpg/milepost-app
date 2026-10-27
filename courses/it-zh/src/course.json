@@ -1,0 +1,42 @@
+{
+  "parts": [
+    {"title": "第一部分 · 起步", "level": "A1.1", "it": "Primi passi", "items": [
+      {"id": "l1", "zh": "字母、发音和问候", "it": "Lettere, suoni e saluti", "icon": "i-abc"},
+      {"id": "l2", "zh": "你叫什么名字？essere", "it": "Come ti chiami?", "icon": "i-tag"},
+      {"id": "l3", "zh": "重音、语调、你和您", "it": "Accento, intonazione, tu e Lei", "icon": "i-wave"},
+      {"id": "l4", "zh": "名词、冠词和 c'è", "it": "Cose e persone", "icon": "i-book"},
+      {"id": "l5", "zh": "我的家人：avere 和物主代词", "it": "La mia famiglia", "icon": "i-family"},
+      {"id": "l6", "zh": "你好吗？stare 和身体状态", "it": "Come stai?", "icon": "i-sun"},
+      {"id": "l7", "zh": "你做什么工作？规则动词", "it": "Che lavoro fai?", "icon": "i-chat"},
+      {"id": "l8", "zh": "在咖啡馆：vorrei 和价格", "it": "Al bar", "icon": "i-cup"},
+      {"id": "r1", "zh": "复习一", "it": "Ripasso 1", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "第二部分 · 日常生活", "level": "A1.2", "it": "La vita di tutti i giorni", "items": [
+      {"id": "l9", "zh": "提问", "it": "Fare domande", "icon": "i-q"},
+      {"id": "l10", "zh": "一天的生活：时间和反身动词", "it": "La mia giornata", "icon": "i-clock"},
+      {"id": "l11", "zh": "空闲时间：mi piace 和 andare", "it": "Il tempo libero", "icon": "i-ball"},
+      {"id": "l12", "zh": "在城市里：介词、问路、命令式", "it": "In città", "icon": "i-pin"},
+      {"id": "l13", "zh": "约朋友：情态动词和打电话", "it": "Vuoi venire?", "icon": "i-phone"},
+      {"id": "l14", "zh": "在市场和餐厅：部分冠词和 ne", "it": "Al mercato e al ristorante", "icon": "i-fork"},
+      {"id": "r2", "zh": "复习二", "it": "Ripasso 2", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "第三部分 · 讲述", "level": "A2", "it": "Raccontare", "items": [
+      {"id": "l15", "zh": "上个周末：近过去时（avere）", "it": "Il fine settimana", "icon": "i-ticket"},
+      {"id": "l16", "zh": "旅行：近过去时（essere）、日期和天气", "it": "In viaggio", "icon": "i-umbrella"},
+      {"id": "l17", "zh": "小时候：未完成过去时", "it": "Quando ero piccola", "icon": "i-kite"},
+      {"id": "l18", "zh": "讲一个故事：两种过去时", "it": "Raccontare una storia", "icon": "i-scroll"},
+      {"id": "l19", "zh": "喜好和比较：间接宾语代词", "it": "Gusti e confronti", "icon": "i-heart"},
+      {"id": "l20", "zh": "买衣服：直接宾语代词和「正在」", "it": "Fare spese", "icon": "i-bag"},
+      {"id": "l21", "zh": "计划未来：将来时和 se", "it": "Progetti", "icon": "i-suitcase"},
+      {"id": "l22", "zh": "看病和服务：条件式", "it": "Salute e servizi", "icon": "i-cross"},
+      {"id": "l23", "zh": "李薇在罗马：讲你的故事", "it": "Li Wei a Roma", "icon": "i-arch"},
+      {"id": "r3", "zh": "复习三和 A2 模拟测试", "it": "Ripasso 3 e test A2", "icon": "i-star", "kind": "review"}
+    ]},
+    {"title": "附录", "it": "Appendici", "items": [
+      {"id": "frasi", "zh": "常用句", "it": "Frasi utili", "icon": "i-lemon", "kind": "app", "letter": "A"},
+      {"id": "flash", "zh": "单词卡：间隔重复", "it": "Flashcard", "icon": "i-cards", "kind": "app", "letter": "B"},
+      {"id": "vocab", "zh": "词汇表", "it": "Vocabolario", "icon": "i-book", "kind": "app", "letter": "C"},
+      {"id": "verbi", "zh": "动词变位手册", "it": "Coniugare i verbi", "icon": "i-verb", "kind": "app", "letter": "D"}
+    ]}
+  ]
+}

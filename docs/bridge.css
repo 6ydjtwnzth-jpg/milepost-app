@@ -1,0 +1,6 @@
+#mp-home{position:fixed;z-index:60;top:calc(env(safe-area-inset-top) + 10px);left:10px;height:48px;padding:0 10px 0 8px;display:flex;align-items:center;gap:4px;
+  border-radius:999px;background:var(--sheet,#fff);color:var(--ink,#1a1720);box-shadow:var(--shadow,0 10px 24px -14px rgba(0,0,0,.45));text-decoration:none}
+#mp-home svg{width:22px;height:22px}
+#mp-home .mp-logo{width:28px;height:28px}
+#mp-home:focus-visible{outline:3px solid #2b50d8;outline-offset:3px}
+#mappa,[id]{scroll-margin-top:76px}

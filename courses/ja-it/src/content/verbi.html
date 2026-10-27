@@ -1,0 +1,31 @@
+  <p class="lead">I verbi giapponesi non cambiano con la persona: <i>食[た]べます</i> vuol dire «mangio, mangi, mangia, mangiamo…». Cambiano invece con il tempo (presente/futuro o passato), con il «sì/no» e con il livello di cortesia. È molto più semplice dell'italiano!</p>
+  <h3>Tre gruppi</h3>
+  <div class="tw"><table>
+    <tr><th>Gruppo</th><th>Come si riconosce</th><th>Esempi</th></tr>
+    <tr><td><b>1 · godan</b></td><td>tutti i verbi che non sono del gruppo 2 o irregolari; finiscono in -u</td><td>飲[の]む, 書[か]く, 話[はな]す, 帰[かえ]る</td></tr>
+    <tr><td><b>2 · ichidan</b></td><td>finiscono in -iru o -eru (con qualche eccezione del gruppo 1)</td><td>食[た]べる, 見[み]る, 起[お]きる</td></tr>
+    <tr><td><b>Irregolari</b></td><td>solo due: する «fare» e 来[く]る «venire» (e i verbi con する)</td><td>する, 来[く]る, 勉強[べんきょう]する</td></tr>
+  </table></div>
+  <div class="rule" data-seal="Regola">
+    <h3>Come si forma il -masu</h3>
+    <ul class="plain">
+      <li><b>Gruppo 1</b>: l'ultima -u diventa -i, poi ます: 飲[の]む → 飲[の]みます, 書[か]く → 書[か]きます.</li>
+      <li><b>Gruppo 2</b>: si toglie る, poi ます: 食[た]べる → 食[た]べます.</li>
+      <li><b>Irregolari</b>: する → します, 来[く]る → 来[き]ます.</li>
+    </ul>
+  </div>
+  <div class="conjugator" id="conjugator">
+    <div class="cj-controls">
+      <label for="cjverb">Verbo</label>
+      <select id="cjverb" class="cj-select"></select>
+      <button class="btn pri" id="cjplay" type="button">▶ Ascolta tutto</button>
+    </div>
+    <div class="seg" role="group" aria-label="Forme" id="cjtense">
+      <button class="btn" type="button" aria-pressed="true">Cortesi</button>
+      <button class="btn" type="button" aria-pressed="false">Informali</button>
+      <button class="btn" type="button" aria-pressed="false">-te e altre</button>
+    </div>
+    <div class="cj-info" id="cjinfo"></div>
+    <div class="tw"><table class="cj-table" id="cjtable"></table></div>
+  </div>
+  <div class="drill" data-set="verbi"></div>

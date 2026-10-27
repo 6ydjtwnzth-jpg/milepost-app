@@ -1,0 +1,13 @@
+  <p>单词卡只包含你已经学到的课的单词（可以在下面改范围）。单词分在五个盒子里。答对了，单词升一个盒子，以后出现得少一些；答错了，回到第一个盒子。低号盒子里的单词出现得更频繁。目标：全部进入第 5 个盒子。</p>
+  <p><b>听</b>模式：卡片上什么都不显示，只听声音，说出意思。<b>说</b>模式：看中文，大声说出带冠词的意大利语单词。<b>读</b>模式：看意大利语，说出意思。</p>
+  <div class="seg" role="group" aria-label="单词卡模式">
+    <button class="btn" data-fcm="ear" aria-pressed="true">听</button>
+    <button class="btn" data-fcm="say" aria-pressed="false">说</button>
+    <button class="btn" data-fcm="read" aria-pressed="false">读</button>
+  </div>
+  <div class="fc-range"><label for="fcrange">单词范围</label><select id="fcrange"></select></div>
+  <div class="fc">
+    <div class="fc-card" id="fccard"></div>
+    <div class="boxes" id="fcboxes"></div>
+    <div class="confirm" id="fcreset"></div>
+  </div>

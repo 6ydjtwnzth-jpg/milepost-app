@@ -1,0 +1,23 @@
+EX.r1=[
+ {q:"Ascolta: di dove viene?",au:"ミラノ から 来[き]ました 。",o:["da Milano","da Roma","da Tokyo"],e:"〜 から 来[き]ました = vengo da…"},
+ {q:"Ascolta: quanti anni ha?",au:"二十三[にじゅうさん]さい です 。",o:["23","32","13"],e:"二十三[にじゅうさん] = 23."},
+ {q:"Ascolta: che cosa compra?",au:"おにぎり を 三[みっ]つ ください 。",o:["tre onigiri","due onigiri","un tè"],e:"三[みっ]つ = tre."},
+ {q:"Ascolta: quanto costa?",au:"二千[にせん] 五百[ごひゃく] 円[えん] です 。",o:["2.500 yen","5.200 yen","250 yen"],e:"二[に]千[せん] = 2.000, 五[ご]百[ひゃく] = 500."},
+ {q:"«Non sono un insegnante.»",o:["先生[せんせい] じゃ ありません 。","先生[せんせい] です か 。","先生[せんせい] くない です 。"],e:"Nome + じゃ ありません."},
+ {q:"«Anche Yuki è giapponese.»",o:["ゆき さん も 日本人[にほんじん] です 。","ゆき さん は も 日本人[にほんじん] です 。","ゆき さん の 日本人[にほんじん] です 。"],e:"も sostituisce は."},
+ {q:"L'oggetto è vicino al tuo interlocutore:",o:["それ","これ","あれ"],e:"それ = vicino a chi ascolta."},
+ {q:"Parli di TUO fratello maggiore:",o:["兄[あに]","お兄[にい]さん","兄[あに]さん"],e:"Famiglia propria: 兄[あに]."},
+ {q:"«C'è un cane.»",o:["いぬ が います 。","いぬ が あります 。","いぬ を います 。"],e:"Animali: います."},
+ {q:"Negativo di おいしい:",o:["おいしくない です","おいしい じゃ ありません","おいしくな です"],e:"-い → -くない."},
+ {q:"«una persona gentile» (しんせつ è な)",o:["しんせつ な ひと","しんせつ ひと","しんせつい ひと"],e:"Aggettivo な + な + nome."},
+ {q:"Particella: 大学[だいがく] ___ 勉強[べんきょう]します 。",o:["で","を","へ"],e:"で = dove si fa l'azione."},
+ {q:"Particella: パン ___ 食[た]べます 。",o:["を","で","に"],e:"を = oggetto."},
+ {q:"Come si legge きょう?",o:["kyō","kiyō","kō"],e:"き + piccolo ょ = kyo, poi う allunga."},
+ {t:"ord",q:"Componi: «Ogni giorno studio il giapponese.»",w:["毎日[まいにち]","日本語[にほんご]","を","勉強[べんきょう]します","。"],a:["毎日[まいにち] 日本語[にほんご] を 勉強[べんきょう]します 。"]},
+ {t:"ord",q:"Componi: «Di chi è questa borsa?»",w:["この","かばん","は","だれ","の","です","か","。"],a:["この かばん は だれ の です か 。"]},
+ {t:"type",q:"Completa: これ ___ 何[なん] です か 。",a:["は"],full:"これ は 何[なん] です か 。"},
+ {t:"type",q:"Negativo cortese di 行[い]きます:",a:["行[い]きません"],full:"行[い]きません"},
+ {t:"dict",au:"わたし の かぞく は 四人[よにん] です 。"},
+ {t:"say",it:"Presentati: nome, nazionalità, che cosa studi o fai.",jp:"はじめまして 。 マルコ です 。 イタリア人[じん] です 。 学生[がくせい] です 。 よろしく お願[ねが]いします 。",e:"Usa il tuo nome e il tuo lavoro."},
+ {t:"say",it:"Al konbini: chiedi due onigiri e un tè, e quanto costa in tutto.",jp:"おにぎり を 二[ふた]つ と お茶[ちゃ] を ください 。 ぜんぶ で いくら です か 。"}
+];

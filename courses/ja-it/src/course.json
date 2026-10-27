@@ -1,0 +1,43 @@
+{
+  "parts": [
+    {"title": "Parte prima · Primi passi", "level": "A1.1", "j": "はじめの一歩", "items": [
+      {"id": "l1", "t": "Suoni, primi kana e saluti", "j": "あいさつ", "icon": "i-kana"},
+      {"id": "l2", "t": "Mi chiamo Marco", "j": "じこしょうかい", "icon": "i-tag"},
+      {"id": "l3", "t": "Tutti gli hiragana, doppie e vocali lunghe", "j": "ひらがな", "icon": "i-wave"},
+      {"id": "l4", "t": "Che cos'è? これ・それ・あれ", "j": "これは何ですか", "icon": "i-book"},
+      {"id": "l5", "t": "La mia famiglia e i numeri", "j": "かぞく", "icon": "i-family"},
+      {"id": "l6", "t": "Come stai? Gli aggettivi", "j": "げんきですか", "icon": "i-sun"},
+      {"id": "l7", "t": "Che cosa fai? I verbi in -masu", "j": "まいにち", "icon": "i-chat"},
+      {"id": "l8", "t": "Al konbini e al caffè", "j": "コンビニで", "icon": "i-cup"},
+      {"id": "r1", "t": "Ripasso 1", "j": "ふくしゅう", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte seconda · La vita di tutti i giorni", "level": "A1.2", "j": "まいにちの生活", "items": [
+      {"id": "l9", "t": "Fare domande", "j": "しつもん", "icon": "i-q"},
+      {"id": "l10", "t": "La mia giornata: ore e passato", "j": "わたしの一日", "icon": "i-clock"},
+      {"id": "l11", "t": "Il tempo libero: piacere e inviti", "j": "しゅみ", "icon": "i-ball"},
+      {"id": "l12", "t": "In città: dove si trova?", "j": "まちで", "icon": "i-pin"},
+      {"id": "l13", "t": "La forma -te: per favore, posso…?", "j": "て形", "icon": "i-phone"},
+      {"id": "l14", "t": "Al ristorante: contare e ordinare", "j": "レストランで", "icon": "i-fork"},
+      {"id": "r2", "t": "Ripasso 2", "j": "ふくしゅう", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte terza · Raccontare", "level": "A2", "j": "話す・伝える", "items": [
+      {"id": "l15", "t": "Il fine settimana: passato degli aggettivi", "j": "週末", "icon": "i-ticket"},
+      {"id": "l16", "t": "In viaggio: voglio andare…", "j": "りょこう", "icon": "i-umbrella"},
+      {"id": "l17", "t": "Quando ero piccolo: la forma informale", "j": "子どものころ", "icon": "i-kite"},
+      {"id": "l18", "t": "Raccontare: -te iru, -te kara", "j": "ものがたり", "icon": "i-scroll"},
+      {"id": "l19", "t": "Gusti, confronti e opinioni", "j": "くらべる", "icon": "i-heart"},
+      {"id": "l20", "t": "Fare spese e fare regali", "j": "かいもの", "icon": "i-bag"},
+      {"id": "l21", "t": "Progetti e condizioni", "j": "これから", "icon": "i-suitcase"},
+      {"id": "l22", "t": "Salute e servizi: devo, posso", "j": "びょういん", "icon": "i-cross"},
+      {"id": "l23", "t": "Marco a Tokyo: racconta la tua storia", "j": "東京のマルコ", "icon": "i-torii"},
+      {"id": "r3", "t": "Ripasso 3 e test A2", "j": "ふくしゅう・テスト", "icon": "i-star", "kind": "review"}
+    ]},
+    {"title": "Appendici", "j": "付録", "items": [
+      {"id": "kana", "t": "Tabelle dei kana", "j": "かな表", "icon": "i-kana", "kind": "app", "letter": "A"},
+      {"id": "frasi", "t": "Frasi utili", "j": "べんりな表現", "icon": "i-lemon", "kind": "app", "letter": "B"},
+      {"id": "flash", "t": "Flashcard: ripetizione distanziata", "j": "フラッシュカード", "icon": "i-cards", "kind": "app", "letter": "C"},
+      {"id": "vocab", "t": "Vocabolario", "j": "単語リスト", "icon": "i-book", "kind": "app", "letter": "D"},
+      {"id": "verbi", "t": "Coniugare i verbi", "j": "動詞の活用", "icon": "i-verb", "kind": "app", "letter": "E"}
+    ]}
+  ]
+}

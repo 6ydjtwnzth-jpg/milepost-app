@@ -1,0 +1,13 @@
+  <p>Le flashcard contengono solo le parole delle lezioni che hai già fatto (puoi cambiare l'intervallo qui sotto). Le parole stanno in cinque scatole: se la sai, la parola sale di una scatola e tornerà più di rado; se sbagli, torna nella scatola 1. Obiettivo: tutte le parole nella scatola 5.</p>
+  <p><b>Ascolta</b>: non vedi niente, senti la parola e dici il significato. <b>Parla</b>: vedi l'italiano e dici la parola giapponese ad alta voce. <b>Leggi</b>: vedi il giapponese e dici il significato.</p>
+  <div class="seg" role="group" aria-label="Modalità">
+    <button class="btn" data-fcm="ear" aria-pressed="true">Ascolta</button>
+    <button class="btn" data-fcm="say" aria-pressed="false">Parla</button>
+    <button class="btn" data-fcm="read" aria-pressed="false">Leggi</button>
+  </div>
+  <div class="fc-range"><label for="fcrange">Parole</label><select id="fcrange"></select></div>
+  <div class="fc">
+    <div class="fc-card" id="fccard"></div>
+    <div class="boxes" id="fcboxes"></div>
+    <div class="confirm" id="fcreset"></div>
+  </div>

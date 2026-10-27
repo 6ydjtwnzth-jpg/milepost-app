@@ -1,0 +1,22 @@
+EX.r3=[
+ {q:"【听力】听，选择意思：",au:"Mentre aspettavo l'autobus, ho incontrato un mio vecchio amico.",o:["我等公交车的时候，遇到了一个老朋友。","我和老朋友一起等公交车。","老朋友在公交车上等我。"],e:"mentre + imperfetto，事件用 passato prossimo。"},
+ {q:"【听力】听，选择意思：",au:"Se domani fa bel tempo, andremo in montagna.",o:["如果明天天气好，我们去山里。","明天天气很好，我们去了山里。","因为天气好，我们在山里。"],e:"se + 现在时，将来时 andremo。"},
+ {q:"【听力】听，选择意思：",au:"Mi fa male la testa, potrebbe darmi qualcosa?",o:["我头疼，您能给我点药吗？","您头疼吗？要不要药？","我头疼，所以不能来。"],e:"mi fa male + 条件式 potrebbe。"},
+ {q:"【阅读】Giulia 和她妹妹到那不勒斯的时候，天气怎么样？",o:["下大雨","出太阳","下雪"],e:"«pioveva molto»"},
+ {q:"【阅读】她们怎么到的酒店？",o:["一位先生开车送她们","坐出租车","走路"],e:"«un signore ci ha dato un passaggio»"},
+ {q:"【阅读】写邮件的时候，她们正在做什么？",o:["在海边吃比萨","参观庞贝","在火车站"],e:"«stiamo mangiando una pizza vicino al mare»"},
+ {q:"【语法】「我们（女）昨天到的。」",o:["Siamo arrivate ieri.","Abbiamo arrivato ieri.","Siamo arrivati ieri."],e:"arrivare 用 essere，两个女性 → arrivate。"},
+ {q:"【语法】「小时候我每个夏天都去海边。」",o:["Da piccolo andavo al mare ogni estate.","Da piccolo sono andato al mare ogni estate.","Da piccolo vado al mare ogni estate."],e:"过去的习惯 → imperfetto。"},
+ {q:"【语法】「这条裙子？我要了！」",o:["La gonna? La prendo!","La gonna? Lo prendo!","La gonna? Prendo la!"],e:"gonna 阴性 → la，放在动词前。"},
+ {q:"【语法】「我妹妹喜欢猫。」",o:["A mia sorella piacciono i gatti.","Mia sorella piace i gatti.","A mia sorella piace i gatti."],e:"猫是复数 → piacciono。"},
+ {t:"type",q:"【语法】填空：Domani io ___ (andare) dal medico.",a:["andrò","vado"],full:"Domani io andrò dal medico.",e:"确定的近期计划也可以用现在时 vado。"},
+ {t:"type",q:"【语法】填空：Che cosa stai ___? — Sto cucinando.（fare）",a:["facendo"],full:"Che cosa stai facendo?"},
+ {t:"type",q:"【语法】填空：Ieri sera ___ (essere, io，女) molto stanca.",a:["ero"],full:"Ieri sera ero molto stanca.",e:"状态是背景 → imperfetto。"},
+ {t:"type",q:"【语法】填空：Tu ___ bere più acqua.（dovere，条件式，建议）",a:["dovresti"],full:"Tu dovresti bere più acqua."},
+ {t:"dict",au:"La settimana scorsa sono andata a Napoli."},
+ {t:"dict",au:"Mi piacerebbe vedere Pompei."},
+ {t:"ord",q:"【语法】组句：「我正在看书的时候，电话响了。」",w:["Mentre","leggevo,","è","squillato","il","telefono."],a:["Mentre leggevo, è squillato il telefono."]},
+ {t:"say",zh:"【口语】讲讲你上一次旅行：去了哪儿、天气怎么样、发生了什么事。",it:"L'estate scorsa sono andato a Venezia. Faceva molto caldo. Un giorno mi sono perso, ma alla fine ho trovato l'albergo."},
+ {t:"say",zh:"【口语】说说你在意大利的计划和一个愿望。",it:"Il prossimo anno studierò a Bologna. Mi piacerebbe trovare un lavoro in Italia."},
+ {t:"say",zh:"【口语】给一个感冒的朋友两个建议。",it:"Dovresti riposarti e bere molta acqua. Se la febbre non passa, dovresti andare dal medico."}
+];

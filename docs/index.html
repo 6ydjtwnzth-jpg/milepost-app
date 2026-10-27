@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Milepost</title>
+<meta name="description" content="Milepost: corsi di lingua seri, spiegati per chi parla la tua lingua, con un piano onesto fino all'esame.">
+<meta name="theme-color" content="#fff6f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14111a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<script>try{var t=localStorage.getItem("milepost-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<style>
+/* ---------- design tokens (stile "Vivace") ---------- */
+:root{
+  --paper:#fff6f1; --card:#ffffff; --ink:#1a1720; --muted:#645c6e; --line:#efdcd2; --chip:#ffffff;
+  --soft:#ffece4; --sel:#fff4ef;
+  --red:#ea4a2a; --blue:#2b50d8; --yellow:#ffc532; --green:#12965a; --pink:#ff9fb6;
+  --accent:var(--red); --accent2:var(--yellow); --on-accent:#ffffff;
+  --ok:#11804b; --ok-bg:#daf3e5; --late:#9a5a00; --late-bg:#fff1c7;
+  --deco1:#ffc532; --deco2:#ff9fb6; --deco-o:.33;
+  --r:28px; --r-sm:20px; --r-xs:14px;
+  --shadow:0 1px 0 rgba(26,23,32,.04),0 16px 30px -22px rgba(26,23,32,.45);
+  --f-disp:"Bricolage Grotesque","Noto Sans SC","Noto Sans JP",system-ui,sans-serif;
+  --f-body:"Noto Sans JP","Noto Sans SC","Hiragino Sans","PingFang SC",system-ui,-apple-system,sans-serif;
+  --gut:20px; --tap:48px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#14111a; --card:#1f1b27; --ink:#f5f0f7; --muted:#b5abc0; --line:#352e40; --chip:#1f1b27;
+  --soft:#2b2133; --sel:#2a1d22;
+  --red:#ff6b4d; --blue:#7d97ff; --yellow:#ffcc4d; --green:#3fd28e;
+  --accent:var(--red); --on-accent:#1c0b07;
+  --ok:#5ee09a; --ok-bg:#133526; --late:#ffc04d; --late-bg:#3a3016;
+  --deco-o:.10;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 36px -20px rgba(0,0,0,.85);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#14111a; --card:#1f1b27; --ink:#f5f0f7; --muted:#b5abc0; --line:#352e40; --chip:#1f1b27;
+  --soft:#2b2133; --sel:#2a1d22;
+  --red:#ff6b4d; --blue:#7d97ff; --yellow:#ffcc4d; --green:#3fd28e;
+  --accent:var(--red); --on-accent:#1c0b07;
+  --ok:#5ee09a; --ok-bg:#133526; --late:#ffc04d; --late-bg:#3a3016;
+  --deco-o:.10;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 36px -20px rgba(0,0,0,.85);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh;overflow-x:hidden}
+:lang(zh) body,html[lang="zh-CN"] body{--f-body:"Noto Sans SC","PingFang SC","Hiragino Sans GB",system-ui,sans-serif}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:12px}
+a{color:inherit}
+[hidden]{display:none!important}
+[tabindex="-1"]:focus{outline:none}
+
+.deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.deco i{position:absolute;border-radius:50%;opacity:var(--deco-o)}
+.deco .d1{width:240px;height:240px;right:-100px;top:-90px;background:var(--deco1)}
+.deco .d2{width:170px;height:170px;left:-80px;bottom:-70px;background:var(--deco2)}
+
+.app{position:relative;z-index:1;max-width:480px;margin:0 auto;min-height:100vh;min-height:100dvh;
+  padding:calc(env(safe-area-inset-top) + 18px) var(--gut) calc(env(safe-area-inset-bottom) + 24px);display:flex;flex-direction:column}
+.scr{display:flex;flex-direction:column;flex:1;animation:in .35s ease both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.scr{animation:none}*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- top bar ---------- */
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:var(--tap)}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-.015em}
+.brand svg{width:30px;height:30px;flex:none}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:6px 14px;border-radius:999px;background:var(--chip);
+  box-shadow:var(--shadow);font-size:13.5px;font-weight:600;white-space:nowrap}
+.chip b{color:var(--accent);font-weight:800}
+.ghost{min-height:var(--tap);min-width:var(--tap);padding:0 6px;color:var(--muted);font-weight:700;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.ibtn{width:var(--tap);height:var(--tap);border-radius:50%;display:grid;place-items:center;background:var(--chip);box-shadow:var(--shadow)}
+.ibtn svg{width:22px;height:22px}
+
+/* ---------- headings ---------- */
+h1{font-family:var(--f-disp);font-weight:800;font-size:clamp(30px,8.6vw,36px);line-height:1.1;letter-spacing:-.02em;margin:26px 0 8px;text-wrap:balance}
+.lead{color:var(--muted);font-size:15.5px;margin:0}
+.kick{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--accent);margin-top:22px}
+.kick+h1{margin-top:6px}
+h2.sec{font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-.01em;margin:26px 0 10px}
+
+/* ---------- course card ---------- */
+.course{display:block;width:100%;text-align:left;margin-top:22px;border-radius:var(--r);overflow:hidden;background:var(--c);color:#fff;
+  box-shadow:var(--shadow);text-decoration:none;transition:transform .15s}
+.course:active{transform:scale(.985)}
+.course.blue{--c:#2b50d8}.course.green{--c:#12965a}
+.course .art{height:200px;position:relative;overflow:hidden}
+.course .art svg{position:absolute;inset:0;width:100%;height:100%}
+.course .body{padding:16px 18px 18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.course h3{margin:0;font-family:var(--f-disp);font-weight:800;font-size:27px;letter-spacing:-.01em;line-height:1.1}
+.course h3 span{font-family:var(--f-body);font-weight:700;font-size:17px;margin-left:8px;opacity:.8}
+.course p{margin:5px 0 0;font-size:13.5px;opacity:.85;line-height:1.45}
+.go{flex:none;width:52px;height:52px;border-radius:50%;background:#ffc532;color:#1a1720;display:grid;place-items:center}
+.go svg{width:22px;height:22px}
+.soon{margin-top:20px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.soonrow{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.soonrow span{padding:8px 12px;border-radius:12px;border:1.5px dashed var(--line);color:var(--muted);font-size:13.5px;font-weight:600}
+.soonrow b{margin-right:5px;color:var(--ink);opacity:.55}
+
+/* ---------- onboarding ---------- */
+.steps{display:flex;gap:6px;margin-top:14px}
+.steps i{height:5px;border-radius:5px;background:var(--line);flex:1;transition:background .3s}
+.steps i.on{background:var(--accent)}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;border-radius:var(--r-sm);background:var(--card);
+  box-shadow:var(--shadow);border:2px solid transparent;min-height:72px;transition:border-color .15s,background .15s}
+.opt[aria-pressed="true"],.opt[aria-checked="true"]{border-color:var(--accent);background:var(--sel)}
+.opt .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;flex:none;background:var(--soft);font-family:var(--f-disp);font-weight:800;color:var(--accent);font-size:15px}
+.opt .ic svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.opt b{display:block;font-weight:700;font-size:16.5px;line-height:1.3}
+.opt small{display:block;color:var(--muted);font-size:13.5px;line-height:1.35;margin-top:2px}
+.opt .tag{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--on-accent);background:var(--accent);padding:4px 9px;border-radius:999px;flex:none}
+.opt:disabled{opacity:.5;cursor:default}
+.opt:disabled .tag{background:var(--muted);color:var(--paper)}
+.sub{margin-top:18px;padding:14px 16px;border-radius:var(--r-sm);background:var(--soft)}
+.sub>b{display:block;font-size:14px;font-weight:700;margin-bottom:10px}
+.sublbl{display:block;font-size:14px;font-weight:700;margin:16px 0 10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{min-height:44px;padding:8px 14px;border-radius:999px;background:var(--card);font-weight:600;font-size:14.5px;border:2px solid transparent;box-shadow:var(--shadow)}
+.pill[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.pill:disabled{opacity:.45;cursor:default}
+.datein{min-height:44px;padding:8px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px}
+.note{font-size:13px;color:var(--muted);margin:10px 0 0;line-height:1.45}
+.foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:22px}
+.btn{min-height:56px;padding:0 26px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-family:var(--f-disp);font-weight:800;font-size:17px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:transform .15s,opacity .15s}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.grow{flex:1;max-width:240px;margin-left:auto}
+.btn.full{width:100%}
+.btn.alt{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.btn svg{width:20px;height:20px}
+
+/* ---------- plan ---------- */
+.card{margin-top:16px;border-radius:var(--r);background:var(--card);box-shadow:var(--shadow);padding:18px}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.big b{white-space:nowrap;font-family:var(--f-disp);font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.big span{color:var(--muted);font-size:14px}
+.bar{height:10px;border-radius:10px;background:var(--line);margin:16px 0 6px;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.bar em{position:absolute;top:-4px;bottom:-4px;width:3px;border-radius:2px;background:var(--ink)}
+.barlbl{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);gap:8px}
+.tl{margin-top:12px}
+.tl>div{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:start;padding:8px 0}
+.tl i{width:12px;height:12px;border-radius:50%;margin-top:6px;background:var(--line);box-shadow:0 0 0 4px var(--soft)}
+.tl .now i{background:var(--accent)}
+.tl .done i{background:var(--ok)}
+.tl b{display:block;font-weight:700;font-size:15px;line-height:1.35}
+.tl s{display:block;text-decoration:none;color:var(--muted);font-size:13px;line-height:1.35}
+.tl small{color:var(--muted);font-size:12.5px;white-space:nowrap;margin-top:2px;text-align:right}
+.tl .exam b{color:var(--accent)}
+.warn{margin-top:14px;padding:12px 14px;border-radius:var(--r-xs);background:var(--late-bg);color:var(--ink);font-size:14px}
+.warn b{color:var(--late)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.acts .pill{box-shadow:none}
+
+/* ---------- home ---------- */
+.hello{margin-top:18px;font-family:var(--f-disp);font-weight:800;font-size:28px;letter-spacing:-.02em;line-height:1.15}
+.course .prog{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:13px;font-weight:600}
+.course .prog .pb{flex:1;height:8px;border-radius:8px;background:rgba(255,255,255,.28);overflow:hidden;max-width:160px}
+.course .prog .pb i{display:block;height:100%;background:#ffc532;border-radius:8px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.tile{border-radius:var(--r-sm);background:var(--card);box-shadow:var(--shadow);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:132px}
+.tile .lbl{font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+.tile .val{font-family:var(--f-disp);font-weight:800;font-size:30px;letter-spacing:-.02em;line-height:1}
+.tile .val small{font-size:15px;color:var(--muted);font-weight:700;letter-spacing:0}
+.tile p{margin:0;font-size:13px;color:var(--muted);line-height:1.4}
+.ring{width:56px;height:56px}
+.ring circle{fill:none;stroke-width:6}
+.ring .b{stroke:var(--line)}
+.ring .f{stroke:var(--accent);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dasharray .6s}
+.week{display:flex;gap:5px;margin-top:auto}
+.week span{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:var(--muted);font-weight:700}
+.week i{width:100%;max-width:22px;height:22px;border-radius:7px;background:var(--line)}
+.week .on i{background:var(--green)}
+.week .today{color:var(--ink)}
+.status{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-size:12.5px;font-weight:700;background:var(--ok-bg);color:var(--ok)}
+.status.late{background:var(--late-bg);color:var(--late)}
+.examcard{display:flex;gap:14px;align-items:center}
+.examcard .days{flex:none;width:76px;height:76px;border-radius:22px;background:var(--accent);color:var(--on-accent);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--f-disp);font-weight:800;line-height:1}
+.examcard .days b{font-size:30px}
+.examcard .days small{font-size:11px;font-weight:700;margin-top:3px}
+.examcard h3{margin:0;font-size:17px;font-weight:700;line-height:1.3}
+.examcard p{margin:4px 0 0;font-size:13.5px;color:var(--muted);line-height:1.4}
+.soonbadge{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--soft);color:var(--accent)}
+.addrow{display:flex;align-items:center;gap:12px;width:100%;margin-top:14px;padding:14px 16px;border-radius:var(--r-sm);border:2px dashed var(--line);color:var(--muted);font-weight:700;font-size:15px;min-height:60px;text-align:left}
+.addrow svg{width:22px;height:22px;flex:none}
+
+/* ---------- sheet (settings) ---------- */
+.sheet-back{position:fixed;inset:0;background:rgba(10,8,14,.45);z-index:20}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;max-width:480px;margin:0 auto;background:var(--card);border-radius:28px 28px 0 0;
+  padding:10px var(--gut) calc(env(safe-area-inset-bottom) + 22px);box-shadow:0 -20px 50px -20px rgba(0,0,0,.45);max-height:88vh;overflow:auto}
+.sheet .grab{width:44px;height:5px;border-radius:5px;background:var(--line);margin:4px auto 10px}
+.sheet h2{font-family:var(--f-disp);font-weight:800;font-size:22px;margin:6px 0 4px}
+.set{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.set:last-child{border-bottom:0}
+.set>span{font-weight:600}
+.seg{display:inline-flex;background:var(--soft);border-radius:999px;padding:3px}
+.seg button{min-height:40px;padding:0 13px;border-radius:999px;font-weight:700;font-size:14px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.linkbtn{min-height:var(--tap);font-weight:700;color:var(--accent);font-size:15px}
+.danger{color:var(--red)}
+
+</style>
+</head>
+<body>
+<div class="deco" aria-hidden="true"><i class="d1"></i><i class="d2"></i></div>
+<main id="app" class="app" aria-live="polite"></main>
+<div class="sheet-back" id="sheetback" hidden></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetttl" hidden></section>
+<script>
+var CATALOG={"courses":[{"id":"ja-it","learn":"ja","speak":"it","storageKey":"giapponese-per-italiani-v1","titleField":"t","name":"Giapponese","native":"日本語","the":"il giapponese","color":"blue","levelsLabel":"Da zero all'A2 · 23 lezioni","courseHours":260,"starts":[{"skip":1,"t":"Da zero","s":"Non conosco ancora i kana"},{"skip":2,"t":"So già le basi","s":"Kana e prime frasi (A1.1)"},{"skip":3,"t":"Ho già un livello A1","s":"Circa un anno di studio, o JLPT N5"}],"exams":[{"id":"n5","name":"JLPT N5","upto":"r2","hours":120,"dates":["2026-12-06","2027-07-04","2027-12-05"]},{"id":"n4","name":"JLPT N4","upto":"r3","hours":280,"partial":true,"dates":["2027-07-04","2027-12-05","2028-07-02"]}],"examNote":"Il JLPT si tiene di solito la prima domenica di luglio e di dicembre: controlla le sessioni della tua sede.","units":[{"id":"l1","w":1,"kind":"lesson","t":"Suoni, primi kana e saluti"},{"id":"l2","w":1,"kind":"lesson","t":"Mi chiamo Marco"},{"id":"l3","w":1,"kind":"lesson","t":"Tutti gli hiragana, doppie e vocali lunghe"},{"id":"l4","w":1,"kind":"lesson","t":"Che cos'è? これ・それ・あれ"},{"id":"l5","w":1,"kind":"lesson","t":"La mia famiglia e i numeri"},{"id":"l6","w":1,"kind":"lesson","t":"Come stai? Gli aggettivi"},{"id":"l7","w":1,"kind":"lesson","t":"Che cosa fai? I verbi in -masu"},{"id":"l8","w":1,"kind":"lesson","t":"Al konbini e al caffè"},{"id":"r1","w":1,"kind":"review","t":"Ripasso 1"},{"id":"l9","w":2,"kind":"lesson","t":"Fare domande"},{"id":"l10","w":2,"kind":"lesson","t":"La mia giornata: ore e passato"},{"id":"l11","w":2,"kind":"lesson","t":"Il tempo libero: piacere e inviti"},{"id":"l12","w":2,"kind":"lesson","t":"In città: dove si trova?"},{"id":"l13","w":2,"kind":"lesson","t":"La forma -te: per favore, posso…?"},{"id":"l14","w":2,"kind":"lesson","t":"Al ristorante: contare e ordinare"},{"id":"r2","w":2,"kind":"review","t":"Ripasso 2"},{"id":"l15","w":3,"kind":"lesson","t":"Il fine settimana: passato degli aggettivi"},{"id":"l16","w":3,"kind":"lesson","t":"In viaggio: voglio andare…"},{"id":"l17","w":3,"kind":"lesson","t":"Quando ero piccolo: la forma informale"},{"id":"l18","w":3,"kind":"lesson","t":"Raccontare: -te iru, -te kara"},{"id":"l19","w":3,"kind":"lesson","t":"Gusti, confronti e opinioni"},{"id":"l20","w":3,"kind":"lesson","t":"Fare spese e fare regali"},{"id":"l21","w":3,"kind":"lesson","t":"Progetti e condizioni"},{"id":"l22","w":3,"kind":"lesson","t":"Salute e servizi: devo, posso"},{"id":"l23","w":3,"kind":"lesson","t":"Marco a Tokyo: racconta la tua storia"},{"id":"r3","w":3,"kind":"review","t":"Ripasso 3 e test A2"}],"worlds":[{"w":1,"level":"A1.1","title":"Parte prima · Primi passi"},{"w":2,"level":"A1.2","title":"Parte seconda · La vita di tutti i giorni"},{"w":3,"level":"A2","title":"Parte terza · Raccontare"}]},{"id":"it-zh","learn":"it","speak":"zh","storageKey":"primo-libro-italiano-v1","titleField":"zh","name":"意大利语","native":"Italiano","the":"意大利语","color":"green","levelsLabel":"从零到 A2 · 23 课","courseHours":200,"starts":[{"skip":1,"t":"从零开始","s":"还不会意大利语"},{"skip":2,"t":"学过一点","s":"会打招呼、自我介绍（A1.1）"},{"skip":3,"t":"已有 A1 水平","s":"学过一年左右"}],"exams":[{"id":"a2","name":"CILS / PLIDA A2","upto":"r3","hours":200,"dates":[]},{"id":"b1","name":"CILS / PLIDA B1","soon":true}],"examNote":"CILS、PLIDA 每年有多次考试，请在考点确认日期。","units":[{"id":"l1","w":1,"kind":"lesson","t":"字母、发音和问候"},{"id":"l2","w":1,"kind":"lesson","t":"你叫什么名字？essere"},{"id":"l3","w":1,"kind":"lesson","t":"重音、语调、你和您"},{"id":"l4","w":1,"kind":"lesson","t":"名词、冠词和 c'è"},{"id":"l5","w":1,"kind":"lesson","t":"我的家人：avere 和物主代词"},{"id":"l6","w":1,"kind":"lesson","t":"你好吗？stare 和身体状态"},{"id":"l7","w":1,"kind":"lesson","t":"你做什么工作？规则动词"},{"id":"l8","w":1,"kind":"lesson","t":"在咖啡馆：vorrei 和价格"},{"id":"r1","w":1,"kind":"review","t":"复习一"},{"id":"l9","w":2,"kind":"lesson","t":"提问"},{"id":"l10","w":2,"kind":"lesson","t":"一天的生活：时间和反身动词"},{"id":"l11","w":2,"kind":"lesson","t":"空闲时间：mi piace 和 andare"},{"id":"l12","w":2,"kind":"lesson","t":"在城市里：介词、问路、命令式"},{"id":"l13","w":2,"kind":"lesson","t":"约朋友：情态动词和打电话"},{"id":"l14","w":2,"kind":"lesson","t":"在市场和餐厅：部分冠词和 ne"},{"id":"r2","w":2,"kind":"review","t":"复习二"},{"id":"l15","w":3,"kind":"lesson","t":"上个周末：近过去时（avere）"},{"id":"l16","w":3,"kind":"lesson","t":"旅行：近过去时（essere）、日期和天气"},{"id":"l17","w":3,"kind":"lesson","t":"小时候：未完成过去时"},{"id":"l18","w":3,"kind":"lesson","t":"讲一个故事：两种过去时"},{"id":"l19","w":3,"kind":"lesson","t":"喜好和比较：间接宾语代词"},{"id":"l20","w":3,"kind":"lesson","t":"买衣服：直接宾语代词和「正在」"},{"id":"l21","w":3,"kind":"lesson","t":"计划未来：将来时和 se"},{"id":"l22","w":3,"kind":"lesson","t":"看病和服务：条件式"},{"id":"l23","w":3,"kind":"lesson","t":"李薇在罗马：讲你的故事"},{"id":"r3","w":3,"kind":"review","t":"复习三和 A2 模拟测试"}],"worlds":[{"w":1,"level":"A1.1","title":"第一部分 · 起步"},{"w":2,"level":"A1.2","title":"第二部分 · 日常生活"},{"w":3,"level":"A2","title":"第三部分 · 讲述"}]}],"soon":{"it":[["中文","Cinese"],["한국어","Coreano"],["EN","Inglese"],["ES","Spagnolo"],["FR","Francese"],["DE","Tedesco"]],"zh":[["EN","英语"],["日本語","日语"],["FR","法语"],["ES","西班牙语"],["DE","德语"],["한국어","韩语"]]}};
+/* Interface strings. The interface always speaks the learner's own language. */
+var I18N={
+it:{
+  htmlLang:"it", locale:"it-IT",
+  speakQ:"Che lingua parli?", speakSub:"Ogni corso è scritto per chi parla la tua lingua: spiegazioni, esempi e cultura partono da lì.",
+  speaks:"Parli italiano", change:"Cambia",
+  learnQ:"Cosa vuoi imparare?", learnSub:"Ogni corso è scritto per chi parla italiano: spiegazioni, esempi e cultura partono da te.",
+  soon:"In arrivo", soonTag:"Presto",
+  skip:"Salta", next:"Avanti", back:"Indietro", stepOf:function(n){return n+" di 3"},
+  goalQ:function(c){return "Perché studi "+c.the+"?"}, goalSub:"Ci serve per costruire il tuo piano. Puoi cambiarlo quando vuoi.",
+  goals:{exam:["Per un esame","Un piano fino al giorno dell'esame"],travel:["Per viaggiare","Cavartela da solo, dal check-in al ristorante"],
+         work:["Per lavoro o studio","Colleghi, professori, uffici"],passion:["Per passione","Cultura, letture, film"]},
+  whichExam:"Quale esame?", examDate:"Data dell'esame", otherDate:"Altra data", noDate:"Non lo so ancora",
+  partialExam:"I contenuti per questo esame sono in completamento.",
+  startQ:"Da dove parti?", startSub:"Le unità che conosci già restano aperte: puoi ripassarle quando vuoi.",
+  timeQ:"Quanto tempo hai al giorno?", timeSub:"Conta tutto: lezioni, ripasso, ascolto. Meglio poco ogni giorno che tanto una volta.",
+  times:{15:["15 minuti","Poco, ma ogni giorno"],30:["30 minuti","Il ritmo giusto per la maggior parte"],60:["1 ora","Vuoi arrivare presto"]},
+  min:"min", perDay:"al giorno, 6 giorni su 7",
+  planKick:"Il tuo piano",
+  planExamOk:function(e,d){return "Pronto per il "+e+" entro "+d},
+  planExamLate:function(e){return "Per il "+e+" serve un ritmo più alto"},
+  planNoExam:function(l,d){return "Livello "+l+" entro "+d},
+  planNoDate:function(e,d){return "Pronto per il "+e+" verso "+d},
+  marginOk:function(w){return w<=1?"Arrivi giusto in tempo":w+" settimane di margine prima dell'esame"},
+  lateBy:function(w){return "Con questo ritmo arrivi "+w+" settimane dopo l'esame."},
+  needMins:function(m){return "Con "+m+" minuti al giorno ci arrivi in tempo."},
+  needImpossible:"Neanche con un'ora al giorno: meglio puntare alla sessione successiva.",
+  useMins:function(m){return "Passa a "+m+" min"}, otherSession:"Scegli un'altra data",
+  today:"oggi", examShort:"esame",
+  practice:["Allenamento d'esame","Ripasso mirato e prove nel formato dell'esame"],
+  planHonest:"È una stima onesta: comprende lezioni, ripasso ed esercizio, non solo le lezioni. Si aggiorna con i tuoi progressi.",
+  startCta:function(u){return "Comincia: "+u}, continueCta:"Continua",
+  units:function(n,m){return n+" di "+m+" unità"}, nowUnit:"Ora", colon:": ",
+  homeHi:["Buongiorno","Buon pomeriggio","Buonasera"],
+  todayLbl:"Oggi", todaySteps:function(n,g){return n>=g?"Obiettivo raggiunto":n+" di "+g+" tappe"},
+  weekLbl:"Questa settimana", daysWord:"giorni", weekDays:["L","M","M","G","V","S","D"],
+  planLbl:"Il tuo piano", onTrack:"In linea col piano", ahead:function(n){return "Avanti di "+n+(n===1?" giorno":" giorni")},
+  behind:function(n){return "Indietro di "+n+(n===1?" giorno":" giorni")},
+  examDays:function(n){return n===1?"giorno":"giorni"}, examTo:function(e){return "al "+e},
+  examSims:"Simulazioni d'esame nel formato vero", soonBadge:"In arrivo",
+  examNoDate:"Scegli la data dell'esame per vedere il conto alla rovescia.",
+  addLang:"Aggiungi un'altra lingua",
+  settings:"Impostazioni", setSpeak:"La tua lingua", setTheme:"Tema", themes:{auto:"Auto",light:"Chiaro",dark:"Scuro"},
+  redoPlan:"Rifai il piano", resetAll:"Cancella tutto e ricomincia", resetConfirm:"Cancellare piano e progressi salvati in questo dispositivo?",
+  close:"Chiudi", home:"Milepost", settingsAria:"Impostazioni"
+},
+zh:{
+  htmlLang:"zh-CN", locale:"zh-CN",
+  speakQ:"你说什么语言？", speakSub:"每门课程都是为说你的语言的人写的：讲解、例句和文化都从你的角度出发。",
+  speaks:"你说中文", change:"更改",
+  learnQ:"你想学什么？", learnSub:"每门课程都是为说中文的人写的：讲解、例句和文化都从你的角度出发。",
+  soon:"即将推出", soonTag:"即将",
+  skip:"跳过", next:"下一步", back:"返回", stepOf:function(n){return n+" / 3"},
+  goalQ:function(c){return "你为什么学"+c.the+"？"}, goalSub:"我们用它来制定你的计划，随时可以修改。",
+  goals:{exam:["为了考试","一直规划到考试那天"],travel:["为了旅行","从入住到点餐，自己搞定"],
+         work:["为了工作或留学","同事、老师、办事"],passion:["因为喜欢","文化、阅读、电影"]},
+  whichExam:"哪个考试？", examDate:"考试日期", otherDate:"其他日期", noDate:"还不确定",
+  partialExam:"这个考试的内容还在完善中。",
+  startQ:"你的起点是？", startSub:"你已经会的单元仍然开放，随时可以复习。",
+  timeQ:"你每天有多少时间？", timeSub:"包括上课、复习、听力。每天一点，胜过偶尔很多。",
+  times:{15:["15 分钟","不多，但每天坚持"],30:["30 分钟","适合大多数人的节奏"],60:["1 小时","想尽快达到目标"]},
+  min:"分钟", perDay:"每天，每周 6 天",
+  planKick:"你的计划",
+  planExamOk:function(e,d){return d+"前准备好 "+e},
+  planExamLate:function(e){return "要赶上 "+e+"，需要更快的节奏"},
+  planNoExam:function(l,d){return d+"前达到 "+l+" 水平"},
+  planNoDate:function(e,d){return "大约 "+d+" 准备好 "+e},
+  marginOk:function(w){return w<=1?"刚好赶上":"比考试提前 "+w+" 周"},
+  lateBy:function(w){return "按这个节奏，你会比考试晚 "+w+" 周准备好。"},
+  needMins:function(m){return "每天 "+m+" 分钟就能赶上。"},
+  needImpossible:"每天一小时也来不及，建议选择下一次考试。",
+  useMins:function(m){return "改为 "+m+" 分钟"}, otherSession:"选择其他日期",
+  today:"今天", examShort:"考试",
+  practice:["考前训练","针对性复习和考试形式的练习"],
+  planHonest:"这是诚实的估计：包括上课、复习和练习，不只是上课。会根据你的进度更新。",
+  startCta:function(u){return "开始："+u}, continueCta:"继续学习",
+  units:function(n,m){return n+" / "+m+" 单元"}, nowUnit:"现在", colon:"：",
+  homeHi:["早上好","下午好","晚上好"],
+  todayLbl:"今天", todaySteps:function(n,g){return n>=g?"今日目标完成":n+" / "+g+" 个步骤"},
+  weekLbl:"本周", daysWord:"天", weekDays:["一","二","三","四","五","六","日"],
+  planLbl:"你的计划", onTrack:"按计划进行", ahead:function(n){return "提前 "+n+" 天"},
+  behind:function(n){return "落后 "+n+" 天"},
+  examDays:function(){return "天"}, examTo:function(e){return "距离 "+e},
+  examSims:"真实格式的模拟考试", soonBadge:"即将推出",
+  examNoDate:"选择考试日期，就能看到倒计时。",
+  addLang:"添加另一门语言",
+  settings:"设置", setSpeak:"你的语言", setTheme:"主题", themes:{auto:"自动",light:"浅色",dark:"深色"},
+  redoPlan:"重新制定计划", resetAll:"清除全部并重新开始", resetConfirm:"清除本设备上保存的计划和进度？",
+  close:"关闭", home:"Milepost", settingsAria:"设置"
+}};
+
+/* Illustrations and icons (inline SVG, flat "Vivace" style). */
+var LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ea4a2a"/><path d="M10 25V14a6 6 0 0 1 12 0v11z" fill="#fff"/><path d="M13 19h6" stroke="#ea4a2a" stroke-width="2.4" stroke-linecap="round"/><path d="M6 25h20" stroke="#ffc532" stroke-width="2.6" stroke-linecap="round"/></svg>';
+var ART={
+/* Giappone: Fuji, sole, torii */
+ja:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#2b50d8"/>'+
+  '<circle cx="262" cy="66" r="38" fill="#ffc532"/><circle cx="214" cy="36" r="3" fill="#ff9fb6"/><circle cx="306" cy="132" r="4" fill="#ff9fb6"/>'+
+  '<path d="M0 166 L122 64 L172 104 L202 88 L346 184 L346 200 L0 200Z" fill="#fff"/>'+
+  '<path d="M97 85 L122 64 L147 85 L134 91 L122 83 L110 91Z" fill="#2b50d8" opacity=".22"/>'+
+  '<path d="M0 182 Q90 162 180 182 T346 178 V200 H0Z" fill="#ea4a2a"/>'+
+  '<g fill="#1a1720"><rect x="40" y="122" width="6" height="56"/><rect x="74" y="122" width="6" height="56"/><rect x="30" y="116" width="60" height="7" rx="2"/><rect x="34" y="132" width="52" height="5"/></g></svg>',
+/* Italia: colline, cipressi, Colosseo, sole */
+it:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#12965a"/>'+
+  '<circle cx="84" cy="60" r="34" fill="#ffc532"/><circle cx="150" cy="30" r="3" fill="#ff9fb6"/><circle cx="40" cy="128" r="4" fill="#ff9fb6"/>'+
+  '<path d="M0 150 Q80 112 170 140 T346 128 V200 H0Z" fill="#0d7a49"/>'+
+  '<g transform="translate(176 70)"><path d="M0 92 V30 Q70 0 140 22 V92Z" fill="#fff"/>'+
+  '<g fill="#12965a" opacity=".85"><rect x="12" y="40" width="12" height="16" rx="6"/><rect x="34" y="36" width="12" height="16" rx="6"/><rect x="56" y="33" width="12" height="16" rx="6"/><rect x="78" y="32" width="12" height="16" rx="6"/><rect x="100" y="33" width="12" height="16" rx="6"/><rect x="120" y="35" width="10" height="15" rx="5"/>'+
+  '<rect x="12" y="66" width="12" height="20" rx="6"/><rect x="34" y="64" width="12" height="22" rx="6"/><rect x="56" y="63" width="12" height="23" rx="6"/><rect x="78" y="63" width="12" height="23" rx="6"/><rect x="100" y="63" width="12" height="23" rx="6"/><rect x="120" y="64" width="10" height="22" rx="5"/></g></g>'+
+  '<g fill="#1a1720"><path d="M140 176 Q146 120 152 176Z"/><path d="M154 176 Q159 132 164 176Z"/><path d="M30 186 Q36 136 42 186Z"/></g>'+
+  '<path d="M0 182 Q100 168 200 184 T346 180 V200 H0Z" fill="#ea4a2a"/></svg>'
+};
+var ICO={
+arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
+gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>',
+plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+exam:'<svg viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5z"/><path d="M9 13l2.5 2.5L16 10"/></svg>',
+travel:'<svg viewBox="0 0 24 24"><path d="M2 16l20-8-6 12-3-5z"/><path d="M13 15l9-7"/></svg>',
+work:'<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></svg>',
+passion:'<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>',
+clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+};
+
+/* Milepost shell: language → course → 3 questions → honest plan → home.
+   Course progress is read from each course's own storage (same origin), so the plan
+   always reflects what the learner has really done. */
+(function(){
+"use strict";
+var KEY="milepost-v1", THEME="milepost-theme";
+var app=document.getElementById("app");
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+
+/* ---------- storage (always behind try/catch) ---------- */
+var store={
+  get:function(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},
+  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},
+  del:function(k){try{localStorage.removeItem(k)}catch(e){}}
+};
+var ST=store.get(KEY)||{};
+ST.plans=ST.plans||{};
+function save(){store.set(KEY,ST)}
+
+/* ---------- language ---------- */
+function detect(){
+  var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];
+  for(var i=0;i<ls.length;i++){var l=String(ls[i]).toLowerCase();if(l.indexOf("zh")===0)return "zh";if(l.indexOf("it")===0)return "it"}
+  return null}
+var T=I18N.it;
+function setLang(l){T=I18N[l]||I18N.it;document.documentElement.lang=T.htmlLang}
+if(!ST.speak){var d=detect();if(d){ST.speak=d;save()}}
+setLang(ST.speak||"it");
+
+/* ---------- catalog helpers ---------- */
+function course(id){for(var i=0;i<CATALOG.courses.length;i++)if(CATALOG.courses[i].id===id)return CATALOG.courses[i];return null}
+function coursesFor(l){return CATALOG.courses.filter(function(c){return c.speak===l})}
+function examOf(c,id){for(var i=0;i<c.exams.length;i++)if(c.exams[i].id===id)return c.exams[i];return null}
+function uIndex(c,id){for(var i=0;i<c.units.length;i++)if(c.units[i].id===id)return i;return c.units.length-1}
+function weight(u){return u.kind==="review"?0.6:1}
+function sum(a,f){return a.reduce(function(s,x){return s+f(x)},0)}
+
+/* ---------- course progress (owned by the course page) ---------- */
+function pathKey(c){return c.storageKey+"-path"}
+function prog(c){var p=store.get(pathKey(c))||{};p.stars=p.stars||{};p.days=p.days||{};p.goal=p.goal||3;p.skip=p.skip||1;return p}
+function passed(p,id){return (p.stars[id]||0)>=1}
+var GOAL_STEPS={15:2,30:3,60:5};
+
+/* ---------- dates ---------- */
+function iso(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function parseISO(s){var a=String(s).split("-");return new Date(+a[0],+a[1]-1,+a[2])}
+function today(){var d=new Date();d.setHours(0,0,0,0);return d}
+function addDays(d,n){var x=new Date(d.getTime());x.setDate(x.getDate()+Math.round(n));return x}
+function daysBetween(a,b){return Math.round((b-a)/864e5)}
+function fmt(d,o){try{return new Intl.DateTimeFormat(T.locale,o||{day:"numeric",month:"long",year:"numeric"}).format(d)}catch(e){return iso(d)}}
+function fmtMonth(d){return fmt(d,{month:"short",year:"numeric"})}
+
+/* ---------- the plan: honest hours, not just lesson time ----------
+   Hours per goal come from courses.json (typical total study time, review and practice included).
+   Units already known (start level) are removed proportionally; an exam goal keeps 15 % for exam practice. */
+function plan(c,p,pr,from){
+  var ex=p.goal==="exam"?examOf(c,p.exam):null;
+  var all=c.units.slice(0,uIndex(c,ex?ex.upto:null)+1);
+  var inc=all.filter(function(u){return u.w>=p.start});
+  var H=ex?ex.hours:c.courseHours, prac=ex?0.15:0;
+  var Wall=sum(all,weight)||1,Winc=sum(inc,weight);
+  var contentH=H*(1-prac)*Winc/Wall, pracH=H*prac;
+  var rate=p.mins/60*6/7;                       /* hours per calendar day */
+  var Wdone=pr?sum(inc.filter(function(u){return passed(pr,u.id)}),weight):0;
+  var hPerW=contentH/Math.max(Winc,0.001);
+  var remH=(Winc-Wdone)*hPerW+pracH;
+  var start=from||today();
+  /* milestones: end of each part, then exam practice */
+  var ms=[],cum=Wdone*hPerW,worlds={};
+  inc.forEach(function(u){worlds[u.w]=(worlds[u.w]||0)+weight(u)});
+  var doneByW={};inc.forEach(function(u){if(pr&&passed(pr,u.id))doneByW[u.w]=(doneByW[u.w]||0)+weight(u)});
+  var t=0;
+  c.worlds.forEach(function(w){if(!worlds[w.w])return;
+    var left=(worlds[w.w]-(doneByW[w.w]||0))*hPerW;t+=left;
+    ms.push({w:w,done:left<=0.001,date:addDays(start,t/rate),units:inc.filter(function(u){return u.w===w.w})})});
+  if(pracH){t+=pracH;ms.push({practice:true,date:addDays(start,t/rate)})}
+  var ready=addDays(start,remH/rate);
+  var r={ex:ex,inc:inc,ready:ready,ms:ms,rate:rate,remH:remH,Winc:Winc,Wdone:Wdone,hPerW:hPerW,contentH:contentH,lastLevel:inc.length?c.worlds[inc[inc.length-1].w-1].level:""};
+  if(ex&&p.date){var ed=parseISO(p.date);r.examDate=ed;r.marginW=Math.floor(daysBetween(ready,ed)/7);
+    var avail=daysBetween(start,ed)-7;
+    r.needMins=avail>0?Math.ceil(remH/avail*7/6*60/5)*5:Infinity}
+  return r}
+/* where the learner should be today according to the plan made on p.since */
+function status(c,p,pr){
+  var since=p.since?parseISO(p.since):today();
+  var base=plan(c,p,null,since);
+  var elapsedH=Math.max(0,daysBetween(since,today()))*base.rate;
+  var expectedW=Math.min(base.Winc,elapsedH/base.hPerW);
+  var doneW=sum(base.inc.filter(function(u){return passed(pr,u.id)}),weight);
+  var days=Math.round((doneW-expectedW)*base.hPerW/base.rate);
+  return days}
+
+/* ---------- routing (hash, so the back button works) ---------- */
+var ON={};   /* onboarding draft */
+function go(h){if(location.hash===h)render();else location.hash=h}
+window.addEventListener("hashchange",render);
+function route(){return (location.hash||"#/").slice(1)}
+
+function top(right){return '<div class="top"><div class="brand">'+LOGO+'<span>Milepost</span></div>'+(right||"")+'</div>'}
+function steps(n){var s='<div class="steps" aria-hidden="true">';for(var i=1;i<=3;i++)s+='<i'+(i<=n?' class="on"':'')+'></i>';return s+'</div>'}
+function screen(html){app.innerHTML='<div class="scr">'+html+'</div>';var h=$("h1",app)||$(".hello",app);if(h){h.setAttribute("tabindex","-1");try{h.focus({preventScroll:true})}catch(e){}}window.scrollTo(0,0)}
+
+function render(){
+  var r=route();
+  if(!ST.speak&&r!=="/lingua")return go("#/lingua");
+  var active=ST.active&&course(ST.active),hasPlan=active&&ST.plans[active.id];
+  if(r==="/lingua")return vSpeak();
+  if(r==="/corso")return vCourses();
+  if(/^\/(obiettivo|livello|tempo|piano)$/.test(r)){if(!ON.cid||!course(ON.cid))return go("#/corso");
+    return {"/obiettivo":vGoal,"/livello":vStart,"/tempo":vTime,"/piano":vPlan}[r]()}
+  if(!hasPlan)return go("#/corso");
+  vHome(active)}
+
+/* ---------- 0 · which language do you speak ---------- */
+function vSpeak(){
+  screen(top()+'<h1>'+esc(I18N.it.speakQ)+'<br><span lang="zh-CN">'+esc(I18N.zh.speakQ)+'</span></h1>'+
+    '<div class="opts" role="radiogroup">'+
+    ['it','zh'].map(function(l){var lab=l==="it"?["Italiano","Corsi spiegati in italiano"]:["中文","用中文讲解的课程"];
+      return '<button class="opt" role="radio" aria-checked="'+(ST.speak===l)+'" data-l="'+l+'" lang="'+I18N[l].htmlLang+'"><span class="ic">'+(l==="it"?"IT":"中")+'</span><span><b>'+lab[0]+'</b><small>'+lab[1]+'</small></span></button>'}).join("")+
+    '<button class="opt" disabled lang="en"><span class="ic">EN</span><span><b>English</b><small>Coming soon</small></span><span class="tag">Soon</span></button>'+
+    '</div>');
+  $$(".opt[data-l]",app).forEach(function(b){b.onclick=function(){ST.speak=b.dataset.l;save();setLang(ST.speak);go("#/corso")}})}
+
+/* ---------- 1 · what do you want to learn ---------- */
+function vCourses(){
+  var cs=coursesFor(ST.speak);
+  screen(top('<button class="chip" id="chlang">'+esc(T.speaks)+' · <b>'+esc(T.change)+'</b></button>')+
+    '<h1>'+esc(T.learnQ)+'</h1><p class="lead">'+esc(T.learnSub)+'</p>'+
+    cs.map(function(c){return '<button class="course '+c.color+'" data-c="'+c.id+'"><div class="art">'+ART[c.learn]+'</div>'+
+      '<div class="body"><div><h3>'+esc(c.name)+'<span lang="'+c.learn+'">'+esc(c.native)+'</span></h3><p>'+esc(c.levelsLabel)+'<br>'+esc(c.exams.filter(function(e){return !e.soon}).map(function(e){return e.name}).join(" · "))+'</p></div>'+
+      '<span class="go">'+ICO.arrow+'</span></div></button>'}).join("")+
+    '<div class="soon">'+esc(T.soon)+'</div><div class="soonrow">'+
+    (CATALOG.soon[ST.speak]||[]).map(function(s){return '<span><b>'+esc(s[0])+'</b>'+esc(s[1])+'</span>'}).join("")+'</div>');
+  $("#chlang").onclick=function(){go("#/lingua")};
+  $$(".course",app).forEach(function(b){b.onclick=function(){var c=course(b.dataset.c),old=ST.plans[c.id];
+    ON=old?JSON.parse(JSON.stringify(old)):{cid:c.id,goal:null,exam:null,date:null,start:1,mins:30};ON.cid=c.id;go("#/obiettivo")}})}
+
+/* ---------- 2 · why ---------- */
+function vGoal(){
+  var c=course(ON.cid);
+  var exams=c.exams.map(function(e){return '<button class="pill" data-e="'+e.id+'" aria-pressed="'+(ON.exam===e.id)+'"'+(e.soon?' disabled':'')+'>'+esc(e.name)+(e.soon?' · '+esc(T.soonTag):'')+'</button>'}).join("");
+  screen(top('<button class="ghost" id="skip">'+esc(T.skip)+'</button>')+steps(1)+
+    '<h1>'+esc(T.goalQ(c))+'</h1><p class="lead">'+esc(T.goalSub)+'</p>'+
+    '<div class="opts">'+["exam","travel","work","passion"].map(function(g){var L=T.goals[g];
+      return '<button class="opt" data-g="'+g+'" aria-pressed="'+(ON.goal===g)+'"><span class="ic">'+ICO[g]+'</span><span><b>'+esc(L[0])+'</b><small>'+esc(L[1])+'</small></span>'+(g==="exam"?'<span class="tag">'+esc(c.exams[0].name.split(" ")[0])+'</span>':'')+'</button>'}).join("")+'</div>'+
+    '<div class="sub" id="exbox"'+(ON.goal==="exam"?'':' hidden')+'><b>'+esc(T.whichExam)+'</b><div class="pills" id="exams">'+exams+'</div>'+
+      '<div id="datebox"><b class="sublbl">'+esc(T.examDate)+'</b><div class="pills" id="dates"></div><p class="note" id="exnote"></p></div></div>'+
+    '<div class="foot"><span class="ghost" aria-hidden="true">'+esc(T.stepOf(1))+'</span><button class="btn grow" id="next">'+esc(T.next)+'</button></div>');
+  function dates(){var e=examOf(c,ON.exam),box=$("#dates");$("#datebox").hidden=!e;if(!e)return;
+    var ds=(e.dates||[]).filter(function(d){return parseISO(d)>addDays(today(),14)}).slice(0,2);
+    var custom=ON.date&&ds.indexOf(ON.date)<0;
+    box.innerHTML=ds.map(function(d){return '<button class="pill" data-d="'+d+'" aria-pressed="'+(ON.date===d)+'">'+esc(fmt(parseISO(d)))+'</button>'}).join("")+
+      '<button class="pill" data-d="other" aria-pressed="'+custom+'">'+esc(T.otherDate)+'</button>'+
+      '<button class="pill" data-d="none" aria-pressed="'+(ON.date===null&&ON._noDate===true)+'">'+esc(T.noDate)+'</button>'+
+      '<input class="datein" type="date" id="din" min="'+iso(addDays(today(),14))+'"'+(custom?' value="'+ON.date+'"':' hidden')+' aria-label="'+esc(T.examDate)+'">';
+    $("#exnote").textContent=(e.partial?T.partialExam+" ":"")+(c.examNote||"");
+    $$("[data-d]",box).forEach(function(b){b.onclick=function(){var v=b.dataset.d;
+      if(v==="other"){$$("[data-d]",box).forEach(function(x){x.setAttribute("aria-pressed",x===b)});var i=$("#din");i.hidden=false;try{i.showPicker&&i.showPicker()}catch(er){}i.focus();return}
+      ON.date=v==="none"?null:v;ON._noDate=v==="none";dates();upd()}});
+    $("#din").onchange=function(){ON.date=this.value||null;ON._noDate=false;upd()}}
+  function upd(){$("#next").disabled=!ON.goal||(ON.goal==="exam"&&!ON.exam)}
+  $$(".opt[data-g]",app).forEach(function(b){b.onclick=function(){ON.goal=b.dataset.g;
+    $$(".opt[data-g]",app).forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+    $("#exbox").hidden=ON.goal!=="exam";if(ON.goal==="exam"&&!ON.exam){var f=c.exams.filter(function(e){return !e.soon})[0];ON.exam=f&&f.id;
+      $$("#exams .pill").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.e===ON.exam)});dates()}upd()}});
+  $$("#exams .pill").forEach(function(b){b.onclick=function(){ON.exam=b.dataset.e;ON.date=null;ON._noDate=false;$$("#exams .pill").forEach(function(x){x.setAttribute("aria-pressed",x===b)});dates();upd()}});
+  if(ON.goal==="exam")dates();
+  $("#skip").onclick=function(){if(!ON.goal)ON.goal="passion";go("#/livello")};
+  $("#next").onclick=function(){go("#/livello")};upd()}
+
+/* ---------- 3 · where do you start ---------- */
+function vStart(){
+  var c=course(ON.cid);
+  screen(top('<button class="ghost" id="skip">'+esc(T.skip)+'</button>')+steps(2)+
+    '<h1>'+esc(T.startQ)+'</h1><p class="lead">'+esc(T.startSub)+'</p>'+
+    '<div class="opts">'+c.starts.map(function(s,i){var lv=c.worlds[s.skip-1];
+      return '<button class="opt" data-s="'+s.skip+'" aria-pressed="'+(ON.start===s.skip)+'"><span class="ic">'+esc(lv?lv.level:(i+1))+'</span><span><b>'+esc(s.t)+'</b><small>'+esc(s.s)+'</small></span></button>'}).join("")+'</div>'+
+    '<div class="foot"><button class="ghost" id="back">'+ICO.back+esc(T.back)+'</button><button class="btn grow" id="next">'+esc(T.next)+'</button></div>');
+  $$(".opt[data-s]",app).forEach(function(b){b.onclick=function(){ON.start=+b.dataset.s;$$(".opt[data-s]",app).forEach(function(x){x.setAttribute("aria-pressed",x===b)})}});
+  $("#back").onclick=function(){history.back()};
+  $("#skip").onclick=$("#next").onclick=function(){go("#/tempo")}}
+
+/* ---------- 4 · how much time ---------- */
+function vTime(){
+  screen(top('<button class="ghost" id="skip">'+esc(T.skip)+'</button>')+steps(3)+
+    '<h1>'+esc(T.timeQ)+'</h1><p class="lead">'+esc(T.timeSub)+'</p>'+
+    '<div class="opts">'+[15,30,60].map(function(m){var L=T.times[m];
+      return '<button class="opt" data-m="'+m+'" aria-pressed="'+(ON.mins===m)+'"><span class="ic">'+m+'′</span><span><b>'+esc(L[0])+'</b><small>'+esc(L[1])+'</small></span></button>'}).join("")+'</div>'+
+    '<div class="foot"><button class="ghost" id="back">'+ICO.back+esc(T.back)+'</button><button class="btn grow" id="next">'+esc(T.next)+'</button></div>');
+  $$(".opt[data-m]",app).forEach(function(b){b.onclick=function(){ON.mins=+b.dataset.m;$$(".opt[data-m]",app).forEach(function(x){x.setAttribute("aria-pressed",x===b)})}});
+  $("#back").onclick=function(){history.back()};
+  $("#skip").onclick=$("#next").onclick=function(){go("#/piano")}}
+
+/* ---------- 5 · the plan ---------- */
+function timeline(c,P,pr,isHome){
+  var cur=null;
+  var rows=P.ms.map(function(m){
+    if(m.practice)return '<div><i></i><span><b>'+esc(T.practice[0])+'</b><s>'+esc(T.practice[1])+'</s></span><small>'+esc(fmtMonth(m.date))+'</small></div>';
+    var now=!m.done&&!cur;if(now)cur=m;
+    var first=m.units[0],last=m.units[m.units.length-1];
+    return '<div class="'+(m.done?'done':now?'now':'')+'"><i></i><span><b>'+esc(m.w.level+' · '+m.w.title.replace(/^[^·]*·\s*/,""))+'</b><s>'+esc(first.t)+' → '+esc(last.t)+'</s></span><small>'+(m.done?'✓':esc(fmtMonth(m.date)))+'</small></div>'});
+  if(P.examDate)rows.push('<div class="exam"><i style="background:var(--accent)"></i><span><b>'+esc(P.ex.name)+'</b><s>'+esc(fmt(P.examDate))+'</s></span><small>'+esc(T.examShort)+'</small></div>');
+  return '<div class="tl">'+rows.join("")+'</div>'}
+function bar(P,from){
+  var end=P.examDate&&P.examDate>P.ready?P.examDate:P.ready,span=Math.max(1,daysBetween(from,end));
+  var w=Math.min(100,daysBetween(from,P.ready)/span*100),ex=P.examDate?Math.min(100,daysBetween(from,P.examDate)/span*100):null;
+  return '<div class="bar"><i style="width:'+w.toFixed(1)+'%"></i>'+(ex!=null?'<em style="left:calc('+ex.toFixed(1)+'% - 1px)"></em>':'')+'</div>'+
+    '<div class="barlbl"><span>'+esc(T.today)+'</span><span>'+(P.examDate?esc(T.examShort+' · '+fmt(P.examDate,{day:"numeric",month:"short"})):esc(fmt(P.ready,{day:"numeric",month:"short"})))+'</span></div>'}
+function vPlan(){
+  var c=course(ON.cid),pr=prog(c),P=plan(c,ON,pr);
+  var title,warn="";
+  if(P.ex&&P.examDate){
+    if(P.marginW>=0)title=T.planExamOk(P.ex.name,fmt(P.ready,{month:"long",year:"numeric"}));
+    else{title=T.planExamLate(P.ex.name);
+      var opt=[15,30,60].filter(function(m){return m>ON.mins&&m>=P.needMins})[0];
+      warn='<div class="warn"><b>'+esc(T.lateBy(-P.marginW))+'</b> '+esc(P.needMins<=60?T.needMins(P.needMins):T.needImpossible)+
+        '<div class="acts">'+(opt?'<button class="pill" id="usemins" data-m="'+opt+'">'+esc(T.useMins(opt))+'</button>':'')+'<button class="pill" id="otherdate">'+esc(T.otherSession)+'</button></div></div>'}}
+  else if(P.ex)title=T.planNoDate(P.ex.name,fmt(P.ready,{month:"long",year:"numeric"}));
+  else title=T.planNoExam(P.lastLevel,fmt(P.ready,{month:"long",year:"numeric"}));
+  var first=P.inc.filter(function(u){return !passed(pr,u.id)})[0]||P.inc[0]||c.units.filter(function(u){return !passed(pr,u.id)})[0]||c.units[0];
+  screen(top('<button class="ghost" id="edit">'+esc(T.back)+'</button>')+
+    '<div class="kick">'+esc(T.planKick)+'</div><h1>'+esc(title)+'</h1>'+
+    '<div class="card"><div class="big"><b>'+ON.mins+' '+esc(T.min)+'</b><span>'+esc(T.perDay)+(P.ex&&P.examDate&&P.marginW>=0?' · '+esc(T.marginOk(P.marginW)):'')+'</span></div>'+
+    bar(P,today())+timeline(c,P,pr)+'</div>'+warn+
+    '<p class="note">'+esc(T.planHonest)+'</p>'+
+    '<div class="foot"><button class="btn full" id="start">'+esc(T.startCta(first.t))+ICO.arrow+'</button></div>');
+  $("#edit").onclick=function(){history.back()};
+  var um=$("#usemins");if(um)um.onclick=function(){ON.mins=+um.dataset.m;vPlan()};
+  var od=$("#otherdate");if(od)od.onclick=function(){go("#/obiettivo")};
+  $("#start").onclick=function(){commit();location.href="c/"+c.id+"/#mappa"}}
+function commit(){
+  var c=course(ON.cid),p={goal:ON.goal||"passion",exam:ON.goal==="exam"?ON.exam:null,date:ON.goal==="exam"?ON.date:null,start:ON.start||1,mins:ON.mins||30,since:iso(today())};
+  ST.plans[c.id]=p;ST.active=c.id;save();
+  var pr=store.get(pathKey(c))||{done:{},stars:{},sc:{},skip:1,days:{},goal:3};
+  pr.skip=Math.max(pr.skip||1,p.start);pr.goal=GOAL_STEPS[p.mins]||3;store.set(pathKey(c),pr)}
+
+/* ---------- home ---------- */
+function vHome(c){
+  var p=ST.plans[c.id],pr=prog(c),P=plan(c,p,pr);
+  var nPass=P.inc.filter(function(u){return passed(pr,u.id)}).length,cur=P.inc.filter(function(u){return !passed(pr,u.id)})[0];
+  var h=new Date().getHours(),hi=T.homeHi[h<13?0:h<18?1:2];
+  var tsteps=pr.days[iso(today())]||0,g=pr.goal||3,C=2*Math.PI*24,fr=Math.min(1,tsteps/g);
+  var mon=addDays(today(),-((today().getDay()+6)%7));
+  var active=0;
+  var week=T.weekDays.map(function(lbl,i){var d=addDays(mon,i),on=!!pr.days[iso(d)],isT=daysBetween(d,today())===0;
+    if(on)active++;return '<span class="'+(on?'on ':'')+(isT?'today':'')+'"><i></i>'+esc(lbl)+'</span>'}).join("");
+  var st=status(c,p,pr),stH=Math.abs(st)<=2?'<span class="status">'+esc(T.onTrack)+'</span>':st>0?'<span class="status">'+esc(T.ahead(st))+'</span>':'<span class="status late">'+esc(T.behind(-st))+'</span>';
+  var exam="";
+  if(P.ex){var left=P.examDate?daysBetween(today(),P.examDate):null;
+    exam='<div class="card examcard">'+(left!=null&&left>=0?'<div class="days"><b>'+left+'</b><small>'+esc(T.examDays(left))+'</small></div>':'<div class="days"><b>'+ICO.clock.replace('<svg','<svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.2"')+'</b></div>')+
+      '<div><h3>'+esc(left!=null?T.examTo(P.ex.name):P.ex.name)+'</h3><p>'+esc(left!=null?(P.marginW>=0?T.marginOk(P.marginW):T.lateBy(-P.marginW)):T.examNoDate)+'</p><span class="soonbadge">'+esc(T.examSims)+' · '+esc(T.soonBadge)+'</span></div></div>'}
+  screen(top('<button class="ibtn" id="gear" aria-label="'+esc(T.settingsAria)+'">'+ICO.gear+'</button>')+
+    '<div class="hello">'+esc(hi)+'</div>'+
+    '<a class="course '+c.color+'" href="c/'+c.id+'/#mappa"><div class="art">'+ART[c.learn]+'</div>'+
+      '<div class="body"><div><h3>'+esc(c.name)+'<span lang="'+c.learn+'">'+esc(c.native)+'</span></h3>'+
+      (cur?'<p>'+esc(T.nowUnit+T.colon+cur.t)+'</p>':'')+
+      '<div class="prog"><span class="pb"><i style="width:'+(P.inc.length?nPass/P.inc.length*100:100).toFixed(0)+'%"></i></span>'+esc(T.units(nPass,P.inc.length))+'</div></div>'+
+      '<span class="go" aria-label="'+esc(T.continueCta)+'">'+ICO.arrow+'</span></div></a>'+
+    '<div class="row2">'+
+      '<div class="tile"><span class="lbl">'+esc(T.todayLbl)+'</span><svg class="ring" viewBox="0 0 56 56" aria-hidden="true"><circle class="b" cx="28" cy="28" r="24"/><circle class="f" cx="28" cy="28" r="24" stroke-dasharray="'+(C*fr).toFixed(1)+' '+C.toFixed(1)+'"/></svg><p>'+esc(T.todaySteps(tsteps,g))+'</p></div>'+
+      '<div class="tile"><span class="lbl">'+esc(T.weekLbl)+'</span><div class="val">'+active+'<small> / 6 '+esc(T.daysWord)+'</small></div><div class="week">'+week+'</div></div>'+
+    '</div>'+exam+
+    '<h2 class="sec">'+esc(T.planLbl)+' '+stH+'</h2>'+
+    '<div class="card" style="margin-top:0">'+bar(P,today())+timeline(c,P,pr,true)+'</div>'+
+    '<button class="addrow" id="add">'+ICO.plus+esc(T.addLang)+'</button>'+
+    '<div class="foot"><a class="btn full" href="c/'+c.id+'/#mappa">'+esc(T.continueCta)+ICO.arrow+'</a></div>');
+  $("#gear").onclick=openSettings;
+  $("#add").onclick=function(){go("#/corso")}}
+
+/* ---------- settings sheet ---------- */
+var sheet=$("#sheet"),back=$("#sheetback"),lastFocus=null;
+function closeSheet(){sheet.hidden=back.hidden=true;if(lastFocus)try{lastFocus.focus()}catch(e){}}
+back.onclick=closeSheet;
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sheet.hidden)closeSheet()});
+function themeNow(){try{return localStorage.getItem(THEME)||"auto"}catch(e){return "auto"}}
+function openSettings(){
+  lastFocus=document.activeElement;
+  var th=themeNow();
+  sheet.innerHTML='<div class="grab" aria-hidden="true"></div><h2 id="sheetttl">'+esc(T.settings)+'</h2>'+
+    '<div class="set"><span>'+esc(T.setSpeak)+'</span><div class="seg">'+['it','zh'].map(function(l){return '<button data-sp="'+l+'" aria-pressed="'+(ST.speak===l)+'">'+(l==="it"?"Italiano":"中文")+'</button>'}).join("")+'</div></div>'+
+    '<div class="set"><span>'+esc(T.setTheme)+'</span><div class="seg">'+['auto','light','dark'].map(function(t){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+esc(T.themes[t])+'</button>'}).join("")+'</div></div>'+
+    '<div class="set"><button class="linkbtn" id="redo">'+esc(T.redoPlan)+'</button></div>'+
+    '<div class="set"><button class="linkbtn danger" id="reset">'+esc(T.resetAll)+'</button></div>'+
+    '<div class="set"><button class="btn alt full" id="sclose">'+esc(T.close)+'</button></div>';
+  sheet.hidden=back.hidden=false;
+  $$("[data-sp]",sheet).forEach(function(b){b.onclick=function(){ST.speak=b.dataset.sp;save();setLang(ST.speak);closeSheet();
+    var a=ST.active&&course(ST.active);if(!a||a.speak!==ST.speak){go("#/corso")}else render()}});
+  $$("[data-th]",sheet).forEach(function(b){b.onclick=function(){var t=b.dataset.th;try{if(t==="auto")localStorage.removeItem(THEME);else localStorage.setItem(THEME,t)}catch(e){}
+    if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t);openSettings()}});
+  $("#redo").onclick=function(){var a=course(ST.active);ON=JSON.parse(JSON.stringify(ST.plans[a.id]));ON.cid=a.id;closeSheet();go("#/obiettivo")};
+  $("#reset").onclick=function(){if(!confirm(T.resetConfirm))return;CATALOG.courses.forEach(function(c){store.del(pathKey(c))});store.del(KEY);ST={plans:{}};closeSheet();ON={};
+    var d=detect();if(d){ST.speak=d;save()}go(ST.speak?"#/corso":"#/lingua")};
+  $("#sclose").onclick=closeSheet;
+  $("button",sheet).focus()}
+
+/* ---------- offline ---------- */
+if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+
+render();
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "courses": [
+    {
+      "id": "ja-it",
+      "learn": "ja",
+      "speak": "it",
+      "storageKey": "giapponese-per-italiani-v1",
+      "titleField": "t",
+      "name": "Giapponese",
+      "native": "日本語",
+      "the": "il giapponese",
+      "color": "blue",
+      "levelsLabel": "Da zero all'A2 · 23 lezioni",
+      "courseHours": 260,
+      "starts": [
+        {"skip": 1, "t": "Da zero", "s": "Non conosco ancora i kana"},
+        {"skip": 2, "t": "So già le basi", "s": "Kana e prime frasi (A1.1)"},
+        {"skip": 3, "t": "Ho già un livello A1", "s": "Circa un anno di studio, o JLPT N5"}
+      ],
+      "exams": [
+        {"id": "n5", "name": "JLPT N5", "upto": "r2", "hours": 120,
+         "dates": ["2026-12-06", "2027-07-04", "2027-12-05"]},
+        {"id": "n4", "name": "JLPT N4", "upto": "r3", "hours": 280, "partial": true,
+         "dates": ["2027-07-04", "2027-12-05", "2028-07-02"]}
+      ],
+      "examNote": "Il JLPT si tiene di solito la prima domenica di luglio e di dicembre: controlla le sessioni della tua sede."
+    },
+    {
+      "id": "it-zh",
+      "learn": "it",
+      "speak": "zh",
+      "storageKey": "primo-libro-italiano-v1",
+      "titleField": "zh",
+      "name": "意大利语",
+      "native": "Italiano",
+      "the": "意大利语",
+      "color": "green",
+      "levelsLabel": "从零到 A2 · 23 课",
+      "courseHours": 200,
+      "starts": [
+        {"skip": 1, "t": "从零开始", "s": "还不会意大利语"},
+        {"skip": 2, "t": "学过一点", "s": "会打招呼、自我介绍（A1.1）"},
+        {"skip": 3, "t": "已有 A1 水平", "s": "学过一年左右"}
+      ],
+      "exams": [
+        {"id": "a2", "name": "CILS / PLIDA A2", "upto": "r3", "hours": 200, "dates": []},
+        {"id": "b1", "name": "CILS / PLIDA B1", "soon": true}
+      ],
+      "examNote": "CILS、PLIDA 每年有多次考试，请在考点确认日期。"
+    }
+  ],
+  "soon": {
+    "it": [["中文", "Cinese"], ["한국어", "Coreano"], ["EN", "Inglese"], ["ES", "Spagnolo"], ["FR", "Francese"], ["DE", "Tedesco"]],
+    "zh": [["EN", "英语"], ["日本語", "日语"], ["FR", "法语"], ["ES", "西班牙语"], ["DE", "德语"], ["한국어", "韩语"]]
+  }
+}
