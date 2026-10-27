@@ -64,3 +64,13 @@ td .jx,td .jl{word-break:keep-all}
 .kj b{font-family:var(--f-body)}
 td .rom{display:block;font-size:12px;line-height:1.3}
 #vocabtbl .jl{line-height:1.7}
+
+/* reading under words in quiz options and feedback */
+.opt[lang="ja"] .ow{display:inline;font-size:19px;line-height:1.5}
+.opt:has(.opron) rt,.wline rt{display:none}
+.opron{display:block;font-size:13.5px;line-height:1.35;color:var(--muted);font-weight:500;margin-top:1px}
+.opron .pk{margin-right:8px;font-weight:600}
+.opt.right .opron,.opt.wrong .opron{color:inherit;opacity:.8}
+.wline{margin-right:2px}
+.wline .opron{display:inline;margin-left:6px;font-size:14px}
+.lsr .opron{margin-top:4px}

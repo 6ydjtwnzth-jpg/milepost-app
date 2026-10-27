@@ -176,3 +176,11 @@ html.mp-read body{padding-bottom:0}
 .mp-seg{display:inline-flex;background:var(--paper);border-radius:999px;padding:3px}
 .mp-seg button{min-height:40px;padding:0 12px;border-radius:999px;font:inherit;font-weight:700;font-size:13.5px;color:var(--muted);background:none;border:0;cursor:pointer}
 .mp-seg button[aria-pressed="true"]{background:var(--sheet);color:var(--ink);box-shadow:var(--shadow)}
+
+/* quizzes inside the full-screen step: lighter frame, no dead button at the bottom */
+html.mp .stage .drill{border:0!important;box-shadow:none!important;background:transparent!important;padding:0!important;gap:14px}
+html.mp .stage .drill::before{display:none!important}
+html.mp .stage .drill.one .dhead{display:flex!important;flex-direction:row!important;justify-content:space-between;align-items:center;gap:12px;font-size:14px;color:var(--muted);border:0;padding:0;margin:0}
+html.mp .stage .drill.one .dhead .score{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--sheet);box-shadow:var(--shadow);color:var(--ink);font-weight:800;white-space:nowrap}
+html.mp .stage .drill.one .q{background:var(--sheet);border-radius:22px;box-shadow:var(--shadow);padding:16px!important}
+html.mp .stage .st-foot:has(.st-go:disabled){display:none}

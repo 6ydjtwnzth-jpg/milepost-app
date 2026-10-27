@@ -159,7 +159,7 @@ function openReview(){var ws=reviewWords();if(ws.length<4)return;
   var tot=0,wt=ws.map(function(w){var x=Math.pow(2,5-bx(w));tot+=x;return x}),pick=[],used={};
   for(var g=0;g<200&&pick.length<Math.min(8,ws.length);g++){var r=Math.random()*tot,j=0;for(;j<ws.length;j++){r-=wt[j];if(r<=0)break}j=Math.min(j,ws.length-1);if(!used[j]){used[j]=1;pick.push(ws[j])}}
   var items=vocQuiz(pick,pick.length,ws);
-  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripassa le parole che hai studiato: quelle che dimentichi più spesso tornano più spesso.",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
+  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripasso: le parole che sbagli tornano più spesso.",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
     done:function(){P.done._rev=P.done._rev||{};tick();pSave();toast('<b>✓ Ripasso fatto</b> · '+goalMsg());drawPath();try{drawBoxes()}catch(e){}}})}
 
 /* ---------- scheda dell'unità ---------- */

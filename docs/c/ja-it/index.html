@@ -652,6 +652,16 @@ td .jx,td .jl{word-break:keep-all}
 td .rom{display:block;font-size:12px;line-height:1.3}
 #vocabtbl .jl{line-height:1.7}
 
+/* reading under words in quiz options and feedback */
+.opt[lang="ja"] .ow{display:inline;font-size:19px;line-height:1.5}
+.opt:has(.opron) rt,.wline rt{display:none}
+.opron{display:block;font-size:13.5px;line-height:1.35;color:var(--muted);font-weight:500;margin-top:1px}
+.opron .pk{margin-right:8px;font-weight:600}
+.opt.right .opron,.opt.wrong .opron{color:inherit;opacity:.8}
+.wline{margin-right:2px}
+.wline .opron{display:inline;margin-left:6px;font-size:14px}
+.lsr .opron{margin-top:4px}
+
 </style>
 <link rel="stylesheet" href="../../course-app.css">
 </head>
@@ -3995,7 +4005,10 @@ $$(".dialog[data-dlg]").forEach(renderDialog);
 /* ---------- esercizi ---------- */
 function updateToc(){$$("[data-sc]").forEach(function(s){var b=state.best[s.getAttribute("data-sc")];s.textContent=b?b[0]+"/"+b[1]:"";s.classList.toggle("done",!!b&&b[0]===b[1])})}
 function jLineSay(t){return '<span class="zp"><span class="it-l">'+jLine(t)+'</span><button class="say sm" data-say="'+esc(t)+'" aria-label="Ascolta">'+SPK+'</button></span>'}
-function optHTML(o){return hasJ(o)?jpHTML(o,true):esc(o)}
+/* pronunciation line: kana reading under words with kanji, plus rōmaji unless switched off */
+function pronHTML(m){if(!hasJ(m))return "";var k=/[一-鿿々〆]/.test(jplain(m)),ro=prefs.ro!=="off"?jromaji(m):"";
+  if(!k&&!ro)return "";return '<span class="opron">'+(k?'<span class="pk" lang="ja">'+esc(jkana(m))+'</span>':'')+(ro?'<span class="pr">'+esc(ro)+'</span>':'')+'</span>'}
+function optHTML(o,it){return hasJ(o)?'<span class="ow">'+jpHTML(o,true)+'</span>'+(it&&it.w?pronHTML(o):''):esc(o)}
 function renderSet(el,opt){
   opt=opt||{};var id=el.getAttribute("data-set"),items=opt.items||EX[id];if(!items)return;var res=new Array(items.length),one=!!opt.one,qs=[];
   if(one){el.classList.add("one");el.innerHTML='<div class="dhead"><span>'+(opt.head||"")+'</span><span><span class="score">0 / '+items.length+'</span></span></div>'}
@@ -4053,10 +4066,10 @@ function renderSet(el,opt){
       if(it.au)$(".lsp",q).onclick=function(){speak(it.au)};
       var opts=document.createElement("div");opts.className="opts";var ex2=document.createElement("div");ex2.className="expl";
       var order=shuffle(it.o.map(function(_,k){return k}));
-      order.forEach(function(k){var o=it.o[k];var b=document.createElement("button");b.className="opt";if(hasJ(o))b.setAttribute("lang","ja");b.innerHTML=optHTML(o);
-        b.onclick=function(){var ok=k===0;$$(".opt",opts).forEach(function(x){x.disabled=true});opts.children[order.indexOf(0)].classList.add("right");if(!ok)b.classList.add("wrong");
-          ex2.innerHTML=(ok?'<b class="ok">Giusto!</b> ':'<b class="no">No.</b> ')+mixHTML(it.e||"")+(hasJ(it.o[0])&&!/[A-Za-zÀ-ÿ]{2}/.test(it.o[0])&&jtoks(it.o[0]).length>1&&!it.au?' '+jLineSay(it.o[0]):'');
-          if(it.au){var r=$(".lsr",q);r.hidden=false;r.innerHTML='Hai sentito: '+jLineSay(it.au)}
+      order.forEach(function(k){var o=it.o[k];var b=document.createElement("button");b.className="opt";if(hasJ(o))b.setAttribute("lang","ja");b.innerHTML=optHTML(o,it);
+        b.onclick=function(){var ok=k===0;$$(".opt",opts).forEach(function(x,xi){x.disabled=true;var ov=it.o[order[xi]];if(hasJ(ov)&&!$(".opron",x))x.insertAdjacentHTML("beforeend",pronHTML(ov))});opts.children[order.indexOf(0)].classList.add("right");if(!ok)b.classList.add("wrong");
+          ex2.innerHTML=(ok?'<b class="ok">Giusto!</b> ':'<b class="no">No.</b> ')+(it.w?'<span class="wline"><span lang="ja">'+jpHTML(it.w[0])+'</span>'+pronHTML(it.w[0])+'</span> = '+esc(it.w[1]):mixHTML(it.e||""))+(hasJ(it.o[0])&&!/[A-Za-zÀ-ÿ]{2}/.test(it.o[0])&&jtoks(it.o[0]).length>1&&!it.au?' '+jLineSay(it.o[0]):'');
+          if(it.au){var r=$(".lsr",q);r.hidden=false;r.innerHTML='Hai sentito: '+jLineSay(it.au)+(it.w?pronHTML(it.au):'')}
           mark(i,ok)};opts.appendChild(b)});
       q.appendChild(opts);q.appendChild(ex2);
     }
@@ -4338,7 +4351,7 @@ function openReview(){var ws=reviewWords();if(ws.length<4)return;
   var tot=0,wt=ws.map(function(w){var x=Math.pow(2,5-bx(w));tot+=x;return x}),pick=[],used={};
   for(var g=0;g<200&&pick.length<Math.min(8,ws.length);g++){var r=Math.random()*tot,j=0;for(;j<ws.length;j++){r-=wt[j];if(r<=0)break}j=Math.min(j,ws.length-1);if(!used[j]){used[j]=1;pick.push(ws[j])}}
   var items=vocQuiz(pick,pick.length,ws);
-  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripassa le parole che hai studiato: quelle che dimentichi più spesso tornano più spesso.",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
+  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripasso: le parole che sbagli tornano più spesso.",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
     done:function(){P.done._rev=P.done._rev||{};tick();pSave();toast('<b>✓ Ripasso fatto</b> · '+goalMsg());drawPath();try{drawBoxes()}catch(e){}}})}
 
 /* ---------- scheda dell'unità ---------- */

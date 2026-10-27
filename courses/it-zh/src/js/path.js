@@ -163,7 +163,7 @@ function openReview(){var ws=reviewWords();if(ws.length<4)return;
   var tot=0,wt=ws.map(function(w){var x=Math.pow(2,5-bx(w));tot+=x;return x}),pick=[],used={};
   for(var g=0;g<200&&pick.length<Math.min(8,ws.length);g++){var r=Math.random()*tot,j=0;for(;j<ws.length;j++){r-=wt[j];if(r<=0)break}j=Math.min(j,ws.length-1);if(!used[j]){used[j]=1;pick.push(ws[j])}}
   var items=vocQuiz(pick,pick.length,ws);
-  runStage({title:"每日复习 · Ripasso",color:"pink",pages:[quizPage(items,"复习你学过的单词：最近容易忘的词出现得更多。",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
+  runStage({title:"每日复习 · Ripasso",color:"pink",pages:[quizPage(items,"复习：答错的词会更常出现。",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
     done:function(){P.done._rev=P.done._rev||{};tick();pSave();toast('<b>✓ 复习完成</b> · '+goalMsg());drawPath();try{drawBoxes()}catch(e){}}})}
 
 /* ---------- scheda dell'unità ---------- */

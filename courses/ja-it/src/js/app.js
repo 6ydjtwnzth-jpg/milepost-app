@@ -152,7 +152,10 @@ $$(".dialog[data-dlg]").forEach(renderDialog);
 /* ---------- esercizi ---------- */
 function updateToc(){$$("[data-sc]").forEach(function(s){var b=state.best[s.getAttribute("data-sc")];s.textContent=b?b[0]+"/"+b[1]:"";s.classList.toggle("done",!!b&&b[0]===b[1])})}
 function jLineSay(t){return '<span class="zp"><span class="it-l">'+jLine(t)+'</span><button class="say sm" data-say="'+esc(t)+'" aria-label="Ascolta">'+SPK+'</button></span>'}
-function optHTML(o){return hasJ(o)?jpHTML(o,true):esc(o)}
+/* pronunciation line: kana reading under words with kanji, plus rōmaji unless switched off */
+function pronHTML(m){if(!hasJ(m))return "";var k=/[一-鿿々〆]/.test(jplain(m)),ro=prefs.ro!=="off"?jromaji(m):"";
+  if(!k&&!ro)return "";return '<span class="opron">'+(k?'<span class="pk" lang="ja">'+esc(jkana(m))+'</span>':'')+(ro?'<span class="pr">'+esc(ro)+'</span>':'')+'</span>'}
+function optHTML(o,it){return hasJ(o)?'<span class="ow">'+jpHTML(o,true)+'</span>'+(it&&it.w?pronHTML(o):''):esc(o)}
 function renderSet(el,opt){
   opt=opt||{};var id=el.getAttribute("data-set"),items=opt.items||EX[id];if(!items)return;var res=new Array(items.length),one=!!opt.one,qs=[];
   if(one){el.classList.add("one");el.innerHTML='<div class="dhead"><span>'+(opt.head||"")+'</span><span><span class="score">0 / '+items.length+'</span></span></div>'}
@@ -210,10 +213,10 @@ function renderSet(el,opt){
       if(it.au)$(".lsp",q).onclick=function(){speak(it.au)};
       var opts=document.createElement("div");opts.className="opts";var ex2=document.createElement("div");ex2.className="expl";
       var order=shuffle(it.o.map(function(_,k){return k}));
-      order.forEach(function(k){var o=it.o[k];var b=document.createElement("button");b.className="opt";if(hasJ(o))b.setAttribute("lang","ja");b.innerHTML=optHTML(o);
-        b.onclick=function(){var ok=k===0;$$(".opt",opts).forEach(function(x){x.disabled=true});opts.children[order.indexOf(0)].classList.add("right");if(!ok)b.classList.add("wrong");
-          ex2.innerHTML=(ok?'<b class="ok">Giusto!</b> ':'<b class="no">No.</b> ')+mixHTML(it.e||"")+(hasJ(it.o[0])&&!/[A-Za-zÀ-ÿ]{2}/.test(it.o[0])&&jtoks(it.o[0]).length>1&&!it.au?' '+jLineSay(it.o[0]):'');
-          if(it.au){var r=$(".lsr",q);r.hidden=false;r.innerHTML='Hai sentito: '+jLineSay(it.au)}
+      order.forEach(function(k){var o=it.o[k];var b=document.createElement("button");b.className="opt";if(hasJ(o))b.setAttribute("lang","ja");b.innerHTML=optHTML(o,it);
+        b.onclick=function(){var ok=k===0;$$(".opt",opts).forEach(function(x,xi){x.disabled=true;var ov=it.o[order[xi]];if(hasJ(ov)&&!$(".opron",x))x.insertAdjacentHTML("beforeend",pronHTML(ov))});opts.children[order.indexOf(0)].classList.add("right");if(!ok)b.classList.add("wrong");
+          ex2.innerHTML=(ok?'<b class="ok">Giusto!</b> ':'<b class="no">No.</b> ')+(it.w?'<span class="wline"><span lang="ja">'+jpHTML(it.w[0])+'</span>'+pronHTML(it.w[0])+'</span> = '+esc(it.w[1]):mixHTML(it.e||""))+(hasJ(it.o[0])&&!/[A-Za-zÀ-ÿ]{2}/.test(it.o[0])&&jtoks(it.o[0]).length>1&&!it.au?' '+jLineSay(it.o[0]):'');
+          if(it.au){var r=$(".lsr",q);r.hidden=false;r.innerHTML='Hai sentito: '+jLineSay(it.au)+(it.w?pronHTML(it.au):'')}
           mark(i,ok)};opts.appendChild(b)});
       q.appendChild(opts);q.appendChild(ex2);
     }
