@@ -9,14 +9,18 @@ Leggi `PRINCIPI.md` prima di ogni modifica. In breve:
 2. Spiegato per chi studia (errori tipici della sua lingua madre, niente corsi generici tradotti).
 3. Costa una frazione di una scuola.
 4. Paghi una volta, resta tuo.
-Design: bello e mai invadente (niente vite, cuori, ansia da streak). Non promettere funzioni che non esistono ancora:
+Design: bello e mai invadente (niente vite, cuori, lucchetti, ansia da streak). La cultura ha una scheda tutta sua: è un punto di forza, va sempre curata e messa in evidenza. Non promettere funzioni che non esistono ancora:
 ciò che manca si mostra come "In arrivo".
 
 ## Struttura
-- `shell/`: l'app (scelta lingua → corso → 3 domande → piano → home). Vanilla JS, nessuna dipendenza.
+- `shell/`: l'app. Vanilla JS, nessuna dipendenza.
+  - `index.html` + `app.js`: ingresso (lingua → corso → 3 domande → piano), poi rimanda al corso attivo.
+  - `course-app.js/.css`: l'interfaccia dentro ogni corso, con 5 schede (Oggi, Corso, Esame, Cultura, Strumenti)
+    e la pagina lezione. Niente lucchetti né stelle: le lezioni sono consigliate, mai bloccate. Il build la inserisce
+    nella stessa closure del motore del corso, così riusa tappe, quiz e audio.
+  - `plan.js`: catalogo, progressi e piano onesto, condivisi da ingresso e corsi.
   - `courses.json`: metadati dei corsi (esami, ore tipiche, livelli di partenza). Le unità vengono da `courses/<id>/src/course.json`.
   - `i18n.js`: testi dell'interfaccia (`it`, `zh`). L'interfaccia parla sempre la lingua di chi studia.
-  - `bridge.js/.css`: pulsante per tornare all'app dentro le pagine dei corsi.
 - `courses/<id>/`: sorgenti di ogni corso (contenuti, motore, `build.py`).
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 

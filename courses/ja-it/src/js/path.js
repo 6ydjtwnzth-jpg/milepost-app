@@ -20,7 +20,7 @@ function tick(){var t=dayKey(0);P.days[t]=(P.days[t]||0)+1;var ks=Object.keys(P.
 CULT=CULT||{};Object.keys(CULT).forEach(function(id){CULT[id].forEach(function(c){(c.w||[]).forEach(function(w){var k=jsurf(w[0]);if(!DICT[k])DICT[k]=w[1];if(!DICT[w[0]])DICT[w[0]]=w[1]})})});
 
 /* ---------- contenuto delle tappe, preso dalle lezioni del libro ---------- */
-var STEPN={dlg:["Ascolta","聞く","i-ear"],voc:["Parole","ことば","i-cards"],rule:["Regola","文法","i-bulb"],rev:["Ripasso","復習","i-loop"],snd:["Scrittura e suoni","文字","i-wave"],cult:["Cultura","文化","i-moka"],test:["Sfida","チャレンジ","i-star"]};
+var STEPN={dlg:["Ascolta","聞く","i-ear"],voc:["Parole","ことば","i-cards"],rule:["Regola","文法","i-bulb"],rev:["Ripasso","復習","i-loop"],snd:["Scrittura e suoni","文字","i-wave"],cult:["Cultura","文化","i-moka"],test:["Verifica","テスト","i-check"]};
 function sec(id){return document.getElementById(id)}
 function readingNodes(id){var s=sec(id),rd=$("#reading",s);if(!rd||$(".dialog",s))return [];
   return Array.prototype.filter.call(s.children,function(c){return c===rd||c.contains($("#rdplay",s))||(c.matches("ul.plain")&&c.nextElementSibling&&c.nextElementSibling.contains($("#rdplay",s)))})}
@@ -116,7 +116,7 @@ function quizPage(items,head,cb,mk){return {gate:true,draw:function(box,rel){var
   var f=$(".lsp",d);if(f)setTimeout(function(){f.click()},300)}}}
 
 function markStep(id,key){P.done[id]=P.done[id]||{};var fresh=!P.done[id][key];P.done[id][key]=1;if(fresh)tick();pSave();return fresh}
-function goalMsg(){var t=P.days[dayKey(0)]||0;return t>=P.goal?"Obiettivo di oggi raggiunto! 🔥 "+streak()+" giorni di fila":"Oggi "+t+" / "+P.goal+" tappe"}
+function goalMsg(){var t=P.days[dayKey(0)]||0;return t>=P.goal?"Obiettivo di oggi raggiunto":"Oggi "+t+" / "+P.goal+" tappe"}
 
 function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id),st=steps.filter(function(s){return s.key===key})[0];if(!st)return;
   var s=sec(id),pages=[],title=opt.skip?"Test di livello":(U.kind==="lesson"?"Lezione "+U.n+" · ":"")+st.zh;
@@ -139,15 +139,15 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:"Domanda",onDone:function(){rel()}})}},go:ci<CULT[id].length-1?"Scheda successiva":"Fine"})})}
   else if(st.k==="test"){
     var R={n:0,m:1},items=exSplit(id).t;
-    pages.push(quizPage(items,opt.skip?"Test di livello: con il 70% di risposte giuste passi direttamente alla parte successiva.":"Con almeno il 70% di risposte giuste si apre la lezione successiva.",function(n,m){R.n=n;R.m=m}));
+    pages.push(quizPage(items,opt.skip?"Test di livello: con il 70% di risposte giuste passi direttamente alla parte successiva.":"Verifica: vedi quanto hai capito. Il punteggio aggiorna la padronanza della lezione.",function(n,m){R.n=n;R.m=m}));
     pages.push({draw:function(box){var k=stars(R.n,R.m),old=P.stars[id]||0,pass=k>=1;
       if(k>old)P.stars[id]=k;var b=P.sc[id];if(!b||R.n>=b[0])P.sc[id]=[R.n,R.m];
       if(pass){P.done[id]=P.done[id]||{};if(!P.done[id].test){P.done[id].test=1;tick()}if(U.kind==="review"&&P.skip<U.w+1)P.skip=U.w+1}
       pSave();
       var cd=$("ul.cando",s),lis=cd?$$("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);$$("input",x).forEach(function(e){e.remove()});return '<li>'+x.textContent.trim()+'</li>'}).join(""):"";
-      box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-st">'+starHTML(k)+'</div><h3>'+(pass?(k===3?"Punteggio pieno! すごい！":"Superata!"):"Manca poco")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"Hai completato questa parte: sei al livello "+(WORLDS[U.w-1]||{}).level+".":"La lezione successiva è aperta."):"Serve il 70% per superarla. Ripassa la lezione e riprova.")+'</p>'+
+      box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-pc">'+Math.round(R.n/Math.max(1,R.m)*100)+'%</div><h3>'+(pass?(k===3?"Punteggio pieno! すごい！":"Lezione verificata"):"Da ripassare")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"Hai completato questa parte: sei al livello "+(WORLDS[U.w-1]||{}).level+".":"La padronanza della lezione è aggiornata."):"Sotto il 70%: rivedi le parti più difficili e riprova quando vuoi. Puoi comunque andare avanti.")+'</p>'+
         (pass&&lis?'<div class="res-can"><b>Adesso sai:</b><ul>'+lis+'</ul></div>':'')+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn again" type="button">Riprova</button></div></div>';
-      $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"Torna al percorso"})}
+      $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"Torna alla lezione"})}
   runStage({title:title,color:U.color,early:U.kind==="lesson"&&U.n<=4,pages:pages,done:function(){
     if(st.k!=="test"){var fresh=markStep(id,st.key);if(fresh)toast('<b>✓ '+esc(st.zh)+'</b> · '+goalMsg())}
     drawPath();if(!opt.skip)openSheet(id)}})}

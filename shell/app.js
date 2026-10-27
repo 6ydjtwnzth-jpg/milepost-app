@@ -29,68 +29,12 @@ function setLang(l){T=I18N[l]||I18N.it;document.documentElement.lang=T.htmlLang}
 if(!ST.speak){var d=detect();if(d){ST.speak=d;save()}}
 setLang(ST.speak||"it");
 
-/* ---------- catalog helpers ---------- */
-function course(id){for(var i=0;i<CATALOG.courses.length;i++)if(CATALOG.courses[i].id===id)return CATALOG.courses[i];return null}
-function coursesFor(l){return CATALOG.courses.filter(function(c){return c.speak===l})}
-function examOf(c,id){for(var i=0;i<c.exams.length;i++)if(c.exams[i].id===id)return c.exams[i];return null}
-function uIndex(c,id){for(var i=0;i<c.units.length;i++)if(c.units[i].id===id)return i;return c.units.length-1}
-function weight(u){return u.kind==="review"?0.6:1}
-function sum(a,f){return a.reduce(function(s,x){return s+f(x)},0)}
-
-/* ---------- course progress (owned by the course page) ---------- */
-function pathKey(c){return c.storageKey+"-path"}
-function prog(c){var p=store.get(pathKey(c))||{};p.stars=p.stars||{};p.days=p.days||{};p.goal=p.goal||3;p.skip=p.skip||1;return p}
-function passed(p,id){return (p.stars[id]||0)>=1}
-var GOAL_STEPS={15:2,30:3,60:5};
-
-/* ---------- dates ---------- */
-function iso(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
-function parseISO(s){var a=String(s).split("-");return new Date(+a[0],+a[1]-1,+a[2])}
-function today(){var d=new Date();d.setHours(0,0,0,0);return d}
-function addDays(d,n){var x=new Date(d.getTime());x.setDate(x.getDate()+Math.round(n));return x}
-function daysBetween(a,b){return Math.round((b-a)/864e5)}
+/* ---------- shared helpers (plan.js) ---------- */
+var course=MPPlan.course,coursesFor=MPPlan.coursesFor,examOf=MPPlan.examOf,uIndex=MPPlan.uIndex,weight=MPPlan.weight,sum=MPPlan.sum,
+    pathKey=MPPlan.pathKey,prog=MPPlan.prog,passed=MPPlan.passed,GOAL_STEPS=MPPlan.GOAL_STEPS,iso=MPPlan.iso,parseISO=MPPlan.parseISO,
+    today=MPPlan.today,addDays=MPPlan.addDays,daysBetween=MPPlan.daysBetween,plan=MPPlan.plan,status=MPPlan.status;
 function fmt(d,o){try{return new Intl.DateTimeFormat(T.locale,o||{day:"numeric",month:"long",year:"numeric"}).format(d)}catch(e){return iso(d)}}
 function fmtMonth(d){return fmt(d,{month:"short",year:"numeric"})}
-
-/* ---------- the plan: honest hours, not just lesson time ----------
-   Hours per goal come from courses.json (typical total study time, review and practice included).
-   Units already known (start level) are removed proportionally; an exam goal keeps 15 % for exam practice. */
-function plan(c,p,pr,from){
-  var ex=p.goal==="exam"?examOf(c,p.exam):null;
-  var all=c.units.slice(0,uIndex(c,ex?ex.upto:null)+1);
-  var inc=all.filter(function(u){return u.w>=p.start});
-  var H=ex?ex.hours:c.courseHours, prac=ex?0.15:0;
-  var Wall=sum(all,weight)||1,Winc=sum(inc,weight);
-  var contentH=H*(1-prac)*Winc/Wall, pracH=H*prac;
-  var rate=p.mins/60*6/7;                       /* hours per calendar day */
-  var Wdone=pr?sum(inc.filter(function(u){return passed(pr,u.id)}),weight):0;
-  var hPerW=contentH/Math.max(Winc,0.001);
-  var remH=(Winc-Wdone)*hPerW+pracH;
-  var start=from||today();
-  /* milestones: end of each part, then exam practice */
-  var ms=[],cum=Wdone*hPerW,worlds={};
-  inc.forEach(function(u){worlds[u.w]=(worlds[u.w]||0)+weight(u)});
-  var doneByW={};inc.forEach(function(u){if(pr&&passed(pr,u.id))doneByW[u.w]=(doneByW[u.w]||0)+weight(u)});
-  var t=0;
-  c.worlds.forEach(function(w){if(!worlds[w.w])return;
-    var left=(worlds[w.w]-(doneByW[w.w]||0))*hPerW;t+=left;
-    ms.push({w:w,done:left<=0.001,date:addDays(start,t/rate),units:inc.filter(function(u){return u.w===w.w})})});
-  if(pracH){t+=pracH;ms.push({practice:true,date:addDays(start,t/rate)})}
-  var ready=addDays(start,remH/rate);
-  var r={ex:ex,inc:inc,ready:ready,ms:ms,rate:rate,remH:remH,Winc:Winc,Wdone:Wdone,hPerW:hPerW,contentH:contentH,lastLevel:inc.length?c.worlds[inc[inc.length-1].w-1].level:""};
-  if(ex&&p.date){var ed=parseISO(p.date);r.examDate=ed;r.marginW=Math.floor(daysBetween(ready,ed)/7);
-    var avail=daysBetween(start,ed)-7;
-    r.needMins=avail>0?Math.ceil(remH/avail*7/6*60/5)*5:Infinity}
-  return r}
-/* where the learner should be today according to the plan made on p.since */
-function status(c,p,pr){
-  var since=p.since?parseISO(p.since):today();
-  var base=plan(c,p,null,since);
-  var elapsedH=Math.max(0,daysBetween(since,today()))*base.rate;
-  var expectedW=Math.min(base.Winc,elapsedH/base.hPerW);
-  var doneW=sum(base.inc.filter(function(u){return passed(pr,u.id)}),weight);
-  var days=Math.round((doneW-expectedW)*base.hPerW/base.rate);
-  return days}
 
 /* ---------- routing (hash, so the back button works) ---------- */
 var ON={};   /* onboarding draft */
@@ -110,8 +54,10 @@ function render(){
   if(r==="/corso")return vCourses();
   if(/^\/(obiettivo|livello|tempo|piano)$/.test(r)){if(!ON.cid||!course(ON.cid))return go("#/corso");
     return {"/obiettivo":vGoal,"/livello":vStart,"/tempo":vTime,"/piano":vPlan}[r]()}
+  var m=r.match(/^\/rifai\/([\w-]+)$/);
+  if(m&&course(m[1])&&ST.plans[m[1]]){ON=JSON.parse(JSON.stringify(ST.plans[m[1]]));ON.cid=m[1];return go("#/obiettivo")}
   if(!hasPlan)return go("#/corso");
-  vHome(active)}
+  location.replace("c/"+active.id+"/#/oggi")}
 
 /* ---------- 0 · which language do you speak ---------- */
 function vSpeak(){
@@ -229,71 +175,12 @@ function vPlan(){
   $("#edit").onclick=function(){history.back()};
   var um=$("#usemins");if(um)um.onclick=function(){ON.mins=+um.dataset.m;vPlan()};
   var od=$("#otherdate");if(od)od.onclick=function(){go("#/obiettivo")};
-  $("#start").onclick=function(){commit();location.href="c/"+c.id+"/#mappa"}}
+  $("#start").onclick=function(){commit();location.href="c/"+c.id+"/#/l/"+first.id}}
 function commit(){
   var c=course(ON.cid),p={goal:ON.goal||"passion",exam:ON.goal==="exam"?ON.exam:null,date:ON.goal==="exam"?ON.date:null,start:ON.start||1,mins:ON.mins||30,since:iso(today())};
   ST.plans[c.id]=p;ST.active=c.id;save();
   var pr=store.get(pathKey(c))||{done:{},stars:{},sc:{},skip:1,days:{},goal:3};
   pr.skip=Math.max(pr.skip||1,p.start);pr.goal=GOAL_STEPS[p.mins]||3;store.set(pathKey(c),pr)}
-
-/* ---------- home ---------- */
-function vHome(c){
-  var p=ST.plans[c.id],pr=prog(c),P=plan(c,p,pr);
-  var nPass=P.inc.filter(function(u){return passed(pr,u.id)}).length,cur=P.inc.filter(function(u){return !passed(pr,u.id)})[0];
-  var h=new Date().getHours(),hi=T.homeHi[h<13?0:h<18?1:2];
-  var tsteps=pr.days[iso(today())]||0,g=pr.goal||3,C=2*Math.PI*24,fr=Math.min(1,tsteps/g);
-  var mon=addDays(today(),-((today().getDay()+6)%7));
-  var active=0;
-  var week=T.weekDays.map(function(lbl,i){var d=addDays(mon,i),on=!!pr.days[iso(d)],isT=daysBetween(d,today())===0;
-    if(on)active++;return '<span class="'+(on?'on ':'')+(isT?'today':'')+'"><i></i>'+esc(lbl)+'</span>'}).join("");
-  var st=status(c,p,pr),stH=Math.abs(st)<=2?'<span class="status">'+esc(T.onTrack)+'</span>':st>0?'<span class="status">'+esc(T.ahead(st))+'</span>':'<span class="status late">'+esc(T.behind(-st))+'</span>';
-  var exam="";
-  if(P.ex){var left=P.examDate?daysBetween(today(),P.examDate):null;
-    exam='<div class="card examcard">'+(left!=null&&left>=0?'<div class="days"><b>'+left+'</b><small>'+esc(T.examDays(left))+'</small></div>':'<div class="days"><b>'+ICO.clock.replace('<svg','<svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.2"')+'</b></div>')+
-      '<div><h3>'+esc(left!=null?T.examTo(P.ex.name):P.ex.name)+'</h3><p>'+esc(left!=null?(P.marginW>=0?T.marginOk(P.marginW):T.lateBy(-P.marginW)):T.examNoDate)+'</p><span class="soonbadge">'+esc(T.examSims)+' · '+esc(T.soonBadge)+'</span></div></div>'}
-  screen(top('<button class="ibtn" id="gear" aria-label="'+esc(T.settingsAria)+'">'+ICO.gear+'</button>')+
-    '<div class="hello">'+esc(hi)+'</div>'+
-    '<a class="course '+c.color+'" href="c/'+c.id+'/#mappa"><div class="art">'+ART[c.learn]+'</div>'+
-      '<div class="body"><div><h3>'+esc(c.name)+'<span lang="'+c.learn+'">'+esc(c.native)+'</span></h3>'+
-      (cur?'<p>'+esc(T.nowUnit+T.colon+cur.t)+'</p>':'')+
-      '<div class="prog"><span class="pb"><i style="width:'+(P.inc.length?nPass/P.inc.length*100:100).toFixed(0)+'%"></i></span>'+esc(T.units(nPass,P.inc.length))+'</div></div>'+
-      '<span class="go" aria-label="'+esc(T.continueCta)+'">'+ICO.arrow+'</span></div></a>'+
-    '<div class="row2">'+
-      '<div class="tile"><span class="lbl">'+esc(T.todayLbl)+'</span><svg class="ring" viewBox="0 0 56 56" aria-hidden="true"><circle class="b" cx="28" cy="28" r="24"/><circle class="f" cx="28" cy="28" r="24" stroke-dasharray="'+(C*fr).toFixed(1)+' '+C.toFixed(1)+'"/></svg><p>'+esc(T.todaySteps(tsteps,g))+'</p></div>'+
-      '<div class="tile"><span class="lbl">'+esc(T.weekLbl)+'</span><div class="val">'+active+'<small> / 6 '+esc(T.daysWord)+'</small></div><div class="week">'+week+'</div></div>'+
-    '</div>'+exam+
-    '<h2 class="sec">'+esc(T.planLbl)+' '+stH+'</h2>'+
-    '<div class="card" style="margin-top:0">'+bar(P,today())+timeline(c,P,pr,true)+'</div>'+
-    '<button class="addrow" id="add">'+ICO.plus+esc(T.addLang)+'</button>'+
-    '<div class="foot"><a class="btn full" href="c/'+c.id+'/#mappa">'+esc(T.continueCta)+ICO.arrow+'</a></div>');
-  $("#gear").onclick=openSettings;
-  $("#add").onclick=function(){go("#/corso")}}
-
-/* ---------- settings sheet ---------- */
-var sheet=$("#sheet"),back=$("#sheetback"),lastFocus=null;
-function closeSheet(){sheet.hidden=back.hidden=true;if(lastFocus)try{lastFocus.focus()}catch(e){}}
-back.onclick=closeSheet;
-document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sheet.hidden)closeSheet()});
-function themeNow(){try{return localStorage.getItem(THEME)||"auto"}catch(e){return "auto"}}
-function openSettings(){
-  lastFocus=document.activeElement;
-  var th=themeNow();
-  sheet.innerHTML='<div class="grab" aria-hidden="true"></div><h2 id="sheetttl">'+esc(T.settings)+'</h2>'+
-    '<div class="set"><span>'+esc(T.setSpeak)+'</span><div class="seg">'+['it','zh'].map(function(l){return '<button data-sp="'+l+'" aria-pressed="'+(ST.speak===l)+'">'+(l==="it"?"Italiano":"中文")+'</button>'}).join("")+'</div></div>'+
-    '<div class="set"><span>'+esc(T.setTheme)+'</span><div class="seg">'+['auto','light','dark'].map(function(t){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+esc(T.themes[t])+'</button>'}).join("")+'</div></div>'+
-    '<div class="set"><button class="linkbtn" id="redo">'+esc(T.redoPlan)+'</button></div>'+
-    '<div class="set"><button class="linkbtn danger" id="reset">'+esc(T.resetAll)+'</button></div>'+
-    '<div class="set"><button class="btn alt full" id="sclose">'+esc(T.close)+'</button></div>';
-  sheet.hidden=back.hidden=false;
-  $$("[data-sp]",sheet).forEach(function(b){b.onclick=function(){ST.speak=b.dataset.sp;save();setLang(ST.speak);closeSheet();
-    var a=ST.active&&course(ST.active);if(!a||a.speak!==ST.speak){go("#/corso")}else render()}});
-  $$("[data-th]",sheet).forEach(function(b){b.onclick=function(){var t=b.dataset.th;try{if(t==="auto")localStorage.removeItem(THEME);else localStorage.setItem(THEME,t)}catch(e){}
-    if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t);openSettings()}});
-  $("#redo").onclick=function(){var a=course(ST.active);ON=JSON.parse(JSON.stringify(ST.plans[a.id]));ON.cid=a.id;closeSheet();go("#/obiettivo")};
-  $("#reset").onclick=function(){if(!confirm(T.resetConfirm))return;CATALOG.courses.forEach(function(c){store.del(pathKey(c))});store.del(KEY);ST={plans:{}};closeSheet();ON={};
-    var d=detect();if(d){ST.speak=d;save()}go(ST.speak?"#/corso":"#/lingua")};
-  $("#sclose").onclick=closeSheet;
-  $("button",sheet).focus()}
 
 /* ---------- offline ---------- */
 if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}

@@ -11,7 +11,13 @@ Corsi disponibili:
 2. Tre domande: perché studi (esame con data, viaggio, lavoro, passione), da dove parti, quanto tempo hai.
 3. Ricevi un piano con le date delle tappe, calcolato sulle ore di studio tipiche per quel livello o esame.
    Se il ritmo non basta per la data dell'esame, l'app lo dice e propone come rimediare.
-4. La home mostra il corso, i progressi reali, la settimana e se sei in linea col piano.
+4. Dentro il corso, cinque schede:
+   - **Oggi**: il prossimo passo, il ripasso delle parole, la curiosità del giorno, la settimana, l'esame.
+   - **Corso**: tutte le lezioni aperte, con tempo stimato, stato e "Sei qui". Ogni lezione ha sezioni sempre uguali
+     (dialogo, parole, grammatica, suoni e scrittura, cultura, verifica). Niente lucchetti: se vai avanti, l'app consiglia, non blocca.
+   - **Esame**: conto alla rovescia, piano con le date, padronanza. Simulazioni e preparazione per sezione: in arrivo.
+   - **Cultura**: tutte le schede illustrate, Italia a confronto con il paese della lingua, con la curiosità del giorno.
+   - **Strumenti**: flashcard, coniugatore, kana, frasario, vocabolario.
 
 ## Sviluppo
 ```

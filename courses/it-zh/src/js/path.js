@@ -20,7 +20,7 @@ function tick(){var t=dayKey(0);P.days[t]=(P.days[t]||0)+1;var ks=Object.keys(P.
 CULT=CULT||{};Object.keys(CULT).forEach(function(id){CULT[id].forEach(function(c){(c.w||[]).forEach(function(w){var k=w[0].toLowerCase();if(!DICT[k])DICT[k]=w[1]})})});
 
 /* ---------- contenuto delle tappe, preso dalle lezioni del libro ---------- */
-var STEPN={dlg:["听对话","Ascolta","i-ear"],voc:["学单词","Parole","i-cards"],rule:["学规则","Regola","i-bulb"],rev:["复习要点","Ripasso","i-loop"],snd:["练发音","Il suono","i-wave"],cult:["意大利文化","Cultura","i-moka"],test:["挑战","Sfida","i-star"]};
+var STEPN={dlg:["听对话","Ascolta","i-ear"],voc:["学单词","Parole","i-cards"],rule:["学规则","Regola","i-bulb"],rev:["复习要点","Ripasso","i-loop"],snd:["练发音","Il suono","i-wave"],cult:["意大利文化","Cultura","i-moka"],test:["小测验","Verifica","i-check"]};
 function sec(id){return document.getElementById(id)}
 function readingNodes(id){var s=sec(id),rd=$("#reading",s);if(!rd||$(".dialog",s))return [];
   return Array.prototype.filter.call(s.children,function(c){return c===rd||c.contains($("#rdplay",s))||(c.matches("ul.plain")&&c.nextElementSibling&&c.nextElementSibling.contains($("#rdplay",s)))})}
@@ -120,7 +120,7 @@ function quizPage(items,head,cb,mk){return {gate:true,draw:function(box,rel){var
   var f=$(".lsp",d);if(f)setTimeout(function(){f.click()},300)}}}
 
 function markStep(id,key){P.done[id]=P.done[id]||{};var fresh=!P.done[id][key];P.done[id][key]=1;if(fresh)tick();pSave();return fresh}
-function goalMsg(){var t=P.days[dayKey(0)]||0;return t>=P.goal?"今天的目标完成了！🔥 连续 "+streak()+" 天":"今天 "+t+" / "+P.goal+" 步"}
+function goalMsg(){var t=P.days[dayKey(0)]||0;return t>=P.goal?"今天的目标完成了":"今天 "+t+" / "+P.goal+" 步"}
 
 function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id),st=steps.filter(function(s){return s.key===key})[0];if(!st)return;
   var s=sec(id),pages=[],title=opt.skip?"跳级测试 · Test":(U.kind==="lesson"?"第 "+U.n+" 课 · ":"")+st.zh;
@@ -143,15 +143,15 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:"小问题",onDone:function(){rel()}})}},go:ci<CULT[id].length-1?"下一张":"完成"})})}
   else if(st.k==="test"){
     var R={n:0,m:1},items=exSplit(id).t;
-    pages.push(quizPage(items,opt.skip?"跳级测试：答对 70% 就可以直接进入下一部分。":"答对 70% 以上就能打开下一课。",function(n,m){R.n=n;R.m=m}));
+    pages.push(quizPage(items,opt.skip?"跳级测试：答对 70% 就可以直接进入下一部分。":"小测验：看看你掌握了多少，分数会更新这一课的掌握度。",function(n,m){R.n=n;R.m=m}));
     pages.push({draw:function(box){var k=stars(R.n,R.m),old=P.stars[id]||0,pass=k>=1;
       if(k>old)P.stars[id]=k;var b=P.sc[id];if(!b||R.n>=b[0])P.sc[id]=[R.n,R.m];
       if(pass){P.done[id]=P.done[id]||{};if(!P.done[id].test){P.done[id].test=1;tick()}if(U.kind==="review"&&P.skip<U.w+1)P.skip=U.w+1}
       pSave();
       var cd=$("ul.cando",s),lis=cd?$$("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);$$("input",x).forEach(function(e){e.remove()});return '<li>'+x.textContent.trim()+'</li>'}).join(""):"";
-      box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-st">'+starHTML(k)+'</div><h3>'+(pass?(k===3?"满分！太棒了！":"通过了！"):"还差一点")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"这一部分完成了：你已经达到 "+(WORLDS[U.w-1]||{}).level+" 水平。":"下一课已经打开。"):"答对 70% 才能通过。复习一下这一课，再试一次。")+'</p>'+
+      box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-pc">'+Math.round(R.n/Math.max(1,R.m)*100)+'%</div><h3>'+(pass?(k===3?"满分！太棒了！":"已掌握"):"需要复习")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"这一部分完成了：你已经达到 "+(WORLDS[U.w-1]||{}).level+" 水平。":"这一课的掌握度已更新。"):"低于 70%：复习难点，随时可以再试。你也可以继续往下学。")+'</p>'+
         (pass&&lis?'<div class="res-can"><b>现在你能：</b><ul>'+lis+'</ul></div>':'')+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn again" type="button">再试一次</button></div></div>';
-      $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"返回路线"})}
+      $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"返回课程"})}
   runStage({title:title,color:U.color,pages:pages,done:function(){
     if(st.k!=="test"){var fresh=markStep(id,st.key);if(fresh)toast('<b>✓ '+esc(st.zh)+'</b> · '+goalMsg())}
     drawPath();if(!opt.skip)openSheet(id)}})}

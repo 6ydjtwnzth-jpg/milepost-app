@@ -216,8 +216,6 @@ h2.sec{font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-
 <body>
 <div class="deco" aria-hidden="true"><i class="d1"></i><i class="d2"></i></div>
 <main id="app" class="app" aria-live="polite"></main>
-<div class="sheet-back" id="sheetback" hidden></div>
-<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetttl" hidden></section>
 <script>
 var CATALOG={"courses":[{"id":"ja-it","learn":"ja","speak":"it","storageKey":"giapponese-per-italiani-v1","titleField":"t","name":"Giapponese","native":"日本語","the":"il giapponese","color":"blue","levelsLabel":"Da zero all'A2 · 23 lezioni","courseHours":260,"starts":[{"skip":1,"t":"Da zero","s":"Non conosco ancora i kana"},{"skip":2,"t":"So già le basi","s":"Kana e prime frasi (A1.1)"},{"skip":3,"t":"Ho già un livello A1","s":"Circa un anno di studio, o JLPT N5"}],"exams":[{"id":"n5","name":"JLPT N5","upto":"r2","hours":120,"dates":["2026-12-06","2027-07-04","2027-12-05"]},{"id":"n4","name":"JLPT N4","upto":"r3","hours":280,"partial":true,"dates":["2027-07-04","2027-12-05","2028-07-02"]}],"examNote":"Il JLPT si tiene di solito la prima domenica di luglio e di dicembre: controlla le sessioni della tua sede.","units":[{"id":"l1","w":1,"kind":"lesson","t":"Suoni, primi kana e saluti"},{"id":"l2","w":1,"kind":"lesson","t":"Mi chiamo Marco"},{"id":"l3","w":1,"kind":"lesson","t":"Tutti gli hiragana, doppie e vocali lunghe"},{"id":"l4","w":1,"kind":"lesson","t":"Che cos'è? これ・それ・あれ"},{"id":"l5","w":1,"kind":"lesson","t":"La mia famiglia e i numeri"},{"id":"l6","w":1,"kind":"lesson","t":"Come stai? Gli aggettivi"},{"id":"l7","w":1,"kind":"lesson","t":"Che cosa fai? I verbi in -masu"},{"id":"l8","w":1,"kind":"lesson","t":"Al konbini e al caffè"},{"id":"r1","w":1,"kind":"review","t":"Ripasso 1"},{"id":"l9","w":2,"kind":"lesson","t":"Fare domande"},{"id":"l10","w":2,"kind":"lesson","t":"La mia giornata: ore e passato"},{"id":"l11","w":2,"kind":"lesson","t":"Il tempo libero: piacere e inviti"},{"id":"l12","w":2,"kind":"lesson","t":"In città: dove si trova?"},{"id":"l13","w":2,"kind":"lesson","t":"La forma -te: per favore, posso…?"},{"id":"l14","w":2,"kind":"lesson","t":"Al ristorante: contare e ordinare"},{"id":"r2","w":2,"kind":"review","t":"Ripasso 2"},{"id":"l15","w":3,"kind":"lesson","t":"Il fine settimana: passato degli aggettivi"},{"id":"l16","w":3,"kind":"lesson","t":"In viaggio: voglio andare…"},{"id":"l17","w":3,"kind":"lesson","t":"Quando ero piccolo: la forma informale"},{"id":"l18","w":3,"kind":"lesson","t":"Raccontare: -te iru, -te kara"},{"id":"l19","w":3,"kind":"lesson","t":"Gusti, confronti e opinioni"},{"id":"l20","w":3,"kind":"lesson","t":"Fare spese e fare regali"},{"id":"l21","w":3,"kind":"lesson","t":"Progetti e condizioni"},{"id":"l22","w":3,"kind":"lesson","t":"Salute e servizi: devo, posso"},{"id":"l23","w":3,"kind":"lesson","t":"Marco a Tokyo: racconta la tua storia"},{"id":"r3","w":3,"kind":"review","t":"Ripasso 3 e test A2"}],"worlds":[{"w":1,"level":"A1.1","title":"Parte prima · Primi passi"},{"w":2,"level":"A1.2","title":"Parte seconda · La vita di tutti i giorni"},{"w":3,"level":"A2","title":"Parte terza · Raccontare"}]},{"id":"it-zh","learn":"it","speak":"zh","storageKey":"primo-libro-italiano-v1","titleField":"zh","name":"意大利语","native":"Italiano","the":"意大利语","color":"green","levelsLabel":"从零到 A2 · 23 课","courseHours":200,"starts":[{"skip":1,"t":"从零开始","s":"还不会意大利语"},{"skip":2,"t":"学过一点","s":"会打招呼、自我介绍（A1.1）"},{"skip":3,"t":"已有 A1 水平","s":"学过一年左右"}],"exams":[{"id":"a2","name":"CILS / PLIDA A2","upto":"r3","hours":200,"dates":[]},{"id":"b1","name":"CILS / PLIDA B1","soon":true}],"examNote":"CILS、PLIDA 每年有多次考试，请在考点确认日期。","units":[{"id":"l1","w":1,"kind":"lesson","t":"字母、发音和问候"},{"id":"l2","w":1,"kind":"lesson","t":"你叫什么名字？essere"},{"id":"l3","w":1,"kind":"lesson","t":"重音、语调、你和您"},{"id":"l4","w":1,"kind":"lesson","t":"名词、冠词和 c'è"},{"id":"l5","w":1,"kind":"lesson","t":"我的家人：avere 和物主代词"},{"id":"l6","w":1,"kind":"lesson","t":"你好吗？stare 和身体状态"},{"id":"l7","w":1,"kind":"lesson","t":"你做什么工作？规则动词"},{"id":"l8","w":1,"kind":"lesson","t":"在咖啡馆：vorrei 和价格"},{"id":"r1","w":1,"kind":"review","t":"复习一"},{"id":"l9","w":2,"kind":"lesson","t":"提问"},{"id":"l10","w":2,"kind":"lesson","t":"一天的生活：时间和反身动词"},{"id":"l11","w":2,"kind":"lesson","t":"空闲时间：mi piace 和 andare"},{"id":"l12","w":2,"kind":"lesson","t":"在城市里：介词、问路、命令式"},{"id":"l13","w":2,"kind":"lesson","t":"约朋友：情态动词和打电话"},{"id":"l14","w":2,"kind":"lesson","t":"在市场和餐厅：部分冠词和 ne"},{"id":"r2","w":2,"kind":"review","t":"复习二"},{"id":"l15","w":3,"kind":"lesson","t":"上个周末：近过去时（avere）"},{"id":"l16","w":3,"kind":"lesson","t":"旅行：近过去时（essere）、日期和天气"},{"id":"l17","w":3,"kind":"lesson","t":"小时候：未完成过去时"},{"id":"l18","w":3,"kind":"lesson","t":"讲一个故事：两种过去时"},{"id":"l19","w":3,"kind":"lesson","t":"喜好和比较：间接宾语代词"},{"id":"l20","w":3,"kind":"lesson","t":"买衣服：直接宾语代词和「正在」"},{"id":"l21","w":3,"kind":"lesson","t":"计划未来：将来时和 se"},{"id":"l22","w":3,"kind":"lesson","t":"看病和服务：条件式"},{"id":"l23","w":3,"kind":"lesson","t":"李薇在罗马：讲你的故事"},{"id":"r3","w":3,"kind":"review","t":"复习三和 A2 模拟测试"}],"worlds":[{"w":1,"level":"A1.1","title":"第一部分 · 起步"},{"w":2,"level":"A1.2","title":"第二部分 · 日常生活"},{"w":3,"level":"A2","title":"第三部分 · 讲述"}]}],"soon":{"it":[["中文","Cinese"],["한국어","Coreano"],["EN","Inglese"],["ES","Spagnolo"],["FR","Francese"],["DE","Tedesco"]],"zh":[["EN","英语"],["日本語","日语"],["FR","法语"],["ES","西班牙语"],["DE","德语"],["한국어","韩语"]]}};
 /* Interface strings. The interface always speaks the learner's own language. */
@@ -343,37 +341,10 @@ passion:'<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 
 clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
 };
 
-/* Milepost shell: language → course → 3 questions → honest plan → home.
-   Course progress is read from each course's own storage (same origin), so the plan
-   always reflects what the learner has really done. */
-(function(){
+/* Shared by the onboarding shell and the course app: catalog helpers, course progress and the honest study plan. */
+var MPPlan=(function(){
 "use strict";
-var KEY="milepost-v1", THEME="milepost-theme";
-var app=document.getElementById("app");
-function $(s,r){return (r||document).querySelector(s)}
-function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
-function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-
-/* ---------- storage (always behind try/catch) ---------- */
-var store={
-  get:function(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},
-  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},
-  del:function(k){try{localStorage.removeItem(k)}catch(e){}}
-};
-var ST=store.get(KEY)||{};
-ST.plans=ST.plans||{};
-function save(){store.set(KEY,ST)}
-
-/* ---------- language ---------- */
-function detect(){
-  var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];
-  for(var i=0;i<ls.length;i++){var l=String(ls[i]).toLowerCase();if(l.indexOf("zh")===0)return "zh";if(l.indexOf("it")===0)return "it"}
-  return null}
-var T=I18N.it;
-function setLang(l){T=I18N[l]||I18N.it;document.documentElement.lang=T.htmlLang}
-if(!ST.speak){var d=detect();if(d){ST.speak=d;save()}}
-setLang(ST.speak||"it");
-
+var store={get:function(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del:function(k){try{localStorage.removeItem(k)}catch(e){}}};
 /* ---------- catalog helpers ---------- */
 function course(id){for(var i=0;i<CATALOG.courses.length;i++)if(CATALOG.courses[i].id===id)return CATALOG.courses[i];return null}
 function coursesFor(l){return CATALOG.courses.filter(function(c){return c.speak===l})}
@@ -394,8 +365,6 @@ function parseISO(s){var a=String(s).split("-");return new Date(+a[0],+a[1]-1,+a
 function today(){var d=new Date();d.setHours(0,0,0,0);return d}
 function addDays(d,n){var x=new Date(d.getTime());x.setDate(x.getDate()+Math.round(n));return x}
 function daysBetween(a,b){return Math.round((b-a)/864e5)}
-function fmt(d,o){try{return new Intl.DateTimeFormat(T.locale,o||{day:"numeric",month:"long",year:"numeric"}).format(d)}catch(e){return iso(d)}}
-function fmtMonth(d){return fmt(d,{month:"short",year:"numeric"})}
 
 /* ---------- the plan: honest hours, not just lesson time ----------
    Hours per goal come from courses.json (typical total study time, review and practice included).
@@ -437,6 +406,49 @@ function status(c,p,pr){
   var days=Math.round((doneW-expectedW)*base.hPerW/base.rate);
   return days}
 
+return {store:store,course:course,coursesFor:coursesFor,examOf:examOf,uIndex:uIndex,weight:weight,sum:sum,pathKey:pathKey,prog:prog,passed:passed,GOAL_STEPS:GOAL_STEPS,
+  iso:iso,parseISO:parseISO,today:today,addDays:addDays,daysBetween:daysBetween,plan:plan,status:status,
+  load:function(){var s=store.get("milepost-v1")||{};s.plans=s.plans||{};return s},save:function(s){store.set("milepost-v1",s)}};
+})();
+
+/* Milepost shell: language → course → 3 questions → honest plan → home.
+   Course progress is read from each course's own storage (same origin), so the plan
+   always reflects what the learner has really done. */
+(function(){
+"use strict";
+var KEY="milepost-v1", THEME="milepost-theme";
+var app=document.getElementById("app");
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+
+/* ---------- storage (always behind try/catch) ---------- */
+var store={
+  get:function(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},
+  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},
+  del:function(k){try{localStorage.removeItem(k)}catch(e){}}
+};
+var ST=store.get(KEY)||{};
+ST.plans=ST.plans||{};
+function save(){store.set(KEY,ST)}
+
+/* ---------- language ---------- */
+function detect(){
+  var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];
+  for(var i=0;i<ls.length;i++){var l=String(ls[i]).toLowerCase();if(l.indexOf("zh")===0)return "zh";if(l.indexOf("it")===0)return "it"}
+  return null}
+var T=I18N.it;
+function setLang(l){T=I18N[l]||I18N.it;document.documentElement.lang=T.htmlLang}
+if(!ST.speak){var d=detect();if(d){ST.speak=d;save()}}
+setLang(ST.speak||"it");
+
+/* ---------- shared helpers (plan.js) ---------- */
+var course=MPPlan.course,coursesFor=MPPlan.coursesFor,examOf=MPPlan.examOf,uIndex=MPPlan.uIndex,weight=MPPlan.weight,sum=MPPlan.sum,
+    pathKey=MPPlan.pathKey,prog=MPPlan.prog,passed=MPPlan.passed,GOAL_STEPS=MPPlan.GOAL_STEPS,iso=MPPlan.iso,parseISO=MPPlan.parseISO,
+    today=MPPlan.today,addDays=MPPlan.addDays,daysBetween=MPPlan.daysBetween,plan=MPPlan.plan,status=MPPlan.status;
+function fmt(d,o){try{return new Intl.DateTimeFormat(T.locale,o||{day:"numeric",month:"long",year:"numeric"}).format(d)}catch(e){return iso(d)}}
+function fmtMonth(d){return fmt(d,{month:"short",year:"numeric"})}
+
 /* ---------- routing (hash, so the back button works) ---------- */
 var ON={};   /* onboarding draft */
 function go(h){if(location.hash===h)render();else location.hash=h}
@@ -455,8 +467,10 @@ function render(){
   if(r==="/corso")return vCourses();
   if(/^\/(obiettivo|livello|tempo|piano)$/.test(r)){if(!ON.cid||!course(ON.cid))return go("#/corso");
     return {"/obiettivo":vGoal,"/livello":vStart,"/tempo":vTime,"/piano":vPlan}[r]()}
+  var m=r.match(/^\/rifai\/([\w-]+)$/);
+  if(m&&course(m[1])&&ST.plans[m[1]]){ON=JSON.parse(JSON.stringify(ST.plans[m[1]]));ON.cid=m[1];return go("#/obiettivo")}
   if(!hasPlan)return go("#/corso");
-  vHome(active)}
+  location.replace("c/"+active.id+"/#/oggi")}
 
 /* ---------- 0 · which language do you speak ---------- */
 function vSpeak(){
@@ -574,71 +588,12 @@ function vPlan(){
   $("#edit").onclick=function(){history.back()};
   var um=$("#usemins");if(um)um.onclick=function(){ON.mins=+um.dataset.m;vPlan()};
   var od=$("#otherdate");if(od)od.onclick=function(){go("#/obiettivo")};
-  $("#start").onclick=function(){commit();location.href="c/"+c.id+"/#mappa"}}
+  $("#start").onclick=function(){commit();location.href="c/"+c.id+"/#/l/"+first.id}}
 function commit(){
   var c=course(ON.cid),p={goal:ON.goal||"passion",exam:ON.goal==="exam"?ON.exam:null,date:ON.goal==="exam"?ON.date:null,start:ON.start||1,mins:ON.mins||30,since:iso(today())};
   ST.plans[c.id]=p;ST.active=c.id;save();
   var pr=store.get(pathKey(c))||{done:{},stars:{},sc:{},skip:1,days:{},goal:3};
   pr.skip=Math.max(pr.skip||1,p.start);pr.goal=GOAL_STEPS[p.mins]||3;store.set(pathKey(c),pr)}
-
-/* ---------- home ---------- */
-function vHome(c){
-  var p=ST.plans[c.id],pr=prog(c),P=plan(c,p,pr);
-  var nPass=P.inc.filter(function(u){return passed(pr,u.id)}).length,cur=P.inc.filter(function(u){return !passed(pr,u.id)})[0];
-  var h=new Date().getHours(),hi=T.homeHi[h<13?0:h<18?1:2];
-  var tsteps=pr.days[iso(today())]||0,g=pr.goal||3,C=2*Math.PI*24,fr=Math.min(1,tsteps/g);
-  var mon=addDays(today(),-((today().getDay()+6)%7));
-  var active=0;
-  var week=T.weekDays.map(function(lbl,i){var d=addDays(mon,i),on=!!pr.days[iso(d)],isT=daysBetween(d,today())===0;
-    if(on)active++;return '<span class="'+(on?'on ':'')+(isT?'today':'')+'"><i></i>'+esc(lbl)+'</span>'}).join("");
-  var st=status(c,p,pr),stH=Math.abs(st)<=2?'<span class="status">'+esc(T.onTrack)+'</span>':st>0?'<span class="status">'+esc(T.ahead(st))+'</span>':'<span class="status late">'+esc(T.behind(-st))+'</span>';
-  var exam="";
-  if(P.ex){var left=P.examDate?daysBetween(today(),P.examDate):null;
-    exam='<div class="card examcard">'+(left!=null&&left>=0?'<div class="days"><b>'+left+'</b><small>'+esc(T.examDays(left))+'</small></div>':'<div class="days"><b>'+ICO.clock.replace('<svg','<svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.2"')+'</b></div>')+
-      '<div><h3>'+esc(left!=null?T.examTo(P.ex.name):P.ex.name)+'</h3><p>'+esc(left!=null?(P.marginW>=0?T.marginOk(P.marginW):T.lateBy(-P.marginW)):T.examNoDate)+'</p><span class="soonbadge">'+esc(T.examSims)+' · '+esc(T.soonBadge)+'</span></div></div>'}
-  screen(top('<button class="ibtn" id="gear" aria-label="'+esc(T.settingsAria)+'">'+ICO.gear+'</button>')+
-    '<div class="hello">'+esc(hi)+'</div>'+
-    '<a class="course '+c.color+'" href="c/'+c.id+'/#mappa"><div class="art">'+ART[c.learn]+'</div>'+
-      '<div class="body"><div><h3>'+esc(c.name)+'<span lang="'+c.learn+'">'+esc(c.native)+'</span></h3>'+
-      (cur?'<p>'+esc(T.nowUnit+T.colon+cur.t)+'</p>':'')+
-      '<div class="prog"><span class="pb"><i style="width:'+(P.inc.length?nPass/P.inc.length*100:100).toFixed(0)+'%"></i></span>'+esc(T.units(nPass,P.inc.length))+'</div></div>'+
-      '<span class="go" aria-label="'+esc(T.continueCta)+'">'+ICO.arrow+'</span></div></a>'+
-    '<div class="row2">'+
-      '<div class="tile"><span class="lbl">'+esc(T.todayLbl)+'</span><svg class="ring" viewBox="0 0 56 56" aria-hidden="true"><circle class="b" cx="28" cy="28" r="24"/><circle class="f" cx="28" cy="28" r="24" stroke-dasharray="'+(C*fr).toFixed(1)+' '+C.toFixed(1)+'"/></svg><p>'+esc(T.todaySteps(tsteps,g))+'</p></div>'+
-      '<div class="tile"><span class="lbl">'+esc(T.weekLbl)+'</span><div class="val">'+active+'<small> / 6 '+esc(T.daysWord)+'</small></div><div class="week">'+week+'</div></div>'+
-    '</div>'+exam+
-    '<h2 class="sec">'+esc(T.planLbl)+' '+stH+'</h2>'+
-    '<div class="card" style="margin-top:0">'+bar(P,today())+timeline(c,P,pr,true)+'</div>'+
-    '<button class="addrow" id="add">'+ICO.plus+esc(T.addLang)+'</button>'+
-    '<div class="foot"><a class="btn full" href="c/'+c.id+'/#mappa">'+esc(T.continueCta)+ICO.arrow+'</a></div>');
-  $("#gear").onclick=openSettings;
-  $("#add").onclick=function(){go("#/corso")}}
-
-/* ---------- settings sheet ---------- */
-var sheet=$("#sheet"),back=$("#sheetback"),lastFocus=null;
-function closeSheet(){sheet.hidden=back.hidden=true;if(lastFocus)try{lastFocus.focus()}catch(e){}}
-back.onclick=closeSheet;
-document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sheet.hidden)closeSheet()});
-function themeNow(){try{return localStorage.getItem(THEME)||"auto"}catch(e){return "auto"}}
-function openSettings(){
-  lastFocus=document.activeElement;
-  var th=themeNow();
-  sheet.innerHTML='<div class="grab" aria-hidden="true"></div><h2 id="sheetttl">'+esc(T.settings)+'</h2>'+
-    '<div class="set"><span>'+esc(T.setSpeak)+'</span><div class="seg">'+['it','zh'].map(function(l){return '<button data-sp="'+l+'" aria-pressed="'+(ST.speak===l)+'">'+(l==="it"?"Italiano":"中文")+'</button>'}).join("")+'</div></div>'+
-    '<div class="set"><span>'+esc(T.setTheme)+'</span><div class="seg">'+['auto','light','dark'].map(function(t){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+esc(T.themes[t])+'</button>'}).join("")+'</div></div>'+
-    '<div class="set"><button class="linkbtn" id="redo">'+esc(T.redoPlan)+'</button></div>'+
-    '<div class="set"><button class="linkbtn danger" id="reset">'+esc(T.resetAll)+'</button></div>'+
-    '<div class="set"><button class="btn alt full" id="sclose">'+esc(T.close)+'</button></div>';
-  sheet.hidden=back.hidden=false;
-  $$("[data-sp]",sheet).forEach(function(b){b.onclick=function(){ST.speak=b.dataset.sp;save();setLang(ST.speak);closeSheet();
-    var a=ST.active&&course(ST.active);if(!a||a.speak!==ST.speak){go("#/corso")}else render()}});
-  $$("[data-th]",sheet).forEach(function(b){b.onclick=function(){var t=b.dataset.th;try{if(t==="auto")localStorage.removeItem(THEME);else localStorage.setItem(THEME,t)}catch(e){}
-    if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t);openSettings()}});
-  $("#redo").onclick=function(){var a=course(ST.active);ON=JSON.parse(JSON.stringify(ST.plans[a.id]));ON.cid=a.id;closeSheet();go("#/obiettivo")};
-  $("#reset").onclick=function(){if(!confirm(T.resetConfirm))return;CATALOG.courses.forEach(function(c){store.del(pathKey(c))});store.del(KEY);ST={plans:{}};closeSheet();ON={};
-    var d=detect();if(d){ST.speak=d;save()}go(ST.speak?"#/corso":"#/lingua")};
-  $("#sclose").onclick=closeSheet;
-  $("button",sheet).focus()}
 
 /* ---------- offline ---------- */
 if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
