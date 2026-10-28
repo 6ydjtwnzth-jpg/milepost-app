@@ -76,7 +76,7 @@ h2.sec{font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-
 .course{display:block;width:100%;text-align:left;margin-top:22px;border-radius:var(--r);overflow:hidden;background:var(--c);color:#fff;
   box-shadow:var(--shadow);text-decoration:none;transition:transform .15s}
 .course:active{transform:scale(.985)}
-.course.blue{--c:#2b50d8}.course.green{--c:#12965a}
+.course.blue{--c:#2b50d8}.course.green{--c:#12965a}.course.red{--c:#d63c1e}
 .course .art{height:200px;position:relative;overflow:hidden}
 .course .art svg{position:absolute;inset:0;width:100%;height:100%}
 .course .body{padding:16px 18px 18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}

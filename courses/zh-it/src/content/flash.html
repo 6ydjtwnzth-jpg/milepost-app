@@ -1,0 +1,14 @@
+<p>Le parole stanno in cinque scatole. Se sai una parola sale di una scatola e la rivedrai più di rado; se la sbagli torna nella prima. Le carte delle scatole basse escono più spesso. Obiettivo: tutte nella scatola 5.</p>
+  <p>Le carte contengono solo le parole delle lezioni che hai già studiato: scegli qui sotto fino a quale lezione sei arrivato. Il libro lo aggiorna da solo quando completi gli esercizi di una lezione.</p>
+  <p>In <b>modalità ascolto</b> la carta non mostra niente: senti la parola e devi capirla solo con l'orecchio, come in una conversazione. In <b>modalità parlato</b> vedi l'italiano e devi dire la parola in cinese ad alta voce.</p>
+  <div class="seg" role="group" aria-label="Modalità flashcard">
+    <button class="btn" data-fcm="ear" aria-pressed="true">Ascolto</button>
+    <button class="btn" data-fcm="say" aria-pressed="false">Parlato</button>
+    <button class="btn" data-fcm="read" aria-pressed="false">Caratteri</button>
+  </div>
+  <label class="fcl">Parole fino alla lezione: <select id="fclsel" aria-label="Lezione fino a cui prendere le parole"></select></label>
+  <div class="fc">
+    <div class="fc-card" id="fccard"></div>
+    <div class="boxes" id="fcboxes"></div>
+    <div class="confirm" id="fcreset"></div>
+  </div>

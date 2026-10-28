@@ -25,6 +25,11 @@ ciò che manca si mostra come "In arrivo".
   - `courses/ja-it/src/exam/*.json`: simulazioni JLPT (formato reale: sezioni, もんだい, istruzioni del libretto).
     L'audio d'ascolto è in `docs/c/ja-it/audio/exam/<id>-<もんだい>-<n>.mp3` (voci Kokoro: F, M, narratore; ogni frase
     verificata con il riconoscimento vocale). Punteggio stimato: 120 × giuste/totale (lingua+lettura), 60 × (ascolto).
+  - `courses/zh-it/`: cinese per italiani. Il cinese nei dati è scritto a parole con il pinyin tra parentesi quadre,
+    una sillaba per carattere separata da trattini: `我[wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。` (`src/js/zh.js` ne ricava rubino
+    colorato per tono, pinyin e controllo delle risposte). L'audio (`docs/c/zh-it/audio/`) è generato dal pinyin del corso,
+    non da una conversione automatica dei caratteri, con il cambio di tono 3-3 applicato; ogni frase è verificata con il
+    riconoscimento vocale (SenseVoice), le sillabe isolate con la curva d'intonazione.
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 
 ## Comandi

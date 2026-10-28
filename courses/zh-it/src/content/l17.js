@@ -1,0 +1,14 @@
+DLG.l17=[["A","请问[Qǐng-wèn] ， 去[qù] 火车站[huǒ-chē-zhàn] 怎么[zěn-me] 走[zǒu] ？","Scusi, come si arriva alla stazione?"],["B","火车站[Huǒ-chē-zhàn] 离[lí] 这儿[zhèr] 很[hěn] 远[yuǎn] ， 你[nǐ] 坐[zuò] 地铁[dì-tiě] 去[qù] 吧[ba] 。","La stazione è lontana da qui, prenda la metropolitana."],["A","坐[Zuò] 地铁[dì-tiě] 要[yào] 多[duō] 长[cháng] 时间[shí-jiān] ？","Quanto ci vuole in metropolitana?"],["B","从[Cóng] 这儿[zhèr] 到[dào] 火车站[huǒ-chē-zhàn] ， 二十[èr-shí] 分钟[fēn-zhōng] 左右[zuǒ-yòu] 。","Da qui alla stazione, una ventina di minuti."],["A","地铁站[Dì-tiě-zhàn] 在[zài] 哪儿[nǎr] ？","Dov'è la fermata della metropolitana?"],["B","往[Wǎng] 前[qián] 走[zǒu] ， 然后[rán-hòu] 往[wǎng] 左[zuǒ] 拐[guǎi] 。 你[Nǐ] 看[kàn] ， 人[rén] 都[dōu] 从[cóng] 那儿[nàr] 出来[chū-lai] 。","Vada avanti, poi giri a sinistra. Guardi, la gente esce tutta da lì."],["A","看见[Kàn-jiàn] 了[le] ， 谢谢[xiè-xie] ！","La vedo, grazie!"]];
+EX.l17=[
+ {"q":"Ascolta e scegli che cosa significa.","au":"学校[Xué-xiào] 离[lí] 这儿[zhèr] 很[hěn] 近[jìn] 。","o":["La scuola è vicina a qui.","La scuola è lontana da qui.","La scuola è qui."],"e":"A 离[lí] B 很[hěn] 近[jìn] = A è vicino a B."},
+ {"q":"Ascolta e scegli che cosa significa.","au":"往[Wǎng] 左[zuǒ] 拐[guǎi] 。","o":["Gira a sinistra.","Gira a destra.","Vai sempre dritto."],"e":"左[zuǒ] = sinistra, 右[yòu] = destra."},
+ {"q":"Ascolta e scegli che cosa significa.","au":"请[Qǐng] 进来[jìn-lai] ！","o":["Entra!","Esci!","Torna!"],"e":"进来[jìn-lai] = entrare verso di me."},
+ {"q":"Ascolta e scegli che cosa significa.","au":"你[Nǐ] 什么[shén-me] 时候[shí-hou] 回来[huí-lai] ？","o":["Quando torni?","Quando esci?","Dove torni?"],"e":"回来[huí-lai] = tornare qui."},
+ {"q":"«Vado a scuola in metropolitana.»","o":["我[Wǒ] 坐[zuò] 地铁[dì-tiě] 去[qù] 学校[xué-xiào] 。","我[Wǒ] 在[zài] 地铁[dì-tiě] 去[qù] 学校[xué-xiào] 。","我[Wǒ] 去[qù] 学校[xué-xiào] 地铁[dì-tiě] 。"],"e":"坐[zuò] + mezzo + 去[qù] + luogo."},
+ {"t":"say","it":"Chiedi: «Scusi, come si arriva alla stazione?»","zh":"请问[Qǐng-wèn] ， 去[qù] 火车站[huǒ-chē-zhàn] 怎么[zěn-me] 走[zǒu] ？"},
+ {"t":"say","it":"«Da casa mia a scuola ci vogliono venti minuti.»","zh":"从[Cóng] 我[wǒ] 家[jiā] 到[dào] 学校[xué-xiào] 要[yào] 二十[èr-shí] 分钟[fēn-zhōng] 。"},
+ {"t":"say","it":"«Torno a casa a piedi.»","zh":"我[Wǒ] 走路[zǒu-lù] 回[huí] 家[jiā] 。"}
+];
+VOC.l17=[
+ ["请问[qǐng-wèn]","scusi, posso chiedere",""],["怎么走[zěn-me-zǒu]","come si arriva",""],["离[lí]","distare da",""],["远[yuǎn]","lontano",""],["近[jìn]","vicino",""],["从[cóng]","da",""],["到[dào]","a, fino a; arrivare",""],["地铁[dì-tiě]","metropolitana",""],["火车站[huǒ-chē-zhàn]","stazione ferroviaria",""],["往[wǎng]","verso",""],["前[qián]","avanti",""],["左[zuǒ]","sinistra",""],["右[yòu]","destra",""],["拐[guǎi]","girare",""],["一直[yì-zhí]","sempre (dritto)",""],["开车[kāi-chē]","guidare",""],["走路[zǒu-lù]","andare a piedi",""],["学校[xué-xiào]","scuola",""],["上班[shàng-bān]","andare al lavoro",""],["出来[chū-lai]","uscire (verso chi parla)",""],["回来[huí-lai]","tornare (qui)",""],["左右[zuǒ-yòu]","circa",""]
+];

@@ -1,0 +1,44 @@
+{
+  "parts": [
+    {"title": "Parte prima · I suoni", "level": "Pinyin", "j": "声音", "items": [
+      {"id": "l1", "t": "I suoni del cinese: pinyin e toni", "j": "拼音和声调", "icon": "i-wave"},
+      {"id": "l2", "t": "Toni in coppia e primi saluti", "j": "你好", "icon": "i-chat"}
+    ]},
+    {"title": "Parte seconda · Le basi", "level": "HSK 1", "j": "基础", "items": [
+      {"id": "l3", "t": "Presentarsi: 是, 叫 e le prime domande", "j": "认识你很高兴", "icon": "i-tag"},
+      {"id": "l4", "t": "Numeri, età e famiglia", "j": "我家有四口人", "icon": "i-family"},
+      {"id": "l5", "t": "Come stai? 很, 不, 有点儿 e 了 di cambiamento", "j": "你好吗", "icon": "i-sun"},
+      {"id": "l6", "t": "Al bar: classificatori, 的 e prezzi", "j": "在咖啡馆", "icon": "i-cup"},
+      {"id": "l7", "t": "Al telefono: dove sei? 在 e 有", "j": "你在哪儿", "icon": "i-phone"},
+      {"id": "l8", "t": "Che ore sono? Giorni e date", "j": "现在几点", "icon": "i-clock"},
+      {"id": "l9", "t": "Volere, sapere, potere", "j": "我想去", "icon": "i-heart"},
+      {"id": "l10", "t": "Che cosa hai fatto? 了 e 没", "j": "昨天", "icon": "i-bag"},
+      {"id": "r1", "t": "Ripasso: le basi", "j": "复习", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte terza · Il livello intermedio", "level": "HSK 2", "j": "中级", "items": [
+      {"id": "l11", "t": "Che tempo fa? Confronti con 比, 一样 e 最", "j": "天气", "icon": "i-umbrella"},
+      {"id": "l12", "t": "Raccontare: 过 e 是…的", "j": "你去过长城吗", "icon": "i-arch"},
+      {"id": "l13", "t": "Che stai facendo? 在, 正在 e 着", "j": "你在做什么呢", "icon": "i-ball"},
+      {"id": "l14", "t": "Per quanto tempo? Durata e frequenza", "j": "多长时间", "icon": "i-kite"},
+      {"id": "l15", "t": "Capire e farsi capire: il risultato", "j": "听懂了吗", "icon": "i-ear"},
+      {"id": "l16", "t": "Come lo fai? Il complemento di grado con 得", "j": "说得很好", "icon": "i-star"},
+      {"id": "r2", "t": "Ripasso: livello intermedio", "j": "复习", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte quarta · Verso HSK 3", "level": "HSK 3", "j": "更长的句子", "items": [
+      {"id": "l17", "t": "Muoversi in città: direzioni e mezzi", "j": "怎么走", "icon": "i-pin"},
+      {"id": "l18", "t": "Riesco o non riesco? Il complemento potenziale", "j": "听得懂吗", "icon": "i-q"},
+      {"id": "l19", "t": "Istruzioni e imprevisti: 把 e 被", "j": "钱包被偷了", "icon": "i-suitcase"},
+      {"id": "l20", "t": "Collegare le frasi e fare piani", "j": "因为……所以", "icon": "i-scroll"},
+      {"id": "l21", "t": "Ascolto: Marco racconta", "j": "马可的故事", "icon": "i-book"},
+      {"id": "r3", "t": "Ripasso finale", "j": "总复习", "icon": "i-trophy", "kind": "review"}
+    ]},
+    {"title": "Appendici", "j": "附录", "items": [
+      {"id": "verbi", "t": "I tempi del verbo, senza coniugazioni", "j": "动词", "icon": "i-verb", "kind": "app", "letter": "A"},
+      {"id": "frasi", "t": "Frasario: le frasi da sapere a memoria", "j": "常用句子", "icon": "i-lemon", "kind": "app", "letter": "B"},
+      {"id": "flash", "t": "Flashcard: ripetizione distanziata", "j": "生词卡", "icon": "i-cards", "kind": "app", "letter": "C"},
+      {"id": "vocab", "t": "Vocabolario", "j": "词汇表", "icon": "i-book", "kind": "app", "letter": "D"},
+      {"id": "tratti", "t": "Scrivere 1: i tratti e il loro ordine", "j": "笔画", "icon": "i-han", "kind": "app", "letter": "E"},
+      {"id": "caratteri", "t": "Scrivere 2: com'è fatto un carattere", "j": "部首", "icon": "i-han", "kind": "app", "letter": "F"}
+    ]}
+  ]
+}

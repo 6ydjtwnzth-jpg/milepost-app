@@ -1,0 +1,18 @@
+DLG.l3=[["A","你[Nǐ] 好[hǎo] ！ 你[Nǐ] 叫[jiào] 什么[shén-me] 名字[míng-zi] ？","Ciao! Come ti chiami?"],["B","我[Wǒ] 叫[jiào] 马可[Mǎ-kě] 。 你[Nǐ] 呢[ne] ？","Mi chiamo Marco. E tu?"],["A","我[Wǒ] 叫[jiào] 王[Wáng] 丽[Lì] 。 你[Nǐ] 是[shì] 哪[nǎ] 国[guó] 人[rén] ？","Mi chiamo Wang Li. Di che paese sei?"],["B","我[Wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。 你[Nǐ] 是[shì] 学生[xué-sheng] 吗[ma] ？","Sono italiano. Sei studentessa?"],["A","不[Bú] 是[shì] ， 我[wǒ] 是[shì] 老师[lǎo-shī] 。 你[Nǐ] 也[yě] 是[shì] 老师[lǎo-shī] 吗[ma] ？","No, sono insegnante. Anche tu sei insegnante?"],["B","不[Bú] 是[shì] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。 认识[Rèn-shi] 你[nǐ] 很[hěn] 高兴[gāo-xìng] ！","No, sono studente. Piacere di conoscerti!"],["A","我[Wǒ] 也[yě] 很[hěn] 高兴[gāo-xìng] ！","Piacere mio!"]];
+EX.l3=[
+ {"q":"Ascolta e scegli che cosa significa.","au":"我[Wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。","o":["Sono italiano/a.","Sono cinese.","Sono studente."],"e":"意大利人[Yì-dà-lì-rén] = italiano (persona)."},
+ {"q":"Ascolta e scegli che cosa significa.","au":"你[Nǐ] 叫[jiào] 什么[shén-me] 名字[míng-zi] ？","o":["Come ti chiami?","Chi è lui?","Di che paese sei?"],"e":"什么[shén-me] 名字[míng-zi] = quale nome."},
+ {"q":"Ascolta e scegli che cosa significa.","au":"她[Tā] 也[yě] 是[shì] 老师[lǎo-shī] 。","o":["Anche lei è insegnante.","Lei non è insegnante.","Lei è una studentessa."],"e":"也[yě] = anche."},
+ {"q":"Ascolta e scegli che cosa significa.","au":"我们[Wǒ-men] 都[dōu] 是[shì] 学生[xué-sheng] 。","o":["Siamo tutti studenti.","Anche noi siamo studenti.","Non siamo studenti."],"e":"都[dōu] = tutti."},
+ {"q":"Qualcuno ti chiede come ti chiami. Come rispondi?","o":["我[Wǒ] 叫[jiào] 马可[Mǎ-kě] 。","我[Wǒ] 是[shì] 叫[jiào] 马可[Mǎ-kě] 。","马可[Mǎ-kě] 我[wǒ] 。"],"e":"Per il nome si usa 叫[jiào], senza 是[shì]."},
+ {"q":"Ti chiedono:","au":"你[Nǐ] 是[shì] 学生[xué-sheng] 吗[ma] ？","o":["是[Shì] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。","吗[Ma] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。","学生[Xué-sheng] 是[shì] 。"],"e":"Si risponde ripetendo il verbo: 是[shì]."},
+ {"q":"Ti chiedono:","au":"你[Nǐ] 是[shì] 哪[nǎ] 国[guó] 人[rén] ？","o":["我[Wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。","我[Wǒ] 叫[jiào] 意大利[Yì-dà-lì] 。","我[Wǒ] 是[shì] 哪[nǎ] 国[guó] 人[rén] 。"],"e":"哪[nǎ] 国[guó] 人[rén] = di che paese. Rispondi con 是[shì] + nazionalità, al posto di 哪[nǎ] 国[guó]."},
+ {"q":"«Anche io sono studente.»","o":["我[Wǒ] 也[yě] 是[shì] 学生[xué-sheng] 。","也[Yě] 我[wǒ] 是[shì] 学生[xué-sheng] 。","我[Wǒ] 是[shì] 也[yě] 学生[xué-sheng] 。"],"e":"也[yě] va dopo il soggetto e prima del verbo."},
+ {"t":"say","it":"Presentati: «Mi chiamo Marco, sono italiano.» (usa il tuo nome)","zh":"我[Wǒ] 叫[jiào] 马可[Mǎ-kě] ， 我[wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。","e":"Al posto di 马可[Mǎ-kě] metti il tuo nome."},
+ {"t":"say","it":"Chiedi: «Come ti chiami?»","zh":"你[Nǐ] 叫[jiào] 什么[shén-me] 名字[míng-zi] ？","e":"Non alzare la voce alla fine: la domanda la fa 什么[shén-me]."},
+ {"t":"say","it":"«Non sono cinese.»","zh":"我[Wǒ] 不[bú] 是[shì] 中国人[Zhōng-guó-rén] 。","e":"不[bú] davanti a 是[shì] si pronuncia bú."},
+ {"t":"say","it":"«Io sono italiano, e tu?»","zh":"我[Wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] ， 你[nǐ] 呢[ne] ？"}
+];
+VOC.l3=[
+ ["是[shì]","essere (tra due nomi)",""],["叫[jiào]","chiamarsi",""],["什么[shén-me]","che cosa, quale",""],["名字[míng-zi]","nome",""],["吗[ma]","particella di domanda sì/no",""],["呢[ne]","«e…?»",""],["他[tā]","lui",""],["她[tā]","lei",""],["我们[wǒ-men]","noi",""],["谁[shéi]","chi",""],["哪[nǎ]","quale",""],["国[guó]","paese",""],["人[rén]","persona",""],["中国[Zhōng-guó]","Cina",""],["意大利[Yì-dà-lì]","Italia",""],["学生[xué-sheng]","studente",""],["老师[lǎo-shī]","insegnante",""],["也[yě]","anche",""],["都[dōu]","tutti, entrambi",""],["认识[rèn-shi]","conoscere (una persona)",""],["高兴[gāo-xìng]","contento",""]
+];

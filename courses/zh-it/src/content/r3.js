@@ -1,0 +1,14 @@
+EX.r3=[
+ {q:"Ascolta e scegli che cosa significa.",au:"请问[Qǐng-wèn] ， 地铁站[dì-tiě-zhàn] 离[lí] 这儿[zhèr] 远[yuǎn] 吗[ma] ？",o:["Scusi, la metro è lontana da qui?","Scusi, dov'è la metro?","Scusi, la metro arriva fin qui?"],e:"Lezione 17: A 离[lí] B 远[yuǎn] = A è lontano da B."},
+ {q:"Ascolta e scegli che cosa significa.",au:"一直[Yì-zhí] 往[wǎng] 前[qián] 走[zǒu] ， 然后[rán-hòu] 往[wǎng] 右[yòu] 拐[guǎi] 。",o:["Vai sempre dritto, poi gira a destra.","Torna indietro, poi gira a sinistra.","Vai dritto, poi attraversa."],e:"往[wǎng] 前[qián] 走[zǒu] = andare avanti; 往[wǎng] 右[yòu] 拐[guǎi] = girare a destra."},
+ {q:"Ascolta e scegli che cosa significa.",au:"他[Tā] 说[shuō] 得[de] 太[tài] 快[kuài] 了[le] ， 我[wǒ] 听[tīng] 不[bu] 懂[dǒng] 。",o:["Parla troppo veloce, non riesco a capire.","Parla piano, capisco tutto.","Non ha parlato, non ho sentito."],e:"Lezioni 16 e 18: 说[shuō] 得[de] 快[kuài] (grado) e 听[tīng] 不[bu] 懂[dǒng] (potenziale)."},
+ {q:"Ascolta e scegli che cosa significa.",au:"我[Wǒ] 的[de] 雨伞[yǔ-sǎn] 被[bèi] 朋友[péng-you] 拿走[ná-zǒu] 了[le] 。",o:["Un amico si è preso il mio ombrello.","Ho preso l'ombrello di un amico.","Ho prestato l'ombrello a un amico."],e:"Lezione 19: con 被[bèi] il soggetto subisce l'azione."},
+ {q:"«Metti il cellulare sul tavolo.»",o:["把[Bǎ] 手机[shǒu-jī] 放[fàng] 在[zài] 桌子[zhuō-zi] 上[shang] 。","把[Bǎ] 手机[shǒu-jī] 放[fàng] 。","放[Fàng] 在[zài] 桌子[zhuō-zi] 上[shang] 把[bǎ] 手机[shǒu-jī] 。"],e:"Lezione 19: 把[bǎ] + oggetto + verbo + dove."},
+ {q:"«Anche se è difficile, mi piace.»",o:["虽然[Suī-rán] 很[hěn] 难[nán] ， 但是[dàn-shì] 我[wǒ] 很[hěn] 喜欢[xǐ-huan] 。","因为[Yīn-wèi] 很[hěn] 难[nán] ， 所以[suǒ-yǐ] 我[wǒ] 很[hěn] 喜欢[xǐ-huan] 。","如果[Rú-guǒ] 很[hěn] 难[nán] ， 我[wǒ] 就[jiù] 喜欢[xǐ-huan] 。"],e:"Lezione 20: 虽然[suī-rán] … 但是[dàn-shì] = anche se … (però)."},
+ {q:"«Appena arrivo a casa ti chiamo.»",o:["我[Wǒ] 一[yí] 到[dào] 家[jiā] 就[jiù] 给[gěi] 你[nǐ] 打[dǎ] 电话[diàn-huà] 。","我[Wǒ] 到[dào] 家[jiā] 一[yí] 就[jiù] 给[gěi] 你[nǐ] 打[dǎ] 电话[diàn-huà] 。","我[Wǒ] 就[jiù] 到[dào] 家[jiā] 一[yí] 给[gěi] 你[nǐ] 打[dǎ] 电话[diàn-huà] 。"],e:"Lezione 20: 一[yī] … 就[jiù] = appena … subito."},
+ {q:"Ti chiedono:",au:"你[Nǐ] 是[shì] 怎么[zěn-me] 来[lái] 的[de] ？",o:["我[Wǒ] 是[shì] 坐[zuò] 地铁[dì-tiě] 来[lái] 的[de] 。","我[Wǒ] 坐[zuò] 地铁[dì-tiě] 了[le] 来[lái] 。","我[Wǒ] 来[lái] 过[guo] 地铁[dì-tiě] 。"],e:"Lezioni 12 e 17: 是[shì] … 的[de] per dire come sei venuto."},
+ {t:"ord",q:"Componi la frase: «Da casa mia alla scuola ci vogliono dieci minuti.»",w:["从[cóng]","我[wǒ] 家[jiā]","到[dào]","学校[xué-xiào]","要[yào]","十[shí] 分钟[fēn-zhōng]"],a:["从[cóng] 我[wǒ] 家[jiā] 到[dào] 学校[xué-xiào] 要[yào] 十[shí] 分钟[fēn-zhōng]"]},
+ {t:"say",it:"Chiedi a un passante: «Scusi, come si arriva alla stazione?»",zh:"请问[Qǐng-wèn] ， 去[qù] 火车站[huǒ-chē-zhàn] 怎么[zěn-me] 走[zǒu] ？"},
+ {t:"say",it:"«Se domani non piove, andiamo al parco.»",zh:"如果[Rú-guǒ] 明天[míng-tiān] 不[bú] 下[xià] 雨[yǔ] ， 我们[wǒ-men] 就[jiù] 去[qù] 公园[gōng-yuán] 。"},
+ {t:"say",it:"«Mi hanno rubato la bicicletta.»",zh:"我[Wǒ] 的[de] 自行车[zì-xíng-chē] 被[bèi] 偷[tōu] 了[le] 。"}
+];

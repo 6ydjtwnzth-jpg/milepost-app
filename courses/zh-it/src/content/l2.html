@@ -1,0 +1,65 @@
+<p class="lead">Nelle parole vere i toni non arrivano mai da soli: vengono a coppie e a volte cambiano. Qui alleni l'orecchio sulle coppie di toni, impari i tre cambi di tono che senti in ogni frase e i primi saluti: 你好[nǐ-hǎo], 谢谢[xiè-xie], 再见[zài-jiàn].</p>
+  <div class="dialog" data-dlg="l2"></div>
+
+  <h3>Il tono neutro</h3>
+  <p>Alcune sillabe perdono il tono e diventano brevi: le particelle 吗[ma], 呢[ne], 的[de], 了[le], il suffisso 们[men], e la seconda sillaba di molte parole doppie: 妈妈[mā-ma], 谢谢[xiè-xie].</p>
+
+  <h3>I toni in coppia</h3>
+  <p>Quasi tutte le parole cinesi hanno <b>due sillabe</b>, e i toni si influenzano a vicenda: il 3° tono davanti a un altro tono resta basso e non risale; il 4° dopo un 1° sembra cadere da più in alto. Allenarsi sulle coppie, più che sui toni isolati, è il modo più rapido per farsi capire. Tocca una parola per ascoltarla e ripetila: riga per riga, poi colonna per colonna.</p>
+  <div class="tw"><table class="tpairs">
+    <tr><th></th><th>+ 1°</th><th>+ 2°</th><th>+ 3°</th><th>+ 4°</th><th>+ neutro</th></tr>
+    <tr><th class="t1">1°</th><td>飞机[fēi-jī]</td><td>中国[Zhōng-guó]</td><td>铅笔[qiān-bǐ]</td><td>车站[chē-zhàn]</td><td>妈妈[mā-ma]</td></tr>
+    <tr><th class="t2">2°</th><td>明天[míng-tiān]</td><td>学习[xué-xí]</td><td>牛奶[niú-nǎi]</td><td>学校[xué-xiào]</td><td>朋友[péng-you]</td></tr>
+    <tr><th class="t3">3°</th><td>北京[Běi-jīng]</td><td>美国[Měi-guó]</td><td>你好[nǐ-hǎo]</td><td>考试[kǎo-shì]</td><td>我们[wǒ-men]</td></tr>
+    <tr><th class="t4">4°</th><td>汽车[qì-chē]</td><td>问题[wèn-tí]</td><td>电脑[diàn-nǎo]</td><td>再见[zài-jiàn]</td><td>爸爸[bà-ba]</td></tr>
+  </table></div>
+
+  <h3>I cambi di tono (sandhi)</h3>
+  <p>Alcuni toni cambiano quando si incontrano. Sono poche regole, ma si sentono in ogni frase.</p>
+  <div class="rule" data-seal="Cambi di tono">
+    <p><b>1. Due terzi toni di fila:</b> il primo diventa secondo tono. Si continua a scrivere il 3°.</p>
+    <div class="exs">
+      <div data-zh="你[nǐ] 好[hǎo]" data-it="ciao · si pronuncia ní hǎo" data-sandhi="ní hǎo"></div>
+      <div data-zh="很[hěn] 好[hǎo]" data-it="molto bene · si pronuncia hén hǎo" data-sandhi="hén hǎo"></div>
+    </div>
+    <p><b>2. 不[bù] davanti a un 4° tono</b> diventa <span class="py">bú</span>. Molti libri lo scrivono già così.</p>
+    <div class="exs">
+      <div data-zh="不[bù] 是[shì]" data-it="non è · si pronuncia bú shì" data-sandhi="bú shì"></div>
+      <div data-zh="不[bú] 去[qù]" data-it="non vado (davanti al 4° tono)"></div>
+      <div data-zh="不[bù] 忙[máng]" data-it="non sono occupato (resta bù)"></div>
+    </div>
+    <p><b>3. 一[yī]</b> resta <span class="py">yī</span> da solo, quando si conta e nei numeri ordinali. Davanti al 4° tono diventa <span class="py">yí</span>, davanti agli altri toni <span class="py">yì</span>.</p>
+    <div class="exs">
+      <div data-zh="一[yí] 个[ge]" data-it="uno (+ classificatore; 个 in origine è 4° tono)"></div>
+      <div data-zh="一[yì] 天[tiān]" data-it="un giorno"></div>
+      <div data-zh="第[dì] 一[yī]" data-it="primo"></div>
+    </div>
+  </div>
+
+  <h3>Allenamento d'ascolto</h3>
+  <div class="tgame" id="listen">
+    <div class="listen">
+      <p>Premi «Nuova sillaba», ascolta e scegli il tono. Fallo per qualche minuto ogni giorno, per la prima settimana: l'orecchio si allena in fretta.</p>
+      <div class="acts" style="margin-left:0"><button class="btn pri" id="lnew">Nuova sillaba</button><button class="btn" id="lagain" disabled>Riascolta</button><span class="score" id="lscore" style="align-self:center;font-family:var(--f-ui);font-size:14px">0 / 0</span></div>
+      <div class="tones" id="ltones">
+        <button class="opt" data-t="1" disabled>1° alto</button>
+        <button class="opt" data-t="2" disabled>2° sale</button>
+        <button class="opt" data-t="3" disabled>3° basso</button>
+        <button class="opt" data-t="4" disabled>4° scende</button>
+      </div>
+      <div class="reveal" id="lreveal"></div>
+    </div>
+  </div>
+  <div class="speech" data-seal="Nel parlato"><h3>Nel parlato</h3><ul class="plain">
+<li>你好[nǐ-hǎo] è un saluto un po' formale. Tra amici si sente spesso 嗨[hāi] o, al mattino, 早[zǎo].</li>
+<li>Al posto di 再见[zài-jiàn] i giovani dicono 拜拜[bái-bai], dall'inglese «bye bye».</li>
+<li>A 谢谢[xiè-xie] si risponde 不客气[bú-kè-qi], 不[bú] 用[yòng] 谢[xiè] o semplicemente 没[méi] 事[shì] «nessun problema».</li>
+</ul></div>
+  <div class="words-head"><h3>Le parole della lezione</h3><span>10 parole</span></div>
+  <div class="words" data-voc="l2"></div>
+  <div class="drill" data-set="l2"></div>
+  <ul class="cando" data-cando="l2">
+    <li>So riconoscere i toni nelle parole di due sillabe, dove si sbaglia di più.</li>
+    <li>So applicare i cambi di tono di 你好[nǐ-hǎo], 不[bù] e 一[yī].</li>
+    <li>So salutare, ringraziare, scusarti e congedarti.</li>
+  </ul>

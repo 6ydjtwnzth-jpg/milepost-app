@@ -8,6 +8,8 @@ var M=MPPlan,C=null;
 CATALOG.courses.forEach(function(c){if(c.storageKey===KEY)C=c});
 if(!C)return;
 var ZH=C.speak==="zh";
+/* lang attribute of the language being learned */
+var LL={ja:"ja",zh:"zh-CN",it:"it"}[C.learn]||C.learn;
 var S={
 it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buongiorno","Buon pomeriggio","Buonasera"],
   steps:{dlg:"Dialogo",voc:"Parole",rule:"Grammatica",rev:"Ripasso",snd:"Suoni e scrittura",cult:"Cultura",test:"Verifica"},
@@ -25,9 +27,10 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   noDate:"Data dell'esame non ancora scelta.",sections:"Per sezione",sectionsSoon:"La preparazione per sezione (vocabolario, grammatica, lettura, ascolto) arriva con le simulazioni d'esame.",
   sim:"Simulazione completa",simS:"Formato reale, a tempo",soon:"In arrivo",mastery:"Padronanza delle lezioni verificate",planT:"Il tuo piano",
   onTrack:"In linea col piano",ahead2:function(n){return "Avanti di "+n+(n===1?" giorno":" giorni")},behind:function(n){return "Indietro di "+n+(n===1?" giorno":" giorni")},practice:"Allenamento d'esame",
-  cult:"Cultura",cultLead:"Italia e Giappone a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
+  cult:"Cultura",cultLead:C.learn==="zh"?"Italia e Cina a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.":"Italia e Giappone a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
   all:"Tutte",readCount:function(a,b){return a+" di "+b+" lette"},readMark:"Letta",fromLesson:function(n){return "Lezione "+n},
-  tools:"Strumenti",toolList:{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutte le forme dei verbi"],kana:["Kana","Hiragana e katakana con audio"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]},
+  tools:"Strumenti",toolList:C.learn==="zh"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["I tempi del verbo","Senza coniugazioni: 了, 过, 着…"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"],tratti:["Scrivere 1","I tratti e il loro ordine"],caratteri:["Scrivere 2","Com'è fatto un carattere"]}
+    :{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutte le forme dei verbi"],kana:["Kana","Hiragana e katakana con audio"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]},
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
   settings:"Impostazioni",readingT:"Lettura e voce",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
@@ -187,7 +190,7 @@ function vCourse(){
     html+='<section class="mp-part" id="mpw'+w+'"><div class="hd hc-'+["red","blue","green"][wi%3]+'"><b><span class="lv">'+h(W.level)+'</span>'+h(W.title.replace(/^[^·]*·\s*/,""))+'</b><small>'+vd+' / '+us.length+'</small></div>';
     us.forEach(function(U){var inf=info(U.id),isH=UNITS.indexOf(U)===hi;
       var st=inf.verified?'<span class="mp-st v">✓ '+inf.pc+'%</span>':inf.pc!=null?'<span class="mp-st w">'+inf.pc+'%</span>':inf.started?'<span class="mp-st e">'+h(S.inProg(inf.done,inf.n))+'</span>':'<span class="mp-st r">'+h(S.todo)+'</span>';
-      html+='<a class="mp-les'+(isH?' here':'')+'" href="#/l/'+U.id+'"><span class="num t-'+U.color+'">'+(U.kind==="lesson"?U.n:"★")+'</span><span>'+(isH?'<em>'+h(S.here)+'</em>':'')+'<b>'+h(title(U))+'</b><small'+(ZH?' lang="it"':' lang="ja"')+'>'+h(subT(U))+'</small><small> · '+inf.tot+' '+h(S.min)+'</small></span>'+st+'</a>'});
+      html+='<a class="mp-les'+(isH?' here':'')+'" href="#/l/'+U.id+'"><span class="num t-'+U.color+'">'+(U.kind==="lesson"?U.n:"★")+'</span><span>'+(isH?'<em>'+h(S.here)+'</em>':'')+'<b>'+h(title(U))+'</b><small'+(ZH?' lang="it"':' lang="'+LL+'"')+'>'+h(subT(U))+'</small><small> · '+inf.tot+' '+h(S.min)+'</small></span>'+st+'</a>'});
     html+='</section>'});
   show(html);
   qa(".mp-chip",view).forEach(function(a){a.onclick=function(e){e.preventDefault();var t=document.getElementById(a.getAttribute("href").slice(1));if(t)t.scrollIntoView({behavior:"smooth",block:"start"})}})}
@@ -209,7 +212,7 @@ function vLesson(id){
   var inf=info(id),nx=nextOf(id),hi=hereIdx(),idx=UNITS.indexOf(U),cds=canDo(id),s0=sec(id),lead=s0&&q("p.lead",s0);
   var pc=Math.round(inf.done/inf.n*100),rg=ruleGroups(id,inf.steps),nw=(VOC[id]||[]).length;
   var html='<section class="mp-lhero hc-'+U.color+'"><a class="mp-ib mp-back" href="#/corso" aria-label="'+h(S.back)+'">'+I.back+'</a>'+
-    '<div class="mp-k">'+h(kick(U))+'</div><h1 tabindex="-1">'+h(title(U))+'</h1><div class="sub" lang="'+(ZH?"it":"ja")+'">'+h(subT(U))+'</div>'+
+    '<div class="mp-k">'+h(kick(U))+'</div><h1 tabindex="-1">'+h(title(U))+'</h1><div class="sub" lang="'+(ZH?"it":LL)+'">'+h(subT(U))+'</div>'+
     '<div class="pb"><span><i style="width:'+pc+'%"></i></span>'+pc+'% · '+h(S.left(inf.left))+'</div></section>';
   if(hi>=0&&idx>hi+1)html+='<div class="mp-hint">'+h(S.ahead(UNITS[hi].kind==="lesson"?UNITS[hi].n:title(UNITS[hi])))+' <a href="#/l/'+UNITS[hi].id+'">'+h(S.backTo)+' ›</a></div>';
   if(lead||cds.length){html+='<section class="mp-card mp-intro"><h2 class="mp-h3">'+h(S.introT)+'</h2><div id="mplead"></div>';
@@ -276,8 +279,8 @@ function vTools(){
   var rw=reviewWords().length,cols=["red","blue","yellow","green","pink"],i=0;
   if(rw>=4)html+='<button class="mp-tool hc-pink" id="mprev"><span class="g">↻</span><b>'+h(S.dailyRev[0])+'</b><small>'+h(S.dailyRev[1])+'</small></button>';
   Object.keys(S.toolList).forEach(function(k){if(!document.getElementById(k))return;var L=S.toolList[k];
-    var g={flash:"⇄",verbi:ZH?"essere":"行く",kana:"あア",frasi:"「」",vocab:"A–Z"}[k];
-    html+='<a class="mp-tool hc-'+cols[i++%cols.length]+'" href="#/leggi/'+k+'"><span class="g"'+(k==="verbi"||k==="kana"?' lang="'+(ZH?"it":"ja")+'"':'')+'>'+h(g)+'</span><b>'+h(L[0])+'</b><small>'+h(L[1])+'</small></a>'});
+    var g={flash:"⇄",verbi:ZH?"essere":C.learn==="zh"?"了过":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
+    html+='<a class="mp-tool hc-'+cols[i++%cols.length]+'" href="#/leggi/'+k+'"><span class="g"'+(/^(verbi|kana|tratti|caratteri)$/.test(k)?' lang="'+(ZH?"it":LL)+'"':'')+'>'+h(g)+'</span><b>'+h(L[0])+'</b><small>'+h(L[1])+'</small></a>'});
   html+='</div>';show(html);
   var rv=q("#mprev",view);if(rv)rv.onclick=function(){openReview()}}
 
@@ -454,16 +457,24 @@ function vSimRev(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame
 /* quality check (only with ?audit=1): every clickable word must have a meaning */
 if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
-  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.au,it.jp,it.it,it.full])})});
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.au,it.jp,it.zh,it.it,it.full])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;
   var div=document.createElement("div"),seen={},miss={};
-  function chk(e){var k=e.getAttribute("data-say");if(seen[k])return;seen[k]=1;if(!meaning(k))miss[k]=1}
+  function chk(e){var k=e.getAttribute("data-say");if(seen[k])return;seen[k]=1;var m=meaning(k);seen[k]=m||1;if(!m)miss[k]=1}
   strs.forEach(function(t){try{div.innerHTML=render(t)}catch(x){return}qa(".w[data-say]",div).forEach(chk)});
   qa(".book .w[data-say]").forEach(chk);
-  return {total:Object.keys(seen).length,miss:Object.keys(miss)}};
+  /* everything the course can say aloud (to generate and check the audio files) */
+  var says={};function sa(x){if(x&&typeof x==="string"&&/[\u3040-\u9fff]/.test(x))says[x.trim().replace(/\s+/g," ")]=1}
+  Object.keys(seen).forEach(sa);qa("[data-say]").forEach(function(e){sa(e.getAttribute("data-say"))});
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){sa(it.au);sa(it.jp);sa(it.zh);sa(it.full);if(it.a)it.a.forEach(sa);if(it.o)it.o.forEach(sa);if(it.w&&!it.w.length===2)it.w.forEach(sa)})});
+  Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){sa(r[1])})});
+  if(typeof W!=="undefined")W.forEach(function(w){sa(w[0])});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){sa(c.i);(c.w||[]).forEach(function(w){sa(w[0])})})});
+  (window.TONEDRILL||[]).forEach(function(r){sa(r[0])});
+  return {total:Object.keys(seen).length,miss:Object.keys(miss),all:seen,says:Object.keys(says)}};
 /* first visit straight to the page: land on Today */
 if(!location.hash||location.hash==="#"||location.hash==="#mappa")try{history.replaceState(null,"","#/oggi")}catch(e){}
 render();

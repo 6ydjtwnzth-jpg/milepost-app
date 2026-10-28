@@ -4,6 +4,7 @@ Corsi di lingua seri, spiegati nella lingua di chi studia, con un piano onesto f
 
 Corsi disponibili:
 - **Giapponese per italiani** (`ja-it`): da zero all'A2, preparazione JLPT N5 (N4 in completamento).
+- **Cinese per italiani** (`zh-it`): dai suoni e dai toni alle basi dell'HSK 3; grammatica di HSK 1 e 2 (le parole richieste dal nuovo HSK sono più di quelle del corso: lo diciamo nella pagina Esame).
 - **Italiano per cinesi** (`it-zh`): da zero all'A2, preparazione CILS / PLIDA A2.
 
 ## Come funziona
