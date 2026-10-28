@@ -55,7 +55,44 @@ function mixHTML(text){return String(text).split(MIXRE).map(function(part,i){if(
   if(BAREKJ.test(part))return '<span class="jx" lang="ja">'+esc(part)+'</span>';
   return '<span class="jx" lang="ja">'+jpHTML(part)+'</span><span class="ro-i"> ('+esc(jromaji(part))+')</span>'}).join("")}
 function hasJ(s){return JRUN.test(String(s))}
-function meaning(t){var s=jsurf(t);return DICT[t]||DICT[s]||(typeof CONJ_IDX!=="undefined"&&(CONJ_IDX[s]||CONJ_IDX[t]))||""}
+/* meaning of a clicked word: dictionary first, then readable rules (numbers, syllables, polite prefixes, forms of known words) */
+var KDIG={"〇":0,"一":1,"二":2,"三":3,"四":4,"五":5,"六":6,"七":7,"八":8,"九":9};
+function kanjiNum(x){if(!/^[〇一二三四五六七八九十百千万]+$/.test(x))return null;var tot=0,sec=0,cur=0;
+  for(var i=0;i<x.length;i++){var c=x[i];if(c in KDIG)cur=KDIG[c];else if(c==="十"||c==="百"||c==="千"){sec+=(cur||1)*{"十":10,"百":100,"千":1000}[c];cur=0}else if(c==="万"){tot+=((sec+cur)||1)*10000;sec=0;cur=0}}
+  return tot+sec+cur}
+var MESI=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+var COUNTERS=[["時間",function(n){return n+(n===1?" ora":" ore")+" (durata)"}],["番線",function(n){return "binario "+n}],["年前",function(n){return n+(n===1?" anno fa":" anni fa")}],
+  ["さい",function(n){return n+(n===1?" anno":" anni")+" (età)"}],["歳",function(n){return n+" anni (età)"}],["人",function(n){return n===1?"una persona, da solo":n+" persone"}],["名",function(n){return n+" persone (cortese)"}],
+  ["円",function(n){return n+" yen"}],["時",function(n){return "le "+n+" (ora)"}],["分",function(n){return n+(n===1?" minuto":" minuti")}],["本",function(n){return n+" (oggetti lunghi: bottiglie, penne…)"}],
+  ["枚",function(n){return n+" (oggetti piatti: fogli, biglietti…)"}],["杯",function(n){return n+" (bicchieri, tazze)"}],["回",function(n){return n+(n===1?" volta":" volte")}],
+  ["月",function(n){return MESI[n-1]||(n+" mesi")}],["日",function(n){return n===1?"il primo del mese":"il giorno "+n+"; "+n+" giorni"}],["年",function(n){return n+(n===1?" anno":" anni")}],
+  ["番",function(n){return "numero "+n}],["つ",function(n){return n+(n===1?" (una cosa)":" (cose)")}],["つ目",function(n){return n+"° (il "+n+"°)"}]];
+function numMeaning(sf){if(/^[〇一二三四五六七八九十百千万]+$/.test(sf))return String(kanjiNum(sf));
+  for(var i=0;i<COUNTERS.length;i++){var c=COUNTERS[i][0];if(sf.length>c.length&&sf.slice(-c.length)===c){var head=sf.slice(0,-c.length);
+    if(head==="何")return "quanti/quante? (con "+c+")";var n=kanjiNum(head);if(n!=null)return COUNTERS[i][1](n)}}return ""}
+function verbOf(form){var v=CONJ_IDX[form];return v?v.split(" · ")[0]:""}
+var VRULES=[[/^(.+)たくなかった$/,"ます","non voleva/non volevo: "],[/^(.+)たかった$/,"ます","voleva/volevo: "],[/^(.+)たくない$/,"ます","non voglio: "],[/^(.+)たい$/,"ます","voglio, vorrei: "],
+  [/^(.+)ましょうか$/,"ます","facciamo…? (proposta): "],[/^(.+)ましょう$/,"ます","facciamo…! (proposta): "],[/^(.+)ませんか$/,"ます","perché non…? (invito): "],
+  [/^(.+)なければ$/,"ない","bisogna, devo (…nakereba naranai): "],[/^(.+)なきゃ$/,"ない","devo (parlato): "],[/^(.+)ないで$/,"ない","senza…; non… (per favore): "],[/^(.+)なくて$/,"ない","non… e (forma -nakute): "],
+  [/^(.+[たっんい])たら$/,"た","se/quando… (forma -tara): "],[/^(.+[だ])ら$/,"だ","se/quando… (forma -tara): "],[/^(.+)たら$/,"た","se/quando… (forma -tara): "],
+  [/^(.+[てで])(?:います|いる|ます|る|た|ました)$/,"","sta…, ha… (forma -te iru): "],[/^(.+)に$/,"ます","(andare/venire) a… per: "]];
+function verbMeaning(sf){for(var i=0;i<VRULES.length;i++){var m=sf.match(VRULES[i][0]);if(!m)continue;var st=m[1],end=VRULES[i][1];
+  var v=end===""?verbOf(st):end==="た"||end==="だ"?verbOf(st+end):verbOf(st+end);if(v)return VRULES[i][2]+v}return ""}
+var AJ=[["くなかった","non era "],["かった","era (passato): "],["くない","non "],["くて","… e (forma -te): "],["そう","sembra "],["く","in modo… (avverbio): "]];
+function adjMeaning(sf){for(var i=0;i<AJ.length;i++){var e=AJ[i][0];if(sf.length>e.length&&sf.slice(-e.length)===e){var b=sf.slice(0,-e.length)+"い";
+  var m=DICT[b]||(b==="よい"?DICT["いい"]:"");if(m)return AJ[i][1]+m}}
+  var na=sf.match(/^(.+?)(じゃない|じゃありません|ではない|じゃなかった|だった|でした|に|な)$/);if(na&&DICT[na[1]])return DICT[na[1]]+" ("+na[2]+")";return ""}
+var READIX=null;
+function readIndex(){if(READIX)return READIX;READIX={};Object.keys(DICT).forEach(function(k){if(/\[/.test(k)){var r=jkana(k);if(!READIX[r])READIX[r]=DICT[k]}});return READIX}
+function meaning(t){var s=jsurf(t),hit=DICT[t]||DICT[s]||(typeof CONJ_IDX!=="undefined"&&(CONJ_IDX[s]||CONJ_IDX[t]));if(hit)return hit;
+  var sf=jplain(t).replace(/^〜/,"");if(sf!==jplain(t)&&(DICT[sf]||DICT["〜"+sf]))return DICT[sf]||DICT["〜"+sf];
+  var r=numMeaning(sf)||adjMeaning(sf)||(typeof CONJ_IDX!=="undefined"?verbMeaning(sf):"");if(r)return r;
+  if(/^[おご]/.test(sf)&&DICT[sf.slice(1)])return DICT[sf.slice(1)]+" (con お/ご di cortesia)";
+  if(/さん$/.test(sf)&&sf.length>2){var b=sf.slice(0,-2);if(DICT[b])return DICT[b]+" (di altri, cortese)";if(/^[ァ-ヺー]+$/.test(b))return "sig./sig.ra "+b}
+  if(/^[ぁ-ゖ]+$/.test(sf)){var ri=readIndex()[sf];if(ri)return ri}
+  if(/^[ぁ-ゖァ-ヺ][ゃゅょャュョァィゥェォ]?$/.test(sf))return "sillaba «"+jromaji(sf)+"»";
+  if(/^[ゃゅょャュョ]$/.test(sf))return "piccola "+jromaji(sf.replace(/./,function(c){return {"ゃ":"や","ゅ":"ゆ","ょ":"よ","ャ":"ヤ","ュ":"ユ","ョ":"ヨ"}[c]}))+": si unisce alla sillaba prima (kya, sho…)";
+  return ""}
 
 /* ---------- verbi ---------- */
 var GI={"う":"い","く":"き","ぐ":"ぎ","す":"し","つ":"ち","ぬ":"に","ぶ":"び","む":"み","る":"り"},GA={"う":"わ","く":"か","ぐ":"が","す":"さ","つ":"た","ぬ":"な","ぶ":"ば","む":"ま","る":"ら"},
@@ -96,7 +133,7 @@ function hideTip(){tip.hidden=true;tipFor=null;clearTimeout(tipTimer)}
 document.addEventListener("mouseover",function(e){var w=e.target.closest&&e.target.closest(".w");if(w&&w!==tipFor)showTip(w);else if(!w&&tipFor)hideTip()});
 document.addEventListener("focusin",function(e){var w=e.target.closest&&e.target.closest(".w");if(w)showTip(w)});
 document.addEventListener("focusout",function(e){if(e.target===tipFor)hideTip()});
-document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer);tipTimer=setTimeout(hideTip,3500)}});
+document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer)}else if(tipFor&&!(e.target.closest&&e.target.closest(".tip")))hideTip()});
 window.addEventListener("scroll",function(){if(tipFor)hideTip()},{passive:true});
 
 /* ---------- esempi ---------- */

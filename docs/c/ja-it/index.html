@@ -2788,6 +2788,87 @@ var DICT={
 "〜さん":"signor/signora","〜じん":"di nazionalità…","〜ご":"lingua…","〜さい":"anni (età)","〜じ":"… in punto (ore)","〜ふん":"minuti","〜えん":"yen"
 };
 
+/* ---------- meanings added so that every clickable word has one ----------
+   Grammar fragments (って, かった…) are explained as endings; names say what they are. */
+Object.assign(DICT,{
+"ございます":"forma molto cortese di あります/です (in ありがとうございます, おはようございます)",
+"ございました":"passato di ございます (in ありがとうございました: grazie, per una cosa finita)",
+"ロッシ":"Rossi (cognome italiano)","マルコ":"Marco (nome)","ジュリア":"Giulia (nome)","たなか":"Tanaka (cognome giapponese)",
+"さとう":"Satō (cognome); anche: zucchero","すずき":"Suzuki (cognome)","たかはし":"Takahashi (cognome)",
+"か。":"か alla fine = punto di domanda parlato",
+"よにん":"quattro persone","さんにん":"tre persone","じゅうご":"quindici","ごじゅう":"cinquanta","じゅう":"dieci","よん":"quattro",
+"なな":"sette","しち":"sette (altra lettura)","きゅう":"nove","ゼロ":"zero","さんびゃく":"trecento","ろっぴゃく":"seicento",
+"はたち":"20 anni (età: lettura speciale)","くじ":"le nove (9時)","みっか":"il 3 del mese; tre giorni",
+"ふつか":"il 2 del mese; due giorni","よっか":"il 4 del mese; quattro giorni","いつか":"il 5 del mese; cinque giorni","むいか":"il 6 del mese; sei giorni",
+"なのか":"il 7 del mese; sette giorni","ようか":"l'8 del mese; otto giorni","ここのか":"il 9 del mese; nove giorni","とおか":"il 10 del mese; dieci giorni",
+"いっぽん":"uno (oggetto lungo: bottiglia, penna…)","さんぼん":"tre (oggetti lunghi)","なんぼん":"quanti? (oggetti lunghi)","ろっぽん":"sei (oggetti lunghi)",
+"ぽん":"-pon: contatore 本 dopo 1, 6, 8, 10","ぼん":"-bon: contatore 本 dopo 3 e 何","いちまい":"uno (oggetto piatto)","にまい":"due (oggetti piatti)",
+"さんまい":"tre (oggetti piatti)","なんまい":"quanti? (oggetti piatti)","いっぱい":"un bicchiere/una tazza; anche: pieno","にはい":"due bicchieri/tazze",
+"さんばい":"tre bicchieri/tazze","なんばい":"quanti bicchieri/tazze?","ぱい":"-pai: contatore 杯 dopo 1, 6, 8, 10","ばい":"-bai: contatore 杯 dopo 3 e 何","ろっぱい":"sei bicchieri/tazze",
+"本[ほん]":"libro; contatore per oggetti lunghi (bottiglie, penne)","枚[まい]":"contatore per oggetti piatti (fogli, biglietti, magliette)",
+"杯[はい]":"contatore per bicchieri e tazze","人[にん]":"contatore per persone (3人 = tre persone)","人[ひと]":"persona","人[じん]":"-jin: persona di (nazionalità)",
+"〜人[にん]":"… persone (contatore)","名[めい]":"contatore cortese per persone (al ristorante)","さい":"anni (età)","時[じ]":"ora (le … in punto)","〜時[じ]":"le … (ore)",
+"分[ふん]":"minuto","分[ぶん]":"parte, porzione","〜分[ふん]":"… minuti","ぷん":"-pun: minuti dopo 1, 3, 4, 6, 8, 10","月[がつ]":"mese (in gennaio, febbraio…)",
+"〜月[がつ]":"mese numero … (1月 = gennaio)","日[にち]":"giorno","〜日[にち]":"il giorno … del mese","日[ひ]":"giorno; sole","回[かい]":"volta (contatore)",
+"円[えん]":"yen (moneta giapponese)","えん":"yen","ぜんぶ":"tutto, in tutto","ずつ":"… ciascuno, … alla volta",
+"フランス人[じん]":"francese (persona)","中国人[ちゅうごくじん]":"cinese (persona)","外国人[がいこくじん]":"straniero (persona)",
+"大学[だいがく]":"università","木[き]":"albero","昼[ひる]ごはん":"pranzo","つくえ":"scrivania","店[みせ]":"negozio","みせ":"negozio","川[かわ]":"fiume","車[くるま]":"auto, macchina",
+"口[くち]":"bocca","薬[くすり]":"medicina","地図[ちず]":"mappa","空気[くうき]":"aria; atmosfera (leggere l'aria = capire la situazione)","袋[ふくろ]":"sacchetto, busta",
+"友[とも]だち":"amico, amica","会社員[かいしゃいん]":"impiegato (di un'azienda)","出口[でぐち]":"uscita","入口[いりぐち]":"entrata","西口[にしぐち]":"uscita ovest (di una stazione)",
+"丁目[ちょうめ]":"isolato, quartiere (negli indirizzi)","定食[ていしょく]":"menù fisso (piatto principale, riso, zuppa)","食品[しょくひん]サンプル":"riproduzioni in plastica dei piatti in vetrina",
+"レストラン":"ristorante","テスト":"esame, verifica","シャツ":"camicia; maglietta","ファミリー":"famiglia","パーティー":"festa","ブラボー":"bravo!",
+"カプチーノ":"cappuccino","ジェラート":"gelato","ペペロンチーノ":"spaghetti aglio, olio e peperoncino","ナポリタン":"«napolitan»: spaghetti al ketchup (piatto giapponese)",
+"ドリア":"«doria»: riso gratinato (piatto giapponese di origine occidentale)","バール":"bar all'italiana","イタめし":"cucina italiana (in gergo)",
+"百円[ひゃくえん]ショップ":"negozio dove quasi tutto costa 100 yen","百[ひゃく]円[えん]ショップ":"negozio dove quasi tutto costa 100 yen",
+"キャラ弁[べん]":"bentō decorato con personaggi","べんとう":"bentō: pranzo al sacco giapponese","とんこつ":"brodo di ossa di maiale (ramen)","しお":"sale",
+"なっとう":"nattō: soia fermentata","なまもの":"cibi crudi","カラ":"vuoto (karaoke = orchestra vuota)","オケ":"orchestra","ミラノ":"Milano","ナポリ":"Napoli","ローマ":"Roma",
+"おおさか":"Osaka","ほっかいどう":"Hokkaidō","ひろしま":"Hiroshima","京都[きょうと]":"Kyoto","きゅうしゅう":"Kyūshū (isola)","しこく":"Shikoku (isola)",
+"ふじ山[さん]":"monte Fuji","トヨタ":"Toyota","こうしえん":"Kōshien (torneo di baseball delle scuole superiori)","けいろう":"rispetto per gli anziani (festa)",
+"にゅうがくしき":"cerimonia d'ingresso a scuola","そつぎょう":"diploma, fine degli studi","けっこん":"matrimonio","留学[りゅうがく]":"studiare all'estero",
+"しょうめいしょ":"certificato","のうりょく":"capacità (in 日本語能力試験 = JLPT)","ちえん":"ritardo (dei treni)","のりかえ":"cambio (di treno)","よやく":"prenotazione",
+"れんらく":"contatto, farsi sentire","つごう":"disponibilità, comodità («ti va bene?»)","むかえ":"andare a prendere qualcuno","おいわい":"festeggiamento, regalo",
+"今日[きょう]":"oggi","今度[こんど]":"la prossima volta","来月[らいげつ]":"il mese prossimo","さいご":"ultimo, alla fine","あと":"dopo; ancora","あいだ":"tra, durante",
+"むこう":"di là, dall'altra parte","こちら":"da questa parte; questa persona (cortese)","とき":"quando, momento","こと":"cosa, fatto (rende nome un verbo)",
+"ほう":"lato (…のほうがいい = è meglio…)","〜ほう":"… è meglio (confronto)","ほど":"quanto (… ほど … ない = non tanto quanto)","よう":"modo, aspetto; forma volitiva (-you)",
+"〜よう":"facciamo… (forma volitiva)","〜おう":"facciamo… (forma volitiva dei verbi in -u)","つもり":"intenzione","〜つもり":"ho intenzione di…","用[よう]":"impegno, cosa da fare",
+"にがて":"non essere bravo in, non sopportare","無理[むり]":"impossibile, troppo","大丈夫[だいじょうぶ]":"va bene, tutto a posto","本当[ほんとう]":"vero, davvero","残念[ざんねん]":"peccato",
+"同[おな]じ":"uguale, lo stesso","新[あたら]しい":"nuovo","安[やす]い":"economico","安[やす]かった":"era economico","安[やす]かったら":"se è economico",
+"赤[あか]い":"rosso","白[しろ]い":"bianco","わるい":"cattivo, brutto","早[はや]く":"presto, in fretta","楽[たの]しみ":"non vedo l'ora (attesa piacevole)",
+"ねむそう":"ha l'aria assonnata","お大事[だいじ]に":"guarisci presto, riguardati","お大事[だいじ]":"(お大事に = riguardati)","おめでとう":"auguri, congratulazioni",
+"ごちそうさま":"grazie del pasto (alla fine)","おつかれさま":"grazie della fatica (tra colleghi)","お先[さき]":"prima (お先に失礼します = vado prima di voi)","失礼[しつれい]":"scortesia; (失礼します = permesso, scusate)",
+"どういたしまして":"prego, di niente","いかが":"come? (cortese di どう: いかがですか = che ne dice?)","らっしゃい":"(いらっしゃい = benvenuto)","おかえりなさい":"bentornato",
+"気[き]を":"(気をつけて = stai attento)","つけて":"(気をつけて = stai attento)","助[たす]けて":"aiuto!","いりません":"non serve, non ne ho bisogno","わかりません":"non capisco, non lo so",
+"ありますか":"c'è? avete?","なりません":"(〜なければなりません = bisogna, devo)","いけません":"non va bene, non si deve","へえ":"ah sì? davvero?","わあ":"wow","うーん":"mmh…",
+"ははは":"ahah","なあ":"eh… (esclamazione, riflessione)","よね":"vero? (cerchi conferma)","また":"di nuovo; (またね = a presto)","そんな":"così, una cosa del genere",
+"なんだ":"è…? / ah, è così (parlato)","んだ":"è che… (spiegazione, parlato)","〜んです":"è che… (spiega o chiede spiegazioni)","すると":"allora, ecco che",
+"かも":"forse","〜かも":"forse… (parlato)","しれません":"(かもしれません = forse)","さま":"signor/signora (molto cortese)","ひめ":"principessa","さる":"scimmia",
+"ももたろう":"Momotarō, il bambino nato dalla pesca (fiaba)","かぐや":"Kaguya, la principessa della luna (fiaba)","うらしま":"Urashima (fiaba del pescatore)","たろう":"Tarō (nome)",
+"げんじ":"Genji, protagonista del Genji monogatari","むらさき":"Murasaki (Shikibu), autrice del Genji monogatari","しきぶ":"Shikibu (in Murasaki Shikibu)",
+"ななころび":"sette cadute (proverbio: cadi sette volte…)","やおき":"…rialzati otto","いそがば":"se hai fretta…","まわれ":"…fai il giro lungo (proverbio)","おちる":"cadere",
+"もえる":"bruciare (もえるごみ = rifiuti combustibili)","こ・そ・あ・ど":"le serie ko-so-a-do: qui, lì, là, dove?","これ・それ・あれ":"questo, codesto, quello","この・その・あの":"questo/codesto/quello + nome",
+"あいうえお":"le cinque vocali","かきくけこ":"la riga ka","さしすせそ":"la riga sa","きて":"sillabe ki + te; (来て = vieni)","おう":"o + u: suona come una o lunga","えい":"e + i: suona come una e lunga",
+"ございます。":"forma molto cortese",
+"くない":"-kunai: negativo degli aggettivi in -i","かった":"-katta: passato degli aggettivi in -i","くなかった":"-kunakatta: passato negativo degli aggettivi in -i","くて":"-kute: forma -te degli aggettivi in -i (e…)",
+"〜くて":"…e… (unisce aggettivi in -i)","かったら":"(-kattara) se è…","よかったら":"se ti va, se vuoi","わるかったら":"se non va bene","だったら":"se è…, allora",
+"たい":"-tai: voglio…","〜たい":"voglio… (forma -tai)","たくない":"non voglio…","〜ない":"forma negativa (-nai)","〜なければ":"bisogna… (-nakereba naranai)","なければ":"(-nakereba) se non… → bisogna",
+"〜なくて":"non… e (forma -nakute)","なくて":"non… e (forma -nakute)","〜ないで":"senza…; non… (per favore)","いで":"(-naide) senza…","たら":"-tara: se/quando…","〜たら":"se/quando… (forma -tara)",
+"〜てます":"sta…-ndo (forma -te imasu, parlato)","られる":"-rareru: potere (forma potenziale)","って":"-tte: forma -te dei verbi in -u, -tsu, -ru","んで":"-nde: forma -te dei verbi in -mu, -bu, -nu",
+"わない":"-wanai: negativo dei verbi in -u (かう → かわない)","あない":"(forma sbagliata: per かう il negativo è かわない)","かあない":"(forma sbagliata: si dice かわない)","とらない":"non prendere (とる)",
+"なる":"diventare","なります":"diventa","なりました":"è diventato","なって":"diventando (forma -te di なる)","みる":"vedere; (〜てみる = provare a…)","みて":"guarda; (〜てみて = prova a…)",
+"みました":"ho visto; (〜てみました = ho provato a…)","はじめました":"ho cominciato","はじめた":"ho cominciato (forma piana)","もらいました":"ho ricevuto","あげました":"ho dato (a qualcuno)",
+"あげたい":"voglio dare/regalare","くれました":"mi ha dato","くれた":"mi ha dato (forma piana)","あそびます":"giocare, divertirsi, uscire","あそびました":"mi sono divertito, sono uscito",
+"あそびましょう":"usciamo, divertiamoci","はたらいて":"lavorando (forma -te di はたらく)","はたらこう":"lavoriamo (volitiva di はたらく)","およぎました":"ho nuotato","あびます":"farsi (la doccia)",
+"あびて":"facendo (la doccia)","まがって":"gira (forma -te di まがる)","とって":"prendi; (forma -te di とる)","すって":"fumando (forma -te di すう)","さわって":"tocca (forma -te di さわる)",
+"あけて":"apri (forma -te di あける)","つつんで":"incarta (forma -te di つつむ)","見[み]せて":"fammi vedere","いって":"vai; (いってきます = vado e torno)","ねた":"ho dormito (forma piana)",
+"のぼった":"sono salito (forma piana)","のぼりたい":"voglio salire/scalare","かえったら":"quando torno","行[い]けます":"posso andare","使[つか]えます":"si può usare",
+"話[はな]せます":"so/posso parlare","できます":"posso, so fare","食[た]べれる":"(parlato) posso mangiare; standard: 食べられる","食[た]べられません":"non posso mangiare",
+"出[で]ます":"esco, parte","知[し]って":"(知っています = so, conosco)","知[し]っていません":"(sbagliato: «non so» si dice 知りません)","知[し]ってます":"lo so (parlato)",
+"考[かんが]えます":"pensare, riflettere","かぶる":"mettere (in testa: cappello)","かける":"mettere (occhiali); telefonare","はいて":"indossando (scarpe, pantaloni)","うける":"sostenere (un esame)",
+"とめない":"non parcheggiare/non fermare","わすれない":"non dimenticare","走[はし]る":"correre","勉強[べんきょう]":"studio",
+"いちまい ":"uno (oggetto piatto)",
+"ぜんぶで":"in tutto"
+});
+
 var DLG={},EX={},VOC={},CULT={};
 var LESSONS=[{"id": "l1", "n": 1, "t": "Suoni, primi kana e saluti", "j": "あいさつ", "kind": "lesson", "icon": "i-kana", "color": "red", "w": 1}, {"id": "l2", "n": 2, "t": "Mi chiamo Marco", "j": "じこしょうかい", "kind": "lesson", "icon": "i-tag", "color": "blue", "w": 1}, {"id": "l3", "n": 3, "t": "Tutti gli hiragana, doppie e vocali lunghe", "j": "ひらがな", "kind": "lesson", "icon": "i-wave", "color": "yellow", "w": 1}, {"id": "l4", "n": 4, "t": "Che cos'è? これ・それ・あれ", "j": "これは何ですか", "kind": "lesson", "icon": "i-book", "color": "green", "w": 1}, {"id": "l5", "n": 5, "t": "La mia famiglia e i numeri", "j": "かぞく", "kind": "lesson", "icon": "i-family", "color": "pink", "w": 1}, {"id": "l6", "n": 6, "t": "Come stai? Gli aggettivi", "j": "げんきですか", "kind": "lesson", "icon": "i-sun", "color": "red", "w": 1}, {"id": "l7", "n": 7, "t": "Che cosa fai? I verbi in -masu", "j": "まいにち", "kind": "lesson", "icon": "i-chat", "color": "blue", "w": 1}, {"id": "l8", "n": 8, "t": "Al konbini e al caffè", "j": "コンビニで", "kind": "lesson", "icon": "i-cup", "color": "yellow", "w": 1}, {"id": "r1", "n": null, "t": "Ripasso 1", "j": "ふくしゅう", "kind": "review", "icon": "i-loop", "color": "green", "w": 1}, {"id": "l9", "n": 9, "t": "Fare domande", "j": "しつもん", "kind": "lesson", "icon": "i-q", "color": "pink", "w": 2}, {"id": "l10", "n": 10, "t": "La mia giornata: ore e passato", "j": "わたしの一日", "kind": "lesson", "icon": "i-clock", "color": "red", "w": 2}, {"id": "l11", "n": 11, "t": "Il tempo libero: piacere e inviti", "j": "しゅみ", "kind": "lesson", "icon": "i-ball", "color": "blue", "w": 2}, {"id": "l12", "n": 12, "t": "In città: dove si trova?", "j": "まちで", "kind": "lesson", "icon": "i-pin", "color": "yellow", "w": 2}, {"id": "l13", "n": 13, "t": "La forma -te: per favore, posso…?", "j": "て形", "kind": "lesson", "icon": "i-phone", "color": "green", "w": 2}, {"id": "l14", "n": 14, "t": "Al ristorante: contare e ordinare", "j": "レストランで", "kind": "lesson", "icon": "i-fork", "color": "pink", "w": 2}, {"id": "r2", "n": null, "t": "Ripasso 2", "j": "ふくしゅう", "kind": "review", "icon": "i-loop", "color": "red", "w": 2}, {"id": "l15", "n": 15, "t": "Il fine settimana: passato degli aggettivi", "j": "週末", "kind": "lesson", "icon": "i-ticket", "color": "blue", "w": 3}, {"id": "l16", "n": 16, "t": "In viaggio: voglio andare…", "j": "りょこう", "kind": "lesson", "icon": "i-umbrella", "color": "yellow", "w": 3}, {"id": "l17", "n": 17, "t": "Quando ero piccolo: la forma informale", "j": "子どものころ", "kind": "lesson", "icon": "i-kite", "color": "green", "w": 3}, {"id": "l18", "n": 18, "t": "Raccontare: -te iru, -te kara", "j": "ものがたり", "kind": "lesson", "icon": "i-scroll", "color": "pink", "w": 3}, {"id": "l19", "n": 19, "t": "Gusti, confronti e opinioni", "j": "くらべる", "kind": "lesson", "icon": "i-heart", "color": "red", "w": 3}, {"id": "l20", "n": 20, "t": "Fare spese e fare regali", "j": "かいもの", "kind": "lesson", "icon": "i-bag", "color": "blue", "w": 3}, {"id": "l21", "n": 21, "t": "Progetti e condizioni", "j": "これから", "kind": "lesson", "icon": "i-suitcase", "color": "yellow", "w": 3}, {"id": "l22", "n": 22, "t": "Salute e servizi: devo, posso", "j": "びょういん", "kind": "lesson", "icon": "i-cross", "color": "green", "w": 3}, {"id": "l23", "n": 23, "t": "Marco a Tokyo: racconta la tua storia", "j": "東京のマルコ", "kind": "lesson", "icon": "i-torii", "color": "pink", "w": 3}, {"id": "r3", "n": null, "t": "Ripasso 3 e test A2", "j": "ふくしゅう・テスト", "kind": "review", "icon": "i-star", "color": "red", "w": 3}];
 var WORLDS=[{"title": "Parte prima · Primi passi", "level": "A1.1", "j": "はじめの一歩"}, {"title": "Parte seconda · La vita di tutti i giorni", "level": "A1.2", "j": "まいにちの生活"}, {"title": "Parte terza · Raccontare", "level": "A2", "j": "話す・伝える"}];
@@ -3908,7 +3989,44 @@ function mixHTML(text){return String(text).split(MIXRE).map(function(part,i){if(
   if(BAREKJ.test(part))return '<span class="jx" lang="ja">'+esc(part)+'</span>';
   return '<span class="jx" lang="ja">'+jpHTML(part)+'</span><span class="ro-i"> ('+esc(jromaji(part))+')</span>'}).join("")}
 function hasJ(s){return JRUN.test(String(s))}
-function meaning(t){var s=jsurf(t);return DICT[t]||DICT[s]||(typeof CONJ_IDX!=="undefined"&&(CONJ_IDX[s]||CONJ_IDX[t]))||""}
+/* meaning of a clicked word: dictionary first, then readable rules (numbers, syllables, polite prefixes, forms of known words) */
+var KDIG={"〇":0,"一":1,"二":2,"三":3,"四":4,"五":5,"六":6,"七":7,"八":8,"九":9};
+function kanjiNum(x){if(!/^[〇一二三四五六七八九十百千万]+$/.test(x))return null;var tot=0,sec=0,cur=0;
+  for(var i=0;i<x.length;i++){var c=x[i];if(c in KDIG)cur=KDIG[c];else if(c==="十"||c==="百"||c==="千"){sec+=(cur||1)*{"十":10,"百":100,"千":1000}[c];cur=0}else if(c==="万"){tot+=((sec+cur)||1)*10000;sec=0;cur=0}}
+  return tot+sec+cur}
+var MESI=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+var COUNTERS=[["時間",function(n){return n+(n===1?" ora":" ore")+" (durata)"}],["番線",function(n){return "binario "+n}],["年前",function(n){return n+(n===1?" anno fa":" anni fa")}],
+  ["さい",function(n){return n+(n===1?" anno":" anni")+" (età)"}],["歳",function(n){return n+" anni (età)"}],["人",function(n){return n===1?"una persona, da solo":n+" persone"}],["名",function(n){return n+" persone (cortese)"}],
+  ["円",function(n){return n+" yen"}],["時",function(n){return "le "+n+" (ora)"}],["分",function(n){return n+(n===1?" minuto":" minuti")}],["本",function(n){return n+" (oggetti lunghi: bottiglie, penne…)"}],
+  ["枚",function(n){return n+" (oggetti piatti: fogli, biglietti…)"}],["杯",function(n){return n+" (bicchieri, tazze)"}],["回",function(n){return n+(n===1?" volta":" volte")}],
+  ["月",function(n){return MESI[n-1]||(n+" mesi")}],["日",function(n){return n===1?"il primo del mese":"il giorno "+n+"; "+n+" giorni"}],["年",function(n){return n+(n===1?" anno":" anni")}],
+  ["番",function(n){return "numero "+n}],["つ",function(n){return n+(n===1?" (una cosa)":" (cose)")}],["つ目",function(n){return n+"° (il "+n+"°)"}]];
+function numMeaning(sf){if(/^[〇一二三四五六七八九十百千万]+$/.test(sf))return String(kanjiNum(sf));
+  for(var i=0;i<COUNTERS.length;i++){var c=COUNTERS[i][0];if(sf.length>c.length&&sf.slice(-c.length)===c){var head=sf.slice(0,-c.length);
+    if(head==="何")return "quanti/quante? (con "+c+")";var n=kanjiNum(head);if(n!=null)return COUNTERS[i][1](n)}}return ""}
+function verbOf(form){var v=CONJ_IDX[form];return v?v.split(" · ")[0]:""}
+var VRULES=[[/^(.+)たくなかった$/,"ます","non voleva/non volevo: "],[/^(.+)たかった$/,"ます","voleva/volevo: "],[/^(.+)たくない$/,"ます","non voglio: "],[/^(.+)たい$/,"ます","voglio, vorrei: "],
+  [/^(.+)ましょうか$/,"ます","facciamo…? (proposta): "],[/^(.+)ましょう$/,"ます","facciamo…! (proposta): "],[/^(.+)ませんか$/,"ます","perché non…? (invito): "],
+  [/^(.+)なければ$/,"ない","bisogna, devo (…nakereba naranai): "],[/^(.+)なきゃ$/,"ない","devo (parlato): "],[/^(.+)ないで$/,"ない","senza…; non… (per favore): "],[/^(.+)なくて$/,"ない","non… e (forma -nakute): "],
+  [/^(.+[たっんい])たら$/,"た","se/quando… (forma -tara): "],[/^(.+[だ])ら$/,"だ","se/quando… (forma -tara): "],[/^(.+)たら$/,"た","se/quando… (forma -tara): "],
+  [/^(.+[てで])(?:います|いる|ます|る|た|ました)$/,"","sta…, ha… (forma -te iru): "],[/^(.+)に$/,"ます","(andare/venire) a… per: "]];
+function verbMeaning(sf){for(var i=0;i<VRULES.length;i++){var m=sf.match(VRULES[i][0]);if(!m)continue;var st=m[1],end=VRULES[i][1];
+  var v=end===""?verbOf(st):end==="た"||end==="だ"?verbOf(st+end):verbOf(st+end);if(v)return VRULES[i][2]+v}return ""}
+var AJ=[["くなかった","non era "],["かった","era (passato): "],["くない","non "],["くて","… e (forma -te): "],["そう","sembra "],["く","in modo… (avverbio): "]];
+function adjMeaning(sf){for(var i=0;i<AJ.length;i++){var e=AJ[i][0];if(sf.length>e.length&&sf.slice(-e.length)===e){var b=sf.slice(0,-e.length)+"い";
+  var m=DICT[b]||(b==="よい"?DICT["いい"]:"");if(m)return AJ[i][1]+m}}
+  var na=sf.match(/^(.+?)(じゃない|じゃありません|ではない|じゃなかった|だった|でした|に|な)$/);if(na&&DICT[na[1]])return DICT[na[1]]+" ("+na[2]+")";return ""}
+var READIX=null;
+function readIndex(){if(READIX)return READIX;READIX={};Object.keys(DICT).forEach(function(k){if(/\[/.test(k)){var r=jkana(k);if(!READIX[r])READIX[r]=DICT[k]}});return READIX}
+function meaning(t){var s=jsurf(t),hit=DICT[t]||DICT[s]||(typeof CONJ_IDX!=="undefined"&&(CONJ_IDX[s]||CONJ_IDX[t]));if(hit)return hit;
+  var sf=jplain(t).replace(/^〜/,"");if(sf!==jplain(t)&&(DICT[sf]||DICT["〜"+sf]))return DICT[sf]||DICT["〜"+sf];
+  var r=numMeaning(sf)||adjMeaning(sf)||(typeof CONJ_IDX!=="undefined"?verbMeaning(sf):"");if(r)return r;
+  if(/^[おご]/.test(sf)&&DICT[sf.slice(1)])return DICT[sf.slice(1)]+" (con お/ご di cortesia)";
+  if(/さん$/.test(sf)&&sf.length>2){var b=sf.slice(0,-2);if(DICT[b])return DICT[b]+" (di altri, cortese)";if(/^[ァ-ヺー]+$/.test(b))return "sig./sig.ra "+b}
+  if(/^[ぁ-ゖ]+$/.test(sf)){var ri=readIndex()[sf];if(ri)return ri}
+  if(/^[ぁ-ゖァ-ヺ][ゃゅょャュョァィゥェォ]?$/.test(sf))return "sillaba «"+jromaji(sf)+"»";
+  if(/^[ゃゅょャュョ]$/.test(sf))return "piccola "+jromaji(sf.replace(/./,function(c){return {"ゃ":"や","ゅ":"ゆ","ょ":"よ","ャ":"ヤ","ュ":"ユ","ョ":"ヨ"}[c]}))+": si unisce alla sillaba prima (kya, sho…)";
+  return ""}
 
 /* ---------- verbi ---------- */
 var GI={"う":"い","く":"き","ぐ":"ぎ","す":"し","つ":"ち","ぬ":"に","ぶ":"び","む":"み","る":"り"},GA={"う":"わ","く":"か","ぐ":"が","す":"さ","つ":"た","ぬ":"な","ぶ":"ば","む":"ま","る":"ら"},
@@ -3949,7 +4067,7 @@ function hideTip(){tip.hidden=true;tipFor=null;clearTimeout(tipTimer)}
 document.addEventListener("mouseover",function(e){var w=e.target.closest&&e.target.closest(".w");if(w&&w!==tipFor)showTip(w);else if(!w&&tipFor)hideTip()});
 document.addEventListener("focusin",function(e){var w=e.target.closest&&e.target.closest(".w");if(w)showTip(w)});
 document.addEventListener("focusout",function(e){if(e.target===tipFor)hideTip()});
-document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer);tipTimer=setTimeout(hideTip,3500)}});
+document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer)}else if(tipFor&&!(e.target.closest&&e.target.closest(".tip")))hideTip()});
 window.addEventListener("scroll",function(){if(tipFor)hideTip()},{passive:true});
 
 /* ---------- esempi ---------- */
@@ -4426,7 +4544,7 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   dayCult:"Curiosità del giorno",read:"Leggi",week:"Settimana",days:"giorni",canDo:"Ora sai fare",canDoEmpty:"Qui compariranno le cose che sai fare, man mano che verifichi le lezioni.",
   noPlan:"Crea il tuo piano",noPlanS:"Tre domande e sai quando arrivi al traguardo.",
   course:"Il corso",here:"Sei qui",todo:"Da fare",inProg:function(a,b){return a+" di "+b},verified:"Verificata",
-  knowT:"Alla fine saprai",ahead:function(n){return "Stai andando avanti rispetto al percorso consigliato (sei alla lezione "+n+"). Puoi farlo: se qualcosa non torna, ripassa da lì."},
+  knowT:"Alla fine saprai",introT:"In questa lezione",stepsT:"Studia passo passo",stepsS:"Ogni tappa dura pochi minuti. L'ordine consigliato è questo, ma puoi aprirle come vuoi.",rulesT:"Le regole",rulesS:"Tocca una regola per leggerla qui. «Esercitati» apre la spiegazione con gli esercizi.",practiceBtn:"Esercitati",introR:"Introduzione",wordsT:"Le parole",wordsS:"Tocca ▶ per ascoltare, tocca la parola per lettura e significato.",showAll:function(n){return "Mostra tutte ("+n+")"},ahead:function(n){return "Stai andando avanti rispetto al percorso consigliato (sei alla lezione "+n+"). Puoi farlo: se qualcosa non torna, ripassa da lì."},
   backTo:"Torna alla lezione consigliata",readAll:"Leggi la lezione intera",cont:function(s){return "Continua: "+s},redo:"Rifai la verifica",start:"Comincia",
   exam:"Esame",examNone:"Non hai scelto un esame.",examNoneS:"Se ti prepari a un esame, il piano arriva fino al giorno della prova.",chooseExam:"Scegli un esame",
   examIn:function(n){return n===1?"giorno":"giorni"},ready:function(d){return "Al ritmo attuale sei pronto verso "+d+"."},margin:function(w){return w<=1?"Arrivi giusto in tempo.":w+" settimane di margine."},late:function(w){return "Al ritmo attuale arrivi "+w+" settimane dopo l'esame: aumenta un po' il tempo o scegli una sessione successiva."},
@@ -4447,7 +4565,7 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   dayCult:"今日文化",read:"阅读",week:"本周",days:"天",canDo:"现在你能",canDoEmpty:"完成小测验后，这里会显示你学会做的事。",
   noPlan:"制定你的计划",noPlanS:"三个问题，就知道什么时候达到目标。",
   course:"课程",here:"你在这里",todo:"未开始",inProg:function(a,b){return a+" / "+b},verified:"已掌握",
-  knowT:"学完后你能",ahead:function(n){return "你比推荐的进度走得快（推荐第 "+n+" 课）。可以继续；如果有不懂的，回去复习。"},
+  knowT:"学完后你能",introT:"这一课",stepsT:"一步一步学",stepsS:"每一步只需要几分钟。推荐按这个顺序，但你可以随意打开。",rulesT:"语法规则",rulesS:"点一条规则就在这里阅读。「练习」会打开讲解和练习。",practiceBtn:"练习",introR:"导入",wordsT:"单词",wordsS:"点 ▶ 听发音，点单词看意思。",showAll:function(n){return "显示全部（"+n+"）"},ahead:function(n){return "你比推荐的进度走得快（推荐第 "+n+" 课）。可以继续；如果有不懂的，回去复习。"},
   backTo:"回到推荐的课",readAll:"阅读整课内容",cont:function(s){return "继续："+s},redo:"再做一次小测验",start:"开始",
   exam:"考试",examNone:"你还没有选择考试。",examNoneS:"如果你在准备考试，计划会一直安排到考试那天。",chooseExam:"选择考试",
   examIn:function(){return "天"},ready:function(d){return "按现在的节奏，大约 "+d+" 准备好。"},margin:function(w){return w<=1?"刚好赶上。":"比考试提前 "+w+" 周。"},late:function(w){return "按现在的节奏，会比考试晚 "+w+" 周：每天多学一点，或者选择下一次考试。"},
@@ -4601,22 +4719,49 @@ function vCourse(){
   qa(".mp-chip",view).forEach(function(a){a.onclick=function(e){e.preventDefault();var t=document.getElementById(a.getAttribute("href").slice(1));if(t)t.scrollIntoView({behavior:"smooth",block:"start"})}})}
 
 /* ---------- Lezione ---------- */
+/* rules of a lesson, split at each h3: what the learner can open and read on the lesson page */
+function ruleGroups(id,steps){var gs=[],cur=null;
+  function clean(el){var c=el.cloneNode(true);qa("rt,.ro-i,.ro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}
+  bodyNodes(id).forEach(function(n){
+    var t=n.matches("h3")?n:n.matches("details")?q("summary",n):q("h3",n);
+    if(t){cur={t:t,box:n,nodes:[n],scopri:n.matches("details")};gs.push(cur)}
+    else{if(!cur){cur={t:null,nodes:[]};gs.push(cur)}cur.nodes.push(n)}});
+  gs.forEach(function(g){var st=steps.filter(function(x){return (x.k==="rule"||x.k==="rev")&&x.n.indexOf(g.nodes[0])>=0})[0];g.key=st?st.key:null;
+    g.title=g.t?clean(g.t):S.introR;
+    var p=null;g.nodes.some(function(n){p=n.matches("p")?n:q("p",n);if(p&&g.t&&g.t.contains(p))p=null;return !!p});g.ex=p?clean(p):""});
+  return gs.filter(function(g){return g.nodes.length})}
 function vLesson(id){
   var U=UNITS.filter(function(u){return u.id===id})[0];if(!U){location.replace("#/corso");return}
-  var inf=info(id),nx=nextOf(id),hi=hereIdx(),idx=UNITS.indexOf(U),cds=canDo(id);
-  var pc=Math.round(inf.done/inf.n*100);
+  var inf=info(id),nx=nextOf(id),hi=hereIdx(),idx=UNITS.indexOf(U),cds=canDo(id),s0=sec(id),lead=s0&&q("p.lead",s0);
+  var pc=Math.round(inf.done/inf.n*100),rg=ruleGroups(id,inf.steps),nw=(VOC[id]||[]).length;
   var html='<section class="mp-lhero hc-'+U.color+'"><a class="mp-ib mp-back" href="#/corso" aria-label="'+h(S.back)+'">'+I.back+'</a>'+
     '<div class="mp-k">'+h(kick(U))+'</div><h1 tabindex="-1">'+h(title(U))+'</h1><div class="sub" lang="'+(ZH?"it":"ja")+'">'+h(subT(U))+'</div>'+
     '<div class="pb"><span><i style="width:'+pc+'%"></i></span>'+pc+'% · '+h(S.left(inf.left))+'</div></section>';
   if(hi>=0&&idx>hi+1)html+='<div class="mp-hint">'+h(S.ahead(UNITS[hi].kind==="lesson"?UNITS[hi].n:title(UNITS[hi])))+' <a href="#/l/'+UNITS[hi].id+'">'+h(S.backTo)+' ›</a></div>';
-  if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,4).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
+  if(lead||cds.length){html+='<section class="mp-card mp-intro"><h2 class="mp-h3">'+h(S.introT)+'</h2><div id="mplead"></div>';
+    if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,5).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
+    html+='</section>'}
+  html+='<h2 class="mp-h2">'+h(S.stepsT)+'</h2><p class="mp-sub">'+h(S.stepsS)+'</p>';
   html+='<div class="mp-secs">'+inf.steps.map(function(st){var dn=stepDone(id,st),now=nx&&st.key===nx.key,m=stepMinutes(id,st),ic=I[st.k==="cult"?"cultS":st.k]||I.rule;
     var right=st.k==="test"&&inf.pc!=null?(inf.verified?'✓ ':'')+inf.pc+'%':dn?'✓ '+m+' '+S.min:m+' '+S.min;
     return '<button class="mp-sec'+(dn?' done':'')+(now?' now':'')+'" data-k="'+st.key+'"><span class="ic">'+(dn?I.check:ic)+'</span><span><b>'+h(stepLabel(st))+'</b><small>'+h(stepSub(id,st))+'</small></span><em>'+h(right)+'</em></button>'}).join("")+'</div>';
+  html+='<button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button>';
+  if(rg.length){html+='<h2 class="mp-h2">'+h(S.rulesT)+'</h2><p class="mp-sub">'+h(S.rulesS)+'</p><div class="mp-rules">'+
+    rg.map(function(g,i){return '<details class="mp-rule'+(g.scopri?' mp-q':'')+'" data-g="'+i+'"><summary><span class="n">'+(g.scopri?'?':(i+1-rg.slice(0,i).filter(function(x){return x.scopri}).length))+'</span><span><b>'+h(g.title)+'</b>'+(g.ex?'<small>'+h(g.ex.slice(0,110))+(g.ex.length>110?'…':'')+'</small>':'')+'</span></summary><div class="mp-rbody"></div>'+
+      (g.key?'<button class="mp-mini" data-k="'+g.key+'">'+h(S.practiceBtn)+I.arrow+'</button>':'')+'</details>'}).join("")+'</div>'}
+  if(nw){html+='<h2 class="mp-h2">'+h(S.wordsT)+' <small class="mp-cnt">'+nw+'</small></h2><p class="mp-sub">'+h(S.wordsS)+'</p><div class="mp-card mp-words"><div class="words mp-wclip" data-voc="'+id+'"></div>'+
+    (nw>8?'<button class="mp-mini alt" id="mpwall">'+h(S.showAll(nw))+'</button>':'')+'</div>'}
   html+='<a class="mp-link" href="#/leggi/'+id+'">'+h(S.readAll)+' ›</a>';
-  html+='<div class="mp-foot"><button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button></div>';
   show(html);
-  qa(".mp-sec",view).forEach(function(b){b.onclick=function(){openStep(id,b.getAttribute("data-k"))}});
+  var ld=q("#mplead",view);if(ld&&lead){var lc=lead.cloneNode(true);lc.classList.add("mp-leadp");ld.appendChild(lc)}
+  qa(".mp-rule",view).forEach(function(d){d.addEventListener("toggle",function(){var b=q(".mp-rbody",d);if(d.open&&!b.firstChild){var g=rg[+d.getAttribute("data-g")];
+    var src=g.scopri?Array.prototype.filter.call(g.box.children,function(c){return !c.matches("summary")}):g.nodes.filter(function(n){return n!==g.t});
+    var cl=cloneNodes(src);
+    if(g.t&&!g.scopri){var hh=q("h3",cl);if(hh)hh.remove()}
+    qa("details",cl).forEach(function(x){x.open=true});b.appendChild(cl)}})});
+  var wv=q(".words[data-voc]",view);if(wv)renderWords(wv);
+  var wa=q("#mpwall",view);if(wa)wa.onclick=function(){wv.classList.remove("mp-wclip");wa.remove()};
+  qa(".mp-sec,.mp-mini[data-k]",view).forEach(function(b){b.onclick=function(){openStep(id,b.getAttribute("data-k"))}});
   q("#mpgo",view).onclick=function(){openStep(id,nx?nx.key:"test")}}
 
 /* ---------- Esame ---------- */
@@ -4695,6 +4840,20 @@ function openSettings(){var th=themeNow();
     CATALOG.courses.forEach(function(c){M.store.del(M.pathKey(c));M.store.del(c.storageKey);M.store.del(c.storageKey+"-cultread")});M.store.del("milepost-v1");location.href="../../"};
   sh.hidden=shb.hidden=false;try{q("button",sh).focus()}catch(e){}}
 
+
+/* quality check (only with ?audit=1): every clickable word must have a meaning */
+if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
+  var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.au,it.jp,it.it,it.full])})});
+  Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
+  if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
+  var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;
+  var div=document.createElement("div"),seen={},miss={};
+  function chk(e){var k=e.getAttribute("data-say");if(seen[k])return;seen[k]=1;if(!meaning(k))miss[k]=1}
+  strs.forEach(function(t){try{div.innerHTML=render(t)}catch(x){return}qa(".w[data-say]",div).forEach(chk)});
+  qa(".book .w[data-say]").forEach(chk);
+  return {total:Object.keys(seen).length,miss:Object.keys(miss)}};
 /* first visit straight to the page: land on Today */
 if(!location.hash||location.hash==="#"||location.hash==="#mappa")try{history.replaceState(null,"","#/oggi")}catch(e){}
 render();

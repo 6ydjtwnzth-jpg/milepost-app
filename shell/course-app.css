@@ -184,3 +184,28 @@ html.mp .stage .drill.one .dhead{display:flex!important;flex-direction:row!impor
 html.mp .stage .drill.one .dhead .score{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--sheet);box-shadow:var(--shadow);color:var(--ink);font-weight:800;white-space:nowrap}
 html.mp .stage .drill.one .q{background:var(--sheet);border-radius:22px;box-shadow:var(--shadow);padding:16px!important}
 html.mp .stage .st-foot:has(.st-go:disabled){display:none}
+
+/* lesson page: intro, rules, words */
+.mp-h3{font-family:var(--f-disp);font-weight:800;font-size:18px;margin:0 0 8px}
+.mp-intro{margin-top:16px}
+.mp-intro .mp-leadp{margin:0;font-size:15.5px;line-height:1.7}
+.mp-intro .mp-know{margin-top:12px}
+.mp-sub{margin:-4px 0 10px;font-size:13.5px;color:var(--muted);line-height:1.45}
+.mp-cnt{font-family:var(--f-body);font-size:13px;font-weight:800;color:var(--muted);background:var(--sheet);border-radius:999px;padding:2px 9px;box-shadow:var(--shadow)}
+.mp-rules{display:flex;flex-direction:column;gap:8px}
+.mp-rule{background:var(--sheet);border-radius:var(--mp-rs);box-shadow:var(--shadow);overflow:hidden}
+.mp-rule summary{list-style:none;display:flex;gap:12px;align-items:flex-start;padding:13px 14px;cursor:pointer;min-height:56px}
+.mp-rule summary::-webkit-details-marker{display:none}
+.mp-rule summary .n{flex:none;width:30px;height:30px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-family:var(--f-disp);font-weight:800;font-size:14px}
+.mp-rule summary b{display:block;font-size:15.5px;line-height:1.35}
+.mp-rule summary small{display:block;font-size:13px;color:var(--muted);line-height:1.4;margin-top:2px}
+.mp-rule[open] summary small{display:none}
+.mp-rule[open] summary{border-bottom:1px solid var(--line)}
+.mp-rbody{padding:4px 14px 6px;font-size:15.5px;line-height:1.7}
+.mp-rbody .st-clone{gap:12px}
+#mpapp .mp-mini{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin:4px 14px 14px;padding:0 16px;border-radius:999px;background:var(--red);color:#fff!important;font-weight:800;font-size:14px}
+#mpapp .mp-mini svg{width:16px;height:16px}
+#mpapp .mp-mini.alt{background:var(--paper);color:var(--ink)!important;box-shadow:var(--shadow);margin:10px 0 0}
+.mp-words{padding:8px 12px 12px}
+.mp-wclip .wd:nth-child(n+9){display:none}
+.mp-rule.mp-q summary .n{background:var(--yellow-soft);color:var(--ink)}

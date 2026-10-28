@@ -60,9 +60,9 @@ var MIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width
 
 /* ---------- parole cliccabili ---------- */
 var LET=/[A-Za-zÀ-ÖØ-öø-ÿ]/;
-function itHTML(text,plain){return String(text).split(/(\s+)/).map(function(tok){
-  if(/^\s*$/.test(tok))return tok;
-  var m=tok.match(/^([«"(¿¡—–-]*)(.*?)([.,!?;:»")…—]*)$/);var core=m?m[2]:tok;
+function itHTML(text,plain){return String(text).split(/(\s+|[，。、；：！？])/).map(function(tok){
+  if(!tok)return "";if(/^\s*$/.test(tok)||/^[，。、；：！？]$/.test(tok))return esc(tok);
+  var m=tok.match(/^([«"(¿¡—–\-（「『…]*)(.*?)([.,!?;:»")…—。，！？；：、）」』]*)$/);var core=m?m[2]:tok;
   if(!core||!LET.test(core))return esc(tok);
   return esc(m[1])+(plain?esc(core):'<span class="w" tabindex="0" role="button" data-say="'+esc(core)+'">'+esc(core)+'</span>')+esc(m[3]);
 }).join("")}
@@ -70,6 +70,21 @@ function norm(w){return w.toLowerCase().replace(/[’]/g,"'")}
 function meaning(w){var k=norm(w);if(DICT[k])return DICT[k];if(typeof CONJ_IDX!=="undefined"&&CONJ_IDX[k])return CONJ_IDX[k];
   var i=k.indexOf("'");if(i>0&&i<k.length-1){var a=k.slice(0,i+1),b=k.slice(i+1),ma=DICT[a],mb=DICT[b];if(ma||mb)return (ma||a)+" + "+(mb||b)}
   if(/^[A-Z]/.test(w)&&!DICT[k])return "专有名词";
+  return formMeaning(k)}
+/* forms of known words: plural/feminine, participles, gerunds, imperfect, conditional, infinitive + pronoun */
+function look(x){return DICT[x]||(typeof CONJ_IDX!=="undefined"&&CONJ_IDX[x])||""}
+function formMeaning(k){var c,m,i;
+  var NOUN=[["chi","co"],["ghi","go"],["che","ca"],["ghe","ga"],["i","o"],["i","e"],["i","a"],["e","a"],["e","o"],["a","o"],["ie","ia"]];
+  for(i=0;i<NOUN.length;i++){var e=NOUN[i];if(k.length>3&&k.slice(-e[0].length)===e[0]){c=k.slice(0,-e[0].length)+e[1];if(look(c))return look(c)+"（"+c+" 的变化形式）"}}
+  var inf=function(st,cl){return [st+"are",st+"ere",st+"ire"].filter(function(x){return look(x)})[0]};
+  if((m=k.match(/^(.+)(?:ando|endo)$/))&&(c=inf(m[1])))return "正在…（动名词，"+c+"："+look(c)+"）";
+  if((m=k.match(/^(.+)(?:ato|ata|ati|ate)$/))&&look(m[1]+"are"))return "过去分词："+m[1]+"are（"+look(m[1]+"are")+"）";
+  if((m=k.match(/^(.+)(?:uto|uta|uti|ute)$/))&&look(m[1]+"ere"))return "过去分词："+m[1]+"ere（"+look(m[1]+"ere")+"）";
+  if((m=k.match(/^(.+)(?:ito|ita|iti|ite)$/))&&look(m[1]+"ire"))return "过去分词："+m[1]+"ire（"+look(m[1]+"ire")+"）";
+  if((m=k.match(/^(.+)(?:avo|avi|ava|avamo|avate|avano)$/))&&look(m[1]+"are"))return "未完成过去时："+m[1]+"are（"+look(m[1]+"are")+"）";
+  if((m=k.match(/^(.+)(?:evo|evi|eva|evamo|evate|evano)$/))&&(c=inf(m[1])))return "未完成过去时："+c+"（"+look(c)+"）";
+  if((m=k.match(/^(.+?)(?:erei|eresti|erebbe|eremmo|ereste|erebbero|rei|resti|rebbe|remmo|reste|rebbero)$/))&&(c=inf(m[1])))return "条件式："+c+"（"+look(c)+"）";
+  if((m=k.match(/^(.+?)(mi|ti|ci|vi|si|lo|la|li|le|ne|gli)$/))&&m[1].length>2){c=/r$/.test(m[1])?m[1]+"e":m[1];if(look(c))return c+" + "+m[2]+"（"+look(c)+"）"}
   return ""}
 
 
@@ -151,7 +166,7 @@ function hideTip(){tip.hidden=true;tipFor=null;clearTimeout(tipTimer)}
 document.addEventListener("mouseover",function(e){var w=e.target.closest&&e.target.closest(".w");if(w&&w!==tipFor)showTip(w);else if(!w&&tipFor)hideTip()});
 document.addEventListener("focusin",function(e){var w=e.target.closest&&e.target.closest(".w");if(w)showTip(w)});
 document.addEventListener("focusout",function(e){if(e.target===tipFor)hideTip()});
-document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer);tipTimer=setTimeout(hideTip,3000)}});
+document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer)}else if(tipFor&&!(e.target.closest&&e.target.closest(".tip")))hideTip()});
 window.addEventListener("scroll",function(){if(tipFor)hideTip()},{passive:true});
 
 /* ---------- esempi e testo italiano nel testo ---------- */

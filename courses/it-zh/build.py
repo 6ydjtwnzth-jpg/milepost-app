@@ -181,7 +181,7 @@ def main():
             sprite() + '\n' + rd('topbar.html') + '<div class="book">\n' + toc() + '\n\n<main>\n' + hero + '\n' +
             '<section class="lesson t-green" id="metodo" data-kind="intro">\n  <header class="lhead"><div class="lh-text"><div class="kicker"><span>开始之前</span><span class="itk">Il metodo</span></div>\n  <h2>学习方法：先用耳朵，再用嘴巴</h2></div><svg class="lic" aria-hidden="true"><use href="#i-bulb"/></svg></header>\n' + metodo + '\n</section>\n\n' +
             ''.join(body) + footer + '\n</main>\n</div>\n\n<script>\n(function(){\n"use strict";\n' +
-            rd('js', 'dict.js') + '\n' + data_js + '\n' + rd('js', 'app.js') + '\n' + rd('js', 'path.js') + '\n})();\n</script>\n\n</body>\n</html>\n')
+            rd('js', 'dict.js') + '\n' + rd('js', 'dict2.js') + '\n' + data_js + '\n' + rd('js', 'app.js') + '\n' + rd('js', 'path.js') + '\n})();\n</script>\n\n</body>\n</html>\n')
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page)
     print(f'index.html: {n_less} lessons, {n_dlg} dialogs, {n_ex} exercises, {n_voc} words, {len(page)//1024} KB')

@@ -29,6 +29,9 @@ ciò che manca si mostra come "In arrivo".
 - Anteprima: `cd docs && python3 -m http.server 8765`.
 
 ## Regole
+- Ogni parola cliccabile deve avere un significato (tocco e passaggio del mouse). Verifica: apri un corso con `?audit=1`
+  e chiama `MPAUDIT()` in console (deve restituire `miss: []`). Significati aggiunti: `courses/<id>/src/js/dict2.js`.
+- La pagina lezione mostra sempre: introduzione, "alla fine saprai", tappe, regole leggibili sul posto, parole.
 - Il piano è onesto: ore tipiche di studio per livello/esame (ripasso incluso), mai solo il tempo delle lezioni.
 - Progressi: li possiede la pagina del corso (`<storageKey>-path` in localStorage); la shell li legge e scrive solo `skip` e `goal`.
 - Storage sempre dietro try/catch. Animazioni rispettano `prefers-reduced-motion`. Target di tocco ≥ 44 px. Tema chiaro e scuro.

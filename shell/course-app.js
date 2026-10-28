@@ -18,7 +18,7 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   dayCult:"Curiosità del giorno",read:"Leggi",week:"Settimana",days:"giorni",canDo:"Ora sai fare",canDoEmpty:"Qui compariranno le cose che sai fare, man mano che verifichi le lezioni.",
   noPlan:"Crea il tuo piano",noPlanS:"Tre domande e sai quando arrivi al traguardo.",
   course:"Il corso",here:"Sei qui",todo:"Da fare",inProg:function(a,b){return a+" di "+b},verified:"Verificata",
-  knowT:"Alla fine saprai",ahead:function(n){return "Stai andando avanti rispetto al percorso consigliato (sei alla lezione "+n+"). Puoi farlo: se qualcosa non torna, ripassa da lì."},
+  knowT:"Alla fine saprai",introT:"In questa lezione",stepsT:"Studia passo passo",stepsS:"Ogni tappa dura pochi minuti. L'ordine consigliato è questo, ma puoi aprirle come vuoi.",rulesT:"Le regole",rulesS:"Tocca una regola per leggerla qui. «Esercitati» apre la spiegazione con gli esercizi.",practiceBtn:"Esercitati",introR:"Introduzione",wordsT:"Le parole",wordsS:"Tocca ▶ per ascoltare, tocca la parola per lettura e significato.",showAll:function(n){return "Mostra tutte ("+n+")"},ahead:function(n){return "Stai andando avanti rispetto al percorso consigliato (sei alla lezione "+n+"). Puoi farlo: se qualcosa non torna, ripassa da lì."},
   backTo:"Torna alla lezione consigliata",readAll:"Leggi la lezione intera",cont:function(s){return "Continua: "+s},redo:"Rifai la verifica",start:"Comincia",
   exam:"Esame",examNone:"Non hai scelto un esame.",examNoneS:"Se ti prepari a un esame, il piano arriva fino al giorno della prova.",chooseExam:"Scegli un esame",
   examIn:function(n){return n===1?"giorno":"giorni"},ready:function(d){return "Al ritmo attuale sei pronto verso "+d+"."},margin:function(w){return w<=1?"Arrivi giusto in tempo.":w+" settimane di margine."},late:function(w){return "Al ritmo attuale arrivi "+w+" settimane dopo l'esame: aumenta un po' il tempo o scegli una sessione successiva."},
@@ -39,7 +39,7 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   dayCult:"今日文化",read:"阅读",week:"本周",days:"天",canDo:"现在你能",canDoEmpty:"完成小测验后，这里会显示你学会做的事。",
   noPlan:"制定你的计划",noPlanS:"三个问题，就知道什么时候达到目标。",
   course:"课程",here:"你在这里",todo:"未开始",inProg:function(a,b){return a+" / "+b},verified:"已掌握",
-  knowT:"学完后你能",ahead:function(n){return "你比推荐的进度走得快（推荐第 "+n+" 课）。可以继续；如果有不懂的，回去复习。"},
+  knowT:"学完后你能",introT:"这一课",stepsT:"一步一步学",stepsS:"每一步只需要几分钟。推荐按这个顺序，但你可以随意打开。",rulesT:"语法规则",rulesS:"点一条规则就在这里阅读。「练习」会打开讲解和练习。",practiceBtn:"练习",introR:"导入",wordsT:"单词",wordsS:"点 ▶ 听发音，点单词看意思。",showAll:function(n){return "显示全部（"+n+"）"},ahead:function(n){return "你比推荐的进度走得快（推荐第 "+n+" 课）。可以继续；如果有不懂的，回去复习。"},
   backTo:"回到推荐的课",readAll:"阅读整课内容",cont:function(s){return "继续："+s},redo:"再做一次小测验",start:"开始",
   exam:"考试",examNone:"你还没有选择考试。",examNoneS:"如果你在准备考试，计划会一直安排到考试那天。",chooseExam:"选择考试",
   examIn:function(){return "天"},ready:function(d){return "按现在的节奏，大约 "+d+" 准备好。"},margin:function(w){return w<=1?"刚好赶上。":"比考试提前 "+w+" 周。"},late:function(w){return "按现在的节奏，会比考试晚 "+w+" 周：每天多学一点，或者选择下一次考试。"},
@@ -193,22 +193,49 @@ function vCourse(){
   qa(".mp-chip",view).forEach(function(a){a.onclick=function(e){e.preventDefault();var t=document.getElementById(a.getAttribute("href").slice(1));if(t)t.scrollIntoView({behavior:"smooth",block:"start"})}})}
 
 /* ---------- Lezione ---------- */
+/* rules of a lesson, split at each h3: what the learner can open and read on the lesson page */
+function ruleGroups(id,steps){var gs=[],cur=null;
+  function clean(el){var c=el.cloneNode(true);qa("rt,.ro-i,.ro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}
+  bodyNodes(id).forEach(function(n){
+    var t=n.matches("h3")?n:n.matches("details")?q("summary",n):q("h3",n);
+    if(t){cur={t:t,box:n,nodes:[n],scopri:n.matches("details")};gs.push(cur)}
+    else{if(!cur){cur={t:null,nodes:[]};gs.push(cur)}cur.nodes.push(n)}});
+  gs.forEach(function(g){var st=steps.filter(function(x){return (x.k==="rule"||x.k==="rev")&&x.n.indexOf(g.nodes[0])>=0})[0];g.key=st?st.key:null;
+    g.title=g.t?clean(g.t):S.introR;
+    var p=null;g.nodes.some(function(n){p=n.matches("p")?n:q("p",n);if(p&&g.t&&g.t.contains(p))p=null;return !!p});g.ex=p?clean(p):""});
+  return gs.filter(function(g){return g.nodes.length})}
 function vLesson(id){
   var U=UNITS.filter(function(u){return u.id===id})[0];if(!U){location.replace("#/corso");return}
-  var inf=info(id),nx=nextOf(id),hi=hereIdx(),idx=UNITS.indexOf(U),cds=canDo(id);
-  var pc=Math.round(inf.done/inf.n*100);
+  var inf=info(id),nx=nextOf(id),hi=hereIdx(),idx=UNITS.indexOf(U),cds=canDo(id),s0=sec(id),lead=s0&&q("p.lead",s0);
+  var pc=Math.round(inf.done/inf.n*100),rg=ruleGroups(id,inf.steps),nw=(VOC[id]||[]).length;
   var html='<section class="mp-lhero hc-'+U.color+'"><a class="mp-ib mp-back" href="#/corso" aria-label="'+h(S.back)+'">'+I.back+'</a>'+
     '<div class="mp-k">'+h(kick(U))+'</div><h1 tabindex="-1">'+h(title(U))+'</h1><div class="sub" lang="'+(ZH?"it":"ja")+'">'+h(subT(U))+'</div>'+
     '<div class="pb"><span><i style="width:'+pc+'%"></i></span>'+pc+'% · '+h(S.left(inf.left))+'</div></section>';
   if(hi>=0&&idx>hi+1)html+='<div class="mp-hint">'+h(S.ahead(UNITS[hi].kind==="lesson"?UNITS[hi].n:title(UNITS[hi])))+' <a href="#/l/'+UNITS[hi].id+'">'+h(S.backTo)+' ›</a></div>';
-  if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,4).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
+  if(lead||cds.length){html+='<section class="mp-card mp-intro"><h2 class="mp-h3">'+h(S.introT)+'</h2><div id="mplead"></div>';
+    if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,5).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
+    html+='</section>'}
+  html+='<h2 class="mp-h2">'+h(S.stepsT)+'</h2><p class="mp-sub">'+h(S.stepsS)+'</p>';
   html+='<div class="mp-secs">'+inf.steps.map(function(st){var dn=stepDone(id,st),now=nx&&st.key===nx.key,m=stepMinutes(id,st),ic=I[st.k==="cult"?"cultS":st.k]||I.rule;
     var right=st.k==="test"&&inf.pc!=null?(inf.verified?'✓ ':'')+inf.pc+'%':dn?'✓ '+m+' '+S.min:m+' '+S.min;
     return '<button class="mp-sec'+(dn?' done':'')+(now?' now':'')+'" data-k="'+st.key+'"><span class="ic">'+(dn?I.check:ic)+'</span><span><b>'+h(stepLabel(st))+'</b><small>'+h(stepSub(id,st))+'</small></span><em>'+h(right)+'</em></button>'}).join("")+'</div>';
+  html+='<button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button>';
+  if(rg.length){html+='<h2 class="mp-h2">'+h(S.rulesT)+'</h2><p class="mp-sub">'+h(S.rulesS)+'</p><div class="mp-rules">'+
+    rg.map(function(g,i){return '<details class="mp-rule'+(g.scopri?' mp-q':'')+'" data-g="'+i+'"><summary><span class="n">'+(g.scopri?'?':(i+1-rg.slice(0,i).filter(function(x){return x.scopri}).length))+'</span><span><b>'+h(g.title)+'</b>'+(g.ex?'<small>'+h(g.ex.slice(0,110))+(g.ex.length>110?'…':'')+'</small>':'')+'</span></summary><div class="mp-rbody"></div>'+
+      (g.key?'<button class="mp-mini" data-k="'+g.key+'">'+h(S.practiceBtn)+I.arrow+'</button>':'')+'</details>'}).join("")+'</div>'}
+  if(nw){html+='<h2 class="mp-h2">'+h(S.wordsT)+' <small class="mp-cnt">'+nw+'</small></h2><p class="mp-sub">'+h(S.wordsS)+'</p><div class="mp-card mp-words"><div class="words mp-wclip" data-voc="'+id+'"></div>'+
+    (nw>8?'<button class="mp-mini alt" id="mpwall">'+h(S.showAll(nw))+'</button>':'')+'</div>'}
   html+='<a class="mp-link" href="#/leggi/'+id+'">'+h(S.readAll)+' ›</a>';
-  html+='<div class="mp-foot"><button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button></div>';
   show(html);
-  qa(".mp-sec",view).forEach(function(b){b.onclick=function(){openStep(id,b.getAttribute("data-k"))}});
+  var ld=q("#mplead",view);if(ld&&lead){var lc=lead.cloneNode(true);lc.classList.add("mp-leadp");ld.appendChild(lc)}
+  qa(".mp-rule",view).forEach(function(d){d.addEventListener("toggle",function(){var b=q(".mp-rbody",d);if(d.open&&!b.firstChild){var g=rg[+d.getAttribute("data-g")];
+    var src=g.scopri?Array.prototype.filter.call(g.box.children,function(c){return !c.matches("summary")}):g.nodes.filter(function(n){return n!==g.t});
+    var cl=cloneNodes(src);
+    if(g.t&&!g.scopri){var hh=q("h3",cl);if(hh)hh.remove()}
+    qa("details",cl).forEach(function(x){x.open=true});b.appendChild(cl)}})});
+  var wv=q(".words[data-voc]",view);if(wv)renderWords(wv);
+  var wa=q("#mpwall",view);if(wa)wa.onclick=function(){wv.classList.remove("mp-wclip");wa.remove()};
+  qa(".mp-sec,.mp-mini[data-k]",view).forEach(function(b){b.onclick=function(){openStep(id,b.getAttribute("data-k"))}});
   q("#mpgo",view).onclick=function(){openStep(id,nx?nx.key:"test")}}
 
 /* ---------- Esame ---------- */
@@ -287,6 +314,20 @@ function openSettings(){var th=themeNow();
     CATALOG.courses.forEach(function(c){M.store.del(M.pathKey(c));M.store.del(c.storageKey);M.store.del(c.storageKey+"-cultread")});M.store.del("milepost-v1");location.href="../../"};
   sh.hidden=shb.hidden=false;try{q("button",sh).focus()}catch(e){}}
 
+
+/* quality check (only with ?audit=1): every clickable word must have a meaning */
+if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
+  var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.au,it.jp,it.it,it.full])})});
+  Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
+  if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
+  var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;
+  var div=document.createElement("div"),seen={},miss={};
+  function chk(e){var k=e.getAttribute("data-say");if(seen[k])return;seen[k]=1;if(!meaning(k))miss[k]=1}
+  strs.forEach(function(t){try{div.innerHTML=render(t)}catch(x){return}qa(".w[data-say]",div).forEach(chk)});
+  qa(".book .w[data-say]").forEach(chk);
+  return {total:Object.keys(seen).length,miss:Object.keys(miss)}};
 /* first visit straight to the page: land on Today */
 if(!location.hash||location.hash==="#"||location.hash==="#mappa")try{history.replaceState(null,"","#/oggi")}catch(e){}
 render();
