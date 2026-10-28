@@ -15,7 +15,10 @@ Corsi disponibili:
    - **Oggi**: il prossimo passo, il ripasso delle parole, la curiosità del giorno, la settimana, l'esame.
    - **Corso**: tutte le lezioni aperte, con tempo stimato, stato e "Sei qui". Ogni lezione ha sezioni sempre uguali
      (dialogo, parole, grammatica, suoni e scrittura, cultura, verifica). Niente lucchetti: se vai avanti, l'app consiglia, non blocca.
-   - **Esame**: conto alla rovescia, piano con le date, padronanza. Simulazioni e preparazione per sezione: in arrivo.
+   - **Esame**: conto alla rovescia, piano con le date e, per il giapponese, la **simulazione JLPT N5** nel formato reale:
+     tre sezioni a tempo (20 + 40 + 30 minuti), istruzioni come nel libretto, niente furigana, ascolto una sola volta,
+     punteggio stimato su 180 con i minimi per sezione, ripasso di ogni domanda con spiegazione e trascrizione.
+     Allenamento anche su una sola sezione; la preparazione per sezione si aggiorna con i risultati.
    - **Cultura**: tutte le schede illustrate, Italia a confronto con il paese della lingua, con la curiosità del giorno.
    - **Strumenti**: flashcard, coniugatore, kana, frasario, vocabolario.
 

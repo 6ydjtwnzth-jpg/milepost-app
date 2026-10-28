@@ -22,6 +22,9 @@ ciò che manca si mostra come "In arrivo".
   - `courses.json`: metadati dei corsi (esami, ore tipiche, livelli di partenza). Le unità vengono da `courses/<id>/src/course.json`.
   - `i18n.js`: testi dell'interfaccia (`it`, `zh`). L'interfaccia parla sempre la lingua di chi studia.
 - `courses/<id>/`: sorgenti di ogni corso (contenuti, motore, `build.py`).
+  - `courses/ja-it/src/exam/*.json`: simulazioni JLPT (formato reale: sezioni, もんだい, istruzioni del libretto).
+    L'audio d'ascolto è in `docs/c/ja-it/audio/exam/<id>-<もんだい>-<n>.mp3` (voci Kokoro: F, M, narratore; ogni frase
+    verificata con il riconoscimento vocale). Punteggio stimato: 120 × giuste/totale (lingua+lettura), 60 × (ascolto).
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 
 ## Comandi
