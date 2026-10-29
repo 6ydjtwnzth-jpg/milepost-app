@@ -286,3 +286,11 @@ html.mp-exam body{padding-bottom:0}
 #mpexam .xo.sel{border-color:var(--blue);background:var(--blue-soft)}
 #mpexam .xo.sel .n{background:var(--blue);border-color:var(--blue);color:#fff}
 .xfoot{display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));max-width:760px;margin:0 auto;width:100%;border-top:1px solid var(--line)}
+
+/* word meaning tooltip: always above stages, sheets and the tab bar, and always dark (same in light and dark theme),
+   so the yellow word and the tone colours of the pinyin are readable everywhere */
+.tip{--tip-bg:#1a1720;--tip-fg:#f5f0f7;--tip-w:#ffcc4d;--tip-t1:#ff7a63;--tip-t2:#f2b24c;--tip-t3:#6fd197;--tip-t4:#8aa8ff;--tip-t5:#c4bccd;
+  z-index:1000!important;background:var(--tip-bg)!important;color:var(--tip-fg)!important;box-shadow:0 10px 26px rgba(0,0,0,.35),0 0 0 1.5px rgba(255,255,255,.22)!important}
+.tip .tip-w{color:var(--tip-w)!important}
+.tip .t1{color:var(--tip-t1)!important}.tip .t2{color:var(--tip-t2)!important}.tip .t3{color:var(--tip-t3)!important}.tip .t4{color:var(--tip-t4)!important}.tip .t5,.tip .t0{color:var(--tip-t5)!important}
+.tip .tip-r{opacity:.95}

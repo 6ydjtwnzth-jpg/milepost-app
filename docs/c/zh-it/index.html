@@ -223,10 +223,8 @@ td.itc{font-family:var(--f-it);font-size:18px}
 .dl .who{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;font-family:var(--f-disp);font-weight:800;font-size:16px;background:var(--sheet);color:var(--ink);margin-top:4px}
 .dl.whoB .who{background:var(--ink);color:var(--paper)}
 .dl-body{min-width:0;background:var(--sheet);border-radius:6px 20px 20px 20px;padding:9px 16px 11px;transition:box-shadow .2s}
-.dl.whoB .dl-body{background:var(--c);color:var(--on);border-radius:20px 6px 20px 20px}
-.dl.whoB .tr{color:inherit;opacity:.8}
-.dl.whoB .w{color:inherit;text-decoration-color:currentColor}
-.dl.whoB .w:hover{background:rgba(255,255,255,.2)}
+/* speaker B: same neutral bubble as A, marked by a coloured border (never text on a full accent colour) */
+.dl.whoB .dl-body{background:var(--sheet);color:var(--ink);border:2.5px solid var(--c);padding:7px 14px 9px;border-radius:20px 6px 20px 20px}
 .dl.whoB .who{order:3}.dl.whoB .say{order:1;background:var(--sheet);color:var(--ink)}.dl.whoB .dl-body{order:2}
 .dl.now .dl-body{box-shadow:0 0 0 3px var(--ink)}
 .dl-turn{display:none;font-size:17px;flex-direction:column;align-items:flex-start;gap:8px}
@@ -610,7 +608,6 @@ body.no-hz .jx rt{font-size:15px;visibility:visible}
 .fc-read rt{visibility:hidden}
 .fc-ro{font-size:20px!important;text-align:center}
 .tip-r{font-size:15px;font-family:var(--f-disp);font-weight:600}
-.tip-r .t1,.tip-r .t2,.tip-r .t3,.tip-r .t4,.tip-r .t5{filter:brightness(1.35) saturate(.9)}
 .tip-w{font-family:var(--f-body)}
 .tok{font-family:var(--f-body)}
 .opt[lang="zh-CN"]{font-size:20px;line-height:1.9}
@@ -619,8 +616,6 @@ body.no-hz .jx rt{font-size:15px;visibility:visible}
 .jx{white-space:normal}
 .hzb{font-size:1.1em}
 .tk.lat{font-family:var(--f-disp)}
-.dl.whoB rt.t5,.dl.whoB rt.t0{color:inherit;opacity:.75}
-.dl.whoB .ro,.dl.whoB .ro span{color:inherit}
 .nw{display:inline-block;white-space:nowrap}
 .jl .nw>.w,.jl .nw>.tk,.jx .nw>.w,.jx .nw>.tk{margin-right:.04em}
 .jl .nw,.jx .nw{margin-right:.18em}

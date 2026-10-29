@@ -54,8 +54,6 @@ table.kana td.nk{background:transparent}
 .topbar{position:fixed}
 .jl .w,.jl .tk,.jx .w,.jx .tk{display:inline-block;text-indent:0}
 .hero .ciao[lang="ja"]{font-family:var(--f-body);font-weight:900;font-size:clamp(46px,12.5vw,104px);letter-spacing:-.02em;line-height:1.05}
-.dl.whoB .ro{color:inherit;opacity:.75}
-.dl.whoB rt{color:inherit;opacity:.8}
 .nw{display:inline-block;white-space:nowrap}
 .jl .nw>.w,.jl .nw>.tk,.jx .nw>.w,.jx .nw>.tk{margin-right:.04em}
 .jl .nw,.jx .nw{margin-right:.14em}

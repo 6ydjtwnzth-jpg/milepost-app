@@ -20,7 +20,6 @@ body.no-hz .jx rt{font-size:15px;visibility:visible}
 .fc-read rt{visibility:hidden}
 .fc-ro{font-size:20px!important;text-align:center}
 .tip-r{font-size:15px;font-family:var(--f-disp);font-weight:600}
-.tip-r .t1,.tip-r .t2,.tip-r .t3,.tip-r .t4,.tip-r .t5{filter:brightness(1.35) saturate(.9)}
 .tip-w{font-family:var(--f-body)}
 .tok{font-family:var(--f-body)}
 .opt[lang="zh-CN"]{font-size:20px;line-height:1.9}
@@ -29,8 +28,6 @@ body.no-hz .jx rt{font-size:15px;visibility:visible}
 .jx{white-space:normal}
 .hzb{font-size:1.1em}
 .tk.lat{font-family:var(--f-disp)}
-.dl.whoB rt.t5,.dl.whoB rt.t0{color:inherit;opacity:.75}
-.dl.whoB .ro,.dl.whoB .ro span{color:inherit}
 .nw{display:inline-block;white-space:nowrap}
 .jl .nw>.w,.jl .nw>.tk,.jx .nw>.w,.jx .nw>.tk{margin-right:.04em}
 .jl .nw,.jx .nw{margin-right:.18em}
