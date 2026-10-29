@@ -27,9 +27,11 @@ ciò che manca si mostra come "In arrivo".
     verificata con il riconoscimento vocale). Punteggio stimato: 120 × giuste/totale (lingua+lettura), 60 × (ascolto).
   - `courses/zh-it/`: cinese per italiani. Il cinese nei dati è scritto a parole con il pinyin tra parentesi quadre,
     una sillaba per carattere separata da trattini: `我[wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。` (`src/js/zh.js` ne ricava rubino
-    colorato per tono, pinyin e controllo delle risposte). L'audio (`docs/c/zh-it/audio/`) è generato dal pinyin del corso,
-    non da una conversione automatica dei caratteri, con il cambio di tono 3-3 applicato; ogni frase è verificata con il
-    riconoscimento vocale (SenseVoice), le sillabe isolate con la curva d'intonazione.
+    colorato per tono, pinyin e controllo delle risposte). Voce: quella cinese del dispositivo (sintesi vocale del browser,
+    velocità 0,85, persona B dei dialoghi con tono più acuto), come nel vecchio «Primo libro di cinese»: è una scelta
+    dell'utente, non cambiarla. I file in `docs/c/zh-it/audio/` sono solo la riserva per i dispositivi senza voce cinese:
+    una sola voce femminile (Kokoro v1.1-zh, zf_002), generata dal pinyin del corso con il cambio di tono 3-3 e
+    verificata con il riconoscimento vocale (SenseVoice) e la curva d'intonazione.
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 
 ## Comandi

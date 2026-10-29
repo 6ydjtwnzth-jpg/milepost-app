@@ -11,7 +11,8 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 function rmotion(){try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}}
 
 /* ---------- voce ----------
-   File audio pre-registrati (audio/<hash>.mp3); se manca un file si usa la voce cinese del dispositivo. */
+   La voce è quella cinese del dispositivo (sintesi vocale del browser: su iPhone e iPad la voce femminile di Apple),
+   come nel «Primo libro di cinese». Se il dispositivo non ha una voce cinese si usano i file registrati (audio/<hash>.mp3). */
 var voice=null,hasTTS=("speechSynthesis" in window),speakSeq=0,players=[];
 var AUD=null;try{AUD=new Audio();AUD.preload="auto"}catch(e){}
 function cyrb53(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
@@ -20,20 +21,23 @@ function akey(t){return String(t).trim().replace(/\s+/g," ")}
 function audioSrc(t){return "audio/"+cyrb53(akey(t)).toString(36)+".mp3"}
 function pickVoice(){if(!hasTTS)return;try{var vs=speechSynthesis.getVoices();voice=vs.filter(function(v){return /^zh[-_]CN/i.test(v.lang)})[0]||vs.filter(function(v){return /^zh/i.test(v.lang)&&!/HK|TW|yue/i.test(v.lang)})[0]||null}catch(e){}}
 if(hasTTS){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
+function deviceVoice(){if(!hasTTS)return false;if(!voice)pickVoice();return !!voice}
 function stopAll(){try{if(AUD)AUD.pause()}catch(e){}try{if(hasTTS)speechSynthesis.cancel()}catch(e){}}
 function stopPlayers(except){players.forEach(function(p){if(p!==except)p.stop(true)})}
-function ttsSpeak(t,fin,wait){var txt=jplain(t);
-  if(!hasTTS){if(wait)setTimeout(fin,Math.max(800,txt.length*160));return}
-  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(txt);u.lang="zh-CN";if(voice)u.voice=voice;u.rate=prefs.slow?.65:.95;
+/* same settings as the original course: rate .85 (slow .55); speaker B of a dialogue a little higher (pitch 1.25) */
+function ttsSpeak(t,fin,wait,pitch){var txt=jplain(t);
+  if(!hasTTS){if(wait)setTimeout(fin,Math.max(800,txt.length*350));return}
+  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(txt);u.lang="zh-CN";if(voice)u.voice=voice;u.rate=prefs.slow?.55:.85;if(pitch)u.pitch=pitch;
     u.onend=fin;u.onerror=function(){setTimeout(fin,200)};speechSynthesis.speak(u);
-    if(wait)setTimeout(fin,Math.max(2500,txt.length*(prefs.slow?260:180)));
+    if(wait)setTimeout(fin,Math.max(2500,txt.length*(prefs.slow?1100:750)));
   }catch(e){if(wait)setTimeout(fin,800)}}
 function speak(t,cb,opt){
   opt=opt||{};if(!opt.chain)stopPlayers();
   var my=++speakSeq,done=false,fell=false;
   function fin(){if(done)return;done=true;if(cb&&my===speakSeq)cb()}
-  function fallback(){if(fell||done||my!==speakSeq)return;fell=true;ttsSpeak(t,fin,!!cb)}
-  stopAll();if(!AUD){ttsSpeak(t,fin,!!cb);return}
+  function fallback(){if(fell||done||my!==speakSeq)return;fell=true;ttsSpeak(t,fin,!!cb,opt.pitch)}
+  stopAll();
+  if(deviceVoice()||!AUD){ttsSpeak(t,fin,!!cb,opt.pitch);return}
   try{AUD.onended=function(){if(my===speakSeq)fin()};AUD.onerror=fallback;AUD.src=audioSrc(t);
     var r=prefs.slow?.75:1;AUD.defaultPlaybackRate=r;AUD.playbackRate=r;try{AUD.preservesPitch=true}catch(e){}
     var pp=AUD.play();if(pp&&pp.catch)pp.catch(function(err){if(err&&err.name==="AbortError")return;fallback()});
@@ -85,7 +89,7 @@ function meaning(t){var s=jsurf(t),hit=DICT[t]||DICT[s];if(hit)return hit;
       if(!f)return "";out.push(f+": "+DICT[f]);i+=f.length}return out.join(" + ")}
   return ""}
 /* ---------- audio al clic ---------- */
-document.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b)speak(b.getAttribute("data-say"))});
+document.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b)speak(b.getAttribute("data-say"),null,{pitch:+b.getAttribute("data-pitch")||1})});
 document.addEventListener("keydown",function(e){var t=e.target;if((e.key==="Enter"||e.key===" ")&&t.classList&&t.classList.contains("w")){e.preventDefault();speak(t.getAttribute("data-say"))}});
 
 /* ---------- tooltip: carattere, pinyin, significato ---------- */
@@ -118,18 +122,18 @@ function Player(getLines,ui){
       if(i>=L.length){p.tok=null;ui.idle();return}
       var l=L[i];l.el.classList.add("now");try{l.el.scrollIntoView({block:"nearest",behavior:"smooth"})}catch(e){}
       if(l.mine&&!l.el.classList.contains("open")){p.wait={i:i,go:function(){step(i+1)},tok:tok};return}
-      speak(l.say,function(){setTimeout(function(){step(i+1)},500)},{chain:true})}};
+      speak(l.say,function(){setTimeout(function(){step(i+1)},500)},{chain:true,pitch:l.pitch})}};
   p.answer=function(i,l){l.el.classList.add("open");var w=p.wait;p.wait=null;
-    speak(l.say,function(){if(w&&w.i===i&&p.tok===w.tok)setTimeout(w.go,500)},{chain:!!w})};
+    speak(l.say,function(){if(w&&w.i===i&&p.tok===w.tok)setTimeout(w.go,500)},{chain:!!w,pitch:l.pitch})};
   players.push(p);return p}
 
 /* ---------- dialoghi ---------- */
 function renderDialog(el){
   var id=el.getAttribute("data-dlg"),L=DLG[id];if(!L)return;
   el.innerHTML='<div class="dl-head"><h3>Dialogo<i lang="zh-CN">对话</i></h3><div class="dl-ctrl"><button class="btn pri dl-play" type="button">'+SPK+' Ascolta tutto</button><button class="btn dl-role" type="button" aria-pressed="false">'+MIC+' Faccio io B</button></div></div>'+
-   '<div class="dl-lines">'+L.map(function(r,i){return '<div class="dl who'+r[0]+'" data-i="'+i+'"><span class="who">'+r[0]+'</span><div class="dl-body"><div class="dl-text"><div class="it-l">'+jLine(r[1])+'</div><div class="tr">'+esc(r[2])+'</div></div><div class="dl-turn">Tocca a te. Di\' ad alta voce: <b>«'+esc(r[2])+'»</b><button class="btn pri dl-next" type="button">Fatto, ascolta l\'originale</button></div></div><button class="say" data-say="'+esc(r[1])+'" aria-label="Ascolta">'+SPK+'</button></div>'}).join("")+'</div>';
+   '<div class="dl-lines">'+L.map(function(r,i){return '<div class="dl who'+r[0]+'" data-i="'+i+'"><span class="who">'+r[0]+'</span><div class="dl-body"><div class="dl-text"><div class="it-l">'+jLine(r[1])+'</div><div class="tr">'+esc(r[2])+'</div></div><div class="dl-turn">Tocca a te. Di\' ad alta voce: <b>«'+esc(r[2])+'»</b><button class="btn pri dl-next" type="button">Fatto, ascolta l\'originale</button></div></div><button class="say" data-say="'+esc(r[1])+'"'+(r[0]==="B"?' data-pitch="1.25"':'')+' aria-label="Ascolta">'+SPK+'</button></div>'}).join("")+'</div>';
   var lines=$$(".dl",el),role=false,playBtn=$(".dl-play",el),roleBtn=$(".dl-role",el);
-  function get(){return lines.map(function(ln,i){return {el:ln,say:L[i][1],mine:role&&L[i][0]==="B"}})}
+  function get(){return lines.map(function(ln,i){return {el:ln,say:L[i][1],pitch:L[i][0]==="B"?1.25:1,mine:role&&L[i][0]==="B"}})}
   var pl=Player(get,{busy:function(){playBtn.innerHTML="■ Stop";playBtn.dataset.on="1"},idle:function(){playBtn.innerHTML=SPK+" Ascolta tutto";playBtn.dataset.on=""}});
   playBtn.onclick=function(){if(playBtn.dataset.on)pl.stop();else pl.play()};
   roleBtn.onclick=function(){role=!role;el.classList.toggle("role",role);roleBtn.setAttribute("aria-pressed",role?"true":"false");lines.forEach(function(l){l.classList.remove("open")});pl.stop()};
