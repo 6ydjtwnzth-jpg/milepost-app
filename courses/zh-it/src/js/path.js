@@ -66,7 +66,11 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
 function exSplit(id){var it=EX[id]||[],U=UNITS[uIdx(id)];
   if(U.kind==="review")return {p:[],t:it.slice()};
-  var p=[],t=[],a=0;it.forEach(function(x){var pr=!x.au&&x.t!=="dict"&&x.t!=="say";if(pr&&a++%2===0&&p.length<4)p.push(x);else t.push(x)});
+  /* practice after the rule: first the build-and-choose exercises, then a couple of classic ones; the rest is the test */
+  var NEW=/^(ord|gap|err|chr|tone)$/,p=[],a=0;
+  it.forEach(function(x){if(NEW.test(x.t||"")&&p.length<4)p.push(x)});
+  it.forEach(function(x){if(!x.au&&!x.t&&a++%2===0&&p.length<6)p.push(x)});
+  var t=it.filter(function(x){return p.indexOf(x)<0});
   if(t.length<8)t=t.concat(vocQuiz(lessonWords(id),8-t.length));
   return {p:p,t:t}}
 function stars(n,m){var r=m?n/m:0;return r>=.999?3:r>=.85?2:r>=.7?1:0}
@@ -145,7 +149,7 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       if(pass){P.done[id]=P.done[id]||{};if(!P.done[id].test){P.done[id].test=1;tick()}if(U.kind==="review"&&P.skip<U.w+1)P.skip=U.w+1}
       pSave();
       var cd=$("ul.cando",s),lis=cd?$$("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);$$("input",x).forEach(function(e){e.remove()});return '<li>'+x.textContent.trim()+'</li>'}).join(""):"";
-      box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-pc">'+Math.round(R.n/Math.max(1,R.m)*100)+'%</div><h3>'+(pass?(k===3?"Punteggio pieno! すごい！":"Lezione verificata"):"Da ripassare")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"Hai completato questa parte: sei al livello "+(WORLDS[U.w-1]||{}).level+".":"La padronanza della lezione è aggiornata."):"Sotto il 70%: rivedi le parti più difficili e riprova quando vuoi. Puoi comunque andare avanti.")+'</p>'+
+      box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-pc">'+Math.round(R.n/Math.max(1,R.m)*100)+'%</div><h3>'+(pass?(k===3?"Punteggio pieno! 太棒了！":"Lezione verificata"):"Da ripassare")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"Hai completato questa parte: sei al livello "+(WORLDS[U.w-1]||{}).level+".":"La padronanza della lezione è aggiornata."):"Sotto il 70%: rivedi le parti più difficili e riprova quando vuoi. Puoi comunque andare avanti.")+'</p>'+
         (pass&&lis?'<div class="res-can"><b>Adesso sai:</b><ul>'+lis+'</ul></div>':'')+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn again" type="button">Riprova</button></div></div>';
       $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"Torna alla lezione"})}
   runStage({title:title,color:U.color,early:U.kind==="lesson"&&U.n<=4,pages:pages,done:function(){

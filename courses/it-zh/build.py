@@ -153,7 +153,7 @@ def js_data():
     lessons = [{'id': it['id'], 'n': it.get('n'), 'zh': it['zh'], 'it': it['it'], 'kind': it['kind'], 'icon': it['icon'], 'color': it['color'],
                 'w': next(i for i, p in enumerate(worlds) if p['title'] == it['part']) + 1} for it in items if it['kind'] != 'app']
     wl = [{'title': p['title'], 'level': p['level'], 'it': p['it']} for p in worlds]
-    return ('var DLG={},EX={},VOC={},CULT={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\nvar WORLDS=' + json.dumps(wl, ensure_ascii=False) + ';\n' + '\n'.join(parts) + '\n' + rd('culture.js') + '\n' + (rd('reads.js') if os.path.exists(os.path.join(SRC, 'reads.js')) else 'var READS=[];'))
+    return ('var DLG={},EX={},VOC={},CULT={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\nvar WORLDS=' + json.dumps(wl, ensure_ascii=False) + ';\n' + '\n'.join(parts) + '\n' + rd('culture.js') + '\n' + (rd('reads.js') if os.path.exists(os.path.join(SRC, 'reads.js')) else 'var READS=[];') + '\n' + (rd('drills.js') if os.path.exists(os.path.join(SRC, 'drills.js')) else ''))
 
 def stats(data_js):
     n_less = sum(1 for it in items if it['kind'] == 'lesson')

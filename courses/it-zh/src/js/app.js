@@ -230,6 +230,7 @@ function renderSet(el,opt){
     if(done===items.length){var b=state.best[id];if(!b||n>=b[0]){state.best[id]=[n,items.length];save();updateToc()}var r=document.createElement("div");r.className="acts";r.style.marginLeft="0";r.innerHTML='<button class="btn pri">重新做一遍</button>';r.firstChild.onclick=function(){renderSet(el)};el.appendChild(r)}}
   items.forEach(function(it,i){
     var q=document.createElement("div");q.className="q";
+    if(typeof exExtra==="function"&&exExtra(q,it,i,mark)){if(one&&i>0)q.hidden=true;qs.push(q);el.appendChild(q);return}
     var tag=it.t==="say"?'<span class="qtag say-t">'+MIC+'说一说</span>':it.t==="ord"?'<span class="qtag">组句</span>':it.t==="dict"?'<span class="qtag wr-t">听写</span>':it.t==="type"?'<span class="qtag wr-t">填空</span>':(it.au?'<span class="qtag ear-t">'+SPK+'听</span>':'<span class="qtag">选择</span>');
     if(it.t==="dict"||it.t==="type"){
       var isD=it.t==="dict";

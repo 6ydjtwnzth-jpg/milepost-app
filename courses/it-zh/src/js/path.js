@@ -66,7 +66,11 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
 function exSplit(id){var it=EX[id]||[],U=UNITS[uIdx(id)];
   if(U.kind==="review")return {p:[],t:it.slice()};
-  var p=[],t=[],a=0;it.forEach(function(x){var pr=!x.au&&x.t!=="dict"&&x.t!=="say";if(pr&&a++%2===0&&p.length<4)p.push(x);else t.push(x)});
+  /* practice after the rule: first the build-and-choose exercises, then a couple of classic ones; the rest is the test */
+  var NEW=/^(ord|gap|err|chr|tone)$/,p=[],a=0;
+  it.forEach(function(x){if(NEW.test(x.t||"")&&p.length<4)p.push(x)});
+  it.forEach(function(x){if(!x.au&&!x.t&&a++%2===0&&p.length<6)p.push(x)});
+  var t=it.filter(function(x){return p.indexOf(x)<0});
   if(t.length<8)t=t.concat(vocQuiz(lessonWords(id),8-t.length));
   return {p:p,t:t}}
 function stars(n,m){var r=m?n/m:0;return r>=.999?3:r>=.85?2:r>=.7?1:0}

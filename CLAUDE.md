@@ -36,6 +36,11 @@ ciò che manca si mostra come "In arrivo".
   parole nuove `gloss`, domande con risposta `a`). Solo fiabe tradizionali o testi nostri (niente opere protette).
   `node tools/reads_check.js <id>` elenca le parole non ancora viste nel corso fino a `after` e senza nota: deve restare vuoto.
   Prima di pubblicarli per un cliente, ogni racconto va riletto da un madrelingua.
+- Esercizi Milepost (`shell/exercises.js`, uguali in tutti i corsi): ricomponi la frase (`ord`, con tessere-trappola `x` e la variante
+  «ascolta e ricomponi» `ear`), completa scegliendo (`gap`), trova l'errore tipico di chi parla la lingua di partenza (`err`),
+  costruisci il carattere (`chr`, cinese e giapponese), rispondi nel dialogo (`rep`), riconosci il tono (`tone`, cinese).
+  Contenuti per lezione in `courses/<id>/src/drills.js`; `node tools/drills_check.js <id>` controlla forma, tessere e (cinese)
+  i cambi di tono di 不 e 一. Nelle spiegazioni il giapponese va scritto a parole separate da spazi, come nel resto del corso.
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 - Offline: `shell/sw.js` (il build ci scrive versione ed elenco dei corsi) salva all'installazione la shell e tutte le pagine dei
   corsi; l'audio si salva all'ascolto o tutto insieme da Impostazioni → Senza connessione (elenco in `docs/c/<id>/audio/index.json`).

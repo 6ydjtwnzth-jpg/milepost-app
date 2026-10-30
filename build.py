@@ -53,7 +53,7 @@ def build_course(cid):
     if start < 0 or end < start:
         raise SystemExit(f'{cid}: course script block not found')
     html = (html[:start] + head_js + html[start:end] + '\n/* ---- Milepost course app ---- */\n' +
-            rd(SHELL, 'course-app.js') + html[end:])
+            rd(SHELL, 'course-app.js') + '\n' + rd(SHELL, 'exercises.js') + html[end:])
     html = html.replace('</head>', '<link rel="stylesheet" href="../../course-app.css">\n</head>', 1)
     wr(os.path.join(DOCS, 'c', cid, 'index.html'), html)
     os.remove(os.path.join(cdir, 'index.html'))

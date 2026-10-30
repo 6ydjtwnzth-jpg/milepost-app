@@ -20,6 +20,8 @@ Corsi disponibili:
      tre sezioni a tempo (20 + 40 + 30 minuti), istruzioni come nel libretto, niente furigana, ascolto una sola volta,
      punteggio stimato su 180 con i minimi per sezione, ripasso di ogni domanda con spiegazione e trascrizione.
      Allenamento anche su una sola sezione; la preparazione per sezione si aggiorna con i risultati.
+   - **Esercizi**: oltre a scelta, ascolto, dettato e «di' ad alta voce», ogni lezione ha ricomponi la frase, completa scegliendo,
+     trova l'errore tipico, rispondi nel dialogo e (cinese/giapponese) costruisci il carattere; nel cinese anche i toni.
    - **Cultura**: tutte le schede illustrate, Italia a confronto con il paese della lingua, con la curiosità del giorno.
      In cima, i **Racconti**: letture graduate con audio, parole nuove spiegate, traduzione a richiesta e tre domande (oggi 3 per corso).
    - **Strumenti**: flashcard, coniugatore, kana, frasario, vocabolario.

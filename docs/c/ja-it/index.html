@@ -802,7 +802,7 @@ td .rom{display:block;font-size:12px;line-height:1.3}
   <div class="stats">
     <div class="t-red"><b>23</b><span>lezioni + 3 ripassi · <i lang="ja">課</i></span></div>
     <div class="t-blue"><b>22</b><span>dialoghi · <i lang="ja">会話</i></span></div>
-    <div class="t-green"><b>424</b><span>esercizi · <i lang="ja">練習</i></span></div>
+    <div class="t-green"><b>446</b><span>esercizi · <i lang="ja">練習</i></span></div>
     <div class="t-yellow"><b>539</b><span>parole · <i lang="ja">単語</i></span></div>
   </div>
   <div class="legend"><span>Come si legge:</span><b lang="ja"><ruby>日本<rt>にほん</rt></ruby></b><span>= furigana, la lettura sopra i kanji</span><span>· <b>rōmaji</b>: le lettere latine sotto il giapponese, solo nelle prime lezioni (si cambia in alto)</span><span>· le parole <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">in verde</b> si toccano: senti la pronuncia e vedi il significato</span></div>
@@ -2787,6 +2787,11 @@ var DICT={
 /* ---------- meanings added so that every clickable word has one ----------
    Grammar fragments (って, かった…) are explained as endings; names say what they are. */
 Object.assign(DICT,{
+"行[い]き":"radice di 行[い]きます (andare): ci si attaccano ましょう, たい…","食[た]べ":"radice di 食[た]べます (mangiare): ci si attaccano たい, ましょう…",
+"待[ま]ちて":"forma sbagliata: la forma -て di 待[ま]つ è 待[ま]って","上手[じょうず]く":"forma sbagliata: 上手[じょうず] è un aggettivo in な (上手に なる)",
+"いいなかった":"forma sbagliata: il passato negativo di いい è よくなかった","いくなかった":"forma sbagliata: il passato negativo di いい è よくなかった",
+"およいだ":"ho nuotato, nuotavo (passato informale di およぐ)","主[しゅ]":"padrone, principale (qui dà il suono)","あげて":"dando (forma -て di あげる)",
+"明日[あした]":"domani","二[に]":"due (si legge に quando si conta senza oggetti)",
 "なった":"diventò, è diventato (passato informale di なる)",
 "ございます":"forma molto cortese di あります/です (in ありがとうございます, おはようございます)",
 "ございました":"passato di ございます (in ありがとうございました: grazie, per una cosa finita)",
@@ -3942,6 +3947,201 @@ var READS=[
     {q:"Quanti anni sono passati quando torna al villaggio?",o:["Trecento","Tre","Trenta"],a:0}]}
 ];
 
+/* ---------- Esercizi Milepost: ricomponi, completa, trova l'errore, costruisci, rispondi ----------
+   Formats in shell/exercises.js. Sentences come from the lessons whenever possible (same audio);
+   «err» uses mistakes that Italian speakers really make. Checked by tools/drills_check.js. */
+function XX(id,a){EX[id]=(EX[id]||[]).concat(a)}
+XX("l1",[
+ {t:"rep",ask:"おはよう ございます 。",who:"Una collega, al mattino",o:[["おはよう ございます 。","Buongiorno."],["こんばんは 。","Buonasera."],["さようなら 。","Arrivederci."]],e:"Al mattino si risponde con lo stesso saluto."},
+ {t:"rep",ask:"これ 、 どうぞ 。",who:"Un'amica ti porge un regalo",o:[["ありがとう ございます ！","Grazie!"],["いいえ 。","Di niente."],["おはよう ございます 。","Buongiorno."]],e:"どうぞ = prego, tenga: si ringrazia."},
+ {t:"gap",s:"ありがとう ＿ 。",o:["ございます","です","ください"],it:"Grazie (in modo cortese).",e:"ありがとう ございます è la forma cortese di «grazie»."}
+]);
+XX("l2",[
+ {t:"ord",q:"«Piacere, sono Marco.»",w:["はじめまして","マルコ","です"],x:["さん"],a:["はじめまして 。 マルコ です 。"],e:"Di sé stessi non si dice さん."},
+ {t:"ord",ear:1,q:"«Sono un'insegnante di giapponese.»",w:["わたし","は","日本語[にほんご]","の","先生[せんせい]","です"],x:["か"],a:["わたし は 日本語[にほんご] の 先生[せんせい] です 。"]},
+ {t:"gap",s:"マルコ さん は 学生[がくせい] です ＿ 。",o:["か","は","の"],it:"Marco, sei uno studente?",e:"か in fondo trasforma la frase in una domanda."},
+ {t:"gap",s:"日本語[にほんご] ＿ 先生[せんせい] です 。",o:["の","は","か"],it:"Sono un'insegnante di giapponese.",e:"の lega due nomi, con la specificazione prima: 日本語の先生 = insegnante di giapponese."},
+ {t:"err",s:"わたし は マルコ さん です 。",bad:3,fix:"わたし は マルコ です 。",it:"Volevi dire «Sono Marco».",e:"さん è un segno di rispetto per gli altri: per sé stessi non si usa mai. A un italiano sembra parte del nome."},
+ {t:"rep",ask:"はじめまして 。 たなか ゆき です 。",o:[["はじめまして 。 マルコ です 。","Piacere. Sono Marco."],["はい 、 学生[がくせい] です 。","Sì, sono studente."],["さようなら 。","Arrivederci."]],e:"A はじめまして si risponde allo stesso modo, con il proprio nome."}
+]);
+XX("l3",[
+ {t:"ord",q:"«Questo è l'ombrello di Yuki.»",w:["これ","は","ゆき","さん","の","かさ","です"],x:["を"],a:["これ は ゆき さん の かさ です 。"],e:"Chi possiede viene prima: ゆき さん の かさ."},
+ {t:"ord",ear:1,q:"«Anch'io sono studente.»",w:["わたし","も","学生[がくせい]","です"],x:["は"],a:["わたし も 学生[がくせい] です 。"]},
+ {t:"gap",s:"いいえ 、 わたし の かさ ＿ ありません 。",o:["じゃ","は","も"],it:"No, non è il mio ombrello.",e:"じゃ ありません è la negazione di です."},
+ {t:"gap",s:"けん さん ＿ 学生[がくせい] です か 。",o:["も","の","を"],it:"Anche tu sei studente, Ken?",e:"も = anche: prende il posto di は."},
+ {t:"err",s:"けん さん も は 学生[がくせい] です か 。",bad:3,fix:"けん さん も 学生[がくせい] です か 。",it:"Volevi chiedere «Anche tu sei studente, Ken?».",e:"も prende il posto di は, non si aggiunge. «Anche» in giapponese è una particella, non una parola a sé."},
+ {t:"rep",ask:"それ は けん さん の かさ です か 。",o:[["いいえ 、 ゆき さん の です 。","No, è di Yuki."],["はい 、 学生[がくせい] です 。","Sì, sono studente."],["たぶん 、 きょう です 。","Probabilmente oggi."]],e:"ゆき さん の = quello di Yuki: la cosa si sottintende."}
+]);
+XX("l4",[
+ {t:"ord",q:"«Che cos'è questo?»",w:["これ","は","何[なん]","です","か"],x:["の"],a:["これ は 何[なん] です か 。"]},
+ {t:"ord",ear:1,q:"«Quanto costa questo furoshiki?»",w:["この","ふろしき","は","いくら","です","か"],x:["これ"],a:["この ふろしき は いくら です か 。"]},
+ {t:"gap",s:"＿ ふろしき は いくら です か 。",o:["この","これ","それ"],it:"Quanto costa questo furoshiki?",e:"Davanti a un nome si usa この; これ sta da solo."},
+ {t:"gap",s:"じゃあ 、 これ ＿ ください 。",o:["を","は","の"],it:"Allora prendo questo.",e:"を segna la cosa che chiedi: これ を ください."},
+ {t:"err",s:"これ ふろしき は 千[せん] えん です 。",bad:0,fix:"この ふろしき は 千[せん] えん です 。",it:"Volevi dire «Questo furoshiki costa mille yen».",e:"これ sta da solo («questo»); davanti a un nome serve この. In italiano «questo» va bene in tutti e due i casi."},
+ {t:"rep",ask:"すみません 、 これ は 何[なん] です か 。",who:"Un cliente",o:[["それ は まくら です 。","Quello è un cuscino."],["千[せん] えん です 。","Mille yen."],["いらっしゃいませ 。","Benvenuto!"]],e:"Ti chiede che cos'è: si risponde con それ は … です."}
+]);
+XX("l5",[
+ {t:"ord",q:"«Mio padre ha cinquant'anni.»",w:["父[ちち]","は","五十[ごじゅう]さい","です"],x:["を"],a:["父[ちち] は 五十[ごじゅう]さい です 。"]},
+ {t:"ord",ear:1,q:"«Mia sorella maggiore ha 25 anni.»",w:["姉[あね]","は","二十五[にじゅうご]さい","です"],x:["を"],a:["姉[あね] は 二十五[にじゅうご]さい です 。"]},
+ {t:"gap",s:"いぬ が ＿ 。",o:["います","あります","です"],it:"Ho un cane.",e:"Per persone e animali si usa います; per le cose あります."},
+ {t:"gap",s:"ほん が ＿ 。",o:["あります","います","です"],it:"C'è un libro.",e:"Per le cose si usa あります."},
+ {t:"err",s:"わたし の お母[かあ]さん は 先生[せんせい] です 。",bad:2,fix:"わたし の 母[はは] は 先生[せんせい] です 。",it:"Parli di tua madre con un collega: «Mia madre è insegnante».",e:"Per la propria famiglia, parlando con altri, si usa 母[はは]; お母[かあ]さん è per la madre degli altri, o per chiamare la mamma."},
+ {t:"rep",ask:"何[なん]人[にん] かぞく です か 。",o:[["五人[ごにん] かぞく です 。","Siamo in cinque."],["二十五[にじゅうご]さい です 。","Ho 25 anni."],["いぬ が います 。","Ho un cane."]],e:"何人かぞく chiede quanti siete in famiglia."}
+]);
+XX("l6",[
+ {t:"ord",q:"«A Tokyo fa un po' caldo.»",w:["とうきょう","は","ちょっと","あつい","です"],x:["な"],a:["とうきょう は ちょっと あつい です 。"]},
+ {t:"ord",ear:1,q:"«Anche Milano è vivace.»",w:["ミラノ","も","にぎやか","です"],x:["な"],a:["ミラノ も にぎやか です 。"]},
+ {t:"gap",s:"しずか ＿ まち です 。",o:["な","い","の"],it:"È una città tranquilla.",e:"Gli aggettivi in な (しずか, きれい, にぎやか) vogliono な davanti a un nome."},
+ {t:"gap",s:"アパート は あまり 大[おお]きく ＿ です 。",o:["ない","な","じゃ"],it:"L'appartamento non è molto grande.",e:"Gli aggettivi in い fanno il negativo così: 大きい → 大きくない."},
+ {t:"err",s:"これ は おいしい の ケーキ です 。",bad:3,fix:"これ は おいしい ケーキ です 。",it:"Volevi dire «Questa è una torta buona».",e:"Gli aggettivi in い vanno direttamente davanti al nome, senza の. Viene voglia di usare の come in «torta di…»."},
+ {t:"rep",ask:"お元気[げんき] です か 。",o:[["はい 、 元気[げんき] です 。","Bene, grazie."],["はい 、 たかい です 。","Sì, è caro."],["ミラノ です 。","È Milano."]],e:"お元気ですか = come stai?"}
+]);
+XX("l7",[
+ {t:"ord",q:"«Ogni mattina bevo un caffè.»",w:["毎朝[まいあさ]","コーヒー","を","飲[の]みます"],x:["が"],a:["毎朝[まいあさ] コーヒー を 飲[の]みます 。"],e:"Il verbo va sempre in fondo."},
+ {t:"ord",ear:1,q:"«Il venerdì mangio con gli amici.»",w:["金曜日[きんようび]","は","ともだち","と","食[た]べます"],x:["を"],a:["金曜日[きんようび] は ともだち と 食[た]べます 。"]},
+ {t:"gap",s:"大学[だいがく] ＿ 行[い]きます 。",o:["に","を","で"],it:"Vado all'università.",e:"La meta di un movimento vuole に (o へ)."},
+ {t:"gap",s:"ぎんこう ＿ はたらいて います 。",o:["で","に","を"],it:"Lavoro in banca.",e:"Il luogo dove si fa un'azione vuole で."},
+ {t:"err",s:"毎朝[まいあさ] コーヒー を 飲[の]みます です 。",bad:4,fix:"毎朝[まいあさ] コーヒー を 飲[の]みます 。",it:"Volevi dire «Ogni mattina bevo un caffè».",e:"I verbi in -ます sono già cortesi e completi: です non serve. Chi ha appena imparato です tende a metterlo ovunque."},
+ {t:"rep",ask:"ばん ごはん は うち で 食[た]べます か 。",o:[["はい 。 でも 、 金曜日[きんようび] は ともだち と 食[た]べます 。","Sì, ma il venerdì con gli amici."],["日本語[にほんご] を 勉強[べんきょう]します 。","Studio giapponese."],["毎朝[まいあさ] です 。","Ogni mattina."]],e:"Ti chiede dove mangi la cena."}
+]);
+XX("l8",[
+ {t:"ord",q:"«Due onigiri, per favore.»",w:["おにぎり","を","二[ふた]つ","ください"],x:["の"],a:["おにぎり を 二[ふた]つ ください 。"],e:"Il numero va dopo la cosa e la particella: おにぎりを 二つ."},
+ {t:"ord",ear:1,q:"«Posso pagare con la carta?»",w:["カード","で","いい","です","か"],x:["を"],a:["カード で いい です か 。"]},
+ {t:"gap",s:"ぜんぶ ＿ 四百五十[よんひゃくごじゅう] 円[えん] です 。",o:["で","に","を"],it:"In tutto sono 450 yen.",e:"ぜんぶで = in tutto."},
+ {t:"gap",s:"ふくろ は ＿ か 。",o:["いります","います","あります"],it:"Le serve la busta?",e:"いります = serve, occorre."},
+ {t:"err",s:"おにぎり を 二[に] ください 。",bad:2,fix:"おにぎり を 二[ふた]つ ください 。",it:"Volevi dire «Due onigiri, per favore».",e:"Per contare le cose si usano ひとつ, ふたつ, みっつ…: il numero da solo (に) non basta."},
+ {t:"rep",ask:"ふくろ は いります か 。",who:"Il commesso",o:[["いいえ 、 だいじょうぶ です 。","No, va bene così."],["百五十[ひゃくごじゅう] 円[えん] です 。","150 yen."],["いらっしゃいませ 。","Benvenuto!"]],e:"だいじょうぶ です = va bene così, non serve."}
+]);
+XX("l9",[
+ {t:"ord",q:"«Dov'è Yuki?»",w:["ゆき","さん","は","どこ","です","か"],x:["を"],a:["ゆき さん は どこ です か 。"]},
+ {t:"ord",ear:1,q:"«Marco viene dall'Italia.»",w:["マルコ","さん","は","イタリア","から","来[き]ました"],x:["に"],a:["マルコ さん は イタリア から 来[き]ました 。"]},
+ {t:"gap",s:"あの 人[ひと] は ＿ です か 。",o:["だれ","どこ","いつ"],it:"Chi è quella persona?",e:"だれ = chi; どこ = dove; いつ = quando."},
+ {t:"gap",s:"日本[にほん] の アニメ ＿ 好[す]き です 。",o:["が","を","に"],it:"Mi piacciono gli anime giapponesi.",e:"Con 好き la cosa che piace vuole が."},
+ {t:"err",s:"わたし は アニメ を 好[す]き です 。",bad:3,fix:"わたし は アニメ が 好[す]き です 。",it:"Volevi dire «Mi piacciono gli anime».",e:"好き non è un verbo ma un aggettivo: la cosa che piace vuole が. Pensando ad «amare qualcosa» viene da usare を."},
+ {t:"rep",ask:"すみません 、 ゆき さん は どこ です か 。",o:[["今[いま] 、 としょかん です よ 。","Adesso è in biblioteca."],["イタリア から 来[き]ました 。","Viene dall'Italia."],["アニメ が 好[す]き です 。","Gli piacciono gli anime."]],e:"どこ chiede il luogo."},
+ {t:"chr",c:"好",m:"piacere",w:"好[す]き",p:[["女","donna"],["子","bambino"]],d:[["人","persona"],["口","bocca"]],e:"Una donna con il suo bambino: ciò che si ama. 好[す]き = che piace."}
+]);
+XX("l10",[
+ {t:"ord",q:"«Ieri ho visto un film con un'amica.»",w:["きのう","ともだち","と","えいが","を","見[み]ました"],x:["に"],a:["きのう ともだち と えいが を 見[み]ました 。"]},
+ {t:"ord",ear:1,q:"«Ogni mattina mi alzo alle sette.»",w:["毎朝[まいあさ]","七時[しちじ]","に","起[お]きます"],x:["を"],a:["毎朝[まいあさ] 七時[しちじ] に 起[お]きます 。"]},
+ {t:"gap",s:"じゅぎょう は 九時[くじ] ＿ です 。",o:["から","まで","に"],it:"Le lezioni cominciano alle nove.",e:"から = da, a partire da; まで = fino a."},
+ {t:"gap",s:"テレビ は 見[み]ません ＿ 。",o:["でした","です","ました"],it:"Non ho guardato la TV.",e:"Il passato di -ません è -ません でした."},
+ {t:"err",s:"きのう に えいが を 見[み]ました 。",bad:1,fix:"きのう えいが を 見[み]ました 。",it:"Volevi dire «Ieri ho visto un film».",e:"Con きのう, きょう, あした, 毎日 non si mette に; ci vuole invece con le ore: 七時に."},
+ {t:"rep",ask:"毎朝[まいあさ] 何時[なんじ] に 起[お]きます か 。",o:[["七時[しちじ] に 起[お]きます 。","Mi alzo alle sette."],["ともだち と えいが を 見[み]ました 。","Ho visto un film con un'amica."],["十二時[じゅうにじ] ごろ ねました 。","Sono andata a letto verso mezzanotte."]],e:"何時に chiede a che ora."},
+ {t:"chr",c:"休",m:"riposo",w:"休[やす]み",p:[["亻","persona"],["木","albero"]],d:[["女","donna"],["日","sole"]],e:"Una persona appoggiata a un albero: si riposa. 休[やす]み = giorno libero, vacanza."}
+]);
+XX("l11",[
+ {t:"ord",q:"«Mi piace il calcio.»",w:["わたし","は","サッカー","が","好[す]き","です"],x:["を"],a:["わたし は サッカー が 好[す]き です 。"]},
+ {t:"ord",ear:1,q:"«Non andiamo insieme a vedere una partita?»",w:["いっしょに","しあい","を","見[み]に","行[い]きません","か"],x:["が"],a:["いっしょに しあい を 見[み]に 行[い]きません か 。"]},
+ {t:"gap",s:"いっしょに 行[い]き ＿ ！",o:["ましょう","ません","ました"],it:"Andiamo insieme!",e:"-ましょう = facciamo, andiamo: una proposta."},
+ {t:"gap",s:"マルコ さん は りょうり が ＿ です 。",o:["上手[じょうず]","上手[じょうず]な","上手[じょうず]に"],it:"Marco è bravo a cucinare.",e:"Davanti a です l'aggettivo in な resta così: 上手です."},
+ {t:"err",s:"しあい を 見[み]る に 行[い]きます 。",bad:2,fix:"しあい を 見[み]に 行[い]きます 。",it:"Volevi dire «Vado a vedere una partita».",e:"Prima di に si usa la radice della forma -ます: 見ます → 見に. L'italiano «andare a vedere» spinge a usare l'infinito."},
+ {t:"rep",ask:"日曜日[にちようび] に いっしょに しあい を 見[み]に 行[い]きません か 。",o:[["いい です ね 。 行[い]きましょう ！","Bello! Andiamo!"],["サッカー と りょうり です 。","Il calcio e la cucina."],["三時[さんじ] から です 。","Dalle tre."]],e:"-ませんか è un invito: si accetta con 行きましょう."}
+]);
+XX("l12",[
+ {t:"ord",q:"«L'ufficio postale è accanto alla banca.»",w:["ゆうびんきょく","は","ぎんこう","の","となり","に","あります"],x:["で"],a:["ゆうびんきょく は ぎんこう の となり に あります 。"],e:"«Accanto alla banca» = ぎんこう の となり: prima il punto di riferimento."},
+ {t:"ord",ear:1,q:"«Vada dritto per questa strada.»",w:["この","道[みち]","を","まっすぐ","行[い]って","ください"],x:["に"],a:["この 道[みち] を まっすぐ 行[い]って ください 。"]},
+ {t:"gap",s:"この ちかく ＿ ゆうびんきょく は あります か 。",o:["に","で","を"],it:"Qui vicino c'è un ufficio postale?",e:"Il luogo dove una cosa si trova vuole に."},
+ {t:"gap",s:"二[ふた]つ目[め] の しんごう を ＿ に まがって ください 。",o:["左[ひだり]","上[うえ]","中[なか]"],it:"Al secondo semaforo giri a sinistra.",e:"左[ひだり] = sinistra, 右[みぎ] = destra."},
+ {t:"err",s:"ゆうびんきょく は ぎんこう の となり で あります 。",bad:5,fix:"ゆうびんきょく は ぎんこう の となり に あります 。",it:"Volevi dire «L'ufficio postale è accanto alla banca».",e:"Con あります e います il luogo vuole に; で è per il luogo dove si fa un'azione. In italiano sono tutti e due «in» o «a»."},
+ {t:"rep",ask:"すみません 、 えき は どこ です か 。",who:"Un turista",o:[["この 道[みち] を まっすぐ 行[い]って ください 。","Vada dritto per questa strada."],["気[き]を つけて 。","Faccia attenzione."],["ぎんこう に 行[い]きます 。","Vado in banca."]],e:"Ti chiede la strada: si risponde con le indicazioni."}
+]);
+XX("l13",[
+ {t:"ord",q:"«Aspettami alla stazione.»",w:["えき","で","待[ま]って","ください"],x:["に"],a:["えき で 待[ま]って ください 。"]},
+ {t:"ord",ear:1,q:"«Scrivilo qui, per favore.»",w:["ここ","に","書[か]いて","ください"],x:["を"],a:["ここ に 書[か]いて ください 。"]},
+ {t:"gap",s:"飲[の]みもの を 買[か]って ＿ いい です か 。",o:["も","は","を"],it:"Posso comprare da bere?",e:"-て も いい です か = posso…?"},
+ {t:"gap",s:"ここ で しゃしん を とって は ＿ 。",o:["いけません","いい です","ください"],it:"Qui non si possono fare foto.",e:"-て は いけません = non si può."},
+ {t:"err",s:"えき で 待[ま]ちて ください 。",bad:2,fix:"えき で 待[ま]って ください 。",it:"Volevi dire «Aspetta alla stazione, per favore».",e:"I verbi in -つ fanno la forma -て con って: 待つ → 待って. Partire da 待ちます porta a dire 待ちて."},
+ {t:"rep",ask:"コンビニ で 飲[の]みもの を 買[か]って も いい です か 。",o:[["いい です よ 。","Certo."],["もしもし 。","Pronto."],["すぐ 行[い]きます 。","Arrivo subito."]],e:"A «posso…?» si risponde いい です よ (sì) o すみません 、 ちょっと … (meglio di no)."},
+ {t:"chr",c:"話",m:"parlare",w:"話[はな]す",p:[["言","dire, parola"],["舌","lingua (l'organo)"]],d:[["口","bocca"],["木","albero"]],e:"Parola 言 e lingua 舌: parlare."}
+]);
+XX("l14",[
+ {t:"ord",q:"«Io prendo il menù di pesce.»",w:["わたし","は","魚[さかな]","の","ていしょく","に","します"],x:["を"],a:["わたし は 魚[さかな] の ていしょく に します 。"]},
+ {t:"ord",ear:1,q:"«Due birre, per favore.»",w:["ビール","を","二本[にほん]","お願[ねが]いします"],x:["二枚[にまい]"],a:["ビール を 二本[にほん] お願[ねが]いします 。"]},
+ {t:"gap",s:"コーヒー を 二[に] ＿ ください 。",o:["杯[はい]","本[ほん]","枚[まい]"],it:"Due caffè, per favore.",e:"Per tazze e bicchieri si usa 杯[はい]."},
+ {t:"gap",s:"じゃあ 、 わたし は それ ＿ します 。",o:["に","を","が"],it:"Allora io prendo quello.",e:"〜に します = scelgo, prendo."},
+ {t:"err",s:"ビール を 二枚[にまい] お願[ねが]いします 。",bad:2,fix:"ビール を 二本[にほん] お願[ねが]いします 。",it:"Volevi dire «Due birre (in bottiglia), per favore».",e:"Le bottiglie sono oggetti lunghi: si contano con 本[ほん]. 枚[まい] è per le cose piatte, come biglietti e magliette."},
+ {t:"rep",ask:"ご注文[ちゅうもん] は ？",who:"Il cameriere",o:[["魚[さかな] の ていしょく を お願[ねが]いします 。","Il menù di pesce, per favore."],["二人[ふたり] です 。","Siamo in due."],["ごちそうさま でした 。","Era tutto buonissimo."]],e:"ご注文は chiede che cosa ordinate."}
+]);
+XX("l15",[
+ {t:"ord",q:"«Il fine settimana è stato molto divertente.»",w:["週末[しゅうまつ]","は","とても","楽[たの]しかった","です"],x:["でした"],a:["週末[しゅうまつ] は とても 楽[たの]しかった です 。"]},
+ {t:"ord",ear:1,q:"«Domenica era bel tempo.»",w:["日曜日[にちようび]","は","いい","天気[てんき]","でした"],x:["です"],a:["日曜日[にちようび] は いい 天気[てんき] でした 。"]},
+ {t:"gap",s:"ホテル は あまり ＿ です 。",o:["よくなかった","いくなかった","いいなかった"],it:"L'hotel non era un granché.",e:"いい è irregolare: al passato negativo diventa よくなかった."},
+ {t:"gap",s:"お寺[てら] は しずか ＿ 、 きれい でした 。",o:["で","くて","な"],it:"I templi erano tranquilli e belli.",e:"Per unire un aggettivo in な a un altro si usa で: しずか で."},
+ {t:"err",s:"週末[しゅうまつ] は 楽[たの]しかった でした 。",bad:3,fix:"週末[しゅうまつ] は 楽[たの]しかった です 。",it:"Volevi dire «Il fine settimana è stato divertente».",e:"Gli aggettivi in い portano il passato su sé stessi (楽しかった) e です resta です. Con i nomi e gli aggettivi in な invece si dice でした."},
+ {t:"rep",ask:"週末[しゅうまつ] は どう でした か 。",o:[["とても 楽[たの]しかった です 。","Mi sono divertito tantissimo."],["きょうと に 行[い]きます 。","Vado a Kyoto."],["はい 、 そう です 。","Sì, esatto."]],e:"どう でした か chiede com'è andata: si risponde al passato."}
+]);
+XX("l16",[
+ {t:"ord",q:"«Vorrei andare in Hokkaido.»",w:["ほっかいどう","に","行[い]きたい","です"],x:["を"],a:["ほっかいどう に 行[い]きたい です 。"]},
+ {t:"ord",ear:1,q:"«Da Tokyo ci vuole circa un'ora e mezza.»",w:["東京[とうきょう]","から","一時間[いちじかん]","半[はん]","ぐらい","かかります"],x:["まで"],a:["東京[とうきょう] から 一時間[いちじかん] 半[はん] ぐらい かかります 。"]},
+ {t:"gap",s:"ひこうき ＿ 行[い]きます 。",o:["で","に","を"],it:"Ci vado in aereo.",e:"Il mezzo vuole で."},
+ {t:"gap",s:"おいしい カニ を 食[た]べ ＿ です 。",o:["たい","ます","て"],it:"Voglio mangiare dei buoni granchi.",e:"Radice del verbo + たい = voglio…"},
+ {t:"err",s:"ほっかいどう に 行[い]く たい です 。",bad:2,fix:"ほっかいどう に 行[い]きたい です 。",it:"Volevi dire «Vorrei andare in Hokkaido».",e:"たい si attacca alla radice della forma -ます: 行きます → 行きたい. L'italiano «voglio andare» spinge a usare l'infinito."},
+ {t:"rep",ask:"何[なに] で 行[い]きます か 。",o:[["ひこうき で 行[い]きます 。","In aereo."],["八月[はちがつ] 十日[とおか] です 。","Il 10 agosto."],["ほっかいどう です 。","In Hokkaido."]],e:"何で chiede il mezzo."},
+ {t:"chr",c:"時",m:"ora, tempo",w:"時間[じかん]",p:[["日","sole"],["寺","tempio: qui dà il suono «ji»"]],d:[["木","albero"],["口","bocca"]],e:"Il sole 日 misura il tempo; 寺 (tempio, じ) dà il suono."}
+]);
+XX("l17",[
+ {t:"ord",q:"«Da bambino abitavo a Milano.»",w:["子[こ]ども","の","とき","ミラノ","に","住[す]んでた"],x:["で"],a:["子[こ]ども の とき 、 ミラノ に 住[す]んでた 。"]},
+ {t:"ord",ear:1,q:"«Sei mai stato a Hiroshima?»",w:["ひろしま","に","行[い]った","こと","ある"],x:["を"],a:["ひろしま に 行[い]った こと ある ？"]},
+ {t:"gap",s:"一度[いちど] 、 すし を 食[た]べた ＿ が あります 。",o:["こと","とき","もの"],it:"Ho mangiato il sushi una volta.",e:"-た こと が あります = ho già fatto (un'esperienza)."},
+ {t:"gap",s:"子[こ]ども の ＿ 、 よく およいだ 。",o:["とき","こと","まえ"],it:"Da bambino nuotavo spesso.",e:"〜の とき = quando, al tempo di."},
+ {t:"err",s:"まち は しずか だった です 。",bad:4,fix:"まち は しずか だった 。",it:"Volevi dire «La città era tranquilla» (tra amici).",e:"Con だった la frase è già al passato in forma informale: です non si aggiunge. In forma cortese si dice しずか でした."},
+ {t:"rep",ask:"ひろしま に 行[い]った こと ある ？",who:"Ken, tra amici",o:[["ううん 、 まだ ない 。","No, non ancora."],["うん 、 毎日[まいにち] 見[み]た よ 。","Sì, li guardavo ogni giorno."],["ミラノ の ちかく 。","Vicino a Milano."]],e:"〜た こと ある ？ chiede un'esperienza: ある (sì) o まだ ない (non ancora)."},
+ {t:"chr",c:"住",m:"abitare",w:"住[す]む",p:[["亻","persona"],["主","padrone: qui dà il suono «ju»"]],d:[["木","albero"],["口","bocca"]],e:"Una persona 亻 e il suono di 主[しゅ]: chi abita in un posto."}
+]);
+XX("l18",[
+ {t:"ord",q:"«Adesso sto cucinando.»",w:["今[いま]","りょうり","を","して","います"],x:["が"],a:["今[いま] りょうり を して います 。"]},
+ {t:"ord",ear:1,q:"«Mia madre abita a Osaka.»",w:["母[はは]","は","おおさか","に","住[す]んで","います"],x:["で"],a:["母[はは] は おおさか に 住[す]んで います 。"]},
+ {t:"gap",s:"夜[よる] ごはん を 食[た]べて ＿ 、 来[き]ます 。",o:["から","まで","より"],it:"Viene dopo aver cenato.",e:"-て から = dopo aver…"},
+ {t:"gap",s:"マルコ さん を 知[し]って ＿ か 。",o:["います","あります","します"],it:"Conosci Marco?",e:"«Conoscere» si dice 知って います: uno stato che dura."},
+ {t:"err",s:"母[はは] は おおさか で 住[す]んで います 。",bad:3,fix:"母[はは] は おおさか に 住[す]んで います 。",it:"Volevi dire «Mia madre abita a Osaka».",e:"住む vuole に: è uno stare in un luogo, non un'azione che si fa lì. «Abitare a» porta gli italiani a usare で."},
+ {t:"rep",ask:"今[いま] 、 何[なに] を して います か 。",who:"Al telefono",o:[["今[いま] 、 りょうり を して います 。","Sto cucinando."],["おおさか に 住[す]んで います 。","Abita a Osaka."],["二日[ふつか] とまります 。","Si ferma due giorni."]],e:"-て います qui è l'azione in corso."},
+ {t:"chr",c:"知",m:"sapere, conoscere",w:"知[し]って います",p:[["矢","freccia"],["口","bocca"]],d:[["木","albero"],["日","sole"]],e:"Una freccia 矢 e una bocca 口: chi sa parla dritto al punto, come una freccia."}
+]);
+XX("l19",[
+ {t:"ord",q:"«Preferisco la pasta.»",w:["パスタ","の","ほう","が","好[す]き","です"],x:["より"],a:["パスタ の ほう が 好[す]き です 。"]},
+ {t:"ord",ear:1,q:"«Penso che sia più buono della pizza.»",w:["ピザ","より","おいしい","と","思[おも]います"],x:["ほど"],a:["ピザ より おいしい と 思[おも]います 。"]},
+ {t:"gap",s:"日本[にほん] の 食[た]べもの の 中[なか] で 何[なに] が ＿ 好[す]き です か 。",o:["いちばん","より","ほど"],it:"Tra i cibi giapponesi, quale ti piace di più?",e:"いちばん = il più, tra tanti."},
+ {t:"gap",s:"ラーメン と パスタ と 、 ＿ が 好[す]き です か 。",o:["どちら","どれ","だれ"],it:"Ti piace di più il ramen o la pasta?",e:"Tra due cose si chiede どちら; tra tante どれ."},
+ {t:"err",s:"ピザ より おいしい だ と 思[おも]います 。",bad:3,fix:"ピザ より おいしい と 思[おも]います 。",it:"Volevi dire «Penso che sia più buono della pizza».",e:"Gli aggettivi in い non vogliono だ: おいしいと思います. だ va solo dopo i nomi e gli aggettivi in な (しずかだと思います)."},
+ {t:"rep",ask:"けん さん は どう 思[おも]います か 。",o:[["わたし は どちら も 好[す]き です 。","A me piacciono tutti e due."],["いいえ 、 じょうだん です 。","No, scherzo."],["はい 、 ラーメン です 。","Sì, è ramen."]],e:"どう思いますか chiede un'opinione."},
+ {t:"chr",c:"思",m:"pensare",w:"思[おも]います",p:[["田","campo (qui: la testa)"],["心","cuore"]],d:[["口","bocca"],["木","albero"]],e:"Sopra la testa, sotto il cuore 心: pensare."}
+]);
+XX("l20",[
+ {t:"ord",q:"«Vorrei fare un regalo a mia madre.»",w:["母[はは]","に","プレゼント","を","あげたい","です"],x:["が"],a:["母[はは] に プレゼント を あげたい です 。"]},
+ {t:"ord",ear:1,q:"«Me lo incarti come regalo, per favore.»",w:["プレゼント","用[よう]","に","つつんで","ください"],x:["を"],a:["プレゼント 用[よう] に つつんで ください 。"]},
+ {t:"gap",s:"マルコ さん が チョコ を ＿ 。",o:["くれました","あげました","もらいました"],it:"Marco mi ha regalato del cioccolato.",e:"Quando qualcuno dà qualcosa a me si usa くれる; あげる è dare a un altro."},
+ {t:"gap",s:"どうぞ 、 さわって ＿ ください 。",o:["みて","いて","あげて"],it:"Prego, provi a toccarla.",e:"-て みる = provare a fare."},
+ {t:"err",s:"マルコ さん が わたし に チョコ を あげました 。",bad:7,fix:"マルコ さん が わたし に チョコ を くれました 。",it:"Volevi dire «Marco mi ha regalato del cioccolato».",e:"Se il regalo arriva a te si usa くれる, non あげる. In italiano «dare» va bene in tutte e due le direzioni."},
+ {t:"rep",ask:"こちら の スカーフ は いかが です か 。",who:"La commessa",o:[["きれい です ね 。 これ に します 。","È bella. Prendo questa."],["いらっしゃいませ 。","Benvenuta."],["かしこまりました 。","Certamente."]],e:"いかが です か = che ne dice? (molto cortese)."}
+]);
+XX("l21",[
+ {t:"ord",q:"«A marzo dovrei laurearmi.»",w:["三月[さんがつ]","に","そつぎょう","する","予定[よてい]","です"],x:["を"],a:["三月[さんがつ] に そつぎょう する 予定[よてい] です 。"]},
+ {t:"ord",ear:1,q:"«Penso di lavorare in un'azienda giapponese.»",w:["日本[にほん]","の","会社[かいしゃ]","で","はたらこう","と","思[おも]って","います"],x:["に"],a:["日本[にほん] の 会社[かいしゃ] で はたらこう と 思[おも]って います 。"]},
+ {t:"gap",s:"そつぎょう ＿ 、 イタリア に 帰[かえ]ります か 。",o:["したら","すると","して"],it:"Dopo la laurea torni in Italia?",e:"-たら = quando, una volta che."},
+ {t:"gap",s:"来年[らいねん] 、 日本[にほん] に 留学[りゅうがく] する ＿ です 。",o:["つもり","こと","ほう"],it:"L'anno prossimo ho intenzione di studiare in Giappone.",e:"Forma del dizionario + つもり です = ho intenzione di."},
+ {t:"err",s:"日本[にほん] で はたらきます つもり です 。",bad:2,fix:"日本[にほん] で はたらく つもり です 。",it:"Volevi dire «Ho intenzione di lavorare in Giappone».",e:"Davanti a つもり, 予定 e こと si usa la forma del dizionario (はたらく), non quella in -ます."},
+ {t:"rep",ask:"来年[らいねん] は どう する つもり です か 。",o:[["日本[にほん] で はたらく つもり です 。","Ho intenzione di lavorare in Giappone."],["はい 、 ぜひ ！","Sì, volentieri!"],["三月[さんがつ] でした 。","Era marzo."]],e:"どう する つもり chiede i tuoi progetti."}
+]);
+XX("l22",[
+ {t:"ord",q:"«Da ieri ho mal di testa.»",w:["きのう","から","あたま","が","いたい","です"],x:["を"],a:["きのう から あたま が いたい です 。"]},
+ {t:"ord",ear:1,q:"«Prenda questa medicina tre volte al giorno.»",w:["この","くすり","を","一日[いちにち]","三回[さんかい]","飲[の]んで","ください"],x:["食[た]べて"],a:["この くすり を 一日[いちにち] 三回[さんかい] 飲[の]んで ください 。"]},
+ {t:"gap",s:"二日[ふつか] ぐらい 休[やす]んだ ＿ が いい です 。",o:["ほう","こと","とき"],it:"È meglio che riposi un paio di giorni.",e:"-た ほう が いい = è meglio…"},
+ {t:"gap",s:"この くすり を 飲[の]まなければ ＿ 。",o:["なりません","いけます","いい です"],it:"Devo prendere questa medicina.",e:"-なければ なりません = devo."},
+ {t:"err",s:"ごはん の あと に くすり を 食[た]べます 。",bad:6,fix:"ごはん の あと に くすり を 飲[の]みます 。",it:"Volevi dire «Prendo la medicina dopo i pasti».",e:"In giapponese le medicine si «bevono»: くすりを 飲みます, anche le pastiglie. In italiano si «prendono», e viene da cercare un altro verbo."},
+ {t:"rep",ask:"どう しました か 。",who:"Il medico",o:[["あたま が いたい ん です 。","È che ho mal di testa."],["お大事[だいじ] に 。","Si riguardi."],["ごはん の あと です 。","Dopo i pasti."]],e:"どう しました か = che cosa si sente?"},
+ {t:"chr",c:"体",m:"corpo",w:"体[からだ]",p:[["亻","persona"],["本","radice, origine"]],d:[["木","albero"],["口","bocca"]],e:"Una persona 亻 e la sua radice 本: il corpo."}
+]);
+XX("l23",[
+ {t:"ord",q:"«Tre anni fa sono venuto in Giappone.»",w:["三年[さんねん]","前[まえ]","に","日本[にほん]","に","来[き]ました"],x:["を"],a:["三年[さんねん] 前[まえ] に 日本[にほん] に 来[き]ました 。"]},
+ {t:"ord",ear:1,q:"«Yuki mi ha insegnato tante cose.»",w:["ゆき","さん","が","いろいろ","教[おし]えて","くれました"],x:["あげました"],a:["ゆき さん が いろいろ 教[おし]えて くれました 。"]},
+ {t:"gap",s:"日本語[にほんご] が 上手[じょうず] ＿ なりました 。",o:["に","く","が"],it:"Sono diventato bravo in giapponese.",e:"Con gli aggettivi in な: 上手に なる; con quelli in い: 大きく なる."},
+ {t:"gap",s:"毎日[まいにち] 少[すこ]し ＿ 勉強[べんきょう]しました 。",o:["ずつ","ぐらい","から"],it:"Ho studiato ogni giorno un po' alla volta.",e:"ずつ = … alla volta."},
+ {t:"err",s:"日本語[にほんご] が 上手[じょうず]く なりました 。",bad:2,fix:"日本語[にほんご] が 上手[じょうず] に なりました 。",it:"Volevi dire «Sono diventato bravo in giapponese».",e:"上手 è un aggettivo in な: si dice 上手に なる. La forma in く è solo per gli aggettivi in い (大きく なる)."},
+ {t:"rep",ask:"どうして 日本[にほん] に 来[き]ました か 。",o:[["日本[にほん] の アニメ が 好[す]き でした から 。","Perché mi piacevano gli anime."],["三年[さんねん] 前[まえ] です 。","Tre anni fa."],["東京[とうきょう] に 住[す]んで います 。","Abito a Tokyo."]],e:"どうして chiede il perché: si risponde con 〜から."},
+ {t:"chr",c:"明",m:"luminoso",w:"明日[あした]",p:[["日","sole"],["月","luna"]],d:[["木","albero"],["口","bocca"]],e:"Sole e luna insieme: luminoso. 明日[あした] è il giorno «luminoso» che viene."}
+]);
+
 var EXAMS=[{"id":"n5-1","exam":"n5","title":"Prova 1","it":"Simulazione completa nel formato del JLPT N5: tre sezioni, tempi reali, punteggio stimato su 180.","sections":[{"id":"moji","jp":"言語知識（文字・語彙）","it":"Vocabolario e kanji","min":20,"score":"lang","parts":[{"n":1,"skill":"vocab","kind":"漢字読み","inst":"＿＿＿の ことばは ひらがなで どう かきますか。1・2・3・4から いちばん いい ものを ひとつ えらんで ください。","itInst":"Come si scrive in hiragana la parola sottolineata? Scegli la risposta migliore.","items":[{"q":"あの {山} は とても たかいです。","o":["かわ","やま","うみ","そら"],"a":1,"e":"山 = やま (yama), montagna."},{"q":"まいあさ {新聞} を よみます。","o":["しんもん","じんぶん","しんぶん","しんぷん"],"a":2,"e":"新聞 = しんぶん (shinbun), giornale."},{"q":"{来週} ともだちと きょうとへ いきます。","o":["らいしゅう","こんしゅう","せんしゅう","まいしゅう"],"a":0,"e":"来週 = らいしゅう (raishū), la settimana prossima."},{"q":"この かばんは {安い} です。","o":["たかい","ふるい","あたらしい","やすい"],"a":3,"e":"安い = やすい (yasui), economico."},{"q":"{午後} さんじに あいましょう。","o":["ごぜん","ごご","ごこ","こご"],"a":1,"e":"午後 = ごご (gogo), pomeriggio. 午前 = ごぜん, mattina."},{"q":"えきの {北} がわに ほんやが あります。","o":["ひがし","にし","きた","みなみ"],"a":2,"e":"北 = きた (kita), nord."},{"q":"{父} は ぎんこうで はたらいて います。","o":["ちち","はは","あに","あね"],"a":0,"e":"父 = ちち (chichi), mio padre."}]},{"n":2,"skill":"vocab","kind":"表記","inst":"＿＿＿の ことばは どう かきますか。1・2・3・4から いちばん いい ものを ひとつ えらんで ください。","itInst":"Come si scrive la parola sottolineata? Scegli la risposta migliore.","items":[{"q":"{みず} を ください。","o":["木","氷","水","永"],"a":2,"e":"みず = 水, acqua. Attenzione: 氷 è «ghiaccio», 永 ha solo un tratto in più."},{"q":"{らいねん} にほんへ いきます。","o":["来年","米年","来午","未年"],"a":0,"e":"らいねん = 来年, l'anno prossimo."},{"q":"まいばん {テレビ} を みます。","o":["テルビ","デレビ","テレピ","テレビ"],"a":3,"e":"テレビ (terebi), televisione: テ e ビ, non デ né ピ."},{"q":"えきの まえで {まって} ください。","o":["持って","待って","特って","侍って"],"a":1,"e":"まって = 待って (aspettare). 持って = tenere, portare."},{"q":"この みちを {みぎ} に まがって ください。","o":["左","石","右","若"],"a":2,"e":"みぎ = 右, destra. ひだり = 左, sinistra."}]},{"n":3,"skill":"vocab","kind":"文脈規定","inst":"（　　）に なにが はいりますか。1・2・3・4から いちばん いい ものを ひとつ えらんで ください。","itInst":"Che cosa va tra le parentesi? Scegli la risposta migliore.","items":[{"q":"さむいですから、（　　）を きます。","o":["プール","コート","ノート","テスト"],"a":1,"e":"Fa freddo, quindi metto il cappotto (コート). きます qui è 着ます, indossare."},{"q":"のどが かわきました。みずを（　　）。","o":["たべたいです","かいたいです","のみたいです","ききたいです"],"a":2,"e":"Ho sete: voglio bere (のみたい) l'acqua."},{"q":"へやが くらいですから、でんきを（　　）ください。","o":["つけて","けして","しめて","あけて"],"a":0,"e":"La stanza è buia: accendi (つけて) la luce. けして = spegni."},{"q":"わたしは まいばん じゅういちじに（　　）。","o":["おきます","でます","はいります","ねます"],"a":3,"e":"Ogni sera alle undici vado a dormire (ねます)."},{"q":"としょかんで ほんを さんさつ（　　）。","o":["うりました","かりました","かいました","おしえました"],"a":1,"e":"In biblioteca i libri si prendono in prestito: かりました (かりる)."},{"q":"この りんごは ひとつ ひゃく（　　）です。","o":["えん","まい","ほん","さつ"],"a":0,"e":"Il prezzo: ひゃくえん, 100 yen."}]},{"n":4,"skill":"vocab","kind":"言い換え類義","inst":"＿＿＿の ぶんと だいたい おなじ いみの ぶんが あります。1・2・3・4から いちばん いい ものを ひとつ えらんで ください。","itInst":"C'è una frase con più o meno lo stesso significato di quella sottolineata. Scegli la migliore.","items":[{"q":"{あには がっこうの せんせいです。}","o":["わたしの あには がっこうで べんきょうして います。","わたしの あには びょういんで はたらいて います。","わたしの あには がっこうで おしえて います。","わたしの あには かいしゃで はたらいて います。"],"a":2,"e":"Mio fratello è insegnante = insegna (おしえて います) a scuola."},{"q":"{この へやは せまいです。}","o":["この へやは きれいです。","この へやは ひろくないです。","この へやは あかるくないです。","この へやは たかいです。"],"a":1,"e":"せまい (stretto, piccolo) = ひろくない (non ampio)."},{"q":"{おととい かいものに いきました。}","o":["きのう かいものに いきました。","あした かいものに いきます。","ふつか あとに かいものに いきます。","ふつか まえに かいものに いきました。"],"a":3,"e":"おととい = l'altro ieri = due giorni fa (ふつか まえ)."}]}]},{"id":"bunpo","jp":"言語知識（文法）・読解","it":"Grammatica e lettura","min":40,"score":"lang","parts":[{"n":1,"skill":"grammar","kind":"文法形式の判断","inst":"（　　）に 何を 入れますか。1・2・3・4から いちばん いい ものを 一つ えらんで ください。","itInst":"Che cosa metti tra le parentesi? Scegli la risposta migliore.","items":[{"q":"これ（　　）わたしの 本です。","o":["を","に","は","へ"],"a":2,"e":"は indica l'argomento: «questo è il mio libro»."},{"q":"毎日 電車（　　）学校へ 行きます。","o":["で","を","に","が"],"a":0,"e":"で indica il mezzo: in treno."},{"q":"A「この かさは だれの ですか。」B「わたし（　　）です。」","o":["が","の","を","に"],"a":1,"e":"わたしの = mio (わたしの かさ, l'ombrello è sottinteso)."},{"q":"きのう デパート（　　）くつを 買いました。","o":["に","へ","を","で"],"a":3,"e":"で indica il luogo dove si fa un'azione: ho comprato le scarpe al grande magazzino."},{"q":"わたしは コーヒー（　　）すきです。","o":["を","で","が","に"],"a":2,"e":"Con すき l'oggetto vuole が: コーヒーが すきです."},{"q":"つくえの 上に 何（　　）ありません。","o":["も","が","は","を"],"a":0,"e":"何も + negativo = niente: sul tavolo non c'è niente."},{"q":"すみません、もう すこし ゆっくり（　　）ください。","o":["はなす","はなした","はなさない","はなして"],"a":3,"e":"Forma -te + ください per chiedere: parli più lentamente, per favore."},{"q":"きのうは さむかったです（　　）、きょうは あたたかいです。","o":["から","が","と","や"],"a":1,"e":"が = ma: ieri faceva freddo, ma oggi è caldo."},{"q":"A「いっしょに えいがを 見ませんか。」B「ええ、（　　）。」","o":["見ません","見ました","見ましょう","見ませんでした"],"a":2,"e":"Per accettare un invito: 見ましょう (guardiamolo)."}]},{"n":2,"skill":"grammar","kind":"文の組み立て","inst":"★に 入る ものは どれですか。1・2・3・4から いちばん いい ものを 一つ えらんで ください。","itInst":"Quale parola va nello spazio ★? Metti in ordine la frase e scegli quella che cade sulla stella.","items":[{"q":"A「あなたの ＿＿＿ ＿＿＿ ★ ＿＿＿ か。」B「3がいです。」","o":["あります","なんがい","へやは","に"],"a":3,"full":"あなたの へやは なんがい に あります か。","e":"Ordine: へやは → なんがい → に → あります. Sulla stella c'è に."},{"q":"わたしは ＿＿＿ ＿＿＿ ★ ＿＿＿ です。","o":["すき","が","あまい","もの"],"a":1,"full":"わたしは あまい もの が すき です。","e":"あまい もの が すき です: mi piacciono le cose dolci. Sulla stella c'è が."},{"q":"きのう ＿＿＿ ＿＿＿ ★ ＿＿＿ ました。","o":["み","えいがを","いっしょに","ともだちと"],"a":1,"full":"きのう ともだちと いっしょに えいがを み ました。","e":"ともだちと いっしょに えいがを みました. Sulla stella c'è えいがを."},{"q":"この ＿＿＿ ＿＿＿ ★ ＿＿＿ ください。","o":["いれて","ポスト","に","てがみを"],"a":2,"full":"この てがみを ポスト に いれて ください。","e":"この てがみを ポストに いれて ください: metti questa lettera nella buca. Sulla stella c'è に."}]},{"n":3,"skill":"grammar","kind":"文章の文法","inst":"（14）から（17）に 何を 入れますか。ぶんしょうの いみを かんがえて、1・2・3・4から いちばん いい ものを 一つ えらんで ください。","itInst":"Che cosa va negli spazi da (14) a (17)? Pensa al senso del testo.","text":"わたしは 日曜日に よく こうえんへ 行きます。こうえんは うちから あるいて 十分ぐらいです。こうえんには 大きい 木が たくさん （14）。わたしは 木の 下で 本を 読んだり、ともだちと 話したり します。\n（15）、きのうは 雨でしたから、こうえんへ 行きませんでした。うちで えいがを （16）。\n来週は ともだちと いっしょに こうえんで おべんとうを （17）。","items":[{"q":"（14）","o":["います","あります","します","なります"],"a":1,"e":"Per le cose (gli alberi) si usa あります; います è per persone e animali."},{"q":"（15）","o":["だから","それから","でも","そして"],"a":2,"e":"でも = però: di solito ci va, ma ieri pioveva."},{"q":"（16）","o":["見ます","見ました","見て","見ません"],"a":1,"e":"Si parla di ieri: passato, 見ました."},{"q":"（17）","o":["食べました","食べて いました","食べたいです","食べませんでした"],"a":2,"e":"Si parla della settimana prossima: un desiderio, 食べたいです."}]},{"n":4,"skill":"reading","kind":"内容理解（短文）","inst":"つぎの（1）から（2）の ぶんしょうを 読んで、しつもんに こたえて ください。こたえは、1・2・3・4から いちばん いい ものを 一つ えらんで ください。","itInst":"Leggi i testi (1) e (2) e rispondi alla domanda.","items":[{"text":"（1）\nマリアさんへ\nあしたの べんきょうかいは 三時からです。としょかんの 二かいの へやで します。じしょを もって きて ください。\n田中","q":"マリアさんは あした 何を もって いきますか。","o":["ノート","かさ","本","じしょ"],"a":3,"e":"Il biglietto chiede di portare il dizionario: じしょを もって きて ください."},{"text":"（2）\nわたしは 毎朝 七時に おきます。朝ごはんを 食べてから、八時に うちを 出ます。会社まで バスで 三十分 かかります。","q":"この 人は 何時ごろ 会社に つきますか。","o":["七時","七時半","八時","八時半"],"a":3,"e":"Esce alle otto e il bus ci mette trenta minuti: arriva verso le otto e mezza."}]},{"n":5,"skill":"reading","kind":"内容理解（中文）","inst":"つぎの ぶんしょうを 読んで、しつもんに こたえて ください。こたえは、1・2・3・4から いちばん いい ものを 一つ えらんで ください。","itInst":"Leggi il testo e rispondi alle domande.","text":"わたしの しゅみ\n\nわたしは りょうりが すきです。日本へ 来てから、日本の りょうりを ならって います。先月から、毎週 土曜日に 近くの りょうりきょうしつへ 行って います。先生は やさしい おばあさんです。\nきょうしつでは、はじめに みんなで スーパーへ 行って、やさいや さかなを 買います。それから いっしょに りょうりを 作って、食べます。先週は てんぷらを 作りました。とても おいしかったです。\n来月、わたしの 国の ともだちが 日本へ 来ます。ともだちに てんぷらを 作りたいです。","items":[{"q":"りょうりきょうしつで はじめに 何を しますか。","o":["てんぷらを 作ります。","スーパーで 買いものを します。","先生と いっしょに 食べます。","先生の うちへ 行きます。"],"a":1,"e":"はじめに みんなで スーパーへ 行って…買います: prima vanno al supermercato."},{"q":"この 人は 来月 何を したいですか。","o":["国へ かえりたいです。","りょうりきょうしつを やめたいです。","ともだちと スーパーへ 行きたいです。","ともだちに てんぷらを 作りたいです。"],"a":3,"e":"Ultima frase: ともだちに てんぷらを 作りたいです."}]},{"n":6,"skill":"reading","kind":"情報検索","inst":"下の「さくら市 スポーツセンター プール」を 見て、しつもんに こたえて ください。こたえは、1・2・3・4から いちばん いい ものを 一つ えらんで ください。","itInst":"Guarda l'avviso della piscina e rispondi alla domanda.","text":"さくら市 スポーツセンター プール\n\n月・水・金　 9:00〜17:00\n火・木　　　 9:00〜20:00\n土・日　　　10:00〜16:00\n\nおとな　400円　　こども（12さいまで）　200円","items":[{"q":"リンさんは しごとが 六時に おわります。しごとの あとで プールへ 行きたいです。何曜日に 行きますか。","o":["月曜日","水曜日","木曜日","土曜日"],"a":2,"e":"Dopo le sei la piscina è aperta solo martedì e giovedì (fino alle 20:00): giovedì."}]}]},{"id":"chokai","jp":"聴解","it":"Ascolto","min":30,"score":"listen","parts":[{"n":1,"skill":"listening","kind":"課題理解","inst":"もんだい1では、はじめに しつもんを きいて ください。それから はなしを きいて、もんだいようしの 1から4の なかから、いちばん いい ものを ひとつ えらんで ください。","itInst":"Prima ascolti la domanda, poi il dialogo. Scegli la risposta tra quelle scritte.","items":[{"o":["しろい ぼうし","あおい ぼうし","しろい シャツ","あおい シャツ"],"a":3,"e":"Quella bianca costa 3000 yen, quella blu 2500: compra la camicia blu.","script":[["N","いちばん。"],["N","店[みせ]で 女[おんな]の 人[ひと]と 店[みせ]の 人[ひと]が 話[はな]して います。女[おんな]の 人[ひと]は 何[なに]を 買[か]いますか。"],["F","すみません、この 白[しろ]い シャツは いくらですか。"],["M","三千[さんぜん]円[えん]です。"],["F","そうですか。じゃあ、あの 青[あお]い シャツは？"],["M","あれは 二千[にせん]五百[ごひゃく]円[えん]です。"],["F","じゃあ、青[あお]い シャツを ください。"],["N","女[おんな]の 人[ひと]は 何[なに]を 買[か]いますか。"]]},{"o":["えんぴつと ノート","えんぴつと おべんとう","ノートと おべんとう","えんぴつだけ"],"a":0,"e":"Il professore chiede matita e quaderno; il pranzo non serve.","script":[["N","にばん。"],["N","学校[がっこう]で 先生[せんせい]が 話[はな]して います。学生[がくせい]は あした 何[なに]を 持[も]って きますか。"],["M","あしたは こうえんで えを かきます。えんぴつと ノートを 持[も]って きて ください。おべんとうは いりません。学校[がっこう]で 食[た]べますから。"],["N","学生[がくせい]は あした 何[なに]を 持[も]って きますか。"]]},{"o":["えきの まえ","えいがかんの いりぐち","えいがかんの なか","えきの いりぐち"],"a":1,"e":"Davanti alla stazione c'è troppa gente: si vedono all'ingresso del cinema.","script":[["N","さんばん。"],["N","女[おんな]の 人[ひと]と 男[おとこ]の 人[ひと]が 話[はな]して います。二人[ふたり]は どこで 会[あ]いますか。"],["F","あしたの えいがは 何時[なんじ]からですか。"],["M","二時[にじ]からです。一時[いちじ]半[はん]に えきの 前[まえ]で 会[あ]いましょうか。"],["F","えきの 前[まえ]は 人[ひと]が 多[おお]いですから、えいがかんの 入口[いりぐち]で 会[あ]いませんか。"],["M","いいですよ。じゃあ、えいがかんの 入口[いりぐち]で。"],["N","二人[ふたり]は どこで 会[あ]いますか。"]]},{"o":["てがみを かく","ゆうびんきょくへ いく","しりょうを コピーする","しりょうを よむ"],"a":2,"e":"先に (prima) deve fotocopiare i documenti; la lettera dopo.","script":[["N","よんばん。"],["N","会社[かいしゃ]で 女[おんな]の 人[ひと]と 男[おとこ]の 人[ひと]が 話[はな]して います。男[おとこ]の 人[ひと]は このあと はじめに 何[なに]を しますか。"],["F","田中[たなか]さん、この てがみを ゆうびんきょくへ 持[も]って いって ください。"],["M","はい。いま すぐですか。"],["F","いいえ、先[さき]に この しりょうを コピーして ください。てがみは そのあとで いいです。"],["M","わかりました。"],["N","男[おとこ]の 人[ひと]は このあと はじめに 何[なに]を しますか。"]]},{"o":["でんしゃ","バス","タクシー","くるま"],"a":0,"e":"Gli autobus sono finiti; torna in treno (でんしゃ) e va a piedi alla stazione.","script":[["N","ごばん。"],["N","男[おとこ]の 人[ひと]と 女[おんな]の 人[ひと]が 話[はな]して います。女[おんな]の 人[ひと]は 何[なに]で かえりますか。"],["M","もう おそいですね。バスは ありますか。"],["F","バスは もう ありません。でんしゃで かえります。"],["M","えきまで とおいですよ。タクシーを よびましょうか。"],["F","いいえ、だいじょうぶです。あるいて 十分[じゅっぷん]ですから。"],["N","女[おんな]の 人[ひと]は 何[なに]で かえりますか。"]]},{"o":["カレーと おちゃ","さかなの ていしょくと おちゃ","さかなの ていしょくと コーヒー","カレーと コーヒー"],"a":1,"e":"Vuole il pesce: menù di pesce e tè freddo.","script":[["N","ろくばん。"],["N","レストランで 男[おとこ]の 人[ひと]と 女[おんな]の 人[ひと]が 話[はな]して います。女[おんな]の 人[ひと]は 何[なに]を たのみますか。"],["M","何[なに]に しますか。"],["F","そうですね。カレーも いいですけど、きょうは さかなが 食[た]べたいです。"],["M","じゃあ、この さかなの ていしょくは どうですか。"],["F","いいですね。それと、つめたい おちゃを おねがいします。"],["N","女[おんな]の 人[ひと]は 何[なに]を たのみますか。"]]},{"o":["きょう","あした","あさって","らいしゅう"],"a":2,"e":"Domani va in ospedale: consegnerà dopodomani (あさって).","script":[["N","ななばん。"],["N","学校[がっこう]で 先生[せんせい]と 学生[がくせい]が 話[はな]して います。学生[がくせい]は しゅくだいを いつ 出[だ]しますか。"],["M","しゅくだいは あしたまでですよ。"],["F","すみません、先生[せんせい]。あしたは びょういんへ 行[い]きますから、学校[がっこう]を 休[やす]みます。"],["M","そうですか。じゃあ、あさって 出[だ]して ください。"],["F","はい、わかりました。"],["N","学生[がくせい]は しゅくだいを いつ 出[だ]しますか。"]]}]},{"n":2,"skill":"listening","kind":"ポイント理解","inst":"もんだい2では、はじめに しつもんを きいて ください。それから はなしを きいて、もんだいようしの 1から4の なかから、いちばん いい ものを ひとつ えらんで ください。","itInst":"Prima ascolti la domanda, poi il dialogo: cerca l'informazione che serve.","items":[{"o":["4月9日","4月10日","4月14日","4月20日"],"a":1,"e":"Il compleanno è il 10 aprile (四月十日), giovedì; il 9 è mercoledì.","script":[["N","いちばん。"],["N","男[おとこ]の 人[ひと]と 女[おんな]の 人[ひと]が 話[はな]して います。女[おんな]の 人[ひと]の たんじょうびは いつですか。"],["M","山田[やまだ]さんの たんじょうびは いつですか。"],["F","四月[しがつ] 十日[とおか]です。"],["M","え、来週[らいしゅう]の 水曜日[すいようび]ですね。"],["F","いいえ、水曜日[すいようび]は 九日[ここのか]です。十日[とおか]は 木曜日[もくようび]です。"],["N","女[おんな]の 人[ひと]の たんじょうびは いつですか。"]]},{"o":["テニスを しました","本を 読みました","ゲームを しました","かいものを しました"],"a":2,"e":"La mattina ha letto (pioveva); il pomeriggio ha giocato ai videogiochi con un amico.","script":[["N","にばん。"],["N","女[おんな]の 人[ひと]と 男[おとこ]の 人[ひと]が 話[はな]して います。男[おとこ]の 人[ひと]は きのうの ごご 何[なに]を しましたか。"],["F","きのうは 何[なに]を しましたか。"],["M","あさは テニスを したかったですが、雨[あめ]でしたから、うちで 本[ほん]を 読[よ]みました。"],["F","そうですか。ごごは？"],["M","ごごは ともだちが 来[き]て、いっしょに ゲームを しました。"],["N","男[おとこ]の 人[ひと]は きのうの ごご 何[なに]を しましたか。"]]},{"o":["三人","五人","六人","四人"],"a":3,"e":"Padre, madre, sorella maggiore e lei: quattro persone (il cane non si conta).","script":[["N","さんばん。"],["N","男[おとこ]の 人[ひと]と 女[おんな]の 人[ひと]が 話[はな]して います。女[おんな]の 人[ひと]の かぞくは 何人[なんにん]ですか。"],["M","リーさんの かぞくは 何人[なんにん]ですか。"],["F","父[ちち]と 母[はは]と あねと わたしです。"],["M","そうですか。おにいさんは いませんか。"],["F","いません。でも、いぬが いますよ。"],["N","女[おんな]の 人[ひと]の かぞくは 何人[なんにん]ですか。"]]},{"o":["10時","11時半","11時20分","11時"],"a":3,"e":"Esce di casa alle undici; alla stazione arriva alle undici e venti.","script":[["N","よんばん。"],["N","女[おんな]の 人[ひと]と 男[おとこ]の 人[ひと]が 電話[でんわ]で 話[はな]して います。男[おとこ]の 人[ひと]は 何時[なんじ]に うちを 出[で]ますか。"],["F","もしもし、いま どこですか。"],["M","まだ うちです。十一時[じゅういちじ]に 出[で]ます。"],["F","じゃあ、えきに 何時[なんじ]に つきますか。"],["M","十一時[じゅういちじ] 二十分[にじゅっぷん]です。"],["N","男[おとこ]の 人[ひと]は 何時[なんじ]に うちを 出[で]ますか。"]]},{"o":["くろくて おおきい かさ","くろくて ちいさい かさ","あかくて おおきい かさ","あかくて ちいさい かさ"],"a":0,"e":"Il suo ombrello è nero e grande; quello che gli mostrano è piccolo.","script":[["N","ごばん。"],["N","男[おとこ]の 人[ひと]と 女[おんな]の 人[ひと]が 話[はな]して います。男[おとこ]の 人[ひと]の かさは どれですか。"],["M","すみません、わたしの かさが ありません。"],["F","どんな かさですか。"],["M","くろくて、大[おお]きい かさです。"],["F","これですか。"],["M","いいえ、それは 小[ちい]さいですね。あ、あれです。"],["N","男[おとこ]の 人[ひと]の かさは どれですか。"]]},{"o":["だいがくで べんきょうします","アニメを 見ます","日本の 会社で はたらきます","日本語を おしえます"],"a":2,"e":"Il prossimo anno andrà in Giappone a lavorare in un'azienda giapponese.","script":[["N","ろくばん。"],["N","学生[がくせい]が 話[はな]して います。この 学生[がくせい]は 来年[らいねん] 何[なに]を しますか。"],["F","わたしは 日本[にほん]の アニメが すきです。いま だいがくで 日本語[にほんご]を べんきょうして います。来年[らいねん]は 日本[にほん]へ 行[い]って、日本[にほん]の 会社[かいしゃ]で はたらきます。"],["N","この 学生[がくせい]は 来年[らいねん] 何[なに]を しますか。"]]}]},{"n":3,"skill":"listening","kind":"発話表現","inst":"もんだい3では、えを みながら しつもんを きいて ください。➡（やじるし）の ひとは なんと いいますか。1から3の なかから、いちばん いい ものを ひとつ えらんで ください。","itInst":"Guarda la situazione e ascolta: che cosa dice la persona indicata dalla freccia? Le risposte sono solo audio. (Nell'esame vero qui c'è un disegno.)","items":[{"scene":"ともだちの うちに 入ります。","sceneIt":"Entri a casa di un amico.","o":["1","2","3"],"a":0,"e":"Entrando in casa d'altri si dice おじゃまします («disturbo»). ただいま è quando torni a casa tua.","say":["おじゃまします。","いってきます。","ただいま。"],"script":[["N","いちばん。"],["N","ともだちの うちに 入[はい]ります。何[なん]と 言[い]いますか。"]]},{"scene":"ごはんを 食べる 前です。","sceneIt":"Stai per mangiare.","o":["1","2","3"],"a":1,"e":"Prima di mangiare: いただきます. Dopo: ごちそうさまでした.","say":["ごちそうさまでした。","いただきます。","おやすみなさい。"],"script":[["N","にばん。"],["N","ごはんを 食[た]べる 前[まえ]です。何[なん]と 言[い]いますか。"]]},{"scene":"先生の 話が わかりませんでした。","sceneIt":"Non hai capito che cosa ha detto l'insegnante.","o":["1","2","3"],"a":2,"e":"Per chiedere di ripetere: もう いちど おねがいします.","say":["どうぞ よろしく。","おげんきで。","もう いちど おねがいします。"],"script":[["N","さんばん。"],["N","先生[せんせい]の 話[はなし]が わかりませんでした。何[なん]と 言[い]いますか。"]]},{"scene":"店で ほしい ものが あります。","sceneIt":"In un negozio vuoi comprare qualcosa.","o":["1","2","3"],"a":0,"e":"Per comprare: これを ください. どうぞ si usa quando offri tu.","say":["これを ください。","これを どうぞ。","これは いかがですか。"],"script":[["N","よんばん。"],["N","店[みせ]で ほしい ものが あります。何[なん]と 言[い]いますか。"]]},{"scene":"ともだちに かさを かりたいです。","sceneIt":"Vuoi farti prestare l'ombrello da un amico.","o":["1","2","3"],"a":1,"e":"Per chiedere in prestito: かして ください (prestami). かりる = prendere in prestito.","say":["かさを かりて ください。","かさを かして ください。","かさを かしましょうか。"],"script":[["N","ごばん。"],["N","ともだちに かさを かりたいです。何[なん]と 言[い]いますか。"]]}]},{"n":4,"skill":"listening","kind":"即時応答","inst":"もんだい4は、えなどが ありません。ぶんを きいて、1から3の なかから、いちばん いい ものを ひとつ えらんで ください。","itInst":"Senza immagini: ascolta la frase e scegli la risposta giusta tra le tre che senti.","items":[{"o":["1","2","3"],"a":0,"e":"おげんきですか → はい、げんきです.","say":["はい、げんきです。","はい、どういたしまして。","はい、いただきます。"],"script":[["N","いちばん。"],["M","おげんきですか。"]]},{"o":["1","2","3"],"a":2,"e":"Hobby? → la cucina (りょうりです).","say":["日曜日[にちようび]です。","三人[さんにん]です。","りょうりです。"],"script":[["N","にばん。"],["M","しゅみは 何[なん]ですか。"]]},{"o":["1","2","3"],"a":0,"e":"A un grazie si risponde どういたしまして (prego).","say":["どういたしまして。","ごめんなさい。","いってらっしゃい。"],"script":[["N","さんばん。"],["M","ありがとうございました。"]]},{"o":["1","2","3"],"a":1,"e":"Posso prendere in prestito la penna? → はい、どうぞ.","say":["はい、かりました。","はい、どうぞ。","いいえ、ペンです。"],"script":[["N","よんばん。"],["M","この ペンを かりても いいですか。"]]},{"o":["1","2","3"],"a":1,"e":"Dove sei andato ieri? → al grande magazzino (passato: 行きました).","say":["あした 行[い]きます。","デパートへ 行[い]きました。","デパートが すきです。"],"script":[["N","ごばん。"],["M","きのうは どこへ 行[い]きましたか。"]]},{"o":["1","2","3"],"a":2,"e":"Invito a bere qualcosa → sì, un caffè per favore.","say":["はい、のみものです。","いいえ、のみませんでした。","ええ、コーヒーを おねがいします。"],"script":[["N","ろくばん。"],["M","なにか のみませんか。"]]}]}]}]}];
 /* ---------- testo giapponese ----------
    Formato dei dati: parole separate da spazi; lettura dei kanji tra parentesi quadre.
@@ -4209,6 +4409,7 @@ function renderSet(el,opt){
     if(done===items.length){var b=state.best[id];if(!b||n>=b[0]){state.best[id]=[n,items.length];save();updateToc()}var r=document.createElement("div");r.className="acts";r.style.marginLeft="0";r.innerHTML='<button class="btn pri">Rifai da capo</button>';r.firstChild.onclick=function(){renderSet(el)};el.appendChild(r)}}
   items.forEach(function(it,i){
     var q=document.createElement("div");q.className="q";
+    if(typeof exExtra==="function"&&exExtra(q,it,i,mark)){if(one&&i>0)q.hidden=true;qs.push(q);el.appendChild(q);return}
     var tag=it.t==="say"?'<span class="qtag say-t">'+MIC+'Parla</span>':it.t==="ord"?'<span class="qtag">Componi</span>':it.t==="dict"?'<span class="qtag wr-t">Dettato</span>':it.t==="type"?'<span class="qtag wr-t">Completa</span>':(it.au?'<span class="qtag ear-t">'+SPK+'Ascolta</span>':'<span class="qtag">Scegli</span>');
     if(it.t==="dict"||it.t==="type"){
       var isD=it.t==="dict";
@@ -4445,7 +4646,11 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
 function exSplit(id){var it=EX[id]||[],U=UNITS[uIdx(id)];
   if(U.kind==="review")return {p:[],t:it.slice()};
-  var p=[],t=[],a=0;it.forEach(function(x){var pr=!x.au&&x.t!=="dict"&&x.t!=="say";if(pr&&a++%2===0&&p.length<4)p.push(x);else t.push(x)});
+  /* practice after the rule: first the build-and-choose exercises, then a couple of classic ones; the rest is the test */
+  var NEW=/^(ord|gap|err|chr|tone)$/,p=[],a=0;
+  it.forEach(function(x){if(NEW.test(x.t||"")&&p.length<4)p.push(x)});
+  it.forEach(function(x){if(!x.au&&!x.t&&a++%2===0&&p.length<6)p.push(x)});
+  var t=it.filter(function(x){return p.indexOf(x)<0});
   if(t.length<8)t=t.concat(vocQuiz(lessonWords(id),8-t.length));
   return {p:p,t:t}}
 function stars(n,m){var r=m?n/m:0;return r>=.999?3:r>=.85?2:r>=.7?1:0}
@@ -5189,7 +5394,7 @@ function vSimRev(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame
 /* quality check (only with ?audit=1): every clickable word must have a meaning */
 if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
-  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.au,it.jp,it.zh,it.it,it.full])})});
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
@@ -5200,9 +5405,10 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   strs.forEach(function(t){try{div.innerHTML=render(t)}catch(x){return}qa(".w[data-say]",div).forEach(chk)});
   qa(".book .w[data-say]").forEach(chk);
   /* everything the course can say aloud (to generate and check the audio files) */
-  var says={};function sa(x){if(x&&typeof x==="string"&&/[\u3040-\u9fff]/.test(x))says[x.trim().replace(/\s+/g," ")]=1}
+  var says={};function sa(x){if(x&&typeof x==="string"&&(ZH?/[A-Za-zÀ-ÿ]/.test(x)&&!/[\u3040-\u9fff]/.test(x):/[\u3040-\u9fff]/.test(x)))says[x.trim().replace(/\s+/g," ")]=1}
   Object.keys(seen).forEach(sa);qa("[data-say]").forEach(function(e){sa(e.getAttribute("data-say"))});
-  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){sa(it.au);sa(it.jp);sa(it.zh);sa(it.full);if(it.a)it.a.forEach(sa);if(it.o)it.o.forEach(sa);if(it.w&&!it.w.length===2)it.w.forEach(sa)})});
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){sa(it.au);sa(it.jp);sa(it.zh);sa(it.full);if(it.a)it.a.forEach(sa);if(it.o)it.o.forEach(sa);if(it.w&&!it.w.length===2)it.w.forEach(sa);
+    sa(it.fix);sa(it.ask);if(it.t==="gap")sa(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")sa(it.o[0][0]);if(it.t==="tone")sa(it.s)})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){sa(r[1])})});
   if(typeof W!=="undefined")W.forEach(function(w){sa(w[0])});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){sa(c.i);(c.w||[]).forEach(function(w){sa(w[0])})})});
@@ -5214,6 +5420,130 @@ if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostnam
 if(!location.hash||location.hash==="#"||location.hash==="#mappa")try{history.replaceState(null,"","#/oggi")}catch(e){}
 render();
 })();
+
+/* ---------- Milepost exercises, shared by every course ----------
+   Built into each course's closure next to the engine; renderSet() hands these item types to exExtra():
+   ord  rebuild the sentence      {t:"ord", q, w:[tokens], x:[extra tokens], a:[answers], ear:1 = listen first}
+   gap  complete by choosing      {t:"gap", s:"… ＿ …", o:[right, wrong…], it, e}
+   err  find the typical error    {t:"err", s, bad:token index, fix, it, e}
+   chr  build the character       {t:"chr", c, m, p:[[piece, meaning]…], d:[[piece, meaning]…], e}
+   rep  answer in the dialogue    {t:"rep", ask, who, o:[[right, translation], [wrong, translation]…], e}
+   tone recognise the tone (zh)   {t:"tone", s:"妈[mā]"}
+   Everything here is a function declaration, so the engine can call it while the page loads. */
+function exLang(){return typeof itHTML==="function"?"it":typeof pyWord==="function"?"zh":"ja"}
+function exS(){return exLang()==="it"?{
+    ord:"组句",ear:"听后组句",gap:"选词填空",err:"找错误",rep:"回答",tone:"声调",chk:"检查",rst:"重来",ok:"正确！",no:"不对。",ans:"答案：",
+    play:"听",again:"再听一遍",errQ:"点出用错的那个词。",errFine:"这个词没问题。",fixed:"正确的句子：",earQ:"听，然后把句子拼出来。",
+    repQ:"选择合适的回答。",useSome:"先选几个词。",next:"还差一个部分。"}:{
+    ord:"Componi",ear:"Ascolta e ricomponi",gap:"Completa",err:"Trova l'errore",chr:"Costruisci",rep:"Rispondi",tone:"Tono",chk:"Controlla",rst:"Ricomincia",ok:"Giusto!",no:"Non proprio.",ans:"Risposta:",
+    play:"Ascolta",again:"Ascolta di nuovo",errQ:"Tocca la parola sbagliata.",errFine:"Questa va bene.",fixed:"La frase corretta:",earQ:"Ascolta e ricomponi la frase.",
+    repQ:"Scegli la risposta giusta.",useSome:"Scegli prima qualche parola.",next:"Manca ancora un pezzo.",chrQ:function(c,m){return "Costruisci "+c+" («"+m+"»): scegli i pezzi."},
+    toneQ:"Ascolta la sillaba e scegli il tono."}}
+function exLangAttr(){var l=exLang();return l==="it"?"it":l==="zh"?"zh-CN":"ja"}
+/* a sentence you can read, tap and hear */
+function exSay(t){return exLang()==="it"?itLine(t):jLineSay(t)}
+/* explanations mix the learner's language with words of the course */
+function exRich(t){t=t||"";return exLang()==="it"?linkMixed(t):mixHTML(t)}
+/* one token as a tile: reading above (furigana / pinyin) follows the reading switches */
+function exTile(t){return exLang()==="it"?esc(t):jpHTML(t,true)}
+function exPlain(s){return exLang()==="it"?nrm(s):jplain(s).replace(/[。、，！？「」『』…：；“”,.!?]/g,"")}
+function exTag(k){return '<span class="qtag">'+esc(k)+'</span>'}
+function exHead(q,i,tag,txt){q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+txt+'</span></div>'}
+function exFb(q){var d=document.createElement("div");d.className="expl";q.appendChild(d);return d}
+function exBtn(cls,html,lang){var b=document.createElement("button");b.type="button";b.className=cls;b.innerHTML=html;if(lang)b.setAttribute("lang",lang);return b}
+
+function exExtra(q,it,i,mark){
+  var T=it.t,S=exS(),LA=exLangAttr();
+  if(T!=="ord"&&T!=="gap"&&T!=="err"&&T!=="chr"&&T!=="rep"&&T!=="tone")return false;
+  q.classList.add("xq","xq-"+T);
+  /* ---- rebuild the sentence: tap tiles in order; one or two tiles are traps ---- */
+  if(T==="ord"){
+    exHead(q,i,'<span class="qtag'+(it.ear?' ear-t':'')+'">'+(it.ear?SPK+S.ear:S.ord)+'</span>',it.ear?esc(S.earQ):exRich(String(it.q||"").replace(/^(Componi|Ricomponi|组句|连词成句)\s*[:：]\s*/,"")));
+    if(it.ear){var pa=document.createElement("div");pa.className="acts";var lb=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb.onclick=function(){speak(it.a[0])};pa.appendChild(lb);q.appendChild(pa)}
+    var line=document.createElement("div");line.className="xline";line.setAttribute("aria-label",S.ans);
+    var pool=document.createElement("div");pool.className="xpool";
+    var all=it.w.concat(it.x||[]).filter(function(t){return exLang()==="it"?!/^[.,!?;:]+$/.test(t):!JP_PUNCT.test(jsurf(t))}),w=shuffle(all),g=0;while(w.join(" ")===it.a[0]&&g++<10)w=shuffle(all);
+    w.forEach(function(t){var b=exBtn("xtile",exTile(t),LA);b.setAttribute("data-t",t);
+      b.onclick=function(){if(q.dataset.locked)return;if(b.parentNode===pool){var gh=document.createElement("span");gh.className="xtile xghost";gh.innerHTML=b.innerHTML;b._g=gh;pool.replaceChild(gh,b);line.appendChild(b)}else{pool.replaceChild(b,b._g)}};
+      pool.appendChild(b)});
+    var acts=document.createElement("div");acts.className="acts";var ck=exBtn("btn pri",esc(S.chk)),rs=exBtn("btn",esc(S.rst));acts.appendChild(ck);acts.appendChild(rs);
+    q.appendChild(line);q.appendChild(pool);q.appendChild(acts);var fb=exFb(q);
+    rs.onclick=function(){if(q.dataset.locked)return;$$(".xtile",line).forEach(function(b){pool.replaceChild(b,b._g)})};
+    ck.onclick=function(){if(q.dataset.locked)return;var got=$$(".xtile",line).map(function(b){return b.getAttribute("data-t")});
+      if(!got.length){fb.innerHTML=esc(S.useSome);return}
+      var s=got.join(" "),ok=it.a.some(function(a){return exPlain(a)===exPlain(s)});
+      q.dataset.locked="1";ck.disabled=rs.disabled=true;$$(".xtile",line).forEach(function(b){b.classList.add(ok?"ok":"no")});
+      fb.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> '+esc(S.ans)+' ')+exSay(it.a[0])+(it.e?' '+exRich(it.e):'')+(it.ear&&it.q?' <span class="xit">'+exRich(it.q)+'</span>':'');
+      speak(it.a[0]);mark(i,ok)};
+    return true}
+  /* ---- complete the sentence by choosing a tile ---- */
+  if(T==="gap"){
+    var toks=String(it.s).split(/\s+/),full=it.s.replace("＿",it.o[0]);
+    var html=exLang()==="it"?'<span class="xs" lang="it">'+toks.map(function(t){return t.indexOf("＿")>=0?esc(t.split("＿")[0])+'<span class="xgap">　</span>'+esc(t.split("＿")[1]):esc(t)}).join(" ")+'</span>'
+      :'<span class="xs" lang="'+LA+'">'+toks.map(function(t){return t==="＿"?'<span class="xgap">　</span>':jpHTML(t,true)}).join(exLang()==="ja"?" ":"")+'</span>';
+    exHead(q,i,exTag(S.gap),(it.it?'<span class="xit">'+exRich(it.it)+'</span>':''));
+    var sent=document.createElement("div");sent.className="xsent";sent.innerHTML=html;q.appendChild(sent);
+    var box=document.createElement("div");box.className="xtiles";q.appendChild(box);var fb2=exFb(q);
+    var ord2=shuffle(it.o.map(function(_,k){return k}));
+    ord2.forEach(function(k){var b=exBtn("xtile",exTile(it.o[k]),LA);box.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===0;
+        $$(".xtile",box).forEach(function(x){x.disabled=true});box.children[ord2.indexOf(0)].classList.add("ok");if(!ok)b.classList.add("no");
+        var gp=$(".xgap",sent);gp.innerHTML=exTile(it.o[0]);gp.classList.add("on");
+        fb2.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+exSay(full)+(it.e?' '+exRich(it.e):'');speak(full);mark(i,ok)}});
+    return true}
+  /* ---- find the error that speakers of your language make ---- */
+  if(T==="err"){
+    exHead(q,i,exTag(S.err),(it.it?exRich(it.it)+' ':'')+'<span class="xit">'+esc(S.errQ)+'</span>');
+    var ws=String(it.s).split(/\s+/),row=document.createElement("div");row.className="xsent xwords";row.setAttribute("lang",LA);q.appendChild(row);var fb3=exFb(q);
+    ws.forEach(function(t,k){var pu=exLang()==="it"?/^[.,!?;:«»]+$/.test(t):JP_PUNCT.test(jsurf(t));
+      if(pu){var sp=document.createElement("span");sp.className="xpu";sp.textContent=exLang()==="it"?t:jsurf(t);row.appendChild(sp);return}
+      var b=exBtn("xword",exTile(t),LA);row.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===it.bad;
+        $$(".xword",row).forEach(function(x){x.disabled=true});row.children[it.bad].classList.add("no");if(!ok)b.classList.add("pick");
+        fb3.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+esc(S.fixed)+' '+exSay(it.fix)+(it.e?' '+exRich(it.e):'');speak(it.fix);mark(i,ok)}});
+    return true}
+  /* ---- build the character from its pieces ---- */
+  if(T==="chr"){
+    exHead(q,i,exTag(S.chr||"字"),esc(S.chrQ?S.chrQ(it.c,it.m):it.m));
+    var wrap=document.createElement("div");wrap.className="xchr";var big=document.createElement("div");big.className="xbig";big.setAttribute("lang",LA);big.setAttribute("aria-live","polite");
+    var bx=document.createElement("div");bx.className="xtiles";wrap.appendChild(big);wrap.appendChild(bx);q.appendChild(wrap);var fb4=exFb(q);
+    var need=it.p.map(function(p){return p[0]}),got=[],bad=false;
+    shuffle(it.p.concat(it.d||[])).forEach(function(p){var b=exBtn("xtile",esc(p[0])+'<small>'+esc(p[1])+'</small>',LA);bx.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked||b.classList.contains("ok"))return;
+        if(need.indexOf(p[0])>=0){b.classList.add("ok");b.disabled=true;got.push(p[0]);big.textContent=got.length===need.length?it.c:got.join("");
+          if(got.length===need.length){q.dataset.locked="1";$$(".xtile",bx).forEach(function(x){x.disabled=true});big.classList.add("done");
+            fb4.innerHTML=(bad?'<b class="no">'+esc(S.no)+'</b> ':'<b class="ok">'+esc(S.ok)+'</b> ')+'<span class="xbigw" lang="'+LA+'">'+jpHTML(it.w||it.c)+'</span> '+exRich(it.e||"");mark(i,!bad)}
+          else fb4.textContent=S.next}
+        else{bad=true;b.classList.add("no");fb4.innerHTML='<b class="no">'+esc(p[0])+'</b> = '+esc(p[1]);setTimeout(function(){b.classList.remove("no")},rmotion()?0:700)}}});
+    return true}
+  /* ---- answer in the dialogue ---- */
+  if(T==="rep"){
+    exHead(q,i,'<span class="qtag ear-t">'+SPK+esc(S.rep)+'</span>',esc(S.repQ));
+    var bub=document.createElement("div");bub.className="xbub";bub.innerHTML=(it.who?'<small>'+esc(it.who)+'</small>':'')+exSay(it.ask);q.appendChild(bub);
+    var pa2=document.createElement("div");pa2.className="acts xhide";var lb2=exBtn("btn lsp",SPK+" "+esc(S.again));lb2.onclick=function(){speak(it.ask)};pa2.appendChild(lb2);q.appendChild(pa2);
+    var op=document.createElement("div");op.className="xopts";q.appendChild(op);var fb5=exFb(q);
+    var ord3=shuffle(it.o.map(function(_,k){return k}));
+    ord3.forEach(function(k){var o=it.o[k],b=exBtn("xopt",'<span lang="'+LA+'">'+exTile(o[0])+'</span><small class="xtr" hidden>'+esc(o[1])+'</small>');op.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===0;
+        $$(".xopt",op).forEach(function(x){x.disabled=true;$(".xtr",x).hidden=false});op.children[ord3.indexOf(0)].classList.add("ok");if(!ok)b.classList.add("no");
+        fb5.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+exSay(it.o[0][0])+(it.e?' '+exRich(it.e):'');speak(it.o[0][0]);mark(i,ok)}});
+    return true}
+  /* ---- tone of a syllable (Chinese only) ---- */
+  if(T==="tone"){
+    var m=String(it.s).match(/^(.+)\[([^\]]+)\]$/),py=m?m[2]:"",tn=tone(py),base=toneOff(py);
+    exHead(q,i,'<span class="qtag ear-t">'+SPK+esc(S.tone)+'</span>',esc(S.toneQ));
+    var pa3=document.createElement("div");pa3.className="acts";var lb3=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb3.onclick=function(){speak(it.s)};pa3.appendChild(lb3);q.appendChild(pa3);
+    var tb=document.createElement("div");tb.className="xtiles xtones";q.appendChild(tb);var fb6=exFb(q);
+    [1,2,3,4].forEach(function(k){var v=toneOn(base,k),b=exBtn("xtile t"+k,'<span class="t'+k+'">'+esc(v)+'</span><small>'+["","‾ alto","／ sale","∨ scende e sale","＼ scende"][k]+'</small>');tb.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===tn;$$(".xtile",tb).forEach(function(x){x.disabled=true});tb.children[tn-1].classList.add("ok");if(!ok)b.classList.add("no");
+        fb6.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+exSay(it.s)+(it.e?' '+exRich(it.e):'');speak(it.s);mark(i,ok)}});
+    return true}
+  return false}
+/* pinyin helpers for the tone exercise */
+function exTM(){return {a:"āáǎà",e:"ēéěè",i:"īíǐì",o:"ōóǒò",u:"ūúǔù","ü":"ǖǘǚǜ"}}
+function toneOff(p){var s=String(p).toLowerCase(),M=exTM();Object.keys(M).forEach(function(v){for(var k=0;k<4;k++)s=s.split(M[v][k]).join(v)});return s}
+function toneOn(p,t){var s=toneOff(p),i=s.search(/[ae]/);if(i<0){i=s.indexOf("ou");if(i<0){var vs=s.match(/[aeiouü]/g)||[];if(!vs.length)return s;i=s.lastIndexOf(vs[vs.length-1])}}
+  var v=s[i];return s.slice(0,i)+exTM()[v][t-1]+s.slice(i+1)}
 
 })();
 </script>

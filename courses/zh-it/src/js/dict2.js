@@ -1,5 +1,6 @@
 /* Significati aggiunti: parole e caratteri che compaiono nel testo (esempi, tabelle, schede di scrittura) */
 (function(){var D={
+"少":"poco, pochi (多少 = quanto)","主":"principale; padrone (qui dà il suono zhu)",
 "李":"Li (cognome); prugna","经理":"direttore, manager","伟":"grande (nei nomi)","敏":"Min (nome); sveglio, acuto","波罗":"Polo (in 马可·波罗)","发":"fare fortuna (in 发财); spedire",
 "绿茶":"tè verde","美式":"all'americana (caffè lungo)","拿铁":"caffellatte (latte)","扫码":"inquadrare il codice QR","支付":"pagare","支付宝":"Alipay (app per pagare)","加":"aggiungere",
 "北京市":"città di Pechino","朝阳区":"distretto di Chaoyang (Pechino)","公筷":"bacchette di servizio","午休":"pausa pranzo, pisolino dopo pranzo","双十一":"«doppio undici»: l'11 novembre",

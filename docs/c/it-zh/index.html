@@ -731,7 +731,7 @@ html.modal-open,html.modal-open body{overflow:hidden}
   <div class="stats">
     <div class="t-red"><b>23</b><span>课 + 3 次复习 · <i>lezioni</i></span></div>
     <div class="t-blue"><b>25</b><span>段对话 · <i>dialoghi</i></span></div>
-    <div class="t-green"><b>370</b><span>道练习 · <i>esercizi</i></span></div>
+    <div class="t-green"><b>392</b><span>道练习 · <i>esercizi</i></span></div>
     <div class="t-yellow"><b>582</b><span>个单词 · <i>parole</i></span></div>
   </div>
   <div class="legend"><span>名词颜色：</span><b class="m">阳性 il libro</b><b class="f">阴性 la casa</b><span>· 下划线 = 重音：<b><span class="st">ca</span>sa</b></span><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">绿色</b> = 意大利语：点一下，听发音、看意思</span></div>
@@ -2794,6 +2794,7 @@ var DICT={};
 
 /* ---------- 补充释义：让每个可以点击的单词都有中文意思 ---------- */
 Object.assign(DICT,{
+"professore":"老师（男）、教授","età":"年龄","succede":"发生（succedere 的现在时）","guardo":"我看（guardare）",
 "vu":"字母 v 的名称","u":"字母 u；元音 u","s":"字母 s","k":"字母 k（只用于外来词）","sc":"sc 组合：sce/sci 读 [ʃ]，像「诗」","ca":"ca：读 [ka]","co":"co：读 [ko]","cu":"cu：读 [ku]",
 "ga":"ga：读 [ga]","go":"go：读 [go]","gu":"gu：读 [gu]","ge":"ge：读 [dʒe]，像「这」","gi":"gi：读 [dʒi]，像「机」","ghe":"ghe：读 [ge]","ghi":"ghi：读 [gi]",
 "are":"-are：第一类动词词尾（parlare）","er-":"将来时词干（parlare → parler-）","dici-":"dici-（数字 diciassette, diciotto, diciannove 的开头）","ano":"-ano：他们（第三人称复数词尾）",
@@ -3897,6 +3898,192 @@ var READS=[
     {q:"调皮的孩子会得到什么？",o:["煤块（今天是糖做的）","一本书","很多钱"],a:0}]}
 ];
 
+/* ---------- Esercizi Milepost (italiano per chi parla cinese): 组句、选词填空、找错误、回答 ----------
+   Formats in shell/exercises.js. Sentences come from the lessons whenever possible (same audio);
+   «err» uses mistakes that Chinese speakers really make. Checked by tools/drills_check.js. */
+function XX(id,a){EX[id]=(EX[id]||[]).concat(a)}
+XX("l1",[
+ {t:"rep",ask:"Grazie!",who:"一位朋友",o:[["Prego!","不客气！"],["Ciao!","你好！"],["Scusa!","对不起！"]],e:"别人说 Grazie，就回答 Prego。"},
+ {t:"rep",ask:"Buonanotte!",who:"晚上，家人",o:[["Buonanotte!","晚安！"],["Buongiorno!","早上好！"],["Prego!","不客气！"]],e:"睡觉前说 buonanotte，对方也用 buonanotte 回答。"},
+ {t:"gap",s:"Un caffè, per ＿!",o:["favore","grazie","prego"],it:"请来一杯咖啡。",e:"per favore = 请。"}
+]);
+XX("l2",[
+ {t:"ord",q:"«我叫马可。»",w:["mi","chiamo","Marco"],x:["è"],a:["Mi chiamo Marco."]},
+ {t:"ord",ear:1,q:"«我是意大利人，罗马人。»",w:["io","sono","italiano","di","Roma"],x:["a"],a:["Io sono italiano, di Roma."]},
+ {t:"gap",s:"Come ti ＿?",o:["chiami","chiamo","chiama"],it:"你叫什么名字？",e:"「你」用 ti chiami，「我」用 mi chiamo。"},
+ {t:"gap",s:"Io ＿ studente.",o:["sono","è","sei"],it:"我是学生。",e:"essere 的变位：io sono, tu sei, lui/lei è。"},
+ {t:"err",s:"Io è cinese.",bad:1,fix:"Io sono cinese.",it:"你想说「我是中国人」。",e:"意大利语的动词要跟着人称变：io sono, tu sei, lui è。中文的「是」不变，所以很容易一直用同一个形式。"},
+ {t:"rep",ask:"Ciao! Mi chiamo Marco. Come ti chiami?",o:[["Mi chiamo Li Wei.","我叫李薇。"],["Sono di Pechino.","我是北京人。"],["Piacere mio!","我也很高兴！"]],e:"Come ti chiami? 问的是名字。"}
+]);
+XX("l3",[
+ {t:"ord",q:"«早上好！您好吗？»",w:["buongiorno","come","sta"],x:["stai"],a:["Buongiorno! Come sta?"],e:"对长辈和陌生人用 Lei 的形式：come sta?"},
+ {t:"ord",ear:1,q:"«您是新来的老师吗？»",w:["Lei","è","il","nuovo","insegnante"],x:["un"],a:["Lei è il nuovo insegnante?"]},
+ {t:"gap",s:"Bene, grazie. E ＿?",o:["Lei","io","lui"],it:"很好，谢谢。您呢？",e:"对陌生人或长辈用 Lei（您），写的时候大写 L。"},
+ {t:"gap",s:"Arrivederci, buona ＿!",o:["giornata","giorno","giornate"],it:"再见，祝您一天愉快！",e:"giornata 是阴性单数，所以是 buona giornata。"},
+ {t:"err",s:"Buongiorno, professore! Come stai?",bad:3,fix:"Buongiorno, professore! Come sta?",it:"你在跟老师说话。",e:"对老师、陌生人要用 Lei 的形式：come sta?。come stai? 只对朋友和家人说。"},
+ {t:"rep",ask:"Buongiorno! Come sta?",who:"一位女士",o:[["Bene, grazie. E Lei?","很好，谢谢。您呢？"],["Sono Paolo Rossi.","我是保罗·罗西。"],["Buona giornata!","祝您一天愉快！"]],e:"别人问 come sta，回答以后也问回去：E Lei?"}
+]);
+XX("l4",[
+ {t:"ord",q:"«房间里有一张床。»",w:["nella","camera","c'è","un","letto"],x:["sono"],a:["Nella camera c'è un letto.","C'è un letto nella camera."]},
+ {t:"ord",ear:1,q:"«有两扇窗户。»",w:["ci","sono","due","finestre"],x:["c'è"],a:["Ci sono due finestre."]},
+ {t:"gap",s:"Questo è ＿ zaino.",o:["uno","un","una"],it:"这是一个背包。",e:"z 或 s+辅音开头的阳性名词用 uno：uno zaino, uno studente。"},
+ {t:"gap",s:"Ci sono due ＿.",o:["finestre","finestra","finestri"],it:"有两扇窗户。",e:"-a 结尾的阴性名词，复数变成 -e：finestra → finestre。"},
+ {t:"err",s:"C'è due finestre.",bad:0,fix:"Ci sono due finestre.",it:"你想说「有两扇窗户」。",e:"一个东西用 c'è，几个东西用 ci sono。中文的「有」不分单复数。"},
+ {t:"rep",ask:"E che cos'è questo?",o:[["È uno zaino.","这是一个背包。"],["Sì, c'è.","有。"],["Che bella!","真漂亮！"]],e:"Che cos'è? 问「这是什么」。"}
+]);
+XX("l5",[
+ {t:"ord",q:"«我有一个妹妹。»",w:["ho","una","sorella"],x:["sono"],a:["Ho una sorella."]},
+ {t:"ord",ear:1,q:"«我妹妹十六岁。»",w:["mia","sorella","ha","sedici","anni"],x:["è"],a:["Mia sorella ha sedici anni."]},
+ {t:"gap",s:"Ho venti ＿.",o:["anni","anno","età"],it:"我二十岁。",e:"说年龄：avere + 数字 + anni。"},
+ {t:"gap",s:"Questi sono ＿ genitori.",o:["i miei","mio","miei"],it:"这是我的父母。",e:"复数的家人前面要加冠词：i miei genitori；单数不加：mio padre。"},
+ {t:"err",s:"Io sono venti anni.",bad:1,fix:"Io ho venti anni.",it:"你想说「我二十岁」。",e:"意大利语说年龄用 avere（有）：ho venti anni，「我有二十年」。中文直接说「我二十岁」，所以容易用 sono。"},
+ {t:"rep",ask:"E tu, hai fratelli?",o:[["Sì, ho due sorelle e un fratello.","有，我有两个姐妹和一个兄弟。"],["Ha sedici anni.","她十六岁。"],["È molto alta!","她很高！"]],e:"hai fratelli? = 你有兄弟姐妹吗？"}
+]);
+XX("l6",[
+ {t:"ord",q:"«我很好，可是我饿了。»",w:["sto","bene","ma","ho","fame"],x:["sono"],a:["Sto bene, ma ho fame."]},
+ {t:"ord",ear:1,q:"«我也饿了。»",w:["anch'io","ho","fame"],x:["sono"],a:["Anch'io ho fame."]},
+ {t:"gap",s:"Come ＿?",o:["stai","sei","hai"],it:"你好吗？",e:"问身体和心情用 stare：come stai?"},
+ {t:"gap",s:"Sono ＿ perché ho molto lavoro.",o:["stanca","stanco","stanche"],it:"我（女）很累，因为工作很多。",e:"说话的人是女生，形容词也用阴性：stanca。"},
+ {t:"err",s:"Io sono bene, grazie.",bad:1,fix:"Io sto bene, grazie.",it:"你想说「我很好，谢谢」。",e:"「好不好」用 stare：sto bene。essere 后面接形容词（sono stanco），而 bene 是副词。"},
+ {t:"rep",ask:"Ciao, come stai?",o:[["Così così. Sono stanca.","一般般。我很累。"],["Mi chiamo Li Wei.","我叫李薇。"],["Ho venti anni.","我二十岁。"]],e:"come stai? 问你好不好。"}
+]);
+XX("l7",[
+ {t:"ord",q:"«我在一家餐厅工作。»",w:["lavoro","in","un","ristorante"],x:["a"],a:["Lavoro in un ristorante."]},
+ {t:"ord",ear:1,q:"«我在大学学意大利语。»",w:["studio","italiano","all'università"],x:["in"],a:["Studio italiano all'università."]},
+ {t:"gap",s:"Tu ＿ molto bene!",o:["parli","parla","parlo"],it:"你说得很好！",e:"-are 动词：io parlo, tu parli, lui parla。"},
+ {t:"gap",s:"Le persone ＿ veloce.",o:["parlano","parla","parliamo"],it:"人们说得很快。",e:"loro（他们）的形式：parlano。"},
+ {t:"err",s:"Io lavora in un ristorante.",bad:1,fix:"Io lavoro in un ristorante.",it:"你想说「我在一家餐厅工作」。",e:"io 的动词以 -o 结尾：io lavoro。lavora 是 lui/lei 的形式。"},
+ {t:"rep",ask:"Che lavoro fai?",o:[["Faccio il cuoco.","我是厨师。"],["Studio molto.","我学得很多。"],["È normale.","这很正常。"]],e:"Che lavoro fai? 问你做什么工作。"}
+]);
+XX("l8",[
+ {t:"ord",q:"«我想要一杯卡布奇诺。»",w:["vorrei","un","cappuccino"],x:["voglio"],a:["Vorrei un cappuccino."],e:"点东西用 vorrei，比 voglio 礼貌得多。"},
+ {t:"ord",ear:1,q:"«再要一杯水，谢谢。»",w:["anche","un","bicchiere","d'acqua","per","favore"],x:["di"],a:["Anche un bicchiere d'acqua, per favore."]},
+ {t:"gap",s:"Quanto ＿ un cornetto?",o:["costa","costano","è"],it:"一个羊角面包多少钱？",e:"一个东西用 costa，几个东西用 costano。"},
+ {t:"gap",s:"Vorrei ＿ spremuta.",o:["una","un","uno"],it:"我想要一杯鲜榨果汁。",e:"spremuta 是阴性：una spremuta。"},
+ {t:"err",s:"Vorrei uno cappuccino, per favore.",bad:1,fix:"Vorrei un cappuccino, per favore.",it:"你想说「我想要一杯卡布奇诺」。",e:"uno 只用在 z、s+辅音、gn、ps 开头的词前面：uno zaino。cappuccino 用 un。"},
+ {t:"rep",ask:"Buongiorno, dica!",who:"咖啡馆的服务员",o:[["Vorrei un cappuccino, per favore.","我想要一杯卡布奇诺。"],["Grazie, altrettanto!","谢谢，您也是！"],["Tre euro e venti.","三欧二十。"]],e:"dica = 请说：服务员在问你要什么。"}
+]);
+XX("l9",[
+ {t:"ord",q:"«你现在住在哪儿？»",w:["dove","abiti","adesso"],x:["sei"],a:["Dove abiti adesso?","Adesso dove abiti?"]},
+ {t:"ord",ear:1,q:"«我住在米兰，大教堂附近。»",w:["abito","a","Milano","vicino","al","Duomo"],x:["in"],a:["Abito a Milano, vicino al Duomo."]},
+ {t:"gap",s:"Con ＿ abiti?",o:["chi","che","dove"],it:"你和谁住？",e:"chi = 谁。"},
+ {t:"gap",s:"Abito ＿ Milano.",o:["a","in","di"],it:"我住在米兰。",e:"城市前面用 a：a Milano；国家前面用 in：in Italia。"},
+ {t:"err",s:"Abito in Milano da un anno.",bad:1,fix:"Abito a Milano da un anno.",it:"你想说「我在米兰住了一年了」。",e:"城市用 a，国家用 in：a Milano, in Italia。中文都是「在」，所以容易混。"},
+ {t:"rep",ask:"Perché sei in Italia?",o:[["Perché studio musica.","因为我学音乐。"],["Con due ragazze italiane.","和两个意大利女孩。"],["Sono di Shanghai.","我是上海人。"]],e:"perché? 问原因，回答也用 perché（因为）。"}
+]);
+XX("l10",[
+ {t:"ord",q:"«我七点起床。»",w:["mi","alzo","alle","sette"],x:["a"],a:["Mi alzo alle sette."]},
+ {t:"ord",ear:1,q:"«星期六我睡到十点。»",w:["il","sabato","dormo","fino","alle","dieci"],x:["a"],a:["Il sabato dormo fino alle dieci."]},
+ {t:"gap",s:"A che ora ti ＿ la mattina?",o:["alzi","alza","alzo"],it:"你早上几点起床？",e:"反身动词：io mi alzo, tu ti alzi。"},
+ {t:"gap",s:"Non faccio ＿ colazione.",o:["mai","sempre","spesso"],it:"我从来不吃早饭。",e:"non … mai = 从来不。"},
+ {t:"err",s:"Mi alzo a sette e mezza.",bad:2,fix:"Mi alzo alle sette e mezza.",it:"你想说「我七点半起床」。",e:"说钟点要用 alle（a + le）：alle sette。因为原来是 le ore sette，所以要加冠词。"},
+ {t:"rep",ask:"A che ora ti alzi la mattina?",o:[["Mi alzo alle sette.","我七点起床。"],["Sì, sempre.","是的，总是。"],["Il sabato.","星期六。"]],e:"A che ora? 问几点。"}
+]);
+XX("l11",[
+ {t:"ord",q:"«我喜欢听音乐。»",w:["mi","piace","ascoltare","musica"],x:["piacciono"],a:["Mi piace ascoltare musica."]},
+ {t:"ord",ear:1,q:"«我一个星期去三次健身房。»",w:["vado","in","palestra","tre","volte","alla","settimana"],x:["a"],a:["Vado in palestra tre volte alla settimana."]},
+ {t:"gap",s:"Mi ＿ i film.",o:["piacciono","piace","piaccio"],it:"我喜欢看电影。",e:"喜欢的东西是复数，就用 piacciono：mi piacciono i film。"},
+ {t:"gap",s:"Stasera andiamo ＿ cinema.",o:["al","a","in"],it:"今晚我们去看电影。",e:"al cinema = a + il cinema。"},
+ {t:"err",s:"Io piace leggere.",bad:0,fix:"Mi piace leggere.",it:"你想说「我喜欢看书」。",e:"意大利语的「喜欢」是「让……喜欢」：mi piace = 让我喜欢。主语不是「我」，所以不说 io piace。"},
+ {t:"rep",ask:"Che cosa fai nel tempo libero?",o:[["Mi piace leggere e ascoltare musica.","我喜欢看书和听音乐。"],["Vengo anch'io!","我也来！"],["Certo!","当然！"]],e:"tempo libero = 空闲时间。"}
+]);
+XX("l12",[
+ {t:"ord",q:"«请一直往前走。»（对陌生人）",w:["vada","sempre","dritto"],x:["vai"],a:["Vada sempre dritto."],e:"对陌生人用 Lei 的命令式：vada；对朋友用 vai。"},
+ {t:"ord",ear:1,q:"«车站在银行前面。»",w:["la","fermata","è","davanti","alla","banca"],x:["dietro"],a:["La fermata è davanti alla banca."]},
+ {t:"gap",s:"In piazza giri a ＿.",o:["destra","dritto","davanti"],it:"到了广场右转。",e:"a destra = 向右，a sinistra = 向左。"},
+ {t:"gap",s:"Scusi, ＿ la stazione?",o:["dov'è","dove sono","che cos'è"],it:"请问，火车站在哪儿？",e:"dov'è = dove è。"},
+ {t:"err",s:"La fermata è davanti a la banca.",bad:4,fix:"La fermata è davanti alla banca.",it:"你想说「车站在银行前面」。",e:"a 和 la 要合成一个词：alla。a + il = al，a + la = alla，di + il = del……"},
+ {t:"rep",ask:"Scusi, c'è un autobus per la stazione?",who:"一位游客",o:[["Sì, il sessantaquattro.","有，64 路。"],["Prego, buona giornata!","不客气，祝您愉快！"],["In piazza giri a destra.","到了广场右转。"]],e:"c'è un autobus? 问有没有公交车。"}
+]);
+XX("l13",[
+ {t:"ord",q:"«你想跟我去看电影吗？»",w:["vuoi","venire","al","cinema","con","me"],x:["io"],a:["Vuoi venire al cinema con me?"]},
+ {t:"ord",ear:1,q:"«我得先做完一件事。»",w:["prima","devo","finire","un","lavoro"],x:["finisco"],a:["Prima devo finire un lavoro."]},
+ {t:"gap",s:"Puoi ＿ alle sette e mezza?",o:["venire","vieni","vengo"],it:"你七点半能来吗？",e:"potere、volere、dovere 后面的动词用原形：puoi venire。"},
+ {t:"gap",s:"Mi ＿, stasera non posso.",o:["dispiace","piace","piacciono"],it:"对不起，今晚我不行。",e:"mi dispiace = 对不起、很遗憾。"},
+ {t:"err",s:"Stasera voglio vado al cinema.",bad:2,fix:"Stasera voglio andare al cinema.",it:"你想说「今晚我想去看电影」。",e:"volere、potere、dovere 后面的动词不变位，要用原形：voglio andare。中文的「想去」两个动词都不变。"},
+ {t:"rep",ask:"Vuoi venire al cinema con me?",o:[["Sì, volentieri! A che ora?","好啊，很乐意！几点？"],["Niente di speciale.","没什么特别的。"],["Alle otto.","八点。"]],e:"这是邀请：接受就说 volentieri，不能去就说 mi dispiace。"}
+]);
+XX("l14",[
+ {t:"ord",q:"«我想要一些西红柿。»",w:["vorrei","dei","pomodori"],x:["un"],a:["Vorrei dei pomodori."]},
+ {t:"ord",ear:1,q:"«我拿六个。»",w:["ne","prendo","sei"],x:["li"],a:["Ne prendo sei."]},
+ {t:"gap",s:"Vorrei ＿ mele.",o:["delle","dei","degli"],it:"我想要一些苹果。",e:"部分冠词：阴性复数 delle，阳性复数 dei 或 degli。"},
+ {t:"gap",s:"Quanti ＿ vuole?",o:["ne","li","lo"],it:"您要多少？",e:"ne 代替「（其中的）一些」：quanti ne vuole? = 您要几个？"},
+ {t:"err",s:"Vorrei dei mele.",bad:1,fix:"Vorrei delle mele.",it:"你想说「我想要一些苹果」。",e:"mela 是阴性，所以是 delle mele。名词的性别决定冠词。"},
+ {t:"rep",ask:"Buongiorno, signora! Cosa Le do?",who:"市场的摊主",o:[["Vorrei dei pomodori, per favore.","我想要一些西红柿。"],["Quattro euro e cinquanta.","四欧五十。"],["Queste sono buonissime.","这些特别好吃。"]],e:"Cosa Le do? = 给您拿点什么？"}
+]);
+XX("l15",[
+ {t:"ord",q:"«星期六我工作了一整天。»",w:["sabato","ho","lavorato","tutto","il","giorno"],x:["sono"],a:["Sabato ho lavorato tutto il giorno."]},
+ {t:"ord",ear:1,q:"«我看了一部电影，读了一会儿书。»",w:["ho","visto","un","film","e","ho","letto","un","po'"],x:["vedo"],a:["Ho visto un film e ho letto un po'."]},
+ {t:"gap",s:"Che cosa hai ＿ nel fine settimana?",o:["fatto","fare","fai"],it:"你周末做了什么？",e:"近过去时：avere + 过去分词。fare → fatto。"},
+ {t:"gap",s:"Hai ＿ mangiato i ravioli cinesi?",o:["mai","ancora","sempre"],it:"你吃过饺子吗？",e:"Hai mai …? = 你……过吗？"},
+ {t:"err",s:"Ieri ho mangiare la pizza.",bad:2,fix:"Ieri ho mangiato la pizza.",it:"你想说「昨天我吃了比萨」。",e:"近过去时：ho + 过去分词（mangiato），不是原形。中文加个「了」就行，动词不变。"},
+ {t:"rep",ask:"Che cosa hai fatto nel fine settimana?",o:[["Ho visto un film e ho letto un po'.","我看了一部电影，读了一会儿书。"],["La prossima volta voglio assaggiare!","下次我想尝尝！"],["No, mai!","没有，从来没有！"]],e:"问的是周末做了什么：用近过去时回答。"}
+]);
+XX("l16",[
+ {t:"ord",q:"«我星期五出发了。»",w:["sono","partito","venerdì"],x:["ho"],a:["Sono partito venerdì.","Venerdì sono partito."]},
+ {t:"ord",ear:1,q:"«我们（女）坐船去了穆拉诺岛。»",w:["siamo","andate","a","Murano","in","barca"],x:["abbiamo"],a:["Siamo andate a Murano in barca."]},
+ {t:"gap",s:"Il primo giorno è ＿.",o:["piovuto","piove","piovere"],it:"第一天下雨了。",e:"piovere 的过去分词是 piovuto。"},
+ {t:"gap",s:"Giulia è ＿ ieri sera.",o:["tornata","tornato","tornati"],it:"茱莉亚昨天晚上回来了。",e:"用 essere 的时候，过去分词要跟主语一致：Giulia è tornata。"},
+ {t:"err",s:"Ieri ho andato a Venezia.",bad:1,fix:"Ieri sono andato a Venezia.",it:"你想说「昨天我去了威尼斯」。",e:"表示移动的动词（andare, venire, partire, tornare）用 essere：sono andato。"},
+ {t:"rep",ask:"Com'è andato il viaggio a Venezia?",o:[["Benissimo!","非常好！"],["Sono rimasto a casa.","我待在家里。"],["Il sessantaquattro.","64 路。"]],e:"Com'è andato? = 怎么样？"}
+]);
+XX("l17",[
+ {t:"ord",q:"«我小时候很害羞。»",w:["da","bambina","ero","molto","timida"],x:["sono"],a:["Da bambina ero molto timida.","Ero molto timida da bambina."]},
+ {t:"ord",ear:1,q:"«每天早上我走路去上学。»",w:["ogni","mattina","andavo","a","scuola","a","piedi"],x:["sono"],a:["Ogni mattina andavo a scuola a piedi."]},
+ {t:"gap",s:"Il pomeriggio ＿ con il mio cane.",o:["giocavo","ho giocato","gioco"],it:"（小时候）下午我常和我的狗一起玩。",e:"过去经常做的事用未完成过去时：giocavo。"},
+ {t:"gap",s:"Il mio cane ＿ piccolo e nero.",o:["era","è stato","sono"],it:"我的狗又小又黑。",e:"描述过去的样子用未完成过去时：era。"},
+ {t:"err",s:"Da piccola sono molto timida.",bad:2,fix:"Da piccola ero molto timida.",it:"你想说「我小时候很害羞」。",e:"说小时候的样子要用未完成过去时：ero。中文有「小时候」就够了，动词不用变，所以容易用现在时。"},
+ {t:"rep",ask:"Avevi un cane?",o:[["Sì, si chiamava Lucky.","是啊，它叫 Lucky。"],["Ero molto timida.","我很害羞。"],["Andavo a scuola a piedi.","我走路去上学。"]],e:"Avevi …? = 你以前有……吗？"}
+]);
+XX("l18",[
+ {t:"ord",q:"«我在公交车上看书。»",w:["ero","sull'autobus","e","leggevo","un","libro"],x:["sono"],a:["Ero sull'autobus e leggevo un libro."]},
+ {t:"ord",ear:1,q:"«我正在说话的时候，一位先生给我打了电话。»",w:["mentre","parlavo","mi","ha","telefonato","un","signore"],x:["parlato"],a:["Mentre parlavo, mi ha telefonato un signore."]},
+ {t:"gap",s:"Quando sono scesa, ho visto che non ＿ più il portafoglio.",o:["avevo","ho avuto","ho"],it:"我下车的时候，发现钱包不见了。",e:"描述当时的状态用未完成过去时：non avevo più。"},
+ {t:"gap",s:"Ieri mi è ＿ una cosa strana.",o:["successa","successo","succede"],it:"昨天我遇到一件怪事。",e:"succedere 用 essere，过去分词跟 una cosa（阴性）一致：successa。"},
+ {t:"err",s:"Ieri c'è tantissima gente sull'autobus.",bad:1,fix:"Ieri c'era tantissima gente sull'autobus.",it:"你想说「昨天公交车上人特别多」。",e:"说过去的背景（人多不多、天气、时间）用未完成过去时：c'era。"},
+ {t:"rep",ask:"Che cosa è successo?",o:[["Ero sull'autobus e non avevo più il portafoglio!","我在公交车上，钱包不见了！"],["Che fortuna!","运气真好！"],["Leggo un libro ogni sera.","我每天晚上看书。"]],e:"Che cosa è successo? = 发生了什么？"}
+]);
+XX("l19",[
+ {t:"ord",q:"«我觉得罗马更美。»",w:["secondo","me","Roma","è","più","bella"],x:["di"],a:["Secondo me Roma è più bella."]},
+ {t:"ord",ear:1,q:"«你喜欢培根蛋酱意大利面吗？»",w:["ti","piacciono","gli","spaghetti","alla","carbonara"],x:["piace"],a:["Ti piacciono gli spaghetti alla carbonara?"]},
+ {t:"gap",s:"Milano è più moderna ＿ Roma.",o:["di","che","come"],it:"米兰比罗马更现代。",e:"比较两个名字或名词：più … di。"},
+ {t:"gap",s:"Alla mia ragazza non ＿ gli spaghetti.",o:["piacciono","piace","piaccio"],it:"我女朋友不喜欢意大利面。",e:"gli spaghetti 是复数：piacciono。"},
+ {t:"err",s:"Roma è più bella che Milano.",bad:4,fix:"Roma è più bella di Milano.",it:"你想说「罗马比米兰美」。",e:"比较两个名字或名词用 di：più bella di Milano。che 用在比较两个形容词或动词的时候。中文只有一个「比」。"},
+ {t:"rep",ask:"Ti piace Milano?",o:[["Sì, mi piace molto.","喜欢，很喜欢。"],["Li adoro!","我超爱！"],["Preferisce il pesce.","她更喜欢吃鱼。"]],e:"Ti piace …? = 你喜欢……吗？"}
+]);
+XX("l20",[
+ {t:"ord",q:"«谢谢，我只是看看。»",w:["grazie","sto","solo","guardando"],x:["guardo"],a:["Grazie, sto solo guardando."]},
+ {t:"ord",ear:1,q:"«这件夹克有黑色的吗？»",w:["avete","questa","giacca","in","nero"],x:["di"],a:["Avete questa giacca in nero?"]},
+ {t:"gap",s:"Questa giacca mi piace: ＿ prendo.",o:["la","lo","le"],it:"我喜欢这件夹克：我要了。",e:"giacca 是阴性单数，代词用 la。"},
+ {t:"gap",s:"Sto ＿ un regalo per mia madre.",o:["cercando","cerco","cercato"],it:"我正在给我妈妈找礼物。",e:"stare + 动名词（-ando, -endo）= 正在。"},
+ {t:"err",s:"Mi piace questa giacca. Prendo la.",bad:5,fix:"Mi piace questa giacca. La prendo.",it:"你想说「我喜欢这件夹克，我要了」。",e:"代词 la 要放在动词前面：la prendo。中文「我要它」的「它」在后面，所以容易放错。"},
+ {t:"rep",ask:"Buongiorno, posso aiutarLa?",who:"服装店的店员",o:[["Grazie, sto solo guardando.","谢谢，我只是看看。"],["La quarantadue.","42 号。"],["Ottanta euro.","八十欧。"]],e:"posso aiutarLa? = 需要帮忙吗？"}
+]);
+XX("l21",[
+ {t:"ord",q:"«如果找到工作，我就留在意大利。»",w:["se","trovo","lavoro","resterò","in","Italia"],x:["a"],a:["Se trovo lavoro, resterò in Italia."]},
+ {t:"ord",ear:1,q:"«之前我会去西西里旅行。»",w:["prima","farò","un","viaggio","in","Sicilia"],x:["a"],a:["Prima farò un viaggio in Sicilia."]},
+ {t:"gap",s:"Che cosa ＿ dopo la laurea?",o:["farai","facevi","hai fatto"],it:"毕业以后你要做什么？",e:"说将来的事用将来时：farai。"},
+ {t:"gap",s:"Quando ＿ gli esami, partirò.",o:["finiscono","finito","finire"],it:"考试结束的时候，我就出发。",e:"quando 后面也要变位：gli esami finiscono。"},
+ {t:"err",s:"Dopo la laurea tornerò a Cina.",bad:4,fix:"Dopo la laurea tornerò in Cina.",it:"你想说「毕业以后我会回中国」。",e:"国家前面用 in：in Cina, in Italia；城市才用 a：a Pechino。"},
+ {t:"rep",ask:"In bocca al lupo per gli esami!",o:[["Crepi!","谢谢！（固定回答）"],["Grazie, altrettanto!","谢谢，你也是！"],["Prego!","不客气！"]],e:"In bocca al lupo 的固定回答是 Crepi!，一般不说 grazie。"}
+]);
+XX("l22",[
+ {t:"ord",q:"«我嗓子疼。»",w:["ho","mal","di","gola"],x:["sono"],a:["Ho mal di gola."]},
+ {t:"ord",ear:1,q:"«您能给我点治咳嗽的东西吗？»",w:["potrebbe","darmi","qualcosa","per","la","tosse"],x:["di"],a:["Potrebbe darmi qualcosa per la tosse?"]},
+ {t:"gap",s:"＿ andare dal medico?",o:["Dovrei","Dovevo","Dovrò"],it:"我是不是应该去看医生？",e:"条件式 dovrei = 我应该（客气地问建议）。"},
+ {t:"gap",s:"Ne prenda un cucchiaio tre volte ＿ giorno.",o:["al","il","per"],it:"一天三次，每次一勺。",e:"三次一天：tre volte al giorno。"},
+ {t:"err",s:"Sono mal di testa da ieri.",bad:0,fix:"Ho mal di testa da ieri.",it:"你想说「我从昨天开始头疼」。",e:"疼、发烧都用 avere：ho mal di testa, ho la febbre。中文说「我头疼」，没有动词，所以容易用 sono。"},
+ {t:"rep",ask:"Buongiorno, mi dica.",who:"药剂师",o:[["Ho mal di gola e un po' di febbre.","我嗓子疼，还有点发烧。"],["Va bene, grazie mille.","好的，非常感谢。"],["Tre volte al giorno.","一天三次。"]],e:"mi dica = 请说：问你需要什么。"}
+]);
+XX("l23",[
+ {t:"ord",q:"«我两年前来到意大利。»",w:["sono","arrivata","in","Italia","due","anni","fa"],x:["ho"],a:["Sono arrivata in Italia due anni fa.","Due anni fa sono arrivata in Italia."]},
+ {t:"ord",ear:1,q:"«一开始我什么都听不懂。»",w:["all'inizio","non","capivo","niente"],x:["capito"],a:["All'inizio non capivo niente."]},
+ {t:"gap",s:"Adesso parlo italiano molto ＿.",o:["meglio","migliore","bello"],it:"现在我的意大利语说得好多了。",e:"bene 的比较级是 meglio，不说 più bene。"},
+ {t:"gap",s:"Vivo in Italia ＿ due anni.",o:["da","per","fa"],it:"我在意大利住了两年了（现在还住）。",e:"从过去一直到现在：da + 时间，动词用现在时。"},
+ {t:"err",s:"Vivo a Roma per due anni.",bad:3,fix:"Vivo a Roma da due anni.",it:"你想说「我在罗马住了两年了」（现在还住）。",e:"事情还在继续，就用 da：vivo a Roma da due anni。per 是已经结束的一段时间。"},
+ {t:"rep",ask:"Perché sei venuta in Italia?",o:[["Per studiare musica.","为了学音乐。"],["Due anni fa.","两年前。"],["A Roma.","在罗马。"]],e:"perché? 问原因：per + 原形 = 为了……"}
+]);
+
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var KEY="primo-libro-italiano-v1";
 var state={best:{},box:{},can:{}};
@@ -4129,6 +4316,7 @@ function renderSet(el,opt){
     if(done===items.length){var b=state.best[id];if(!b||n>=b[0]){state.best[id]=[n,items.length];save();updateToc()}var r=document.createElement("div");r.className="acts";r.style.marginLeft="0";r.innerHTML='<button class="btn pri">重新做一遍</button>';r.firstChild.onclick=function(){renderSet(el)};el.appendChild(r)}}
   items.forEach(function(it,i){
     var q=document.createElement("div");q.className="q";
+    if(typeof exExtra==="function"&&exExtra(q,it,i,mark)){if(one&&i>0)q.hidden=true;qs.push(q);el.appendChild(q);return}
     var tag=it.t==="say"?'<span class="qtag say-t">'+MIC+'说一说</span>':it.t==="ord"?'<span class="qtag">组句</span>':it.t==="dict"?'<span class="qtag wr-t">听写</span>':it.t==="type"?'<span class="qtag wr-t">填空</span>':(it.au?'<span class="qtag ear-t">'+SPK+'听</span>':'<span class="qtag">选择</span>');
     if(it.t==="dict"||it.t==="type"){
       var isD=it.t==="dict";
@@ -4382,7 +4570,11 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
 function exSplit(id){var it=EX[id]||[],U=UNITS[uIdx(id)];
   if(U.kind==="review")return {p:[],t:it.slice()};
-  var p=[],t=[],a=0;it.forEach(function(x){var pr=!x.au&&x.t!=="dict"&&x.t!=="say";if(pr&&a++%2===0&&p.length<4)p.push(x);else t.push(x)});
+  /* practice after the rule: first the build-and-choose exercises, then a couple of classic ones; the rest is the test */
+  var NEW=/^(ord|gap|err|chr|tone)$/,p=[],a=0;
+  it.forEach(function(x){if(NEW.test(x.t||"")&&p.length<4)p.push(x)});
+  it.forEach(function(x){if(!x.au&&!x.t&&a++%2===0&&p.length<6)p.push(x)});
+  var t=it.filter(function(x){return p.indexOf(x)<0});
   if(t.length<8)t=t.concat(vocQuiz(lessonWords(id),8-t.length));
   return {p:p,t:t}}
 function stars(n,m){var r=m?n/m:0;return r>=.999?3:r>=.85?2:r>=.7?1:0}
@@ -5129,7 +5321,7 @@ function vSimRev(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame
 /* quality check (only with ?audit=1): every clickable word must have a meaning */
 if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
-  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.au,it.jp,it.zh,it.it,it.full])})});
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
@@ -5140,9 +5332,10 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   strs.forEach(function(t){try{div.innerHTML=render(t)}catch(x){return}qa(".w[data-say]",div).forEach(chk)});
   qa(".book .w[data-say]").forEach(chk);
   /* everything the course can say aloud (to generate and check the audio files) */
-  var says={};function sa(x){if(x&&typeof x==="string"&&/[\u3040-\u9fff]/.test(x))says[x.trim().replace(/\s+/g," ")]=1}
+  var says={};function sa(x){if(x&&typeof x==="string"&&(ZH?/[A-Za-zÀ-ÿ]/.test(x)&&!/[\u3040-\u9fff]/.test(x):/[\u3040-\u9fff]/.test(x)))says[x.trim().replace(/\s+/g," ")]=1}
   Object.keys(seen).forEach(sa);qa("[data-say]").forEach(function(e){sa(e.getAttribute("data-say"))});
-  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){sa(it.au);sa(it.jp);sa(it.zh);sa(it.full);if(it.a)it.a.forEach(sa);if(it.o)it.o.forEach(sa);if(it.w&&!it.w.length===2)it.w.forEach(sa)})});
+  Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){sa(it.au);sa(it.jp);sa(it.zh);sa(it.full);if(it.a)it.a.forEach(sa);if(it.o)it.o.forEach(sa);if(it.w&&!it.w.length===2)it.w.forEach(sa);
+    sa(it.fix);sa(it.ask);if(it.t==="gap")sa(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")sa(it.o[0][0]);if(it.t==="tone")sa(it.s)})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){sa(r[1])})});
   if(typeof W!=="undefined")W.forEach(function(w){sa(w[0])});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){sa(c.i);(c.w||[]).forEach(function(w){sa(w[0])})})});
@@ -5154,6 +5347,130 @@ if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostnam
 if(!location.hash||location.hash==="#"||location.hash==="#mappa")try{history.replaceState(null,"","#/oggi")}catch(e){}
 render();
 })();
+
+/* ---------- Milepost exercises, shared by every course ----------
+   Built into each course's closure next to the engine; renderSet() hands these item types to exExtra():
+   ord  rebuild the sentence      {t:"ord", q, w:[tokens], x:[extra tokens], a:[answers], ear:1 = listen first}
+   gap  complete by choosing      {t:"gap", s:"… ＿ …", o:[right, wrong…], it, e}
+   err  find the typical error    {t:"err", s, bad:token index, fix, it, e}
+   chr  build the character       {t:"chr", c, m, p:[[piece, meaning]…], d:[[piece, meaning]…], e}
+   rep  answer in the dialogue    {t:"rep", ask, who, o:[[right, translation], [wrong, translation]…], e}
+   tone recognise the tone (zh)   {t:"tone", s:"妈[mā]"}
+   Everything here is a function declaration, so the engine can call it while the page loads. */
+function exLang(){return typeof itHTML==="function"?"it":typeof pyWord==="function"?"zh":"ja"}
+function exS(){return exLang()==="it"?{
+    ord:"组句",ear:"听后组句",gap:"选词填空",err:"找错误",rep:"回答",tone:"声调",chk:"检查",rst:"重来",ok:"正确！",no:"不对。",ans:"答案：",
+    play:"听",again:"再听一遍",errQ:"点出用错的那个词。",errFine:"这个词没问题。",fixed:"正确的句子：",earQ:"听，然后把句子拼出来。",
+    repQ:"选择合适的回答。",useSome:"先选几个词。",next:"还差一个部分。"}:{
+    ord:"Componi",ear:"Ascolta e ricomponi",gap:"Completa",err:"Trova l'errore",chr:"Costruisci",rep:"Rispondi",tone:"Tono",chk:"Controlla",rst:"Ricomincia",ok:"Giusto!",no:"Non proprio.",ans:"Risposta:",
+    play:"Ascolta",again:"Ascolta di nuovo",errQ:"Tocca la parola sbagliata.",errFine:"Questa va bene.",fixed:"La frase corretta:",earQ:"Ascolta e ricomponi la frase.",
+    repQ:"Scegli la risposta giusta.",useSome:"Scegli prima qualche parola.",next:"Manca ancora un pezzo.",chrQ:function(c,m){return "Costruisci "+c+" («"+m+"»): scegli i pezzi."},
+    toneQ:"Ascolta la sillaba e scegli il tono."}}
+function exLangAttr(){var l=exLang();return l==="it"?"it":l==="zh"?"zh-CN":"ja"}
+/* a sentence you can read, tap and hear */
+function exSay(t){return exLang()==="it"?itLine(t):jLineSay(t)}
+/* explanations mix the learner's language with words of the course */
+function exRich(t){t=t||"";return exLang()==="it"?linkMixed(t):mixHTML(t)}
+/* one token as a tile: reading above (furigana / pinyin) follows the reading switches */
+function exTile(t){return exLang()==="it"?esc(t):jpHTML(t,true)}
+function exPlain(s){return exLang()==="it"?nrm(s):jplain(s).replace(/[。、，！？「」『』…：；“”,.!?]/g,"")}
+function exTag(k){return '<span class="qtag">'+esc(k)+'</span>'}
+function exHead(q,i,tag,txt){q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+txt+'</span></div>'}
+function exFb(q){var d=document.createElement("div");d.className="expl";q.appendChild(d);return d}
+function exBtn(cls,html,lang){var b=document.createElement("button");b.type="button";b.className=cls;b.innerHTML=html;if(lang)b.setAttribute("lang",lang);return b}
+
+function exExtra(q,it,i,mark){
+  var T=it.t,S=exS(),LA=exLangAttr();
+  if(T!=="ord"&&T!=="gap"&&T!=="err"&&T!=="chr"&&T!=="rep"&&T!=="tone")return false;
+  q.classList.add("xq","xq-"+T);
+  /* ---- rebuild the sentence: tap tiles in order; one or two tiles are traps ---- */
+  if(T==="ord"){
+    exHead(q,i,'<span class="qtag'+(it.ear?' ear-t':'')+'">'+(it.ear?SPK+S.ear:S.ord)+'</span>',it.ear?esc(S.earQ):exRich(String(it.q||"").replace(/^(Componi|Ricomponi|组句|连词成句)\s*[:：]\s*/,"")));
+    if(it.ear){var pa=document.createElement("div");pa.className="acts";var lb=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb.onclick=function(){speak(it.a[0])};pa.appendChild(lb);q.appendChild(pa)}
+    var line=document.createElement("div");line.className="xline";line.setAttribute("aria-label",S.ans);
+    var pool=document.createElement("div");pool.className="xpool";
+    var all=it.w.concat(it.x||[]).filter(function(t){return exLang()==="it"?!/^[.,!?;:]+$/.test(t):!JP_PUNCT.test(jsurf(t))}),w=shuffle(all),g=0;while(w.join(" ")===it.a[0]&&g++<10)w=shuffle(all);
+    w.forEach(function(t){var b=exBtn("xtile",exTile(t),LA);b.setAttribute("data-t",t);
+      b.onclick=function(){if(q.dataset.locked)return;if(b.parentNode===pool){var gh=document.createElement("span");gh.className="xtile xghost";gh.innerHTML=b.innerHTML;b._g=gh;pool.replaceChild(gh,b);line.appendChild(b)}else{pool.replaceChild(b,b._g)}};
+      pool.appendChild(b)});
+    var acts=document.createElement("div");acts.className="acts";var ck=exBtn("btn pri",esc(S.chk)),rs=exBtn("btn",esc(S.rst));acts.appendChild(ck);acts.appendChild(rs);
+    q.appendChild(line);q.appendChild(pool);q.appendChild(acts);var fb=exFb(q);
+    rs.onclick=function(){if(q.dataset.locked)return;$$(".xtile",line).forEach(function(b){pool.replaceChild(b,b._g)})};
+    ck.onclick=function(){if(q.dataset.locked)return;var got=$$(".xtile",line).map(function(b){return b.getAttribute("data-t")});
+      if(!got.length){fb.innerHTML=esc(S.useSome);return}
+      var s=got.join(" "),ok=it.a.some(function(a){return exPlain(a)===exPlain(s)});
+      q.dataset.locked="1";ck.disabled=rs.disabled=true;$$(".xtile",line).forEach(function(b){b.classList.add(ok?"ok":"no")});
+      fb.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> '+esc(S.ans)+' ')+exSay(it.a[0])+(it.e?' '+exRich(it.e):'')+(it.ear&&it.q?' <span class="xit">'+exRich(it.q)+'</span>':'');
+      speak(it.a[0]);mark(i,ok)};
+    return true}
+  /* ---- complete the sentence by choosing a tile ---- */
+  if(T==="gap"){
+    var toks=String(it.s).split(/\s+/),full=it.s.replace("＿",it.o[0]);
+    var html=exLang()==="it"?'<span class="xs" lang="it">'+toks.map(function(t){return t.indexOf("＿")>=0?esc(t.split("＿")[0])+'<span class="xgap">　</span>'+esc(t.split("＿")[1]):esc(t)}).join(" ")+'</span>'
+      :'<span class="xs" lang="'+LA+'">'+toks.map(function(t){return t==="＿"?'<span class="xgap">　</span>':jpHTML(t,true)}).join(exLang()==="ja"?" ":"")+'</span>';
+    exHead(q,i,exTag(S.gap),(it.it?'<span class="xit">'+exRich(it.it)+'</span>':''));
+    var sent=document.createElement("div");sent.className="xsent";sent.innerHTML=html;q.appendChild(sent);
+    var box=document.createElement("div");box.className="xtiles";q.appendChild(box);var fb2=exFb(q);
+    var ord2=shuffle(it.o.map(function(_,k){return k}));
+    ord2.forEach(function(k){var b=exBtn("xtile",exTile(it.o[k]),LA);box.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===0;
+        $$(".xtile",box).forEach(function(x){x.disabled=true});box.children[ord2.indexOf(0)].classList.add("ok");if(!ok)b.classList.add("no");
+        var gp=$(".xgap",sent);gp.innerHTML=exTile(it.o[0]);gp.classList.add("on");
+        fb2.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+exSay(full)+(it.e?' '+exRich(it.e):'');speak(full);mark(i,ok)}});
+    return true}
+  /* ---- find the error that speakers of your language make ---- */
+  if(T==="err"){
+    exHead(q,i,exTag(S.err),(it.it?exRich(it.it)+' ':'')+'<span class="xit">'+esc(S.errQ)+'</span>');
+    var ws=String(it.s).split(/\s+/),row=document.createElement("div");row.className="xsent xwords";row.setAttribute("lang",LA);q.appendChild(row);var fb3=exFb(q);
+    ws.forEach(function(t,k){var pu=exLang()==="it"?/^[.,!?;:«»]+$/.test(t):JP_PUNCT.test(jsurf(t));
+      if(pu){var sp=document.createElement("span");sp.className="xpu";sp.textContent=exLang()==="it"?t:jsurf(t);row.appendChild(sp);return}
+      var b=exBtn("xword",exTile(t),LA);row.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===it.bad;
+        $$(".xword",row).forEach(function(x){x.disabled=true});row.children[it.bad].classList.add("no");if(!ok)b.classList.add("pick");
+        fb3.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+esc(S.fixed)+' '+exSay(it.fix)+(it.e?' '+exRich(it.e):'');speak(it.fix);mark(i,ok)}});
+    return true}
+  /* ---- build the character from its pieces ---- */
+  if(T==="chr"){
+    exHead(q,i,exTag(S.chr||"字"),esc(S.chrQ?S.chrQ(it.c,it.m):it.m));
+    var wrap=document.createElement("div");wrap.className="xchr";var big=document.createElement("div");big.className="xbig";big.setAttribute("lang",LA);big.setAttribute("aria-live","polite");
+    var bx=document.createElement("div");bx.className="xtiles";wrap.appendChild(big);wrap.appendChild(bx);q.appendChild(wrap);var fb4=exFb(q);
+    var need=it.p.map(function(p){return p[0]}),got=[],bad=false;
+    shuffle(it.p.concat(it.d||[])).forEach(function(p){var b=exBtn("xtile",esc(p[0])+'<small>'+esc(p[1])+'</small>',LA);bx.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked||b.classList.contains("ok"))return;
+        if(need.indexOf(p[0])>=0){b.classList.add("ok");b.disabled=true;got.push(p[0]);big.textContent=got.length===need.length?it.c:got.join("");
+          if(got.length===need.length){q.dataset.locked="1";$$(".xtile",bx).forEach(function(x){x.disabled=true});big.classList.add("done");
+            fb4.innerHTML=(bad?'<b class="no">'+esc(S.no)+'</b> ':'<b class="ok">'+esc(S.ok)+'</b> ')+'<span class="xbigw" lang="'+LA+'">'+jpHTML(it.w||it.c)+'</span> '+exRich(it.e||"");mark(i,!bad)}
+          else fb4.textContent=S.next}
+        else{bad=true;b.classList.add("no");fb4.innerHTML='<b class="no">'+esc(p[0])+'</b> = '+esc(p[1]);setTimeout(function(){b.classList.remove("no")},rmotion()?0:700)}}});
+    return true}
+  /* ---- answer in the dialogue ---- */
+  if(T==="rep"){
+    exHead(q,i,'<span class="qtag ear-t">'+SPK+esc(S.rep)+'</span>',esc(S.repQ));
+    var bub=document.createElement("div");bub.className="xbub";bub.innerHTML=(it.who?'<small>'+esc(it.who)+'</small>':'')+exSay(it.ask);q.appendChild(bub);
+    var pa2=document.createElement("div");pa2.className="acts xhide";var lb2=exBtn("btn lsp",SPK+" "+esc(S.again));lb2.onclick=function(){speak(it.ask)};pa2.appendChild(lb2);q.appendChild(pa2);
+    var op=document.createElement("div");op.className="xopts";q.appendChild(op);var fb5=exFb(q);
+    var ord3=shuffle(it.o.map(function(_,k){return k}));
+    ord3.forEach(function(k){var o=it.o[k],b=exBtn("xopt",'<span lang="'+LA+'">'+exTile(o[0])+'</span><small class="xtr" hidden>'+esc(o[1])+'</small>');op.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===0;
+        $$(".xopt",op).forEach(function(x){x.disabled=true;$(".xtr",x).hidden=false});op.children[ord3.indexOf(0)].classList.add("ok");if(!ok)b.classList.add("no");
+        fb5.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+exSay(it.o[0][0])+(it.e?' '+exRich(it.e):'');speak(it.o[0][0]);mark(i,ok)}});
+    return true}
+  /* ---- tone of a syllable (Chinese only) ---- */
+  if(T==="tone"){
+    var m=String(it.s).match(/^(.+)\[([^\]]+)\]$/),py=m?m[2]:"",tn=tone(py),base=toneOff(py);
+    exHead(q,i,'<span class="qtag ear-t">'+SPK+esc(S.tone)+'</span>',esc(S.toneQ));
+    var pa3=document.createElement("div");pa3.className="acts";var lb3=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb3.onclick=function(){speak(it.s)};pa3.appendChild(lb3);q.appendChild(pa3);
+    var tb=document.createElement("div");tb.className="xtiles xtones";q.appendChild(tb);var fb6=exFb(q);
+    [1,2,3,4].forEach(function(k){var v=toneOn(base,k),b=exBtn("xtile t"+k,'<span class="t'+k+'">'+esc(v)+'</span><small>'+["","‾ alto","／ sale","∨ scende e sale","＼ scende"][k]+'</small>');tb.appendChild(b);
+      b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===tn;$$(".xtile",tb).forEach(function(x){x.disabled=true});tb.children[tn-1].classList.add("ok");if(!ok)b.classList.add("no");
+        fb6.innerHTML=(ok?'<b class="ok">'+esc(S.ok)+'</b> ':'<b class="no">'+esc(S.no)+'</b> ')+exSay(it.s)+(it.e?' '+exRich(it.e):'');speak(it.s);mark(i,ok)}});
+    return true}
+  return false}
+/* pinyin helpers for the tone exercise */
+function exTM(){return {a:"āáǎà",e:"ēéěè",i:"īíǐì",o:"ōóǒò",u:"ūúǔù","ü":"ǖǘǚǜ"}}
+function toneOff(p){var s=String(p).toLowerCase(),M=exTM();Object.keys(M).forEach(function(v){for(var k=0;k<4;k++)s=s.split(M[v][k]).join(v)});return s}
+function toneOn(p,t){var s=toneOff(p),i=s.search(/[ae]/);if(i<0){i=s.indexOf("ou");if(i<0){var vs=s.match(/[aeiouü]/g)||[];if(!vs.length)return s;i=s.lastIndexOf(vs[vs.length-1])}}
+  var v=s[i];return s.slice(0,i)+exTM()[v][t-1]+s.slice(i+1)}
 
 })();
 </script>

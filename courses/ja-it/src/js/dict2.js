@@ -1,6 +1,11 @@
 /* ---------- meanings added so that every clickable word has one ----------
    Grammar fragments (って, かった…) are explained as endings; names say what they are. */
 Object.assign(DICT,{
+"行[い]き":"radice di 行[い]きます (andare): ci si attaccano ましょう, たい…","食[た]べ":"radice di 食[た]べます (mangiare): ci si attaccano たい, ましょう…",
+"待[ま]ちて":"forma sbagliata: la forma -て di 待[ま]つ è 待[ま]って","上手[じょうず]く":"forma sbagliata: 上手[じょうず] è un aggettivo in な (上手に なる)",
+"いいなかった":"forma sbagliata: il passato negativo di いい è よくなかった","いくなかった":"forma sbagliata: il passato negativo di いい è よくなかった",
+"およいだ":"ho nuotato, nuotavo (passato informale di およぐ)","主[しゅ]":"padrone, principale (qui dà il suono)","あげて":"dando (forma -て di あげる)",
+"明日[あした]":"domani","二[に]":"due (si legge に quando si conta senza oggetti)",
 "なった":"diventò, è diventato (passato informale di なる)",
 "ございます":"forma molto cortese di あります/です (in ありがとうございます, おはようございます)",
 "ございました":"passato di ございます (in ありがとうございました: grazie, per una cosa finita)",

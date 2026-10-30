@@ -1,5 +1,6 @@
 /* ---------- 补充释义：让每个可以点击的单词都有中文意思 ---------- */
 Object.assign(DICT,{
+"professore":"老师（男）、教授","età":"年龄","succede":"发生（succedere 的现在时）","guardo":"我看（guardare）",
 "vu":"字母 v 的名称","u":"字母 u；元音 u","s":"字母 s","k":"字母 k（只用于外来词）","sc":"sc 组合：sce/sci 读 [ʃ]，像「诗」","ca":"ca：读 [ka]","co":"co：读 [ko]","cu":"cu：读 [ku]",
 "ga":"ga：读 [ga]","go":"go：读 [go]","gu":"gu：读 [gu]","ge":"ge：读 [dʒe]，像「这」","gi":"gi：读 [dʒi]，像「机」","ghe":"ghe：读 [ge]","ghi":"ghi：读 [gi]",
 "are":"-are：第一类动词词尾（parlare）","er-":"将来时词干（parlare → parler-）","dici-":"dici-（数字 diciassette, diciotto, diciannove 的开头）","ano":"-ano：他们（第三人称复数词尾）",
