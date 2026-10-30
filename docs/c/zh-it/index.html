@@ -235,7 +235,7 @@ td.itc{font-family:var(--f-it);font-size:18px}
 
 /* esercizi */
 .drill{background:var(--sheet);border:2.5px solid var(--ink);border-radius:var(--r);padding:34px 20px 22px;position:relative;display:flex;flex-direction:column;gap:22px;box-shadow:7px 7px 0 var(--c)}
-.drill::before{content:"Esercizi · 練習";position:absolute;top:-16px;left:18px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:900;padding:4px 16px;letter-spacing:.08em;border-radius:999px}
+.drill::before{content:"Esercizi · 练习";position:absolute;top:-16px;left:18px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:900;padding:4px 16px;letter-spacing:.08em;border-radius:999px}
 .dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding-bottom:14px;border-bottom:1.5px dashed var(--line2)}
 .score{font-family:var(--f-disp);font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink);font-size:17px}
 .q{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1.5px dashed var(--line2)}
@@ -808,7 +808,7 @@ td.hz{font-size:28px;font-family:var(--f-body)}
   <div class="stats">
     <div class="t-red"><b>21</b><span>lezioni + 3 ripassi · <i lang="zh-CN">课</i></span></div>
     <div class="t-blue"><b>19</b><span>dialoghi · <i lang="zh-CN">对话</i></span></div>
-    <div class="t-green"><b>255</b><span>esercizi · <i lang="zh-CN">练习</i></span></div>
+    <div class="t-green"><b>261</b><span>esercizi · <i lang="zh-CN">练习</i></span></div>
     <div class="t-yellow"><b>320</b><span>parole · <i lang="zh-CN">生词</i></span></div>
   </div>
   <div class="legend"><span>Come si legge:</span><b lang="zh-CN"><ruby>中<rt class="t1">zhōng</rt></ruby><ruby>文<rt class="t2">wén</rt></ruby></b><span>= il pinyin sopra i caratteri, colorato secondo il tono</span><span>· le parole <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">sottolineate</b> si toccano: senti la pronuncia e vedi il significato</span></div>
@@ -3074,6 +3074,72 @@ CULT.l21=[
   q:{q:"Che cosa vuol dire 意大利面[Yì-dà-lì-miàn]?",o:["La pasta","La pizza","Il gelato"],e:"«Spaghetti italiani»: la pasta."}}
 ];
 
+/* ---------- Racconti: letture graduate ----------
+   Each story uses the words of the course up to «after» (checked by tools/reads_check.js);
+   the few new words are in «gloss» and get a meaning on tap. Lines: [Chinese with pinyin, Italian]. */
+var READS=[
+{id:"chunjie",after:"l10",kind:"Vita in Cina",t:"La Festa di Primavera",j:"春节",min:3,
+ intro:"Il Capodanno cinese (春节[Chūn-jié], «Festa di Primavera») cade tra fine gennaio e febbraio: è il momento in cui centinaia di milioni di persone tornano a casa dalla famiglia. Si preparano i ravioli e i bambini ricevono la busta rossa.",
+ gloss:[["春节[Chūn-jié]","Festa di Primavera, Capodanno cinese"],["王丽[Wáng-lì]","Wang Li (nome)"],["时候[shí-hou]","momento (…的时候: quando…, durante…)"],["他们[tā-men]","loro (maschile o misto)"],["十二[shí-èr]","dodici"],["新年[xīn-nián]","anno nuovo, Capodanno"],["大家[dà-jiā]","tutti"],["口[kǒu]","bocca; classificatore per i membri della famiglia"],["爷爷[yé-ye]","nonno (paterno)"],["奶奶[nǎi-nai]","nonna (paterna)"],["和[hé]","e (tra nomi)"],["晚上[wǎn-shang]","sera"],["一起[yì-qǐ]","insieme"],["电视[diàn-shì]","televisione"],["外面[wài-mian]","fuori"],["热闹[rè-nao]","animato, pieno di vita e di rumore"],["红包[hóng-bāo]","busta rossa con dei soldi, il regalo di Capodanno"],["里[lǐ]","dentro"],["快乐[kuài-lè]","felice (新年快乐: buon anno!)"],["五十[wǔ-shí]","cinquanta"]],
+ lines:[
+  ["春节[Chūn-jié] 是[shì] 中国[Zhōng-guó] 的[de] 新年[xīn-nián] 。","La Festa di Primavera è il Capodanno cinese."],
+  ["春节[Chūn-jié] 的[de] 时候[shí-hou] ， 大家[dà-jiā] 都[dōu] 回[huí] 家[jiā] 。","Per la festa tutti tornano a casa."],
+  ["王丽[Wáng-lì] 的[de] 家[jiā] 在[zài] 北京[Běi-jīng] 。","La famiglia di Wang Li è a Pechino."],
+  ["她[Tā] 家[jiā] 有[yǒu] 五[wǔ] 口[kǒu] 人[rén] ： 爷爷[yé-ye] 、 奶奶[nǎi-nai] 、 爸爸[bà-ba] 、 妈妈[mā-ma] 和[hé] 她[tā] 。","In famiglia sono in cinque: il nonno, la nonna, il papà, la mamma e lei."],
+  ["晚上[Wǎn-shang] ， 他们[tā-men] 一起[yì-qǐ] 做[zuò] 饺子[jiǎo-zi] 。","La sera fanno i ravioli tutti insieme."],
+  ["爷爷[Yé-ye] 做[zuò] 了[le] 五十[wǔ-shí] 个[ge] ， 王丽[Wáng-lì] 做[zuò] 了[le] 十[shí] 个[ge] 。","Il nonno ne fa cinquanta, Wang Li dieci."],
+  ["他们[Tā-men] 吃[chī] 饺子[jiǎo-zi] ， 看[kàn] 电视[diàn-shì] 。","Mangiano i ravioli e guardano la televisione."],
+  ["十二[Shí-èr] 点[diǎn] ， 外面[wài-mian] 很[hěn] 热闹[rè-nao] 。","A mezzanotte fuori c'è una gran festa."],
+  ["奶奶[Nǎi-nai] 给[gěi] 王丽[Wáng-lì] 一[yí] 个[ge] 红包[hóng-bāo] 。","La nonna dà a Wang Li una busta rossa."],
+  ["红包[Hóng-bāo] 里[lǐ] 有[yǒu] 钱[qián] 。","Nella busta rossa ci sono dei soldi."],
+  ["王丽[Wáng-lì] 很[hěn] 高兴[gāo-xìng] ： “ 谢谢[Xiè-xie] 奶奶[nǎi-nai] ！ 新年[Xīn-nián] 快乐[kuài-lè] ！ ”","Wang Li è contentissima: «Grazie, nonna! Buon anno!»"]],
+ q:[{q:"Che cosa fanno tutti insieme la sera?",o:["I ravioli","Una torta","La spesa"],a:0},
+    {q:"Quanti ravioli fa Wang Li?",o:["Dieci","Cinquanta","Cinque"],a:0},
+    {q:"Che cosa c'è nella busta rossa?",o:["Dei soldi","Una lettera","Dei dolci"],a:0}]},
+
+{id:"shouzhu",after:"l16",kind:"Favola",t:"Il contadino che aspettava le lepri",j:"守株待兔",min:3,
+ intro:"Una favola di oltre duemila anni fa, da cui viene un modo di dire che ogni cinese conosce: 守株待兔[shǒu-zhū-dài-tù], «sorvegliare il ceppo aspettando la lepre». Si usa per chi aspetta la fortuna invece di darsi da fare.",
+ gloss:[["很久[hěn-jiǔ]","molto tempo"],["以前[yǐ-qián]","prima, in passato (很久以前: tanto tempo fa)"],["非常[fēi-cháng]","estremamente"],["到[dào]","(dopo un verbo) fino a, contro"],["又[yòu]","di nuovo, ancora"],["大家[dà-jiā]","tutti"],["中国人[Zhōng-guó-rén]","cinese (persona), i cinesi"],["意思[yì-si]","significato"],["农民[nóng-mín]","contadino"],["田[tián]","campo coltivato"],["边[biān]","bordo, lato"],["棵[kē]","classificatore per gli alberi"],["树[shù]","albero"],["只[zhī]","classificatore per gli animali"],["兔子[tù-zi]","lepre, coniglio"],["撞[zhuàng]","sbattere contro"],["死[sǐ]","morire; morto"],["肉[ròu]","carne"],["第二[dì-èr]","secondo (第二天: il giorno dopo)"],["下[xià]","sotto"],["过去[guò-qu]","passare (del tempo)"],["笑[xiào]","ridere (di qualcuno)"],["守株待兔[shǒu-zhū-dài-tù]","«sorvegliare il ceppo aspettando la lepre»: aspettare la fortuna senza fare niente"],["努力[nǔ-lì]","impegnarsi"],["运气[yùn-qi]","fortuna"]],
+ lines:[
+  ["很久[Hěn-jiǔ] 以前[yǐ-qián] ， 有[yǒu] 一[yí] 个[ge] 农民[nóng-mín] 。","Tanto tempo fa c'era un contadino."],
+  ["他[Tā] 每天[měi-tiān] 在[zài] 田[tián] 里[li] 工作[gōng-zuò] ， 非常[fēi-cháng] 累[lèi] 。","Ogni giorno lavorava nel campo ed era stanchissimo."],
+  ["田[Tián] 边[biān] 有[yǒu] 一[yì] 棵[kē] 树[shù] 。","Sul bordo del campo c'era un albero."],
+  ["有[Yǒu] 一[yì] 天[tiān] ， 一[yì] 只[zhī] 兔子[tù-zi] 跑[pǎo] 得[de] 很[hěn] 快[kuài] ， 撞[zhuàng] 到[dào] 了[le] 树[shù] 上[shang] 。","Un giorno una lepre, correndo velocissima, andò a sbattere contro l'albero."],
+  ["兔子[Tù-zi] 死[sǐ] 了[le] 。","La lepre morì."],
+  ["农民[Nóng-mín] 很[hěn] 高兴[gāo-xìng] ： “ 今天[Jīn-tiān] 不[bú] 用[yòng] 工作[gōng-zuò] ， 晚上[wǎn-shang] 有[yǒu] 肉[ròu] 吃[chī] ！ ”","Il contadino era felicissimo: «Oggi niente lavoro, e stasera c'è carne da mangiare!»"],
+  ["第二[Dì-èr] 天[tiān] ， 他[tā] 没[méi] 去[qù] 工作[gōng-zuò] 。","Il giorno dopo non andò a lavorare."],
+  ["他[Tā] 坐[zuò] 在[zài] 树[shù] 下[xià] ， 等[děng] 兔子[tù-zi] 。","Si sedette sotto l'albero ad aspettare le lepri."],
+  ["他[Tā] 等[děng] 了[le] 一[yì] 天[tiān] ， 又[yòu] 等[děng] 了[le] 一[yì] 天[tiān] 。","Aspettò un giorno, e poi un altro giorno."],
+  ["一[Yí] 个[ge] 月[yuè] 过去[guò-qu] 了[le] ， 兔子[tù-zi] 一[yì] 只[zhī] 也[yě] 没[méi] 来[lái] 。","Passò un mese, e non arrivò nemmeno una lepre."],
+  ["田[Tián] 里[li] 什么[shén-me] 都[dōu] 没有[méi-yǒu] 了[le] 。 大家[Dà-jiā] 都[dōu] 笑[xiào] 他[tā] 。","Nel campo non era rimasto niente. Tutti ridevano di lui."],
+  ["现在[Xiàn-zài] ， 中国人[Zhōng-guó-rén] 说[shuō] “ 守株待兔[shǒu-zhū-dài-tù] ” ， 意思[yì-si] 是[shì] ： 不[bù] 努力[nǔ-lì] ， 只[zhǐ] 等[děng] 好[hǎo] 运气[yùn-qi] 。","Ancora oggi i cinesi dicono «aspettare la lepre vicino al ceppo»: vuol dire non impegnarsi e aspettare solo la fortuna."]],
+ q:[{q:"Perché muore la lepre?",o:["Sbatte contro un albero","Il contadino la caccia","È troppo stanca"],a:0},
+    {q:"Che cosa fa il contadino il giorno dopo?",o:["Si siede sotto l'albero ad aspettare","Lavora più del solito","Va in città a vendere la carne"],a:0},
+    {q:"Che cosa vuol dire oggi 守株待兔?",o:["Aspettare la fortuna senza fare niente","Lavorare tanto ogni giorno","Saper cacciare bene"],a:0}]},
+
+{id:"change",after:"l21",kind:"Leggenda",t:"Chang'e vola sulla luna",j:"嫦娥奔月",min:5,
+ intro:"La leggenda della Festa di Metà Autunno (中秋节[Zhōng-qiū-jié]), il giorno della luna piena dell'ottavo mese lunare: le famiglie si riuniscono, guardano la luna e mangiano i dolci della luna (月饼[yuè-bing]). Esistono molte versioni: questa è la più raccontata.",
+ gloss:[["很久[hěn-jiǔ]","molto tempo"],["以前[yǐ-qián]","prima, in passato (很久以前: tanto tempo fa)"],["太阳[tài-yáng]","sole"],["出[chū]","fuori (飞出: volare fuori)"],["以后[yǐ-hòu]","dopo (che)"],["非常[fēi-cháng]","estremamente"],["喜欢[xǐ-huan]","piacere, amare"],["不得了[bù-dé-liǎo]","terribilmente, da non poterne più"],["人们[rén-men]","la gente"],["后羿[Hòu-yì]","Hou Yi, l'arciere eroe della leggenda"],["英雄[yīng-xióng]","eroe"],["射[shè]","colpire con una freccia"],["下来[xià-lai]","giù (direzione verso il basso)"],["王母娘娘[Wáng-mǔ-niáng-niang]","la Regina Madre dell'Occidente, una dea"],["包[bāo]","pacchetto (classificatore)"],["仙药[xiān-yào]","elisir degli immortali"],["药[yào]","medicina; qui: l'elisir"],["永远[yǒng-yuǎn]","per sempre"],["死[sǐ]","morire"],["离开[lí-kāi]","lasciare, andare via da"],["妻子[qī-zi]","moglie"],["嫦娥[Cháng-é]","Chang'e, la moglie di Hou Yi"],["交[jiāo]","consegnare, affidare"],["坏人[huài-rén]","persona cattiva, malvagio"],["抢[qiǎng]","rubare con la forza, strappare"],["办法[bàn-fǎ]","modo, soluzione (没有办法: non c'è niente da fare)"],["只好[zhǐ-hǎo]","non avere altra scelta che"],["自己[zì-jǐ]","se stesso, da sé"],["身体[shēn-tǐ]","corpo"],["越[yuè]","越来越: sempre più"],["轻[qīng]","leggero"],["窗户[chuāng-hu]","finestra"],["一直[yì-zhí]","sempre dritto, fino a"],["月亮[yuè-liang]","luna"],["难过[nán-guò]","triste, addolorato"],["圆[yuán]","rotondo"],["院子[yuàn-zi]","cortile"],["水果[shuǐ-guǒ]","frutta"],["点心[diǎn-xin]","dolcetti, spuntini"],["从[cóng]","da (从那以后: da allora)"],["每年[měi-nián]","ogni anno"],["一边[yì-biān]","一边…一边…: mentre…, nello stesso tempo"],["月饼[yuè-bing]","dolce della luna (si mangia a Metà Autunno)"],["中秋节[Zhōng-qiū-jié]","Festa di Metà Autunno"],["八月[bā-yuè]","agosto; qui: l'ottavo mese del calendario lunare"],["十五[shí-wǔ]","quindici"]],
+ lines:[
+  ["很久[Hěn-jiǔ] 以前[yǐ-qián] ， 天[tiān] 上[shang] 有[yǒu] 十[shí] 个[ge] 太阳[tài-yáng] 。","Tanto tempo fa, in cielo c'erano dieci soli."],
+  ["天气[Tiān-qì] 热[rè] 得[de] 不得了[bù-dé-liǎo] ， 人们[rén-men] 没有[méi-yǒu] 水[shuǐ] 喝[hē] 。","Faceva un caldo terribile, e la gente non aveva più acqua da bere."],
+  ["一[Yí] 个[ge] 叫[jiào] 后羿[Hòu-yì] 的[de] 英雄[yīng-xióng] 把[bǎ] 九[jiǔ] 个[ge] 太阳[tài-yáng] 射[shè] 了[le] 下来[xià-lai] 。","Un eroe di nome Hou Yi abbatté nove soli con le sue frecce."],
+  ["王母娘娘[Wáng-mǔ-niáng-niang] 给[gěi] 了[le] 他[tā] 一[yì] 包[bāo] 仙药[xiān-yào] 。","La Regina Madre dell'Occidente gli regalò un elisir."],
+  ["吃[Chī] 了[le] 这[zhè] 个[ge] 药[yào] ， 就[jiù] 能[néng] 飞[fēi] 到[dào] 天[tiān] 上[shang] ， 永远[yǒng-yuǎn] 不[bú] 会[huì] 死[sǐ] 。","Chi lo beveva poteva volare in cielo e non sarebbe morto mai."],
+  ["后羿[Hòu-yì] 不[bù] 想[xiǎng] 离开[lí-kāi] 妻子[qī-zi] 嫦娥[Cháng-é] ， 就[jiù] 把[bǎ] 药[yào] 交[jiāo] 给[gěi] 她[tā] 。","Hou Yi non voleva lasciare sua moglie Chang'e, così le affidò l'elisir."],
+  ["有[Yǒu] 一[yì] 天[tiān] ， 一[yí] 个[ge] 坏人[huài-rén] 想[xiǎng] 抢[qiǎng] 这[zhè] 个[ge] 药[yào] 。","Un giorno un malvagio cercò di rubarlo."],
+  ["嫦娥[Cháng-é] 没有[méi-yǒu] 办法[bàn-fǎ] ， 只好[zhǐ-hǎo] 自己[zì-jǐ] 把[bǎ] 药[yào] 吃[chī] 了[le] 。","Chang'e non aveva scelta: lo bevve lei."],
+  ["她[Tā] 的[de] 身体[shēn-tǐ] 越[yuè] 来[lái] 越[yuè] 轻[qīng] ， 飞[fēi] 出[chū] 了[le] 窗户[chuāng-hu] ， 一直[yì-zhí] 飞[fēi] 到[dào] 了[le] 月亮[yuè-liang] 上[shang] 。","Il suo corpo diventò sempre più leggero: volò fuori dalla finestra e salì fino alla luna."],
+  ["后羿[Hòu-yì] 回[huí] 家[jiā] 以后[yǐ-hòu] ， 看[kàn] 不[bu] 到[dào] 嫦娥[Cháng-é] ， 非常[fēi-cháng] 难过[nán-guò] 。","Quando Hou Yi tornò a casa e non trovò più Chang'e, fu tristissimo."],
+  ["那[Nà] 天[tiān] 的[de] 月亮[yuè-liang] 又[yòu] 大[dà] 又[yòu] 圆[yuán] 。","Quella sera la luna era grande e rotonda."],
+  ["他[Tā] 在[zài] 院子[yuàn-zi] 里[li] 放[fàng] 了[le] 嫦娥[Cháng-é] 喜欢[xǐ-huan] 吃[chī] 的[de] 水果[shuǐ-guǒ] 和[hé] 点心[diǎn-xin] 。","In cortile mise la frutta e i dolci che piacevano a Chang'e."],
+  ["从[Cóng] 那[nà] 以后[yǐ-hòu] ， 每年[měi-nián] 八月[bā-yuè] 十五[shí-wǔ] ， 人们[rén-men] 都[dōu] 一边[yì-biān] 吃[chī] 月饼[yuè-bing] ， 一边[yì-biān] 看[kàn] 月亮[yuè-liang] 。","Da allora, ogni anno il quindici dell'ottavo mese, la gente mangia i dolci della luna guardando la luna."],
+  ["这[Zhè] 就[jiù] 是[shì] 中秋节[Zhōng-qiū-jié] 。","È la Festa di Metà Autunno."]],
+ q:[{q:"Quanti soli abbatte Hou Yi?",o:["Nove","Dieci","Uno"],a:0},
+    {q:"Perché Chang'e beve l'elisir?",o:["Perché un malvagio voleva rubarlo","Perché voleva lasciare Hou Yi","Perché era malata"],a:0},
+    {q:"Che cosa si mangia alla Festa di Metà Autunno?",o:["I dolci della luna","I ravioli","Gli spaghetti di lunga vita"],a:0}]}
+];
+
 var EXAMS=[];
 /* ---------- testo cinese ----------
    Formato dei dati: parole separate da spazi; il pinyin di ogni parola tra parentesi quadre,
@@ -3758,7 +3824,7 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   sim:"Simulazione completa",simS:"Formato reale, a tempo",soon:"In arrivo",mastery:"Padronanza delle lezioni verificate",planT:"Il tuo piano",
   onTrack:"In linea col piano",ahead2:function(n){return "Avanti di "+n+(n===1?" giorno":" giorni")},behind:function(n){return "Indietro di "+n+(n===1?" giorno":" giorni")},practice:"Allenamento d'esame",
   cult:"Cultura",cultLead:C.learn==="zh"?"Italia e Cina a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.":"Italia e Giappone a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
-  all:"Tutte",readCount:function(a,b){return a+" di "+b+" lette"},readMark:"Letta",fromLesson:function(n){return "Lezione "+n},
+  all:"Tutte",readCount:function(a,b){return a+" di "+b+" lette"},stories:"Racconti",storiesLead:"Letture brevi con audio: le parole nuove hanno il loro significato e la traduzione la apri solo quando ti serve.",afterL:function(n){return "dopo la lezione "+n},afterR:"dopo il ripasso",mins:function(m){return m+" min"},soonStories:"Altri racconti",soonT:"In arrivo",playAll:"Ascolta tutto",stopAll:"Stop",trAll:"Traduzione",trOne:"Traduci",newWords:function(n){return "Parole nuove · "+n},storyQ:"Hai capito?",storyDone:"Letto",storyDoneT:"Racconto letto",nextStory:"Prossimo racconto",backCult:"Torna a Cultura",storyListen:"Ascolta la frase",readMark:"Letta",fromLesson:function(n){return "Lezione "+n},
   tools:"Strumenti",toolList:C.learn==="zh"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["I tempi del verbo","Senza coniugazioni: 了, 过, 着…"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"],tratti:["Scrivere 1","I tratti e il loro ordine"],caratteri:["Scrivere 2","Com'è fatto un carattere"]}
     :{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutte le forme dei verbi"],kana:["Kana","Hiragana e katakana con audio"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]},
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
@@ -3782,7 +3848,7 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   sim:"完整模拟考试",simS:"真实格式，限时",soon:"即将推出",mastery:"已完成小测验的掌握度",planT:"你的计划",
   onTrack:"按计划进行",ahead2:function(n){return "提前 "+n+" 天"},behind:function(n){return "落后 "+n+" 天"},practice:"考前训练",
   cult:"文化",cultLead:"意大利和中国对比：习惯、饮食、工作、节日。每张卡片都有可以听的单词和一个问题。",
-  all:"全部",readCount:function(a,b){return "已读 "+a+" / "+b},readMark:"已读",fromLesson:function(n){return "第 "+n+" 课"},
+  all:"全部",readCount:function(a,b){return "已读 "+a+" / "+b},stories:"故事",storiesLead:"有录音的短篇阅读：生词都有解释，翻译需要时再打开。",afterL:function(n){return "学完第 "+n+" 课"},afterR:"复习之后",mins:function(m){return m+" 分钟"},soonStories:"更多故事",soonT:"即将推出",playAll:"全部播放",stopAll:"停止",trAll:"翻译",trOne:"翻译",newWords:function(n){return "生词 · "+n},storyQ:"读懂了吗？",storyDone:"已读",storyDoneT:"故事已读完",nextStory:"下一个故事",backCult:"回到文化",storyListen:"听这句话",readMark:"已读",fromLesson:function(n){return "第 "+n+" 课"},
   tools:"工具",toolList:{flash:["单词卡","间隔重复"],verbi:["动词变位","所有动词形式"],frasi:["常用句","现成的句子"],vocab:["词汇表","课程里的所有单词"]},
   dailyRev:["今日复习","快要忘记的单词"],
   settings:"设置",readingT:"阅读和语音",
@@ -3855,6 +3921,50 @@ function cultCard(x,big){var r=cultRead()[x.key];
     '<span class="tx"><b>'+h(x.c.t)+'</b>'+(big?'<small>'+h(plainCult(x.c).slice(0,140))+'…</small>':'')+'<em>'+h(x.u.kind==="lesson"?S.fromLesson(x.u.n):S.review)+(r?' · ✓ '+h(S.readMark):'')+'</em></span></button>'}
 function bindCult(root){qa("[data-ck]",root).forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-ck");allCult().forEach(function(x){if(x.key===k)openCult(x)})}})}
 
+/* ---------- stories: short graded readings (courses/<id>/src/reads.js) ----------
+   Words come from the lessons up to «after»; the few new ones are glossed. Translations stay hidden until asked. */
+var RK=KEY+"-reads",READ=typeof READS!=="undefined"?READS:[],storyPl=null;
+function readsDone(){return M.store.get(RK)||{}}
+function sLine(t){return typeof jLine==="function"?jLine(t):'<span lang="it">'+itHTML(t)+'</span>'}
+function sWord(t){return typeof jpHTML==="function"?'<span lang="'+LL+'">'+jpHTML(t)+'</span>':'<span lang="it">'+itHTML(t)+'</span>'}
+function sRich(t){return typeof mixHTML==="function"?mixHTML(t):h(t)}
+/* new words get a meaning on tap and hover, unless the course already has one */
+READ.forEach(function(r){(r.gloss||[]).forEach(function(g){
+  var k=ZH&&typeof norm==="function"?norm(g[0]):g[0];if(!DICT[k])DICT[k]=g[1];
+  if(!ZH&&typeof jsurf==="function"){var sf=jsurf(g[0]);if(!DICT[sf])DICT[sf]=g[1]}})});
+function storyAfter(r){var U=UNITS.filter(function(u){return u.id===r.after})[0];return U?(U.kind==="lesson"?S.afterL(U.n):S.afterR):""}
+var SCOL=["red","blue","green","yellow","pink"];
+function storyCard(r,i){var d=readsDone()[r.id];
+  return '<a class="mp-story" href="#/racconto/'+h(r.id)+'"><span class="art t-'+SCOL[i%5]+'"><span class="j'+(!ZH&&r.j.length>5?' long':'')+'" lang="'+(ZH?"it":LL)+'">'+h(r.j)+'</span></span>'+
+    '<span class="tx"><b>'+h(r.t)+'</b><em>'+h(r.kind+" · "+storyAfter(r))+'</em><em>'+h(S.mins(r.min))+(d?' · ✓ '+h(S.storyDone):'')+'</em></span></a>'}
+function storiesBlock(){if(!READ.length)return "";
+  return '<h2 class="mp-h2">'+h(S.stories)+'</h2><p class="mp-lead mp-lead0">'+h(S.storiesLead)+'</p><div class="mp-sgrid">'+READ.map(storyCard).join("")+
+    '<div class="mp-story soon" aria-disabled="true"><span class="art"><span class="j" aria-hidden="true">…</span></span><span class="tx"><b>'+h(S.soonStories)+'</b><em>'+h(S.soonT)+'</em></span></div></div>'}
+function vStory(id){var r=READ.filter(function(x){return x.id===id})[0];if(!r){location.replace("#/cultura");return}
+  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl=ZH?"zh-CN":"it";
+  var html='<div class="mp-readbar"><a class="mp-ib" href="#/cultura" aria-label="'+h(S.backCult)+'">'+I.back+'</a><b>'+h(S.stories)+'</b><button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button></div>'+
+    '<header class="mp-sh"><div class="mp-k">'+h(r.kind+" · "+storyAfter(r)+" · "+S.mins(r.min))+'</div><h1 tabindex="-1">'+h(r.t)+'</h1><p class="j" lang="'+(ZH?"it":LL)+'">'+h(r.j)+'</p></header>'+
+    '<p class="mp-lead">'+sRich(r.intro)+'</p>'+
+    (r.gloss&&r.gloss.length?'<details class="mp-gl"><summary>'+h(S.newWords(r.gloss.length))+'</summary><ul>'+r.gloss.map(function(g){return '<li>'+sWord(g[0])+'<span lang="'+tl+'">'+h(g[1])+'</span></li>'}).join("")+'</ul></details>':'')+
+    '<div class="mp-sctl"><button class="mp-cta" id="spl">'+SPK+'<span>'+h(S.playAll)+'</span></button><button class="mp-chip" id="str" aria-pressed="false">'+h(S.trAll)+'</button></div>'+
+    '<div class="mp-stext" id="stx">'+r.lines.map(function(l,k){return '<div class="mp-sl" data-i="'+k+'"><div class="sb"><div class="it-l">'+sLine(l[0])+'</div>'+
+      '<p class="stt" lang="'+tl+'" id="stt'+k+'">'+h(l[1])+'</p><button class="trb" aria-expanded="false" aria-controls="stt'+k+'">'+h(S.trOne)+'</button></div>'+
+      '<button class="say" data-say="'+h(l[0])+'" aria-label="'+h(S.storyListen)+'">'+SPK+'</button></div>'}).join("")+'</div>'+
+    '<h2 class="mp-h2">'+h(S.storyQ)+'</h2><div class="drill mp-sq" id="sq"></div><div id="sdone"></div>';
+  show(html);
+  var lines=qa(".mp-sl",view),pb=q("#spl",view),stx=q("#stx",view),tb=q("#str",view);
+  if(storyPl)storyPl.stop(true);
+  storyPl=Player(function(){return lines.map(function(el,k){return {el:el,say:r.lines[k][0],mine:false}})},
+    {busy:function(){pb.innerHTML='<span aria-hidden="true">■</span><span>'+h(S.stopAll)+'</span>';pb.dataset.on="1"},idle:function(){pb.innerHTML=SPK+'<span>'+h(S.playAll)+'</span>';pb.dataset.on=""}});
+  var pl=storyPl;pb.onclick=function(){if(pb.dataset.on)pl.stop();else pl.play()};
+  tb.onclick=function(){var on=tb.getAttribute("aria-pressed")!=="true";tb.setAttribute("aria-pressed",String(on));tb.classList.toggle("on",on);stx.classList.toggle("tr-on",on)};
+  lines.forEach(function(el){var b=q(".trb",el);b.onclick=function(){var on=!el.classList.contains("open");el.classList.toggle("open",on);b.setAttribute("aria-expanded",String(on))}});
+  function finish(){var box=q("#sdone",view);box.innerHTML='<div class="mp-card mp-sdone"><p class="mp-p"><b>✓ '+h(S.storyDoneT)+'</b></p>'+(READ.length>1?'<p class="mp-p">'+h(S.nextStory)+': <b>'+h(nx.t)+'</b></p><a class="mp-cta" href="#/racconto/'+h(nx.id)+'">'+h(S.nextStory)+I.arrow+'</a>':'')+'<a class="mp-cta alt" href="#/cultura">'+h(S.backCult)+'</a></div>'}
+  renderSet(q("#sq",view),{items:(r.q||[]).map(function(x){var o=x.o.slice(),c=o.splice(x.a||0,1)[0];return {q:x.q,o:[c].concat(o)}}),one:true,head:"",
+    onDone:function(){var d=readsDone();d[r.id]=Date.now();M.store.set(RK,d);finish()}});
+  if(readsDone()[r.id])finish()}
+window.addEventListener("hashchange",function(){if(storyPl&&!/^#\/racconto\//.test(location.hash)){storyPl.stop();storyPl=null}});
+
 /* ---------- plan ---------- */
 function myPlan(){return M.load().plans[C.id]||null}
 function weekActive(){var mon=M.addDays(M.today(),-((M.today().getDay()+6)%7)),n=0,cells="";
@@ -3879,9 +3989,9 @@ function render(){
   if(r==="mappa"||r==="top"){location.replace("#/oggi");return}
   document.documentElement.classList.toggle("mp-read",tab==="leggi");
   qa(".mp-target").forEach(function(e){e.classList.remove("mp-target")});
-  var active=tab==="simres"||tab==="simrev"?"esame":tab==="l"?"corso":tab==="leggi"?(UNITS.some(function(u){return u.id===parts[1]})?"corso":"strumenti"):tab;
+  var active=tab==="racconto"?"cultura":tab==="simres"||tab==="simrev"?"esame":tab==="l"?"corso":tab==="leggi"?(UNITS.some(function(u){return u.id===parts[1]})?"corso":"strumenti"):tab;
   qa("[data-tab]",bar).forEach(function(a){var on=a.getAttribute("data-tab")===active;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
-  ({oggi:vToday,corso:vCourse,l:function(){vLesson(parts[1])},esame:vExam,cultura:vCult,strumenti:vTools,leggi:function(){vRead(parts[1])},simres:function(){vSimRes(parts[1])},simrev:function(){vSimRev(parts[1])}}[tab]||vToday)();
+  ({oggi:vToday,corso:vCourse,l:function(){vLesson(parts[1])},esame:vExam,cultura:vCult,strumenti:vTools,leggi:function(){vRead(parts[1])},racconto:function(){vStory(parts[1])},simres:function(){vSimRes(parts[1])},simrev:function(){vSimRev(parts[1])}}[tab]||vToday)();
   var st=q("#mpset",view);if(st)st.onclick=openSettings;
   if(!mstack.length){var h1=q("h1",view);if(h1)try{h1.focus({preventScroll:true})}catch(e){}}}
 function show(html){view.innerHTML=html;window.scrollTo(0,0)}
@@ -4001,6 +4111,7 @@ var cultFilter=0;
 function vCult(){
   var all=allCult(),rd=cultRead(),nr=all.filter(function(x){return rd[x.key]}).length,dc=dayCult();
   var html=head(S.readCount(nr,all.length),S.cult)+'<p class="mp-lead">'+h(S.cultLead)+'</p>';
+  html+=storiesBlock();
   if(dc)html+='<h2 class="mp-h2">'+h(S.dayCult)+'</h2>'+cultCard(dc,true);
   html+='<div class="mp-chips" role="tablist">'+['<button class="mp-chip'+(cultFilter===0?' on':'')+'" data-f="0">'+h(S.all)+'</button>'].concat(WORLDS.map(function(W,wi){return '<button class="mp-chip'+(cultFilter===wi+1?' on':'')+'" data-f="'+(wi+1)+'">'+h(W.level)+'</button>'})).join("")+'</div>';
   html+='<div class="mp-cgrid">'+all.filter(function(x){return !cultFilter||x.u.w===cultFilter}).map(function(x){return cultCard(x,false)}).join("")+'</div>';
@@ -4283,6 +4394,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
+  READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;
   var div=document.createElement("div"),seen={},miss={};
   function chk(e){var k=e.getAttribute("data-say");if(seen[k])return;seen[k]=1;var m=meaning(k);seen[k]=m||1;if(!m)miss[k]=1}

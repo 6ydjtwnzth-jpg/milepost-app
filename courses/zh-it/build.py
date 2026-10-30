@@ -160,7 +160,7 @@ def js_data():
                 'w': next(i for i, p in enumerate(worlds) if p['title'] == it['part']) + 1} for it in items if it['kind'] != 'app']
     wl = [{'title': p['title'], 'level': p['level'], 'j': p['j']} for p in worlds]
     cult = rd('culture.js') if os.path.exists(os.path.join(SRC, 'culture.js')) else ''
-    return ('var DLG={},EX={},VOC={},CULT={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\nvar WORLDS=' + json.dumps(wl, ensure_ascii=False) + ';\n' + '\n'.join(parts) + '\n' + cult)
+    return ('var DLG={},EX={},VOC={},CULT={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\nvar WORLDS=' + json.dumps(wl, ensure_ascii=False) + ';\n' + '\n'.join(parts) + '\n' + cult + '\n' + (rd('reads.js') if os.path.exists(os.path.join(SRC, 'reads.js')) else 'var READS=[];'))
 
 def exams_js():
     """Mock exams in the real HSK format (src/exam/*.json), exposed to the course app as EXAMS."""

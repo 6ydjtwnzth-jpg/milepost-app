@@ -21,6 +21,7 @@ Corsi disponibili:
      punteggio stimato su 180 con i minimi per sezione, ripasso di ogni domanda con spiegazione e trascrizione.
      Allenamento anche su una sola sezione; la preparazione per sezione si aggiorna con i risultati.
    - **Cultura**: tutte le schede illustrate, Italia a confronto con il paese della lingua, con la curiosità del giorno.
+     In cima, i **Racconti**: letture graduate con audio, parole nuove spiegate, traduzione a richiesta e tre domande (oggi 3 per corso).
    - **Strumenti**: flashcard, coniugatore, kana, frasario, vocabolario.
 
 ## Sviluppo

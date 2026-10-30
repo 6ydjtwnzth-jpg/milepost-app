@@ -322,3 +322,51 @@ html.mp-exam body{padding-bottom:0}
 .mp-off{padding:2px 2px 8px}
 .mp-off .mp-cta{margin-top:4px}
 .mp-sel{min-height:44px;max-width:62%;font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:6px 10px}
+
+/* ---------- stories ---------- */
+.mp-lead0{margin-top:0}
+.mp-sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+.mp-story{display:flex;flex-direction:column;border-radius:var(--mp-rs);overflow:hidden;background:var(--sheet);box-shadow:var(--shadow);color:var(--ink);text-decoration:none}
+.mp-story .art{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;background:var(--c-soft);color:var(--c);padding:10px;text-align:center}
+.mp-story .art .j{font-family:var(--f-disp);font-weight:800;font-size:22px;line-height:1.15;color:var(--c)}
+.mp-story .art .j:lang(it),.mp-story .art .j.long{font-size:18px}
+.mp-story .tx{display:flex;flex-direction:column;gap:3px;padding:10px 12px 12px}
+.mp-story b{font-size:14.5px;line-height:1.3}
+.mp-story em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.mp-story.soon{box-shadow:none;background:none;border:2px dashed var(--line)}
+.mp-story.soon .art{background:none;color:var(--muted)}
+.mp-story.soon .art .j{color:var(--muted)}
+.mp-sh{margin-top:14px}
+.mp-sh h1{font-family:var(--f-disp);font-weight:800;font-size:26px;line-height:1.15;margin:4px 0 0;outline:none}
+.mp-sh .j{font-family:var(--f-disp);font-weight:800;font-size:20px;color:var(--c,var(--ink));margin:4px 0 0}
+.mp-gl{margin-top:14px;background:var(--sheet);border-radius:var(--mp-rs);box-shadow:var(--shadow)}
+.mp-gl summary{min-height:48px;display:flex;align-items:center;padding:0 16px;font-weight:800;cursor:pointer;list-style:none}
+.mp-gl summary::-webkit-details-marker{display:none}
+.mp-gl summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2.5px solid var(--muted);border-bottom:2.5px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+.mp-gl[open] summary::after{transform:rotate(-135deg)}
+.mp-gl ul{list-style:none;margin:0;padding:0 16px 12px;display:grid;gap:8px}
+.mp-gl li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:15px;line-height:1.45;padding-top:8px;border-top:1px solid var(--line)}
+.mp-gl li>span:last-child{color:var(--muted)}
+.mp-sctl{display:flex;align-items:center;gap:10px;margin-top:16px}
+.mp-sctl .mp-cta{flex:1;margin-top:0!important}
+.mp-sctl .mp-chip{flex:none;min-height:54px;padding:0 18px}
+.mp-stext{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.mp-sl{display:flex;align-items:flex-start;gap:10px;padding:12px 12px 6px 14px;border-radius:16px;background:var(--sheet);box-shadow:var(--shadow);transition:background .2s}
+.mp-sl.now{background:var(--c-soft,var(--sheet))}
+.mp-sl .sb{flex:1;min-width:0}
+.mp-sl .it-l{font-size:19px;line-height:1.75}
+/* long reading: words in ink, the dotted underline still says «tap me» */
+.mp-stext .w{color:var(--ink);text-decoration-color:color-mix(in srgb,var(--it,var(--c)) 50%,transparent)}
+.mp-sl .stt{display:none;margin:4px 0 2px;color:var(--muted);font-size:15px;line-height:1.5}
+.mp-sl.open .stt,.mp-stext.tr-on .stt{display:block}
+#mpapp .mp-sl .trb{min-height:36px;padding:0 2px;font-size:13px;font-weight:800;color:var(--muted)!important}
+.mp-sl .trb::before{content:"";display:inline-block;width:0;height:0;margin-right:6px;vertical-align:middle;border-left:5px solid currentColor;border-top:4px solid transparent;border-bottom:4px solid transparent;transition:transform .2s}
+.mp-sl.open .trb::before{transform:rotate(90deg)}
+.mp-stext.tr-on .trb{display:none}
+.mp-stext.tr-on .mp-sl{padding-bottom:12px}
+.mp-sl .say{flex:none;width:44px;height:44px}
+.mp-sq{margin-top:30px}
+.mp-sdone{margin-top:14px}
+.mp-sdone .mp-cta{margin-top:10px}
+#mpapp .mp-sdone .mp-cta.alt{background:var(--paper);color:var(--ink)!important;box-shadow:none}
+@media (prefers-reduced-motion:reduce){.mp-sl,.mp-gl summary::after,.mp-sl .trb::before{transition:none}}

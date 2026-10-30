@@ -28,7 +28,7 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   sim:"Simulazione completa",simS:"Formato reale, a tempo",soon:"In arrivo",mastery:"Padronanza delle lezioni verificate",planT:"Il tuo piano",
   onTrack:"In linea col piano",ahead2:function(n){return "Avanti di "+n+(n===1?" giorno":" giorni")},behind:function(n){return "Indietro di "+n+(n===1?" giorno":" giorni")},practice:"Allenamento d'esame",
   cult:"Cultura",cultLead:C.learn==="zh"?"Italia e Cina a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.":"Italia e Giappone a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
-  all:"Tutte",readCount:function(a,b){return a+" di "+b+" lette"},readMark:"Letta",fromLesson:function(n){return "Lezione "+n},
+  all:"Tutte",readCount:function(a,b){return a+" di "+b+" lette"},stories:"Racconti",storiesLead:"Letture brevi con audio: le parole nuove hanno il loro significato e la traduzione la apri solo quando ti serve.",afterL:function(n){return "dopo la lezione "+n},afterR:"dopo il ripasso",mins:function(m){return m+" min"},soonStories:"Altri racconti",soonT:"In arrivo",playAll:"Ascolta tutto",stopAll:"Stop",trAll:"Traduzione",trOne:"Traduci",newWords:function(n){return "Parole nuove · "+n},storyQ:"Hai capito?",storyDone:"Letto",storyDoneT:"Racconto letto",nextStory:"Prossimo racconto",backCult:"Torna a Cultura",storyListen:"Ascolta la frase",readMark:"Letta",fromLesson:function(n){return "Lezione "+n},
   tools:"Strumenti",toolList:C.learn==="zh"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["I tempi del verbo","Senza coniugazioni: 了, 过, 着…"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"],tratti:["Scrivere 1","I tratti e il loro ordine"],caratteri:["Scrivere 2","Com'è fatto un carattere"]}
     :{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutte le forme dei verbi"],kana:["Kana","Hiragana e katakana con audio"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]},
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
@@ -52,7 +52,7 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   sim:"完整模拟考试",simS:"真实格式，限时",soon:"即将推出",mastery:"已完成小测验的掌握度",planT:"你的计划",
   onTrack:"按计划进行",ahead2:function(n){return "提前 "+n+" 天"},behind:function(n){return "落后 "+n+" 天"},practice:"考前训练",
   cult:"文化",cultLead:"意大利和中国对比：习惯、饮食、工作、节日。每张卡片都有可以听的单词和一个问题。",
-  all:"全部",readCount:function(a,b){return "已读 "+a+" / "+b},readMark:"已读",fromLesson:function(n){return "第 "+n+" 课"},
+  all:"全部",readCount:function(a,b){return "已读 "+a+" / "+b},stories:"故事",storiesLead:"有录音的短篇阅读：生词都有解释，翻译需要时再打开。",afterL:function(n){return "学完第 "+n+" 课"},afterR:"复习之后",mins:function(m){return m+" 分钟"},soonStories:"更多故事",soonT:"即将推出",playAll:"全部播放",stopAll:"停止",trAll:"翻译",trOne:"翻译",newWords:function(n){return "生词 · "+n},storyQ:"读懂了吗？",storyDone:"已读",storyDoneT:"故事已读完",nextStory:"下一个故事",backCult:"回到文化",storyListen:"听这句话",readMark:"已读",fromLesson:function(n){return "第 "+n+" 课"},
   tools:"工具",toolList:{flash:["单词卡","间隔重复"],verbi:["动词变位","所有动词形式"],frasi:["常用句","现成的句子"],vocab:["词汇表","课程里的所有单词"]},
   dailyRev:["今日复习","快要忘记的单词"],
   settings:"设置",readingT:"阅读和语音",
@@ -125,6 +125,50 @@ function cultCard(x,big){var r=cultRead()[x.key];
     '<span class="tx"><b>'+h(x.c.t)+'</b>'+(big?'<small>'+h(plainCult(x.c).slice(0,140))+'…</small>':'')+'<em>'+h(x.u.kind==="lesson"?S.fromLesson(x.u.n):S.review)+(r?' · ✓ '+h(S.readMark):'')+'</em></span></button>'}
 function bindCult(root){qa("[data-ck]",root).forEach(function(b){b.onclick=function(){var k=b.getAttribute("data-ck");allCult().forEach(function(x){if(x.key===k)openCult(x)})}})}
 
+/* ---------- stories: short graded readings (courses/<id>/src/reads.js) ----------
+   Words come from the lessons up to «after»; the few new ones are glossed. Translations stay hidden until asked. */
+var RK=KEY+"-reads",READ=typeof READS!=="undefined"?READS:[],storyPl=null;
+function readsDone(){return M.store.get(RK)||{}}
+function sLine(t){return typeof jLine==="function"?jLine(t):'<span lang="it">'+itHTML(t)+'</span>'}
+function sWord(t){return typeof jpHTML==="function"?'<span lang="'+LL+'">'+jpHTML(t)+'</span>':'<span lang="it">'+itHTML(t)+'</span>'}
+function sRich(t){return typeof mixHTML==="function"?mixHTML(t):h(t)}
+/* new words get a meaning on tap and hover, unless the course already has one */
+READ.forEach(function(r){(r.gloss||[]).forEach(function(g){
+  var k=ZH&&typeof norm==="function"?norm(g[0]):g[0];if(!DICT[k])DICT[k]=g[1];
+  if(!ZH&&typeof jsurf==="function"){var sf=jsurf(g[0]);if(!DICT[sf])DICT[sf]=g[1]}})});
+function storyAfter(r){var U=UNITS.filter(function(u){return u.id===r.after})[0];return U?(U.kind==="lesson"?S.afterL(U.n):S.afterR):""}
+var SCOL=["red","blue","green","yellow","pink"];
+function storyCard(r,i){var d=readsDone()[r.id];
+  return '<a class="mp-story" href="#/racconto/'+h(r.id)+'"><span class="art t-'+SCOL[i%5]+'"><span class="j'+(!ZH&&r.j.length>5?' long':'')+'" lang="'+(ZH?"it":LL)+'">'+h(r.j)+'</span></span>'+
+    '<span class="tx"><b>'+h(r.t)+'</b><em>'+h(r.kind+" · "+storyAfter(r))+'</em><em>'+h(S.mins(r.min))+(d?' · ✓ '+h(S.storyDone):'')+'</em></span></a>'}
+function storiesBlock(){if(!READ.length)return "";
+  return '<h2 class="mp-h2">'+h(S.stories)+'</h2><p class="mp-lead mp-lead0">'+h(S.storiesLead)+'</p><div class="mp-sgrid">'+READ.map(storyCard).join("")+
+    '<div class="mp-story soon" aria-disabled="true"><span class="art"><span class="j" aria-hidden="true">…</span></span><span class="tx"><b>'+h(S.soonStories)+'</b><em>'+h(S.soonT)+'</em></span></div></div>'}
+function vStory(id){var r=READ.filter(function(x){return x.id===id})[0];if(!r){location.replace("#/cultura");return}
+  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl=ZH?"zh-CN":"it";
+  var html='<div class="mp-readbar"><a class="mp-ib" href="#/cultura" aria-label="'+h(S.backCult)+'">'+I.back+'</a><b>'+h(S.stories)+'</b><button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button></div>'+
+    '<header class="mp-sh"><div class="mp-k">'+h(r.kind+" · "+storyAfter(r)+" · "+S.mins(r.min))+'</div><h1 tabindex="-1">'+h(r.t)+'</h1><p class="j" lang="'+(ZH?"it":LL)+'">'+h(r.j)+'</p></header>'+
+    '<p class="mp-lead">'+sRich(r.intro)+'</p>'+
+    (r.gloss&&r.gloss.length?'<details class="mp-gl"><summary>'+h(S.newWords(r.gloss.length))+'</summary><ul>'+r.gloss.map(function(g){return '<li>'+sWord(g[0])+'<span lang="'+tl+'">'+h(g[1])+'</span></li>'}).join("")+'</ul></details>':'')+
+    '<div class="mp-sctl"><button class="mp-cta" id="spl">'+SPK+'<span>'+h(S.playAll)+'</span></button><button class="mp-chip" id="str" aria-pressed="false">'+h(S.trAll)+'</button></div>'+
+    '<div class="mp-stext" id="stx">'+r.lines.map(function(l,k){return '<div class="mp-sl" data-i="'+k+'"><div class="sb"><div class="it-l">'+sLine(l[0])+'</div>'+
+      '<p class="stt" lang="'+tl+'" id="stt'+k+'">'+h(l[1])+'</p><button class="trb" aria-expanded="false" aria-controls="stt'+k+'">'+h(S.trOne)+'</button></div>'+
+      '<button class="say" data-say="'+h(l[0])+'" aria-label="'+h(S.storyListen)+'">'+SPK+'</button></div>'}).join("")+'</div>'+
+    '<h2 class="mp-h2">'+h(S.storyQ)+'</h2><div class="drill mp-sq" id="sq"></div><div id="sdone"></div>';
+  show(html);
+  var lines=qa(".mp-sl",view),pb=q("#spl",view),stx=q("#stx",view),tb=q("#str",view);
+  if(storyPl)storyPl.stop(true);
+  storyPl=Player(function(){return lines.map(function(el,k){return {el:el,say:r.lines[k][0],mine:false}})},
+    {busy:function(){pb.innerHTML='<span aria-hidden="true">■</span><span>'+h(S.stopAll)+'</span>';pb.dataset.on="1"},idle:function(){pb.innerHTML=SPK+'<span>'+h(S.playAll)+'</span>';pb.dataset.on=""}});
+  var pl=storyPl;pb.onclick=function(){if(pb.dataset.on)pl.stop();else pl.play()};
+  tb.onclick=function(){var on=tb.getAttribute("aria-pressed")!=="true";tb.setAttribute("aria-pressed",String(on));tb.classList.toggle("on",on);stx.classList.toggle("tr-on",on)};
+  lines.forEach(function(el){var b=q(".trb",el);b.onclick=function(){var on=!el.classList.contains("open");el.classList.toggle("open",on);b.setAttribute("aria-expanded",String(on))}});
+  function finish(){var box=q("#sdone",view);box.innerHTML='<div class="mp-card mp-sdone"><p class="mp-p"><b>✓ '+h(S.storyDoneT)+'</b></p>'+(READ.length>1?'<p class="mp-p">'+h(S.nextStory)+': <b>'+h(nx.t)+'</b></p><a class="mp-cta" href="#/racconto/'+h(nx.id)+'">'+h(S.nextStory)+I.arrow+'</a>':'')+'<a class="mp-cta alt" href="#/cultura">'+h(S.backCult)+'</a></div>'}
+  renderSet(q("#sq",view),{items:(r.q||[]).map(function(x){var o=x.o.slice(),c=o.splice(x.a||0,1)[0];return {q:x.q,o:[c].concat(o)}}),one:true,head:"",
+    onDone:function(){var d=readsDone();d[r.id]=Date.now();M.store.set(RK,d);finish()}});
+  if(readsDone()[r.id])finish()}
+window.addEventListener("hashchange",function(){if(storyPl&&!/^#\/racconto\//.test(location.hash)){storyPl.stop();storyPl=null}});
+
 /* ---------- plan ---------- */
 function myPlan(){return M.load().plans[C.id]||null}
 function weekActive(){var mon=M.addDays(M.today(),-((M.today().getDay()+6)%7)),n=0,cells="";
@@ -149,9 +193,9 @@ function render(){
   if(r==="mappa"||r==="top"){location.replace("#/oggi");return}
   document.documentElement.classList.toggle("mp-read",tab==="leggi");
   qa(".mp-target").forEach(function(e){e.classList.remove("mp-target")});
-  var active=tab==="simres"||tab==="simrev"?"esame":tab==="l"?"corso":tab==="leggi"?(UNITS.some(function(u){return u.id===parts[1]})?"corso":"strumenti"):tab;
+  var active=tab==="racconto"?"cultura":tab==="simres"||tab==="simrev"?"esame":tab==="l"?"corso":tab==="leggi"?(UNITS.some(function(u){return u.id===parts[1]})?"corso":"strumenti"):tab;
   qa("[data-tab]",bar).forEach(function(a){var on=a.getAttribute("data-tab")===active;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
-  ({oggi:vToday,corso:vCourse,l:function(){vLesson(parts[1])},esame:vExam,cultura:vCult,strumenti:vTools,leggi:function(){vRead(parts[1])},simres:function(){vSimRes(parts[1])},simrev:function(){vSimRev(parts[1])}}[tab]||vToday)();
+  ({oggi:vToday,corso:vCourse,l:function(){vLesson(parts[1])},esame:vExam,cultura:vCult,strumenti:vTools,leggi:function(){vRead(parts[1])},racconto:function(){vStory(parts[1])},simres:function(){vSimRes(parts[1])},simrev:function(){vSimRev(parts[1])}}[tab]||vToday)();
   var st=q("#mpset",view);if(st)st.onclick=openSettings;
   if(!mstack.length){var h1=q("h1",view);if(h1)try{h1.focus({preventScroll:true})}catch(e){}}}
 function show(html){view.innerHTML=html;window.scrollTo(0,0)}
@@ -271,6 +315,7 @@ var cultFilter=0;
 function vCult(){
   var all=allCult(),rd=cultRead(),nr=all.filter(function(x){return rd[x.key]}).length,dc=dayCult();
   var html=head(S.readCount(nr,all.length),S.cult)+'<p class="mp-lead">'+h(S.cultLead)+'</p>';
+  html+=storiesBlock();
   if(dc)html+='<h2 class="mp-h2">'+h(S.dayCult)+'</h2>'+cultCard(dc,true);
   html+='<div class="mp-chips" role="tablist">'+['<button class="mp-chip'+(cultFilter===0?' on':'')+'" data-f="0">'+h(S.all)+'</button>'].concat(WORLDS.map(function(W,wi){return '<button class="mp-chip'+(cultFilter===wi+1?' on':'')+'" data-f="'+(wi+1)+'">'+h(W.level)+'</button>'})).join("")+'</div>';
   html+='<div class="mp-cgrid">'+all.filter(function(x){return !cultFilter||x.u.w===cultFilter}).map(function(x){return cultCard(x,false)}).join("")+'</div>';
@@ -553,6 +598,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
+  READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;
   var div=document.createElement("div"),seen={},miss={};
   function chk(e){var k=e.getAttribute("data-say");if(seen[k])return;seen[k]=1;var m=meaning(k);seen[k]=m||1;if(!m)miss[k]=1}

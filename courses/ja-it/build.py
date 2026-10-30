@@ -156,7 +156,7 @@ def js_data():
     lessons = [{'id': it['id'], 'n': it.get('n'), 't': it['t'], 'j': it['j'], 'kind': it['kind'], 'icon': it['icon'], 'color': it['color'],
                 'w': next(i for i, p in enumerate(worlds) if p['title'] == it['part']) + 1} for it in items if it['kind'] != 'app']
     wl = [{'title': p['title'], 'level': p['level'], 'j': p['j']} for p in worlds]
-    return ('var DLG={},EX={},VOC={},CULT={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\nvar WORLDS=' + json.dumps(wl, ensure_ascii=False) + ';\n' + '\n'.join(parts) + '\n' + rd('culture.js'))
+    return ('var DLG={},EX={},VOC={},CULT={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\nvar WORLDS=' + json.dumps(wl, ensure_ascii=False) + ';\n' + '\n'.join(parts) + '\n' + rd('culture.js') + '\n' + (rd('reads.js') if os.path.exists(os.path.join(SRC, 'reads.js')) else 'var READS=[];'))
 
 def exams_js():
     """Mock exams in the real JLPT format (src/exam/*.json), exposed to the course app as EXAMS."""

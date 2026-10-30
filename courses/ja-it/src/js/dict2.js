@@ -1,6 +1,7 @@
 /* ---------- meanings added so that every clickable word has one ----------
    Grammar fragments (って, かった…) are explained as endings; names say what they are. */
 Object.assign(DICT,{
+"なった":"diventò, è diventato (passato informale di なる)",
 "ございます":"forma molto cortese di あります/です (in ありがとうございます, おはようございます)",
 "ございました":"passato di ございます (in ありがとうございました: grazie, per una cosa finita)",
 "ロッシ":"Rossi (cognome italiano)","マルコ":"Marco (nome)","ジュリア":"Giulia (nome)","たなか":"Tanaka (cognome giapponese)",

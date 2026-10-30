@@ -222,7 +222,7 @@ td.itc{font-family:var(--f-it);font-size:18px}
 
 /* esercizi */
 .drill{background:var(--sheet);border:2.5px solid var(--ink);border-radius:var(--r);padding:34px 20px 22px;position:relative;display:flex;flex-direction:column;gap:22px;box-shadow:7px 7px 0 var(--c)}
-.drill::before{content:"Esercizi · 練習";position:absolute;top:-16px;left:18px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:900;padding:4px 16px;letter-spacing:.08em;border-radius:999px}
+.drill::before{content:"Esercizi · 练习";position:absolute;top:-16px;left:18px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:900;padding:4px 16px;letter-spacing:.08em;border-radius:999px}
 .dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding-bottom:14px;border-bottom:1.5px dashed var(--line2)}
 .score{font-family:var(--f-disp);font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink);font-size:17px}
 .q{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1.5px dashed var(--line2)}

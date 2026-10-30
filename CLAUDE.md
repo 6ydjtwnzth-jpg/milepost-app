@@ -32,6 +32,10 @@ ciò che manca si mostra come "In arrivo".
     dell'utente, non cambiarla. I file in `docs/c/zh-it/audio/` sono solo la riserva per i dispositivi senza voce cinese:
     una sola voce femminile (Kokoro v1.1-zh, zf_002), generata dal pinyin del corso con il cambio di tono 3-3 e
     verificata con il riconoscimento vocale (SenseVoice) e la curva d'intonazione.
+- Racconti (scheda Cultura): `courses/<id>/src/reads.js` (`READS`: titolo, lezione consigliata `after`, frasi [testo, traduzione],
+  parole nuove `gloss`, domande con risposta `a`). Solo fiabe tradizionali o testi nostri (niente opere protette).
+  `node tools/reads_check.js <id>` elenca le parole non ancora viste nel corso fino a `after` e senza nota: deve restare vuoto.
+  Prima di pubblicarli per un cliente, ogni racconto va riletto da un madrelingua.
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 - Offline: `shell/sw.js` (il build ci scrive versione ed elenco dei corsi) salva all'installazione la shell e tutte le pagine dei
   corsi; l'audio si salva all'ascolto o tutto insieme da Impostazioni → Senza connessione (elenco in `docs/c/<id>/audio/index.json`).
