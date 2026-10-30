@@ -28,7 +28,7 @@ ciò che manca si mostra come "In arrivo".
   - `courses/zh-it/`: cinese per italiani. Il cinese nei dati è scritto a parole con il pinyin tra parentesi quadre,
     una sillaba per carattere separata da trattini: `我[wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。` (`src/js/zh.js` ne ricava rubino
     colorato per tono, pinyin e controllo delle risposte). Voce: quella cinese del dispositivo (sintesi vocale del browser,
-    velocità 0,85, persona B dei dialoghi con tono più acuto), come nel vecchio «Primo libro di cinese»: è una scelta
+    velocità 0,85, persona B dei dialoghi con tono più acuto; mai le voci «Eloquence»/giocattolo di iOS come Eddy o Flo: si preferiscono le voci Premium/Ottimizzate, altrimenti la voce cinese di sistema; l'utente può sceglierla in Impostazioni), come nel vecchio «Primo libro di cinese»: è una scelta
     dell'utente, non cambiarla. I file in `docs/c/zh-it/audio/` sono solo la riserva per i dispositivi senza voce cinese:
     una sola voce femminile (Kokoro v1.1-zh, zf_002), generata dal pinyin del corso con il cambio di tono 3-3 e
     verificata con il riconoscimento vocale (SenseVoice) e la curva d'intonazione.

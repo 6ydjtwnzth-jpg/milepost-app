@@ -296,3 +296,4 @@ html.mp-exam body{padding-bottom:0}
 .tip .tip-r{opacity:.95}
 .mp-off{padding:2px 2px 8px}
 .mp-off .mp-cta{margin-top:4px}
+.mp-sel{min-height:44px;max-width:62%;font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:6px 10px}

@@ -3,7 +3,7 @@ var KEY="cinese-per-italiani-v1";
 var state={best:{},box:{},can:{}};
 try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);state.best=p.best||{};state.box=p.box||{};state.can=p.can||{}}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify({best:state.best,box:state.box,can:state.can}))}catch(e){}}
-var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true};
+var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true,voice:""};
 try{var pr=JSON.parse(localStorage.getItem(KEY+"-prefs")||"{}");["tr","slow","fcm","furi","hz","fcr"].forEach(function(k){if(pr[k]!==undefined)prefs[k]=pr[k]})}catch(e){}
 function savePrefs(){try{localStorage.setItem(KEY+"-prefs",JSON.stringify(prefs))}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -19,9 +19,26 @@ function cyrb53(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0,ch;i<str.length
   h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
 function akey(t){return String(t).trim().replace(/\s+/g," ")}
 function audioSrc(t){return "audio/"+cyrb53(akey(t)).toString(36)+".mp3"}
-function pickVoice(){if(!hasTTS)return;try{var vs=speechSynthesis.getVoices();voice=vs.filter(function(v){return /^zh[-_]CN/i.test(v.lang)})[0]||vs.filter(function(v){return /^zh/i.test(v.lang)&&!/HK|TW|yue/i.test(v.lang)})[0]||null}catch(e){}}
-if(hasTTS){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
-function deviceVoice(){if(!hasTTS)return false;if(!voice)pickVoice();return !!voice}
+/* Voice choice. iOS lists joke and "Eloquence" voices (Eddy, Flo, Grandma…) next to the real ones, and they often
+   come first: never pick them. Best: a voice the learner chose in Settings; then Premium/Enhanced/natural voices;
+   on Apple devices otherwise no explicit voice, so the system's own Chinese voice speaks (as in the original course).
+   iOS can return an empty list until it has loaded: Apple devices always have a Chinese voice, so we still use it. */
+var BADV=/^(Eddy|Flo|Grandma|Grandpa|Reed|Rocko|Sandy|Shelley|Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Good News|Jester|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph)\b/i;
+var APPLE=/iPhone|iPad|iPod|Macintosh|Mac OS X/.test(navigator.userAgent||"");
+function zhVoices(){if(!hasTTS)return [];try{return speechSynthesis.getVoices().filter(function(v){return /^zh/i.test(v.lang)&&!/HK|TW|MO|yue/i.test(v.lang)&&!BADV.test(v.name)})}catch(e){return []}}
+function vScore(v){var n=v.name+" "+v.voiceURI,s=0;
+  if(/premium|高品质|高品質/i.test(n))s+=40;if(/enhanced|增强|增強|ottimizzat|avanzat/i.test(n))s+=30;if(/natural|neural/i.test(n))s+=25;
+  if(/^zh[-_]CN/i.test(v.lang))s+=5;return s}
+function pickVoice(){var vs=zhVoices();voice=null;if(!vs.length)return;
+  if(prefs.voice){voice=vs.filter(function(v){return v.voiceURI===prefs.voice})[0]||null;if(voice)return}
+  var best=vs.slice().sort(function(a,b){return vScore(b)-vScore(a)})[0];
+  voice=APPLE&&vScore(best)<25?null:best}
+if(hasTTS){pickVoice();try{speechSynthesis.addEventListener("voiceschanged",pickVoice)}catch(e){try{speechSynthesis.onvoiceschanged=pickVoice}catch(e2){}}}
+function deviceVoice(){if(!hasTTS)return false;pickVoice();return !!voice||APPLE||zhVoices().length>0}
+/* hooks for the voice picker in Settings (shell/course-app.js) */
+function voiceList(){return zhVoices().map(function(v){return {id:v.voiceURI,name:v.name.replace(/\s*\((?![^)]*(Premium|Enhanced|Ottimizzat|Avanzat|高品质|增强))[^)]*\)\s*$/i,"")}})}
+function voiceNow(){return prefs.voice||""}
+function voiceSet(id){prefs.voice=id||"";savePrefs();pickVoice();speak("你好[nǐ-hǎo]，我[wǒ] 是[shì] 你[nǐ] 的[de] 中文[Zhōng-wén] 老师[lǎo-shī]。")}
 function stopAll(){try{if(AUD)AUD.pause()}catch(e){}try{if(hasTTS)speechSynthesis.cancel()}catch(e){}}
 function stopPlayers(except){players.forEach(function(p){if(p!==except)p.stop(true)})}
 /* same settings as the original course: rate .85 (slow .55); speaker B of a dialogue a little higher (pitch 1.25) */

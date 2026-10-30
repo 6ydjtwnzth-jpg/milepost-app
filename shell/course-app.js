@@ -34,7 +34,7 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
   settings:"Impostazioni",readingT:"Lettura e voce",
   offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
-  ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
+  ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce cinese",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
   steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
   stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
@@ -57,7 +57,7 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   dailyRev:["今日复习","快要忘记的单词"],
   settings:"设置",readingT:"阅读和语音",
   offT:"离线使用",offPages:"课程页面已保存在这台设备上。",offBtn:function(mb){return "下载课程音频（"+mb+" MB）"},offBusy:function(a,b){return "正在下载… "+a+" / "+b}
-  ,offDone:"完成：没有网络也能上课和听音频。",offErr:"下载中断：请在网络稳定时重试。",offVoice:"使用设备自带的语音，没有网络也能用。",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
+  ,offDone:"完成：没有网络也能上课和听音频。",offErr:"下载中断：请在网络稳定时重试。",offVoice:"使用设备自带的语音，没有网络也能用。",voiceT:"中文语音",voiceAuto:"自动",voiceTip:"在 iPhone 上，最自然的是「高品质」或「增强」中文语音：可在 设置 › 辅助功能 › 朗读内容 › 声音 › 中文（中国大陆） 免费下载，然后在这里选择。",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
 }[C.speak];
 
 function q(s,r){return (r||document).querySelector(s)}
@@ -332,9 +332,15 @@ function offDownload(ix,prog,fin){var run={done:0,ui:prog};offRun=run;
         .catch(function(){bad++}).then(function(){active--;run.done++;if(run.done%10===0||run.done===ix.n)run.ui(run.done);next()})}
     for(var k=0;k<6;k++)next()}).catch(function(){offRun=null;fin(false)})}
 
-function openSettings(){var th=themeNow();
+/* ---------- voice: only in courses that speak with the device voice (they define voiceList/voiceNow/voiceSet) ---------- */
+function drawVoice(box){if(!box)return;var vs=voiceList(),now=voiceNow();
+  box.innerHTML='<label class="mp-set"><span>'+h(S.voiceT)+'</span><select id="mpvsel" class="mp-sel">'+
+    '<option value="">'+h(S.voiceAuto)+'</option>'+vs.map(function(v){return '<option value="'+h(v.id)+'"'+(v.id===now?' selected':'')+'>'+h(v.name)+'</option>'}).join("")+
+    '</select></label>'+(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent||"")?'<p class="mp-p">'+h(S.voiceTip)+'</p>':'');
+  q("#mpvsel",box).onchange=function(){voiceSet(this.value)}}
+function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
   sh.innerHTML='<div class="grab" aria-hidden="true"></div><h2>'+h(S.settings)+'</h2>'+
-    (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+
+    (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+(hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
     '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
@@ -342,7 +348,7 @@ function openSettings(){var th=themeNow();
     '<button class="mp-set mp-a danger" id="mpreset">'+h(S.reset)+'</button>'+
     '<button class="mp-cta alt" id="mpclose">'+h(S.close)+'</button>';
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
-  drawOffline(q("#mpoff",sh));
+  drawOffline(q("#mpoff",sh));if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
   q("#mpclose",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;

@@ -3144,7 +3144,7 @@ var KEY="cinese-per-italiani-v1";
 var state={best:{},box:{},can:{}};
 try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);state.best=p.best||{};state.box=p.box||{};state.can=p.can||{}}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify({best:state.best,box:state.box,can:state.can}))}catch(e){}}
-var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true};
+var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true,voice:""};
 try{var pr=JSON.parse(localStorage.getItem(KEY+"-prefs")||"{}");["tr","slow","fcm","furi","hz","fcr"].forEach(function(k){if(pr[k]!==undefined)prefs[k]=pr[k]})}catch(e){}
 function savePrefs(){try{localStorage.setItem(KEY+"-prefs",JSON.stringify(prefs))}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -3160,9 +3160,26 @@ function cyrb53(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0,ch;i<str.length
   h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
 function akey(t){return String(t).trim().replace(/\s+/g," ")}
 function audioSrc(t){return "audio/"+cyrb53(akey(t)).toString(36)+".mp3"}
-function pickVoice(){if(!hasTTS)return;try{var vs=speechSynthesis.getVoices();voice=vs.filter(function(v){return /^zh[-_]CN/i.test(v.lang)})[0]||vs.filter(function(v){return /^zh/i.test(v.lang)&&!/HK|TW|yue/i.test(v.lang)})[0]||null}catch(e){}}
-if(hasTTS){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
-function deviceVoice(){if(!hasTTS)return false;if(!voice)pickVoice();return !!voice}
+/* Voice choice. iOS lists joke and "Eloquence" voices (Eddy, Flo, Grandma…) next to the real ones, and they often
+   come first: never pick them. Best: a voice the learner chose in Settings; then Premium/Enhanced/natural voices;
+   on Apple devices otherwise no explicit voice, so the system's own Chinese voice speaks (as in the original course).
+   iOS can return an empty list until it has loaded: Apple devices always have a Chinese voice, so we still use it. */
+var BADV=/^(Eddy|Flo|Grandma|Grandpa|Reed|Rocko|Sandy|Shelley|Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Good News|Jester|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph)\b/i;
+var APPLE=/iPhone|iPad|iPod|Macintosh|Mac OS X/.test(navigator.userAgent||"");
+function zhVoices(){if(!hasTTS)return [];try{return speechSynthesis.getVoices().filter(function(v){return /^zh/i.test(v.lang)&&!/HK|TW|MO|yue/i.test(v.lang)&&!BADV.test(v.name)})}catch(e){return []}}
+function vScore(v){var n=v.name+" "+v.voiceURI,s=0;
+  if(/premium|高品质|高品質/i.test(n))s+=40;if(/enhanced|增强|增強|ottimizzat|avanzat/i.test(n))s+=30;if(/natural|neural/i.test(n))s+=25;
+  if(/^zh[-_]CN/i.test(v.lang))s+=5;return s}
+function pickVoice(){var vs=zhVoices();voice=null;if(!vs.length)return;
+  if(prefs.voice){voice=vs.filter(function(v){return v.voiceURI===prefs.voice})[0]||null;if(voice)return}
+  var best=vs.slice().sort(function(a,b){return vScore(b)-vScore(a)})[0];
+  voice=APPLE&&vScore(best)<25?null:best}
+if(hasTTS){pickVoice();try{speechSynthesis.addEventListener("voiceschanged",pickVoice)}catch(e){try{speechSynthesis.onvoiceschanged=pickVoice}catch(e2){}}}
+function deviceVoice(){if(!hasTTS)return false;pickVoice();return !!voice||APPLE||zhVoices().length>0}
+/* hooks for the voice picker in Settings (shell/course-app.js) */
+function voiceList(){return zhVoices().map(function(v){return {id:v.voiceURI,name:v.name.replace(/\s*\((?![^)]*(Premium|Enhanced|Ottimizzat|Avanzat|高品质|增强))[^)]*\)\s*$/i,"")}})}
+function voiceNow(){return prefs.voice||""}
+function voiceSet(id){prefs.voice=id||"";savePrefs();pickVoice();speak("你好[nǐ-hǎo]，我[wǒ] 是[shì] 你[nǐ] 的[de] 中文[Zhōng-wén] 老师[lǎo-shī]。")}
 function stopAll(){try{if(AUD)AUD.pause()}catch(e){}try{if(hasTTS)speechSynthesis.cancel()}catch(e){}}
 function stopPlayers(except){players.forEach(function(p){if(p!==except)p.stop(true)})}
 /* same settings as the original course: rate .85 (slow .55); speaker B of a dialogue a little higher (pitch 1.25) */
@@ -3747,7 +3764,7 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
   settings:"Impostazioni",readingT:"Lettura e voce",
   offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
-  ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
+  ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce cinese",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
   steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
   stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
@@ -3770,7 +3787,7 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   dailyRev:["今日复习","快要忘记的单词"],
   settings:"设置",readingT:"阅读和语音",
   offT:"离线使用",offPages:"课程页面已保存在这台设备上。",offBtn:function(mb){return "下载课程音频（"+mb+" MB）"},offBusy:function(a,b){return "正在下载… "+a+" / "+b}
-  ,offDone:"完成：没有网络也能上课和听音频。",offErr:"下载中断：请在网络稳定时重试。",offVoice:"使用设备自带的语音，没有网络也能用。",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
+  ,offDone:"完成：没有网络也能上课和听音频。",offErr:"下载中断：请在网络稳定时重试。",offVoice:"使用设备自带的语音，没有网络也能用。",voiceT:"中文语音",voiceAuto:"自动",voiceTip:"在 iPhone 上，最自然的是「高品质」或「增强」中文语音：可在 设置 › 辅助功能 › 朗读内容 › 声音 › 中文（中国大陆） 免费下载，然后在这里选择。",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
 }[C.speak];
 
 function q(s,r){return (r||document).querySelector(s)}
@@ -4045,9 +4062,15 @@ function offDownload(ix,prog,fin){var run={done:0,ui:prog};offRun=run;
         .catch(function(){bad++}).then(function(){active--;run.done++;if(run.done%10===0||run.done===ix.n)run.ui(run.done);next()})}
     for(var k=0;k<6;k++)next()}).catch(function(){offRun=null;fin(false)})}
 
-function openSettings(){var th=themeNow();
+/* ---------- voice: only in courses that speak with the device voice (they define voiceList/voiceNow/voiceSet) ---------- */
+function drawVoice(box){if(!box)return;var vs=voiceList(),now=voiceNow();
+  box.innerHTML='<label class="mp-set"><span>'+h(S.voiceT)+'</span><select id="mpvsel" class="mp-sel">'+
+    '<option value="">'+h(S.voiceAuto)+'</option>'+vs.map(function(v){return '<option value="'+h(v.id)+'"'+(v.id===now?' selected':'')+'>'+h(v.name)+'</option>'}).join("")+
+    '</select></label>'+(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent||"")?'<p class="mp-p">'+h(S.voiceTip)+'</p>':'');
+  q("#mpvsel",box).onchange=function(){voiceSet(this.value)}}
+function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
   sh.innerHTML='<div class="grab" aria-hidden="true"></div><h2>'+h(S.settings)+'</h2>'+
-    (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+
+    (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+(hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
     '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
@@ -4055,7 +4078,7 @@ function openSettings(){var th=themeNow();
     '<button class="mp-set mp-a danger" id="mpreset">'+h(S.reset)+'</button>'+
     '<button class="mp-cta alt" id="mpclose">'+h(S.close)+'</button>';
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
-  drawOffline(q("#mpoff",sh));
+  drawOffline(q("#mpoff",sh));if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
   q("#mpclose",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;
