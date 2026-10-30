@@ -4500,7 +4500,7 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
   settings:"Impostazioni",readingT:"Lettura e voce",
   offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
-  ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
+  ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce cinese",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
   steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
   stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
@@ -4523,7 +4523,7 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   dailyRev:["今日复习","快要忘记的单词"],
   settings:"设置",readingT:"阅读和语音",
   offT:"离线使用",offPages:"课程页面已保存在这台设备上。",offBtn:function(mb){return "下载课程音频（"+mb+" MB）"},offBusy:function(a,b){return "正在下载… "+a+" / "+b}
-  ,offDone:"完成：没有网络也能上课和听音频。",offErr:"下载中断：请在网络稳定时重试。",offVoice:"使用设备自带的语音，没有网络也能用。",voiceT:"语音",voiceAuto:"自动",voiceTip:"在 iPhone 上，最自然的是「高品质」或「增强」中文语音：可在 设置 › 辅助功能 › 朗读内容 › 声音 › 中文（中国大陆） 免费下载，然后在这里选择。",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
+  ,offDone:"完成：没有网络也能上课和听音频。",offErr:"下载中断：请在网络稳定时重试。",offVoice:"使用设备自带的语音，没有网络也能用。",voiceT:"中文语音",voiceAuto:"自动",voiceTip:"在 iPhone 上，最自然的是「高品质」或「增强」中文语音：可在 设置 › 辅助功能 › 朗读内容 › 声音 › 中文（中国大陆） 免费下载，然后在这里选择。",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
 }[C.speak];
 
 function q(s,r){return (r||document).querySelector(s)}
@@ -4762,6 +4762,29 @@ function vRead(id){var s=document.getElementById(id);if(!s){location.replace("#/
   view.innerHTML='<div class="mp-readbar"><a class="mp-ib" href="'+back+'" aria-label="'+h(S.back)+'">'+I.back+'</a><b>'+h(t)+'</b><button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button></div>';
   window.scrollTo(0,0);setTimeout(function(){var r=s.getBoundingClientRect();window.scrollTo(0,window.scrollY+r.top-70)},30)}
 
+/* ---------- bottom sheets close by dragging down (finger or mouse), like the grab bar promises ----------
+   The drag starts anywhere when the sheet is scrolled to the top, or on the grab bar/title at any time.
+   A short tap on the grab bar also closes. */
+function dragClose(el,back,close){var y0=null,dy=0,t0=0,on=false,mouse=false;
+  function rm(){try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}}
+  function start(y,target){if(target.closest&&target.closest("select,input,textarea"))return;
+    var top=y-el.getBoundingClientRect().top;if(el.scrollTop>0&&top>72)return;y0=y;dy=0;t0=Date.now();on=false}
+  function move(y,ev){if(y0==null)return;dy=y-y0;
+    if(!on){if(dy<6)return;if(el.scrollTop>0&&y0-el.getBoundingClientRect().top>72){y0=null;return}on=true;el.style.transition="none"}
+    if(ev&&ev.cancelable)ev.preventDefault();var d=Math.max(0,dy);el.style.transform="translateY("+d+"px)";back.style.opacity=String(Math.max(.2,1-d/400))}
+  function end(){if(y0==null)return;var was=on,v=dy/Math.max(1,Date.now()-t0);y0=null;on=false;if(!was)return;
+    var h=el.offsetHeight,go=dy>Math.min(140,h*.3)||(dy>40&&v>.6);
+    el.style.transition=rm()?"none":"transform .2s ease";back.style.transition=rm()?"none":"opacity .2s ease";
+    if(go){el.style.transform="translateY("+h+"px)";back.style.opacity="0";setTimeout(close,rm()?0:200)}
+    else{el.style.transform="";back.style.opacity=""}}
+  el.addEventListener("touchstart",function(e){if(e.touches.length===1)start(e.touches[0].clientY,e.target)},{passive:true});
+  el.addEventListener("touchmove",function(e){if(e.touches.length===1)move(e.touches[0].clientY,e)},{passive:false});
+  el.addEventListener("touchend",end);el.addEventListener("touchcancel",end);
+  /* mouse: only from the top of the sheet, so text and controls keep working */
+  el.addEventListener("mousedown",function(e){if(e.button!==0)return;if(e.clientY-el.getBoundingClientRect().top>72)return;mouse=true;start(e.clientY,e.target)});
+  document.addEventListener("mousemove",function(e){if(mouse)move(e.clientY,e)});
+  document.addEventListener("mouseup",function(){if(mouse){mouse=false;var was=on;end();if(was){var k=function(ev){ev.stopPropagation();ev.preventDefault()};document.addEventListener("click",k,{capture:true,once:true});setTimeout(function(){document.removeEventListener("click",k,true)},0)}}})}
+
 /* ---------- settings ---------- */
 var shb=document.createElement("div");shb.className="mp-sheetback";shb.hidden=true;
 var sh=document.createElement("section");sh.className="mp-sheet";sh.hidden=true;sh.setAttribute("role","dialog");sh.setAttribute("aria-modal","true");
@@ -4771,8 +4794,8 @@ var readCtl=document.createElement("div");readCtl.className="mp-readctl";
 function themeNow(){try{return localStorage.getItem("milepost-theme")||"auto"}catch(e){return "auto"}}
 function setTheme(t){try{if(t==="auto"){localStorage.removeItem("milepost-theme");localStorage.removeItem(KEY+"-theme")}else{localStorage.setItem("milepost-theme",t);localStorage.setItem(KEY+"-theme",t)}}catch(e){}
   if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t)}
-function closeSettings(){sh.hidden=shb.hidden=true}
-shb.onclick=closeSettings;document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden)closeSettings()});
+function closeSettings(){sh.hidden=shb.hidden=true;sh.style.transform=sh.style.transition=shb.style.opacity=""}
+shb.onclick=closeSettings;dragClose(sh,shb,closeSettings);document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden)closeSettings()});
 /* ---------- offline: lessons are saved by the service worker; the audio can be saved here in one go ---------- */
 var OFFK=KEY+"-offline",AUDC="milepost-audio-v1",offRun=null;
 function offGet(){try{return +localStorage.getItem(OFFK)||0}catch(e){return 0}}
@@ -4805,10 +4828,9 @@ function drawVoice(box){if(!box)return;var vs=voiceList(),now=voiceNow();
     '</select></label>'+(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent||"")?'<p class="mp-p">'+h(S.voiceTip)+'</p>':'');
   q("#mpvsel",box).onchange=function(){voiceSet(this.value)}}
 function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
-  sh.innerHTML='<div class="grab" aria-hidden="true"></div><h2>'+h(S.settings)+'</h2>'+
-    (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+
+  sh.innerHTML='<button class="grab" aria-label="'+h(S.close)+'"><i></i></button><h2>'+h(S.settings)+'</h2>'+
+    (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+(hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
-    (hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
     '<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>'+
@@ -4817,10 +4839,10 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
   drawOffline(q("#mpoff",sh));if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
-  q("#mpclose",sh).onclick=closeSettings;
+  q("#mpclose",sh).onclick=closeSettings;q(".grab",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;
     CATALOG.courses.forEach(function(c){M.store.del(M.pathKey(c));M.store.del(c.storageKey);M.store.del(c.storageKey+"-cultread")});M.store.del("milepost-v1");location.href="../../"};
-  sh.hidden=shb.hidden=false;try{q("button",sh).focus()}catch(e){}}
+  sh.hidden=shb.hidden=false;try{q("button:not(.grab),a",sh).focus()}catch(e){}}
 
 
 /* ---------- mock exams in the real JLPT format (only courses that ship EXAMS) ---------- */
@@ -4834,7 +4856,7 @@ var EXS={start:"Inizia",full:"Simulazione completa",sec3:function(m){return "3 s
   exitQ:"Uscire dalla simulazione? Le risposte date andranno perse.",tr:"Traduci",listen:"Ascolta",once:"Si ascolta una volta sola, come all'esame.",heard:"Ascoltato",replay:"Riascolta",
   playing:"In ascolto…",introGo:"Inizia la sezione",introTime:function(m,n){return m+" minuti · "+n+" domande"},timeUp:"Tempo scaduto: la sezione è stata consegnata.",
   noFuri:"Come all'esame: niente furigana, niente traduzioni sulle parole.",result:"Risultato",passed:"Superato (stima)",notYet:"Non ancora superato",
-  langS:"Vocabolario, grammatica e lettura",listenS:"Ascolto",min:function(n){return "minimo "+n},review:"Rivedi le risposte",back:"Torna all'esame",
+  langS:"Vocabolario, grammatica e lettura",listenS:"Ascolto",min:function(n){return "minimo "+n},review:"Rivedi le risposte",back:"Torna all'esame",all:"Tutte le domande",done:function(n,t){return n+" di "+t+" con risposta"},legA:"con risposta",legT:"da fare",qLabel:function(n,a){return "Domanda "+n+(a?", con risposta":"")},
   your:"La tua risposta",right:"Risposta giusta",empty:"nessuna risposta",script:"Trascrizione",n4soon:"La simulazione N4 è in arrivo: intanto allenati con la N5, che copre la prima metà del programma.",
   secRes:function(c,t){return c+" giuste su "+t}};
 function exStore(){var d=M.store.get(EK)||{};d.att=d.att||[];return d}
@@ -4898,9 +4920,9 @@ function mmss(s){s=Math.max(0,s);return Math.floor(s/60)+":"+("0"+s%60).slice(-2
 function ul(t){return h(t).replace(/\{([^}]*)\}/g,'<u>$1</u>').replace(/★/g,'<b class="star">★</b>').replace(/\n/g,"<br>")}
 function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part,it=o.it,num=XR.pos-r[0]+1,tot=r[1]-r[0]+1,isL=s.score==="listen";
   var first=f.i===0;xstop();
-  var nums='';for(var k=r[0];k<=r[1];k++)nums+='<button class="xn'+(k===XR.pos?' on':'')+(XR.a[k]!=null?' ans':'')+'" data-k="'+k+'">'+(k-r[0]+1)+'</button>';
+  var nums='',ans=0;for(var k=r[0];k<=r[1];k++){if(XR.a[k]!=null)ans++;nums+=xnBtn(k,r)}
   var html='<div class="xtop"><button class="mp-ib xexit" aria-label="'+h(S.close)+'">'+icon('<path d="M6 6l12 12M18 6L6 18"/>')+'</button><span class="xsec" lang="ja">'+h(s.jp)+'</span><span class="xt">'+mmss(XR.left)+'</span></div>'+
-    '<div class="xnums">'+nums+'</div><div class="xbody">'+
+    '<div class="xnav"><div class="xnums">'+nums+'</div><button class="xall" aria-label="'+h(EXS.all)+'">'+icon('<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>')+'<small>'+ans+'/'+tot+'</small></button></div><div class="xbody">'+
     '<div class="xinst"><b lang="ja">もんだい'+p.n+'</b><p lang="ja">'+h(p.inst)+'</p><button class="xtr">'+h(EXS.tr)+'</button><p class="xitr" hidden>'+h(p.itInst)+'</p></div>';
   if(p.text)html+='<div class="xtext" lang="ja">'+ul(p.text)+'</div>';
   if(it.text)html+='<div class="xtext" lang="ja">'+ul(it.text)+'</div>';
@@ -4911,11 +4933,12 @@ function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part
     return '<button class="xo'+(XR.a[XR.pos]===k?' sel':'')+'" data-o="'+k+'"><span class="n">'+(k+1)+'</span><span lang="ja">'+(isL&&it.say?'':h(t))+'</span></button>'}).join("")+'</div></div>'+
     '<div class="xfoot"><button class="mp-cta alt" id="xprev"'+(XR.pos===r[0]?' disabled':'')+'>'+h(EXS.prev)+'</button>'+
     (XR.pos===r[1]?'<button class="mp-cta" id="xend">'+h(EXS.finishSec)+'</button>':'<button class="mp-cta" id="xnext">'+h(EXS.next)+I.arrow+'</button>')+'</div>';
-  xel.innerHTML=html;q(".xbody",xel).scrollTop=0;window.scrollTo(0,0);
+  var prevX=XR.navX||0;xel.innerHTML=html;q(".xbody",xel).scrollTop=0;window.scrollTo(0,0);
+  xNav(prevX);q(".xall",xel).onclick=xGrid;
   q(".xexit",xel).onclick=xExit;
   q(".xtr",xel).onclick=function(){var x=q(".xitr",xel);x.hidden=!x.hidden};
-  qa(".xn",xel).forEach(function(b){b.onclick=function(){XR.pos=+b.getAttribute("data-k");xQ()}});
-  qa(".xo",xel).forEach(function(b){b.onclick=function(){XR.a[XR.pos]=+b.getAttribute("data-o");qa(".xo",xel).forEach(function(x){x.classList.toggle("sel",x===b)});var nb=q('.xn[data-k="'+XR.pos+'"]',xel);if(nb)nb.classList.add("ans")}});
+  qa(".xnums .xn",xel).forEach(function(b){b.onclick=function(){XR.pos=+b.getAttribute("data-k");xQ()}});
+  qa(".xo",xel).forEach(function(b){b.onclick=function(){XR.a[XR.pos]=+b.getAttribute("data-o");qa(".xo",xel).forEach(function(x){x.classList.toggle("sel",x===b)});var nb=q('.xn[data-k="'+XR.pos+'"]',xel);if(nb)nb.classList.add("ans");xCount()}});
   var pv=q("#xprev",xel);if(pv)pv.onclick=function(){XR.pos--;xQ()};
   var nx=q("#xnext",xel);if(nx)nx.onclick=function(){XR.pos++;xQ()};
   var en=q("#xend",xel);if(en)en.onclick=function(){if(XR.f.slice(r[0],r[1]+1).some(function(_,k){return XR.a[r[0]+k]==null})&&!confirm(EXS.finishQ))return;xEndSec()};
@@ -4923,6 +4946,37 @@ function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part
       xau.onended=function(){XR.played[XR.pos]=1;bp.textContent=XR.mode!=="full"?EXS.replay:EXS.heard;bp.disabled=XR.mode==="full"};
       xau.onerror=function(){bp.disabled=false;bp.textContent="▶ "+EXS.listen};var pr=xau.play();if(pr&&pr.catch)pr.catch(function(){bp.disabled=false;bp.textContent="▶ "+EXS.listen})};
     bp.onclick=play;if(!XR.played[XR.pos]&&!XR.played["a"+XR.pos]){XR.played["a"+XR.pos]=1;setTimeout(play,400)}}}
+/* question numbers: answered ones are filled and carry a dot (not colour alone); a gap separates each もんだい */
+function xnBtn(k,r){var f=XR.f[k],g=k>r[0]&&XR.f[k-1].p!==f.p,a=XR.a[k]!=null;
+  return '<button class="xn'+(k===XR.pos?' on':'')+(a?' ans':'')+(g?' g':'')+'" data-k="'+k+'" aria-label="'+h(EXS.qLabel(k-r[0]+1,a))+'"'+(k===XR.pos?' aria-current="step"':'')+'>'+(k-r[0]+1)+'</button>'}
+function xCount(){var r=secRange(),n=0;for(var k=r[0];k<=r[1];k++)if(XR.a[k]!=null)n++;var c=q(".xall small",xel);if(c)c.textContent=n+"/"+(r[1]-r[0]+1);return n}
+/* the strip scrolls with finger, mouse wheel or trackpad, and keeps the current question in view */
+function xNav(prevX){var st=q(".xnums",xel),cur=q(".xnums .on",xel);if(!st)return;st.scrollLeft=prevX;
+  if(cur){var want=cur.offsetLeft-(st.clientWidth-cur.offsetWidth)/2,rm=false;try{rm=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}
+    if(cur.offsetLeft<st.scrollLeft||cur.offsetLeft+cur.offsetWidth>st.scrollLeft+st.clientWidth||Math.abs(st.scrollLeft-want)>st.clientWidth/3){try{st.scrollTo({left:want,behavior:rm?"auto":"smooth"})}catch(e){st.scrollLeft=want}}}
+  st.addEventListener("scroll",function(){if(XR)XR.navX=st.scrollLeft},{passive:true});
+  st.addEventListener("wheel",function(e){if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&st.scrollWidth>st.clientWidth){st.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+  XR.navX=st.scrollLeft}
+/* all questions at a glance, grouped by もんだい: one tap to jump anywhere */
+function xGrid(){var r=secRange(),n=xCount(),tot=r[1]-r[0]+1,s=curSec(),groups=[],last=-1;
+  for(var k=r[0];k<=r[1];k++){var f=XR.f[k];if(f.p!==last){groups.push({p:s.parts[f.p],ks:[]});last=f.p}groups[groups.length-1].ks.push(k)}
+  var g=document.createElement("div");g.className="xgrid";g.setAttribute("role","dialog");g.setAttribute("aria-modal","true");g.setAttribute("aria-label",EXS.all);
+  g.innerHTML='<div class="xgin"><div class="xgh"><div><b>'+h(EXS.all)+'</b><small>'+h(EXS.done(n,tot))+'</small></div><button class="mp-ib xgx" aria-label="'+h(S.close)+'">'+icon('<path d="M6 6l12 12M18 6L6 18"/>')+'</button></div>'+
+    '<p class="xleg"><span class="xn ans" aria-hidden="true"></span>'+h(EXS.legA)+'<span class="xn" aria-hidden="true"></span>'+h(EXS.legT)+'</p>'+
+    groups.map(function(G){return '<div class="xgg"><b lang="ja">もんだい'+G.p.n+'</b><div class="xgc">'+G.ks.map(function(k){return xnBtn(k,r).replace(' g"','"')}).join("")+'</div></div>'}).join("")+'</div>';
+  xel.appendChild(g);
+  function shut(){document.removeEventListener("keydown",esc,true);g.remove();var b=q(".xall",xel);if(b)try{b.focus()}catch(e){}}
+  function esc(e){if(e.key==="Escape"){e.stopPropagation();shut()}}
+  document.addEventListener("keydown",esc,true);
+  g.addEventListener("click",function(e){if(e.target===g)shut()});q(".xgx",g).onclick=shut;
+  qa(".xn[data-k]",g).forEach(function(b){b.onclick=function(){XR.pos=+b.getAttribute("data-k");g.remove();document.removeEventListener("keydown",esc,true);xQ()}});
+  var cur=q(".xn.on",g);try{(cur||q(".xgx",g)).focus({preventScroll:true});if(cur)cur.scrollIntoView({block:"center"})}catch(e){}}
+/* keyboard on a computer: arrows move between questions, 1–4 choose an answer */
+document.addEventListener("keydown",function(e){if(!XR||xel.hidden||q(".xgrid",xel)||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(e.target&&/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+  if(e.key==="ArrowRight"){var b=q("#xnext",xel);if(b){e.preventDefault();b.click()}}
+  else if(e.key==="ArrowLeft"){var p=q("#xprev",xel);if(p&&!p.disabled){e.preventDefault();p.click()}}
+  else if(/^[1-4]$/.test(e.key)){var o=q('.xo[data-o="'+(+e.key-1)+'"]',xel);if(o){e.preventDefault();o.click()}}});
 function xEndSec(){clearInterval(XR.timer);xstop();if(XR.si<XR.secs.length-1){XR.si++;xIntro();return}
   var d=exStore();d.att.push({id:XR.ex.id,mode:XR.mode,d:Date.now(),f:XR.f,a:XR.f.map(function(_,k){return XR.a[k]==null?null:XR.a[k]})});
   if(d.att.length>30)d.att=d.att.slice(-30);M.store.set(EK,d);var idx=d.att.length-1;xClose();location.hash="#/simres/"+idx}
