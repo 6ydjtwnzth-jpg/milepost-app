@@ -608,7 +608,8 @@ function commit(){
   pr.skip=Math.max(pr.skip||1,p.start);pr.goal=GOAL_STEPS[p.mins]||3;store.set(pathKey(c),pr)}
 
 /* ---------- offline ---------- */
-if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+/* registered right away: a returning user is sent to the course page before the "load" event */
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){try{navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}}
 
 render();
 })();

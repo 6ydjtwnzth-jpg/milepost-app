@@ -4555,7 +4555,9 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   tools:"Strumenti",toolList:C.learn==="zh"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["I tempi del verbo","Senza coniugazioni: 了, 过, 着…"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"],tratti:["Scrivere 1","I tratti e il loro ordine"],caratteri:["Scrivere 2","Com'è fatto un carattere"]}
     :{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutte le forme dei verbi"],kana:["Kana","Hiragana e katakana con audio"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]},
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
-  settings:"Impostazioni",readingT:"Lettura e voce",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
+  settings:"Impostazioni",readingT:"Lettura e voce",
+  offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
+  ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
   steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
   stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
@@ -4576,7 +4578,9 @@ zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早�
   all:"全部",readCount:function(a,b){return "已读 "+a+" / "+b},readMark:"已读",fromLesson:function(n){return "第 "+n+" 课"},
   tools:"工具",toolList:{flash:["单词卡","间隔重复"],verbi:["动词变位","所有动词形式"],frasi:["常用句","现成的句子"],vocab:["词汇表","课程里的所有单词"]},
   dailyRev:["今日复习","快要忘记的单词"],
-  settings:"设置",readingT:"阅读和语音",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
+  settings:"设置",readingT:"阅读和语音",
+  offT:"离线使用",offPages:"课程页面已保存在这台设备上。",offBtn:function(mb){return "下载课程音频（"+mb+" MB）"},offBusy:function(a,b){return "正在下载… "+a+" / "+b}
+  ,offDone:"完成：没有网络也能上课和听音频。",offErr:"下载中断：请在网络稳定时重试。",offVoice:"使用设备自带的语音，没有网络也能用。",theme:"主题",themes:["自动","浅色","深色"],redoPlan:"重新制定计划",changeCourse:"更换课程或语言",reset:"清除全部并重新开始",resetQ:"清除本设备上保存的计划和进度？",close:"关闭",back:"返回"}
 }[C.speak];
 
 function q(s,r){return (r||document).querySelector(s)}
@@ -4826,15 +4830,42 @@ function setTheme(t){try{if(t==="auto"){localStorage.removeItem("milepost-theme"
   if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t)}
 function closeSettings(){sh.hidden=shb.hidden=true}
 shb.onclick=closeSettings;document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden)closeSettings()});
+/* ---------- offline: lessons are saved by the service worker; the audio can be saved here in one go ---------- */
+var OFFK=KEY+"-offline",AUDC="milepost-audio-v1",offRun=null;
+function offGet(){try{return +localStorage.getItem(OFFK)||0}catch(e){return 0}}
+function offSet(n){try{localStorage.setItem(OFFK,String(n))}catch(e){}}
+function drawOffline(box){if(!box)return;
+  var dv=typeof deviceVoice==="function"&&deviceVoice();
+  var html='<p class="mp-p">'+h(S.offPages)+'</p>';
+  if(dv){box.innerHTML=html+'<p class="mp-p">'+h(S.offVoice)+'</p>';return}
+  if(!("caches" in window)){box.innerHTML=html;return}
+  box.innerHTML=html+'<p class="mp-p" id="mpoffs"></p><button class="mp-cta alt" id="mpoffb" hidden></button>';
+  var st=q("#mpoffs",box),b=q("#mpoffb",box);
+  fetch("audio/index.json").then(function(r){return r.json()}).then(function(ix){
+    if(offRun){st.textContent=S.offBusy(offRun.done,ix.n);offRun.ui=function(a){st.textContent=S.offBusy(a,ix.n)};return}
+    if(offGet()>=ix.n){st.textContent=S.offDone;return}
+    b.hidden=false;b.textContent=S.offBtn(Math.max(1,Math.round(ix.bytes/1048576)));
+    b.onclick=function(){b.hidden=true;offDownload(ix,function(a){st.textContent=S.offBusy(a,ix.n)},function(ok){st.textContent=ok?S.offDone:S.offErr;if(!ok){b.hidden=false}})}
+  }).catch(function(){})}
+function offDownload(ix,prog,fin){var run={done:0,ui:prog};offRun=run;
+  caches.open(AUDC).then(function(c){var i=0,bad=0,active=0;
+    function next(){if(i>=ix.files.length){if(active===0){offRun=null;if(!bad)offSet(ix.n);fin(!bad)}return}
+      var url=new URL("audio/"+ix.files[i++],location.href).href;active++;
+      c.match(url).then(function(hit){return hit||fetch(url).then(function(res){if(!res.ok)throw 0;return c.put(url,res)})})
+        .catch(function(){bad++}).then(function(){active--;run.done++;if(run.done%10===0||run.done===ix.n)run.ui(run.done);next()})}
+    for(var k=0;k<6;k++)next()}).catch(function(){offRun=null;fin(false)})}
+
 function openSettings(){var th=themeNow();
   sh.innerHTML='<div class="grab" aria-hidden="true"></div><h2>'+h(S.settings)+'</h2>'+
     (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
+    '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
     '<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>'+
     '<button class="mp-set mp-a danger" id="mpreset">'+h(S.reset)+'</button>'+
     '<button class="mp-cta alt" id="mpclose">'+h(S.close)+'</button>';
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
+  drawOffline(q("#mpoff",sh));
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
   q("#mpclose",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;
@@ -4998,6 +5029,8 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){sa(c.i);(c.w||[]).forEach(function(w){sa(w[0])})})});
   (window.TONEDRILL||[]).forEach(function(r){sa(r[0])});
   return {total:Object.keys(seen).length,miss:Object.keys(miss),all:seen,says:Object.keys(says)}};
+/* offline support: the same service worker as the home page (scope: the whole app) */
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){try{navigator.serviceWorker.register("../../sw.js",{scope:"../../"}).catch(function(){})}catch(e){}}
 /* first visit straight to the page: land on Today */
 if(!location.hash||location.hash==="#"||location.hash==="#mappa")try{history.replaceState(null,"","#/oggi")}catch(e){}
 render();

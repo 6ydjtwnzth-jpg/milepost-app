@@ -33,6 +33,9 @@ ciò che manca si mostra come "In arrivo".
     una sola voce femminile (Kokoro v1.1-zh, zf_002), generata dal pinyin del corso con il cambio di tono 3-3 e
     verificata con il riconoscimento vocale (SenseVoice) e la curva d'intonazione.
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
+- Offline: `shell/sw.js` (il build ci scrive versione ed elenco dei corsi) salva all'installazione la shell e tutte le pagine dei
+  corsi; l'audio si salva all'ascolto o tutto insieme da Impostazioni → Senza connessione (elenco in `docs/c/<id>/audio/index.json`).
+  Il service worker si registra sia dalla shell sia dalle pagine dei corsi.
 
 ## Comandi
 - `python3 build.py` — costruisce tutto in `docs/` (`python3 build.py ja-it` solo un corso, `python3 build.py none` solo la shell).

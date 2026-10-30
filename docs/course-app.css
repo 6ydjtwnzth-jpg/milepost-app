@@ -294,3 +294,5 @@ html.mp-exam body{padding-bottom:0}
 .tip .tip-w{color:var(--tip-w)!important}
 .tip .t1{color:var(--tip-t1)!important}.tip .t2{color:var(--tip-t2)!important}.tip .t3{color:var(--tip-t3)!important}.tip .t4{color:var(--tip-t4)!important}.tip .t5,.tip .t0{color:var(--tip-t5)!important}
 .tip .tip-r{opacity:.95}
+.mp-off{padding:2px 2px 8px}
+.mp-off .mp-cta{margin-top:4px}

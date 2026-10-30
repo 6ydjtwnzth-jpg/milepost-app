@@ -5,7 +5,7 @@
 - courses/<id>/: one course pack each, built with its own build.py -> docs/c/<id>/index.html
 - docs/c/<id>/audio/: the course audio lives here directly (it is not copied, to keep the repo small)
 """
-import json, os, re, shutil, subprocess, sys
+import hashlib, json, os, re, shutil, subprocess, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SHELL = os.path.join(ROOT, 'shell')
@@ -57,8 +57,35 @@ def build_course(cid):
     html = html.replace('</head>', '<link rel="stylesheet" href="../../course-app.css">\n</head>', 1)
     wr(os.path.join(DOCS, 'c', cid, 'index.html'), html)
     os.remove(os.path.join(cdir, 'index.html'))
+    audio_index(cid)
     n = len(os.listdir(os.path.join(DOCS, 'c', cid, 'audio')))
     print(f'  course {cid}: {len(html) // 1024} KB, {n} audio clips')
+
+
+def audio_index(cid):
+    """docs/c/<id>/audio/index.json: every audio file of the course, so the app can save them all for offline use."""
+    base = os.path.join(DOCS, 'c', cid, 'audio')
+    files, size = [], 0
+    for dp, _, fs in os.walk(base):
+        for f in sorted(fs):
+            if f.endswith('.mp3'):
+                p = os.path.join(dp, f)
+                files.append(os.path.relpath(p, base).replace(os.sep, '/'))
+                size += os.path.getsize(p)
+    files.sort()
+    wr(os.path.join(base, 'index.json'), json.dumps({'n': len(files), 'bytes': size, 'files': files}, separators=(',', ':')))
+
+
+def write_sw(cat):
+    """sw.js with the course list and a version that changes whenever a page changes (so phones get the update)."""
+    h = hashlib.sha1()
+    for p in ['index.html', 'catalog.js', 'plan.js', 'course-app.css'] + [f'c/{c["id"]}/index.html' for c in cat['courses']]:
+        fp = os.path.join(DOCS, p)
+        if os.path.exists(fp):
+            with open(fp, 'rb') as f:
+                h.update(f.read())
+    sw = rd(SHELL, 'sw.js').replace('/*VERSION*/', h.hexdigest()[:12]).replace('/*COURSES*/[]', json.dumps([c['id'] for c in cat['courses']]))
+    wr(os.path.join(DOCS, 'sw.js'), sw)
 
 
 def build_shell(cat):
@@ -69,8 +96,9 @@ def build_shell(cat):
     page = page.replace('/*JS*/', js)
     wr(os.path.join(DOCS, 'index.html'), page)
     wr(os.path.join(DOCS, 'catalog.js'), 'var CATALOG=' + json.dumps(cat, ensure_ascii=False, separators=(',', ':')) + ';\n')
-    for f in ('plan.js', 'course-app.css', 'sw.js', 'manifest.webmanifest'):
+    for f in ('plan.js', 'course-app.css', 'manifest.webmanifest'):
         shutil.copy(os.path.join(SHELL, f), os.path.join(DOCS, f))
+    write_sw(cat)
     os.makedirs(os.path.join(DOCS, 'icons'), exist_ok=True)
     for f in os.listdir(os.path.join(SHELL, 'icons')):
         shutil.copy(os.path.join(SHELL, 'icons', f), os.path.join(DOCS, 'icons', f))
