@@ -54,7 +54,8 @@ def build_course(cid):
         raise SystemExit(f'{cid}: course script block not found')
     html = (html[:start] + head_js + html[start:end] + '\n/* ---- Milepost course app ---- */\n' +
             rd(SHELL, 'course-app.js') + '\n' + rd(SHELL, 'exercises.js') + html[end:])
-    html = html.replace('</head>', '<link rel="stylesheet" href="../../course-app.css">\n</head>', 1)
+    # the class goes on before the first paint, so the old book layout never flashes while the page loads
+    html = html.replace('</head>', '<link rel="stylesheet" href="../../course-app.css">\n<script>document.documentElement.classList.add("mp","mp-boot");setTimeout(function(){document.documentElement.classList.remove("mp-boot")},4000)</script>\n</head>', 1)
     wr(os.path.join(DOCS, 'c', cid, 'index.html'), html)
     os.remove(os.path.join(cdir, 'index.html'))
     audio_index(cid)

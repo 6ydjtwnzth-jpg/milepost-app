@@ -490,7 +490,7 @@ function vSpeak(){
     '<div class="opts" role="radiogroup">'+
     ['it','zh'].map(function(l){var lab=l==="it"?["Italiano","Corsi spiegati in italiano"]:["中文","用中文讲解的课程"];
       return '<button class="opt" role="radio" aria-checked="'+(ST.speak===l)+'" data-l="'+l+'" lang="'+I18N[l].htmlLang+'"><span class="ic">'+(l==="it"?"IT":"中")+'</span><span><b>'+lab[0]+'</b><small>'+lab[1]+'</small></span></button>'}).join("")+
-    '<button class="opt" disabled lang="en"><span class="ic">EN</span><span><b>English</b><small>Coming soon</small></span><span class="tag">Soon</span></button>'+
+    '<button class="opt" disabled lang="en"><span class="ic">EN</span><span><b>English</b><small>Courses explained in English</small></span><span class="tag">Soon</span></button>'+
     '</div>');
   $$(".opt[data-l]",app).forEach(function(b){b.onclick=function(){ST.speak=b.dataset.l;save();setLang(ST.speak);go("#/corso")}})}
 

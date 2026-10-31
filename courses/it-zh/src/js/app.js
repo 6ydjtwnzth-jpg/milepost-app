@@ -287,7 +287,8 @@ function renderSet(el,opt){
   });
 }
 function rmotion(){try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}}
-$$(".drill[data-set]").forEach(renderSet);
+/* the book's exercise sets are built only when their lesson is opened for reading (saves ~20,000 nodes at start) */
+function renderDrills(root){$$(".drill[data-set]:not([data-r])",root).forEach(function(d){d.setAttribute("data-r","1");renderSet(d)})}
 updateToc();
 
 /* ---------- frasario ---------- */

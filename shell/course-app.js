@@ -184,6 +184,9 @@ var bar=document.createElement("nav");bar.className="mp-tabs";bar.setAttribute("
 bar.innerHTML=TABS.map(function(t,i){return '<a href="#/'+t[0]+'" data-tab="'+t[0]+'">'+'<i>'+I[t[1]]+'</i><span>'+h(S.tabs[i])+'</span></a>'}).join("");
 root.appendChild(bar);
 document.documentElement.classList.add("mp");
+/* horizontal rows of chips scroll with a mouse wheel too (on a phone they scroll with the finger) */
+document.addEventListener("wheel",function(e){var r=e.target.closest&&e.target.closest(".mp-chips");if(!r||Math.abs(e.deltaY)<=Math.abs(e.deltaX)||r.scrollWidth<=r.clientWidth)return;
+  var max=r.scrollWidth-r.clientWidth;if((e.deltaY<0&&r.scrollLeft<=0)||(e.deltaY>0&&r.scrollLeft>=max))return;r.scrollLeft+=e.deltaY;e.preventDefault()},{passive:false});
 
 function head(kick,ttl,extra){return '<header class="mp-h"><div>'+(kick?'<div class="mp-k">'+h(kick)+'</div>':'')+'<h1 tabindex="-1">'+h(ttl)+'</h1></div>'+(extra||'<button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button>')+'</header>'}
 function route(){var r=(location.hash||"").replace(/^#\/?/,"");return r||"oggi"}
@@ -197,7 +200,8 @@ function render(){
   qa("[data-tab]",bar).forEach(function(a){var on=a.getAttribute("data-tab")===active;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   ({oggi:vToday,corso:vCourse,l:function(){vLesson(parts[1])},esame:vExam,cultura:vCult,strumenti:vTools,leggi:function(){vRead(parts[1])},racconto:function(){vStory(parts[1])},simres:function(){vSimRes(parts[1])},simrev:function(){vSimRev(parts[1])}}[tab]||vToday)();
   var st=q("#mpset",view);if(st)st.onclick=openSettings;
-  if(!mstack.length){var h1=q("h1",view);if(h1)try{h1.focus({preventScroll:true})}catch(e){}}}
+  if(!mstack.length){var h1=q("h1",view);if(h1)try{h1.focus({preventScroll:true})}catch(e){}}
+  document.documentElement.classList.remove("mp-boot")}
 function show(html){view.innerHTML=html;window.scrollTo(0,0)}
 window.addEventListener("hashchange",render);
 /* the course engine calls these after a step: refresh our view instead of the old map/sheet */
@@ -336,6 +340,7 @@ function vTools(){
 /* ---------- reading view: a lesson or a tool from the book ---------- */
 function vRead(id){var s=document.getElementById(id);if(!s){location.replace("#/oggi");return}
   s.classList.add("mp-target");
+  if(typeof renderDrills==="function")renderDrills(s);if(typeof buildVocab==="function"&&s.querySelector("#vocabtbl"))buildVocab();
   var U=UNITS.filter(function(u){return u.id===id})[0],back=U?"#/l/"+id:"#/strumenti";
   var t=U?title(U):((S.toolList[id]||[])[0]||"");
   view.innerHTML='<div class="mp-readbar"><a class="mp-ib" href="'+back+'" aria-label="'+h(S.back)+'">'+I.back+'</a><b>'+h(t)+'</b><button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button></div>';
