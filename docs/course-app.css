@@ -419,3 +419,16 @@ html.mp-exam body{padding-bottom:0}
 .say.sm::before{content:"";position:absolute;inset:-8px}
 #mpapp .mp-sl .trb{min-height:44px;min-width:44px}
 .mp-hint a{display:inline-flex;align-items:center;min-height:44px}
+
+/* ---------- exams: pictures (HSK), writing and speaking practice ---------- */
+.xpic{display:block;width:72px;height:72px;color:var(--ink)}
+.xpic.big{width:120px;height:120px}
+.xpic.sm{display:inline-block;width:40px;height:40px;vertical-align:middle}
+.xpicq{display:flex;justify-content:center;padding:10px;border-radius:18px;background:var(--sheet)}
+.xpics{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.xpics span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;border-radius:14px;background:var(--sheet)}
+.xpics b{font-family:var(--f-disp);font-weight:800}
+#mpexam .xoimg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#mpexam .xoimg .xo{flex-direction:column;justify-content:center;gap:6px;min-height:120px}
+.mp-prac{margin-top:10px}
+.mp-prac .mp-tr{color:var(--muted)}

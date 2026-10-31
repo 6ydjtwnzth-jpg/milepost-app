@@ -22,8 +22,13 @@ ciò che manca si mostra come "In arrivo".
   - `courses.json`: metadati dei corsi (esami, ore tipiche, livelli di partenza). Le unità vengono da `courses/<id>/src/course.json`.
   - `i18n.js`: testi dell'interfaccia (`it`, `zh`). L'interfaccia parla sempre la lingua di chi studia.
 - `courses/<id>/`: sorgenti di ogni corso (contenuti, motore, `build.py`).
-  - `courses/ja-it/src/exam/*.json`: simulazioni JLPT (formato reale: sezioni, もんだい, istruzioni del libretto).
-    L'audio d'ascolto è in `docs/c/ja-it/audio/exam/<id>-<もんだい>-<n>.mp3` (voci Kokoro: F, M, narratore; ogni frase
+  - `courses/<id>/src/exam/*.json`: simulazioni d'esame nel formato reale (JLPT N5 per ja-it, HSK 1 per zh-it, CILS A2 per
+    it-zh). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
+    quante volte si ascolta ogni registrazione, etichette di parti e opzioni, immagini (`img`, `oi`, `pics`: icone dello
+    sprite del corso), esercizi di scritto/orale non valutati (`practice`). Senza `scheme` valgono le regole del JLPT.
+    Le opzioni non vengono mescolate dall'app: la risposta giusta va distribuita tra le posizioni già nel file.
+    Nella revisione le trascrizioni non sono parole toccabili (come sul foglio d'esame).
+    L'audio d'ascolto è in `docs/c/<id>/audio/exam/<esame>-<parte>-<n>.mp3` (voci Kokoro: F, M, narratore; ogni frase
     verificata con il riconoscimento vocale). Punteggio stimato: 120 × giuste/totale (lingua+lettura), 60 × (ascolto).
   - `courses/zh-it/`: cinese per italiani. Il cinese nei dati è scritto a parole con il pinyin tra parentesi quadre,
     una sillaba per carattere separata da trattini: `我[wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。` (`src/js/zh.js` ne ricava rubino

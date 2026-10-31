@@ -5025,7 +5025,7 @@ function vToday(){
   html+='</section>';
   html+='<div class="mp-row2"><div class="mp-tile"><span class="mp-lbl">'+h(S.week)+'</span><div class="mp-big">'+wk.n+'<small> / 6 '+h(S.days)+'</small></div><div class="mp-week">'+wk.html+'</div></div>';
   if(p){var pl=M.plan(C,p,P),ex=pl.ex;
-    if(ex&&pl.examDate){var left=M.daysBetween(M.today(),pl.examDate);html+='<a class="mp-tile mp-ex" href="#/esame"><span class="mp-lbl">'+h(ex.name)+'</span><div class="mp-big">'+Math.max(0,left)+'<small> '+h(S.examIn(left))+'</small></div><p>'+h(HASEX&&readiness().total!=null?"Stima: "+readiness().total+"/180 · soglia 80":(pl.marginW>=0?S.margin(pl.marginW):S.late(-pl.marginW).split(":")[0]))+'</p></a>'}
+    if(ex&&pl.examDate){var left=M.daysBetween(M.today(),pl.examDate);html+='<a class="mp-tile mp-ex" href="#/esame"><span class="mp-lbl">'+h(ex.name)+'</span><div class="mp-big">'+Math.max(0,left)+'<small> '+h(S.examIn(left))+'</small></div><p>'+h(HASEX&&readiness(curExam(ex)).total!=null?EXS.estShort(readiness(curExam(ex)).total,SCH(curExam(ex)).total,SCH(curExam(ex)).pass):(pl.marginW>=0?S.margin(pl.marginW):S.late(-pl.marginW).split(":")[0]))+'</p></a>'}
     else{var stt=M.status(C,p,P);html+='<a class="mp-tile" href="#/esame"><span class="mp-lbl">'+h(S.planT)+'</span><div class="mp-big" style="font-size:20px;line-height:1.2">'+h(Math.abs(stt)<=2?S.onTrack:stt>0?S.ahead2(stt):S.behind(-stt))+'</div><p>'+h(S.ready(fmt(pl.ready,{month:"long",year:"numeric"})))+'</p></a>'}}
   else html+='<a class="mp-tile" href="../../#/corso"><span class="mp-lbl">'+h(S.planT)+'</span><div class="mp-big" style="font-size:19px;line-height:1.2">'+h(S.noPlan)+'</div><p>'+h(S.noPlanS)+'</p></a>';
   html+='</div>';
@@ -5233,57 +5233,89 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
   sh.hidden=shb.hidden=false;try{q("button:not(.grab),a",sh).focus()}catch(e){}}
 
 
-/* ---------- mock exams in the real JLPT format (only courses that ship EXAMS) ---------- */
+/* ---------- mock exams in the real format of each exam (only courses that ship EXAMS) ----------
+   Every exam file carries its own rules in «scheme»: score groups with maximum and minimum, pass mark, language of the
+   paper, how many times each recording plays, labels of parts and options. Files without one (JLPT N5) use the JLPT rules. */
 var HASEX=typeof EXAMS!=="undefined"&&EXAMS.length>0,EK=KEY+"-exam";
-var SK={vocab:["Vocabolario e kanji","文字・語彙"],grammar:["Grammatica","文法"],reading:["Lettura","読解"],listening:["Ascolto","聴解"]};
-var EXS={start:"Inizia",full:"Simulazione completa",sec3:function(m){return "3 sezioni · "+m+" min a tempo"},train:"Allenati su una sezione",
-  last:function(s,d){return "Ultima volta: "+s+"/180 · "+d},none:"Dopo la prima simulazione qui vedi la tua preparazione, sezione per sezione.",
-  est:"Oggi prenderesti circa",pass:"Soglia per superare: 80/180, con almeno 38/120 in vocabolario, grammatica e lettura e 19/60 nell'ascolto.",
-  weak:function(s){return "Ti manca soprattutto: "+s+"."},hist:"Le tue prove",notOfficial:"Simulazione nel formato del JLPT, non un test ufficiale: il punteggio è una stima.",
-  q:function(n,t){return n+" / "+t},prev:"Indietro",next:"Avanti",finishSec:"Consegna la sezione",finishQ:"Consegnare la sezione? Le domande senza risposta contano come sbagliate.",
-  exitQ:"Uscire dalla simulazione? Le risposte date andranno perse.",tr:"Traduci",listen:"Ascolta",once:"Si ascolta una volta sola, come all'esame.",heard:"Ascoltato",replay:"Riascolta",
+var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n+" 个部分 · 限时 "+m+" 分钟"},train:"分部分练习",
+  last:function(s,t,d){return "上次："+s+"/"+t+" · "+d},none:"做完第一次模拟考试后，这里会显示你每个部分的准备情况。",
+  est:"按现在的水平，你大约能得",weak:function(s){return "最需要加强："+s+"。"},hist:"你的考试记录",
+  prev:"上一题",next:"下一题",finishSec:"交卷（本部分）",finishQ:"要交这一部分吗？没有回答的题算错。",
+  exitQ:"要退出模拟考试吗？已经回答的内容会丢失。",tr:"翻译",listen:"听",heard:"已听完",again:"再听一遍",replay:"再听",
+  plays:function(n){return n===1?"和真实考试一样，每段录音只听一遍。":"和真实考试一样，每段录音听两遍。"},
+  playing:"正在播放…",introGo:"开始这一部分",introTime:function(m,n){return m+" 分钟 · "+n+" 道题"},timeUp:"时间到：这一部分已经交卷。",
+  result:"结果",passed:"通过（估计）",notYet:"还没通过",min:function(n){return "最低 "+n},review:"查看答案",back:"回到考试",
+  all:"全部题目",done:function(n,t){return "已答 "+n+" / "+t},legA:"已答",legT:"未答",qLabel:function(n,a){return "第 "+n+" 题"+(a?"，已答":"")},
+  your:"你的答案",right:"正确答案",empty:"没有回答",script:"录音原文",soon:function(n){return n+" 的模拟考试即将推出。先用现有的模拟考试练习。"},
+  secRes:function(c,t){return "答对 "+c+" / "+t},practiceT:"另外要练习的：写作和口语",
+  practiceN:"这两部分由考官评分，这里不计分。先自己写或说，再看参考答案。",model:"参考答案",
+  estShort:function(s,t,p){return "估计 "+s+"/"+t+" · 及格 "+p}}
+ :{start:"Inizia",full:"Simulazione completa",secN:function(n,m){return n+(n===1?" sezione":" sezioni")+" · "+m+" min a tempo"},train:"Allenati su una sezione",
+  last:function(s,t,d){return "Ultima volta: "+s+"/"+t+" · "+d},none:"Dopo la prima simulazione qui vedi la tua preparazione, sezione per sezione.",
+  est:"Oggi prenderesti circa",weak:function(s){return "Ti manca soprattutto: "+s+"."},hist:"Le tue prove",
+  prev:"Indietro",next:"Avanti",finishSec:"Consegna la sezione",finishQ:"Consegnare la sezione? Le domande senza risposta contano come sbagliate.",
+  exitQ:"Uscire dalla simulazione? Le risposte date andranno perse.",tr:"Traduci",listen:"Ascolta",heard:"Ascoltato",again:"Ascolta di nuovo",replay:"Riascolta",
+  plays:function(n){return n===1?"Si ascolta una volta sola, come all'esame.":"Ogni registrazione si ascolta due volte, come all'esame."},
   playing:"In ascolto…",introGo:"Inizia la sezione",introTime:function(m,n){return m+" minuti · "+n+" domande"},timeUp:"Tempo scaduto: la sezione è stata consegnata.",
-  noFuri:"Come all'esame: niente furigana, niente traduzioni sulle parole.",result:"Risultato",passed:"Superato (stima)",notYet:"Non ancora superato",
-  langS:"Vocabolario, grammatica e lettura",listenS:"Ascolto",min:function(n){return "minimo "+n},review:"Rivedi le risposte",back:"Torna all'esame",all:"Tutte le domande",done:function(n,t){return n+" di "+t+" con risposta"},legA:"con risposta",legT:"da fare",qLabel:function(n,a){return "Domanda "+n+(a?", con risposta":"")},
-  your:"La tua risposta",right:"Risposta giusta",empty:"nessuna risposta",script:"Trascrizione",n4soon:"La simulazione N4 è in arrivo: intanto allenati con la N5, che copre la prima metà del programma.",
-  secRes:function(c,t){return c+" giuste su "+t}};
+  result:"Risultato",passed:"Superato (stima)",notYet:"Non ancora superato",min:function(n){return "minimo "+n},review:"Rivedi le risposte",back:"Torna all'esame",
+  all:"Tutte le domande",done:function(n,t){return n+" di "+t+" con risposta"},legA:"con risposta",legT:"da fare",qLabel:function(n,a){return "Domanda "+n+(a?", con risposta":"")},
+  your:"La tua risposta",right:"Risposta giusta",empty:"nessuna risposta",script:"Trascrizione",soon:function(n){return "La simulazione "+n+" è in arrivo: intanto allenati con quella che c'è già."},
+  secRes:function(c,t){return c+" giuste su "+t},practiceT:"Da allenare a parte: scritto e orale",
+  practiceN:"Queste prove le valuta un esaminatore, qui non hanno punteggio. Prova a scrivere o a parlare, poi guarda l'esempio.",model:"Esempio di risposta",
+  estShort:function(s,t,p){return "Stima: "+s+"/"+t+" · soglia "+p}};
+function SCH(e){if(e&&e.scheme)return e.scheme;
+  return {name:"JLPT "+String(e&&e.exam||"").toUpperCase(),total:180,pass:80,lang:"ja",plays:1,part:"もんだい",
+    groups:[{id:"lang",label:"Vocabolario, grammatica e lettura",max:120,min:38},{id:"listen",label:"Ascolto",max:60,min:19}],
+    skills:{vocab:["Vocabolario e kanji","文字・語彙"],grammar:["Grammatica","文法"],reading:["Lettura","読解"],listening:["Ascolto","聴解"]},
+    passText:"Soglia per superare: 80/180, con almeno 38/120 in vocabolario, grammatica e lettura e 19/60 nell'ascolto.",
+    notOfficial:"Simulazione nel formato del JLPT, non un test ufficiale: il punteggio è una stima.",
+    note:"Come all'esame: niente furigana, niente traduzioni sulle parole."}}
+var SKC=["green","blue","yellow","red","pink"];
+function skL(e,k){var s=SCH(e).skills||{};return s[k]||[k,""]}
+function skColor(e,k){var ks=Object.keys(SCH(e).skills||{});return SKC[Math.max(0,ks.indexOf(k))%SKC.length]}
+function isListen(sec){return !!(sec&&(sec.listen||sec.score==="listen"))}
 function exStore(){var d=M.store.get(EK)||{};d.att=d.att||[];return d}
 function exById(id){return EXAMS.filter(function(e){return e.id===id})[0]}
 function flat(ex,secIds){var out=[];ex.sections.forEach(function(s,si){if(secIds.indexOf(s.id)<0)return;s.parts.forEach(function(p,pi){p.items.forEach(function(it,ii){out.push({s:si,p:pi,i:ii})})})});return out}
 function itemOf(ex,f){var s=ex.sections[f.s],p=s.parts[f.p];return {sec:s,part:p,it:p.items[f.i]}}
-/* score of one attempt: per section and per skill, scaled like the JLPT (lang 0-120, listening 0-60) */
-function score(att){var ex=exById(att.id),r={sk:{},lang:[0,0],listen:[0,0]};if(!ex)return r;
-  att.f.forEach(function(f,k){var o=itemOf(ex,f),ok=att.a[k]===o.it.a,sk=o.part.skill;r.sk[sk]=r.sk[sk]||[0,0];r.sk[sk][1]++;if(ok)r.sk[sk][0]++;
-    var g=o.sec.score==="listen"?r.listen:r.lang;g[1]++;if(ok)g[0]++});
-  r.langS=r.lang[1]?Math.round(r.lang[0]/r.lang[1]*120):null;r.listenS=r.listen[1]?Math.round(r.listen[0]/r.listen[1]*60):null;
-  r.total=r.langS!=null&&r.listenS!=null?r.langS+r.listenS:null;r.pass=r.total!=null&&r.total>=80&&r.langS>=38&&r.listenS>=19;return r}
-/* latest result per skill, and the estimate built from it */
-function readiness(){var d=exStore(),sk={},lang=null,listen=null;
-  d.att.forEach(function(a){var r=score(a);Object.keys(r.sk).forEach(function(k){sk[k]=r.sk[k]})});
-  var L=["vocab","grammar","reading"].filter(function(k){return sk[k]});
-  if(L.length===3){var c=0,t=0;L.forEach(function(k){c+=sk[k][0];t+=sk[k][1]});lang=Math.round(c/t*120)}
-  if(sk.listening)listen=Math.round(sk.listening[0]/sk.listening[1]*60);
+/* score of one attempt: right answers per skill and per score group, each group scaled to its maximum */
+function score(att){var ex=exById(att.id),r={sk:{},g:{},total:null,pass:false};if(!ex)return r;var sc=SCH(ex);
+  att.f.forEach(function(f,k){var o=itemOf(ex,f),ok=att.a[k]===o.it.a,sk=o.part.skill,g=o.sec.score;
+    r.sk[sk]=r.sk[sk]||[0,0];r.sk[sk][1]++;if(ok)r.sk[sk][0]++;r.g[g]=r.g[g]||[0,0];r.g[g][1]++;if(ok)r.g[g][0]++});
+  var all=true,pass=true,tot=0;sc.groups.forEach(function(G){var v=r.g[G.id];if(!v){all=false;return}v[2]=Math.round(v[0]/v[1]*G.max);tot+=v[2];if(G.min!=null&&v[2]<G.min)pass=false});
+  if(all){r.total=tot;r.pass=pass&&tot>=sc.pass}return r}
+/* the latest result for each skill of this exam, and the estimate built from it */
+function readiness(ex){var d=exStore(),sk={},sc=SCH(ex),gs={},g={},tot=0,all=true,pass=true;
+  d.att.forEach(function(a){var e2=exById(a.id);if(!e2||e2.exam!==ex.exam)return;var r=score(a);Object.keys(r.sk).forEach(function(k){sk[k]=r.sk[k]})});
+  ex.sections.forEach(function(s){s.parts.forEach(function(p){(gs[s.score]=gs[s.score]||{})[p.skill]=1})});
+  sc.groups.forEach(function(G){var ks=Object.keys(gs[G.id]||{}),c=0,t=0,ok=ks.length>0;ks.forEach(function(k){if(!sk[k])ok=false;else{c+=sk[k][0];t+=sk[k][1]}});
+    if(ok){g[G.id]=Math.round(c/t*G.max);tot+=g[G.id];if(G.min!=null&&g[G.id]<G.min)pass=false}else all=false});
   var weak=null,wp=2;Object.keys(sk).forEach(function(k){var p=sk[k][0]/sk[k][1];if(p<wp){wp=p;weak=k}});
-  return {sk:sk,lang:lang,listen:listen,total:lang!=null&&listen!=null?lang+listen:null,weak:weak}}
+  return {sk:sk,g:g,total:all?tot:null,pass:all&&pass&&tot>=sc.pass,weak:weak}}
+/* the exam that matches the learner's plan, or the first one */
+function curExam(planEx){var m=planEx?EXAMS.filter(function(e){return e.exam===planEx.id}):[];return m[0]||EXAMS[0]}
 function pbar(pc,color,minPc){return '<div class="mp-bar"><b style="width:'+Math.round(pc*100)+'%;background:var(--'+color+')"></b>'+(minPc!=null?'<em style="left:'+(minPc*100).toFixed(1)+'%"></em>':'')+'</div>'}
-function examBlock(planEx){var d=exStore(),rd=readiness(),ex=EXAMS[0],html="";
-  if(planEx&&planEx.id!==ex.exam)html+='<div class="mp-hint">'+h(EXS.n4soon)+'</div>';
-  if(rd.total!=null)html+='<div class="mp-card mp-gauge"><div class="mp-lbl">'+h(EXS.est)+'</div><div class="mp-score"><b class="'+(rd.total>=80&&rd.lang>=38&&rd.listen>=19?'ok':'no')+'">'+rd.total+'</b><small> / 180</small></div>'+
-    pbar(rd.total/180,"red",80/180)+'<p class="mp-p">'+h(EXS.pass)+'</p>'+(rd.weak?'<p class="mp-p"><b>'+h(EXS.weak(SK[rd.weak][0]))+'</b></p>':'')+'</div>';
+function examBlock(planEx){var d=exStore(),ex=curExam(planEx),sc=SCH(ex),rd=readiness(ex),html="",TL=sc.lang||LL;
+  if(planEx&&!EXAMS.some(function(e){return e.exam===planEx.id}))html+='<div class="mp-hint">'+h(EXS.soon(planEx.name))+'</div>';
+  if(rd.total!=null)html+='<div class="mp-card mp-gauge"><div class="mp-lbl">'+h(EXS.est)+'</div><div class="mp-score"><b class="'+(rd.pass?'ok':'no')+'">'+rd.total+'</b><small> / '+sc.total+'</small></div>'+
+    pbar(rd.total/sc.total,"red",sc.pass/sc.total)+'<p class="mp-p">'+h(sc.passText)+'</p>'+(rd.weak?'<p class="mp-p"><b>'+h(EXS.weak(skL(ex,rd.weak)[0]))+'</b></p>':'')+'</div>';
   html+='<h2 class="mp-h2">'+h(S.sections)+'</h2><div class="mp-card mp-skills">';
-  if(Object.keys(rd.sk).length)html+=["vocab","grammar","reading","listening"].map(function(k){var v=rd.sk[k];
-    return '<div class="sk"><div class="t"><span>'+h(SK[k][0])+'<i lang="ja">'+SK[k][1]+'</i></span><span>'+(v?Math.round(v[0]/v[1]*100)+'%':'—')+'</span></div>'+pbar(v?v[0]/v[1]:0,{vocab:"green",grammar:"blue",reading:"yellow",listening:"red"}[k],k==="listening"?19/60:null)+'</div>'}).join("");
+  if(Object.keys(rd.sk).length)html+=Object.keys(sc.skills).map(function(k){var v=rd.sk[k],L=skL(ex,k);
+    return '<div class="sk"><div class="t"><span>'+h(L[0])+'<i lang="'+TL+'">'+h(L[1])+'</i></span><span>'+(v?Math.round(v[0]/v[1]*100)+'%':'—')+'</span></div>'+pbar(v?v[0]/v[1]:0,skColor(ex,k))+'</div>'}).join("");
   else html+='<p class="mp-p">'+h(EXS.none)+'</p>';
-  html+='</div>';
-  html+='<h2 class="mp-h2">'+h(EXS.full)+'</h2>';
-  EXAMS.forEach(function(e){var mins=e.sections.reduce(function(s,x){return s+x.min},0),last=d.att.filter(function(a){return a.id===e.id&&a.mode==="full"}).pop(),r=last&&score(last);
-    html+='<div class="mp-card mp-exc"><div><b>'+h(e.title)+' · JLPT '+h(e.exam.toUpperCase())+'</b><small>'+h(EXS.sec3(mins))+'</small>'+(r?'<small>'+h(EXS.last(r.total,fmt(new Date(last.d),{day:"numeric",month:"short"})))+'</small>':'')+'</div>'+
+  html+='</div><h2 class="mp-h2">'+h(EXS.full)+'</h2>';
+  EXAMS.forEach(function(e){var s2=SCH(e),mins=e.sections.reduce(function(s,x){return s+x.min},0),last=d.att.filter(function(a){return a.id===e.id&&a.mode==="full"}).pop(),r=last&&score(last);
+    html+='<div class="mp-card mp-exc"><div><b>'+h(e.title)+' · '+h(s2.name)+'</b><small>'+h(EXS.secN(e.sections.length,mins))+'</small>'+(r&&r.total!=null?'<small>'+h(EXS.last(r.total,s2.total,fmt(new Date(last.d),{day:"numeric",month:"short"})))+'</small>':'')+'</div>'+
       '<button class="mp-cta" data-sim="'+e.id+'">'+h(EXS.start)+I.arrow+'</button></div>'});
-  html+='<h2 class="mp-h2">'+h(EXS.train)+'</h2><div class="mp-trains">'+ex.sections.map(function(s){return '<button class="mp-train" data-sim="'+ex.id+'" data-sec="'+s.id+'"><b lang="ja">'+h(s.jp)+'</b><small>'+h(s.it)+' · '+s.min+' min</small></button>'}).join("")+'</div>';
-  if(d.att.length)html+='<h2 class="mp-h2">'+h(EXS.hist)+'</h2><div class="mp-card mp-hist">'+d.att.map(function(a,k){var r=score(a),e=exById(a.id);
-    var lbl=a.mode==="full"?e.title:(e.sections.filter(function(s){return s.id===a.mode})[0]||{}).it;
-    return '<a href="#/simres/'+k+'"><span>'+h(lbl)+'</span><small>'+h(fmt(new Date(a.d),{day:"numeric",month:"short"}))+'</small><b>'+(r.total!=null?r.total+'/180':h(EXS.secRes((r.lang[0]+r.listen[0]),(r.lang[1]+r.listen[1]))))+'</b></a>'}).reverse().join("")+'</div>';
-  html+='<p class="mp-note">'+h(EXS.notOfficial)+'</p>';
+  html+='<h2 class="mp-h2">'+h(EXS.train)+'</h2><div class="mp-trains">'+ex.sections.map(function(s){return '<button class="mp-train" data-sim="'+ex.id+'" data-sec="'+s.id+'"><b lang="'+TL+'">'+h(s.jp)+'</b><small>'+h(s.it)+' · '+s.min+' min</small></button>'}).join("")+'</div>';
+  if(ex.practice&&ex.practice.length)html+='<h2 class="mp-h2">'+h(EXS.practiceT)+'</h2><p class="mp-lead mp-lead0">'+h(EXS.practiceN)+'</p>'+ex.practice.map(function(t){
+    return '<div class="mp-card mp-prac"><div class="mp-k">'+h(t.kind)+' · '+h(t.time||"")+'</div><p class="mp-p" lang="'+TL+'"><b>'+h(t.task)+'</b></p>'+(t.tr?'<p class="mp-p mp-tr">'+h(t.tr)+'</p>':'')+
+      '<details class="mp-gl"><summary>'+h(EXS.model)+'</summary><p class="mp-p" lang="'+TL+'" style="padding:0 16px 14px">'+h(t.model)+'</p></details></div>'}).join("");
+  if(d.att.length)html+='<h2 class="mp-h2">'+h(EXS.hist)+'</h2><div class="mp-card mp-hist">'+d.att.map(function(a,k){var r=score(a),e=exById(a.id);if(!e)return "";var s2=SCH(e);
+    var lbl=a.mode==="full"?e.title+" · "+s2.name:(e.sections.filter(function(s){return s.id===a.mode})[0]||{}).it;
+    var tc=0,tt=0;Object.keys(r.g).forEach(function(k){tc+=r.g[k][0];tt+=r.g[k][1]});
+    return '<a href="#/simres/'+k+'"><span>'+h(lbl)+'</span><small>'+h(fmt(new Date(a.d),{day:"numeric",month:"short"}))+'</small><b>'+(r.total!=null?r.total+'/'+s2.total:h(EXS.secRes(tc,tt)))+'</b></a>'}).reverse().join("")+'</div>';
+  html+='<p class="mp-note">'+h(sc.notOfficial)+'</p>';
   return html}
 function bindExam(root){qa("[data-sim]",root).forEach(function(b){b.onclick=function(){startExam(b.getAttribute("data-sim"),b.getAttribute("data-sec"))}})}
 
@@ -5296,29 +5328,36 @@ function startExam(id,secId){var ex=exById(id);if(!ex)return;
   document.documentElement.classList.add("mp-exam");xel.hidden=false;window.scrollTo(0,0);xIntro()}
 function curSec(){return XR.ex.sections.filter(function(s){return s.id===XR.secs[XR.si]})[0]}
 function secRange(){var sIdx=XR.ex.sections.indexOf(curSec()),a=-1,b=-1;XR.f.forEach(function(f,k){if(f.s===sIdx){if(a<0)a=k;b=k}});return [a,b]}
-function xIntro(){var s=curSec(),r=secRange(),n=r[1]-r[0]+1;xstop();clearInterval(XR.timer);
+function xIntro(){var s=curSec(),r=secRange(),n=r[1]-r[0]+1,sc=SCH(XR.ex);xstop();clearInterval(XR.timer);
   xel.innerHTML='<div class="xi"><button class="mp-ib xexit" aria-label="'+h(S.close)+'">'+icon('<path d="M6 6l12 12M18 6L6 18"/>')+'</button>'+
-    '<div class="mp-k">'+h(XR.ex.title)+(XR.mode==="full"?' · '+(XR.si+1)+'/'+XR.secs.length:'')+'</div><h1 lang="ja">'+h(s.jp)+'</h1><p class="xit">'+h(s.it)+'</p>'+
-    '<div class="mp-card"><p class="mp-p"><b>'+h(EXS.introTime(s.min,n))+'</b></p><p class="mp-p">'+h(s.score==="listen"?EXS.once:EXS.noFuri)+'</p></div>'+
-    '<button class="mp-cta" id="xgo">'+h(EXS.introGo)+I.arrow+'</button><p class="mp-note">'+h(EXS.notOfficial)+'</p></div>';
+    '<div class="mp-k">'+h(XR.ex.title+" · "+sc.name)+(XR.mode==="full"?' · '+(XR.si+1)+'/'+XR.secs.length:'')+'</div><h1 lang="'+(sc.lang||LL)+'">'+h(s.jp)+'</h1><p class="xit">'+h(s.it)+'</p>'+
+    '<div class="mp-card"><p class="mp-p"><b>'+h(EXS.introTime(s.min,n))+'</b></p><p class="mp-p">'+h(s.note||(isListen(s)?EXS.plays(sc.plays||1):sc.note||""))+'</p></div>'+
+    '<button class="mp-cta" id="xgo">'+h(EXS.introGo)+I.arrow+'</button><p class="mp-note">'+h(sc.notOfficial)+'</p></div>';
   q(".xexit",xel).onclick=xExit;
   q("#xgo",xel).onclick=function(){XR.pos=r[0];XR.left=s.min*60;XR.timer=setInterval(tick,1000);xQ()}}
 function tick(){XR.left--;var t=q(".xt",xel);if(t){t.textContent=mmss(XR.left);t.classList.toggle("low",XR.left<=120)}if(XR.left<=0){clearInterval(XR.timer);alert(EXS.timeUp);xEndSec()}}
 function mmss(s){s=Math.max(0,s);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
 function ul(t){return h(t).replace(/\{([^}]*)\}/g,'<u>$1</u>').replace(/★/g,'<b class="star">★</b>').replace(/\n/g,"<br>")}
-function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part,it=o.it,num=XR.pos-r[0]+1,tot=r[1]-r[0]+1,isL=s.score==="listen";
+/* text of the paper: Chinese with pinyin above (as on the HSK 1–2 papers), the others as written */
+function xtx(t,sc){return (sc.lang==="zh-CN"&&typeof jpHTML==="function")?jpHTML(String(t),true):ul(t)}
+function xpic(id,cls){return '<svg class="'+(cls||"xpic")+'" viewBox="0 0 64 64" aria-hidden="true"><use href="#'+h(id)+'"/></svg>'}
+function optLab(sc,k,p){var L=p&&p.opts!=null?p.opts:(sc.opts||"1234");return L===""?"":(L.charAt(k)||String(k+1))}
+function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part,it=o.it,num=XR.pos-r[0]+1,tot=r[1]-r[0]+1,isL=isListen(s),sc=SCH(XR.ex),TL=sc.lang||LL;
   var first=f.i===0;xstop();
   var nums='',ans=0;for(var k=r[0];k<=r[1];k++){if(XR.a[k]!=null)ans++;nums+=xnBtn(k,r)}
-  var html='<div class="xtop"><button class="mp-ib xexit" aria-label="'+h(S.close)+'">'+icon('<path d="M6 6l12 12M18 6L6 18"/>')+'</button><span class="xsec" lang="ja">'+h(s.jp)+'</span><span class="xt">'+mmss(XR.left)+'</span></div>'+
+  var html='<div class="xtop"><button class="mp-ib xexit" aria-label="'+h(S.close)+'">'+icon('<path d="M6 6l12 12M18 6L6 18"/>')+'</button><span class="xsec" lang="'+TL+'">'+h(s.jp)+'</span><span class="xt">'+mmss(XR.left)+'</span></div>'+
     '<div class="xnav"><div class="xnums">'+nums+'</div><button class="xall" aria-label="'+h(EXS.all)+'">'+icon('<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>')+'<small>'+ans+'/'+tot+'</small></button></div><div class="xbody">'+
-    '<div class="xinst"><b lang="ja">もんだい'+p.n+'</b><p lang="ja">'+h(p.inst)+'</p><button class="xtr">'+h(EXS.tr)+'</button><p class="xitr" hidden>'+h(p.itInst)+'</p></div>';
-  if(p.text)html+='<div class="xtext" lang="ja">'+ul(p.text)+'</div>';
-  if(it.text)html+='<div class="xtext" lang="ja">'+ul(it.text)+'</div>';
-  if(it.scene)html+='<div class="xscene"><span class="arr">➡</span><div><p lang="ja">'+h(it.scene)+'</p><small>'+h(it.sceneIt)+'</small></div></div>';
-  if(isL){var name=XR.ex.id+"-"+p.n+"-"+(f.i+1),pl=XR.played[XR.pos],can=XR.mode!=="full"||!pl;
-    html+='<div class="xaud"><button class="mp-cta" id="xplay"'+(can?'':' disabled')+'>'+(pl?h(XR.mode!=="full"?EXS.replay:EXS.heard):"▶ "+h(EXS.listen))+'</button><small>'+h(EXS.once)+'</small></div>'}
-  html+='<div class="xq"><span class="xqn">'+(isL?(f.i+1):num)+'</span><div lang="ja">'+(it.q?ul(it.q):'')+'</div></div><div class="xopts">'+it.o.map(function(t,k){
-    return '<button class="xo'+(XR.a[XR.pos]===k?' sel':'')+'" data-o="'+k+'"><span class="n">'+(k+1)+'</span><span lang="ja">'+(isL&&it.say?'':h(t))+'</span></button>'}).join("")+'</div></div>'+
+    '<div class="xinst"><b lang="'+TL+'">'+h(p.label||((sc.part||"")+p.n))+'</b><p lang="'+TL+'">'+h(p.inst)+'</p><button class="xtr">'+h(EXS.tr)+'</button><p class="xitr" hidden>'+h(p.itInst)+'</p></div>';
+  if(p.text)html+='<div class="xtext" lang="'+TL+'">'+xtx(p.text,sc)+'</div>';
+  if(p.pics)html+='<div class="xpics">'+p.pics.map(function(id,k){return '<span>'+xpic(id)+'<b>'+optLab(sc,k)+'</b></span>'}).join("")+'</div>';
+  if(it.text)html+='<div class="xtext" lang="'+TL+'">'+xtx(it.text,sc)+'</div>';
+  if(it.img)html+='<div class="xpicq">'+xpic(it.img,"xpic big")+'</div>';
+  if(it.scene)html+='<div class="xscene"><span class="arr">➡</span><div><p lang="'+TL+'">'+h(it.scene)+'</p><small>'+h(it.sceneIt)+'</small></div></div>';
+  if(isL){var name=XR.ex.id+"-"+p.n+"-"+(f.i+1),plays=sc.plays||1,pl=XR.played[XR.pos]||0,can=XR.mode!=="full"||pl<plays;
+    html+='<div class="xaud"><button class="mp-cta" id="xplay"'+(can?'':' disabled')+'>'+(pl?h(can?(XR.mode!=="full"?EXS.replay:EXS.again):EXS.heard):"▶ "+h(EXS.listen))+'</button><small>'+h(EXS.plays(plays))+'</small></div>'}
+  html+='<div class="xq"><span class="xqn">'+(isL?(f.i+1):num)+'</span><div lang="'+TL+'">'+(it.q?xtx(it.q,sc):'')+'</div></div><div class="xopts'+(it.oi?' xoimg':'')+'">'+(it.oi||it.o).map(function(t,k){
+    var inner=it.oi?xpic(t):(isL&&it.say?'':xtx(t,sc));
+    return '<button class="xo'+(XR.a[XR.pos]===k?' sel':'')+'" data-o="'+k+'">'+(optLab(sc,k,p)?'<span class="n">'+h(optLab(sc,k,p))+'</span>':'')+'<span lang="'+TL+'">'+inner+'</span></button>'}).join("")+'</div></div>'+
     '<div class="xfoot"><button class="mp-cta alt" id="xprev"'+(XR.pos===r[0]?' disabled':'')+'>'+h(EXS.prev)+'</button>'+
     (XR.pos===r[1]?'<button class="mp-cta" id="xend">'+h(EXS.finishSec)+'</button>':'<button class="mp-cta" id="xnext">'+h(EXS.next)+I.arrow+'</button>')+'</div>';
   var prevX=XR.navX||0;xel.innerHTML=html;q(".xbody",xel).scrollTop=0;window.scrollTo(0,0);
@@ -5331,7 +5370,7 @@ function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part
   var nx=q("#xnext",xel);if(nx)nx.onclick=function(){XR.pos++;xQ()};
   var en=q("#xend",xel);if(en)en.onclick=function(){if(XR.f.slice(r[0],r[1]+1).some(function(_,k){return XR.a[r[0]+k]==null})&&!confirm(EXS.finishQ))return;xEndSec()};
   var bp=q("#xplay",xel);if(bp){var play=function(){xstop();xau=new Audio("audio/exam/"+name+".mp3");bp.disabled=true;bp.textContent=EXS.playing;
-      xau.onended=function(){XR.played[XR.pos]=1;bp.textContent=XR.mode!=="full"?EXS.replay:EXS.heard;bp.disabled=XR.mode==="full"};
+      xau.onended=function(){var n2=(XR.played[XR.pos]||0)+1,more=XR.mode!=="full"||n2<plays;XR.played[XR.pos]=n2;bp.textContent=more?(XR.mode!=="full"?EXS.replay:EXS.again):EXS.heard;bp.disabled=!more};
       xau.onerror=function(){bp.disabled=false;bp.textContent="▶ "+EXS.listen};var pr=xau.play();if(pr&&pr.catch)pr.catch(function(){bp.disabled=false;bp.textContent="▶ "+EXS.listen})};
     bp.onclick=play;if(!XR.played[XR.pos]&&!XR.played["a"+XR.pos]){XR.played["a"+XR.pos]=1;setTimeout(play,400)}}}
 /* question numbers: answered ones are filled and carry a dot (not colour alone); a gap separates each もんだい */
@@ -5351,7 +5390,7 @@ function xGrid(){var r=secRange(),n=xCount(),tot=r[1]-r[0]+1,s=curSec(),groups=[
   var g=document.createElement("div");g.className="xgrid";g.setAttribute("role","dialog");g.setAttribute("aria-modal","true");g.setAttribute("aria-label",EXS.all);
   g.innerHTML='<div class="xgin"><div class="xgh"><div><b>'+h(EXS.all)+'</b><small>'+h(EXS.done(n,tot))+'</small></div><button class="mp-ib xgx" aria-label="'+h(S.close)+'">'+icon('<path d="M6 6l12 12M18 6L6 18"/>')+'</button></div>'+
     '<p class="xleg"><span class="xn ans" aria-hidden="true"></span>'+h(EXS.legA)+'<span class="xn" aria-hidden="true"></span>'+h(EXS.legT)+'</p>'+
-    groups.map(function(G){return '<div class="xgg"><b lang="ja">もんだい'+G.p.n+'</b><div class="xgc">'+G.ks.map(function(k){return xnBtn(k,r).replace(' g"','"')}).join("")+'</div></div>'}).join("")+'</div>';
+    groups.map(function(G){return '<div class="xgg"><b lang="'+(SCH(XR.ex).lang||LL)+'">'+h(G.p.label||((SCH(XR.ex).part||"")+G.p.n))+'</b><div class="xgc">'+G.ks.map(function(k){return xnBtn(k,r).replace(' g"','"')}).join("")+'</div></div>'}).join("")+'</div>';
   xel.appendChild(g);
   function shut(){document.removeEventListener("keydown",esc,true);g.remove();var b=q(".xall",xel);if(b)try{b.focus()}catch(e){}}
   function esc(e){if(e.key==="Escape"){e.stopPropagation();shut()}}
@@ -5372,31 +5411,35 @@ function xClose(){clearInterval(XR&&XR.timer);xstop();XR=null;xel.hidden=true;xe
 function xExit(){if(confirm(EXS.exitQ))xClose()}
 
 /* ---------- result and review ---------- */
-function vSimRes(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame");return}var r=score(a),e=exById(a.id),full=r.total!=null;
-  var html=head(e.title+" · JLPT "+e.exam.toUpperCase(),EXS.result,'<a class="mp-ib" href="#/esame" aria-label="'+h(EXS.back)+'">'+I.back+'</a>');
-  if(full)html+='<div class="mp-card mp-gauge"><div class="mp-score"><b class="'+(r.pass?'ok':'no')+'">'+r.total+'</b><small> / 180</small></div>'+pbar(r.total/180,"red",80/180)+
+function vSimRes(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame");return}var r=score(a),e=exById(a.id);if(!e){location.replace("#/esame");return}
+  var sc=SCH(e),full=r.total!=null,TL=sc.lang||LL;
+  var html=head(e.title+" · "+sc.name,EXS.result,'<a class="mp-ib" href="#/esame" aria-label="'+h(EXS.back)+'">'+I.back+'</a>');
+  if(full)html+='<div class="mp-card mp-gauge"><div class="mp-score"><b class="'+(r.pass?'ok':'no')+'">'+r.total+'</b><small> / '+sc.total+'</small></div>'+pbar(r.total/sc.total,"red",sc.pass/sc.total)+
     '<p class="mp-pass '+(r.pass?'ok':'no')+'">'+h(r.pass?EXS.passed:EXS.notYet)+'</p>'+
-    '<div class="mp-sub2"><div><span>'+h(EXS.langS)+'</span><b>'+r.langS+' / 120</b><small>'+h(EXS.min(38))+'</small>'+pbar(r.langS/120,"blue",38/120)+'</div>'+
-    '<div><span>'+h(EXS.listenS)+'</span><b>'+r.listenS+' / 60</b><small>'+h(EXS.min(19))+'</small>'+pbar(r.listenS/60,"green",19/60)+'</div></div></div>';
+    '<div class="mp-sub2">'+sc.groups.map(function(G,i){var v=r.g[G.id]||[0,0,0];
+      return '<div><span>'+h(G.label)+'</span><b>'+v[2]+' / '+G.max+'</b>'+(G.min!=null?'<small>'+h(EXS.min(G.min))+'</small>':'')+pbar(v[2]/G.max,SKC[(i+1)%SKC.length],G.min!=null?G.min/G.max:null)+'</div>'}).join("")+'</div>'+
+    '<p class="mp-p" style="margin-top:10px">'+h(sc.passText)+'</p></div>';
   var weak=null,wp=2;Object.keys(r.sk).forEach(function(s){var p=r.sk[s][0]/r.sk[s][1];if(p<wp){wp=p;weak=s}});
-  html+='<h2 class="mp-h2">'+h(S.sections)+'</h2><div class="mp-card mp-skills">'+Object.keys(r.sk).map(function(s){var v=r.sk[s];
-    return '<div class="sk"><div class="t"><span>'+h(SK[s][0])+'<i lang="ja">'+SK[s][1]+'</i></span><span>'+v[0]+' / '+v[1]+'</span></div>'+pbar(v[0]/v[1],{vocab:"green",grammar:"blue",reading:"yellow",listening:"red"}[s])+'</div>'}).join("")+
-    (weak?'<p class="mp-p" style="margin-top:12px"><b>'+h(EXS.weak(SK[weak][0]))+'</b></p>':'')+'</div>';
-  html+='<a class="mp-cta" href="#/simrev/'+k+'">'+h(EXS.review)+I.arrow+'</a><p class="mp-note">'+h(EXS.notOfficial)+'</p>';
+  html+='<h2 class="mp-h2">'+h(S.sections)+'</h2><div class="mp-card mp-skills">'+Object.keys(r.sk).map(function(s){var v=r.sk[s],L=skL(e,s);
+    return '<div class="sk"><div class="t"><span>'+h(L[0])+'<i lang="'+TL+'">'+h(L[1])+'</i></span><span>'+v[0]+' / '+v[1]+'</span></div>'+pbar(v[0]/v[1],skColor(e,s))+'</div>'}).join("")+
+    (weak?'<p class="mp-p" style="margin-top:12px"><b>'+h(EXS.weak(skL(e,weak)[0]))+'</b></p>':'')+'</div>';
+  html+='<a class="mp-cta" href="#/simrev/'+k+'">'+h(EXS.review)+I.arrow+'</a><p class="mp-note">'+h(sc.notOfficial)+'</p>';
   show(html)}
-function vSimRev(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame");return}var e=exById(a.id);
+function vSimRev(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame");return}var e=exById(a.id);if(!e){location.replace("#/esame");return}
+  var sc=SCH(e),TL=sc.lang||LL,who=sc.who||{N:"",F:"女: ",M:"男: "};
   var html=head(e.title,EXS.review,'<a class="mp-ib" href="#/simres/'+k+'" aria-label="'+h(EXS.back)+'">'+I.back+'</a>'),lastS=-1;
   a.f.forEach(function(f,n){var o=itemOf(e,f),it=o.it,mine=a.a[n],ok=mine===it.a;
-    if(f.s!==lastS){lastS=f.s;html+='<h2 class="mp-h2" lang="ja">'+h(o.sec.jp)+'</h2>'}
-    var opt=function(i){return it.say?(i+1)+". "+it.say[i]:(i+1)+". "+it.o[i]};
-    html+='<div class="mp-card mp-rv '+(ok?'ok':'no')+'"><div class="mp-k">もんだい'+o.part.n+' · '+h(o.part.kind)+'</div>'+
-      (o.part.text&&f.i===0?'<div class="xtext" lang="ja">'+ul(o.part.text)+'</div>':'')+(it.text?'<div class="xtext" lang="ja">'+ul(it.text)+'</div>':'')+
-      (it.scene?'<p lang="ja">➡ '+h(it.scene)+'</p>':'')+(it.q?'<p class="rq" lang="ja">'+ul(it.q)+'</p>':'')+
-      (it.script?'<details class="rscript"><summary>'+h(EXS.script)+'</summary>'+it.script.map(function(l){return '<p><b>'+({N:"",F:"女: ",M:"男: "}[l[0]])+'</b>'+jpHTML(l[1])+'</p>'}).join("")+
-        (it.say?it.say.map(function(t,i){return '<p><b>'+(i+1)+'.</b> '+jpHTML(t)+'</p>'}).join(""):'')+'<button class="mp-mini alt" data-au="'+e.id+'-'+o.part.n+'-'+(f.i+1)+'">▶ '+h(EXS.listen)+'</button></details>':'')+
-      '<p class="ra"><span>'+h(EXS.your)+':</span> <b class="'+(ok?'ok':'no')+'" lang="ja">'+(mine==null?h(EXS.empty):h(opt(mine)))+'</b></p>'+
-      (ok?'':'<p class="ra"><span>'+h(EXS.right)+':</span> <b class="ok" lang="ja">'+h(opt(it.a))+'</b></p>')+
-      (it.full?'<p class="ra" lang="ja">'+h(it.full)+'</p>':'')+'<p class="re">'+h(it.e)+'</p></div>'});
+    if(f.s!==lastS){lastS=f.s;html+='<h2 class="mp-h2" lang="'+TL+'">'+h(o.sec.jp)+'</h2>'}
+    var opt=function(i){var L=optLab(sc,i,o.part);L=L?L+". ":"";if(it.oi)return L+xpic(it.oi[i],"xpic sm");if(it.say)return L+xtx(it.say[i],sc);return L+xtx(it.o[i],sc)};
+    html+='<div class="mp-card mp-rv '+(ok?'ok':'no')+'"><div class="mp-k">'+h(o.part.label||((sc.part||"")+o.part.n))+(o.part.kind?' · '+h(o.part.kind):'')+'</div>'+
+      (o.part.text&&f.i===0?'<div class="xtext" lang="'+TL+'">'+xtx(o.part.text,sc)+'</div>':'')+(o.part.pics&&f.i===0?'<div class="xpics">'+o.part.pics.map(function(id,j){return '<span>'+xpic(id)+'<b>'+optLab(sc,j)+'</b></span>'}).join("")+'</div>':'')+
+      (it.text?'<div class="xtext" lang="'+TL+'">'+xtx(it.text,sc)+'</div>':'')+(it.img?'<div class="xpicq">'+xpic(it.img,"xpic")+'</div>':'')+
+      (it.scene?'<p lang="'+TL+'">➡ '+h(it.scene)+'</p>':'')+(it.q?'<p class="rq" lang="'+TL+'">'+xtx(it.q,sc)+'</p>':'')+
+      (it.script?'<details class="rscript"><summary>'+h(EXS.script)+'</summary>'+it.script.map(function(l){return '<p><b>'+h(who[l[0]]||"")+'</b>'+(sc.lang==="it"&&typeof itHTML==="function"?itHTML(l[1],true):jpHTML(l[1],true))+'</p>'}).join("")+
+        (it.say?it.say.map(function(t,i){return '<p><b>'+h(optLab(sc,i))+'.</b> '+xtx(t,sc)+'</p>'}).join(""):'')+'<button class="mp-mini alt" data-au="'+e.id+'-'+o.part.n+'-'+(f.i+1)+'">▶ '+h(EXS.listen)+'</button></details>':'')+
+      '<p class="ra"><span>'+h(EXS.your)+':</span> <b class="'+(ok?'ok':'no')+'" lang="'+TL+'">'+(mine==null?h(EXS.empty):opt(mine))+'</b></p>'+
+      (ok?'':'<p class="ra"><span>'+h(EXS.right)+':</span> <b class="ok" lang="'+TL+'">'+opt(it.a)+'</b></p>')+
+      (it.full?'<p class="ra" lang="'+TL+'">'+xtx(it.full,sc)+'</p>':'')+'<p class="re">'+h(it.e)+'</p></div>'});
   show(html);
   qa("[data-au]",view).forEach(function(b){b.onclick=function(){xstop();xau=new Audio("audio/exam/"+b.getAttribute("data-au")+".mp3");xau.play()}})}
 

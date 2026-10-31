@@ -1,0 +1,748 @@
+{
+ "id": "hsk1-1",
+ "exam": "hsk1",
+ "title": "Prova 1",
+ "it": "Simulazione completa nel formato attuale dell'HSK 1: ascolto e lettura, 40 domande, punteggio stimato su 200.",
+ "scheme": {
+  "name": "HSK 1",
+  "total": 200,
+  "pass": 120,
+  "lang": "zh-CN",
+  "plays": 2,
+  "opts": "ABCDEF",
+  "part": "",
+  "groups": [
+   {
+    "id": "listen",
+    "label": "Ascolto · 听力",
+    "max": 100
+   },
+   {
+    "id": "read",
+    "label": "Lettura · 阅读",
+    "max": 100
+   }
+  ],
+  "skills": {
+   "listening": [
+    "Ascolto",
+    "听力"
+   ],
+   "reading": [
+    "Lettura",
+    "阅读"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "女：",
+   "M": "男："
+  },
+  "passText": "Si supera con 120 punti su 200: ascolto e lettura valgono 100 punti ciascuno e si sommano.",
+  "notOfficial": "Simulazione nel formato attuale dell'HSK 1 (40 domande), non un test ufficiale: il punteggio è una stima. Dal 13 dicembre 2026 arriva il nuovo HSK 3.0; il formato ufficiale del livello 1 non è ancora stato pubblicato.",
+  "note": "Come sul foglio dell'HSK 1, sopra i caratteri c'è il pinyin. All'esame vero le immagini sono foto."
+ },
+ "sections": [
+  {
+   "id": "tingli",
+   "jp": "听力",
+   "it": "Ascolto",
+   "min": 15,
+   "score": "listen",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "第一部分",
+     "skill": "listening",
+     "kind": "判断",
+     "inst": "听录音，判断图片对不对。",
+     "itInst": "Ascolta e decidi se l'immagine corrisponde (✓) o no (✗).",
+     "items": [
+      {
+       "img": "i-cup",
+       "script": [
+        [
+         "F",
+         "喝[hē] 茶[chá]"
+        ]
+       ],
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 0,
+       "e": "喝茶 = bere il tè: la tazza va bene."
+      },
+      {
+       "img": "i-phone",
+       "script": [
+        [
+         "M",
+         "看[kàn] 书[shū]"
+        ]
+       ],
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 1,
+       "e": "看书 = leggere un libro, ma nell'immagine c'è un telefono."
+      },
+      {
+       "img": "i-umbrella",
+       "script": [
+        [
+         "F",
+         "下雨[xià-yǔ] 了[le]"
+        ]
+       ],
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 0,
+       "e": "下雨了 = piove: l'ombrello va bene."
+      },
+      {
+       "img": "i-clock",
+       "script": [
+        [
+         "M",
+         "吃[chī] 饭[fàn]"
+        ]
+       ],
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 1,
+       "e": "吃饭 = mangiare, ma nell'immagine c'è un orologio."
+      },
+      {
+       "img": "i-family",
+       "script": [
+        [
+         "F",
+         "爸爸[bà-ba] 和[hé] 妈妈[mā-ma]"
+        ]
+       ],
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 0,
+       "e": "爸爸和妈妈 = papà e mamma: la famiglia va bene."
+      }
+     ],
+     "opts": ""
+    },
+    {
+     "n": 2,
+     "label": "第二部分",
+     "skill": "listening",
+     "kind": "选图",
+     "inst": "听录音，选择正确的图片。",
+     "itInst": "Ascolta la frase e scegli l'immagine giusta.",
+     "items": [
+      {
+       "script": [
+        [
+         "M",
+         "我[Wǒ] 喜欢[xǐ-huan] 看[kàn] 书[shū] 。"
+        ]
+       ],
+       "oi": [
+        "i-book",
+        "i-cup",
+        "i-ball"
+       ],
+       "a": 0,
+       "e": "看书 = leggere: il libro."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "现在[Xiàn-zài] 九[jiǔ] 点[diǎn] 。"
+        ]
+       ],
+       "oi": [
+        "i-phone",
+        "i-sun",
+        "i-clock"
+       ],
+       "a": 2,
+       "e": "九点 = le nove: l'orologio."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "我[Wǒ] 去[qù] 商店[shāng-diàn] 买[mǎi] 东西[dōng-xi] 。"
+        ]
+       ],
+       "oi": [
+        "i-heart",
+        "i-umbrella",
+        "i-bag"
+       ],
+       "a": 2,
+       "e": "买东西 = fare acquisti: la borsa."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "他[Tā] 在[zài] 打[dǎ] 电话[diàn-huà] 。"
+        ]
+       ],
+       "oi": [
+        "i-family",
+        "i-cup",
+        "i-phone"
+       ],
+       "a": 2,
+       "e": "打电话 = telefonare: il telefono."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "今天[Jīn-tiān] 很[hěn] 热[rè] 。"
+        ]
+       ],
+       "oi": [
+        "i-book",
+        "i-umbrella",
+        "i-sun"
+       ],
+       "a": 2,
+       "e": "很热 = fa molto caldo: il sole."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "第三部分",
+     "skill": "listening",
+     "kind": "对话",
+     "inst": "听对话，选择正确的图片。",
+     "itInst": "Ascolta il dialogo e scegli l'immagine giusta tra A e F.",
+     "items": [
+      {
+       "script": [
+        [
+         "F",
+         "你[Nǐ] 饿[è] 了[le] 吗[ma] ？"
+        ],
+        [
+         "M",
+         "饿[È] 了[le] ， 我们[wǒ-men] 去[qù] 吃[chī] 饭[fàn] 吧[ba] 。"
+        ]
+       ],
+       "oi": [
+        "i-fork",
+        "i-ticket",
+        "i-cross",
+        "i-book",
+        "i-suitcase",
+        "i-heart"
+       ],
+       "a": 0,
+       "e": "Hanno fame e vanno a mangiare: A."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "你[Nǐ] 明天[míng-tiān] 去[qù] 北京[Běi-jīng] 吗[ma] ？"
+        ],
+        [
+         "F",
+         "去[Qù] ， 我[wǒ] 买[mǎi] 了[le] 火车票[huǒ-chē-piào] 。"
+        ]
+       ],
+       "oi": [
+        "i-fork",
+        "i-ticket",
+        "i-cross",
+        "i-book",
+        "i-suitcase",
+        "i-heart"
+       ],
+       "a": 1,
+       "e": "Ha comprato il biglietto del treno: B."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "你[Nǐ] 去[qù] 哪儿[nǎr] ？"
+        ],
+        [
+         "M",
+         "我[Wǒ] 去[qù] 医院[yī-yuàn] ， 我[wǒ] 是[shì] 医生[yī-shēng] 。"
+        ]
+       ],
+       "oi": [
+        "i-fork",
+        "i-ticket",
+        "i-cross",
+        "i-book",
+        "i-suitcase",
+        "i-heart"
+       ],
+       "a": 2,
+       "e": "Va all'ospedale, è medico: C."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "你[Nǐ] 在[zài] 看[kàn] 什么[shén-me] ？"
+        ],
+        [
+         "F",
+         "我[Wǒ] 在[zài] 看[kàn] 一[yì] 本[běn] 中文[Zhōng-wén] 书[shū] 。"
+        ]
+       ],
+       "oi": [
+        "i-fork",
+        "i-ticket",
+        "i-cross",
+        "i-book",
+        "i-suitcase",
+        "i-heart"
+       ],
+       "a": 3,
+       "e": "Sta leggendo un libro di cinese: D."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "你们[Nǐ-men] 什么[shén-me] 时候[shí-hou] 去[qù] 中国[Zhōng-guó] ？"
+        ],
+        [
+         "M",
+         "下[Xià] 个[ge] 月[yuè] ， 我们[wǒ-men] 坐[zuò] 飞机[fēi-jī] 去[qù] 。"
+        ]
+       ],
+       "oi": [
+        "i-fork",
+        "i-ticket",
+        "i-cross",
+        "i-book",
+        "i-suitcase",
+        "i-heart"
+       ],
+       "a": 4,
+       "e": "Partono il mese prossimo in aereo: E, la valigia."
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "第四部分",
+     "skill": "listening",
+     "kind": "问答",
+     "inst": "听句子和问题，选择正确的答案。",
+     "itInst": "Ascolta la frase e la domanda, poi scegli la risposta giusta.",
+     "items": [
+      {
+       "script": [
+        [
+         "F",
+         "我[Wǒ] 叫[jiào] 王丽[Wáng-lì] ， 我[wǒ] 是[shì] 中国人[Zhōng-guó-rén] 。"
+        ],
+        [
+         "N",
+         "问[Wèn] ： 她[tā] 是[shì] 哪[nǎ] 国[guó] 人[rén] ？"
+        ]
+       ],
+       "o": [
+        "美国人[Měi-guó-rén]",
+        "中国人[Zhōng-guó-rén]",
+        "意大利人[Yì-dà-lì-rén]"
+       ],
+       "a": 1,
+       "e": "我是中国人 = sono cinese."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "我[Wǒ] 家[jiā] 有[yǒu] 三[sān] 口[kǒu] 人[rén] ： 爸爸[bà-ba] 、 妈妈[mā-ma] 和[hé] 我[wǒ] 。"
+        ],
+        [
+         "N",
+         "问[Wèn] ： 他[tā] 家[jiā] 有[yǒu] 几[jǐ] 口[kǒu] 人[rén] ？"
+        ]
+       ],
+       "o": [
+        "三[sān] 口[kǒu]",
+        "四[sì] 口[kǒu]",
+        "两[liǎng] 口[kǒu]"
+       ],
+       "a": 0,
+       "e": "三口人 = tre persone: papà, mamma e lui."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "我们[Wǒ-men] 明天[míng-tiān] 上午[shàng-wǔ] 八[bā] 点[diǎn] 见[jiàn] 。"
+        ],
+        [
+         "N",
+         "问[Wèn] ： 他们[tā-men] 几[jǐ] 点[diǎn] 见[jiàn] ？"
+        ]
+       ],
+       "o": [
+        "六[liù] 点[diǎn]",
+        "七[qī] 点[diǎn]",
+        "八[bā] 点[diǎn]"
+       ],
+       "a": 2,
+       "e": "八点 = alle otto."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "这个[Zhè-ge] 杯子[bēi-zi] 二十[èr-shí] 块[kuài] 钱[qián] 。"
+        ],
+        [
+         "N",
+         "问[Wèn] ： 杯子[bēi-zi] 多少[duō-shao] 钱[qián] ？"
+        ]
+       ],
+       "o": [
+        "十二[shí-èr] 块[kuài]",
+        "十[shí] 块[kuài]",
+        "二十[èr-shí] 块[kuài]"
+       ],
+       "a": 2,
+       "e": "二十块 = venti yuan (十二 è dodici)."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "我[Wǒ] 在[zài] 商店[shāng-diàn] 买[mǎi] 了[le] 一[yí] 件[jiàn] 衣服[yī-fu] 。"
+        ],
+        [
+         "N",
+         "问[Wèn] ： 她[tā] 买[mǎi] 了[le] 什么[shén-me] ？"
+        ]
+       ],
+       "o": [
+        "茶[chá]",
+        "衣服[yī-fu]",
+        "书[shū]"
+       ],
+       "a": 1,
+       "e": "一件衣服 = un vestito."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yuedu",
+   "jp": "阅读",
+   "it": "Lettura",
+   "min": 17,
+   "score": "read",
+   "parts": [
+    {
+     "n": 1,
+     "label": "第一部分",
+     "skill": "reading",
+     "kind": "判断",
+     "inst": "看图片和词语，判断对不对。",
+     "itInst": "Guarda l'immagine e la parola: corrispondono (✓) o no (✗)?",
+     "items": [
+      {
+       "img": "i-cup",
+       "text": "杯子[bēi-zi]",
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 0,
+       "e": "杯子 = tazza, bicchiere."
+      },
+      {
+       "img": "i-book",
+       "text": "电话[diàn-huà]",
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 1,
+       "e": "电话 = telefono; nell'immagine c'è un libro (书)."
+      },
+      {
+       "img": "i-sun",
+       "text": "热[rè]",
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 0,
+       "e": "热 = caldo: il sole va bene."
+      },
+      {
+       "img": "i-umbrella",
+       "text": "飞机[fēi-jī]",
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 1,
+       "e": "飞机 = aereo; nell'immagine c'è un ombrello."
+      },
+      {
+       "img": "i-clock",
+       "text": "时间[shí-jiān]",
+       "o": [
+        "✓",
+        "✗"
+       ],
+       "a": 0,
+       "e": "时间 = tempo, ora: l'orologio va bene."
+      }
+     ],
+     "opts": ""
+    },
+    {
+     "n": 2,
+     "label": "第二部分",
+     "skill": "reading",
+     "kind": "选图",
+     "inst": "看句子，选择正确的图片。",
+     "itInst": "Leggi la frase e scegli l'immagine giusta tra A e F.",
+     "items": [
+      {
+       "text": "我们[Wǒ-men] 去[qù] 饭馆[fàn-guǎn] 吃[chī] 饭[fàn] 吧[ba] 。",
+       "oi": [
+        "i-fork",
+        "i-phone",
+        "i-bag",
+        "i-family",
+        "i-umbrella",
+        "i-book"
+       ],
+       "a": 0,
+       "e": "吃饭 = mangiare: A."
+      },
+      {
+       "text": "外面[Wài-mian] 下雨[xià-yǔ] 了[le] 。",
+       "oi": [
+        "i-fork",
+        "i-phone",
+        "i-bag",
+        "i-family",
+        "i-umbrella",
+        "i-book"
+       ],
+       "a": 4,
+       "e": "下雨 = piovere: E, l'ombrello."
+      },
+      {
+       "text": "我[Wǒ] 想[xiǎng] 给[gěi] 妈妈[mā-ma] 打[dǎ] 电话[diàn-huà] 。",
+       "oi": [
+        "i-fork",
+        "i-phone",
+        "i-bag",
+        "i-family",
+        "i-umbrella",
+        "i-book"
+       ],
+       "a": 1,
+       "e": "打电话 = telefonare: B."
+      },
+      {
+       "text": "这[Zhè] 是[shì] 我[wǒ] 爸爸[bà-ba] 、 妈妈[mā-ma] 和[hé] 我[wǒ] 。",
+       "oi": [
+        "i-fork",
+        "i-phone",
+        "i-bag",
+        "i-family",
+        "i-umbrella",
+        "i-book"
+       ],
+       "a": 3,
+       "e": "La famiglia: D."
+      },
+      {
+       "text": "我[Wǒ] 去[qù] 商店[shāng-diàn] 买[mǎi] 东西[dōng-xi] 。",
+       "oi": [
+        "i-fork",
+        "i-phone",
+        "i-bag",
+        "i-family",
+        "i-umbrella",
+        "i-book"
+       ],
+       "a": 2,
+       "e": "买东西 = fare acquisti: C."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "第三部分",
+     "skill": "reading",
+     "kind": "问答",
+     "inst": "看问题，选择正确的回答。",
+     "itInst": "Leggi la domanda e scegli la risposta giusta tra A e F.",
+     "items": [
+      {
+       "q": "你[Nǐ] 叫[jiào] 什么[shén-me] 名字[míng-zi] ？",
+       "o": [
+        "我[Wǒ] 二十[èr-shí] 岁[suì] 。",
+        "是[Shì] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。",
+        "很[Hěn] 好[hǎo] ， 谢谢[xiè-xie] ！",
+        "我[Wǒ] 叫[jiào] 马可[Mǎ-kě] 。",
+        "在[Zài] 桌子[zhuō-zi] 上[shang] 。",
+        "不[Bú] 客气[kè-qi] 。"
+       ],
+       "a": 3,
+       "e": "Ti chiede il nome: D."
+      },
+      {
+       "q": "你[Nǐ] 今年[jīn-nián] 多[duō] 大[dà] ？",
+       "o": [
+        "我[Wǒ] 二十[èr-shí] 岁[suì] 。",
+        "是[Shì] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。",
+        "很[Hěn] 好[hǎo] ， 谢谢[xiè-xie] ！",
+        "我[Wǒ] 叫[jiào] 马可[Mǎ-kě] 。",
+        "在[Zài] 桌子[zhuō-zi] 上[shang] 。",
+        "不[Bú] 客气[kè-qi] 。"
+       ],
+       "a": 0,
+       "e": "Ti chiede l'età: A."
+      },
+      {
+       "q": "你[Nǐ] 是[shì] 学生[xué-sheng] 吗[ma] ？",
+       "o": [
+        "我[Wǒ] 二十[èr-shí] 岁[suì] 。",
+        "是[Shì] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。",
+        "很[Hěn] 好[hǎo] ， 谢谢[xiè-xie] ！",
+        "我[Wǒ] 叫[jiào] 马可[Mǎ-kě] 。",
+        "在[Zài] 桌子[zhuō-zi] 上[shang] 。",
+        "不[Bú] 客气[kè-qi] 。"
+       ],
+       "a": 1,
+       "e": "Domanda sì/no: B."
+      },
+      {
+       "q": "我[Wǒ] 的[de] 书[shū] 在[zài] 哪儿[nǎr] ？",
+       "o": [
+        "我[Wǒ] 二十[èr-shí] 岁[suì] 。",
+        "是[Shì] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。",
+        "很[Hěn] 好[hǎo] ， 谢谢[xiè-xie] ！",
+        "我[Wǒ] 叫[jiào] 马可[Mǎ-kě] 。",
+        "在[Zài] 桌子[zhuō-zi] 上[shang] 。",
+        "不[Bú] 客气[kè-qi] 。"
+       ],
+       "a": 4,
+       "e": "哪儿 = dove: E."
+      },
+      {
+       "q": "你[Nǐ] 好[hǎo] 吗[ma] ？",
+       "o": [
+        "我[Wǒ] 二十[èr-shí] 岁[suì] 。",
+        "是[Shì] ， 我[wǒ] 是[shì] 学生[xué-sheng] 。",
+        "很[Hěn] 好[hǎo] ， 谢谢[xiè-xie] ！",
+        "我[Wǒ] 叫[jiào] 马可[Mǎ-kě] 。",
+        "在[Zài] 桌子[zhuō-zi] 上[shang] 。",
+        "不[Bú] 客气[kè-qi] 。"
+       ],
+       "a": 2,
+       "e": "Ti chiede come stai: C."
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "第四部分",
+     "skill": "reading",
+     "kind": "填空",
+     "inst": "选词填空。",
+     "itInst": "Completa la frase con la parola giusta tra A e F.",
+     "items": [
+      {
+       "q": "你[Nǐ] 的[de] （ ＿＿ ） 是[shì] 什么[shén-me] ？",
+       "o": [
+        "喝[hē]",
+        "名字[míng-zi]",
+        "在[zài]",
+        "几[jǐ]",
+        "高兴[gāo-xìng]",
+        "热[rè]"
+       ],
+       "a": 1,
+       "e": "你的名字是什么？ = Come ti chiami?"
+      },
+      {
+       "q": "我[Wǒ] 想[xiǎng] （ ＿＿ ） 一[yì] 杯[bēi] 茶[chá] 。",
+       "o": [
+        "喝[hē]",
+        "名字[míng-zi]",
+        "在[zài]",
+        "几[jǐ]",
+        "高兴[gāo-xìng]",
+        "热[rè]"
+       ],
+       "a": 0,
+       "e": "喝一杯茶 = bere una tazza di tè."
+      },
+      {
+       "q": "我[Wǒ] 家[jiā] （ ＿＿ ） 北京[Běi-jīng] 。",
+       "o": [
+        "喝[hē]",
+        "名字[míng-zi]",
+        "在[zài]",
+        "几[jǐ]",
+        "高兴[gāo-xìng]",
+        "热[rè]"
+       ],
+       "a": 2,
+       "e": "在 = trovarsi in un luogo."
+      },
+      {
+       "q": "现在[Xiàn-zài] （ ＿＿ ） 点[diǎn] 了[le] ？",
+       "o": [
+        "喝[hē]",
+        "名字[míng-zi]",
+        "在[zài]",
+        "几[jǐ]",
+        "高兴[gāo-xìng]",
+        "热[rè]"
+       ],
+       "a": 3,
+       "e": "几点 = che ora."
+      },
+      {
+       "q": "认识[Rèn-shi] 你[nǐ] 很[hěn] （ ＿＿ ） ！",
+       "o": [
+        "喝[hē]",
+        "名字[míng-zi]",
+        "在[zài]",
+        "几[jǐ]",
+        "高兴[gāo-xìng]",
+        "热[rè]"
+       ],
+       "a": 4,
+       "e": "认识你很高兴 = piacere di conoscerti."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
