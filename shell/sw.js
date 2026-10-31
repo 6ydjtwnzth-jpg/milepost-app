@@ -6,7 +6,7 @@
    - Google Fonts: saved copy first, refreshed in the background. */
 var VERSION="/*VERSION*/",V="milepost-"+VERSION,AUDIO="milepost-audio-v1",FONTS="milepost-fonts-v1";
 var COURSES=/*COURSES*/[];
-var CORE=["./","./index.html","./manifest.webmanifest","./catalog.js","./plan.js","./course-app.css","./icons/icon.svg","./icons/icon-192.png","./icons/icon-512.png"];
+var CORE=["./","./index.html","./manifest.webmanifest","./catalog.js","./plan.js","./course-app.css","./sync.js","./sync-config.js","./icons/icon.svg","./icons/icon-192.png","./icons/icon-512.png"];
 self.addEventListener("install",function(e){
   var urls=CORE.concat(COURSES.map(function(id){return "./c/"+id+"/"}));
   e.waitUntil(caches.open(V).then(function(c){

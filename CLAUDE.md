@@ -41,6 +41,11 @@ ciò che manca si mostra come "In arrivo".
   costruisci il carattere (`chr`, cinese e giapponese), rispondi nel dialogo (`rep`), riconosci il tono (`tone`, cinese).
   Contenuti per lezione in `courses/<id>/src/drills.js`; `node tools/drills_check.js <id>` controlla forma, tessere e (cinese)
   i cambi di tono di 不 e 一. Nelle spiegazioni il giapponese va scritto a parole separate da spazi, come nel resto del corso.
+- Account e salvataggio dei progressi: `shell/sync.js` (nessuna libreria: parla con Supabase via REST), configurazione in
+  `shell/sync-config.js` (vuota = niente account in app), schema e regole in `supabase/schema.sql`, guida in `supabase/README.md`.
+  Accesso con codice di 6 cifre via email. Si sincronizzano le chiavi `milepost-…` e quelle dei corsi (storageKey…), tranne
+  ciò che vale solo sul dispositivo (`…-offline`, sessione). In caso di conflitto i progressi si uniscono, non si perdono.
+  Una chiave nuova di localStorage va chiamata con uno di questi prefissi, altrimenti non viaggia tra i dispositivi.
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 - Offline: `shell/sw.js` (il build ci scrive versione ed elenco dei corsi) salva all'installazione la shell e tutte le pagine dei
   corsi; l'audio si salva all'ascolto o tutto insieme da Impostazioni → Senza connessione (elenco in `docs/c/<id>/audio/index.json`).
@@ -51,6 +56,8 @@ ciò che manca si mostra come "In arrivo".
 - Anteprima: `cd docs && python3 -m http.server 8765`.
 
 ## Regole
+- Ogni nuova lingua (o coppia di lingue) arriva con la sua simulazione d'esame nel formato reale dell'esame più adatto
+  (JLPT, HSK, CILS/CELI, DELE, DELF…), insieme al corso: non si pubblica un corso senza la sua prova d'esame.
 - Ogni parola cliccabile deve avere un significato (tocco e passaggio del mouse). Verifica: apri un corso con `?audit=1`
   e chiama `MPAUDIT()` in console (deve restituire `miss: []`). Significati aggiunti: `courses/<id>/src/js/dict2.js`.
 - La pagina lezione mostra sempre: introduzione, "alla fine saprai", tappe, regole leggibili sul posto, parole.

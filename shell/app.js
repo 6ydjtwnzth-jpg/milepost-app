@@ -48,6 +48,7 @@ function screen(html){app.innerHTML='<div class="scr">'+html+'</div>';var h=$("h
 
 function render(){
   var r=route();
+  if(r==="/accedi")return vSignIn();
   if(!ST.speak&&r!=="/lingua")return go("#/lingua");
   var active=ST.active&&course(ST.active),hasPlan=active&&ST.plans[active.id];
   if(r==="/lingua")return vSpeak();
@@ -66,8 +67,22 @@ function vSpeak(){
     ['it','zh'].map(function(l){var lab=l==="it"?["Italiano","Corsi spiegati in italiano"]:["中文","用中文讲解的课程"];
       return '<button class="opt" role="radio" aria-checked="'+(ST.speak===l)+'" data-l="'+l+'" lang="'+I18N[l].htmlLang+'"><span class="ic">'+(l==="it"?"IT":"中")+'</span><span><b>'+lab[0]+'</b><small>'+lab[1]+'</small></span></button>'}).join("")+
     '<button class="opt" disabled lang="en"><span class="ic">EN</span><span><b>English</b><small>Courses explained in English</small></span><span class="tag">Soon</span></button>'+
-    '</div>');
+    '</div>'+haveAccount(true));
   $$(".opt[data-l]",app).forEach(function(b){b.onclick=function(){ST.speak=b.dataset.l;save();setLang(ST.speak);go("#/corso")}})}
+/* ---------- account: sign in on a new device and find your courses again (shell/sync.js) ---------- */
+function syncOn(){return !!(window.MPSYNC&&MPSYNC.enabled)}
+function uiLang(){return ST.speak||(/^zh/i.test(navigator.language||"")?"zh":"it")}
+function haveAccount(both){if(!syncOn()||MPSYNC.signedIn())return "";
+  var t=both?MPSYNC.str("it").have+" · "+MPSYNC.str("zh").have:MPSYNC.str(uiLang()).have;
+  return '<p class="have"><a href="#/accedi">'+esc(t)+'</a></p>'}
+function vSignIn(){if(!syncOn())return go("#/");var L=uiLang(),S=MPSYNC.str(L);
+  try{if(sessionStorage.getItem("mp-signed-in-now")){sessionStorage.removeItem("mp-signed-in-now");if(ST.speak)return go("#/")}}catch(e){}
+  screen(top('<a class="chip" href="#/">'+esc(L==="zh"?"返回":"Indietro")+'</a>')+'<h1 lang="'+(L==="zh"?"zh-CN":"it")+'">'+esc(S.ttl)+'</h1><div id="acct" class="acct" lang="'+(L==="zh"?"zh-CN":"it")+'"></div>'+
+    '<button class="btn full" id="cont" hidden>'+esc(L==="zh"?"继续":"Continua")+'</button>');
+  var box=$("#acct",app),cont=$("#cont",app);
+  function upd(){cont.hidden=!MPSYNC.signedIn()}
+  MPSYNC.ui(box,{lang:L,onIn:function(){go("#/")}});upd();box.addEventListener("click",function(){setTimeout(upd,50)});
+  cont.onclick=function(){go("#/")}}
 
 /* ---------- 1 · what do you want to learn ---------- */
 function vCourses(){
@@ -78,7 +93,7 @@ function vCourses(){
       '<div class="body"><div><h3>'+esc(c.name)+'<span lang="'+c.learn+'">'+esc(c.native)+'</span></h3><p>'+esc(c.levelsLabel)+'<br>'+esc(c.exams.filter(function(e){return !e.soon}).map(function(e){return e.name}).join(" · "))+'</p></div>'+
       '<span class="go">'+ICO.arrow+'</span></div></button>'}).join("")+
     '<div class="soon">'+esc(T.soon)+'</div><div class="soonrow">'+
-    (CATALOG.soon[ST.speak]||[]).map(function(s){return '<span><b>'+esc(s[0])+'</b>'+esc(s[1])+'</span>'}).join("")+'</div>');
+    (CATALOG.soon[ST.speak]||[]).map(function(s){return '<span><b>'+esc(s[0])+'</b>'+esc(s[1])+'</span>'}).join("")+'</div>'+haveAccount(false));
   $("#chlang").onclick=function(){go("#/lingua")};
   $$(".course",app).forEach(function(b){b.onclick=function(){var c=course(b.dataset.c),old=ST.plans[c.id];
     ON=old?JSON.parse(JSON.stringify(old)):{cid:c.id,goal:null,exam:null,date:null,start:1,mins:30};ON.cid=c.id;go("#/obiettivo")}})}

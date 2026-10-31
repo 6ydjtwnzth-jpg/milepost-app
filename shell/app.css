@@ -58,7 +58,7 @@ a{color:inherit}
 .top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:var(--tap)}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-.015em}
 .brand svg{width:30px;height:30px;flex:none}
-.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:6px 14px;border-radius:999px;background:var(--chip);
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:6px 14px;border-radius:999px;background:var(--chip);
   box-shadow:var(--shadow);font-size:13.5px;font-weight:600;white-space:nowrap}
 .chip b{color:var(--accent);font-weight:800}
 .ghost{min-height:var(--tap);min-width:var(--tap);padding:0 6px;color:var(--muted);font-weight:700;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
@@ -193,3 +193,10 @@ h2.sec{font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-
 .seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
 .linkbtn{min-height:var(--tap);font-weight:700;color:var(--accent);font-size:15px}
 .danger{color:var(--red)}
+
+/* ---------- account (shell/sync.js draws the box) ---------- */
+.have{margin:22px 0 0;text-align:center;font-size:15px}
+.have a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;color:var(--ink);font-weight:700;text-underline-offset:4px}
+.acct{margin-top:14px;padding:18px;border-radius:var(--r-sm);background:var(--card);box-shadow:var(--shadow)}
+#cont{margin-top:16px}
+a.chip{text-decoration:none;color:inherit}

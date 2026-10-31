@@ -379,7 +379,7 @@ function themeNow(){try{return localStorage.getItem("milepost-theme")||"auto"}ca
 function setTheme(t){try{if(t==="auto"){localStorage.removeItem("milepost-theme");localStorage.removeItem(KEY+"-theme")}else{localStorage.setItem("milepost-theme",t);localStorage.setItem(KEY+"-theme",t)}}catch(e){}
   if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t)}
 function closeSettings(){sh.hidden=shb.hidden=true;sh.style.transform=sh.style.transition=shb.style.opacity=""}
-shb.onclick=closeSettings;dragClose(sh,shb,closeSettings);document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden)closeSettings()});
+shb.onclick=closeSettings;window.addEventListener("hashchange",function(){if(!sh.hidden)closeSettings()});dragClose(sh,shb,closeSettings);document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden)closeSettings()});
 /* ---------- offline: lessons are saved by the service worker; the audio can be saved here in one go ---------- */
 var OFFK=KEY+"-offline",AUDC="milepost-audio-v1",offRun=null;
 function offGet(){try{return +localStorage.getItem(OFFK)||0}catch(e){return 0}}
@@ -415,13 +415,14 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
   sh.innerHTML='<button class="grab" aria-label="'+h(S.close)+'"><i></i></button><h2>'+h(S.settings)+'</h2>'+
     (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+(hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
+    (window.MPSYNC&&MPSYNC.enabled?'<div class="mp-lbl" style="margin-top:6px">'+h(MPSYNC.str(ZH?"zh":"it").ttl)+'</div><div class="mp-off" id="mpacct"></div>':'')+
     '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
     '<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>'+
     '<button class="mp-set mp-a danger" id="mpreset">'+h(S.reset)+'</button>'+
     '<button class="mp-cta alt" id="mpclose">'+h(S.close)+'</button>';
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
-  drawOffline(q("#mpoff",sh));if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
+  drawOffline(q("#mpoff",sh));if(window.MPSYNC&&MPSYNC.enabled)MPSYNC.ui(q("#mpacct",sh),{lang:ZH?"zh":"it"});if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
   q("#mpclose",sh).onclick=closeSettings;q(".grab",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;

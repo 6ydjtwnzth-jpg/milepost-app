@@ -47,7 +47,7 @@ def build_course(cid):
     html = rd(cdir, 'index.html')
     # The course engine runs inside one closure: the app code is inserted in the same closure,
     # right after the engine, so it can reuse its functions (steps, quizzes, audio).
-    head_js = '<script src="../../catalog.js"></script><script src="../../plan.js"></script>\n'
+    head_js = '<script src="../../catalog.js"></script><script src="../../plan.js"></script><script src="../../sync-config.js"></script><script src="../../sync.js"></script>\n'
     start = html.rfind('<script>\n(function(){')
     end = html.rfind('\n})();\n</script>')
     if start < 0 or end < start:
@@ -97,7 +97,7 @@ def build_shell(cat):
     page = page.replace('/*JS*/', js)
     wr(os.path.join(DOCS, 'index.html'), page)
     wr(os.path.join(DOCS, 'catalog.js'), 'var CATALOG=' + json.dumps(cat, ensure_ascii=False, separators=(',', ':')) + ';\n')
-    for f in ('plan.js', 'course-app.css', 'manifest.webmanifest'):
+    for f in ('plan.js', 'course-app.css', 'manifest.webmanifest', 'sync.js', 'sync-config.js'):
         shutil.copy(os.path.join(SHELL, f), os.path.join(DOCS, f))
     write_sw(cat)
     os.makedirs(os.path.join(DOCS, 'icons'), exist_ok=True)
