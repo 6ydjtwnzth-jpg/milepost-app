@@ -1,0 +1,11 @@
+<div id="mp-splash" aria-hidden="true"><svg viewBox="0 0 32 32"><rect class="sq" width="32" height="32" rx="9" fill="#ea4a2a"/><path class="stone" d="M10 25V14a6 6 0 0 1 12 0v11z" fill="#fff"/><path class="mark" d="M13 19h6" stroke="#ea4a2a" stroke-width="2.4" stroke-linecap="round" fill="none"/><path class="road" d="M6 25h20" stroke="#ffc532" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg></div>
+<script>
+/* The page calls mpSplashReady() once its first screen is drawn; the splash leaves after the animation, never later than 4 s. */
+(function(){var d=document.documentElement,el=document.getElementById("mp-splash"),t0=Date.now(),done=0,rm=0;
+try{rm=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}
+var min=d.classList.contains("mp-splash-play")?(rm?300:1250):0;
+function hide(){if(done||!el)return;done=1;try{sessionStorage.setItem("milepost-splash","1")}catch(e){}
+el.classList.add("out");setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);d.classList.remove("mp-splash-play")},rm?160:400)}
+window.mpSplashReady=function(){setTimeout(hide,Math.max(0,min-(Date.now()-t0)))};
+setTimeout(hide,Math.max(4000,min))})();
+</script>

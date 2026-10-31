@@ -1,0 +1,22 @@
+/* Opening splash ("Germoglio"): the square blooms from a drop, the road draws, the milestone sprouts.
+   It plays once per app launch; later pages show the still logo until they have drawn. */
+#mp-splash{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:var(--paper);transition:opacity .4s ease-in}
+#mp-splash svg{width:clamp(80px,28vw,120px);height:auto;overflow:visible;transition:transform .4s ease-in}
+#mp-splash svg *{transform-box:fill-box}
+#mp-splash.out{opacity:0;pointer-events:none}
+#mp-splash.out svg{transform:scale(.96)}
+html:not(.mp):not(.mp-splash-play) #mp-splash{display:none}
+.mp-splash-play #mp-splash .sq{transform-origin:center;animation:mps-bloom .7s cubic-bezier(.3,1.5,.5,1) both}
+.mp-splash-play #mp-splash .road{stroke-dasharray:20;stroke-dashoffset:20;animation:mps-draw .45s .35s ease-out forwards}
+.mp-splash-play #mp-splash .stone{transform-origin:50% 100%;animation:mps-sprout .6s .55s cubic-bezier(.3,1.6,.5,1) both}
+.mp-splash-play #mp-splash .mark{stroke-dasharray:6;stroke-dashoffset:6;animation:mps-draw .3s .95s ease-out forwards}
+@keyframes mps-bloom{0%{transform:scale(.2);rx:16px}60%{rx:12px}100%{transform:scale(1);rx:9px}}
+@keyframes mps-sprout{0%{transform:scaleY(0)}100%{transform:scaleY(1)}}
+@keyframes mps-draw{to{stroke-dashoffset:0}}
+@keyframes mps-fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .mp-splash-play #mp-splash svg *{animation:none!important;stroke-dashoffset:0!important;transform:none!important}
+  .mp-splash-play #mp-splash svg{animation:mps-fade .3s ease-out both}
+  #mp-splash,#mp-splash svg{transition-duration:.15s}
+  #mp-splash.out svg{transform:none}
+}

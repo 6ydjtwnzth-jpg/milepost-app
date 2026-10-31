@@ -51,6 +51,10 @@ ciò che manca si mostra come "In arrivo".
   Accesso con codice di 6 cifre via email. Si sincronizzano le chiavi `milepost-…` e quelle dei corsi (storageKey…), tranne
   ciò che vale solo sul dispositivo (`…-offline`, sessione). In caso di conflitto i progressi si uniscono, non si perdono.
   Una chiave nuova di localStorage va chiamata con uno di questi prefissi, altrimenti non viaggia tra i dispositivi.
+- Apertura: `shell/splash.css` + `shell/splash.html` (animazione «Germoglio» del logo), inserite dal build nella shell e in ogni
+  corso. Parte una volta per avvio (sessionStorage), poi le pagine mostrano il logo fermo finché non hanno disegnato
+  (`mpSplashReady()`). Su iPhone/iPad l'avvio da Home mostra le immagini `docs/icons/launch/` (color carta, chiaro e scuro),
+  generate dal build dai token `--paper`.
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 - Offline: `shell/sw.js` (il build ci scrive versione ed elenco dei corsi) salva all'installazione la shell e tutte le pagine dei
   corsi; l'audio si salva all'ascolto o tutto insieme da Impostazioni → Senza connessione (elenco in `docs/c/<id>/audio/index.json`).

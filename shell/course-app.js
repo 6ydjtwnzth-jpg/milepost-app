@@ -201,7 +201,7 @@ function render(){
   ({oggi:vToday,corso:vCourse,l:function(){vLesson(parts[1])},esame:vExam,cultura:vCult,strumenti:vTools,leggi:function(){vRead(parts[1])},racconto:function(){vStory(parts[1])},simres:function(){vSimRes(parts[1])},simrev:function(){vSimRev(parts[1])}}[tab]||vToday)();
   var st=q("#mpset",view);if(st)st.onclick=openSettings;
   if(!mstack.length){var h1=q("h1",view);if(h1)try{h1.focus({preventScroll:true})}catch(e){}}
-  document.documentElement.classList.remove("mp-boot")}
+  if(window.mpSplashReady)mpSplashReady()}
 function show(html){view.innerHTML=html;window.scrollTo(0,0)}
 window.addEventListener("hashchange",render);
 /* the course engine calls these after a step: refresh our view instead of the old map/sheet */

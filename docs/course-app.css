@@ -1,8 +1,6 @@
 /* Milepost course app. Uses the course design tokens (--paper, --sheet, --ink, --c…) so light/dark follow the course theme. */
 html.mp body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
 html.mp .topbar,html.mp .book{display:none!important}
-/* until the app has drawn its first screen: a quiet splash instead of an empty page */
-html.mp-boot body::before{content:"";position:fixed;inset:0;z-index:100;background:var(--paper) url("../../icons/icon.svg") center/72px no-repeat}
 html.mp.mp-read .book{display:block!important}
 html.mp.mp-read .book>nav.toc{display:none!important}
 html.mp.mp-read .book main>*:not(.mp-target){display:none!important}
