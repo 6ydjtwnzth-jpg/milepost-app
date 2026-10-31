@@ -16,7 +16,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
 
 /* suono della lezione */
 .suono{position:relative;background:var(--sheet);border-radius:var(--r);padding:34px 22px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);border:2.5px dashed var(--c)}
-.suono::before{content:"Scrittura e suoni · 文字";position:absolute;top:-14px;left:20px;background:var(--sheet);color:var(--ink);font-size:13px;font-weight:900;padding:3px 12px;letter-spacing:.08em;border-radius:999px;border:2.5px solid var(--c)}
+.suono::before{content:"Suoni e caratteri";position:absolute;top:-14px;left:20px;background:var(--sheet);color:var(--ink);font-size:13px;font-weight:900;padding:3px 12px;letter-spacing:.08em;border-radius:999px;border:2.5px solid var(--c)}
 .suono h3{margin:0;font-size:19px}
 .suono h3::before{display:none}
 .suono .ex{background:var(--paper)}
@@ -33,7 +33,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
 
 /* sono capace di */
 .cando{list-style:none;margin:0;padding:18px 20px;background:var(--sheet);border-radius:var(--r);display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);position:relative}
-.cando::before{content:"So fare · できること";display:block;font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--c);margin-bottom:4px}
+.cando::before{content:"So fare";display:block;font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--c);margin-bottom:4px}
 .t-yellow .cando::before,.t-pink .cando::before{color:var(--ink)}
 .cando label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;line-height:1.6}
 .cando input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;border-radius:8px;border:2.5px solid var(--line2);margin:2px 0 0;cursor:pointer;display:grid;place-items:center;transition:background .15s,border-color .15s}
@@ -53,7 +53,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
 
 /* testo di lettura, compito, test */
 .task{position:relative;background:var(--c-soft);border-radius:var(--r);padding:30px 22px 20px;display:flex;flex-direction:column;gap:10px}
-.task::before{content:"Compito · タスク";position:absolute;top:-13px;left:20px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:900;padding:4px 14px;letter-spacing:.1em;border-radius:999px}
+.task::before{content:"Compito";position:absolute;top:-13px;left:20px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:900;padding:4px 14px;letter-spacing:.1em;border-radius:999px}
 .task h3{margin:0;font-size:20px}
 .task h3::before{display:none}
 .model{background:var(--sheet);border-radius:var(--r-sm);padding:4px 16px}

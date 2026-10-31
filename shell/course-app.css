@@ -55,6 +55,13 @@ html.mp-read body{padding-bottom:0}
 .mp-blk small{display:block;font-size:12.5px;opacity:.85;line-height:1.3}
 .mp-blk em{margin-left:auto;flex:none;opacity:.8}.mp-blk em svg{width:18px;height:18px}
 #mpapp .mp-today .mp-cta{background:var(--yellow);color:#1a1720!important}
+.mp-hero{padding:22px 20px 20px}
+.mp-hgo{display:flex;flex-direction:column;align-items:flex-start;gap:6px;width:100%;margin:14px 0 4px;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.mp-hgo .n{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-family:var(--f-disp);font-weight:800;font-size:26px;background:var(--yellow);color:#1a1720;margin-bottom:6px}
+.mp-hgo b{font-family:var(--f-disp);font-weight:800;font-size:32px;line-height:1.08;letter-spacing:-.02em}
+.mp-hgo small{font-size:15px;font-weight:700;opacity:.88;line-height:1.35}
+#mpapp .mp-hero .mp-cta{min-height:60px;font-size:18px;margin-top:18px}
+.mp-more .mp-blk{background:var(--sheet)!important;color:var(--ink);box-shadow:var(--shadow);margin-top:12px}
 .mp-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
 .mp-tile{display:flex;flex-direction:column;gap:6px;background:var(--sheet);border-radius:var(--mp-rs);box-shadow:var(--shadow);padding:14px;min-height:128px}
 .mp-tile p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.35}
@@ -430,3 +437,33 @@ html.mp-exam body{padding-bottom:0}
 #mpexam .xoimg .xo{flex-direction:column;justify-content:center;gap:6px;min-height:120px}
 .mp-prac{margin-top:10px}
 .mp-prac .mp-tr{color:var(--muted)}
+
+/* ---------- course content (step stage and full lesson) in the Milepost look ----------
+   The book styles came first: floating pill labels, ink frames with hard shadows, dashed frames, 3D buttons.
+   Inside the app they read like the rest: soft cards and quiet uppercase labels. */
+html.mp :is(.rule,.speech,.drill,.suono,.task){padding-top:20px}
+html.mp :is(.rule,.speech,.drill,.suono,.task)::before,html.mp .cc-q::before{position:static;display:block;align-self:flex-start;background:none;border:0;padding:0;margin:0 0 2px;border-radius:0;color:var(--muted);font-family:var(--f-body);font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+html.mp .drill{border:0;box-shadow:var(--shadow);gap:18px}
+html.mp .stage .drill{box-shadow:none;border:2px solid var(--line2);padding-top:18px}
+html.mp .suono{border:0}
+html.mp .cando::before{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+html.mp details.scopri summary{flex-wrap:wrap;row-gap:4px}
+html.mp details.scopri summary::before{flex-basis:100%;background:none;color:var(--muted);padding:0;font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+html.mp h3::before{content:none}
+html.mp .dhead{border-bottom:1.5px solid var(--line2)}
+html.mp .st-go,html.mp .st-go.ready{box-shadow:none}
+html.mp section.lesson .kicker::before{content:none}
+
+/* ---------- computer: two columns where it helps ----------
+   Lesson: the lesson on the left, rules and words on the right. Today: the next step on the left, the rest on the right. */
+@media (min-width:1024px){
+  .mp-view.mp-wide{max-width:1120px;padding-left:32px;padding-right:32px}
+  .mp-view.mp-wide .mp-lhero{margin:16px 0 0;border-radius:var(--mp-r);padding:20px 28px 24px}
+  .mp-cols{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px 36px;align-items:start}
+  .mp-side{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;padding:0 6px 24px;margin:0 -6px;scrollbar-width:thin}
+  .mp-side>.mp-h2:first-child{margin-top:24px}
+  .mp-cols-t .mp-side>:first-child{margin-top:16px}
+  .mp-cols-t .mp-side{position:static;max-height:none;overflow:visible}
+  .mp-cols-t .mp-main{position:sticky;top:16px}
+  .mp-tabs{justify-content:center;gap:12px}
+}

@@ -232,7 +232,7 @@ td.itc{font-family:var(--f-it);font-size:18px}
 
 /* esercizi */
 .drill{background:var(--sheet);border:2.5px solid var(--ink);border-radius:var(--r);padding:34px 20px 22px;position:relative;display:flex;flex-direction:column;gap:22px;box-shadow:7px 7px 0 var(--c)}
-.drill::before{content:"Esercizi · 練習";position:absolute;top:-16px;left:18px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:900;padding:4px 16px;letter-spacing:.08em;border-radius:999px}
+.drill::before{content:"Esercizi";position:absolute;top:-16px;left:18px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:900;padding:4px 16px;letter-spacing:.08em;border-radius:999px}
 .dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding-bottom:14px;border-bottom:1.5px dashed var(--line2)}
 .score{font-family:var(--f-disp);font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink);font-size:17px}
 .q{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1.5px dashed var(--line2)}
@@ -370,7 +370,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
 
 /* suono della lezione */
 .suono{position:relative;background:var(--sheet);border-radius:var(--r);padding:34px 22px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);border:2.5px dashed var(--c)}
-.suono::before{content:"Scrittura e suoni · 文字";position:absolute;top:-14px;left:20px;background:var(--sheet);color:var(--ink);font-size:13px;font-weight:900;padding:3px 12px;letter-spacing:.08em;border-radius:999px;border:2.5px solid var(--c)}
+.suono::before{content:"Scrittura e suoni";position:absolute;top:-14px;left:20px;background:var(--sheet);color:var(--ink);font-size:13px;font-weight:900;padding:3px 12px;letter-spacing:.08em;border-radius:999px;border:2.5px solid var(--c)}
 .suono h3{margin:0;font-size:19px}
 .suono h3::before{display:none}
 .suono .ex{background:var(--paper)}
@@ -387,7 +387,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
 
 /* sono capace di */
 .cando{list-style:none;margin:0;padding:18px 20px;background:var(--sheet);border-radius:var(--r);display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);position:relative}
-.cando::before{content:"So fare · できること";display:block;font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--c);margin-bottom:4px}
+.cando::before{content:"So fare";display:block;font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--c);margin-bottom:4px}
 .t-yellow .cando::before,.t-pink .cando::before{color:var(--ink)}
 .cando label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;line-height:1.6}
 .cando input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;border-radius:8px;border:2.5px solid var(--line2);margin:2px 0 0;cursor:pointer;display:grid;place-items:center;transition:background .15s,border-color .15s}
@@ -407,7 +407,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
 
 /* testo di lettura, compito, test */
 .task{position:relative;background:var(--c-soft);border-radius:var(--r);padding:30px 22px 20px;display:flex;flex-direction:column;gap:10px}
-.task::before{content:"Compito · タスク";position:absolute;top:-13px;left:20px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:900;padding:4px 14px;letter-spacing:.1em;border-radius:999px}
+.task::before{content:"Compito";position:absolute;top:-13px;left:20px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:900;padding:4px 14px;letter-spacing:.1em;border-radius:999px}
 .task h3{margin:0;font-size:20px}
 .task h3::before{display:none}
 .model{background:var(--sheet);border-radius:var(--r-sm);padding:4px 16px}
@@ -535,7 +535,7 @@ html.modal-open,html.modal-open body{overflow:hidden}
 .st-go{display:block;width:100%;max-width:728px;margin:0 auto;min-height:54px;font-size:17px}
 .st-go.ready{box-shadow:0 5px 0 color-mix(in srgb,var(--c) 62%,var(--ink))}
 .stage .drill{box-shadow:none;border-width:2px;padding-top:28px}
-.stage .drill::before{content:"Quiz · クイズ"}
+.stage .drill::before{content:"Quiz"}
 .drill.one .q{border-top:0;padding-top:4px}
 .drill.one .q[hidden]{display:none}
 .drill.one .qn{display:none}
@@ -575,7 +575,7 @@ html.modal-open,html.modal-open body{overflow:hidden}
 .chip span{font-family:var(--f-it);font-weight:700;font-size:16px;color:var(--it)}
 .chip small{font-size:13px;color:var(--muted)}
 .cc-q{margin-top:6px}
-.stage .cc-q::before{content:"Domanda · しつもん"}
+.stage .cc-q::before{content:"Domanda"}
 
 .toast{position:fixed;left:50%;top:calc(64px + env(safe-area-inset-top,0px));transform:translate(-50%,-20px);opacity:0;z-index:120;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:14px;pointer-events:none;transition:opacity .25s,transform .25s;max-width:calc(100vw - 32px);text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
@@ -5042,7 +5042,7 @@ function render(){
   var st=q("#mpset",view);if(st)st.onclick=openSettings;
   if(!mstack.length){var h1=q("h1",view);if(h1)try{h1.focus({preventScroll:true})}catch(e){}}
   if(window.mpSplashReady)mpSplashReady()}
-function show(html){view.innerHTML=html;window.scrollTo(0,0)}
+function show(html){view.innerHTML=html;view.classList.toggle("mp-wide",!!q(".mp-cols",view));window.scrollTo(0,0)}
 window.addEventListener("hashchange",render);
 /* the course engine calls these after a step: refresh our view instead of the old map/sheet */
 drawPath=function(){if(!stCur)render()};
@@ -5054,12 +5054,15 @@ function vToday(){
   var i=hereIdx(),U=i>=0?UNITS[i]:null,nx=U&&nextOf(U.id),inf=U&&info(U.id);
   var rw=reviewWords().length,dc=dayCult(),wk=weekActive();
   var html=head(fmt(new Date(),{weekday:"long",day:"numeric",month:"long"}),hi);
-  html+='<section class="mp-today hc-blue"><div class="mp-k">'+h(S.forToday)+(p?' · '+h(S.forTodaySub(p.mins)):'')+'</div>';
-  if(U&&nx)html+='<button class="mp-blk" id="mpnext"><span class="n">'+(U.kind==="lesson"?U.n:"★")+'</span><span><b>'+h(title(U))+'</b><small>'+h(S.next+": "+stepLabel(nx))+' · '+stepMinutes(U.id,nx)+' '+h(S.min)+'</small></span><em>'+I.arrow+'</em></button>';
-  if(rw>=4)html+='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(Math.min(8,rw)))+'</small></span><em>'+I.arrow+'</em></button>';
-  if(dc)html+='<button class="mp-blk" data-ck="'+h(dc.key)+'"><span class="n">'+(ZH?"文":"文")+'</span><span><b>'+h(S.dayCult)+'</b><small>'+h(dc.c.t)+'</small></span><em>'+I.arrow+'</em></button>';
-  if(U&&nx)html+='<button class="mp-cta" id="mpgo">'+h(S.resume)+I.arrow+'</button>';
+  /* one next step, big; everything else waits below */
+  html+='<div class="mp-cols mp-cols-t"><div class="mp-main">';
+  var rev='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(Math.min(8,rw)))+'</small></span><em>'+I.arrow+'</em></button>';
+  html+='<section class="mp-today mp-hero hc-blue"><div class="mp-k">'+h(S.forToday)+(p?' · '+h(S.forTodaySub(p.mins)):'')+'</div>';
+  if(U&&nx)html+='<button class="mp-hgo" id="mpnext"><span class="n">'+(U.kind==="lesson"?U.n:"★")+'</span><b>'+h(title(U))+'</b><small>'+h(S.next+": "+stepLabel(nx))+' · '+stepMinutes(U.id,nx)+' '+h(S.min)+'</small></button><button class="mp-cta" id="mpgo">'+h(S.resume)+I.arrow+'</button>';
+  else if(rw>=4)html+=rev;
   html+='</section>';
+  if(U&&nx&&rw>=4)html+='<div class="mp-more">'+rev+'</div>';
+  html+='</div><div class="mp-side">';
   html+='<div class="mp-row2"><div class="mp-tile"><span class="mp-lbl">'+h(S.week)+'</span><div class="mp-big">'+wk.n+'<small> / 6 '+h(S.days)+'</small></div><div class="mp-week">'+wk.html+'</div></div>';
   if(p){var pl=M.plan(C,p,P),ex=pl.ex;
     if(ex&&pl.examDate){var left=M.daysBetween(M.today(),pl.examDate);html+='<a class="mp-tile mp-ex" href="#/esame"><span class="mp-lbl">'+h(ex.name)+'</span><div class="mp-big">'+Math.max(0,left)+'<small> '+h(S.examIn(left))+'</small></div><p>'+h(HASEX&&readiness(curExam(ex)).total!=null?EXS.estShort(readiness(curExam(ex)).total,SCH(curExam(ex)).total,SCH(curExam(ex)).pass):(pl.marginW>=0?S.margin(pl.marginW):S.late(-pl.marginW).split(":")[0]))+'</p></a>'}
@@ -5069,6 +5072,7 @@ function vToday(){
   if(dc)html+='<h2 class="mp-h2">'+h(S.dayCult)+'</h2>'+cultCard(dc,true);
   var cds=[];for(var k=UNITS.length-1;k>=0&&cds.length<3;k--){if(info(UNITS[k].id).verified)canDo(UNITS[k].id).slice(0,3-cds.length).forEach(function(t){cds.push(t)})}
   html+='<h2 class="mp-h2">'+h(S.canDo)+'</h2><div class="mp-card mp-cando">'+(cds.length?cds.map(function(t){return '<div><span>✓</span>'+h(t)+'</div>'}).join(""):'<p>'+h(S.canDoEmpty)+'</p>')+'</div>';
+  html+='</div></div>';
   show(html);
   var a=q("#mpnext",view),g=q("#mpgo",view);if(a&&U)a.onclick=g.onclick=function(){openStep(U.id,nx.key)};
   var rv=q("#mprev",view);if(rv)rv.onclick=function(){openReview()};
@@ -5106,6 +5110,7 @@ function vLesson(id){
   var html='<section class="mp-lhero hc-'+U.color+'"><a class="mp-ib mp-back" href="#/corso" aria-label="'+h(S.back)+'">'+I.back+'</a>'+
     '<div class="mp-k">'+h(kick(U))+'</div><h1 tabindex="-1">'+h(title(U))+'</h1><div class="sub" lang="'+(ZH?"it":LL)+'">'+h(subT(U))+'</div>'+
     '<div class="pb"><span><i style="width:'+pc+'%"></i></span>'+pc+'% · '+h(S.left(inf.left))+'</div></section>';
+  html+='<div class="mp-cols"><div class="mp-main">';
   if(hi>=0&&idx>hi+1)html+='<div class="mp-hint">'+h(S.ahead(UNITS[hi].kind==="lesson"?UNITS[hi].n:title(UNITS[hi])))+' <a href="#/l/'+UNITS[hi].id+'">'+h(S.backTo)+' ›</a></div>';
   if(lead||cds.length){html+='<section class="mp-card mp-intro"><h2 class="mp-h3">'+h(S.introT)+'</h2><div id="mplead"></div>';
     if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,5).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
@@ -5115,12 +5120,14 @@ function vLesson(id){
     var right=st.k==="test"&&inf.pc!=null?(inf.verified?'✓ ':'')+inf.pc+'%':dn?'✓ '+m+' '+S.min:m+' '+S.min;
     return '<button class="mp-sec'+(dn?' done':'')+(now?' now':'')+'" data-k="'+st.key+'"><span class="ic">'+(dn?I.check:ic)+'</span><span><b>'+h(stepLabel(st))+'</b><small>'+h(stepSub(id,st))+'</small></span><em>'+h(right)+'</em></button>'}).join("")+'</div>';
   html+='<button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button>';
+  html+='</div><aside class="mp-side">';
   if(rg.length){html+='<h2 class="mp-h2">'+h(S.rulesT)+'</h2><p class="mp-sub">'+h(S.rulesS)+'</p><div class="mp-rules">'+
     rg.map(function(g,i){return '<details class="mp-rule'+(g.scopri?' mp-q':'')+'" data-g="'+i+'"><summary><span class="n">'+(g.scopri?'?':(i+1-rg.slice(0,i).filter(function(x){return x.scopri}).length))+'</span><span><b>'+h(g.title)+'</b>'+(g.ex?'<small>'+h(g.ex.slice(0,110))+(g.ex.length>110?'…':'')+'</small>':'')+'</span></summary><div class="mp-rbody"></div>'+
       (g.key?'<button class="mp-mini" data-k="'+g.key+'">'+h(S.practiceBtn)+I.arrow+'</button>':'')+'</details>'}).join("")+'</div>'}
   if(nw){html+='<h2 class="mp-h2">'+h(S.wordsT)+' <small class="mp-cnt">'+nw+'</small></h2><p class="mp-sub">'+h(S.wordsS)+'</p><div class="mp-card mp-words"><div class="words mp-wclip" data-voc="'+id+'"></div>'+
     (nw>8?'<button class="mp-mini alt" id="mpwall">'+h(S.showAll(nw))+'</button>':'')+'</div>'}
   html+='<a class="mp-link" href="#/leggi/'+id+'">'+h(S.readAll)+' ›</a>';
+  html+='</aside></div>';
   show(html);
   var ld=q("#mplead",view);if(ld&&lead){var lc=lead.cloneNode(true);lc.classList.add("mp-leadp");ld.appendChild(lc)}
   qa(".mp-rule",view).forEach(function(d){d.addEventListener("toggle",function(){var b=q(".mp-rbody",d);if(d.open&&!b.firstChild){var g=rg[+d.getAttribute("data-g")];

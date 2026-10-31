@@ -202,7 +202,7 @@ function render(){
   var st=q("#mpset",view);if(st)st.onclick=openSettings;
   if(!mstack.length){var h1=q("h1",view);if(h1)try{h1.focus({preventScroll:true})}catch(e){}}
   if(window.mpSplashReady)mpSplashReady()}
-function show(html){view.innerHTML=html;window.scrollTo(0,0)}
+function show(html){view.innerHTML=html;view.classList.toggle("mp-wide",!!q(".mp-cols",view));window.scrollTo(0,0)}
 window.addEventListener("hashchange",render);
 /* the course engine calls these after a step: refresh our view instead of the old map/sheet */
 drawPath=function(){if(!stCur)render()};
@@ -214,12 +214,15 @@ function vToday(){
   var i=hereIdx(),U=i>=0?UNITS[i]:null,nx=U&&nextOf(U.id),inf=U&&info(U.id);
   var rw=reviewWords().length,dc=dayCult(),wk=weekActive();
   var html=head(fmt(new Date(),{weekday:"long",day:"numeric",month:"long"}),hi);
-  html+='<section class="mp-today hc-blue"><div class="mp-k">'+h(S.forToday)+(p?' · '+h(S.forTodaySub(p.mins)):'')+'</div>';
-  if(U&&nx)html+='<button class="mp-blk" id="mpnext"><span class="n">'+(U.kind==="lesson"?U.n:"★")+'</span><span><b>'+h(title(U))+'</b><small>'+h(S.next+": "+stepLabel(nx))+' · '+stepMinutes(U.id,nx)+' '+h(S.min)+'</small></span><em>'+I.arrow+'</em></button>';
-  if(rw>=4)html+='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(Math.min(8,rw)))+'</small></span><em>'+I.arrow+'</em></button>';
-  if(dc)html+='<button class="mp-blk" data-ck="'+h(dc.key)+'"><span class="n">'+(ZH?"文":"文")+'</span><span><b>'+h(S.dayCult)+'</b><small>'+h(dc.c.t)+'</small></span><em>'+I.arrow+'</em></button>';
-  if(U&&nx)html+='<button class="mp-cta" id="mpgo">'+h(S.resume)+I.arrow+'</button>';
+  /* one next step, big; everything else waits below */
+  html+='<div class="mp-cols mp-cols-t"><div class="mp-main">';
+  var rev='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(Math.min(8,rw)))+'</small></span><em>'+I.arrow+'</em></button>';
+  html+='<section class="mp-today mp-hero hc-blue"><div class="mp-k">'+h(S.forToday)+(p?' · '+h(S.forTodaySub(p.mins)):'')+'</div>';
+  if(U&&nx)html+='<button class="mp-hgo" id="mpnext"><span class="n">'+(U.kind==="lesson"?U.n:"★")+'</span><b>'+h(title(U))+'</b><small>'+h(S.next+": "+stepLabel(nx))+' · '+stepMinutes(U.id,nx)+' '+h(S.min)+'</small></button><button class="mp-cta" id="mpgo">'+h(S.resume)+I.arrow+'</button>';
+  else if(rw>=4)html+=rev;
   html+='</section>';
+  if(U&&nx&&rw>=4)html+='<div class="mp-more">'+rev+'</div>';
+  html+='</div><div class="mp-side">';
   html+='<div class="mp-row2"><div class="mp-tile"><span class="mp-lbl">'+h(S.week)+'</span><div class="mp-big">'+wk.n+'<small> / 6 '+h(S.days)+'</small></div><div class="mp-week">'+wk.html+'</div></div>';
   if(p){var pl=M.plan(C,p,P),ex=pl.ex;
     if(ex&&pl.examDate){var left=M.daysBetween(M.today(),pl.examDate);html+='<a class="mp-tile mp-ex" href="#/esame"><span class="mp-lbl">'+h(ex.name)+'</span><div class="mp-big">'+Math.max(0,left)+'<small> '+h(S.examIn(left))+'</small></div><p>'+h(HASEX&&readiness(curExam(ex)).total!=null?EXS.estShort(readiness(curExam(ex)).total,SCH(curExam(ex)).total,SCH(curExam(ex)).pass):(pl.marginW>=0?S.margin(pl.marginW):S.late(-pl.marginW).split(":")[0]))+'</p></a>'}
@@ -229,6 +232,7 @@ function vToday(){
   if(dc)html+='<h2 class="mp-h2">'+h(S.dayCult)+'</h2>'+cultCard(dc,true);
   var cds=[];for(var k=UNITS.length-1;k>=0&&cds.length<3;k--){if(info(UNITS[k].id).verified)canDo(UNITS[k].id).slice(0,3-cds.length).forEach(function(t){cds.push(t)})}
   html+='<h2 class="mp-h2">'+h(S.canDo)+'</h2><div class="mp-card mp-cando">'+(cds.length?cds.map(function(t){return '<div><span>✓</span>'+h(t)+'</div>'}).join(""):'<p>'+h(S.canDoEmpty)+'</p>')+'</div>';
+  html+='</div></div>';
   show(html);
   var a=q("#mpnext",view),g=q("#mpgo",view);if(a&&U)a.onclick=g.onclick=function(){openStep(U.id,nx.key)};
   var rv=q("#mprev",view);if(rv)rv.onclick=function(){openReview()};
@@ -266,6 +270,7 @@ function vLesson(id){
   var html='<section class="mp-lhero hc-'+U.color+'"><a class="mp-ib mp-back" href="#/corso" aria-label="'+h(S.back)+'">'+I.back+'</a>'+
     '<div class="mp-k">'+h(kick(U))+'</div><h1 tabindex="-1">'+h(title(U))+'</h1><div class="sub" lang="'+(ZH?"it":LL)+'">'+h(subT(U))+'</div>'+
     '<div class="pb"><span><i style="width:'+pc+'%"></i></span>'+pc+'% · '+h(S.left(inf.left))+'</div></section>';
+  html+='<div class="mp-cols"><div class="mp-main">';
   if(hi>=0&&idx>hi+1)html+='<div class="mp-hint">'+h(S.ahead(UNITS[hi].kind==="lesson"?UNITS[hi].n:title(UNITS[hi])))+' <a href="#/l/'+UNITS[hi].id+'">'+h(S.backTo)+' ›</a></div>';
   if(lead||cds.length){html+='<section class="mp-card mp-intro"><h2 class="mp-h3">'+h(S.introT)+'</h2><div id="mplead"></div>';
     if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,5).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
@@ -275,12 +280,14 @@ function vLesson(id){
     var right=st.k==="test"&&inf.pc!=null?(inf.verified?'✓ ':'')+inf.pc+'%':dn?'✓ '+m+' '+S.min:m+' '+S.min;
     return '<button class="mp-sec'+(dn?' done':'')+(now?' now':'')+'" data-k="'+st.key+'"><span class="ic">'+(dn?I.check:ic)+'</span><span><b>'+h(stepLabel(st))+'</b><small>'+h(stepSub(id,st))+'</small></span><em>'+h(right)+'</em></button>'}).join("")+'</div>';
   html+='<button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button>';
+  html+='</div><aside class="mp-side">';
   if(rg.length){html+='<h2 class="mp-h2">'+h(S.rulesT)+'</h2><p class="mp-sub">'+h(S.rulesS)+'</p><div class="mp-rules">'+
     rg.map(function(g,i){return '<details class="mp-rule'+(g.scopri?' mp-q':'')+'" data-g="'+i+'"><summary><span class="n">'+(g.scopri?'?':(i+1-rg.slice(0,i).filter(function(x){return x.scopri}).length))+'</span><span><b>'+h(g.title)+'</b>'+(g.ex?'<small>'+h(g.ex.slice(0,110))+(g.ex.length>110?'…':'')+'</small>':'')+'</span></summary><div class="mp-rbody"></div>'+
       (g.key?'<button class="mp-mini" data-k="'+g.key+'">'+h(S.practiceBtn)+I.arrow+'</button>':'')+'</details>'}).join("")+'</div>'}
   if(nw){html+='<h2 class="mp-h2">'+h(S.wordsT)+' <small class="mp-cnt">'+nw+'</small></h2><p class="mp-sub">'+h(S.wordsS)+'</p><div class="mp-card mp-words"><div class="words mp-wclip" data-voc="'+id+'"></div>'+
     (nw>8?'<button class="mp-mini alt" id="mpwall">'+h(S.showAll(nw))+'</button>':'')+'</div>'}
   html+='<a class="mp-link" href="#/leggi/'+id+'">'+h(S.readAll)+' ›</a>';
+  html+='</aside></div>';
   show(html);
   var ld=q("#mplead",view);if(ld&&lead){var lc=lead.cloneNode(true);lc.classList.add("mp-leadp");ld.appendChild(lc)}
   qa(".mp-rule",view).forEach(function(d){d.addEventListener("toggle",function(){var b=q(".mp-rbody",d);if(d.open&&!b.firstChild){var g=rg[+d.getAttribute("data-g")];
