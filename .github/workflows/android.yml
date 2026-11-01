@@ -1,0 +1,42 @@
+name: Android APK
+
+on:
+  push:
+    branches: [main]
+    paths: ['android/**', '.github/workflows/android.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Build
+        working-directory: android
+        run: gradle assembleRelease --no-daemon
+      - name: Rename
+        run: cp android/app/build/outputs/apk/release/app-release.apk milepost.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: milepost-apk
+          path: milepost.apk
+      - name: Publish on the "android" release page
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view android >/dev/null 2>&1; then
+            gh release upload android milepost.apk --clobber
+          else
+            gh release create android milepost.apk --prerelease --title "Milepost per Android (prova)" \
+              --notes "APK di prova da installare a mano. Si aggiorna a ogni modifica della cartella android/."
+          fi

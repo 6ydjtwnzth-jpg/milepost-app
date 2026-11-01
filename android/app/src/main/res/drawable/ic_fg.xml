@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The milestone from shell/icons/icon.svg (32x32), scaled into the adaptive-icon safe zone -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="32" android:viewportHeight="32">
+    <group android:scaleX="0.8" android:scaleY="0.8" android:pivotX="16" android:pivotY="16.5">
+        <path android:fillColor="#FFFFFF" android:pathData="M10,25V14a6,6 0,0 1,12 0v11z" />
+        <path android:strokeColor="@color/logo_red" android:strokeWidth="2.4" android:strokeLineCap="round" android:pathData="M13,19h6" />
+        <path android:strokeColor="@color/logo_yellow" android:strokeWidth="2.6" android:strokeLineCap="round" android:pathData="M6,25h20" />
+    </group>
+</vector>

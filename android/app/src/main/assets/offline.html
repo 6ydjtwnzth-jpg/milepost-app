@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Milepost</title>
+<style>
+/* same values as the tokens in shell/app.css */
+:root{--paper:#fff6f1;--ink:#1a1720;--muted:#645c6e;--red:#ea4a2a}
+@media (prefers-color-scheme:dark){:root{--paper:#14111a;--ink:#f5f0f7;--muted:#b5abc0}}
+html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);font-family:system-ui,sans-serif}
+main{min-height:100%;display:grid;place-items:center;align-content:center;gap:14px;padding:24px;box-sizing:border-box;text-align:center}
+svg{width:88px;height:88px}
+h1{margin:6px 0 0;font-size:22px}
+p{margin:0;color:var(--muted);font-size:16px;line-height:1.45;max-width:320px}
+button{margin-top:10px;min-height:52px;min-width:180px;padding:0 24px;border:0;border-radius:999px;background:var(--red);color:#fff;font:inherit;font-size:17px;font-weight:700}
+</style>
+</head>
+<body>
+<main>
+  <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ea4a2a"/><path d="M10 25V14a6 6 0 0 1 12 0v11z" fill="#fff"/><path d="M13 19h6" stroke="#ea4a2a" stroke-width="2.4" stroke-linecap="round"/><path d="M6 25h20" stroke="#ffc532" stroke-width="2.6" stroke-linecap="round"/></svg>
+  <h1>Serve la connessione</h1>
+  <p>Al primo avvio Milepost scarica i corsi. Dopo funziona anche offline.</p>
+  <p lang="zh-CN">第一次打开需要联网。之后离线也能用。</p>
+  <button onclick="location.href='https://6ydjtwnzth-jpg.github.io/milepost-app/'">Riprova · 重试</button>
+</main>
+</body>
+</html>
