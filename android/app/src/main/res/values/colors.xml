@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Same values as the --paper tokens in shell/app.css and the logo colors in shell/icons/icon.svg -->
+<!-- Same values as the paper tokens in shell/app.css and the logo colors in shell/icons/icon.svg -->
 <resources>
     <color name="paper">#FFF6F1</color>
     <color name="logo_red">#EA4A2A</color>
