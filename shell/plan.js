@@ -4,7 +4,8 @@ var MPPlan=(function(){
 var store={get:function(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del:function(k){try{localStorage.removeItem(k)}catch(e){}}};
 /* ---------- catalog helpers ---------- */
 function course(id){for(var i=0;i<CATALOG.courses.length;i++)if(CATALOG.courses[i].id===id)return CATALOG.courses[i];return null}
-function coursesFor(l){return CATALOG.courses.filter(function(c){return c.speak===l})}
+/* a course marked "hidden" in courses.json is still being written: it has its pages, but nobody can pick it yet */
+function coursesFor(l){return CATALOG.courses.filter(function(c){return c.speak===l&&!c.hidden})}
 function examOf(c,id){for(var i=0;i<c.exams.length;i++)if(c.exams[i].id===id)return c.exams[i];return null}
 function uIndex(c,id){for(var i=0;i<c.units.length;i++)if(c.units[i].id===id)return i;return c.units.length-1}
 function weight(u){return u.kind==="review"?0.6:1}

@@ -1,0 +1,42 @@
+{
+  "parts": [
+    {"title": "Parte prima · Primi passi", "level": "A1.1", "j": "Premiers pas", "items": [
+      {"id": "l1", "t": "Suoni, lettere e saluti", "j": "Bonjour !", "icon": "i-abc"},
+      {"id": "l2", "t": "Mi chiamo…: être e nazionalità", "j": "Je m'appelle…", "icon": "i-tag"},
+      {"id": "l3", "t": "Tu o vous? Accento e legami", "j": "Tu ou vous ?", "icon": "i-wave"},
+      {"id": "l4", "t": "Cose e persone: articoli e il y a", "j": "Les choses", "icon": "i-book"},
+      {"id": "l5", "t": "La mia famiglia: avoir e possessivi", "j": "Ma famille", "icon": "i-family"},
+      {"id": "l6", "t": "Come va? Aller, età e numeri", "j": "Ça va ?", "icon": "i-sun"},
+      {"id": "l7", "t": "Che lavoro fai? Verbi in -er e negazione", "j": "Tu fais quoi ?", "icon": "i-chat"},
+      {"id": "l8", "t": "Al caffè: je voudrais e prezzi", "j": "Au café", "icon": "i-cup"},
+      {"id": "r1", "t": "Ripasso 1", "j": "Révision 1", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte seconda · La vita di tutti i giorni", "level": "A1.2", "j": "La vie de tous les jours", "items": [
+      {"id": "l9", "t": "Fare domande", "j": "Poser des questions", "icon": "i-q"},
+      {"id": "l10", "t": "La mia giornata: ore e verbi pronominali", "j": "Ma journée", "icon": "i-clock"},
+      {"id": "l11", "t": "Il tempo libero: aimer, faire, jouer", "j": "Le temps libre", "icon": "i-ball"},
+      {"id": "l12", "t": "In città: preposizioni e indicazioni", "j": "En ville", "icon": "i-pin"},
+      {"id": "l13", "t": "Vuoi venire? Vouloir, pouvoir, devoir", "j": "Tu veux venir ?", "icon": "i-phone"},
+      {"id": "l14", "t": "Al mercato e al ristorante: du, de la, en", "j": "Au marché", "icon": "i-fork"},
+      {"id": "r2", "t": "Ripasso 2", "j": "Révision 2", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte terza · Raccontare", "level": "A2", "j": "Raconter", "items": [
+      {"id": "l15", "t": "Il fine settimana: passé composé con avoir", "j": "Le week-end", "icon": "i-ticket"},
+      {"id": "l16", "t": "In viaggio: passé composé con être, date e meteo", "j": "En voyage", "icon": "i-umbrella"},
+      {"id": "l17", "t": "Quando ero piccola: l'imparfait", "j": "Quand j'étais petite", "icon": "i-kite"},
+      {"id": "l18", "t": "Raccontare una storia: i due passati", "j": "Raconter une histoire", "icon": "i-scroll"},
+      {"id": "l19", "t": "Gusti e confronti: lui, leur, plus, moins", "j": "Goûts et comparaisons", "icon": "i-heart"},
+      {"id": "l20", "t": "Fare acquisti: le, la, les ed être en train de", "j": "Faire les courses", "icon": "i-bag"},
+      {"id": "l21", "t": "Progetti: il futuro e si", "j": "Projets", "icon": "i-suitcase"},
+      {"id": "l22", "t": "Salute e servizi: il condizionale", "j": "Santé et services", "icon": "i-cross"},
+      {"id": "l23", "t": "Giulia a Parigi: racconta la tua storia", "j": "Giulia à Paris", "icon": "i-arch"},
+      {"id": "r3", "t": "Ripasso 3 e test A2", "j": "Révision 3 et test A2", "icon": "i-star", "kind": "review"}
+    ]},
+    {"title": "Appendici", "j": "Annexes", "items": [
+      {"id": "frasi", "t": "Frasario", "j": "Phrases utiles", "icon": "i-lemon", "kind": "app", "letter": "A"},
+      {"id": "flash", "t": "Flashcard: ripasso a intervalli", "j": "Cartes", "icon": "i-cards", "kind": "app", "letter": "B"},
+      {"id": "vocab", "t": "Vocabolario", "j": "Vocabulaire", "icon": "i-book", "kind": "app", "letter": "C"},
+      {"id": "verbi", "t": "Coniugare i verbi", "j": "Conjuguer", "icon": "i-verb", "kind": "app", "letter": "D"}
+    ]}
+  ]
+}

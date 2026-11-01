@@ -8,7 +8,9 @@
    tone recognise the tone (zh)   {t:"tone", s:"妈[mā]"}
    Everything here is a function declaration, so the engine can call it while the page loads. */
 function exLang(){return typeof itHTML==="function"?"it":typeof pyWord==="function"?"zh":"ja"}
-function exS(){return exLang()==="it"?{
+/* the course this page belongs to (shell/courses.json): its interface language and the language being learned */
+function exCourse(){var c=null;try{CATALOG.courses.forEach(function(x){if(x.storageKey===KEY)c=x})}catch(e){}return c||{speak:"it",learn:exLang()}}
+function exS(){return exCourse().speak==="zh"?{
     ord:"组句",ear:"听后组句",gap:"选词填空",err:"找错误",rep:"回答",tone:"声调",chk:"检查",rst:"重来",ok:"正确！",no:"不对。",ans:"答案：",
     play:"听",again:"再听一遍",errQ:"点出用错的那个词。",errFine:"这个词没问题。",fixed:"正确的句子：",earQ:"听，然后把句子拼出来。",
     repQ:"选择合适的回答。",useSome:"先选几个词。",next:"还差一个部分。"}:{
@@ -16,7 +18,7 @@ function exS(){return exLang()==="it"?{
     play:"Ascolta",again:"Ascolta di nuovo",errQ:"Tocca la parola sbagliata.",errFine:"Questa va bene.",fixed:"La frase corretta:",earQ:"Ascolta e ricomponi la frase.",
     repQ:"Scegli la risposta giusta.",useSome:"Scegli prima qualche parola.",next:"Manca ancora un pezzo.",chrQ:function(c,m){return "Costruisci "+c+" («"+m+"»): scegli i pezzi."},
     toneQ:"Ascolta la sillaba e scegli il tono."}}
-function exLangAttr(){var l=exLang();return l==="it"?"it":l==="zh"?"zh-CN":"ja"}
+function exLangAttr(){var l=exCourse().learn;return {zh:"zh-CN"}[l]||l}
 /* a sentence you can read, tap and hear */
 function exSay(t){return exLang()==="it"?itLine(t):jLineSay(t)}
 /* explanations mix the learner's language with words of the course */

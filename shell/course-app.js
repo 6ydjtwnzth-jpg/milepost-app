@@ -27,9 +27,10 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   noDate:"Data dell'esame non ancora scelta.",sections:"Per sezione",sectionsSoon:"La preparazione per sezione (vocabolario, grammatica, lettura, ascolto) arriva con le simulazioni d'esame.",
   sim:"Simulazione completa",simS:"Formato reale, a tempo",soon:"In arrivo",mastery:"Padronanza delle lezioni verificate",planT:"Il tuo piano",
   onTrack:"In linea col piano",ahead2:function(n){return "Avanti di "+n+(n===1?" giorno":" giorni")},behind:function(n){return "Indietro di "+n+(n===1?" giorno":" giorni")},practice:"Allenamento d'esame",
-  cult:"Cultura",cultLead:C.learn==="zh"?"Italia e Cina a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.":"Italia e Giappone a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
+  cult:"Cultura",cultLead:"Italia e "+({zh:"Cina",fr:"Francia"}[C.learn]||"Giappone")+" a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
   all:"Tutte",readCount:function(a,b){return a+" di "+b+" lette"},stories:"Racconti",storiesLead:"Letture brevi con audio: le parole nuove hanno il loro significato e la traduzione la apri solo quando ti serve.",afterL:function(n){return "dopo la lezione "+n},afterR:"dopo il ripasso",mins:function(m){return m+" min"},soonStories:"Altri racconti",soonT:"In arrivo",playAll:"Ascolta tutto",stopAll:"Stop",trAll:"Traduzione",trOne:"Traduci",newWords:function(n){return "Parole nuove · "+n},storyQ:"Hai capito?",storyDone:"Letto",storyDoneT:"Racconto letto",nextStory:"Prossimo racconto",backCult:"Torna a Cultura",storyListen:"Ascolta la frase",readMark:"Letta",fromLesson:function(n){return "Lezione "+n},
   tools:"Strumenti",toolList:C.learn==="zh"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["I tempi del verbo","Senza coniugazioni: 了, 过, 着…"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"],tratti:["Scrivere 1","I tratti e il loro ordine"],caratteri:["Scrivere 2","Com'è fatto un carattere"]}
+    :C.learn==="fr"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutti i tempi dei verbi"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]}
     :{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutte le forme dei verbi"],kana:["Kana","Hiragana e katakana con audio"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]},
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
   settings:"Impostazioni",readingT:"Lettura e voce",
@@ -129,8 +130,8 @@ function bindCult(root){qa("[data-ck]",root).forEach(function(b){b.onclick=funct
    Words come from the lessons up to «after»; the few new ones are glossed. Translations stay hidden until asked. */
 var RK=KEY+"-reads",READ=typeof READS!=="undefined"?READS:[],storyPl=null;
 function readsDone(){return M.store.get(RK)||{}}
-function sLine(t){return typeof jLine==="function"?jLine(t):'<span lang="it">'+itHTML(t)+'</span>'}
-function sWord(t){return typeof jpHTML==="function"?'<span lang="'+LL+'">'+jpHTML(t)+'</span>':'<span lang="it">'+itHTML(t)+'</span>'}
+function sLine(t){return typeof jLine==="function"?jLine(t):'<span lang="'+LL+'">'+itHTML(t)+'</span>'}
+function sWord(t){return typeof jpHTML==="function"?'<span lang="'+LL+'">'+jpHTML(t)+'</span>':'<span lang="'+LL+'">'+itHTML(t)+'</span>'}
 function sRich(t){return typeof mixHTML==="function"?mixHTML(t):h(t)}
 /* new words get a meaning on tap and hover, unless the course already has one */
 READ.forEach(function(r){(r.gloss||[]).forEach(function(g){
@@ -339,7 +340,7 @@ function vTools(){
   var rw=reviewWords().length,cols=["red","blue","yellow","green","pink"],i=0;
   if(rw>=4)html+='<button class="mp-tool hc-pink" id="mprev"><span class="g">↻</span><b>'+h(S.dailyRev[0])+'</b><small>'+h(S.dailyRev[1])+'</small></button>';
   Object.keys(S.toolList).forEach(function(k){if(!document.getElementById(k))return;var L=S.toolList[k];
-    var g={flash:"⇄",verbi:ZH?"essere":C.learn==="zh"?"了过":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
+    var g={flash:"⇄",verbi:ZH?"essere":C.learn==="zh"?"了过":C.learn==="fr"?"être":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":C.learn==="fr"?"« »":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
     html+='<a class="mp-tool hc-'+cols[i++%cols.length]+'" href="#/leggi/'+k+'"><span class="g"'+(/^(verbi|kana|tratti|caratteri)$/.test(k)?' lang="'+(ZH?"it":LL)+'"':'')+'>'+h(g)+'</span><b>'+h(L[0])+'</b><small>'+h(L[1])+'</small></a>'});
   html+='</div>';show(html);
   var rv=q("#mprev",view);if(rv)rv.onclick=function(){openReview()}}
@@ -639,7 +640,7 @@ function vSimRev(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame
       (o.part.text&&f.i===0?'<div class="xtext" lang="'+TL+'">'+xtx(o.part.text,sc)+'</div>':'')+(o.part.pics&&f.i===0?'<div class="xpics">'+o.part.pics.map(function(id,j){return '<span>'+xpic(id)+'<b>'+optLab(sc,j)+'</b></span>'}).join("")+'</div>':'')+
       (it.text?'<div class="xtext" lang="'+TL+'">'+xtx(it.text,sc)+'</div>':'')+(it.img?'<div class="xpicq">'+xpic(it.img,"xpic")+'</div>':'')+
       (it.scene?'<p lang="'+TL+'">➡ '+h(it.scene)+'</p>':'')+(it.q?'<p class="rq" lang="'+TL+'">'+xtx(it.q,sc)+'</p>':'')+
-      (it.script?'<details class="rscript"><summary>'+h(EXS.script)+'</summary>'+it.script.map(function(l){return '<p><b>'+h(who[l[0]]||"")+'</b>'+(sc.lang==="it"&&typeof itHTML==="function"?itHTML(l[1],true):jpHTML(l[1],true))+'</p>'}).join("")+
+      (it.script?'<details class="rscript"><summary>'+h(EXS.script)+'</summary>'+it.script.map(function(l){return '<p><b>'+h(who[l[0]]||"")+'</b>'+((sc.lang==="it"||sc.lang==="fr")&&typeof itHTML==="function"?itHTML(l[1],true):jpHTML(l[1],true))+'</p>'}).join("")+
         (it.say?it.say.map(function(t,i){return '<p><b>'+h(optLab(sc,i))+'.</b> '+xtx(t,sc)+'</p>'}).join(""):'')+'<button class="mp-mini alt" data-au="'+e.id+'-'+o.part.n+'-'+(f.i+1)+'">▶ '+h(EXS.listen)+'</button></details>':'')+
       '<p class="ra"><span>'+h(EXS.your)+':</span> <b class="'+(ok?'ok':'no')+'" lang="'+TL+'">'+(mine==null?h(EXS.empty):opt(mine))+'</b></p>'+
       (ok?'':'<p class="ra"><span>'+h(EXS.right)+':</span> <b class="ok" lang="'+TL+'">'+opt(it.a)+'</b></p>')+

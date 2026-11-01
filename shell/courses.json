@@ -158,6 +158,52 @@
         }
       ],
       "examNote": "CILS、PLIDA 每年有多次考试，请在考点确认日期。"
+    },
+    {
+      "id": "fr-it",
+      "learn": "fr",
+      "speak": "it",
+      "storageKey": "francese-per-italiani-v1",
+      "titleField": "t",
+      "name": "Francese",
+      "native": "Français",
+      "the": "il francese",
+      "color": "blue",
+      "levelsLabel": "Da zero all'A2 · 23 lezioni",
+      "courseHours": 180,
+      "starts": [
+        {
+          "skip": 1,
+          "t": "Da zero",
+          "s": "Non ho mai studiato francese"
+        },
+        {
+          "skip": 2,
+          "t": "So già le basi",
+          "s": "Saluti, presentarsi, numeri (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "Ho già un livello A1",
+          "s": "Circa un anno di studio, o il DELF A1"
+        }
+      ],
+      "exams": [
+        {
+          "id": "a2",
+          "name": "DELF A2",
+          "upto": "r3",
+          "hours": 180,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "DELF B1",
+          "soon": true
+        }
+      ],
+      "examNote": "Il DELF si tiene più volte all'anno: controlla le date nella sede più vicina (Institut français, Alliance française).",
+      "hidden": true
     }
   ],
   "soon": {
