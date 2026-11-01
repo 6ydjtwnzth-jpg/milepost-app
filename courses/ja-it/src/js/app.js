@@ -192,7 +192,9 @@ function jLineSay(t){return '<span class="zp"><span class="it-l">'+jLine(t)+'</s
 /* pronunciation line: kana reading under words with kanji, plus rōmaji unless switched off */
 function pronHTML(m){if(!hasJ(m))return "";var k=/[一-鿿々〆]/.test(jplain(m)),ro=prefs.ro!=="off"?jromaji(m):"";
   if(!k&&!ro)return "";return '<span class="opron">'+(k?'<span class="pk" lang="ja">'+esc(jkana(m))+'</span>':'')+(ro?'<span class="pr">'+esc(ro)+'</span>':'')+'</span>'}
-function optHTML(o){return hasJ(o)?'<span class="ow">'+jpHTML(o,true)+'</span>'+pronHTML(o):esc(o)}
+/* an option that mixes Italian words with the target language reads as one sentence, like the cards */
+function isMixed(o){return hasJ(o)&&/[A-Za-zà-ù]{2,}/.test(String(o).replace(/\S*\[[^\]]*\]/g,""))}
+function optHTML(o){if(isMixed(o))return '<span class="omx">'+mixHTML(o)+'</span>';return hasJ(o)?'<span class="ow">'+jpHTML(o,true)+'</span>'+pronHTML(o):esc(o)}
 function renderSet(el,opt){
   opt=opt||{};var id=el.getAttribute("data-set"),items=opt.items||EX[id];if(!items)return;var res=new Array(items.length),one=!!opt.one,qs=[];
   if(one){el.classList.add("one");el.innerHTML='<div class="dhead"><span>'+(opt.head||"")+'</span><span><span class="score">0 / '+items.length+'</span></span></div>'}

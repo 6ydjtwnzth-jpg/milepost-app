@@ -3609,7 +3609,9 @@ function updateToc(){$$("[data-sc]").forEach(function(s){var b=state.best[s.getA
 function jLineSay(t){return '<span class="zp"><span class="it-l">'+jLine(t)+'</span><button class="say sm" data-say="'+esc(t)+'" aria-label="Ascolta">'+SPK+'</button></span>'}
 /* pronunciation line: pinyin under the characters (unless pinyin is switched off) */
 function pronHTML(m){if(!hasJ(m)||!prefs.furi)return "";return '<span class="opron"><span class="pr">'+pyLine(m)+'</span></span>'}
-function optHTML(o,it){if(it&&it.p&&!hasJ(o))return '<span class="pyo">'+pyHTML(o)+'</span>';return hasJ(o)?'<span class="ow">'+jpHTML(o,true)+'</span>'+pronHTML(o):esc(o)}
+/* an option that mixes Italian words with the target language reads as one sentence, like the cards */
+function isMixed(o){return hasJ(o)&&/[A-Za-zà-ù]{2,}/.test(String(o).replace(/\S*\[[^\]]*\]/g,""))}
+function optHTML(o,it){if(it&&it.p&&!hasJ(o))return '<span class="pyo">'+pyHTML(o)+'</span>';if(isMixed(o))return '<span class="omx">'+mixHTML(o)+'</span>';return hasJ(o)?'<span class="ow">'+jpHTML(o,true)+'</span>'+pronHTML(o):esc(o)}
 function renderSet(el,opt){
   opt=opt||{};var id=el.getAttribute("data-set"),items=opt.items||EX[id];if(!items)return;var res=new Array(items.length),one=!!opt.one,qs=[];
   if(one){el.classList.add("one");el.innerHTML='<div class="dhead"><span>'+(opt.head||"")+'</span><span><span class="score">0 / '+items.length+'</span></span></div>'}
