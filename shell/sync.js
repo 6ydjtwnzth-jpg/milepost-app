@@ -111,13 +111,20 @@ var STR={it:{ttl:"Account",lead:"Con un account i progressi restano al sicuro e 
   eEmail:"Controlla l'indirizzo email.",eCode:"Codice non valido o scaduto: riprova o chiedine uno nuovo.",eNet:"Nessuna connessione: riprova quando sei online.",
   eMany:"Troppe richieste: aspetta qualche minuto e riprova.",eSync:"Non è stato possibile salvare: riprovo più tardi.",
   priv:"Salviamo solo la tua email e i tuoi progressi, su server in Europa. Niente pubblicità, niente tracciamento.",have:"Hai già un account? Accedi"},
+ es:{ttl:"Cuenta",lead:"Con una cuenta tu progreso queda a salvo y lo encuentras en todos tus dispositivos.",email:"Tu email",send:"Recibir el código",sending:"Enviando…",
+  sent:function(e){return "Te hemos escrito a "+e+": introduce el código de 6 cifras."},code:"Código de 6 cifras",enter:"Entrar",entering:"Comprobando…",change:"Cambiar email",
+  as:"Has entrado como",saved:function(t){return "Progreso guardado "+t+"."},never:"Progreso todavía no guardado.",busy:"Guardando…",
+  now:"Guardar ahora",out:"Salir",del:"Eliminar cuenta",delQ:"¿Eliminar la cuenta y el progreso guardado en línea? En este dispositivo se queda.",
+  eEmail:"Revisa la dirección de email.",eCode:"Código no válido o caducado: inténtalo de nuevo o pide uno nuevo.",eNet:"Sin conexión: inténtalo cuando estés en línea.",
+  eMany:"Demasiadas solicitudes: espera unos minutos y vuelve a intentarlo.",eSync:"No se ha podido guardar: lo intento más tarde.",
+  priv:"Solo guardamos tu email y tu progreso, en servidores en Europa. Sin publicidad, sin seguimiento.",have:"¿Ya tienes cuenta? Entra"},
  zh:{ttl:"账户",lead:"有了账户，学习进度会安全保存，在每台设备上都能继续。",email:"你的邮箱",send:"获取验证码",sending:"发送中…",
   sent:function(e){return "我们已发邮件到 "+e+"，请输入 6 位验证码。"},code:"6 位验证码",enter:"登录",entering:"验证中…",change:"更换邮箱",
   as:"已登录：",saved:function(t){return "进度已保存（"+t+"）。"},never:"进度还没有保存。",busy:"正在保存…",
   now:"立即保存",out:"退出",del:"删除账户",delQ:"删除账户和在线保存的进度吗？这台设备上的进度会保留。",
   eEmail:"请检查邮箱地址。",eCode:"验证码无效或已过期，请重试或重新获取。",eNet:"没有网络，请联网后再试。",eMany:"请求太多，请过几分钟再试。",eSync:"暂时无法保存，稍后会再试。",
   priv:"我们只保存你的邮箱和学习进度，服务器在欧洲。没有广告，没有追踪。",have:"已有账户？登录"}};
-function ago(t,lang){var s=Math.round((t-now())/1000),f;try{f=new Intl.RelativeTimeFormat(lang==="zh"?"zh-CN":"it",{numeric:"auto"})}catch(e){f=null}
+function ago(t,lang){var s=Math.round((t-now())/1000),f;try{f=new Intl.RelativeTimeFormat({zh:"zh-CN",es:"es"}[lang]||"it",{numeric:"auto"})}catch(e){f=null}
   var a=Math.abs(s);if(!f)return new Date(t).toLocaleString();if(a<45)return f.format(0,"second");if(a<3600)return f.format(Math.round(s/60),"minute");if(a<86400)return f.format(Math.round(s/3600),"hour");return f.format(Math.round(s/86400),"day")}
 function errText(e,S){if(!e)return "";if(!navigator.onLine||e.name==="TypeError")return S.eNet;if(e.status===429)return S.eMany;
   if(/otp|token|expired|invalid/i.test(e.code||e.message||"")&&e.status!==422)return S.eCode;if(e.status===422||/email/i.test(e.message))return S.eEmail;return e.message}
@@ -131,7 +138,7 @@ function css(){if(document.getElementById("ms-css"))return;var st=document.creat
   '.ms .ms-link{background:none;color:var(--muted);padding:0 4px;text-decoration:underline;font-weight:700}.ms .ms-danger{background:none;color:var(--red);padding:0 4px}'+
   '.ms button:disabled{opacity:.5;cursor:default}.ms .ms-err{color:var(--red);font-weight:700}.ms .ms-who{font-weight:800;word-break:break-all}';document.head.appendChild(st)}
 /* el: where to draw; o.lang: "it" | "zh"; o.onIn: after signing in */
-function ui(el,o){if(!ON||!el)return;o=o||{};var S=STR[o.lang==="zh"?"zh":"it"],step={email:"",sent:false,err:""};css();
+function ui(el,o){if(!ON||!el)return;o=o||{};var S=STR[o.lang]||STR.it,step={email:"",sent:false,err:""};css();
   function draw(){var s=jget(SK),meta=jget(MK)||{};
     if(s){el.innerHTML='<div class="ms"><p>'+esc(S.as)+' <span class="ms-who">'+esc(s.user.email)+'</span></p>'+
       '<p class="ms-muted" aria-live="polite">'+esc(state.busy?S.busy:state.error?S.eSync:meta.last?S.saved(ago(meta.last,o.lang)):S.never)+'</p>'+
@@ -156,6 +163,6 @@ function ui(el,o){if(!ON||!el)return;o=o||{};var S=STR[o.lang==="zh"?"zh":"it"],
       else if(k==="del"&&confirm(S.delQ))deleteAccount().then(draw,function(e){alert(errText(e,S))})}}
   listeners.push(function(){if(!document.body.contains(el))return;if(el.querySelector("input")&&el.contains(document.activeElement))return;draw()});draw()}
 
-window.MPSYNC={enabled:ON,ui:ui,sync:sync,signedIn:function(){return !!jget(SK)},str:function(l){return STR[l==="zh"?"zh":"it"]},
+window.MPSYNC={enabled:ON,ui:ui,sync:sync,signedIn:function(){return !!jget(SK)},str:function(l){return STR[l]||STR.it},
   _merge:merge,_syncable:syncable};
 })();

@@ -22,7 +22,7 @@ function save(){store.set(KEY,ST)}
 /* ---------- language ---------- */
 function detect(){
   var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];
-  for(var i=0;i<ls.length;i++){var l=String(ls[i]).toLowerCase();if(l.indexOf("zh")===0)return "zh";if(l.indexOf("it")===0)return "it"}
+  for(var i=0;i<ls.length;i++){var l=String(ls[i]).toLowerCase();if(l.indexOf("zh")===0)return "zh";if(l.indexOf("it")===0)return "it";if(l.indexOf("es")===0)return "es"}
   return null}
 var T=I18N.it;
 function setLang(l){T=I18N[l]||I18N.it;document.documentElement.lang=T.htmlLang}
@@ -62,23 +62,23 @@ function render(){
 
 /* ---------- 0 · which language do you speak ---------- */
 function vSpeak(){
-  screen(top()+'<h1>'+esc(I18N.it.speakQ)+'<br><span lang="zh-CN">'+esc(I18N.zh.speakQ)+'</span></h1>'+
+  screen(top()+'<h1>'+esc(I18N.it.speakQ)+'<br><span lang="es">'+esc(I18N.es.speakQ)+'</span><br><span lang="zh-CN">'+esc(I18N.zh.speakQ)+'</span></h1>'+
     '<div class="opts" role="radiogroup">'+
-    ['it','zh'].map(function(l){var lab=l==="it"?["Italiano","Corsi spiegati in italiano"]:["中文","用中文讲解的课程"];
-      return '<button class="opt" role="radio" aria-checked="'+(ST.speak===l)+'" data-l="'+l+'" lang="'+I18N[l].htmlLang+'"><span class="ic">'+(l==="it"?"IT":"中")+'</span><span><b>'+lab[0]+'</b><small>'+lab[1]+'</small></span></button>'}).join("")+
+    ['it','es','zh'].map(function(l){var lab={it:["Italiano","Corsi spiegati in italiano"],es:["Español","Cursos explicados en español"],zh:["中文","用中文讲解的课程"]}[l];
+      return '<button class="opt" role="radio" aria-checked="'+(ST.speak===l)+'" data-l="'+l+'" lang="'+I18N[l].htmlLang+'"><span class="ic">'+{it:"IT",es:"ES",zh:"中"}[l]+'</span><span><b>'+lab[0]+'</b><small>'+lab[1]+'</small></span></button>'}).join("")+
     '<button class="opt" disabled lang="en"><span class="ic">EN</span><span><b>English</b><small>Courses explained in English</small></span><span class="tag">Soon</span></button>'+
     '</div>'+haveAccount(true));
   $$(".opt[data-l]",app).forEach(function(b){b.onclick=function(){ST.speak=b.dataset.l;save();setLang(ST.speak);go("#/corso")}})}
 /* ---------- account: sign in on a new device and find your courses again (shell/sync.js) ---------- */
 function syncOn(){return !!(window.MPSYNC&&MPSYNC.enabled)}
-function uiLang(){return ST.speak||(/^zh/i.test(navigator.language||"")?"zh":"it")}
+function uiLang(){return ST.speak||detect()||"it"}
 function haveAccount(both){if(!syncOn()||MPSYNC.signedIn())return "";
-  var t=both?MPSYNC.str("it").have+" · "+MPSYNC.str("zh").have:MPSYNC.str(uiLang()).have;
+  var t=both?MPSYNC.str("it").have+" · "+MPSYNC.str("es").have+" · "+MPSYNC.str("zh").have:MPSYNC.str(uiLang()).have;
   return '<p class="have"><a href="#/accedi">'+esc(t)+'</a></p>'}
 function vSignIn(){if(!syncOn())return go("#/");var L=uiLang(),S=MPSYNC.str(L);
   try{if(sessionStorage.getItem("mp-signed-in-now")){sessionStorage.removeItem("mp-signed-in-now");if(ST.speak)return go("#/")}}catch(e){}
-  screen(top('<a class="chip" href="#/">'+esc(L==="zh"?"返回":"Indietro")+'</a>')+'<h1 lang="'+(L==="zh"?"zh-CN":"it")+'">'+esc(S.ttl)+'</h1><div id="acct" class="acct" lang="'+(L==="zh"?"zh-CN":"it")+'"></div>'+
-    '<button class="btn full" id="cont" hidden>'+esc(L==="zh"?"继续":"Continua")+'</button>');
+  screen(top('<a class="chip" href="#/">'+esc({zh:"返回",es:"Atrás"}[L]||"Indietro")+'</a>')+'<h1 lang="'+I18N[L].htmlLang+'">'+esc(S.ttl)+'</h1><div id="acct" class="acct" lang="'+I18N[L].htmlLang+'"></div>'+
+    '<button class="btn full" id="cont" hidden>'+esc({zh:"继续",es:"Continuar"}[L]||"Continua")+'</button>');
   var box=$("#acct",app),cont=$("#cont",app);
   function upd(){cont.hidden=!MPSYNC.signedIn()}
   MPSYNC.ui(box,{lang:L,onIn:function(){go("#/")}});upd();box.addEventListener("click",function(){setTimeout(upd,50)});

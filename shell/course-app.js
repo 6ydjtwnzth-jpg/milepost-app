@@ -7,7 +7,7 @@ if(!window.MPPlan||!window.CATALOG||typeof UNITS==="undefined"||typeof KEY==="un
 var M=MPPlan,C=null;
 CATALOG.courses.forEach(function(c){if(c.storageKey===KEY)C=c});
 if(!C)return;
-var ZH=C.speak==="zh";
+var ZH=C.speak==="zh",UI=C.speak; /* UI: the learner's language (it, zh, es) */
 /* lang attribute of the language being learned */
 var LL={ja:"ja",zh:"zh-CN",it:"it"}[C.learn]||C.learn;
 var S={
@@ -36,6 +36,29 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   settings:"Impostazioni",readingT:"Lettura e voce",
   offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
   ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce cinese",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
+es:{locale:"es-ES",tabs:["Hoy","Curso","Examen","Cultura","Herramientas"],hi:["Buenos días","Buenas tardes","Buenas noches"],
+  steps:{dlg:"Diálogo",voc:"Palabras",rule:"Gramática",rev:"Repaso",snd:"Pronunciación",cult:"Cultura",test:"Prueba"},
+  stepSub:{dlg:"Escucha, lee, actúa",voc:function(n){return n+" palabras nuevas"},snd:"Escucha y repite",cult:function(n){return n===1?"1 ficha":n+" fichas"},test:function(n){return n+" preguntas · actualiza tu dominio"}},
+  lesson:function(n){return "Lección "+n},review:"Repaso",min:"min",left:function(m){return "quedan unos "+m+" min"},
+  forToday:"Para hoy",forTodaySub:function(m){return "Tu tiempo: "+m+" min"},resume:"Continuar",go:"Ir",
+  next:"Siguiente paso",reviewT:"Repaso de palabras",reviewS:function(n){return n+" palabras: vuelven más a menudo las que olvidas"},
+  dayCult:"Curiosidad del día",read:"Leer",week:"Semana",days:"días",canDo:"Ya sabes",canDoEmpty:"Aquí aparecerá lo que ya sabes hacer, a medida que superes las pruebas de las lecciones.",
+  noPlan:"Crea tu plan",noPlanS:"Tres preguntas y sabrás cuándo llegas a la meta.",
+  course:"El curso",here:"Estás aquí",todo:"Pendiente",inProg:function(a,b){return a+" de "+b},verified:"Superada",
+  knowT:"Al final sabrás",introT:"En esta lección",stepsT:"Paso a paso",stepsS:"Cada etapa dura pocos minutos. Este es el orden recomendado, pero puedes abrirlas como quieras.",rulesT:"Las reglas",rulesS:"Toca una regla para leerla aquí. «Practica» abre la explicación con los ejercicios.",practiceBtn:"Practica",introR:"Introducción",wordsT:"Las palabras",wordsS:"Toca ▶ para escuchar, toca la palabra para ver su significado.",showAll:function(n){return "Ver todas ("+n+")"},ahead:function(n){return "Vas más adelante que el recorrido recomendado (estás en la lección "+n+"). Puedes hacerlo: si algo no cuadra, repasa desde ahí."},
+  backTo:"Volver a la lección recomendada",readAll:"Leer la lección completa",cont:function(s){return "Continuar: "+s},redo:"Repetir la prueba",start:"Empezar",
+  exam:"Examen",examNone:"No has elegido un examen.",examNoneS:"Si te preparas para un examen, el plan llega hasta el día de la prueba.",chooseExam:"Elegir un examen",
+  examIn:function(n){return n===1?"día":"días"},ready:function(d){return "Al ritmo actual estarás listo hacia "+d+"."},margin:function(w){return w<=1?"Llegas justo a tiempo.":w+" semanas de margen."},late:function(w){return "Al ritmo actual llegas "+w+" semanas después del examen: dedica un poco más de tiempo o elige una convocatoria posterior."},
+  noDate:"Fecha del examen todavía no elegida.",sections:"Por sección",sectionsSoon:"La preparación por sección (vocabulario, gramática, lectura, escucha) llega con los simulacros de examen.",
+  sim:"Simulacro completo",simS:"Formato real, con tiempo",soon:"Próximamente",mastery:"Dominio de las lecciones superadas",planT:"Tu plan",
+  onTrack:"Al día con el plan",ahead2:function(n){return "Adelantado "+n+(n===1?" día":" días")},behind:function(n){return "Atrasado "+n+(n===1?" día":" días")},practice:"Entrenamiento de examen",
+  cult:"Cultura",cultLead:"Italia y el mundo hispano frente a frente: costumbres, comida, trabajo, fiestas. Cada ficha tiene palabras para escuchar y una pregunta.",
+  all:"Todas",readCount:function(a,b){return a+" de "+b+" leídas"},stories:"Relatos",storiesLead:"Lecturas breves con audio: las palabras nuevas tienen su significado y la traducción la abres solo cuando la necesitas.",afterL:function(n){return "después de la lección "+n},afterR:"después del repaso",mins:function(m){return m+" min"},soonStories:"Más relatos",soonT:"Próximamente",playAll:"Escuchar todo",stopAll:"Parar",trAll:"Traducción",trOne:"Traducir",newWords:function(n){return "Palabras nuevas · "+n},storyQ:"¿Lo has entendido?",storyDone:"Leído",storyDoneT:"Relato leído",nextStory:"Siguiente relato",backCult:"Volver a Cultura",storyListen:"Escuchar la frase",readMark:"Leída",fromLesson:function(n){return "Lección "+n},
+  tools:"Herramientas",toolList:{flash:["Tarjetas","Repaso espaciado"],verbi:["Conjugador","Todos los tiempos verbales"],frasi:["Frases útiles","Frases hechas"],vocab:["Vocabulario","Todas las palabras del curso"]},
+  dailyRev:["Repaso del día","Las palabras que estás a punto de olvidar"],
+  settings:"Ajustes",readingT:"Lectura y voz",
+  offT:"Sin conexión",offPages:"Las lecciones ya están guardadas en este dispositivo.",offBtn:function(mb){return "Descargar el audio del curso ("+mb+" MB)"},offBusy:function(a,b){return "Descargando… "+a+" de "+b}
+  ,offDone:"Listo: lecciones y audio funcionan también sin conexión.",offErr:"Descarga interrumpida: vuelve a intentarlo con una conexión estable.",offVoice:"La voz es la de tu dispositivo: funciona también sin conexión.",voiceT:"Voz",voiceAuto:"Automática",voiceTip:"",theme:"Tema",themes:["Auto","Claro","Oscuro"],redoPlan:"Rehacer el plan",changeCourse:"Cambiar de curso o de idioma",reset:"Borrar todo y empezar de nuevo",resetQ:"¿Borrar el plan y el progreso guardados en este dispositivo?",close:"Cerrar",back:"Atrás"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
   steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
   stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
@@ -119,7 +142,7 @@ function dayCult(){var all=allCult();if(!all.length)return null;var hi=Math.max(
   var d=M.today(),n=d.getFullYear()*372+d.getMonth()*31+d.getDate();return pool[n%pool.length]}
 function openCult(x){var c=x.c;
   runStage({title:S.cult+" · "+title(x.u),color:x.u.color,pages:[{gate:!!c.q,draw:function(box,rel){box.innerHTML=cultHTML(c);
-    if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:ZH?"问题":"Domanda",onDone:function(){rel()}})}},go:S.close}],
+    if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:{zh:"问题",es:"Pregunta"}[UI]||"Domanda",onDone:function(){rel()}})}},go:S.close}],
     done:function(){var r=cultRead();r[x.key]=1;M.store.set(CK,r);render()}})}
 function cultCard(x,big){var r=cultRead()[x.key];
   return '<button class="mp-cc'+(big?' big':'')+'" data-ck="'+h(x.key)+'"><span class="art t-'+x.u.color+'">'+(x.c.s?'<svg viewBox="0 0 320 180" aria-hidden="true"><use href="#sc-'+x.c.s+'"/></svg>':'')+'</span>'+
@@ -146,7 +169,7 @@ function storiesBlock(){if(!READ.length)return "";
   return '<h2 class="mp-h2">'+h(S.stories)+'</h2><p class="mp-lead mp-lead0">'+h(S.storiesLead)+'</p><div class="mp-sgrid">'+READ.map(storyCard).join("")+
     '<div class="mp-story soon" aria-disabled="true"><span class="art"><span class="j" aria-hidden="true">…</span></span><span class="tx"><b>'+h(S.soonStories)+'</b><em>'+h(S.soonT)+'</em></span></div></div>'}
 function vStory(id){var r=READ.filter(function(x){return x.id===id})[0];if(!r){location.replace("#/cultura");return}
-  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl=ZH?"zh-CN":"it";
+  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl={zh:"zh-CN",es:"es"}[UI]||"it";
   var html='<div class="mp-readbar"><a class="mp-ib" href="#/cultura" aria-label="'+h(S.backCult)+'">'+I.back+'</a><b>'+h(S.stories)+'</b><button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button></div>'+
     '<header class="mp-sh"><div class="mp-k">'+h(r.kind+" · "+storyAfter(r)+" · "+S.mins(r.min))+'</div><h1 tabindex="-1">'+h(r.t)+'</h1><p class="j" lang="'+(ZH?"it":LL)+'">'+h(r.j)+'</p></header>'+
     '<p class="mp-lead">'+sRich(r.intro)+'</p>'+
@@ -173,7 +196,7 @@ window.addEventListener("hashchange",function(){if(storyPl&&!/^#\/racconto\//.te
 /* ---------- plan ---------- */
 function myPlan(){return M.load().plans[C.id]||null}
 function weekActive(){var mon=M.addDays(M.today(),-((M.today().getDay()+6)%7)),n=0,cells="";
-  var lbl=ZH?["一","二","三","四","五","六","日"]:["L","M","M","G","V","S","D"];
+  var lbl=ZH?["一","二","三","四","五","六","日"]:UI==="es"?["L","M","X","J","V","S","D"]:["L","M","M","G","V","S","D"];
   for(var i=0;i<7;i++){var d=M.addDays(mon,i),on=!!P.days[M.iso(d)];if(on)n++;cells+='<span class="'+(on?'on':'')+(M.daysBetween(d,M.today())===0?' td':'')+'"><i></i>'+lbl[i]+'</span>'}
   return {n:n,html:cells}}
 
@@ -340,7 +363,7 @@ function vTools(){
   var rw=reviewWords().length,cols=["red","blue","yellow","green","pink"],i=0;
   if(rw>=4)html+='<button class="mp-tool hc-pink" id="mprev"><span class="g">↻</span><b>'+h(S.dailyRev[0])+'</b><small>'+h(S.dailyRev[1])+'</small></button>';
   Object.keys(S.toolList).forEach(function(k){if(!document.getElementById(k))return;var L=S.toolList[k];
-    var g={flash:"⇄",verbi:ZH?"essere":C.learn==="zh"?"了过":C.learn==="fr"?"être":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":C.learn==="fr"?"« »":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
+    var g={flash:"⇄",verbi:C.learn==="it"?"essere":C.learn==="zh"?"了过":C.learn==="fr"?"être":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":C.learn==="fr"?"« »":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
     html+='<a class="mp-tool hc-'+cols[i++%cols.length]+'" href="#/leggi/'+k+'"><span class="g"'+(/^(verbi|kana|tratti|caratteri)$/.test(k)?' lang="'+(ZH?"it":LL)+'"':'')+'>'+h(g)+'</span><b>'+h(L[0])+'</b><small>'+h(L[1])+'</small></a>'});
   html+='</div>';show(html);
   var rv=q("#mprev",view);if(rv)rv.onclick=function(){openReview()}}
@@ -423,14 +446,14 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
   sh.innerHTML='<button class="grab" aria-label="'+h(S.close)+'"><i></i></button><h2>'+h(S.settings)+'</h2>'+
     (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+(hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
-    (window.MPSYNC&&MPSYNC.enabled?'<div class="mp-lbl" style="margin-top:6px">'+h(MPSYNC.str(ZH?"zh":"it").ttl)+'</div><div class="mp-off" id="mpacct"></div>':'')+
+    (window.MPSYNC&&MPSYNC.enabled?'<div class="mp-lbl" style="margin-top:6px">'+h(MPSYNC.str(UI).ttl)+'</div><div class="mp-off" id="mpacct"></div>':'')+
     '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
     '<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>'+
     '<button class="mp-set mp-a danger" id="mpreset">'+h(S.reset)+'</button>'+
     '<button class="mp-cta alt" id="mpclose">'+h(S.close)+'</button>';
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
-  drawOffline(q("#mpoff",sh));if(window.MPSYNC&&MPSYNC.enabled)MPSYNC.ui(q("#mpacct",sh),{lang:ZH?"zh":"it"});if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
+  drawOffline(q("#mpoff",sh));if(window.MPSYNC&&MPSYNC.enabled)MPSYNC.ui(q("#mpacct",sh),{lang:UI});if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
   q("#mpclose",sh).onclick=closeSettings;q(".grab",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;
@@ -455,6 +478,19 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   secRes:function(c,t){return "答对 "+c+" / "+t},practiceT:"另外要练习的：写作和口语",
   practiceN:"这两部分由考官评分，这里不计分。先自己写或说，再看参考答案。",model:"参考答案",
   estShort:function(s,t,p){return "估计 "+s+"/"+t+" · 及格 "+p}}
+ :UI==="es"?{start:"Empezar",full:"Simulacro completo",secN:function(n,m){return n+(n===1?" sección":" secciones")+" · "+m+" min con tiempo"},train:"Entrena una sección",
+   last:function(s,t,d){return "Última vez: "+s+"/"+t+" · "+d},none:"Después del primer simulacro aquí verás tu preparación, sección por sección.",
+   est:"Hoy sacarías unos",weak:function(s){return "Te falta sobre todo: "+s+"."},hist:"Tus pruebas",
+   prev:"Atrás",next:"Siguiente",finishSec:"Entregar la sección",finishQ:"¿Entregar la sección? Las preguntas sin respuesta cuentan como incorrectas.",
+   exitQ:"¿Salir del simulacro? Las respuestas dadas se perderán.",tr:"Traducir",listen:"Escuchar",heard:"Escuchado",again:"Escuchar de nuevo",replay:"Volver a escuchar",
+   plays:function(n){return n===1?"Se escucha una sola vez, como en el examen.":"Cada grabación se escucha dos veces, como en el examen."},
+   playing:"Escuchando…",introGo:"Empezar la sección",introTime:function(m,n){return m+" minutos · "+n+" preguntas"},timeUp:"Se acabó el tiempo: la sección se ha entregado.",
+   result:"Resultado",passed:"Aprobado (estimación)",notYet:"Todavía no aprobado",min:function(n){return "mínimo "+n},review:"Revisar las respuestas",back:"Volver al examen",
+   all:"Todas las preguntas",done:function(n,t){return n+" de "+t+" respondidas"},legA:"respondida",legT:"pendiente",qLabel:function(n,a){return "Pregunta "+n+(a?", respondida":"")},
+   your:"Tu respuesta",right:"Respuesta correcta",empty:"sin respuesta",script:"Transcripción",soon:function(n){return "El simulacro "+n+" llegará pronto: mientras tanto entrena con el que ya está."},
+   secRes:function(c,t){return c+" correctas de "+t},practiceT:"Para entrenar aparte: expresión escrita y oral",
+   practiceN:"Estas pruebas las evalúa un examinador, aquí no tienen puntuación. Intenta escribir o hablar y luego mira el ejemplo.",model:"Ejemplo de respuesta",
+   estShort:function(s,t,p){return "Estimación: "+s+"/"+t+" · aprobado "+p}}
  :{start:"Inizia",full:"Simulazione completa",secN:function(n,m){return n+(n===1?" sezione":" sezioni")+" · "+m+" min a tempo"},train:"Allenati su una sezione",
   last:function(s,t,d){return "Ultima volta: "+s+"/"+t+" · "+d},none:"Dopo la prima simulazione qui vedi la tua preparazione, sezione per sezione.",
   est:"Oggi prenderesti circa",weak:function(s){return "Ti manca soprattutto: "+s+"."},hist:"Le tue prove",
@@ -653,7 +689,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
-  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,c.es,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;

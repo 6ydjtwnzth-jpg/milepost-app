@@ -1,0 +1,53 @@
+  <p class="lead">Como en español, el verbo italiano cambia según <b>quién</b> hace la acción y <b>cuándo</b>. La buena noticia: las terminaciones se parecen mucho a las nuestras ({parlo}, {parli}, {parla}…). La diferencia principal: en italiano también se suele omitir el sujeto, igual que en español.</p>
+
+  <h3>Tres grupos</h3>
+  <div class="tw"><table>
+    <tr><th>Grupo</th><th>Ejemplo</th><th>Presente</th></tr>
+    <tr><td>1.º grupo, -are</td><td class="itc">parlare</td><td class="itc">parlo, parliamo</td></tr>
+    <tr><td>2.º grupo, -ere</td><td class="itc">prendere</td><td class="itc">prendo, prendiamo</td></tr>
+    <tr><td>3.º grupo, -ire</td><td class="itc">dormire, capire</td><td class="itc">dormo, capisco</td></tr>
+  </table></div>
+
+  <h3>El presente</h3>
+  <p>Fíjate en {noi}: siempre termina en {-iamo}, en los tres grupos. Y algunos verbos en -ire (capire, finire, preferire) añaden {-isc-} en cuatro personas: {capisco}, pero {capiamo}.</p>
+  <div class="tw"><table>
+    <tr><th>Persona</th><th>parlare</th><th>prendere</th><th>dormire</th></tr>
+    <tr><td class="itc">io</td><td class="itc">parlo</td><td class="itc">prendo</td><td class="itc">dormo</td></tr>
+    <tr><td class="itc">tu</td><td class="itc">parli</td><td class="itc">prendi</td><td class="itc">dormi</td></tr>
+    <tr><td class="itc">lui / lei</td><td class="itc">parla</td><td class="itc">prende</td><td class="itc">dorme</td></tr>
+    <tr><td class="itc">noi</td><td class="itc">parliamo</td><td class="itc">prendiamo</td><td class="itc">dormiamo</td></tr>
+    <tr><td class="itc">voi</td><td class="itc">parlate</td><td class="itc">prendete</td><td class="itc">dormite</td></tr>
+    <tr><td class="itc">loro</td><td class="itc">parlano</td><td class="itc">prendono</td><td class="itc">dormono</td></tr>
+  </table></div>
+  <div class="warn"><strong>El error típico de los hispanohablantes</strong>Poner el acento de {parlano} al final, como en «hablan»: en italiano es {pàrlano}, con el acento en la primera sílaba. Lo mismo en {abitano}, {telèfonano}, {lavorano} (la·vò·ra·no).</div>
+
+  <h3>Los tiempos del curso</h3>
+  <div class="tw"><table>
+    <tr><th>Tiempo</th><th>Cómo se forma</th><th>Ejemplo</th></tr>
+    <tr><td>Presente</td><td>raíz + terminaciones</td><td class="itc">io parlo</td></tr>
+    <tr><td>Passato prossimo</td><td>avere / essere + participio</td><td class="itc">ho parlato, sono andata</td></tr>
+    <tr><td>Imperfetto</td><td>raíz + -avo, -evo, -ivo…</td><td class="itc">parlavo</td></tr>
+    <tr><td>Futuro</td><td>raíz + -ò, -ai, -à…</td><td class="itc">parlerò</td></tr>
+    <tr><td>Condizionale</td><td>raíz del futuro + -ei, -esti, -ebbe…</td><td class="itc">parlerei</td></tr>
+  </table></div>
+
+  <h3>El conjugador</h3>
+  <p>Elige un verbo y un tiempo: verás las seis personas. En rojo las terminaciones; pulsa ▶ para escucharlas una a una, o «Escuchar todo» y repite.</p>
+  <div class="conjugator" id="conjugator">
+    <div class="cj-controls">
+      <label for="cjverb">Verbo</label>
+      <select id="cjverb" class="cj-select"></select>
+      <button class="btn pri" id="cjplay" type="button">▶ Escuchar todo</button>
+    </div>
+    <div class="seg" role="group" aria-label="Tiempo" id="cjtense">
+      <button class="btn" type="button" data-t="pr" aria-pressed="true" lang="it">presente</button>
+      <button class="btn" type="button" data-t="pp" aria-pressed="false" lang="it">passato prossimo</button>
+      <button class="btn" type="button" data-t="im" aria-pressed="false" lang="it">imperfetto</button>
+      <button class="btn" type="button" data-t="fu" aria-pressed="false" lang="it">futuro</button>
+      <button class="btn" type="button" data-t="co" aria-pressed="false" lang="it">condizionale</button>
+    </div>
+    <div class="cj-info" id="cjinfo"></div>
+    <div class="tw"><table class="cj-table" id="cjtable"></table></div>
+    <p class="cj-tip" id="cjtip"></p>
+  </div>
+  <div class="drill" data-set="verbi"></div>

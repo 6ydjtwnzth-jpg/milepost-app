@@ -1,0 +1,42 @@
+{
+  "parts": [
+    {"title": "Primera parte · Primeros pasos", "level": "A1.1", "j": "Primi passi", "items": [
+      {"id": "l1", "t": "Letras, sonidos y saludos", "j": "Ciao!", "icon": "i-abc"},
+      {"id": "l2", "t": "¿Cómo te llamas? Essere", "j": "Come ti chiami?", "icon": "i-tag"},
+      {"id": "l3", "t": "Acento, entonación, tu y Lei", "j": "Tu o Lei?", "icon": "i-wave"},
+      {"id": "l4", "t": "Cosas y personas: artículos y c'è", "j": "Cose e persone", "icon": "i-book"},
+      {"id": "l5", "t": "Mi familia: avere y posesivos", "j": "La mia famiglia", "icon": "i-family"},
+      {"id": "l6", "t": "¿Cómo estás? Stare y avere", "j": "Come stai?", "icon": "i-sun"},
+      {"id": "l7", "t": "¿En qué trabajas? Verbos regulares", "j": "Che lavoro fai?", "icon": "i-chat"},
+      {"id": "l8", "t": "En el bar: vorrei y precios", "j": "Al bar", "icon": "i-cup"},
+      {"id": "r1", "t": "Repaso 1", "j": "Ripasso 1", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Segunda parte · El día a día", "level": "A1.2", "j": "La vita di tutti i giorni", "items": [
+      {"id": "l9", "t": "Hacer preguntas", "j": "Fare domande", "icon": "i-q"},
+      {"id": "l10", "t": "Mi día: la hora y los reflexivos", "j": "La mia giornata", "icon": "i-clock"},
+      {"id": "l11", "t": "Tiempo libre: mi piace y andare", "j": "Il tempo libero", "icon": "i-ball"},
+      {"id": "l12", "t": "En la ciudad: preposiciones e indicaciones", "j": "In città", "icon": "i-pin"},
+      {"id": "l13", "t": "¿Quieres venir? Volere, potere, dovere", "j": "Vuoi venire?", "icon": "i-phone"},
+      {"id": "l14", "t": "En el mercado y el restaurante: del, della, ne", "j": "Al mercato", "icon": "i-fork"},
+      {"id": "r2", "t": "Repaso 2", "j": "Ripasso 2", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Tercera parte · Contar", "level": "A2", "j": "Raccontare", "items": [
+      {"id": "l15", "t": "El fin de semana: passato prossimo con avere", "j": "Il fine settimana", "icon": "i-ticket"},
+      {"id": "l16", "t": "De viaje: passato prossimo con essere, fechas y tiempo", "j": "In viaggio", "icon": "i-umbrella"},
+      {"id": "l17", "t": "Cuando era pequeña: el imperfetto", "j": "Quando ero piccola", "icon": "i-kite"},
+      {"id": "l18", "t": "Contar una historia: los dos pasados", "j": "Raccontare una storia", "icon": "i-scroll"},
+      {"id": "l19", "t": "Gustos y comparaciones: gli, le, più, meno", "j": "Gusti e confronti", "icon": "i-heart"},
+      {"id": "l20", "t": "De compras: lo, la, li y stare + gerundio", "j": "Fare spese", "icon": "i-bag"},
+      {"id": "l21", "t": "Planes: el futuro y se", "j": "Progetti", "icon": "i-suitcase"},
+      {"id": "l22", "t": "Salud y servicios: el condicional", "j": "Salute e servizi", "icon": "i-cross"},
+      {"id": "l23", "t": "Lucía en Roma: cuenta tu historia", "j": "Lucía a Roma", "icon": "i-arch"},
+      {"id": "r3", "t": "Repaso 3 y prueba A2", "j": "Ripasso 3 e test A2", "icon": "i-star", "kind": "review"}
+    ]},
+    {"title": "Apéndices", "j": "Appendici", "items": [
+      {"id": "frasi", "t": "Frases útiles", "j": "Frasario", "icon": "i-lemon", "kind": "app", "letter": "A"},
+      {"id": "flash", "t": "Tarjetas: repaso espaciado", "j": "Flashcard", "icon": "i-cards", "kind": "app", "letter": "B"},
+      {"id": "vocab", "t": "Vocabulario", "j": "Vocabolario", "icon": "i-book", "kind": "app", "letter": "C"},
+      {"id": "verbi", "t": "Conjugar los verbos", "j": "Coniugare i verbi", "icon": "i-verb", "kind": "app", "letter": "D"}
+    ]}
+  ]
+}

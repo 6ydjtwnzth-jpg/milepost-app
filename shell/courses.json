@@ -203,6 +203,52 @@
         }
       ],
       "examNote": "Il DELF si tiene più volte all'anno: controlla le date nella sede più vicina (Institut français, Alliance française)."
+    },
+    {
+      "id": "it-es",
+      "learn": "it",
+      "speak": "es",
+      "storageKey": "italiano-para-hispanohablantes-v1",
+      "titleField": "t",
+      "name": "Italiano",
+      "native": "Italiano",
+      "the": "italiano",
+      "color": "green",
+      "hidden": true,
+      "levelsLabel": "De cero al A2 · 23 lecciones",
+      "courseHours": 150,
+      "starts": [
+        {
+          "skip": 1,
+          "t": "Desde cero",
+          "s": "Nunca he estudiado italiano"
+        },
+        {
+          "skip": 2,
+          "t": "Sé lo básico",
+          "s": "Saludos, presentarme, números (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "Ya tengo un A1",
+          "s": "Un año de estudio, más o menos"
+        }
+      ],
+      "exams": [
+        {
+          "id": "a2",
+          "name": "CILS A2",
+          "upto": "r3",
+          "hours": 150,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "CILS B1",
+          "soon": true
+        }
+      ],
+      "examNote": "El CILS tiene varias convocatorias al año: consulta las fechas en la sede más cercana (Istituto Italiano di Cultura o centros autorizados por la Università per Stranieri di Siena)."
     }
   ],
   "soon": {
@@ -248,6 +294,24 @@
       [
         "한국어",
         "韩语"
+      ]
+    ],
+    "es": [
+      [
+        "EN",
+        "Inglés"
+      ],
+      [
+        "FR",
+        "Francés"
+      ],
+      [
+        "DE",
+        "Alemán"
+      ],
+      [
+        "PT",
+        "Portugués"
       ]
     ]
   }

@@ -10,7 +10,12 @@
 function exLang(){return typeof itHTML==="function"?"it":typeof pyWord==="function"?"zh":"ja"}
 /* the course this page belongs to (shell/courses.json): its interface language and the language being learned */
 function exCourse(){var c=null;try{CATALOG.courses.forEach(function(x){if(x.storageKey===KEY)c=x})}catch(e){}return c||{speak:"it",learn:exLang()}}
-function exS(){return exCourse().speak==="zh"?{
+function exS(){var sp=exCourse().speak;if(sp==="es")return {
+    ord:"Ordena",ear:"Escucha y ordena",gap:"Completa",err:"Busca el error",chr:"Construye",rep:"Responde",tone:"Tono",chk:"Comprobar",rst:"Empezar de nuevo",ok:"¡Correcto!",no:"No exactamente.",ans:"Respuesta:",
+    play:"Escuchar",again:"Escuchar de nuevo",errQ:"Toca la palabra equivocada.",errFine:"Esta está bien.",fixed:"La frase correcta:",earQ:"Escucha y ordena la frase.",
+    repQ:"Elige la respuesta adecuada.",useSome:"Elige primero algunas palabras.",next:"Todavía falta una parte.",chrQ:function(c,m){return "Construye "+c+" («"+m+"»): elige las piezas."},
+    toneQ:"Escucha la sílaba y elige el tono."};
+  return sp==="zh"?{
     ord:"组句",ear:"听后组句",gap:"选词填空",err:"找错误",rep:"回答",tone:"声调",chk:"检查",rst:"重来",ok:"正确！",no:"不对。",ans:"答案：",
     play:"听",again:"再听一遍",errQ:"点出用错的那个词。",errFine:"这个词没问题。",fixed:"正确的句子：",earQ:"听，然后把句子拼出来。",
     repQ:"选择合适的回答。",useSome:"先选几个词。",next:"还差一个部分。"}:{
