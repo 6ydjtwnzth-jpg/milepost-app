@@ -4698,7 +4698,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
-  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;

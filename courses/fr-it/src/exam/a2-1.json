@@ -1,0 +1,523 @@
+{
+ "id": "a2-1",
+ "exam": "a2",
+ "title": "Prova 1",
+ "it": "Simulazione nel formato del DELF A2: comprensione orale e comprensione scritta con punteggio stimato; produzione scritta e orale da esercitare con i modelli.",
+ "scheme": {
+  "name": "DELF A2",
+  "total": 50,
+  "pass": 25,
+  "lang": "fr",
+  "plays": 2,
+  "opts": "abc",
+  "part": "Exercice ",
+  "groups": [
+   {
+    "id": "oral",
+    "label": "Compréhension de l'oral",
+    "max": 25,
+    "min": 5
+   },
+   {
+    "id": "ecrit",
+    "label": "Compréhension des écrits",
+    "max": 25,
+    "min": 5
+   }
+  ],
+  "skills": {
+   "listening": [
+    "Ascolto",
+    "Compréhension de l'oral"
+   ],
+   "reading": [
+    "Lettura",
+    "Compréhension des écrits"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "F : ",
+   "M": "H : "
+  },
+  "passText": "Ogni prova vale 25 punti e ne servono almeno 5. Al DELF vero le prove sono quattro (anche produzione scritta e orale) e si passa con 50 su 100: qui la soglia è riportata in proporzione.",
+  "notOfficial": "Simulazione nel formato del DELF A2, non un esame ufficiale: il punteggio è solo una stima. Il DELF vero ha anche la produzione scritta e orale, valutate da esaminatori.",
+  "note": "Come all'esame vero, consegne e domande sono in francese. Se ti serve, premi «Traduzione» per vedere la consegna in italiano."
+ },
+ "sections": [
+  {
+   "id": "oral",
+   "jp": "Compréhension de l'oral",
+   "it": "Comprensione orale",
+   "min": 25,
+   "score": "oral",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Exercice 1",
+     "skill": "listening",
+     "kind": "annonces",
+     "inst": "Écoutez les annonces et répondez aux questions.",
+     "itInst": "Ascolta gli annunci e rispondi alle domande.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "Mesdames et messieurs, le TGV numéro 6613 à destination de Lyon partira voie sept. Départ prévu à dix heures douze."
+        ]
+       ],
+       "q": "Le train pour Lyon part de quelle voie ?",
+       "o": [
+        "De la voie 17.",
+        "De la voie 7.",
+        "De la voie 2."
+       ],
+       "a": 1,
+       "e": "«voie sept» = binario 7."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Chers clients, notre magasin fermera dans dix minutes. Merci de vous diriger vers les caisses. Bonne soirée !"
+        ]
+       ],
+       "q": "Que doivent faire les clients ?",
+       "o": [
+        "Quitter le magasin tout de suite.",
+        "Aller au rayon fruits.",
+        "Aller aux caisses."
+       ],
+       "a": 2,
+       "e": "«Le magasin fermera dans dix minutes. Merci de vous diriger vers les caisses» = andare alle casse."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Les passagers du vol AF 1404 à destination de Rome sont informés que le départ aura un retard d'environ quarante minutes."
+        ]
+       ],
+       "q": "Le vol pour Rome…",
+       "o": [
+        "est annulé.",
+        "a du retard.",
+        "part en avance."
+       ],
+       "a": 1,
+       "e": "«un retard d'environ quarante minutes» = un ritardo di circa quaranta minuti."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Le musée est ouvert tous les jours de neuf heures à dix-huit heures, sauf le mardi. Entrée gratuite le premier dimanche du mois."
+        ]
+       ],
+       "q": "Le musée est fermé…",
+       "o": [
+        "le mardi.",
+        "le lundi.",
+        "le dimanche."
+       ],
+       "a": 0,
+       "e": "«fermé le mardi» = chiuso il martedì."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Exercice 2",
+     "skill": "listening",
+     "kind": "messages",
+     "inst": "Écoutez les messages sur le répondeur et répondez aux questions.",
+     "itInst": "Ascolta i messaggi in segreteria e rispondi alle domande.",
+     "items": [
+      {
+       "script": [
+        [
+         "F",
+         "Salut Marc, c'est Julie. Pour ce soir, j'ai un problème au travail. On peut se retrouver à vingt heures au lieu de dix-neuf heures ? Rappelle-moi !"
+        ]
+       ],
+       "q": "Pourquoi Julie appelle Marc ?",
+       "o": [
+        "Pour annuler le dîner.",
+        "Pour l'inviter au cinéma.",
+        "Pour changer l'heure du rendez-vous."
+       ],
+       "a": 2,
+       "e": "«On peut se retrouver à vingt heures au lieu de dix-neuf heures ?» = cambiare l'ora."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Bonjour, ici le cabinet du docteur Morel. Votre rendez-vous de lundi est annulé. Nous vous proposons jeudi à dix heures. Merci de confirmer par téléphone."
+        ]
+       ],
+       "q": "Qu'est-ce que le docteur Morel propose ?",
+       "o": [
+        "Un rendez-vous jeudi à 10 h.",
+        "Un rendez-vous lundi à 10 h.",
+        "Une visite à la maison."
+       ],
+       "a": 0,
+       "e": "«jeudi à dix heures» = giovedì alle 10."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Paul, c'est papa. Tu peux passer au marché en rentrant ? Prends du pain et du fromage, s'il te plaît. Le vin, je l'ai déjà acheté."
+        ]
+       ],
+       "q": "Qu'est-ce que Paul doit acheter ?",
+       "o": [
+        "Du vin et des fruits.",
+        "Du pain et du fromage.",
+        "Du pain et du vin."
+       ],
+       "a": 1,
+       "e": "«prends du pain et du fromage» = prendi pane e formaggio."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Exercice 3",
+     "skill": "listening",
+     "kind": "radio",
+     "inst": "Écoutez ces informations à la radio et répondez aux questions.",
+     "itInst": "Ascolta queste notizie alla radio e rispondi alle domande.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "La météo de demain : du soleil et de la chaleur dans le sud, jusqu'à trente degrés à Marseille. Dans le nord, de la pluie toute la journée."
+        ]
+       ],
+       "q": "Quel temps fera-t-il demain dans le nord ?",
+       "o": [
+        "Il pleuvra.",
+        "Il fera beau.",
+        "Il neigera."
+       ],
+       "a": 0,
+       "e": "«de la pluie dans le nord» = pioggia al nord."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Ce week-end, c'est la fête de la ville ! Samedi et dimanche, concerts gratuits sur la place de la mairie, marché et animations pour les enfants."
+        ]
+       ],
+       "q": "La fête de la ville a lieu…",
+       "o": [
+        "seulement samedi soir.",
+        "vendredi.",
+        "samedi et dimanche."
+       ],
+       "a": 2,
+       "e": "«samedi et dimanche» = sabato e domenica."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Ce week-end, c'est la fête de la ville ! Samedi et dimanche, concerts gratuits sur la place de la mairie, marché et animations pour les enfants."
+        ]
+       ],
+       "q": "Les concerts sont…",
+       "o": [
+        "à dix euros.",
+        "réservés aux enfants.",
+        "gratuits."
+       ],
+       "a": 2,
+       "e": "«concerts gratuits» = concerti gratuiti."
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Exercice 4",
+     "skill": "listening",
+     "kind": "dialogues",
+     "inst": "Écoutez les dialogues et répondez aux questions.",
+     "itInst": "Ascolta i dialoghi e rispondi alle domande.",
+     "items": [
+      {
+       "script": [
+        [
+         "F",
+         "Bonjour, vous avez cette veste en 40 ?"
+        ],
+        [
+         "M",
+         "Oui, la voilà. La cabine est au fond, à droite."
+        ]
+       ],
+       "q": "Où sont les deux personnes ?",
+       "o": [
+        "Au restaurant.",
+        "À la gare.",
+        "Dans un magasin de vêtements."
+       ],
+       "a": 2,
+       "e": "Si parla di taglie e di provare una giacca."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Vous avez choisi ?"
+        ],
+        [
+         "F",
+         "Oui, je vais prendre la salade du jour et une carafe d'eau, s'il vous plaît."
+        ]
+       ],
+       "q": "Qu'est-ce que la femme commande ?",
+       "o": [
+        "Une salade et une carafe d'eau.",
+        "Un steak et un verre de vin.",
+        "Une salade et une bière."
+       ],
+       "a": 0,
+       "e": "«une salade… et une carafe d'eau»."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Tu viens au cinéma ce soir ?"
+        ],
+        [
+         "M",
+         "Désolé, je ne peux pas. J'ai de la fièvre depuis ce matin, je reste au lit."
+        ]
+       ],
+       "q": "Pourquoi l'homme ne va pas au cinéma ?",
+       "o": [
+        "Il doit travailler.",
+        "Il est malade.",
+        "Il n'aime pas le film."
+       ],
+       "a": 1,
+       "e": "«j'ai de la fièvre» = ho la febbre."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Pardon, monsieur, pour aller à la gare, s'il vous plaît ?"
+        ],
+        [
+         "M",
+         "Prenez la deuxième rue à gauche, c'est à cinq minutes à pied."
+        ]
+       ],
+       "q": "Où va la femme ?",
+       "o": [
+        "À la poste.",
+        "À la gare.",
+        "Au musée."
+       ],
+       "a": 1,
+       "e": "«pour aller à la gare» = per andare alla stazione."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ecrit",
+   "jp": "Compréhension des écrits",
+   "it": "Comprensione scritta",
+   "min": 30,
+   "score": "ecrit",
+   "parts": [
+    {
+     "n": 1,
+     "label": "Exercice 1",
+     "skill": "reading",
+     "kind": "annonce",
+     "inst": "Lisez l'annonce et répondez aux questions.",
+     "itInst": "Leggi l'annuncio e rispondi alle domande.",
+     "text": "Bonjour à tous ! Je m'appelle Inès, j'ai vingt-huit ans et je cherche une colocation à Bordeaux. Je suis infirmière et je commence un nouveau travail à l'hôpital Saint-André le premier septembre. Je suis calme, je ne fume pas et j'adore cuisiner : je peux préparer des plats italiens, parce que ma mère est italienne ! Je voudrais une chambre près du centre ou près d'une ligne de tram, pour un loyer de 500 euros maximum. Le week-end, je fais du vélo et je vais souvent au marché. Si vous avez une chambre, écrivez-moi : ines.b@mail.fr",
+     "items": [
+      {
+       "q": "Inès cherche…",
+       "o": [
+        "un travail à Bordeaux.",
+        "une chambre dans un appartement partagé.",
+        "un appartement pour une famille."
+       ],
+       "a": 1,
+       "e": "«je cherche une colocation» = cerco un appartamento in condivisione."
+      },
+      {
+       "q": "Quel est le métier d'Inès ?",
+       "o": [
+        "Infirmière.",
+        "Cuisinière.",
+        "Professeure d'italien."
+       ],
+       "a": 0,
+       "e": "«Je suis infirmière»."
+      },
+      {
+       "q": "Quand commence son travail ?",
+       "o": [
+        "Le 1er septembre.",
+        "Le 1er octobre.",
+        "Ce week-end."
+       ],
+       "a": 0,
+       "e": "«le premier septembre»."
+      },
+      {
+       "q": "Combien veut-elle payer au maximum ?",
+       "o": [
+        "500 euros.",
+        "50 euros.",
+        "400 euros."
+       ],
+       "a": 0,
+       "e": "«un loyer de 500 euros maximum»."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Exercice 2",
+     "skill": "reading",
+     "kind": "affiches",
+     "inst": "Lisez ces documents et répondez aux questions.",
+     "itInst": "Leggi questi documenti e rispondi alle domande.",
+     "items": [
+      {
+       "text": "PHARMACIE DU CENTRE — Ouverte du lundi au samedi de 8 h 30 à 19 h 30. Dimanche : de 9 h à 12 h 30.",
+       "q": "Vous voulez acheter des médicaments dimanche à 15 h. C'est possible ?",
+       "o": [
+        "Non, la pharmacie est fermée.",
+        "Oui, jusqu'à 19 h 30.",
+        "Oui, toute la journée."
+       ],
+       "a": 0,
+       "e": "Domenica è aperta solo dalle 9 alle 12:30."
+      },
+      {
+       "text": "CONCERT DE JAZZ — Samedi 14 juin, 20 h 30, salle des fêtes. Places limitées : réservation obligatoire à l'office de tourisme. 12 €, gratuit pour les moins de 12 ans.",
+       "q": "Pour aller au concert, il faut…",
+       "o": [
+        "acheter un billet avant.",
+        "arriver à 21 h.",
+        "apporter à manger."
+       ],
+       "a": 0,
+       "e": "«Réservation obligatoire» = prenotazione obbligatoria."
+      },
+      {
+       "q": "Un enfant de 8 ans paie…",
+       "o": [
+        "rien.",
+        "12 euros.",
+        "6 euros."
+       ],
+       "a": 0,
+       "e": "«gratuit pour les moins de 12 ans»."
+      },
+      {
+       "text": "Chers voisins, samedi 21 juin, nous organisons une fête dans la cour de l'immeuble à partir de 19 h. Apportez quelque chose à boire ou à manger ! Famille Martin, 3e étage.",
+       "q": "Ce message est pour…",
+       "o": [
+        "les voisins de l'immeuble.",
+        "les clients d'un hôtel.",
+        "les élèves d'une école."
+       ],
+       "a": 0,
+       "e": "«Chers voisins» = cari vicini."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Exercice 3",
+     "skill": "reading",
+     "kind": "lettre",
+     "inst": "Lisez la lettre et répondez aux questions.",
+     "itInst": "Leggi la lettera e rispondi alle domande.",
+     "text": "Chère Léa,\nmerci pour ta carte ! Je suis bien arrivée à Montréal il y a deux semaines. Au début, il faisait très froid et je ne comprenais pas toujours l'accent québécois, mais maintenant ça va mieux. J'habite chez une famille très gentille : ils ont deux enfants et un gros chien. Tous les matins, je prends le bus pour aller à l'université. Le week-end dernier, nous sommes allés voir les chutes du Niagara : c'était magnifique ! En décembre, je rentrerai en France pour Noël. On se voit à Paris ?\nGros bisous, Camille",
+     "items": [
+      {
+       "q": "Depuis combien de temps Camille est à Montréal ?",
+       "o": [
+        "Deux mois.",
+        "Deux jours.",
+        "Deux semaines."
+       ],
+       "a": 2,
+       "e": "«il y a deux semaines»."
+      },
+      {
+       "q": "Au début, qu'est-ce qui était difficile ?",
+       "o": [
+        "La nourriture.",
+        "Le bus et l'université.",
+        "Le froid et l'accent."
+       ],
+       "a": 2,
+       "e": "«il faisait très froid et je ne comprenais pas toujours l'accent»."
+      },
+      {
+       "q": "Le week-end dernier, Camille…",
+       "o": [
+        "est rentrée en France.",
+        "est restée à la maison.",
+        "a visité les chutes du Niagara."
+       ],
+       "a": 2,
+       "e": "«nous sommes allés voir les chutes du Niagara»."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Production écrite",
+   "time": "25 min",
+   "task": "Vous avez passé un week-end à la mer avec des amis. Vous écrivez à un ami français pour lui raconter : où, avec qui, ce que vous avez fait, ce que vous avez aimé (60 à 80 mots).",
+   "tr": "Hai passato un fine settimana al mare con degli amici. Scrivi a un amico francese per raccontarglielo: dove, con chi, che cosa avete fatto, che cosa ti è piaciuto (60-80 parole).",
+   "model": "Salut Hugo ! Le week-end dernier, je suis allée à Rimini avec trois amies. Il faisait très beau et l'eau était chaude. Samedi, nous avons nagé et nous avons mangé du poisson dans un petit restaurant. Dimanche, nous avons fait du vélo le long de la mer. J'ai adoré la plage le soir, quand il n'y a personne. Et toi, tu viens en Italie cet été ? Bises, Sara"
+  },
+  {
+   "kind": "Production écrite",
+   "time": "20 min",
+   "task": "Votre ami français vous invite à son anniversaire samedi soir, mais vous ne pouvez pas venir. Vous lui répondez : vous le remerciez, vous expliquez pourquoi et vous proposez un autre jour (60 à 80 mots).",
+   "tr": "Un amico francese ti invita al suo compleanno sabato sera, ma non puoi andare. Gli rispondi: lo ringrazi, spieghi perché e proponi un altro giorno (60-80 parole).",
+   "model": "Cher Thomas, merci beaucoup pour ton invitation ! Malheureusement, samedi je ne peux pas venir : ma sœur se marie à Naples et je dois partir vendredi. Je suis vraiment désolé. Je rentre lundi soir. On peut dîner ensemble mardi ou mercredi ? Je t'apporterai un petit cadeau d'Italie ! Bon anniversaire et bonne fête ! Amitiés, Luca"
+  },
+  {
+   "kind": "Production orale",
+   "time": "2 min",
+   "task": "Entretien dirigé : présentez-vous (nom, âge, ville, travail ou études, famille, loisirs).",
+   "tr": "Colloquio guidato: presentati (nome, età, città, lavoro o studio, famiglia, tempo libero).",
+   "model": "Je m'appelle Marco, j'ai trente-deux ans et j'habite à Turin. Je suis ingénieur dans une entreprise de voitures. Je suis marié et j'ai une petite fille de trois ans. Le week-end, j'aime faire du vélo en montagne et cuisiner pour mes amis. J'apprends le français parce que je travaille souvent avec des collègues français."
+  },
+  {
+   "kind": "Production orale",
+   "time": "3 min",
+   "task": "Dialogue simulé : vous êtes dans un office de tourisme à Nice. Vous demandez des informations sur les visites, les horaires et les prix.",
+   "tr": "Dialogo simulato: sei in un ufficio del turismo a Nizza. Chiedi informazioni su visite, orari e prezzi.",
+   "model": "Bonjour, madame. Je voudrais visiter la vieille ville. Il y a des visites guidées ? À quelle heure elles commencent ? C'est combien ? Il y a un tarif pour les étudiants ? Et le musée Matisse, il est ouvert le lundi ? Merci beaucoup, au revoir !"
+  }
+ ]
+}

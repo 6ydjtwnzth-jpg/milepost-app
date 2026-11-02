@@ -2,7 +2,7 @@ DLG.l13=[["A","Allô, Inès ? C'est Paul. Tu veux venir au cinéma ce soir ?","P
 EX.l13=[
  {q:"{ils} + {pouvoir}:",o:["{ils peuvent}","{ils pouvent}","{ils peut}"],e:"{pouvoir}: {ils peuvent}."},
  {q:"«Devo lavorare»:",o:["{Je dois travailler.}","{Je dois de travailler.}","{Je dois que travailler.}"],e:"{devoir} + infinito, senza preposizione."},
- {q:"Rifiuta un invito gentilmente:",o:["{Désolé, je ne peux pas.}","{Non, je ne veux pas.}","{Je ne dois pas.}"],e:"{désolé(e)} + {je ne peux pas}."},
+ {q:"Rifiuta un invito gentilmente:",o:["{Désolé, je ne peux pas.}","{Non, je ne veux pas.}","{Je ne dois pas.}"],e:"{désolé} o {désolée} + {je ne peux pas}."},
  {q:"«Stasera guarderò un film» (futuro vicino):",o:["{Ce soir, je vais regarder un film.}","{Ce soir, je vais à regarder un film.}","{Ce soir, je regarde va un film.}"],e:"{aller} + infinito."},
  {q:"Al telefono, la prima parola:",o:["{Allô ?}","{Pronto ?}","{Bonjour, c'est moi qui ?}"],e:"{allô} si usa solo al telefono."},
  {q:"Ascolta: «é» chiusa o «è» aperta?",au:"la fête",o:["aperta, come «bene»","chiusa, come «perché»"],e:"{ê} = e aperta."},

@@ -1,2 +1,48 @@
-/* ---------- French -> Italian dictionary for the tooltip ---------- */
-var DICT={};
+/* ---------- French -> Italian dictionary for the tooltip ----------
+   Lesson words (VOC), culture key words and verb forms are added automatically; this file holds everything else
+   that appears in the course. Checked with ?audit=1 → MPAUDIT() (miss must be empty). */
+var DICT={
+/* articoli, preposizioni, pronomi, parole grammaticali */
+"le":"il, lo (articolo); lo (pronome)","la":"la (articolo e pronome)","les":"i, gli, le (articolo); li, le (pronome)","l'":"il, la (davanti a vocale); lo, la (pronome)",
+"d'":"di (davanti a vocale)","qu'":"che (davanti a vocale)","j'":"io (davanti a vocale)","m'":"mi (davanti a vocale)","t'":"ti (davanti a vocale)","s'":"si (davanti a vocale); se (s'il = se lui)","n'":"non (davanti a vocale)","c'":"ciò (c'est = è)",
+"à":"a, in","au":"al, allo (à + le)","aux":"ai, agli, alle (à + les)","du":"del, dello (de + le); un po' di","des":"dei, degli, delle; alcuni","de la":"della; un po' di",
+"ne":"non (con pas, jamais, plus…)","pas":"non (ne… pas); passo","que":"che; di (nei paragoni)","qui":"chi; che (relativo)","ce":"questo, quello; ciò","ces":"questi, queste","cette":"questa","cet":"questo (davanti a vocale)",
+"me":"mi, me","te":"ti, te","se":"si, sé","tout":"tutto","tous":"tutti","toutes":"tutte","rien":"niente","ou":"o, oppure","par":"per, da, attraverso","ça":"ciò, questo (familiare)","là":"là, lì","ceci":"questo",
+"sa":"sua","ses":"suoi, sue","tes":"tuoi, tue","nos":"nostri, nostre","vos":"vostri, vostre; Suoi","ta":"tua","mienne":"mia (la mienne: la mia)","est-ce":"è (in est-ce que: domanda)","qu'est-ce":"che cosa (qu'est-ce que)","parce":"perché (parce que)",
+"plaît":"piace (s'il vous plaît: per favore)","bonne":"buona","bon":"buono","beaucoup":"molto","peu":"poco","trop":"troppo","assez":"abbastanza","mal":"male; dolore",
+"près":"vicino","côté":"lato (à côté de: accanto a)","face":"faccia (en face: di fronte)","sûr":"sicuro (bien sûr: certo)","droit":"dritto; diritto","gauche":"sinistra","droite":"destra","centre":"centro","fond":"fondo","bord":"bordo, riva (au bord de la mer: al mare)","long":"lungo (le long de: lungo)","début":"inizio",
+"unique":"unico","simple":"semplice","complet":"completo, pieno","jeunes":"giovani","moment-là":"momento (à ce moment-là: in quel momento)","coup":"colpo (tout à coup: all'improvviso)","demi":"mezzo","demie":"mezza","quart":"quarto",
+/* numeri */
+"quatre":"quattro","cinq":"cinque","six":"sei","sept":"sette","huit":"otto","neuf":"nove; nuovo","onze":"undici","douze":"dodici","treize":"tredici","quatorze":"quattordici","quinze":"quindici","seize":"sedici",
+"dix-sept":"diciassette","dix-huit":"diciotto","dix-neuf":"diciannove","vingt-cinq":"venticinque","vingt-quatre":"ventiquattro","quarante-cinq":"quarantacinque","soixante-quinze":"settantacinque",
+"quatre-vingt-un":"ottantuno","quatre-vingt-treize":"novantatré","quatre-vingt-dix-neuf":"novantanove","mille":"mille","11e":"undicesimo",
+/* lettere e suoni (pagine di pronuncia) */
+"a":"ha (avoir); lettera a","e":"lettera e: la e muta francese","i":"lettera i","u":"lettera u: la u francese, a labbra arrotondate","r":"lettera r: in francese si fa in gola","t":"lettera t","s":"lettera s","d":"lettera d","x":"lettera x","z":"lettera z","p":"lettera p","g":"lettera g","j":"lettera j: si dice «ji»","h":"lettera h: in francese non si pronuncia",
+"é":"e chiusa (accento acuto)","è":"e aperta (accento grave)","ê":"e aperta (accento circonflesso)","ss":"due s: s sorda","ch":"si legge come «sc» di «scena»","oi":"si legge «ua»","ill":"dopo vocale si legge come una i breve","gn":"si legge come «gn» di «bagno»",
+"ain":"si legge come una «è» nasale","ein":"si legge come una «è» nasale","ien":"si legge «i» + «è» nasale","ent":"desinenza muta dei verbi (ils parlent)","ez":"desinenza di vous (si legge «é»)","er":"desinenza dell'infinito (si legge «é»)","ons":"desinenza di nous",
+"ait":"desinenza dell'imparfait (il / elle)","ions":"desinenza di nous all'imparfait","iez":"desinenza di vous all'imparfait","aient":"desinenza di ils all'imparfait (si legge «è»)","ront":"desinenza del futuro (ils)","al":"singolare in -al (plurale -aux)",
+"av-":"radice dell'imparfait di avoir","ét-":"radice dell'imparfait di être","ir-":"radice del futuro di aller","ser-":"radice del futuro di être","aur-":"radice del futuro di avoir","fer-":"radice del futuro di faire","viendr-":"radice del futuro di venir",
+"pourr-":"radice del futuro di pouvoir","voudr-":"radice del futuro di vouloir","devr-":"radice del futuro di devoir","verr-":"radice del futuro di voir","saur-":"radice del futuro di savoir","prendr-":"radice del futuro di prendre",
+"ir":"desinenza dei verbi del 2° gruppo","re":"desinenza dei verbi in -re","in":"in (latino); suono nasale «in»","infinito":"infinito",
+"allé(e":"andato / andata (aller)","allé(e)s":"andati / andate (aller)","allé(e)(s":"andato / andata / andati / andate (con vous)","petit(e":"piccolo / piccola","heure(s":"ora / ore",
+/* forme verbali */
+"présente":"presento (présenter)","coûte":"costa (coûter)","tournes":"giri (tourner)","tourne":"gira! (imperativo)","tournez":"girate; giri (imperativo, Lei)","pleut":"piove (pleuvoir)","plu":"piovuto (pleuvoir); piaciuto (plaire)","neige":"nevica; neve",
+"jouait":"giocava (jouer)","jouaient":"giocavano (jouer)","jouons":"giochiamo","joue":"gioca; gioco (jouer); guancia","trouve":"trovo, trova (trouver)","faut":"bisogna (il faut)","manques":"manchi (manquer)","manquent":"mancano (manquer)",
+"désirez":"desidera (désirer)","apprends":"impari, imparo (apprendre)","dîne":"ceno, cena (dîner)","déteste":"odio, odia (détester)","adore":"adoro, adora (adorer)","j'adore":"adoro","l'adore":"la adoro, lo adoro","retrouve":"ritrovo (se retrouver: incontrarsi)",
+"quittez":"lasciate (ne quittez pas: resti in linea)","prie":"prego (je vous en prie: prego)","sers":"servo (servir)","raconte":"racconta! (raconter)","pleuvait":"pioveva (pleuvoir)","marchais":"camminavo (marcher)","cuisinais":"cucinavo (cuisiner)","éteinte":"spenta (s'éteindre)",
+"offres":"regali (offrir)","offre":"regalo, regala (offrir)","donne":"do, dà (donner)","remercie":"ringrazio (remercier)","plaisent":"piacciono (plaire)","invite":"invito, invita (inviter)","toussez":"tossisce (tousser, con Lei)","promène":"passeggio (se promener)",
+"montrerai":"mostrerò (montrer)","existe":"esiste (exister)","gouverner":"governare","chaussez":"calza (vous chaussez du combien ? = che numero di scarpe porta?)","tutoie":"diamo del tu (se tutoyer)","dansent":"ballano (danser)","vivra":"vivrà (vivre)",
+"fut":"fu (passé simple di être)","alla":"andò (passé simple di aller)","dirent":"dissero (passé simple di dire)","vécu":"vissuto (vivre)","mourir":"morire","retourner":"ritornare","réserver":"prenotare","rappeler":"richiamare","répéter":"ripetere","poser":"posare (poser une question: fare una domanda)",
+"reposer":"riposare (se reposer: riposarsi)","pacser":"unirsi con il PACS","perdu":"perso (perdre)","sens":"sento (je me sens bien: mi sento bene); senso",
+/* nomi e aggettivi */
+"agence":"agenzia","l'agence":"l'agenzia","jeudi":"giovedì","train":"treno","studio":"monolocale (falso amico)","salle":"sala, stanza","bains":"bagni (salle de bains: bagno)","toilettes":"gabinetto","choses":"cose","dent":"dente","sac":"borsa","avril":"aprile","soirée":"serata","journée":"giornata","sourire":"sorriso; sorridere",
+"liaison":"legame tra due parole (la s si sente: les‿amis)","enchaînement":"concatenamento delle parole","wifi":"wi-fi","ascenseur":"ascensore","d'ascenseur":"di ascensore","acteur":"attore","actrice":"attrice","maths":"matematica","crème":"crema; panna","neveux":"nipoti (di zii)",
+"l'Espagne":"la Spagna","football":"calcio","d'Orsay":"d'Orsay (museo di Parigi)","pied":"piede (à pied: a piedi)","héros":"eroe","haricots":"fagioli","plaisir":"piacere","doux":"dolce, morbido","pique-nique":"picnic","parc":"parco","services":"servizi","numéro":"numero","vol":"volo; furto",
+"spécialités":"specialità","utiles":"utili","billet":"biglietto","portefeuille":"portafoglio","secours":"soccorso (au secours! = aiuto!)","commune":"comune","futur":"futuro","conditionnel":"condizionale","imparfait":"imperfetto","présent":"presente","composé":"composto (passé composé)","comparaisons":"confronti","bande":"striscia, banda (bande dessinée: fumetto)","dessinée":"disegnata",
+"mode":"moda","solde":"saldo (en solde: in saldo)","l'Italie":"l'Italia","bise":"bacio sulla guancia","revoir":"rivedere (au revoir: arrivederci)","francophonie":"i paesi di lingua francese","terrible":"terribile (pas terrible: non granché)",
+"grève":"sciopero","râleur":"brontolone","tickets-restaurant":"buoni pasto","société":"società; azienda","stage":"tirocinio (falso amico)","salaire":"stipendio","comptoir":"banco (del bar)","tartine":"fetta di pane con burro o marmellata","chocolat":"cioccolato","bol":"tazza senza manico","char":"macchina (Québec)","arrêt":"fermata; stop",
+"septante":"settanta (Belgio, Svizzera)","nonante":"novanta (Belgio, Svizzera)","grasse":"grassa (grasse matinée: dormire fino a tardi)","matinée":"mattinata","sieste":"pisolino","rugby":"rugby","arrondissements":"municipi di Parigi","arrondissement":"municipio di Parigi","direction":"direzione",
+"politesse":"cortesia","apéro":"aperitivo","dînatoire":"che fa da cena (apéro dînatoire)","pays":"paese (nazione)","variétés":"varietà","fromager":"formaggiaio","boucher":"macellaio","pourboire":"mancia","rois":"re (plurale: la galette des rois)","juillettistes":"chi va in vacanza a luglio","aoûtiens":"chi va in vacanza ad agosto",
+"congés":"ferie","cantine":"mensa","pépé":"nonno (familiare)","mémé":"nonna (familiare)","maman":"mamma","l'Agneau":"l'agnello","raison":"ragione","renard":"volpe","corbeau":"corvo","fresque":"affresco","balcon":"balcone","spaghettis":"spaghetti","soldes":"saldi",
+"résidences":"residenze (universitarie)","colocation":"appartamento in condivisione","colocataires":"coinquilini","sociale":"sociale (Sécurité sociale: servizio sanitario)","pompiers":"vigili del fuoco","nid":"nido","souris":"topo; topi","jamais":"mai","ce soir":"stasera"
+};

@@ -769,7 +769,7 @@ setTimeout(hide,Math.max(4000,min))})();
   <div class="stats">
     <div class="t-red"><b>23</b><span>lezioni + 3 ripassi</span></div>
     <div class="t-blue"><b>22</b><span>dialoghi</span></div>
-    <div class="t-green"><b>273</b><span>esercizi</span></div>
+    <div class="t-green"><b>302</b><span>esercizi</span></div>
     <div class="t-yellow"><b>581</b><span>parole</span></div>
   </div>
   <div class="legend"><span>Colore dei nomi:</span><b class="m" lang="fr">maschile le livre</b><b class="f" lang="fr">femminile la maison</b><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">verde</b> = francese: toccalo per sentirlo e vedere il significato</span></div>
@@ -1704,7 +1704,7 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-it="la mère, la fête, très" data-zh="la madre, la festa, molto"></div>
     </div>
   </div>
-  <div class="warn"><strong>Gli errori tipici degli italiani</strong>Dire «je veux que venir»: dopo i modali va l'infinito direttamente; scambiare <i class="it">je peux</i> e <i class="it">je veux</i>; rispondere <i class="it">je ne peux pas</i> senza scusarsi: in Francia si aggiunge sempre <i class="it">désolé(e)</i>.</div>
+  <div class="warn"><strong>Gli errori tipici degli italiani</strong>Dire «je veux que venir»: dopo i modali va l'infinito direttamente; scambiare <i class="it">je peux</i> e <i class="it">je veux</i>; rispondere <i class="it">je ne peux pas</i> senza scusarsi: in Francia si aggiunge sempre <i class="it">désolé</i> o <i class="it">désolée</i>.</div>
 
   <div class="words-head"><h3>Le parole della lezione</h3><span>inviti e appuntamenti</span></div>
   <div class="words" data-voc="l13"></div>
@@ -2516,11 +2516,57 @@ setTimeout(hide,Math.max(4000,min))})();
 <script>
 (function(){
 "use strict";
-/* ---------- French -> Italian dictionary for the tooltip ---------- */
-var DICT={};
+/* ---------- French -> Italian dictionary for the tooltip ----------
+   Lesson words (VOC), culture key words and verb forms are added automatically; this file holds everything else
+   that appears in the course. Checked with ?audit=1 → MPAUDIT() (miss must be empty). */
+var DICT={
+/* articoli, preposizioni, pronomi, parole grammaticali */
+"le":"il, lo (articolo); lo (pronome)","la":"la (articolo e pronome)","les":"i, gli, le (articolo); li, le (pronome)","l'":"il, la (davanti a vocale); lo, la (pronome)",
+"d'":"di (davanti a vocale)","qu'":"che (davanti a vocale)","j'":"io (davanti a vocale)","m'":"mi (davanti a vocale)","t'":"ti (davanti a vocale)","s'":"si (davanti a vocale); se (s'il = se lui)","n'":"non (davanti a vocale)","c'":"ciò (c'est = è)",
+"à":"a, in","au":"al, allo (à + le)","aux":"ai, agli, alle (à + les)","du":"del, dello (de + le); un po' di","des":"dei, degli, delle; alcuni","de la":"della; un po' di",
+"ne":"non (con pas, jamais, plus…)","pas":"non (ne… pas); passo","que":"che; di (nei paragoni)","qui":"chi; che (relativo)","ce":"questo, quello; ciò","ces":"questi, queste","cette":"questa","cet":"questo (davanti a vocale)",
+"me":"mi, me","te":"ti, te","se":"si, sé","tout":"tutto","tous":"tutti","toutes":"tutte","rien":"niente","ou":"o, oppure","par":"per, da, attraverso","ça":"ciò, questo (familiare)","là":"là, lì","ceci":"questo",
+"sa":"sua","ses":"suoi, sue","tes":"tuoi, tue","nos":"nostri, nostre","vos":"vostri, vostre; Suoi","ta":"tua","mienne":"mia (la mienne: la mia)","est-ce":"è (in est-ce que: domanda)","qu'est-ce":"che cosa (qu'est-ce que)","parce":"perché (parce que)",
+"plaît":"piace (s'il vous plaît: per favore)","bonne":"buona","bon":"buono","beaucoup":"molto","peu":"poco","trop":"troppo","assez":"abbastanza","mal":"male; dolore",
+"près":"vicino","côté":"lato (à côté de: accanto a)","face":"faccia (en face: di fronte)","sûr":"sicuro (bien sûr: certo)","droit":"dritto; diritto","gauche":"sinistra","droite":"destra","centre":"centro","fond":"fondo","bord":"bordo, riva (au bord de la mer: al mare)","long":"lungo (le long de: lungo)","début":"inizio",
+"unique":"unico","simple":"semplice","complet":"completo, pieno","jeunes":"giovani","moment-là":"momento (à ce moment-là: in quel momento)","coup":"colpo (tout à coup: all'improvviso)","demi":"mezzo","demie":"mezza","quart":"quarto",
+/* numeri */
+"quatre":"quattro","cinq":"cinque","six":"sei","sept":"sette","huit":"otto","neuf":"nove; nuovo","onze":"undici","douze":"dodici","treize":"tredici","quatorze":"quattordici","quinze":"quindici","seize":"sedici",
+"dix-sept":"diciassette","dix-huit":"diciotto","dix-neuf":"diciannove","vingt-cinq":"venticinque","vingt-quatre":"ventiquattro","quarante-cinq":"quarantacinque","soixante-quinze":"settantacinque",
+"quatre-vingt-un":"ottantuno","quatre-vingt-treize":"novantatré","quatre-vingt-dix-neuf":"novantanove","mille":"mille","11e":"undicesimo",
+/* lettere e suoni (pagine di pronuncia) */
+"a":"ha (avoir); lettera a","e":"lettera e: la e muta francese","i":"lettera i","u":"lettera u: la u francese, a labbra arrotondate","r":"lettera r: in francese si fa in gola","t":"lettera t","s":"lettera s","d":"lettera d","x":"lettera x","z":"lettera z","p":"lettera p","g":"lettera g","j":"lettera j: si dice «ji»","h":"lettera h: in francese non si pronuncia",
+"é":"e chiusa (accento acuto)","è":"e aperta (accento grave)","ê":"e aperta (accento circonflesso)","ss":"due s: s sorda","ch":"si legge come «sc» di «scena»","oi":"si legge «ua»","ill":"dopo vocale si legge come una i breve","gn":"si legge come «gn» di «bagno»",
+"ain":"si legge come una «è» nasale","ein":"si legge come una «è» nasale","ien":"si legge «i» + «è» nasale","ent":"desinenza muta dei verbi (ils parlent)","ez":"desinenza di vous (si legge «é»)","er":"desinenza dell'infinito (si legge «é»)","ons":"desinenza di nous",
+"ait":"desinenza dell'imparfait (il / elle)","ions":"desinenza di nous all'imparfait","iez":"desinenza di vous all'imparfait","aient":"desinenza di ils all'imparfait (si legge «è»)","ront":"desinenza del futuro (ils)","al":"singolare in -al (plurale -aux)",
+"av-":"radice dell'imparfait di avoir","ét-":"radice dell'imparfait di être","ir-":"radice del futuro di aller","ser-":"radice del futuro di être","aur-":"radice del futuro di avoir","fer-":"radice del futuro di faire","viendr-":"radice del futuro di venir",
+"pourr-":"radice del futuro di pouvoir","voudr-":"radice del futuro di vouloir","devr-":"radice del futuro di devoir","verr-":"radice del futuro di voir","saur-":"radice del futuro di savoir","prendr-":"radice del futuro di prendre",
+"ir":"desinenza dei verbi del 2° gruppo","re":"desinenza dei verbi in -re","in":"in (latino); suono nasale «in»","infinito":"infinito",
+"allé(e":"andato / andata (aller)","allé(e)s":"andati / andate (aller)","allé(e)(s":"andato / andata / andati / andate (con vous)","petit(e":"piccolo / piccola","heure(s":"ora / ore",
+/* forme verbali */
+"présente":"presento (présenter)","coûte":"costa (coûter)","tournes":"giri (tourner)","tourne":"gira! (imperativo)","tournez":"girate; giri (imperativo, Lei)","pleut":"piove (pleuvoir)","plu":"piovuto (pleuvoir); piaciuto (plaire)","neige":"nevica; neve",
+"jouait":"giocava (jouer)","jouaient":"giocavano (jouer)","jouons":"giochiamo","joue":"gioca; gioco (jouer); guancia","trouve":"trovo, trova (trouver)","faut":"bisogna (il faut)","manques":"manchi (manquer)","manquent":"mancano (manquer)",
+"désirez":"desidera (désirer)","apprends":"impari, imparo (apprendre)","dîne":"ceno, cena (dîner)","déteste":"odio, odia (détester)","adore":"adoro, adora (adorer)","j'adore":"adoro","l'adore":"la adoro, lo adoro","retrouve":"ritrovo (se retrouver: incontrarsi)",
+"quittez":"lasciate (ne quittez pas: resti in linea)","prie":"prego (je vous en prie: prego)","sers":"servo (servir)","raconte":"racconta! (raconter)","pleuvait":"pioveva (pleuvoir)","marchais":"camminavo (marcher)","cuisinais":"cucinavo (cuisiner)","éteinte":"spenta (s'éteindre)",
+"offres":"regali (offrir)","offre":"regalo, regala (offrir)","donne":"do, dà (donner)","remercie":"ringrazio (remercier)","plaisent":"piacciono (plaire)","invite":"invito, invita (inviter)","toussez":"tossisce (tousser, con Lei)","promène":"passeggio (se promener)",
+"montrerai":"mostrerò (montrer)","existe":"esiste (exister)","gouverner":"governare","chaussez":"calza (vous chaussez du combien ? = che numero di scarpe porta?)","tutoie":"diamo del tu (se tutoyer)","dansent":"ballano (danser)","vivra":"vivrà (vivre)",
+"fut":"fu (passé simple di être)","alla":"andò (passé simple di aller)","dirent":"dissero (passé simple di dire)","vécu":"vissuto (vivre)","mourir":"morire","retourner":"ritornare","réserver":"prenotare","rappeler":"richiamare","répéter":"ripetere","poser":"posare (poser une question: fare una domanda)",
+"reposer":"riposare (se reposer: riposarsi)","pacser":"unirsi con il PACS","perdu":"perso (perdre)","sens":"sento (je me sens bien: mi sento bene); senso",
+/* nomi e aggettivi */
+"agence":"agenzia","l'agence":"l'agenzia","jeudi":"giovedì","train":"treno","studio":"monolocale (falso amico)","salle":"sala, stanza","bains":"bagni (salle de bains: bagno)","toilettes":"gabinetto","choses":"cose","dent":"dente","sac":"borsa","avril":"aprile","soirée":"serata","journée":"giornata","sourire":"sorriso; sorridere",
+"liaison":"legame tra due parole (la s si sente: les‿amis)","enchaînement":"concatenamento delle parole","wifi":"wi-fi","ascenseur":"ascensore","d'ascenseur":"di ascensore","acteur":"attore","actrice":"attrice","maths":"matematica","crème":"crema; panna","neveux":"nipoti (di zii)",
+"l'Espagne":"la Spagna","football":"calcio","d'Orsay":"d'Orsay (museo di Parigi)","pied":"piede (à pied: a piedi)","héros":"eroe","haricots":"fagioli","plaisir":"piacere","doux":"dolce, morbido","pique-nique":"picnic","parc":"parco","services":"servizi","numéro":"numero","vol":"volo; furto",
+"spécialités":"specialità","utiles":"utili","billet":"biglietto","portefeuille":"portafoglio","secours":"soccorso (au secours! = aiuto!)","commune":"comune","futur":"futuro","conditionnel":"condizionale","imparfait":"imperfetto","présent":"presente","composé":"composto (passé composé)","comparaisons":"confronti","bande":"striscia, banda (bande dessinée: fumetto)","dessinée":"disegnata",
+"mode":"moda","solde":"saldo (en solde: in saldo)","l'Italie":"l'Italia","bise":"bacio sulla guancia","revoir":"rivedere (au revoir: arrivederci)","francophonie":"i paesi di lingua francese","terrible":"terribile (pas terrible: non granché)",
+"grève":"sciopero","râleur":"brontolone","tickets-restaurant":"buoni pasto","société":"società; azienda","stage":"tirocinio (falso amico)","salaire":"stipendio","comptoir":"banco (del bar)","tartine":"fetta di pane con burro o marmellata","chocolat":"cioccolato","bol":"tazza senza manico","char":"macchina (Québec)","arrêt":"fermata; stop",
+"septante":"settanta (Belgio, Svizzera)","nonante":"novanta (Belgio, Svizzera)","grasse":"grassa (grasse matinée: dormire fino a tardi)","matinée":"mattinata","sieste":"pisolino","rugby":"rugby","arrondissements":"municipi di Parigi","arrondissement":"municipio di Parigi","direction":"direzione",
+"politesse":"cortesia","apéro":"aperitivo","dînatoire":"che fa da cena (apéro dînatoire)","pays":"paese (nazione)","variétés":"varietà","fromager":"formaggiaio","boucher":"macellaio","pourboire":"mancia","rois":"re (plurale: la galette des rois)","juillettistes":"chi va in vacanza a luglio","aoûtiens":"chi va in vacanza ad agosto",
+"congés":"ferie","cantine":"mensa","pépé":"nonno (familiare)","mémé":"nonna (familiare)","maman":"mamma","l'Agneau":"l'agnello","raison":"ragione","renard":"volpe","corbeau":"corvo","fresque":"affresco","balcon":"balcone","spaghettis":"spaghetti","soldes":"saldi",
+"résidences":"residenze (universitarie)","colocation":"appartamento in condivisione","colocataires":"coinquilini","sociale":"sociale (Sécurité sociale: servizio sanitario)","pompiers":"vigili del fuoco","nid":"nido","souris":"topo; topi","jamais":"mai","ce soir":"stasera"
+};
 
 /* ---------- extra meanings: every French word you can tap has one ---------- */
-Object.assign(DICT,{});
+Object.assign(DICT,{"poison":"veleno (falso amico: il pesce è poisson)"});
 
 var DLG={},EX={},VOC={},CULT={};
 var LESSONS=[{"id": "l1", "n": 1, "t": "Suoni, lettere e saluti", "j": "Bonjour !", "kind": "lesson", "icon": "i-abc", "color": "red", "w": 1}, {"id": "l2", "n": 2, "t": "Mi chiamo…: être e nazionalità", "j": "Je m'appelle…", "kind": "lesson", "icon": "i-tag", "color": "blue", "w": 1}, {"id": "l3", "n": 3, "t": "Tu o vous? Accento e legami", "j": "Tu ou vous ?", "kind": "lesson", "icon": "i-wave", "color": "yellow", "w": 1}, {"id": "l4", "n": 4, "t": "Cose e persone: articoli e il y a", "j": "Les choses", "kind": "lesson", "icon": "i-book", "color": "green", "w": 1}, {"id": "l5", "n": 5, "t": "La mia famiglia: avoir e possessivi", "j": "Ma famille", "kind": "lesson", "icon": "i-family", "color": "pink", "w": 1}, {"id": "l6", "n": 6, "t": "Come va? Aller, età e numeri", "j": "Ça va ?", "kind": "lesson", "icon": "i-sun", "color": "red", "w": 1}, {"id": "l7", "n": 7, "t": "Che lavoro fai? Verbi in -er e negazione", "j": "Tu fais quoi ?", "kind": "lesson", "icon": "i-chat", "color": "blue", "w": 1}, {"id": "l8", "n": 8, "t": "Al caffè: je voudrais e prezzi", "j": "Au café", "kind": "lesson", "icon": "i-cup", "color": "yellow", "w": 1}, {"id": "r1", "n": null, "t": "Ripasso 1", "j": "Révision 1", "kind": "review", "icon": "i-loop", "color": "green", "w": 1}, {"id": "l9", "n": 9, "t": "Fare domande", "j": "Poser des questions", "kind": "lesson", "icon": "i-q", "color": "pink", "w": 2}, {"id": "l10", "n": 10, "t": "La mia giornata: ore e verbi pronominali", "j": "Ma journée", "kind": "lesson", "icon": "i-clock", "color": "red", "w": 2}, {"id": "l11", "n": 11, "t": "Il tempo libero: aimer, faire, jouer", "j": "Le temps libre", "kind": "lesson", "icon": "i-ball", "color": "blue", "w": 2}, {"id": "l12", "n": 12, "t": "In città: preposizioni e indicazioni", "j": "En ville", "kind": "lesson", "icon": "i-pin", "color": "yellow", "w": 2}, {"id": "l13", "n": 13, "t": "Vuoi venire? Vouloir, pouvoir, devoir", "j": "Tu veux venir ?", "kind": "lesson", "icon": "i-phone", "color": "green", "w": 2}, {"id": "l14", "n": 14, "t": "Al mercato e al ristorante: du, de la, en", "j": "Au marché", "kind": "lesson", "icon": "i-fork", "color": "pink", "w": 2}, {"id": "r2", "n": null, "t": "Ripasso 2", "j": "Révision 2", "kind": "review", "icon": "i-loop", "color": "red", "w": 2}, {"id": "l15", "n": 15, "t": "Il fine settimana: passé composé con avoir", "j": "Le week-end", "kind": "lesson", "icon": "i-ticket", "color": "blue", "w": 3}, {"id": "l16", "n": 16, "t": "In viaggio: passé composé con être, date e meteo", "j": "En voyage", "kind": "lesson", "icon": "i-umbrella", "color": "yellow", "w": 3}, {"id": "l17", "n": 17, "t": "Quando ero piccola: l'imparfait", "j": "Quand j'étais petite", "kind": "lesson", "icon": "i-kite", "color": "green", "w": 3}, {"id": "l18", "n": 18, "t": "Raccontare una storia: i due passati", "j": "Raconter une histoire", "kind": "lesson", "icon": "i-scroll", "color": "pink", "w": 3}, {"id": "l19", "n": 19, "t": "Gusti e confronti: lui, leur, plus, moins", "j": "Goûts et comparaisons", "kind": "lesson", "icon": "i-heart", "color": "red", "w": 3}, {"id": "l20", "n": 20, "t": "Fare acquisti: le, la, les ed être en train de", "j": "Faire les courses", "kind": "lesson", "icon": "i-bag", "color": "blue", "w": 3}, {"id": "l21", "n": 21, "t": "Progetti: il futuro e si", "j": "Projets", "kind": "lesson", "icon": "i-suitcase", "color": "yellow", "w": 3}, {"id": "l22", "n": 22, "t": "Salute e servizi: il condizionale", "j": "Santé et services", "kind": "lesson", "icon": "i-cross", "color": "green", "w": 3}, {"id": "l23", "n": 23, "t": "Giulia a Parigi: racconta la tua storia", "j": "Giulia à Paris", "kind": "lesson", "icon": "i-arch", "color": "pink", "w": 3}, {"id": "r3", "n": null, "t": "Ripasso 3 e test A2", "j": "Révision 3 et test A2", "kind": "review", "icon": "i-star", "color": "red", "w": 3}];
@@ -2801,7 +2847,7 @@ DLG.l13=[["A","Allô, Inès ? C'est Paul. Tu veux venir au cinéma ce soir ?","P
 EX.l13=[
  {q:"{ils} + {pouvoir}:",o:["{ils peuvent}","{ils pouvent}","{ils peut}"],e:"{pouvoir}: {ils peuvent}."},
  {q:"«Devo lavorare»:",o:["{Je dois travailler.}","{Je dois de travailler.}","{Je dois que travailler.}"],e:"{devoir} + infinito, senza preposizione."},
- {q:"Rifiuta un invito gentilmente:",o:["{Désolé, je ne peux pas.}","{Non, je ne veux pas.}","{Je ne dois pas.}"],e:"{désolé(e)} + {je ne peux pas}."},
+ {q:"Rifiuta un invito gentilmente:",o:["{Désolé, je ne peux pas.}","{Non, je ne veux pas.}","{Je ne dois pas.}"],e:"{désolé} o {désolée} + {je ne peux pas}."},
  {q:"«Stasera guarderò un film» (futuro vicino):",o:["{Ce soir, je vais regarder un film.}","{Ce soir, je vais à regarder un film.}","{Ce soir, je regarde va un film.}"],e:"{aller} + infinito."},
  {q:"Al telefono, la prima parola:",o:["{Allô ?}","{Pronto ?}","{Bonjour, c'est moi qui ?}"],e:"{allô} si usa solo al telefono."},
  {q:"Ascolta: «é» chiusa o «è» aperta?",au:"la fête",o:["aperta, come «bene»","chiusa, come «perché»"],e:"{ê} = e aperta."},
@@ -3039,7 +3085,7 @@ EX.r3=[
  {q:"«Le ho telefonato» (a Marie):",o:["{Je lui ai téléphoné.}","{Je l'ai téléphoné.}","{J'ai lui téléphoné.}"],e:"{téléphoner à} → {lui}, prima dell'ausiliare."},
  {q:"«Se pioverà, resteremo a casa»:",o:["{S'il pleut, nous resterons à la maison.}","{S'il pleuvra, nous resterons à la maison.}","{Si il pleut, nous restons à la maison.}"],e:"{si} + presente, poi futuro."},
  {q:"«Mi piacerebbe vivere a Parigi»:",o:["{J'aimerais vivre à Paris.}","{J'aimerai vivre à Paris.}","{Je plairais vivre à Paris.}"],e:"Desiderio: condizionale."},
- {q:"«Questa città è migliore»:",o:["{Cette ville est meilleure.}","{Cette ville est plus bonne.}","{Cette ville est mieux bonne.}"],e:"{bon} → {meilleur(e)}."},
+ {q:"«Questa città è migliore»:",o:["{Cette ville est meilleure.}","{Cette ville est plus bonne.}","{Cette ville est mieux bonne.}"],e:"{bon} → {meilleur}, {meilleure}."},
  {q:"Ascolta: che numero di telefono senti?",au:"Mon numéro, c'est le 04 93 25 61 80.",o:["04 93 25 61 80","04 73 25 61 80","04 93 35 71 80"],e:"{quatre-vingt-treize} = 93, {soixante et un} = 61, {quatre-vingts} = 80."},
  {t:"type",q:"Completa: {Hier, elle} ＿ {à la maison.} (rester, passé composé)",a:["est restée"],full:"Hier, elle est restée à la maison."},
  {t:"type",q:"Completa: {Quand nous} ＿ {jeunes, nous sortions souvent.} (être, imparfait)",a:["étions"],full:"Quand nous étions jeunes, nous sortions souvent."},
@@ -3076,14 +3122,540 @@ EX.verbi=[
    s = illustration (#sc-…), t = title, i = French title (you can listen to it), p = paragraphs (Italian, French in {braces}),
    it / fr = Italy / France compared, w = key words [French, Italian], q = question (the first option is right). */
 
-var READS=[];
+/* ---------- Parte prima ---------- */
+CULT.l1=[
+ {s:"kiss",t:"La bise: quanti baci?",i:"Faire la bise",
+  p:["Tra amici e in famiglia i francesi si salutano con {la bise}: si appoggia guancia contro guancia e si fa il rumore di un bacio. Come in Italia, ma con una differenza: il numero di baci cambia da regione a regione.","A Parigi di solito sono due, nel sud spesso tre, in alcune zone della Bretagna uno solo e in qualche paese anche quattro. Nel dubbio, lascia fare all'altro."],
+  it:"Due baci tra amici, quasi ovunque uguali. Tra uomini dipende dalla regione e dalla confidenza.",fr:"Da uno a quattro baci secondo la regione. Al lavoro, con chi non conosci, solo una stretta di mano.",
+  w:[["la bise","il bacio sulla guancia"],["faire la bise","salutarsi con i baci"],["serrer la main","stringere la mano"],["salut","ciao"]],
+  q:{q:"Quanti baci si danno di solito a Parigi?",o:["due","uno","quattro"],e:"A Parigi due; ma cambia da regione a regione."}},
+ {s:"shop",t:"Il «bonjour» obbligatorio",i:"Bonjour, madame !",
+  p:["In Francia entrare in un negozio, in un bar o salire su un autobus senza dire {Bonjour} è considerato maleducato. Anche quando chiedi un'informazione per strada, la prima parola deve essere {Bonjour}, e poi {Excusez-moi}.","Molti francesi raccontano di essere trattati meglio quando cominciano con un saluto: provalo anche tu. E uscendo: {Merci, au revoir !}"],
+  it:"«Buongiorno» si dice spesso, ma una domanda veloce senza saluto non offende nessuno.",fr:"Senza {bonjour} la conversazione parte male. Si saluta anche l'autista dell'autobus.",
+  w:[["bonjour","buongiorno"],["excusez-moi","mi scusi"],["merci","grazie"],["au revoir","arrivederci"]],
+  q:{q:"Vuoi chiedere la strada a un passante. Come cominci?",o:["{Bonjour, excusez-moi…}","{Où est la gare ?}","{Salut ! La gare ?}"],e:"Prima il saluto, sempre."}}
+];
+CULT.l2=[
+ {s:"names",t:"Jean-Pierre e Marie-Claire",i:"Les prénoms composés",
+  p:["In Francia sono comuni i nomi composti, uniti da un trattino: {Jean-Pierre}, {Marie-Claire}, {Jean-Luc}. Si usano sempre interi: Jean-Pierre non è «Jean».","I nomi cambiano con le mode: oggi tra i più dati ai neonati ci sono {Gabriel}, {Léo} e {Raphaël} per i maschi, {Jade}, {Louise} e {Emma} per le femmine."],
+  it:"I nomi doppi esistono (Maria Grazia, Gian Luca) ma si scrivono di solito senza trattino.",fr:"Il trattino è obbligatorio: {Jean-Pierre}. Al telefono o a scuola si usa spesso il cognome prima del nome.",
+  w:[["le prénom","il nome"],["le nom","il cognome"],["un prénom composé","un nome composto"],["s'appeler","chiamarsi"]],
+  q:{q:"Come si scrive il nome composto francese?",o:["con il trattino: {Jean-Pierre}","staccato: {Jean Pierre}","attaccato: {Jeanpierre}"],e:"Il trattino fa parte del nome."}},
+ {s:"map",t:"Il francese non è solo in Francia",i:"La francophonie",
+  p:["Nel mondo ci sono più di 300 milioni di francofoni. Il francese è lingua ufficiale in 29 paesi: oltre alla Francia, il Belgio, la Svizzera, il Lussemburgo, il Canada (in Québec) e molti paesi africani, come il Senegal e la Costa d'Avorio.","Anche in Italia il francese è di casa: in Valle d'Aosta è lingua ufficiale accanto all'italiano."],
+  it:"In Valle d'Aosta i cartelli e le leggi sono in italiano e in francese.",fr:"La Francia è solo una parte della {francophonie}: la maggior parte dei francofoni oggi vive in Africa.",
+  w:[["la francophonie","i paesi di lingua francese"],["francophone","francofono"],["la Belgique","il Belgio"],["la Suisse","la Svizzera"]],
+  q:{q:"In quale regione italiana il francese è lingua ufficiale?",o:["Valle d'Aosta","Piemonte","Liguria"],e:"In Valle d'Aosta, accanto all'italiano."}}
+];
+CULT.l3=[
+ {s:"talk",t:"On se tutoie?",i:"Tu ou vous ?",
+  p:["I francesi passano al {tu} più lentamente degli italiani. Al lavoro, con i vicini, con i genitori del fidanzato, si può restare al {vous} anche per anni.","Il passaggio al {tu} di solito lo propone la persona più anziana o più importante: {On peut se tutoyer ?} Fra giovani, invece, il {tu} è immediato."],
+  it:"Tra colleghi il «tu» arriva in fretta, anche con il capo in molti ambienti.",fr:"Al lavoro il {vous} dura di più. Proporre il {tu} è un piccolo gesto di amicizia.",
+  w:[["tutoyer","dare del tu"],["vouvoyer","dare del Lei"],["on se tutoie ?","ci diamo del tu?"],["un collègue","un collega"]],
+  q:{q:"Chi propone di solito di passare al {tu}?",o:["la persona più anziana o più importante","la più giovane","nessuno: si fa subito"],e:"Di solito chi ha più età o più autorità."}},
+ {s:"hand",t:"Madame, anche se è giovane",i:"Monsieur, madame",
+  p:["In Francia ci si rivolge agli sconosciuti con {monsieur} e {madame}, senza cognome: {Bonjour, madame}. Si usa con tutte le donne adulte, giovani o anziane.","{Mademoiselle} (signorina) dal 2012 è sparito dai documenti ufficiali: si considera inutile distinguere le donne sposate da quelle nubili."],
+  it:"«Signora» e «signorina» si usano ancora, anche se «signorina» suona sempre più antiquato.",fr:"{madame} per tutte le donne adulte; {mademoiselle} solo per le bambine o per scherzo.",
+  w:[["monsieur","signore"],["madame","signora"],["mademoiselle","signorina"],["les gens","la gente"]],
+  q:{q:"Una commessa di 25 anni. Come la saluti?",o:["{Bonjour, madame.}","{Bonjour, mademoiselle.}","{Salut !}"],e:"Oggi si usa {madame} con tutte le donne adulte."}}
+];
+CULT.l4=[
+ {s:"house",t:"I palazzi di Haussmann",i:"Les immeubles haussmanniens",
+  p:["Gran parte di Parigi che conosciamo dalle cartoline è stata costruita tra il 1853 e il 1870, quando il barone {Haussmann} ridisegnò la città con grandi viali e palazzi tutti simili: pietra chiara, balconi in ferro al secondo e al quinto piano, tetti di zinco grigio.","Gli appartamenti sono spesso piccoli e cari: a Parigi un monolocale ({un studio}) di 20 metri quadri è normale."],
+  it:"I centri storici sono molto vari: ogni città ha la sua pietra e i suoi colori.",fr:"A Parigi i palazzi si somigliano tutti: è stato un progetto unico, voluto dallo Stato.",
+  w:[["un immeuble","un palazzo"],["un appartement","un appartamento"],["un studio","un monolocale"],["le balcon","il balcone"]],
+  q:{q:"Che cosa è {un studio} in un annuncio immobiliare?",o:["un monolocale","uno studio di registrazione","un ufficio"],e:"Falso amico: {un studio} è un piccolo appartamento."}},
+ {s:"bath",t:"Il bagno è in due stanze",i:"Les toilettes à part",
+  p:["Nelle case francesi il gabinetto è spesso in una stanzetta separata dalla {salle de bains}, dove ci sono doccia o vasca e lavandino. Per questo si chiede {Où sont les toilettes ?} e non «dov'è il bagno».","Il bidet, che in Italia è obbligatorio per legge nelle case nuove, in Francia è quasi scomparso."],
+  it:"Il bagno è una stanza unica, quasi sempre con il bidet.",fr:"{les toilettes} (o {les WC}) e {la salle de bains} sono due stanze diverse; il bidet è raro.",
+  w:[["les toilettes","il gabinetto"],["la salle de bains","il bagno"],["le lavabo","il lavandino"],["la douche","la doccia"]],
+  q:{q:"Al ristorante chiedi dov'è il bagno:",o:["{Où sont les toilettes ?}","{Où est la salle de bains ?}","{Où est le bain ?}"],e:"Si chiedono {les toilettes}, sempre al plurale."}}
+];
+CULT.l5=[
+ {s:"family",t:"Sposati, pacsati o in coppia",i:"Mariés, pacsés",
+  p:["Dal 1999 in Francia esiste il {PACS}, un contratto civile per le coppie: oggi quasi tanti quanti i matrimoni. Si dice {ils sont pacsés}.","Molte coppie hanno figli senza sposarsi: più della metà dei bambini francesi nasce da genitori non sposati."],
+  it:"Le unioni civili esistono dal 2016; più della metà dei nuovi matrimoni oggi sono civili.",fr:"Il {PACS} è entrato nel parlato: {se pacser}, {être pacsé}.",
+  w:[["marié","sposato"],["pacsé","unito con il PACS"],["le couple","la coppia"],["le mariage","il matrimonio"]],
+  q:{q:"Che cos'è il {PACS}?",o:["un'unione civile tra due persone","un tipo di pacco postale","una festa di famiglia"],e:"Il patto civile di solidarietà, dal 1999."}},
+ {s:"table",t:"Il pranzo della domenica",i:"Le déjeuner du dimanche",
+  p:["Come in Italia, la domenica è il giorno della famiglia: il pranzo comincia spesso con {l'apéritif} e può durare ore, con {entrée}, {plat}, formaggi e {dessert}.","Una differenza: in Francia il formaggio arriva <b>prima</b> del dolce, mai dopo."],
+  it:"Antipasto, primo, secondo con contorno, frutta e dolce. Il formaggio, se c'è, è spesso un secondo.",fr:"{entrée}, {plat}, {fromage}, {dessert}: il formaggio è una portata a sé.",
+  w:[["l'apéritif","l'aperitivo"],["l'entrée","l'antipasto"],["le plat","il piatto principale"],["le fromage","il formaggio"],["le dessert","il dolce"]],
+  q:{q:"In un pranzo francese, quando arriva il formaggio?",o:["dopo il piatto principale, prima del dolce","all'inizio, con l'aperitivo","alla fine, dopo il dolce"],e:"{fromage} poi {dessert}."}}
+];
+CULT.l6=[
+ {s:"talk",t:"«Ça va?» non è una domanda vera",i:"Ça va ?",
+  p:["{Salut, ça va ?} è un saluto, non una domanda sulla salute: si risponde {Ça va, et toi ?} anche se la giornata è stata pessima.","Se un amico vuole davvero sapere, insiste: {Ça va vraiment ?} E allora si può rispondere {Bof…} (mah…) o {Pas terrible} (non benissimo)."],
+  it:"«Come va?» è spesso un saluto, ma tra amici si racconta volentieri.",fr:"{Ça va ?} — {Ça va.}: domanda e risposta sono quasi una formula.",
+  w:[["ça va","va bene; come va"],["bof","mah"],["pas terrible","non benissimo"],["vraiment","davvero"]],
+  q:{q:"Un collega ti dice {Salut, ça va ?} nel corridoio. Rispondi:",o:["{Ça va, et toi ?}","{Non, j'ai mal à la tête depuis hier…}","{Comment allez-vous ?}"],e:"È un saluto: si risponde con la formula."}},
+ {s:"wind",t:"Lo sport nazionale: lamentarsi",i:"Râler",
+  p:["I francesi stessi dicono che il loro sport nazionale è {râler}: lamentarsi, brontolare. Del tempo, dei treni, del governo, del prezzo del pane.","Non è maleducazione e spesso non è nemmeno vero malumore: è un modo di fare conversazione. Gli scioperi ({la grève}) fanno parte della vita pubblica."],
+  it:"Anche gli italiani si lamentano volentieri, soprattutto della politica e del traffico.",fr:"{râler} è quasi un'arte. Una persona che si lamenta sempre è {un râleur}.",
+  w:[["râler","lamentarsi, brontolare"],["un râleur","un brontolone"],["la grève","lo sciopero"],["en grève","in sciopero"]],
+  q:{q:"Che cosa vuol dire {râler}?",o:["lamentarsi","ridere","correre"],e:"{râler} = brontolare, lamentarsi."}}
+];
+CULT.l7=[
+ {s:"clock",t:"Trentacinque ore",i:"Les 35 heures",
+  p:["Dal 2000 in Francia la settimana di lavoro legale è di 35 ore. Chi lavora di più ha diritto a giorni di riposo in più, i famosi {RTT}.","In realtà molti lavorano più di 35 ore, ma la pausa pranzo resta sacra: un'ora o più, spesso al ristorante, pagata in parte dall'azienda con i {tickets-restaurant}."],
+  it:"La settimana normale è di 40 ore; la pausa pranzo è spesso breve, un panino al bar.",fr:"35 ore per legge; il pranzo è un vero pasto, seduti.",
+  w:[["les 35 heures","la settimana di 35 ore"],["la pause déjeuner","la pausa pranzo"],["un ticket-restaurant","un buono pasto"],["un congé","un giorno di ferie"]],
+  q:{q:"Quante ore è la settimana di lavoro legale in Francia?",o:["35","40","38"],e:"Dal 2000: 35 ore."}},
+ {s:"factory",t:"Che lavoro fai? Una domanda delicata",i:"Qu'est-ce que vous faites dans la vie ?",
+  p:["In Francia si chiede volentieri {Qu'est-ce que vous faites dans la vie ?}, ma è meno educato chiedere quanto si guadagna: parlare di soldi ({l'argent}) è un tabù più forte che in Italia.","Attenzione ai falsi amici del lavoro: {un bureau} è l'ufficio, {la société} è spesso l'azienda, {un stage} è un tirocinio."],
+  it:"Si parla di stipendi più apertamente, soprattutto in famiglia e tra amici.",fr:"Lo stipendio ({le salaire}) è un argomento privato.",
+  w:[["le salaire","lo stipendio"],["la société","l'azienda; la società"],["un stage","un tirocinio"],["l'argent","i soldi"]],
+  q:{q:"Che cos'è {un stage} in Francia?",o:["un tirocinio","un palcoscenico","una stagione"],e:"{faire un stage} = fare un tirocinio."}}
+];
+CULT.l8=[
+ {s:"bar",t:"Al banco o in terrazza?",i:"Au comptoir ou en terrasse",
+  p:["Come in Italia, il caffè costa meno al banco ({au comptoir}) che al tavolo. In Francia però la cosa più bella è sedersi {en terrasse}, ai tavolini sul marciapiede, e restare a lungo a guardare la gente.","Nessuno ti chiederà di andartene: con un solo caffè puoi restare un'ora."],
+  it:"Il caffè si beve al banco, in piedi, in pochi secondi.",fr:"Il caffè è una pausa lunga, seduti {en terrasse}, anche d'inverno sotto le stufe.",
+  w:[["le comptoir","il banco"],["la terrasse","i tavolini all'aperto"],["un serveur","un cameriere"],["un café","un espresso"]],
+  q:{q:"Dove costa meno il caffè?",o:["{au comptoir}","{en terrasse}","costa uguale"],e:"Al banco costa meno, come in Italia."}},
+ {s:"breakfast",t:"Tartine e caffè nella tazza grande",i:"Le petit-déjeuner",
+  p:["La colazione francese è dolce, come quella italiana: pane con burro e marmellata ({une tartine}), {croissant} o {pain au chocolat} nel fine settimana.","Molti bevono il caffellatte in una grande tazza senza manico, {un bol}, e ci inzuppano la tartine."],
+  it:"Cappuccino e cornetto al bar, o biscotti a casa.",fr:"{tartine} e {café au lait} nel {bol}; il {croissant} è un piccolo lusso.",
+  w:[["une tartine","una fetta di pane con burro"],["le beurre","il burro"],["un bol","una tazza senza manico"],["un pain au chocolat","un cornetto al cioccolato"]],
+  q:{q:"Che cos'è {une tartine}?",o:["una fetta di pane con burro o marmellata","un tipo di torta","una tazza"],e:"Il classico della colazione francese."}}
+];
+CULT.r1=[];
+/* ---------- Parte seconda ---------- */
+CULT.l9=[
+ {s:"talk",t:"Il francese del Québec",i:"Le français du Québec",
+  p:["In Québec, in Canada, il francese ha un accento e parole diverse. La macchina si chiama {char}, fare shopping è {magasiner}, e a {merci} si risponde {bienvenue}.","I quebecchesi difendono molto la loro lingua: i cartelli dei negozi devono essere in francese e anche lo stop si dice {arrêt}."],
+  it:"L'italiano ha tanti accenti regionali, ma il vocabolario di base è uguale ovunque.",fr:"Francia, Belgio, Svizzera e Québec hanno parole diverse per le stesse cose: {septante}, {nonante}, {magasiner}.",
+  w:[["magasiner","fare shopping (Québec)"],["bienvenue","prego (Québec); benvenuto"],["un char","una macchina (Québec)"],["un arrêt","uno stop"]],
+  q:{q:"In Québec, che cosa si risponde a {merci}?",o:["{bienvenue}","{de rien} è l'unica risposta","{merci à vous}"],e:"In Québec si dice spesso {bienvenue}; in Francia {de rien}."}},
+ {s:"queue",t:"Domande dirette? Meglio di no",i:"Poser des questions",
+  p:["Per un francese alcune domande sono troppo personali all'inizio di una conversazione: l'età, lo stipendio, la religione, per chi si vota.","Per rompere il ghiaccio si parla invece di cibo, di vacanze, di libri e di film. E si discute volentieri: contraddire con argomenti è segno di interesse, non di aggressività."],
+  it:"Ci si fanno domande personali con facilità, anche appena conosciuti.",fr:"Prima si discute di idee, poi, piano piano, della vita privata.",
+  w:[["une question","una domanda"],["discuter","discutere, chiacchierare"],["la vie privée","la vita privata"],["un débat","un dibattito"]],
+  q:{q:"Quale domanda è meglio evitare con un francese appena conosciuto?",o:["{Vous gagnez combien ?}","{Vous aimez le cinéma ?}","{Vous partez en vacances ?}"],e:"I soldi sono un argomento privato."}}
+];
+CULT.l10=[
+ {s:"clock",t:"Si cena alle otto",i:"Le dîner à vingt heures",
+  p:["I francesi pranzano tra mezzogiorno e le due e cenano verso le otto di sera, un po' prima degli italiani del sud. Nel pomeriggio i bambini fanno {le goûter}, la merenda delle quattro e mezza.","I ristoranti di solito chiudono la cucina alle due e riaprono alle sette: a metà pomeriggio è difficile trovare qualcosa di caldo."],
+  it:"Al nord si cena verso le otto, al sud anche alle nove o alle dieci.",fr:"Orari regolari: pranzo alle 12-13, {goûter} alle 16:30, cena alle 20.",
+  w:[["le déjeuner","il pranzo"],["le goûter","la merenda"],["le dîner","la cena"],["à table !","a tavola!"]],
+  q:{q:"Che cos'è {le goûter}?",o:["la merenda del pomeriggio","la colazione","un aperitivo"],e:"Lo spuntino delle 16:30, soprattutto per i bambini."}},
+ {s:"sleep",t:"La grasse matinée",i:"Faire la grasse matinée",
+  p:["Dormire fino a tardi la domenica si dice {faire la grasse matinée}, letteralmente «fare la mattinata grassa».","Il pisolino dopo pranzo, {la sieste}, è meno comune che in Italia, salvo d'estate nel sud."],
+  it:"Il riposino dopo pranzo è un'abitudine diffusa, soprattutto d'estate.",fr:"Si dorme di più la mattina del fine settimana: {la grasse matinée}.",
+  w:[["la grasse matinée","il dormire fino a tardi"],["la sieste","il pisolino"],["se réveiller","svegliarsi"],["le réveil","la sveglia"]],
+  q:{q:"{Faire la grasse matinée} vuol dire:",o:["dormire fino a tardi","fare una colazione abbondante","fare la spesa la mattina"],e:"È il lusso della domenica."}}
+];
+CULT.l11=[
+ {s:"football",t:"Calcio sì, ma anche rugby",i:"Le foot et le rugby",
+  p:["Il calcio è lo sport più seguito anche in Francia, ma nel sud-ovest, da Tolosa a Bordeaux, la vera passione è il {rugby}.","Il grande evento sportivo dell'estate è {le Tour de France}, la corsa ciclistica nata nel 1903: arriva sempre a Parigi, sugli Champs-Élysées."],
+  it:"Il calcio domina; il Giro d'Italia, nato nel 1909, è la grande corsa a tappe.",fr:"Il {Tour de France} è più vecchio del Giro, e il rugby ha un pubblico enorme.",
+  w:[["le foot","il calcio"],["le rugby","il rugby"],["le Tour de France","il Tour de France"],["un match","una partita"]],
+  q:{q:"Dove arriva sempre il Tour de France?",o:["a Parigi, sugli Champs-Élysées","a Lione","a Marsiglia"],e:"L'ultima tappa finisce a Parigi."}},
+ {s:"ticket",t:"Il cinema è nato a Parigi",i:"Les frères Lumière",
+  p:["La prima proiezione pubblica di un film a pagamento si tenne a Parigi il 28 dicembre 1895, grazie ai fratelli {Lumière}. Ancora oggi la Francia ama il cinema: si va in sala più che in quasi ogni altro paese europeo.","E il 21 giugno, dal 1982, c'è {la Fête de la musique}: concerti gratuiti in ogni strada."],
+  it:"La Festa della musica si celebra il 21 giugno anche in molte città italiane, sul modello francese.",fr:"Il cinema è un'arte nazionale e la {Fête de la musique} riempie le strade.",
+  w:[["le cinéma","il cinema"],["un film","un film"],["la Fête de la musique","la Festa della musica"],["une séance","una proiezione"]],
+  q:{q:"In che giorno si celebra la Fête de la musique?",o:["il 21 giugno","il 14 luglio","il primo maggio"],e:"Il primo giorno d'estate."}}
+];
+CULT.l12=[
+ {s:"map",t:"Parigi è una chiocciola",i:"Les arrondissements",
+  p:["Parigi è divisa in 20 {arrondissements}, numerati a spirale come il guscio di una chiocciola, partendo dal centro (il 1°, con il Louvre).","I parigini dicono dove abitano con il numero: {J'habite dans le 11e} (l'undicesimo). Anche il codice postale finisce con il numero dell'arrondissement: 75011."],
+  it:"Le grandi città sono divise in municipi o quartieri con nomi propri.",fr:"A Parigi il numero dell'{arrondissement} dice subito in che zona abiti.",
+  w:[["un arrondissement","un municipio di Parigi"],["un quartier","un quartiere"],["le centre","il centro"],["la banlieue","la periferia"]],
+  q:{q:"Quanti arrondissements ha Parigi?",o:["20","12","32"],e:"Venti, a spirale."}},
+ {s:"ticket",t:"Il métro di Parigi",i:"Le métro",
+  p:["Il {métro} di Parigi è stato inaugurato nel 1900. Ha 16 linee, indicate con numeri e colori, e le stazioni sono vicinissime: in centro non sei mai a più di 500 metri da una fermata.","Per orientarti guarda il capolinea: la direzione si indica con il nome dell'ultima stazione, {direction Château de Vincennes}."],
+  it:"Le metropolitane sono più recenti (Roma 1955, Milano 1964) e più piccole.",fr:"Il métro è il modo più veloce per muoversi a Parigi; la direzione si legge sul capolinea.",
+  w:[["le métro","la metropolitana"],["une ligne","una linea"],["une station","una fermata"],["la direction","la direzione"]],
+  q:{q:"Come si indica la direzione di una linea del métro?",o:["con il nome del capolinea","con un numero","con un colore"],e:"Si dice {direction} + capolinea."}}
+];
+CULT.l13=[
+ {s:"clock",t:"Il quarto d'ora di cortesia",i:"Le quart d'heure de politesse",
+  p:["Se sei invitato a cena a casa di qualcuno, non arrivare in anticipo né esattamente all'ora: è gentile arrivare con dieci-quindici minuti di ritardo, {le quart d'heure de politesse}, per lasciare tempo a chi cucina.","Per un appuntamento di lavoro, un treno o il medico, invece, si arriva puntuali."],
+  it:"A cena da amici un po' di ritardo è normale, a volte anche più di un quarto d'ora.",fr:"Un quarto d'ora, non di più; e al lavoro puntualità.",
+  w:[["la politesse","la cortesia"],["en retard","in ritardo"],["en avance","in anticipo"],["à l'heure","puntuale"]],
+  q:{q:"Sei invitato a cena alle 20. Quando arrivi?",o:["verso le 20:10-20:15","alle 19:45","alle 21"],e:"{le quart d'heure de politesse}."}},
+ {s:"cup",t:"Andiamo a prendere l'apéro?",i:"L'apéro",
+  p:["{L'apéro} (l'aperitivo) è il modo più semplice per vedere gli amici: un bicchiere di vino o di birra con qualche stuzzichino, dopo il lavoro.","Un {apéro dînatoire} è un aperitivo così abbondante che sostituisce la cena."],
+  it:"L'aperitivo è un rito, spesso con buffet abbondante incluso nel prezzo del drink.",fr:"Al bar gli stuzzichini di solito si pagano a parte; a casa ognuno porta qualcosa.",
+  w:[["l'apéro","l'aperitivo"],["un verre","un bicchiere"],["boire un verre","bere qualcosa"],["un apéro dînatoire","un aperitivo cenato"]],
+  q:{q:"{On va boire un verre ?} vuol dire:",o:["Andiamo a bere qualcosa?","Andiamo a comprare un bicchiere?","Andiamo a casa?"],e:"È l'invito più comune tra amici."}}
+];
+CULT.l14=[
+ {s:"market",t:"Un formaggio per ogni giorno dell'anno",i:"Les fromages",
+  p:["In Francia ci sono più di mille formaggi. Il generale de Gaulle diceva: {Comment voulez-vous gouverner un pays où il existe 246 variétés de fromage ?}","Al mercato il formaggiaio ({le fromager}) ti fa assaggiare e ti chiede per quando lo vuoi: un camembert si sceglie più o meno maturo a seconda del giorno in cui lo mangerai."],
+  it:"Anche l'Italia ha centinaia di formaggi, spesso legati a una sola zona.",fr:"Il formaggio è una portata a sé, con il pane, alla fine del pasto.",
+  w:[["le fromage","il formaggio"],["le fromager","il formaggiaio"],["goûter","assaggiare"],["affiné","stagionato"]],
+  q:{q:"Chi vende il formaggio al mercato?",o:["{le fromager}","{le boulanger}","{le boucher}"],e:"{le boulanger} vende il pane, {le boucher} la carne."}},
+ {s:"menu",t:"L'acqua del rubinetto è gratis",i:"Une carafe d'eau",
+  p:["Al ristorante in Francia si può chiedere {une carafe d'eau}: acqua del rubinetto, sempre gratuita per legge. Anche il pane è compreso e arriva senza chiederlo.","Il servizio è incluso nel prezzo; la mancia ({le pourboire}) non è obbligatoria, ma si lasciano volentieri un paio di euro se si è stati bene."],
+  it:"Di solito si ordina acqua in bottiglia; in molti locali c'è il coperto.",fr:"Niente coperto, pane gratis e {carafe d'eau} gratis.",
+  w:[["une carafe d'eau","una caraffa d'acqua"],["l'eau du robinet","l'acqua del rubinetto"],["le pourboire","la mancia"],["le service compris","il servizio incluso"]],
+  q:{q:"Al ristorante, quanto costa una {carafe d'eau}?",o:["niente, è gratis","un euro","dipende dal ristorante"],e:"L'acqua del rubinetto è gratis per legge."}}
+];
+CULT.r2=[];
+/* ---------- Parte terza ---------- */
+CULT.l15=[
+ {s:"museum",t:"Musei gratis per i giovani",i:"Gratuit pour les moins de 26 ans",
+  p:["Nei musei nazionali francesi, come il Louvre o il Musée d'Orsay, l'ingresso è gratuito per i giovani sotto i 26 anni residenti nell'Unione europea: basta mostrare un documento.","Il Louvre è il museo più visitato al mondo; e la sua opera più famosa è italiana: la {Joconde}, cioè la Gioconda di Leonardo."],
+  it:"I musei statali sono gratuiti la prima domenica del mese per tutti.",fr:"Sotto i 26 anni i musei nazionali sono sempre gratuiti, per i residenti nell'UE.",
+  w:[["un musée","un museo"],["gratuit","gratuito"],["un tableau","un quadro"],["la Joconde","la Gioconda"]],
+  q:{q:"Come si chiama in francese la Gioconda?",o:["{la Joconde}","{la Gioconda}","{la Mona}"],e:"Al Louvre la troverai come {la Joconde}."}},
+ {s:"cake",t:"Il 2 febbraio si fanno le crêpes",i:"La Chandeleur",
+  p:["Il 2 febbraio in Francia è {la Chandeleur}: in tutte le case si preparano le crêpes. La tradizione dice di girare la prima crêpe in padella con una moneta nell'altra mano: porta fortuna per tutto l'anno.","A gennaio invece si mangia {la galette des rois}: chi trova la fava nascosta nel dolce diventa re o regina per un giorno."],
+  it:"Il 2 febbraio è la Candelora, ma senza un dolce tipico nazionale.",fr:"{Chandeleur} = crêpes; {Épiphanie} = {galette des rois}.",
+  w:[["une crêpe","una crêpe"],["la Chandeleur","la Candelora"],["la galette des rois","il dolce dell'Epifania"],["la fève","la fava, la sorpresa"]],
+  q:{q:"Che cosa si mangia alla Chandeleur?",o:["le crêpes","la galette des rois","il panettone"],e:"Il 2 febbraio: crêpes."}}
+];
+CULT.l16=[
+ {s:"sun",t:"Luglio o agosto?",i:"Juillettistes et aoûtiens",
+  p:["In Francia le vacanze estive si dividono in due grandi ondate: chi parte a luglio ({les juillettistes}) e chi ad agosto ({les aoûtiens}). Il cambio di fine luglio crea gli ingorghi più lunghi dell'anno.","Ogni dipendente ha diritto a cinque settimane di ferie pagate ({congés payés}) all'anno."],
+  it:"Le ferie si concentrano intorno a Ferragosto, e le città si svuotano.",fr:"Due ondate di vacanze; il 14 luglio, festa nazionale, apre la stagione.",
+  w:[["les vacances","le vacanze"],["les congés payés","le ferie pagate"],["un embouteillage","un ingorgo"],["le 14 juillet","la festa nazionale"]],
+  q:{q:"Chi sono {les aoûtiens}?",o:["chi va in vacanza ad agosto","chi lavora ad agosto","i nati ad agosto"],e:"Da {août}, agosto."}},
+ {s:"train",t:"Il TGV",i:"Le TGV",
+  p:["Il {TGV} (treno ad alta velocità) è in servizio dal 1981: collega Parigi a Lione in due ore e a Marsiglia in poco più di tre. Esiste anche un TGV per Milano e Torino.","I biglietti costano meno se li compri in anticipo; con {Ouigo} si viaggia in alta velocità a prezzi bassi."],
+  it:"L'alta velocità c'è dal 2008-2009 sulla linea Milano-Roma-Napoli.",fr:"Il TGV è un orgoglio nazionale ed è più vecchio di quasi trent'anni.",
+  w:[["le TGV","il treno ad alta velocità"],["un billet","un biglietto"],["le quai","il binario"],["composter","convalidare"]],
+  q:{q:"Da quando c'è il TGV in Francia?",o:["dal 1981","dal 2008","dal 1960"],e:"Il primo TGV: Parigi-Lione, 1981."}}
+];
+CULT.l17=[
+ {s:"school",t:"Niente scuola il mercoledì",i:"Le mercredi",
+  p:["In molte scuole elementari francesi il mercoledì non c'è lezione, o solo la mattina: i bambini fanno sport, musica o vanno dai nonni.","In compenso la giornata è lunga: dalle 8:30 alle 16:30, con il pranzo alla mensa ({la cantine}). I voti vanno da 0 a 20, e un 12 è già un buon voto."],
+  it:"Si va a scuola dal lunedì al venerdì o al sabato; i voti vanno da 1 a 10.",fr:"Mercoledì libero, giornate lunghe, voti in ventesimi.",
+  w:[["l'école","la scuola"],["la cantine","la mensa"],["une note","un voto"],["le mercredi","il mercoledì"]],
+  q:{q:"Su quanto si danno i voti nella scuola francese?",o:["su 20","su 10","su 30"],e:"Da 0 a 20."}},
+ {s:"family",t:"Le vacanze dai nonni",i:"Chez papi et mamie",
+  p:["Per molti francesi l'infanzia ha il sapore delle vacanze dai nonni, spesso in campagna o in una casa di famiglia ({la maison de famille}).","I nonni si chiamano affettuosamente {papi} e {mamie}, o anche {pépé} e {mémé}."],
+  it:"I nonni aiutano molto con i nipoti anche durante l'anno, spesso abitano vicino.",fr:"I nonni sono spesso lontani, ma d'estate li si raggiunge per settimane.",
+  w:[["papi","nonno"],["mamie","nonna"],["les grands-parents","i nonni"],["la maison de famille","la casa di famiglia"]],
+  q:{q:"Come chiamano i bambini francesi la nonna?",o:["{mamie}","{maman}","{madame}"],e:"{maman} è la mamma."}}
+];
+CULT.l18=[
+ {s:"wolf",t:"Le favole di La Fontaine",i:"Les fables de La Fontaine",
+  p:["Ogni bambino francese impara a memoria qualche favola di {Jean de La Fontaine}, scritte nel Seicento: {Le Corbeau et le Renard} (il corvo e la volpe), {La Cigale et la Fourmi} (la cicala e la formica), {Le Loup et l'Agneau}.","Molti versi sono diventati proverbi: {La raison du plus fort est toujours la meilleure} (la ragione del più forte è sempre la migliore)."],
+  it:"Le stesse storie le conosciamo da Esopo e Fedro, spesso in prosa.",fr:"Si imparano in versi, a memoria, alle elementari.",
+  w:[["une fable","una favola"],["le corbeau","il corvo"],["le renard","la volpe"],["le loup","il lupo"]],
+  q:{q:"Chi è {le renard}?",o:["la volpe","il corvo","il lupo"],e:"{le corbeau} = il corvo, {le loup} = il lupo."}},
+ {s:"study",t:"Il passato dei libri",i:"Le passé simple",
+  p:["Nei romanzi e nelle favole troverai un altro passato: il {passé simple} ({il fut}, {elle alla}, {ils dirent}), simile al passato remoto.","Non serve saperlo usare: nel parlato non c'è mai. Basta riconoscerlo quando leggi."],
+  it:"Il passato remoto si usa nello scritto e, al sud, anche nel parlato.",fr:"Il {passé simple} vive solo nei libri: parlando si usa il {passé composé}.",
+  w:[["le passé simple","il passato remoto"],["un roman","un romanzo"],["il était une fois","c'era una volta"],["un conte","una fiaba"]],
+  q:{q:"Come inizia una fiaba in francese?",o:["{Il était une fois…}","{Il y a une fois…}","{C'était une fois…}"],e:"«C'era una volta» = {il était une fois}."}}
+];
+CULT.l19=[
+ {s:"gift",t:"Invitati a cena: che cosa portare?",i:"Qu'est-ce qu'on apporte ?",
+  p:["Invitato a cena da francesi, porta fiori, cioccolatini o un dolce. Il vino si può portare, ma non aspettarti che venga aperto: chi invita ha già scelto i vini per il menù.","Mai crisantemi: in Francia, come in Italia, sono i fiori dei morti."],
+  it:"Si porta spesso il dolce o una bottiglia, che viene aperta a tavola.",fr:"Il vino portato in regalo è per dopo; i fiori si danno subito alla padrona di casa.",
+  w:[["un cadeau","un regalo"],["des fleurs","dei fiori"],["des chocolats","dei cioccolatini"],["apporter","portare"]],
+  q:{q:"Quale regalo è da evitare?",o:["crisantemi","cioccolatini","un mazzo di rose"],e:"I crisantemi sono i fiori dei defunti."}},
+ {s:"northsouth",t:"Cugini e rivali",i:"Les cousins italiens",
+  p:["Italiani e francesi si chiamano spesso {cousins}: si somigliano nel cibo, nella moda, nella passione per le discussioni. E si stuzzicano su tutto, dal calcio alla cucina.","E le lingue si sono prestate tante parole: il francese ha preso dall'italiano soprattutto parole di musica, arte e cucina, come {un piano}, {une fresque}, {un balcon}, {les spaghettis}."],
+  it:"I francesi hanno fama di essere un po' snob; i nostri vicini più amati e più criticati.",fr:"Gli italiani hanno fama di essere simpatici, eleganti e un po' rumorosi.",
+  w:[["un cousin","un cugino"],["un voisin","un vicino"],["la rivalité","la rivalità"],["comparer","confrontare"]],
+  q:{q:"Come si chiamano spesso tra loro italiani e francesi?",o:["{cousins} (cugini)","{frères} (fratelli)","{ennemis} (nemici)"],e:"«Cugini»: vicini, simili, un po' rivali."}}
+];
+CULT.l20=[
+ {s:"sale",t:"I saldi hanno date fisse",i:"Les soldes",
+  p:["In Francia i saldi ({les soldes}) sono due volte l'anno e le date sono fissate dallo Stato per tutto il paese: a gennaio e tra giugno e luglio, per quattro settimane.","Il primo giorno di saldi davanti ai grandi magazzini di Parigi, come le {Galeries Lafayette}, si fanno file già all'alba."],
+  it:"Anche in Italia i saldi sono due volte l'anno, ma le date le decide ogni regione.",fr:"Stesse date in tutta la Francia, decise per legge.",
+  w:[["les soldes","i saldi"],["un grand magasin","un grande magazzino"],["une réduction","uno sconto"],["une taille","una taglia"]],
+  q:{q:"Chi decide le date dei saldi in Francia?",o:["lo Stato, per tutto il paese","ogni negozio","ogni regione"],e:"Le date sono nazionali."}},
+ {s:"fashion",t:"Le taglie non sono le stesse",i:"Les tailles",
+  p:["Attenzione quando compri vestiti: le taglie francesi da donna sono di solito due numeri più basse di quelle italiane. Una 42 italiana è più o meno una 38 francese.","Per le scarpe le misure sono quasi uguali; per chiedere la misura delle scarpe si dice {Vous chaussez du combien ?}"],
+  it:"Taglia 42 = una taglia media da donna.",fr:"La stessa taglia si chiama 38: si dice {je fais du 38}.",
+  w:[["la taille","la taglia"],["la pointure","il numero di scarpe"],["essayer","provare"],["la cabine d'essayage","il camerino"]],
+  q:{q:"Porti la 44 in Italia. In Francia chiedi più o meno la:",o:["40","44","48"],e:"Le taglie francesi sono circa due numeri più basse."}}
+];
+CULT.l21=[
+ {s:"study",t:"Un anno in Francia con l'Erasmus",i:"Partir en Erasmus",
+  p:["La Francia è una delle mete preferite degli studenti italiani in Erasmus: Parigi, Lione, Tolosa, Montpellier, Grenoble.","Un consiglio di chi c'è stato: chiedi subito l'aiuto per l'affitto ({la CAF}), che spetta anche agli studenti stranieri, e iscriviti a un'associazione per conoscere francesi, non solo italiani."],
+  it:"Le università sono spesso in centro città e molti studenti restano a vivere in famiglia.",fr:"Molti studenti vivono in residenze universitarie ({résidences}) o in coinquilinato ({colocation}).",
+  w:[["les études","gli studi"],["une colocation","un appartamento in condivisione"],["un loyer","un affitto"],["une bourse","una borsa di studio"]],
+  q:{q:"Che cos'è {une colocation}?",o:["un appartamento condiviso","un collocamento al lavoro","una colazione"],e:"Vivere con dei coinquilini: {des colocataires}."}},
+ {s:"diploma",t:"Il DELF: un diploma per tutta la vita",i:"Le DELF",
+  p:["Il {DELF} (diploma di studi in lingua francese) è il certificato ufficiale del Ministero dell'Istruzione francese. I livelli A1, A2, B1 e B2 sono il DELF; C1 e C2 il DALF.","Non scade mai e si sostiene in tutto il mondo, anche in molte città italiane, presso l'Institut français e le Alliances françaises. L'A2 è spesso richiesto per lavorare o studiare in Francia."],
+  it:"Per l'italiano esistono CILS, CELI e PLIDA, anch'essi validi per sempre.",fr:"DELF e DALF sono gli unici diplomi ufficiali dello Stato francese.",
+  w:[["un diplôme","un diploma"],["un examen","un esame"],["réussir un examen","superare un esame"],["un niveau","un livello"]],
+  q:{q:"Quanto dura il DELF?",o:["per sempre","due anni","cinque anni"],e:"Non scade mai."}}
+];
+CULT.l22=[
+ {s:"pharmacy",t:"Il farmacista ti consiglia",i:"À la pharmacie",
+  p:["Come in Italia, la farmacia francese ha la croce verde e il farmacista dà consigli per i piccoli problemi senza bisogno del medico.","Per vedere un medico di base si prende appuntamento, spesso online. La visita costa intorno ai 30 euro, poi in gran parte rimborsati dalla {Sécurité sociale} con la tessera {Carte Vitale}."],
+  it:"Il medico di base del Servizio sanitario nazionale non si paga.",fr:"Si paga la visita e poi si viene rimborsati: la {Carte Vitale} serve per tutto.",
+  w:[["la pharmacie","la farmacia"],["le pharmacien","il farmacista"],["une ordonnance","una ricetta"],["la Sécurité sociale","il servizio sanitario"]],
+  q:{q:"Che cos'è la {Carte Vitale}?",o:["la tessera sanitaria","una carta di credito","un abbonamento ai trasporti"],e:"La tessera della Sécurité sociale."}},
+ {s:"ambulance",t:"I numeri di emergenza",i:"Les numéros d'urgence",
+  p:["In Francia i numeri di emergenza sono a due cifre: {15} per il soccorso medico ({le SAMU}), {17} per la polizia, {18} per i vigili del fuoco ({les pompiers}). Il {112} funziona in tutta Europa, anche in Francia.","I {pompiers} in Francia intervengono anche per molte emergenze mediche: spesso arrivano prima dell'ambulanza."],
+  it:"Il 112 è il numero unico per tutte le emergenze.",fr:"15, 17, 18: e il 112 per chi è straniero.",
+  w:[["les urgences","il pronto soccorso"],["les pompiers","i vigili del fuoco"],["une ambulance","un'ambulanza"],["au secours !","aiuto!"]],
+  q:{q:"Quale numero chiami in Francia per un'emergenza medica?",o:["il 15 (o il 112)","il 18 soltanto","il 118"],e:"15 = SAMU; il 112 funziona sempre."}}
+];
+CULT.l23=[
+ {s:"names",t:"Italiani di Francia",i:"Les Italiens de France",
+  p:["Molti personaggi famosi francesi hanno radici italiane. {Mazarin}, il cardinale che governò la Francia nel Seicento, era Giulio Mazzarino, nato in Abruzzo. Napoleone nacque in Corsica nel 1769, appena un anno dopo che l'isola era passata dalla Repubblica di Genova alla Francia.","Il cantante {Yves Montand} era nato Ivo Livi, in Toscana. Oggi in Francia vivono milioni di persone di origine italiana."],
+  it:"Tra Otto e Novecento milioni di italiani sono emigrati in Francia, soprattutto dal nord.",fr:"Cognomi italiani come Rossi o Ferrari sono comuni, soprattutto nel sud-est.",
+  w:[["un immigré","un emigrato"],["les origines","le origini"],["la Corse","la Corsica"],["célèbre","famoso"]],
+  q:{q:"Con quale nome era nato Yves Montand?",o:["Ivo Livi","Giulio Mazzarino","Ivo Rossi"],e:"Nato a Monsummano, in Toscana."}},
+ {s:"proverbs",t:"Proverbi francesi, proverbi italiani",i:"Les proverbes",
+  p:["Tanti proverbi francesi hanno un fratello italiano. {Petit à petit, l'oiseau fait son nid} (a poco a poco l'uccello fa il nido) è il nostro «chi va piano va sano e va lontano».","{Qui vivra verra} è «chi vivrà vedrà»; {Quand le chat n'est pas là, les souris dansent} è «quando il gatto non c'è i topi ballano»."],
+  it:"«Chi va piano va sano e va lontano.»",fr:"{Petit à petit, l'oiseau fait son nid.}",
+  w:[["un proverbe","un proverbio"],["petit à petit","a poco a poco"],["l'oiseau","l'uccello"],["le nid","il nido"]],
+  q:{q:"Come si dice «chi vivrà vedrà» in francese?",o:["{Qui vivra verra.}","{Qui vit voit.}","{Qui vivra voit.}"],e:"Con due futuri: {vivra}, {verra}."}}
+];
+CULT.r3=[];
+
+/* ---------- Racconti: letture graduate (francese per italiani) ----------
+   Each story uses the words of the course up to «after» (checked by tools/reads_check.js);
+   the few new words are in «gloss» and get a meaning on tap. Lines: [French, Italian]. */
+var READS=[
+{id:"marche",after:"l14",kind:"Vita francese",t:"Il mercato del sabato",j:"Le marché du samedi",min:3,
+ intro:"In ogni città francese c'è almeno un mercato all'aperto, una o due volte alla settimana. Si va per comprare, ma anche per assaggiare, chiacchierare e prendere un caffè.",
+ gloss:[["matin","mattina"],["place","piazza"],["légumes","verdure"],["fromages","formaggi"],["goûter","assaggiare"],["sourit","sorride (sourire)"],["panier","cesto"],["plein","pieno"],["voisine","vicina di casa"],["parlent","parlano"],["temps","tempo"],["terrasse","tavolini all'aperto"],["prochain","prossimo"],["Camille","nome di donna"],["achète","compra (acheter)"],["lui","le, a lei"],["voulez","vuole (vouloir, con Lei)"],["goûte","assaggia"],["délicieux","delizioso"],["voit","vede (voir)"],["prennent","prendono (prendre)"],["courses","spesa (faire les courses)"],["amis","amici"]],
+ lines:[
+  ["Le samedi matin, Camille va au marché de la place.","Il sabato mattina Camille va al mercato della piazza."],
+  ["Il y a des fruits, des légumes, du pain et beaucoup de fromages.","Ci sono frutta, verdura, pane e tanti formaggi."],
+  ["Camille achète un kilo de tomates et des fraises.","Camille compra un chilo di pomodori e delle fragole."],
+  ["Le fromager lui dit : « Vous voulez goûter ce fromage de chèvre ? »","Il formaggiaio le dice: «Vuole assaggiare questo formaggio di capra?»"],
+  ["Elle goûte et elle sourit : « Il est délicieux ! J'en prends un. »","Lei assaggia e sorride: «È buonissimo! Ne prendo uno.»"],
+  ["« Ça fait combien ? — Six euros cinquante. »","«Quant'è? — Sei euro e cinquanta.»"],
+  ["Son panier est plein. Mais Camille ne rentre pas à la maison.","Il suo cesto è pieno. Ma Camille non torna a casa."],
+  ["Devant le café, elle voit sa voisine, madame Petit.","Davanti al bar vede la sua vicina, la signora Petit."],
+  ["Elles prennent un café en terrasse et elles parlent du temps.","Prendono un caffè ai tavolini fuori e parlano del tempo."],
+  ["« À samedi prochain ! » dit madame Petit.","«A sabato prossimo!» dice la signora Petit."],
+  ["Au marché, on fait les courses, mais on voit aussi ses amis.","Al mercato si fa la spesa, ma si vedono anche gli amici."]],
+ q:[{q:"Che cosa compra Camille?",o:["pomodori, fragole e un formaggio","pane e carne","solo frutta"],a:0},
+    {q:"Che cosa le propone il formaggiaio?",o:["di assaggiare un formaggio","uno sconto","di tornare sabato"],a:0},
+    {q:"Chi incontra davanti al bar?",o:["la sua vicina","sua sorella","il formaggiaio"],a:0}]},
+{id:"chaperon",after:"l18",kind:"Fiaba tradizionale",t:"Cappuccetto Rosso",j:"Le Petit Chaperon rouge",min:4,
+ intro:"La fiaba di Cappuccetto Rosso è stata scritta per la prima volta da Charles Perrault, a Parigi, nel 1697. Ecco una versione breve, raccontata con i due passati.",
+ gloss:[["chaperon","cappuccio"],["fillette","bambina"],["galette","focaccia, torta"],["pot","vasetto"],["beurre","burro"],["bois","bosco"],["loup","lupo"],["chemin","strada, sentiero"],["frappé","bussato"],["porte","porta"],["lit","letto"],["grandes","grandi"],["oreilles","orecchie"],["dents","denti"],["entendre","sentire"],["chasseur","cacciatore"],["habitait","abitava (habiter)"],["portait","portava (porter)"],["rouge","rosso"],["monde","mondo (tout le monde: tutti)"],["appelait","chiamava (appeler)"],["lui","le, a lei"],["apporte","porta (apporter)"],["autre","altro"],["demandé","chiesto (demander)"],["plus","più"],["court","corto"],["couché","coricato, messo a letto"],["comme","come; che (comme vous avez… : che… hai!)"],["mieux","meglio"],["Perrault","Charles Perrault, scrittore"],["finit","finisce (finir)"],["version","versione"],["Grimm","i fratelli Grimm, scrittori tedeschi"],["arrive","arriva (arriver)"],["sauve","salva (sauver)"],["toutes","tutte"]],
+ lines:[
+  ["Il était une fois une petite fille qui habitait dans un village.","C'era una volta una bambina che abitava in un villaggio."],
+  ["Elle portait toujours un petit chaperon rouge : alors tout le monde l'appelait le Petit Chaperon rouge.","Portava sempre un cappuccio rosso: così tutti la chiamavano Cappuccetto Rosso."],
+  ["Un jour, sa mère lui a dit : « Va chez ta grand-mère, elle est malade. Apporte-lui une galette et un petit pot de beurre. »","Un giorno sua madre le ha detto: «Va' dalla nonna, è malata. Portale una focaccia e un vasetto di burro.»"],
+  ["La grand-mère habitait de l'autre côté du bois.","La nonna abitava dall'altra parte del bosco."],
+  ["Dans le bois, la fillette a rencontré le loup.","Nel bosco la bambina ha incontrato il lupo."],
+  ["« Où est-ce que tu vas ? » a demandé le loup.","«Dove vai?» ha chiesto il lupo."],
+  ["« Je vais chez ma grand-mère. » Le loup a pris le chemin le plus court et il est arrivé avant elle.","«Vado dalla nonna.» Il lupo ha preso la strada più corta ed è arrivato prima di lei."],
+  ["Il a mangé la grand-mère et il s'est couché dans son lit.","Ha mangiato la nonna e si è messo nel suo letto."],
+  ["Quand le Petit Chaperon rouge est arrivée, elle a frappé à la porte.","Quando Cappuccetto Rosso è arrivata, ha bussato alla porta."],
+  ["« Grand-mère, comme vous avez de grandes oreilles ! — C'est pour mieux t'entendre, mon enfant ! »","«Nonna, che orecchie grandi che hai! — È per sentirti meglio, bambina mia!»"],
+  ["« Grand-mère, comme vous avez de grandes dents ! — C'est pour mieux te manger ! »","«Nonna, che denti grandi che hai! — È per mangiarti meglio!»"],
+  ["Chez Perrault, l'histoire finit là. Mais dans la version des frères Grimm, un chasseur arrive et il les sauve toutes les deux.","In Perrault la storia finisce qui. Ma nella versione dei fratelli Grimm arriva un cacciatore e le salva tutte e due."]],
+ q:[{q:"Perché la bambina va dalla nonna?",o:["perché la nonna è malata","per una festa","per dormire da lei"],a:0},
+    {q:"Come arriva il lupo prima di lei?",o:["prende la strada più corta","corre più veloce","prende l'autobus"],a:0},
+    {q:"Come finisce la storia di Perrault?",o:["senza il cacciatore: finisce con il lupo","con il cacciatore che salva tutti","con una festa"],a:0}]},
+{id:"giulia",after:"l23",kind:"Racconto",t:"Una lettera da Parigi",j:"Une lettre de Paris",min:3,
+ intro:"Giulia, la ragazza italiana della lezione 23, scrive alla nonna francese. Una lettera vera, di carta, come una volta.",
+ gloss:[["chère","cara"],["mamie","nonna"],["mois","mesi"],["déjà","già"],["quartier","quartiere"],["boulangère","panettiera"],["accent","accento"],["comme","come"],["fêtes","feste"],["Noël","Natale"],["embrasse","abbraccio, bacio"],["fort","forte"],["ta","tua"],["matins","mattine"],["réponds","rispondo (répondre)"],["parlais","parlavi (parler)"],["rappelles","ricordi (se rappeler)"],["comprends","capisco (comprendre)"],["rentrerai","tornerò (rentrer)"],["crêpes","crêpe"],["ensemble","insieme"],["petite-fille","nipote (di nonni)"]],
+ lines:[
+  ["Chère Mamie,","Cara nonna,"],
+  ["Je suis à Paris depuis trois mois déjà et tout va bien.","Sono a Parigi già da tre mesi e va tutto bene."],
+  ["Au début, c'était difficile, mais maintenant j'ai des amis et j'aime mon travail.","All'inizio era difficile, ma adesso ho degli amici e mi piace il mio lavoro."],
+  ["J'habite dans un petit appartement, dans un quartier très joli.","Abito in un piccolo appartamento, in un quartiere molto carino."],
+  ["Tous les matins, je vais à la boulangerie et la boulangère me dit : « Vous avez un joli accent ! »","Tutte le mattine vado in panetteria e la panettiera mi dice: «Ha un bell'accento!»"],
+  ["Je lui réponds : « C'est l'accent de ma grand-mère ! »","Le rispondo: «È l'accento di mia nonna!»"],
+  ["Quand j'étais petite, tu me parlais toujours en français, tu te rappelles ?","Quando ero piccola mi parlavi sempre in francese, ti ricordi?"],
+  ["Aujourd'hui, je comprends tout : merci, Mamie !","Oggi capisco tutto: grazie, nonna!"],
+  ["Pour les fêtes de Noël, je rentrerai à Turin. On fera des crêpes ensemble, comme avant ?","Per le feste di Natale tornerò a Torino. Faremo le crêpes insieme, come una volta?"],
+  ["Je t'embrasse très fort.","Ti abbraccio fortissimo."],
+  ["Ta petite-fille, Giulia","Tua nipote, Giulia"]],
+ q:[{q:"Da quanto tempo Giulia è a Parigi?",o:["da tre mesi","da un anno","da tre settimane"],a:0},
+    {q:"Che cosa le dice la panettiera?",o:["che ha un bell'accento","che il pane è finito","che è in ritardo"],a:0},
+    {q:"Che cosa farà Giulia a Natale?",o:["tornerà a Torino e farà le crêpes con la nonna","resterà a Parigi","andrà in vacanza al mare"],a:0}]}
+];
 
 /* ---------- Milepost exercises (French for Italians): ord, gap, err, rep ----------
    Formats in shell/exercises.js. Sentences come from the lessons whenever possible (same audio);
    «err» uses mistakes that Italian speakers really make. Checked by tools/drills_check.js. */
 function XX(id,a){EX[id]=(EX[id]||[]).concat(a)}
+XX("l1",[
+ {t:"rep",ask:"Merci !",who:"un'amica",o:[["De rien !","Prego!"],["Bonjour !","Buongiorno!"],["Pardon !","Scusa!"]],e:"A {merci} si risponde {de rien}."},
+ {t:"rep",ask:"Bonjour, madame !",who:"il panettiere, alle 9",o:[["Bonjour, monsieur !","Buongiorno, signore!"],["Salut !","Ciao!"],["Bonne nuit !","Buonanotte!"]],e:"In negozio si risponde con lo stesso saluto: {bonjour}, e {monsieur}."},
+ {t:"gap",s:"Un café, s'il vous ＿ !",o:["plaît","merci","pardon"],it:"Un caffè, per favore!",e:"{s'il vous plaît} = per favore."},
+ {t:"ord",q:"«Grazie, arrivederci!»",w:["merci","au","revoir"],x:["bonjour"],a:["Merci, au revoir !"]}
+]);
+XX("l2",[
+ {t:"ord",q:"«Mi chiamo Marco.»",w:["je","m'appelle","Marco"],x:["suis"],a:["Je m'appelle Marco."]},
+ {t:"ord",ear:1,q:"«Sono italiano, di Roma.»",w:["je","suis","italien","de","Rome"],x:["à"],a:["Je suis italien, de Rome."]},
+ {t:"gap",s:"Comment tu ＿ ?",o:["t'appelles","m'appelle","s'appelle"],it:"Come ti chiami?",e:"Con {tu}: {tu t'appelles}."},
+ {t:"gap",s:"Nous ＿ étudiants.",o:["sommes","êtes","sont"],it:"Siamo studenti.",e:"{nous sommes}, {vous êtes}, {ils sont}."},
+ {t:"err",s:"Suis italienne, de Milan.",bad:0,fix:"Je suis italienne, de Milan.",it:"Vuoi dire «Sono italiana, di Milano».",e:"In italiano il soggetto si può togliere; in francese no: {je suis}."},
+ {t:"err",s:"Elle est Française.",bad:2,fix:"Elle est française.",it:"Vuoi dire «È francese».",e:"Come aggettivo la nazionalità si scrive con la minuscola: {française}."},
+ {t:"rep",ask:"Bonjour ! Je m'appelle Claire. Et toi ?",o:[["Moi, je m'appelle Luca.","Io mi chiamo Luca."],["Je suis de Lyon.","Sono di Lione."],["Enchantée !","Piacere!"]],e:"Ti chiede il nome: {Moi, je m'appelle…}"}
+]);
+XX("l3",[
+ {t:"ord",q:"«Buongiorno, signora. Come sta?»",w:["bonjour","madame","comment","allez-vous"],x:["vas-tu"],a:["Bonjour, madame. Comment allez-vous ?"]},
+ {t:"ord",ear:1,q:"«Molto bene, grazie. E Lei?»",w:["très","bien","merci","et","vous"],x:["toi"],a:["Très bien, merci. Et vous ?"]},
+ {t:"gap",s:"Salut, Paul ! ＿ va ?",o:["Ça","Comment","Vous"],it:"Ciao Paul! Come va?",e:"Tra amici: {Ça va ?}"},
+ {t:"err",s:"Bonjour, monsieur Dupont. Je te présente ma femme.",bad:4,fix:"Bonjour, monsieur Dupont. Je vous présente ma femme.",it:"Parli con un signore anziano che conosci appena.",e:"Con un signore che conosci appena si usa {vous}: {je vous présente}."},
+ {t:"rep",ask:"Bonsoir, madame ! Comment allez-vous ?",who:"un vicino, alle 19",o:[["Très bien, merci. Et vous ?","Molto bene, grazie. E Lei?"],["Ça va, et toi ?","Bene, e tu?"],["Bonne nuit !","Buonanotte!"]],e:"Ti ha dato del {vous}: rispondi con {et vous ?}"}
+]);
+XX("l4",[
+ {t:"ord",q:"«Nella camera c'è un letto.»",w:["dans","la","chambre","il","y","a","un","lit"],x:["est"],a:["Dans la chambre, il y a un lit.","Il y a un lit dans la chambre."]},
+ {t:"gap",s:"Il n'y a pas ＿ télé.",o:["de","une","la"],it:"Non c'è la tv.",e:"Al negativo {un}/{une}/{des} diventano {de}."},
+ {t:"gap",s:"Il y a ＿ chaises.",o:["des","de","les"],it:"Ci sono delle sedie.",e:"Plurale indeterminativo: {des}."},
+ {t:"err",s:"Il y a chaises dans le salon.",bad:3,fix:"Il y a des chaises dans le salon.",it:"Vuoi dire «Ci sono sedie in salotto».",e:"In italiano l'articolo si può togliere; in francese no: {des chaises}."},
+ {t:"err",s:"J'aime le mer.",bad:2,fix:"J'aime la mer.",it:"Vuoi dire «Amo il mare».",e:"{mer} è femminile: {la mer}. Tanti generi sono diversi dall'italiano."}
+]);
+XX("l5",[
+ {t:"ord",q:"«Ho un fratello e una sorella.»",w:["j'ai","un","frère","et","une","sœur"],x:["je suis"],a:["J'ai un frère et une sœur."]},
+ {t:"ord",ear:1,q:"«Mia madre si chiama Anne.»",w:["ma","mère","s'appelle","Anne"],x:["mon"],a:["Ma mère s'appelle Anne."]},
+ {t:"gap",s:"Ils ＿ deux enfants.",o:["ont","sont","avons"],it:"Hanno due figli.",e:"{ils ont} = hanno; {ils sont} = sono."},
+ {t:"gap",s:"＿ amie Léa est française.",o:["Mon","Ma","Mes"],it:"La mia amica Léa è francese.",e:"Davanti a vocale si usa {mon} anche per un nome femminile."},
+ {t:"err",s:"Le mon frère s'appelle Hugo.",bad:0,fix:"Mon frère s'appelle Hugo.",it:"Vuoi dire «Mio fratello si chiama Hugo».",e:"In francese il possessivo non vuole mai l'articolo."},
+ {t:"rep",ask:"Tu as des frères et sœurs ?",o:[["Oui, j'ai une sœur.","Sì, ho una sorella."],["Oui, je suis une sœur.","Sì, sono una sorella."],["Non, j'ai vingt ans.","No, ho vent'anni."]],e:"Si risponde con {avoir}: {j'ai une sœur}."}
+]);
+XX("l6",[
+ {t:"ord",q:"«Ho vent'anni.»",w:["j'ai","vingt","ans"],x:["je suis"],a:["J'ai vingt ans."]},
+ {t:"ord",ear:1,q:"«Sono stanco e ho fame.»",w:["je","suis","fatigué","et","j'ai","faim"],x:["je fais"],a:["Je suis fatigué et j'ai faim."]},
+ {t:"gap",s:"Comment ＿ ta mère ?",o:["va","vais","vont"],it:"Come sta tua madre?",e:"{ta mère} = lei: {elle va}."},
+ {t:"err",s:"Je suis trente ans.",bad:1,fix:"J'ai trente ans.",it:"Vuoi dire «Ho trent'anni».",e:"L'età si dice con {avoir}, come in italiano: {j'ai trente ans}."},
+ {t:"err",s:"Je suis faim.",bad:1,fix:"J'ai faim.",it:"Vuoi dire «Ho fame».",e:"Come in italiano: {avoir faim}."},
+ {t:"rep",ask:"Tu as quel âge ?",o:[["J'ai vingt-cinq ans.","Ho venticinque anni."],["Je suis vingt-cinq.","Sono venticinque."],["Je vais bien.","Sto bene."]],e:"{J'ai … ans}."}
+]);
+XX("l7",[
+ {t:"ord",q:"«Non lavoro il lunedì.»",w:["je","ne","travaille","pas","le","lundi"],x:["non"],a:["Je ne travaille pas le lundi."]},
+ {t:"ord",ear:1,q:"«Lavora in un ospedale.»",w:["elle","travaille","dans","un","hôpital"],x:["à"],a:["Elle travaille dans un hôpital."]},
+ {t:"gap",s:"Vous ＿ à Paris ?",o:["habitez","habitons","habitent"],it:"Abita a Parigi?",e:"{vous} → -ez."},
+ {t:"gap",s:"Il est ＿.",o:["médecin","un médecin","le médecin"],it:"Fa il medico.",e:"Dopo {il est} la professione va senza articolo."},
+ {t:"err",s:"Je ne parle anglais.",bad:3,fix:"Je ne parle pas anglais.",it:"Vuoi dire «Non parlo inglese».",e:"Servono due parole: {ne} … {pas}."},
+ {t:"err",s:"Il est un professeur.",bad:2,fix:"Il est professeur.",it:"Vuoi dire «È professore».",e:"{il est professeur} oppure {c'est un professeur}."},
+ {t:"rep",ask:"Qu'est-ce que tu fais dans la vie ?",o:[["Je suis infirmière.","Sono infermiera."],["Je fais du vélo.","Vado in bici."],["Je vais bien.","Sto bene."]],e:"Ti chiede il lavoro."}
+]);
+XX("l8",[
+ {t:"ord",q:"«Vorrei un caffè, per favore.»",w:["je","voudrais","un","café","s'il","vous","plaît"],x:["veux"],a:["Je voudrais un café, s'il vous plaît."]},
+ {t:"ord",ear:1,q:"«Posso pagare con la carta?»",w:["je","peux","payer","par","carte"],x:["avec"],a:["Je peux payer par carte ?"]},
+ {t:"gap",s:"L'＿, s'il vous plaît.",o:["addition","adition","additione"],it:"Il conto, per favore.",e:"{l'addition} = il conto."},
+ {t:"gap",s:"Ça fait ＿ euros.",o:["quatre-vingts","quatre-vingt","quatres-vingts"],it:"Fanno ottanta euro.",e:"80 = {quatre-vingts}, con la s; 81 = {quatre-vingt-un}, senza."},
+ {t:"err",s:"Je veux un thé.",bad:1,fix:"Je voudrais un thé.",it:"Al bar, in modo gentile.",e:"{je veux} suona brusco; meglio {je voudrais}."},
+ {t:"rep",ask:"Bonjour ! Vous désirez ?",who:"il cameriere",o:[["Un café crème, s'il vous plaît.","Un cappuccino, per favore."],["Ça fait combien ?","Quant'è?"],["De rien.","Prego."]],e:"Ti chiede che cosa vuoi ordinare."}
+]);
+XX("l9",[
+ {t:"ord",q:"«Dove abiti?» (con est-ce que)",w:["où","est-ce","que","tu","habites"],x:["qu'est-ce"],a:["Où est-ce que tu habites ?"]},
+ {t:"ord",ear:1,q:"«Perché studi il francese?»",w:["pourquoi","tu","apprends","le","français"],x:["parce que"],a:["Pourquoi tu apprends le français ?"]},
+ {t:"gap",s:"＿ que j'aime voyager.",o:["Parce","Pourquoi","Pour"],it:"Perché mi piace viaggiare.",e:"Nella risposta: {parce que}."},
+ {t:"gap",s:"Qu'est-ce ＿ tu fais ce soir ?",o:["que","qui","quoi"],it:"Che cosa fai stasera?",e:"«che cosa» = {qu'est-ce que}."},
+ {t:"err",s:"Que cosa tu fais ?",bad:1,fix:"Qu'est-ce que tu fais ?",it:"Vuoi dire «Che cosa fai?»",e:"«cosa» non esiste in francese: {qu'est-ce que} o {quoi}."},
+ {t:"rep",ask:"Pourquoi tu es en France ?",o:[["Parce que je travaille ici.","Perché lavoro qui."],["Pourquoi je travaille ici.","Perché lavoro qui (sbagliato)."],["Je suis en France.","Sono in Francia."]],e:"Alla domanda {pourquoi} si risponde con {parce que}."}
+]);
+XX("l10",[
+ {t:"ord",q:"«Mi alzo alle sette.»",w:["je","me","lève","à","sept","heures"],x:["suis"],a:["Je me lève à sept heures."]},
+ {t:"ord",ear:1,q:"«A che ora cominci?»",w:["à","quelle","heure","tu","commences"],x:["quel"],a:["À quelle heure tu commences ?"]},
+ {t:"gap",s:"Il est huit heures et ＿.",o:["quart","quarte","quatre"],it:"Sono le otto e un quarto.",e:"«e un quarto» = {et quart}."},
+ {t:"gap",s:"Le soir, je ＿ couche tard.",o:["me","se","te"],it:"La sera vado a letto tardi.",e:"Con {je}: {je me couche}."},
+ {t:"err",s:"Il est sept.",bad:2,fix:"Il est sept heures.",it:"Vuoi dire «Sono le sette».",e:"Con l'ora la parola {heures} non si toglie mai."},
+ {t:"rep",ask:"Tu te lèves à quelle heure ?",o:[["À six heures et demie.","Alle sei e mezza."],["Je me couche tard.","Vado a letto tardi."],["Il est six heures.","Sono le sei."]],e:"{à quelle heure} → {à…}"}
+]);
+XX("l11",[
+ {t:"ord",q:"«Mi piace molto il cinema.»",w:["j'aime","beaucoup","le","cinéma"],x:["me"],a:["J'aime beaucoup le cinéma."]},
+ {t:"ord",ear:1,q:"«Il sabato gioco a calcio.»",w:["le","samedi","je","joue","au","foot"],x:["à"],a:["Le samedi, je joue au foot."]},
+ {t:"gap",s:"Elle joue ＿ piano.",o:["du","au","le"],it:"Suona il pianoforte.",e:"Strumenti: {jouer de} → {du piano}."},
+ {t:"gap",s:"Je fais ＿ natation.",o:["de la","du","la"],it:"Faccio nuoto.",e:"{natation} è femminile: {de la natation}."},
+ {t:"err",s:"J'aime musique.",bad:1,fix:"J'aime la musique.",it:"Vuoi dire «Mi piace la musica».",e:"Dopo {aimer}: articolo determinativo."},
+ {t:"err",s:"Je joue le tennis.",bad:2,fix:"Je joue au tennis.",it:"Vuoi dire «Gioco a tennis».",e:"Giochi e sport: {jouer à} → {au tennis}."},
+ {t:"rep",ask:"Tu aimes le sport ?",o:[["Oui, j'adore le foot.","Sì, adoro il calcio."],["Oui, j'adore foot.","Sì, adoro calcio (sbagliato)."],["Oui, je fais le sport.","Sì, faccio lo sport (sbagliato)."]],e:"{j'adore le foot}; e si dice {faire du sport}."}
+]);
+XX("l12",[
+ {t:"ord",q:"«Vada sempre dritto, poi giri a sinistra.»",w:["allez","tout","droit","puis","tournez","à","gauche"],x:["droite"],a:["Allez tout droit, puis tournez à gauche."]},
+ {t:"ord",ear:1,q:"«Vado al museo.»",w:["je","vais","au","musée"],x:["à le"],a:["Je vais au musée."]},
+ {t:"gap",s:"J'habite ＿ Italie.",o:["en","à","au"],it:"Abito in Italia.",e:"Paesi femminili: {en}."},
+ {t:"gap",s:"Ce soir, on dîne ＿ Paul.",o:["chez","à","de"],it:"Stasera ceniamo da Paul.",e:"«da» una persona = {chez}."},
+ {t:"err",s:"Je vais à le cinéma.",bad:2,fix:"Je vais au cinéma.",it:"Vuoi dire «Vado al cinema».",e:"{à} + {le} = {au}."},
+ {t:"rep",ask:"Pardon, la gare, s'il vous plaît ?",who:"un turista",o:[["C'est tout droit, à cinq minutes.","È sempre dritto, a cinque minuti."],["Je vais à la gare.","Vado alla stazione."],["Bonne visite !","Buona visita!"]],e:"Ti chiede la strada."}
+]);
+XX("l13",[
+ {t:"ord",q:"«Vuoi venire al cinema?»",w:["tu","veux","venir","au","cinéma"],x:["peux"],a:["Tu veux venir au cinéma ?"]},
+ {t:"ord",ear:1,q:"«Mi dispiace, non posso, devo lavorare.»",w:["désolé","je","ne","peux","pas","je","dois","travailler"],x:["veux"],a:["Désolé, je ne peux pas, je dois travailler."]},
+ {t:"gap",s:"Ce soir, je ＿ regarder un film.",o:["vais","vas","va"],it:"Stasera guarderò un film.",e:"Futuro vicino: {je vais} + infinito."},
+ {t:"gap",s:"Ils ＿ venir samedi.",o:["peuvent","pouvent","peut"],it:"Possono venire sabato.",e:"{ils peuvent}."},
+ {t:"err",s:"Je dois de partir.",bad:2,fix:"Je dois partir.",it:"Vuoi dire «Devo partire».",e:"Dopo {devoir} l'infinito va diretto, senza {de}."},
+ {t:"rep",ask:"On se retrouve à huit heures devant le cinéma ?",o:[["D'accord, à ce soir !","D'accordo, a stasera!"],["Je vais au cinéma.","Vado al cinema."],["Il est huit heures.","Sono le otto."]],e:"Accetti l'appuntamento: {d'accord}."}
+]);
+XX("l14",[
+ {t:"ord",q:"«Vorrei un chilo di pomodori.»",w:["je","voudrais","un","kilo","de","tomates"],x:["des"],a:["Je voudrais un kilo de tomates."]},
+ {t:"ord",ear:1,q:"«Non mangio carne.»",w:["je","ne","mange","pas","de","viande"],x:["la"],a:["Je ne mange pas de viande."]},
+ {t:"gap",s:"Je voudrais ＿ pain.",o:["du","de la","des"],it:"Vorrei del pane.",e:"{pain} è maschile: {du pain}."},
+ {t:"gap",s:"Des pommes ? J'＿ veux deux kilos.",o:["en","y","les"],it:"Mele? Ne voglio due chili.",e:"{en} = ne."},
+ {t:"err",s:"Je bois eau.",bad:2,fix:"Je bois de l'eau.",it:"Vuoi dire «Bevo acqua».",e:"Davanti a una quantità indefinita serve il partitivo: {de l'eau}."},
+ {t:"err",s:"Un kilo des pommes, s'il vous plaît.",bad:2,fix:"Un kilo de pommes, s'il vous plaît.",it:"Vuoi dire «Un chilo di mele».",e:"Dopo una quantità: solo {de}."},
+ {t:"rep",ask:"Et avec ceci ?",who:"il fruttivendolo",o:[["C'est tout, merci.","È tutto, grazie."],["Avec plaisir !","Con piacere!"],["Bon appétit !","Buon appetito!"]],e:"{Et avec ceci ?} = E poi? Se hai finito: {c'est tout}."}
+]);
+XX("l15",[
+ {t:"ord",q:"«Ieri ho visto un film.»",w:["hier","j'ai","vu","un","film"],x:["je suis"],a:["Hier, j'ai vu un film."]},
+ {t:"ord",ear:1,q:"«Non ho preso la metro.»",w:["je","n'ai","pas","pris","le","métro"],x:["prendu"],a:["Je n'ai pas pris le métro."]},
+ {t:"gap",s:"Nous avons ＿ une promenade.",o:["fait","faité","faire"],it:"Abbiamo fatto una passeggiata.",e:"Participio di {faire}: {fait}."},
+ {t:"err",s:"Je suis bien dormi.",bad:1,fix:"J'ai bien dormi.",it:"Vuoi dire «Ho dormito bene».",e:"{dormir} vuole {avoir}."},
+ {t:"err",s:"Je n'ai vu pas le film.",bad:3,fix:"Je n'ai pas vu le film.",it:"Vuoi dire «Non ho visto il film».",e:"{pas} va subito dopo l'ausiliare."},
+ {t:"rep",ask:"Tu as passé un bon week-end ?",o:[["Oui, j'ai visité un musée.","Sì, ho visitato un museo."],["Oui, je visite un musée.","Sì, visito un museo."],["Oui, je vais visiter un musée.","Sì, visiterò un museo."]],e:"Domanda al passato: si risponde al {passé composé}."}
+]);
+XX("l16",[
+ {t:"ord",q:"«Siamo andati a Marsiglia.»",w:["nous","sommes","allés","à","Marseille"],x:["avons"],a:["Nous sommes allés à Marseille."]},
+ {t:"ord",ear:1,q:"«È arrivata sabato.»",w:["elle","est","arrivée","samedi"],x:["a"],a:["Elle est arrivée samedi."]},
+ {t:"gap",s:"Il a fait très ＿.",o:["beau","bon","bien"],it:"Ha fatto bellissimo.",e:"Meteo: {il fait beau}."},
+ {t:"gap",s:"Je suis né ＿ 12 mai.",o:["le","au","de"],it:"Sono nato il 12 maggio.",e:"Date: {le} + numero + mese."},
+ {t:"err",s:"Je suis été à Paris.",bad:1,fix:"J'ai été à Paris.",it:"Vuoi dire «Sono stato a Parigi».",e:"{être} al passé composé vuole {avoir}: {j'ai été}."},
+ {t:"err",s:"J'ai allé en Corse.",bad:0,fix:"Je suis allé en Corse.",it:"Vuoi dire «Sono andato in Corsica».",e:"{aller} vuole {être}, come in italiano."},
+ {t:"rep",ask:"Vous êtes rentrés quand ?",o:[["Nous sommes rentrés hier soir.","Siamo tornati ieri sera."],["Nous avons rentré hier soir.","Abbiamo tornato ieri sera."],["Nous rentrons demain.","Torniamo domani."]],e:"{rentrer} vuole {être}."}
+]);
+XX("l17",[
+ {t:"ord",q:"«Quando ero piccola, abitavo in campagna.»",w:["quand","j'étais","petite","j'habitais","à","la","campagne"],x:["j'ai habité"],a:["Quand j'étais petite, j'habitais à la campagne."]},
+ {t:"ord",ear:1,q:"«Non c'era la tv.»",w:["il","n'y","avait","pas","de","télé"],x:["était"],a:["Il n'y avait pas de télé."]},
+ {t:"gap",s:"Tous les étés, nous ＿ à la mer.",o:["allions","sommes allés","allons"],it:"Ogni estate andavamo al mare.",e:"Abitudine nel passato: imparfait."},
+ {t:"gap",s:"La maison ＿ petite.",o:["était","a été","étais"],it:"La casa era piccola.",e:"Descrizione: imparfait, terza persona: {était}."},
+ {t:"err",s:"Quand je suis petit, j'habitais à Naples.",bad:2,fix:"Quand j'étais petit, j'habitais à Naples.",it:"Vuoi dire «Quando ero piccolo…»",e:"Nel passato: {j'étais}."},
+ {t:"rep",ask:"Qu'est-ce que tu faisais l'été, quand tu étais petit ?",o:[["J'allais chez mes grands-parents.","Andavo dai miei nonni."],["Je vais chez mes grands-parents.","Vado dai miei nonni."],["J'irai chez mes grands-parents.","Andrò dai miei nonni."]],e:"Abitudine nel passato: imparfait."}
+]);
+XX("l18",[
+ {t:"ord",q:"«Pioveva quando sono arrivato.»",w:["il","pleuvait","quand","je","suis","arrivé"],x:["a plu"],a:["Il pleuvait quand je suis arrivé."]},
+ {t:"ord",ear:1,q:"«All'improvviso ho visto un cane.»",w:["tout","à","coup","j'ai","vu","un","chien"],x:["voyais"],a:["Tout à coup, j'ai vu un chien."]},
+ {t:"gap",s:"Je dormais quand le téléphone ＿.",o:["a sonné","sonnait","sonne"],it:"Dormivo quando ha squillato il telefono.",e:"L'evento che interrompe: passé composé."},
+ {t:"gap",s:"Il ＿ froid et il avait peur.",o:["avait","a eu","aura"],it:"Aveva freddo e aveva paura.",e:"Uno stato: imparfait."},
+ {t:"err",s:"Hier, il a fait beau et nous étions à la plage, puis nous rentrions.",bad:13,fix:"Hier, il a fait beau et nous étions à la plage, puis nous sommes rentrés.",it:"L'ultimo fatto chiude il racconto.",e:"Un fatto concluso nella sequenza: {nous sommes rentrés}."},
+ {t:"rep",ask:"Qu'est-ce qui t'est arrivé ?",o:[["J'ai raté mon train.","Ho perso il treno."],["Je rate mon train.","Perdo il treno."],["Je raterai mon train.","Perderò il treno."]],e:"Ti chiede che cosa è successo: passé composé."}
+]);
+XX("l19",[
+ {t:"ord",q:"«Le regalo un libro.» (a mia madre)",w:["je","lui","offre","un","livre"],x:["la"],a:["Je lui offre un livre."]},
+ {t:"ord",ear:1,q:"«Parigi è più grande di Lione.»",w:["Paris","est","plus","grand","que","Lyon"],x:["de"],a:["Paris est plus grand que Lyon."]},
+ {t:"gap",s:"Mes parents ? Je ＿ téléphone le dimanche.",o:["leur","les","leurs"],it:"I miei genitori? Gli telefono la domenica.",e:"{téléphoner à} + plurale: {leur}, senza s."},
+ {t:"gap",s:"Ce gâteau est ＿ que l'autre.",o:["meilleur","plus bon","mieux"],it:"Questa torta è migliore dell'altra.",e:"{bon} → {meilleur}."},
+ {t:"err",s:"Je la téléphone ce soir.",bad:1,fix:"Je lui téléphone ce soir.",it:"Vuoi dire «Le telefono stasera» (a Marie).",e:"{téléphoner à quelqu'un} → pronome indiretto {lui}."},
+ {t:"rep",ask:"Tu préfères le train ou l'avion ?",o:[["Le train : il est moins cher.","Il treno: costa meno."],["Le train : il est moins cher de l'avion.","Il treno: costa meno dell'aereo (sbagliato)."],["Le train : il est plus bon.","Il treno: è più buono (sbagliato)."]],e:"Nel paragone si usa {que}; {bon} → {meilleur}."}
+]);
+XX("l20",[
+ {t:"ord",q:"«La prendo!» (la giacca)",w:["je","la","prends"],x:["lui"],a:["Je la prends !"]},
+ {t:"ord",ear:1,q:"«Posso provarlo?»",w:["je","peux","l'essayer"],x:["essayer le"],a:["Je peux l'essayer ?"]},
+ {t:"gap",s:"Mes lunettes ? Je ne ＿ trouve pas !",o:["les","leur","la"],it:"I miei occhiali? Non li trovo!",e:"Complemento diretto plurale: {les}."},
+ {t:"gap",s:"Je ne peux pas parler, je suis en train ＿ conduire.",o:["de","à","pour"],it:"Non posso parlare, sto guidando.",e:"{être en train de} + infinito."},
+ {t:"err",s:"Je prends la.",bad:2,fix:"Je la prends.",it:"Vuoi dire «La prendo».",e:"Il pronome va prima del verbo."},
+ {t:"rep",ask:"Vous faites quelle taille ?",who:"la commessa",o:[["Je fais du 38.","Porto la 38."],["Je fais du sport.","Faccio sport."],["Elle est en solde.","È in saldo."]],e:"Ti chiede la taglia: {je fais du…}"}
+]);
+XX("l21",[
+ {t:"ord",q:"«L'anno prossimo andrò in Canada.»",w:["l'année","prochaine","j'irai","au","Canada"],x:["en"],a:["L'année prochaine, j'irai au Canada."]},
+ {t:"ord",ear:1,q:"«Se avrò tempo, verrò.»",w:["si","j'ai","le","temps","je","viendrai"],x:["j'aurai"],a:["Si j'ai le temps, je viendrai."]},
+ {t:"gap",s:"Nous ＿ à la maison ce soir.",o:["serons","serions","sommes été"],it:"Stasera saremo a casa.",e:"Futuro di {être}: {ser-}."},
+ {t:"gap",s:"S'il fait beau, on ＿ à la plage.",o:["ira","irait","allera"],it:"Se farà bello, andremo in spiaggia.",e:"Futuro di {aller}: {ir-}."},
+ {t:"err",s:"Si j'aurai le temps, je viendrai.",bad:1,fix:"Si j'ai le temps, je viendrai.",it:"Vuoi dire «Se avrò tempo, verrò».",e:"Dopo {si} niente futuro: {si j'ai}."},
+ {t:"rep",ask:"Tu viendras me voir à Montréal ?",o:[["Oui, si j'ai assez d'argent !","Sì, se avrò abbastanza soldi!"],["Oui, si j'aurai assez d'argent !","Sì, se avrò abbastanza soldi! (sbagliato)"],["Oui, je suis venu.","Sì, sono venuto."]],e:"{si} + presente."}
+]);
+XX("l22",[
+ {t:"ord",q:"«Potrebbe aiutarmi?»",w:["pourriez-vous","m'aider"],x:["pouvez"],a:["Pourriez-vous m'aider ?"]},
+ {t:"ord",ear:1,q:"«Dovresti riposarti.»",w:["tu","devrais","te","reposer"],x:["dois"],a:["Tu devrais te reposer."]},
+ {t:"gap",s:"Il ＿ prendre ce médicament trois fois par jour.",o:["faut","doit","fait"],it:"Bisogna prendere questa medicina tre volte al giorno.",e:"{il faut} + infinito."},
+ {t:"gap",s:"J'ai de la fièvre ＿ trois jours.",o:["depuis","de","pendant"],it:"Ho la febbre da tre giorni.",e:"«da» + durata che continua = {depuis}."},
+ {t:"err",s:"Je voudrai un rendez-vous, s'il vous plaît.",bad:1,fix:"Je voudrais un rendez-vous, s'il vous plaît.",it:"Una richiesta gentile.",e:"Il condizionale finisce in {-ais}: {je voudrais}."},
+ {t:"rep",ask:"Qu'est-ce qui ne va pas ?",who:"il medico",o:[["J'ai mal à la gorge.","Ho mal di gola."],["Ça va bien, merci.","Va bene, grazie."],["Je vais chez le médecin.","Vado dal medico."]],e:"Ti chiede che cosa hai."}
+]);
+XX("l23",[
+ {t:"ord",q:"«I miei genitori mi mancano.»",w:["mes","parents","me","manquent"],x:["je manque"],a:["Mes parents me manquent."]},
+ {t:"ord",ear:1,q:"«Un giorno mi piacerebbe aprire un'agenzia.»",w:["un","jour","j'aimerais","ouvrir","une","agence"],x:["j'aimerai"],a:["Un jour, j'aimerais ouvrir une agence."]},
+ {t:"gap",s:"Au début, c'＿ difficile.",o:["était","a été","est été"],it:"All'inizio era difficile.",e:"Descrizione nel passato: imparfait."},
+ {t:"err",s:"Je manque mes parents.",bad:1,fix:"Mes parents me manquent.",it:"Vuoi dire «Mi mancano i miei genitori».",e:"Con {manquer} chi manca è il soggetto: {mes parents me manquent}."},
+ {t:"rep",ask:"Tu es à Paris depuis quand ?",o:[["Depuis un an.","Da un anno."],["Il y a un an.","Un anno fa."],["Dans un an.","Fra un anno."]],e:"{depuis} = da (quanto tempo)."}
+]);
 
-var EXAMS=[];
+var EXAMS=[{"id":"a2-1","exam":"a2","title":"Prova 1","it":"Simulazione nel formato del DELF A2: comprensione orale e comprensione scritta con punteggio stimato; produzione scritta e orale da esercitare con i modelli.","scheme":{"name":"DELF A2","total":50,"pass":25,"lang":"fr","plays":2,"opts":"abc","part":"Exercice ","groups":[{"id":"oral","label":"Compréhension de l'oral","max":25,"min":5},{"id":"ecrit","label":"Compréhension des écrits","max":25,"min":5}],"skills":{"listening":["Ascolto","Compréhension de l'oral"],"reading":["Lettura","Compréhension des écrits"]},"who":{"N":"","F":"F : ","M":"H : "},"passText":"Ogni prova vale 25 punti e ne servono almeno 5. Al DELF vero le prove sono quattro (anche produzione scritta e orale) e si passa con 50 su 100: qui la soglia è riportata in proporzione.","notOfficial":"Simulazione nel formato del DELF A2, non un esame ufficiale: il punteggio è solo una stima. Il DELF vero ha anche la produzione scritta e orale, valutate da esaminatori.","note":"Come all'esame vero, consegne e domande sono in francese. Se ti serve, premi «Traduzione» per vedere la consegna in italiano."},"sections":[{"id":"oral","jp":"Compréhension de l'oral","it":"Comprensione orale","min":25,"score":"oral","listen":true,"parts":[{"n":1,"label":"Exercice 1","skill":"listening","kind":"annonces","inst":"Écoutez les annonces et répondez aux questions.","itInst":"Ascolta gli annunci e rispondi alle domande.","items":[{"script":[["N","Mesdames et messieurs, le TGV numéro 6613 à destination de Lyon partira voie sept. Départ prévu à dix heures douze."]],"q":"Le train pour Lyon part de quelle voie ?","o":["De la voie 17.","De la voie 7.","De la voie 2."],"a":1,"e":"«voie sept» = binario 7."},{"script":[["N","Chers clients, notre magasin fermera dans dix minutes. Merci de vous diriger vers les caisses. Bonne soirée !"]],"q":"Que doivent faire les clients ?","o":["Quitter le magasin tout de suite.","Aller au rayon fruits.","Aller aux caisses."],"a":2,"e":"«Le magasin fermera dans dix minutes. Merci de vous diriger vers les caisses» = andare alle casse."},{"script":[["N","Les passagers du vol AF 1404 à destination de Rome sont informés que le départ aura un retard d'environ quarante minutes."]],"q":"Le vol pour Rome…","o":["est annulé.","a du retard.","part en avance."],"a":1,"e":"«un retard d'environ quarante minutes» = un ritardo di circa quaranta minuti."},{"script":[["N","Le musée est ouvert tous les jours de neuf heures à dix-huit heures, sauf le mardi. Entrée gratuite le premier dimanche du mois."]],"q":"Le musée est fermé…","o":["le mardi.","le lundi.","le dimanche."],"a":0,"e":"«fermé le mardi» = chiuso il martedì."}]},{"n":2,"label":"Exercice 2","skill":"listening","kind":"messages","inst":"Écoutez les messages sur le répondeur et répondez aux questions.","itInst":"Ascolta i messaggi in segreteria e rispondi alle domande.","items":[{"script":[["F","Salut Marc, c'est Julie. Pour ce soir, j'ai un problème au travail. On peut se retrouver à vingt heures au lieu de dix-neuf heures ? Rappelle-moi !"]],"q":"Pourquoi Julie appelle Marc ?","o":["Pour annuler le dîner.","Pour l'inviter au cinéma.","Pour changer l'heure du rendez-vous."],"a":2,"e":"«On peut se retrouver à vingt heures au lieu de dix-neuf heures ?» = cambiare l'ora."},{"script":[["F","Bonjour, ici le cabinet du docteur Morel. Votre rendez-vous de lundi est annulé. Nous vous proposons jeudi à dix heures. Merci de confirmer par téléphone."]],"q":"Qu'est-ce que le docteur Morel propose ?","o":["Un rendez-vous jeudi à 10 h.","Un rendez-vous lundi à 10 h.","Une visite à la maison."],"a":0,"e":"«jeudi à dix heures» = giovedì alle 10."},{"script":[["M","Paul, c'est papa. Tu peux passer au marché en rentrant ? Prends du pain et du fromage, s'il te plaît. Le vin, je l'ai déjà acheté."]],"q":"Qu'est-ce que Paul doit acheter ?","o":["Du vin et des fruits.","Du pain et du fromage.","Du pain et du vin."],"a":1,"e":"«prends du pain et du fromage» = prendi pane e formaggio."}]},{"n":3,"label":"Exercice 3","skill":"listening","kind":"radio","inst":"Écoutez ces informations à la radio et répondez aux questions.","itInst":"Ascolta queste notizie alla radio e rispondi alle domande.","items":[{"script":[["N","La météo de demain : du soleil et de la chaleur dans le sud, jusqu'à trente degrés à Marseille. Dans le nord, de la pluie toute la journée."]],"q":"Quel temps fera-t-il demain dans le nord ?","o":["Il pleuvra.","Il fera beau.","Il neigera."],"a":0,"e":"«de la pluie dans le nord» = pioggia al nord."},{"script":[["N","Ce week-end, c'est la fête de la ville ! Samedi et dimanche, concerts gratuits sur la place de la mairie, marché et animations pour les enfants."]],"q":"La fête de la ville a lieu…","o":["seulement samedi soir.","vendredi.","samedi et dimanche."],"a":2,"e":"«samedi et dimanche» = sabato e domenica."},{"script":[["N","Ce week-end, c'est la fête de la ville ! Samedi et dimanche, concerts gratuits sur la place de la mairie, marché et animations pour les enfants."]],"q":"Les concerts sont…","o":["à dix euros.","réservés aux enfants.","gratuits."],"a":2,"e":"«concerts gratuits» = concerti gratuiti."}]},{"n":4,"label":"Exercice 4","skill":"listening","kind":"dialogues","inst":"Écoutez les dialogues et répondez aux questions.","itInst":"Ascolta i dialoghi e rispondi alle domande.","items":[{"script":[["F","Bonjour, vous avez cette veste en 40 ?"],["M","Oui, la voilà. La cabine est au fond, à droite."]],"q":"Où sont les deux personnes ?","o":["Au restaurant.","À la gare.","Dans un magasin de vêtements."],"a":2,"e":"Si parla di taglie e di provare una giacca."},{"script":[["M","Vous avez choisi ?"],["F","Oui, je vais prendre la salade du jour et une carafe d'eau, s'il vous plaît."]],"q":"Qu'est-ce que la femme commande ?","o":["Une salade et une carafe d'eau.","Un steak et un verre de vin.","Une salade et une bière."],"a":0,"e":"«une salade… et une carafe d'eau»."},{"script":[["F","Tu viens au cinéma ce soir ?"],["M","Désolé, je ne peux pas. J'ai de la fièvre depuis ce matin, je reste au lit."]],"q":"Pourquoi l'homme ne va pas au cinéma ?","o":["Il doit travailler.","Il est malade.","Il n'aime pas le film."],"a":1,"e":"«j'ai de la fièvre» = ho la febbre."},{"script":[["F","Pardon, monsieur, pour aller à la gare, s'il vous plaît ?"],["M","Prenez la deuxième rue à gauche, c'est à cinq minutes à pied."]],"q":"Où va la femme ?","o":["À la poste.","À la gare.","Au musée."],"a":1,"e":"«pour aller à la gare» = per andare alla stazione."}]}]},{"id":"ecrit","jp":"Compréhension des écrits","it":"Comprensione scritta","min":30,"score":"ecrit","parts":[{"n":1,"label":"Exercice 1","skill":"reading","kind":"annonce","inst":"Lisez l'annonce et répondez aux questions.","itInst":"Leggi l'annuncio e rispondi alle domande.","text":"Bonjour à tous ! Je m'appelle Inès, j'ai vingt-huit ans et je cherche une colocation à Bordeaux. Je suis infirmière et je commence un nouveau travail à l'hôpital Saint-André le premier septembre. Je suis calme, je ne fume pas et j'adore cuisiner : je peux préparer des plats italiens, parce que ma mère est italienne ! Je voudrais une chambre près du centre ou près d'une ligne de tram, pour un loyer de 500 euros maximum. Le week-end, je fais du vélo et je vais souvent au marché. Si vous avez une chambre, écrivez-moi : ines.b@mail.fr","items":[{"q":"Inès cherche…","o":["un travail à Bordeaux.","une chambre dans un appartement partagé.","un appartement pour une famille."],"a":1,"e":"«je cherche une colocation» = cerco un appartamento in condivisione."},{"q":"Quel est le métier d'Inès ?","o":["Infirmière.","Cuisinière.","Professeure d'italien."],"a":0,"e":"«Je suis infirmière»."},{"q":"Quand commence son travail ?","o":["Le 1er septembre.","Le 1er octobre.","Ce week-end."],"a":0,"e":"«le premier septembre»."},{"q":"Combien veut-elle payer au maximum ?","o":["500 euros.","50 euros.","400 euros."],"a":0,"e":"«un loyer de 500 euros maximum»."}]},{"n":2,"label":"Exercice 2","skill":"reading","kind":"affiches","inst":"Lisez ces documents et répondez aux questions.","itInst":"Leggi questi documenti e rispondi alle domande.","items":[{"text":"PHARMACIE DU CENTRE — Ouverte du lundi au samedi de 8 h 30 à 19 h 30. Dimanche : de 9 h à 12 h 30.","q":"Vous voulez acheter des médicaments dimanche à 15 h. C'est possible ?","o":["Non, la pharmacie est fermée.","Oui, jusqu'à 19 h 30.","Oui, toute la journée."],"a":0,"e":"Domenica è aperta solo dalle 9 alle 12:30."},{"text":"CONCERT DE JAZZ — Samedi 14 juin, 20 h 30, salle des fêtes. Places limitées : réservation obligatoire à l'office de tourisme. 12 €, gratuit pour les moins de 12 ans.","q":"Pour aller au concert, il faut…","o":["acheter un billet avant.","arriver à 21 h.","apporter à manger."],"a":0,"e":"«Réservation obligatoire» = prenotazione obbligatoria."},{"q":"Un enfant de 8 ans paie…","o":["rien.","12 euros.","6 euros."],"a":0,"e":"«gratuit pour les moins de 12 ans»."},{"text":"Chers voisins, samedi 21 juin, nous organisons une fête dans la cour de l'immeuble à partir de 19 h. Apportez quelque chose à boire ou à manger ! Famille Martin, 3e étage.","q":"Ce message est pour…","o":["les voisins de l'immeuble.","les clients d'un hôtel.","les élèves d'une école."],"a":0,"e":"«Chers voisins» = cari vicini."}]},{"n":3,"label":"Exercice 3","skill":"reading","kind":"lettre","inst":"Lisez la lettre et répondez aux questions.","itInst":"Leggi la lettera e rispondi alle domande.","text":"Chère Léa,\nmerci pour ta carte ! Je suis bien arrivée à Montréal il y a deux semaines. Au début, il faisait très froid et je ne comprenais pas toujours l'accent québécois, mais maintenant ça va mieux. J'habite chez une famille très gentille : ils ont deux enfants et un gros chien. Tous les matins, je prends le bus pour aller à l'université. Le week-end dernier, nous sommes allés voir les chutes du Niagara : c'était magnifique ! En décembre, je rentrerai en France pour Noël. On se voit à Paris ?\nGros bisous, Camille","items":[{"q":"Depuis combien de temps Camille est à Montréal ?","o":["Deux mois.","Deux jours.","Deux semaines."],"a":2,"e":"«il y a deux semaines»."},{"q":"Au début, qu'est-ce qui était difficile ?","o":["La nourriture.","Le bus et l'université.","Le froid et l'accent."],"a":2,"e":"«il faisait très froid et je ne comprenais pas toujours l'accent»."},{"q":"Le week-end dernier, Camille…","o":["est rentrée en France.","est restée à la maison.","a visité les chutes du Niagara."],"a":2,"e":"«nous sommes allés voir les chutes du Niagara»."}]}]}],"practice":[{"kind":"Production écrite","time":"25 min","task":"Vous avez passé un week-end à la mer avec des amis. Vous écrivez à un ami français pour lui raconter : où, avec qui, ce que vous avez fait, ce que vous avez aimé (60 à 80 mots).","tr":"Hai passato un fine settimana al mare con degli amici. Scrivi a un amico francese per raccontarglielo: dove, con chi, che cosa avete fatto, che cosa ti è piaciuto (60-80 parole).","model":"Salut Hugo ! Le week-end dernier, je suis allée à Rimini avec trois amies. Il faisait très beau et l'eau était chaude. Samedi, nous avons nagé et nous avons mangé du poisson dans un petit restaurant. Dimanche, nous avons fait du vélo le long de la mer. J'ai adoré la plage le soir, quand il n'y a personne. Et toi, tu viens en Italie cet été ? Bises, Sara"},{"kind":"Production écrite","time":"20 min","task":"Votre ami français vous invite à son anniversaire samedi soir, mais vous ne pouvez pas venir. Vous lui répondez : vous le remerciez, vous expliquez pourquoi et vous proposez un autre jour (60 à 80 mots).","tr":"Un amico francese ti invita al suo compleanno sabato sera, ma non puoi andare. Gli rispondi: lo ringrazi, spieghi perché e proponi un altro giorno (60-80 parole).","model":"Cher Thomas, merci beaucoup pour ton invitation ! Malheureusement, samedi je ne peux pas venir : ma sœur se marie à Naples et je dois partir vendredi. Je suis vraiment désolé. Je rentre lundi soir. On peut dîner ensemble mardi ou mercredi ? Je t'apporterai un petit cadeau d'Italie ! Bon anniversaire et bonne fête ! Amitiés, Luca"},{"kind":"Production orale","time":"2 min","task":"Entretien dirigé : présentez-vous (nom, âge, ville, travail ou études, famille, loisirs).","tr":"Colloquio guidato: presentati (nome, età, città, lavoro o studio, famiglia, tempo libero).","model":"Je m'appelle Marco, j'ai trente-deux ans et j'habite à Turin. Je suis ingénieur dans une entreprise de voitures. Je suis marié et j'ai une petite fille de trois ans. Le week-end, j'aime faire du vélo en montagne et cuisiner pour mes amis. J'apprends le français parce que je travaille souvent avec des collègues français."},{"kind":"Production orale","time":"3 min","task":"Dialogue simulé : vous êtes dans un office de tourisme à Nice. Vous demandez des informations sur les visites, les horaires et les prix.","tr":"Dialogo simulato: sei in un ufficio del turismo a Nizza. Chiedi informazioni su visite, orari e prezzi.","model":"Bonjour, madame. Je voudrais visiter la vieille ville. Il y a des visites guidées ? À quelle heure elles commencent ? C'est combien ? Il y a un tarif pour les étudiants ? Et le musée Matisse, il est ouvert le lundi ? Merci beaucoup, au revoir !"}]}];
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var KEY="francese-per-italiani-v1";
 var state={best:{},box:{},can:{}};
@@ -4402,7 +4974,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
-  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;
