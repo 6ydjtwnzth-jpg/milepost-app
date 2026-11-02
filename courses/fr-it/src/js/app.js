@@ -69,8 +69,8 @@ function meaning(w){var k=norm(w);if(look(k))return look(k);
   /* hyphenated: est-ce, lève-toi, peut-être, vingt-deux */
   if(k.indexOf("-")>0){var ps=k.split("-").filter(Boolean),ms=ps.map(function(x){return look(x)||look(x.replace(/^t$/,""))||formMeaning(x)});
     if(ms.every(Boolean))return ps.map(function(x,j){return x+" ("+ms[j]+")"}).join(" + ")}
-  if(/^[A-ZÀ-Ý]/.test(w))return "nome proprio";
-  return formMeaning(k)}
+  /* a capital letter at the start of a sentence is not a name: try the known forms first */
+  var f=formMeaning(k);if(f||!/^[A-ZÀ-Ý]/.test(w))return f;return "nome proprio"}
 /* forms of known words: plural, feminine, participles */
 function formMeaning(k){var c,m;
   function f(base,lab){return look(base)?lab+" di «"+base+"» ("+look(base)+")":""}

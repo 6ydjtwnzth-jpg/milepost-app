@@ -1,0 +1,598 @@
+{
+ "id": "a2-1",
+ "exam": "a2",
+ "title": "Prova 1",
+ "it": "Simulación en el formato del CILS A2: comprensión auditiva, comprensión de lectura y análisis de las estructuras de comunicación, con puntuación estimada.",
+ "scheme": {
+  "name": "CILS A2",
+  "total": 60,
+  "pass": 33,
+  "lang": "it",
+  "plays": 2,
+  "opts": "abc",
+  "part": "Prova n. ",
+  "groups": [
+   {
+    "id": "ascolto",
+    "label": "Comprensión auditiva · Ascolto",
+    "max": 20,
+    "min": 11
+   },
+   {
+    "id": "lettura",
+    "label": "Lectura · Lettura",
+    "max": 20,
+    "min": 11
+   },
+   {
+    "id": "strutture",
+    "label": "Estructuras · Strutture",
+    "max": 20,
+    "min": 11
+   }
+  ],
+  "skills": {
+   "listening": [
+    "Comprensión auditiva",
+    "Ascolto"
+   ],
+   "reading": [
+    "Comprensión de lectura",
+    "Comprensione della lettura"
+   ],
+   "grammar": [
+    "Estructuras de comunicación",
+    "Strutture di comunicazione"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "Mujer: ",
+   "M": "Hombre: "
+  },
+  "passText": "Cada parte vale 20 puntos y hacen falta al menos 11 (umbral estimado: valen las reglas publicadas por el centro de examen). La expresión escrita y la oral se practican aparte.",
+  "notOfficial": "Simulación en el formato del CILS A2, no un examen oficial: la puntuación es solo una estimación. El examen real incluye también expresión escrita y oral, evaluadas por examinadores; los centros y los módulos (por ejemplo A2 Integrazione) pueden puntuar de forma distinta.",
+  "note": "Como en el examen real, las preguntas y las instrucciones están en italiano. Si lo necesitas, pulsa «Traducción» para ver las instrucciones en español."
+ },
+ "sections": [
+  {
+   "id": "ascolto",
+   "jp": "Ascolto",
+   "it": "Comprensión auditiva",
+   "min": 25,
+   "score": "ascolto",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Prova n. 1",
+     "skill": "listening",
+     "kind": "dialoghi",
+     "inst": "Ascolta i dialoghi e scegli la risposta giusta.",
+     "itInst": "Escucha los diálogos y elige la respuesta correcta.",
+     "items": [
+      {
+       "script": [
+        [
+         "F",
+         "Scusi, a che ora parte il treno per Firenze?"
+        ],
+        [
+         "M",
+         "Alle dieci e un quarto, dal binario tre."
+        ]
+       ],
+       "q": "A che ora parte il treno?",
+       "o": [
+        "Alle 3:10.",
+        "Alle 10:15.",
+        "Alle 10:45."
+       ],
+       "a": 1,
+       "e": "Le dieci e un quarto = 10:15; binario tre es el número del andén."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Ciao Giulia, vieni al cinema stasera?"
+        ],
+        [
+         "F",
+         "Mi dispiace, stasera non posso: devo studiare per l'esame di domani."
+        ]
+       ],
+       "q": "Perché Giulia non va al cinema?",
+       "o": [
+        "Lavora fino a tardi.",
+        "Deve studiare.",
+        "Non le piace il film."
+       ],
+       "a": 1,
+       "e": "devo studiare per l'esame = tengo que estudiar para el examen."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Buongiorno, vorrei un chilo di mele e mezzo chilo di pomodori."
+        ],
+        [
+         "M",
+         "Ecco a Lei. Sono quattro euro e venti."
+        ]
+       ],
+       "q": "Quanto spende la signora?",
+       "o": [
+        "4,50 euro.",
+        "2,40 euro.",
+        "4,20 euro."
+       ],
+       "a": 2,
+       "e": "quattro euro e venti = 4,20 €."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Pronto, ristorante Da Mario."
+        ],
+        [
+         "F",
+         "Buonasera, vorrei prenotare un tavolo per quattro persone, sabato alle otto."
+        ]
+       ],
+       "q": "Che cosa vuole fare la signora?",
+       "o": [
+        "Parlare con Mario.",
+        "Prenotare un tavolo.",
+        "Ordinare una pizza a casa."
+       ],
+       "a": 1,
+       "e": "prenotare un tavolo = reservar una mesa."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Dove hai messo le chiavi della macchina?"
+        ],
+        [
+         "M",
+         "Sono sul tavolo della cucina, vicino al telefono."
+        ]
+       ],
+       "q": "Dove sono le chiavi?",
+       "o": [
+        "Nella macchina.",
+        "In cucina, sul tavolo.",
+        "Vicino alla porta."
+       ],
+       "a": 1,
+       "e": "sul tavolo della cucina = sobre la mesa de la cocina."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Com'era il tempo a Napoli?"
+        ],
+        [
+         "F",
+         "Bellissimo! Sole e caldo tutti i giorni, siamo andati al mare ogni mattina."
+        ]
+       ],
+       "q": "Che tempo ha fatto a Napoli?",
+       "o": [
+        "Ha piovuto spesso.",
+        "Faceva freddo.",
+        "Bel tempo, caldo."
+       ],
+       "a": 2,
+       "e": "sole e caldo = sol y calor."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Prova n. 2",
+     "skill": "listening",
+     "kind": "annunci e messaggi",
+     "inst": "Ascolta gli annunci e i messaggi e scegli la risposta giusta.",
+     "itInst": "Escucha los avisos y los mensajes y elige la respuesta correcta.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "Attenzione: il treno regionale per Bologna delle ore 14 e 30 partirà con venti minuti di ritardo. Ci scusiamo per il disagio."
+        ]
+       ],
+       "q": "Che cosa succede al treno per Bologna?",
+       "o": [
+        "Parte in ritardo.",
+        "Non parte oggi.",
+        "Parte da un altro binario."
+       ],
+       "a": 0,
+       "e": "venti minuti di ritardo = veinte minutos de retraso."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Ciao Marco, sono Li Wei. Domani la lezione di italiano non è alle nove ma alle undici, perché la professoressa ha un appuntamento. Ci vediamo dopo!"
+        ]
+       ],
+       "q": "Domani la lezione comincia…",
+       "o": [
+        "alle nove.",
+        "dopo l'appuntamento del pomeriggio.",
+        "alle undici."
+       ],
+       "a": 2,
+       "e": "non è alle nove ma alle undici = no es a las nueve sino a las once."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Gentili clienti, il supermercato chiude tra quindici minuti. Vi preghiamo di andare alle casse."
+        ]
+       ],
+       "q": "Che cosa devono fare i clienti?",
+       "o": [
+        "Uscire subito senza pagare.",
+        "Prendere il carrello.",
+        "Andare a pagare."
+       ],
+       "a": 2,
+       "e": "andare alle casse = ir a las cajas (a pagar)."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Buongiorno, sono il dottor Bianchi. Le analisi sono pronte: può venire a prenderle in farmacia da lunedì a venerdì, dalle otto alle dodici."
+        ]
+       ],
+       "q": "Quando si possono prendere le analisi?",
+       "o": [
+        "Solo il sabato.",
+        "Tutti i giorni, la sera.",
+        "Dal lunedì al venerdì, la mattina."
+       ],
+       "a": 2,
+       "e": "dalle otto alle dodici = de ocho a doce de la mañana."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lettura",
+   "jp": "Comprensione della lettura",
+   "it": "Comprensión de lectura",
+   "min": 40,
+   "score": "lettura",
+   "parts": [
+    {
+     "n": 1,
+     "label": "Prova n. 1",
+     "skill": "reading",
+     "kind": "testo",
+     "inst": "Leggi il testo e scegli la risposta giusta.",
+     "itInst": "Lee el texto y elige la respuesta correcta.",
+     "items": [
+      {
+       "q": "Perché Chen Yu è in Italia?",
+       "o": [
+        "Per lavorare in un ristorante.",
+        "Per fare una vacanza.",
+        "Per studiare architettura."
+       ],
+       "a": 2,
+       "e": "per studiare architettura = para estudiar arquitectura."
+      },
+      {
+       "q": "Con chi abita?",
+       "o": [
+        "Con due ragazze italiane.",
+        "Con la sua famiglia.",
+        "Da sola."
+       ],
+       "a": 0,
+       "e": "con due ragazze italiane。"
+      },
+      {
+       "q": "Come va all'università?",
+       "o": [
+        "In autobus.",
+        "A piedi.",
+        "In bicicletta."
+       ],
+       "a": 2,
+       "e": "vado all'università in bicicletta。"
+      },
+      {
+       "q": "Che cosa fa la sera?",
+       "o": [
+        "Studia in biblioteca.",
+        "Guarda la televisione da sola.",
+        "Spesso cucina con le amiche."
+       ],
+       "a": 2,
+       "e": "la sera spesso cucino con le mie amiche; estudia en la biblioteca por la tarde."
+      },
+      {
+       "q": "Come parla italiano adesso?",
+       "o": [
+        "Molto meglio di prima.",
+        "Non parla italiano.",
+        "Male, come all'inizio."
+       ],
+       "a": 0,
+       "e": "adesso va molto meglio = ahora va mucho mejor."
+      },
+      {
+       "q": "Che cosa farà a dicembre?",
+       "o": [
+        "Andrà a Siena.",
+        "Comincerà l'università.",
+        "Tornerà in Cina per le vacanze."
+       ],
+       "a": 2,
+       "e": "a dicembre torno in Cina per le vacanze。"
+      }
+     ],
+     "text": "Mi chiamo Chen Yu e ho ventidue anni. Sono arrivata in Italia sei mesi fa per studiare architettura all'Università di Firenze. Abito in un piccolo appartamento con due ragazze italiane, Sara e Francesca. La mattina vado all'università in bicicletta, perché la casa non è lontana. Il pomeriggio studio in biblioteca e la sera spesso cucino con le mie amiche: io preparo i ravioli cinesi, loro mi insegnano a fare la pasta. All'inizio parlavo poco e capivo pochissimo, ma adesso va molto meglio. Il fine settimana visitiamo le città vicine: siamo già state a Siena e a Pisa. A dicembre torno in Cina per le vacanze, ma a gennaio ritorno a Firenze."
+    },
+    {
+     "n": 2,
+     "label": "Prova n. 2",
+     "skill": "reading",
+     "kind": "avvisi e annunci",
+     "inst": "Leggi gli avvisi e scegli la risposta giusta.",
+     "itInst": "Lee los avisos y los anuncios y elige la respuesta correcta.",
+     "items": [
+      {
+       "text": "FARMACIA CENTRALE — Aperta tutti i giorni dalle 8:30 alle 19:30. Domenica: 9:00–12:30.",
+       "q": "La domenica pomeriggio la farmacia…",
+       "o": [
+        "è chiusa.",
+        "è aperta fino alle 19:30.",
+        "apre alle 15:00."
+       ],
+       "a": 0,
+       "e": "El domingo solo abre hasta las 12:30, así que por la tarde está cerrado."
+      },
+      {
+       "text": "CERCASI cameriere/a per il fine settimana. Esperienza non necessaria. Telefonare a Luca, 340 1234567, dopo le 15.",
+       "q": "Che cosa serve per questo lavoro?",
+       "o": [
+        "Bisogna avere esperienza.",
+        "Non serve esperienza.",
+        "Bisogna lavorare tutti i giorni."
+       ],
+       "a": 1,
+       "e": "esperienza non necessaria = no hace falta experiencia."
+      },
+      {
+       "text": "Corso di cucina italiana per stranieri: ogni martedì dalle 18 alle 20. Costo: 15 euro a lezione. Iscrizioni in segreteria.",
+       "q": "Quando c'è il corso?",
+       "o": [
+        "Ogni giorno.",
+        "Il martedì mattina.",
+        "Il martedì sera."
+       ],
+       "a": 2,
+       "e": "ogni martedì dalle 18 alle 20 = todos los martes de seis a ocho de la tarde."
+      },
+      {
+       "text": "AVVISO: dal 1° al 15 agosto la biblioteca è chiusa per lavori. Per restituire i libri usate la cassetta all'ingresso.",
+       "q": "Ad agosto, per restituire un libro…",
+       "o": [
+        "si aspetta il 16 settembre.",
+        "si usa la cassetta all'ingresso.",
+        "si va in segreteria."
+       ],
+       "a": 1,
+       "e": "usate la cassetta all'ingresso = usad el buzón de la entrada."
+      },
+      {
+       "text": "Affittasi camera singola in centro, vicino alla stazione. 350 euro al mese, spese comprese. Solo studenti.",
+       "q": "Chi può prendere la camera?",
+       "o": [
+        "Solo le famiglie.",
+        "Solo gli studenti.",
+        "Tutti, anche i turisti."
+       ],
+       "a": 1,
+       "e": "solo studenti = se alquila solo a estudiantes."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "strutture",
+   "jp": "Analisi delle strutture di comunicazione",
+   "it": "Análisis de las estructuras de comunicación",
+   "min": 35,
+   "score": "strutture",
+   "parts": [
+    {
+     "n": 1,
+     "label": "Prova n. 1",
+     "skill": "grammar",
+     "kind": "testo da completare",
+     "inst": "Leggi la lettera e scegli la parola giusta per ogni spazio.",
+     "itInst": "Lee la carta y elige la palabra correcta para cada hueco.",
+     "items": [
+      {
+       "q": "(1)",
+       "o": [
+        "fa",
+        "da",
+        "per"
+       ],
+       "a": 1,
+       "e": "Para algo que empezó en el pasado y sigue: da (como «desde hace»): sono a casa da due giorni."
+      },
+      {
+       "q": "(2)",
+       "o": [
+        "ho",
+        "sono",
+        "è"
+       ],
+       "a": 1,
+       "e": "andare con essere: sono andata."
+      },
+      {
+       "q": "(3)",
+       "o": [
+        "un'",
+        "un",
+        "una"
+       ],
+       "a": 0,
+       "e": "anatra es femenino y empieza por vocal: un'anatra."
+      },
+      {
+       "q": "(4)",
+       "o": [
+        "molto",
+        "molti",
+        "molta"
+       ],
+       "a": 0,
+       "e": "fa molto caldo: aquí molto es adverbio y no cambia."
+      },
+      {
+       "q": "(5)",
+       "o": [
+        "vedo",
+        "vedi",
+        "vede"
+       ],
+       "a": 0,
+       "e": "Forma de io: vedo."
+      },
+      {
+       "q": "(6)",
+       "o": [
+        "Ci",
+        "Vi",
+        "Si"
+       ],
+       "a": 0,
+       "e": "Ci vediamo = nos vemos."
+      }
+     ],
+     "text": "Cara Francesca,\nti scrivo da Shanghai. Sono a casa (1) ＿＿ due giorni e sono molto contenta. Ieri (2) ＿＿ andata al ristorante con i miei genitori e abbiamo mangiato (3) ＿＿ anatra laccata buonissima. Qui fa (4) ＿＿ caldo e piove spesso. Domani (5) ＿＿ i miei amici dell'università. (6) ＿＿ vediamo a gennaio a Firenze!\nUn abbraccio, Chen Yu"
+    },
+    {
+     "n": 2,
+     "label": "Prova n. 2",
+     "skill": "grammar",
+     "kind": "frasi",
+     "inst": "Scegli la forma giusta per completare la frase.",
+     "itInst": "Elige la forma correcta para completar la frase.",
+     "items": [
+      {
+       "q": "Domani vado ＿＿ Roma con il treno.",
+       "o": [
+        "in",
+        "di",
+        "a"
+       ],
+       "a": 2,
+       "e": "Con las ciudades: a Roma."
+      },
+      {
+       "q": "Mia sorella ＿＿ vent'anni.",
+       "o": [
+        "è",
+        "ha",
+        "fa"
+       ],
+       "a": 1,
+       "e": "La edad con avere: ha vent'anni."
+      },
+      {
+       "q": "Ieri sera ＿＿ guardato un film.",
+       "o": [
+        "avevo",
+        "sono",
+        "ho"
+       ],
+       "a": 2,
+       "e": "guardare con avere: ho guardato."
+      },
+      {
+       "q": "Il libro è ＿＿ tavolo.",
+       "o": [
+        "sul",
+        "su",
+        "sulla"
+       ],
+       "a": 0,
+       "e": "su + il = sul (tavolo es masculino)."
+      },
+      {
+       "q": "Mi ＿＿ molto gli spaghetti.",
+       "o": [
+        "piacciono",
+        "piaccio",
+        "piace"
+       ],
+       "a": 0,
+       "e": "gli spaghetti es plural: mi piacciono."
+      },
+      {
+       "q": "Quando ero piccola, ＿＿ sempre con il mio cane.",
+       "o": [
+        "gioco",
+        "giocavo",
+        "ho giocato"
+       ],
+       "a": 1,
+       "e": "Costumbre en el pasado: imperfetto, giocavo."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Produzione scritta",
+   "time": "20 min",
+   "task": "Scrivi un messaggio a un amico italiano: racconta che cosa hai fatto lo scorso fine settimana (40–50 parole).",
+   "tr": "Escritura: escribe un mensaje a un amigo italiano contándole qué hiciste el fin de semana pasado (40–50 palabras).",
+   "model": "Ciao Luca! Sabato sono andata al mercato con la mia coinquilina e abbiamo comprato frutta e verdura. Poi abbiamo cucinato insieme i ravioli. Domenica ho dormito fino a tardi e il pomeriggio ho visitato un museo. E tu, che cosa hai fatto? A presto, Chen"
+  },
+  {
+   "kind": "Produzione scritta",
+   "time": "20 min",
+   "task": "Scrivi un'email alla segreteria della scuola: chiedi informazioni sul corso di cucina (giorni, orari, prezzo).",
+   "tr": "Escritura: escribe un correo a la secretaría de una escuela para pedir información sobre un curso de cocina (fechas, horario, precio).",
+   "model": "Gentile segreteria, mi chiamo Chen Yu e vorrei frequentare il corso di cucina italiana. Potete dirmi in quali giorni e a che ora ci sono le lezioni e quanto costa il corso? Grazie mille. Cordiali saluti, Chen Yu"
+  },
+  {
+   "kind": "Produzione orale",
+   "time": "2–3 min",
+   "task": "Presentati: come ti chiami, da dove vieni, che cosa studi o fai in Italia, che cosa ti piace fare nel tempo libero.",
+   "tr": "Oral: preséntate: cómo te llamas, de dónde eres, qué estudias o haces en Italia, qué te gusta hacer en tu tiempo libre.",
+   "model": "Mi chiamo Chen Yu, ho ventidue anni e vengo da Shanghai. Sono in Italia da sei mesi e studio architettura a Firenze. Nel tempo libero mi piace cucinare con le mie amiche e visitare le città vicine."
+  },
+  {
+   "kind": "Produzione orale",
+   "time": "2–3 min",
+   "task": "Dialogo: sei in un negozio di vestiti. Chiedi una giacca della tua taglia, il prezzo e se puoi provarla.",
+   "tr": "Oral: juego de roles: estás en una tienda de ropa; pregunta si tienen una chaqueta de tu talla, cuánto cuesta y si te la puedes probar.",
+   "model": "Buongiorno, avete questa giacca nella taglia 42? Quanto costa? Posso provarla? … Mi sta bene, la prendo. Posso pagare con la carta?"
+  }
+ ]
+}

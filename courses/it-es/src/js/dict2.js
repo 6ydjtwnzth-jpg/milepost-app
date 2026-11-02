@@ -1,0 +1,14 @@
+/* ---------- Extra meanings: every tappable word has a Spanish meaning ---------- */
+Object.assign(DICT,{
+"sei":"eres (essere); seis","mando":"mando, envío (mandare)","dorma":"duerma (dormire: Nessun dorma, que nadie duerma)","nessun":"ningún, nadie (Nessun dorma: que nadie duerma)",
+"prenda":"tome (usted), imperativo de prendere","vada":"vaya (usted), imperativo de andare","faccia":"haga (usted), imperativo de fare (faccia pure: adelante); cara","giri":"gire (usted); giras (girare)",
+"fato":"destino","seconda":"segunda","pronti":"listos","penne":"macarrones (pasta); bolígrafos","paste":"pasteles, dulces de pastelería","delle":"de las; unas (partitivo)","dalle":"de las; desde las (da + le)",
+"arrabbiata":"picante (salsa all'arrabbiata); enfadada","diamoci":"démonos (diamoci del tu: tuteémonos)","tocca":"toca (tocca a me: me toca)","davvero":"de verdad","perfetto":"perfecto","beato":"dichoso (beato te: ¡qué suerte!)",
+"raccontare":"contar, narrar","pioveva":"llovía (piovere)","ottanta":"ochenta","conosci":"conoces (conoscere)","progetti":"proyectos, planes","salute":"salud","cara":"querida; cara (precio)","aiuto":"ayuda; ¡socorro!",
+"speriamo":"ojalá, esperemos (sperare)","ventidue":"veintidós","lasciate":"dejad, abandonad (lasciare)","cose":"cosas","oh":"¡oh!","merda":"mierda (en el teatro: ¡mucha mierda!)","usted":"(español: en italiano se dice Lei)",
+"frasario":"libro de frases útiles","vocabolario":"vocabulario","coniugare":"conjugar","flashcard":"tarjeta de repaso","vixi":"viví, he vivido (latín)","comune":"ayuntamiento; común","nazionale":"nacional; la selección nacional",
+"azzurri":"los azules (la selección italiana)","spritz":"spritz (bebida: aperol o campari, vino espumoso y soda)","divina":"divina","commedia":"comedia","milione":"millón (Il Milione: el libro de Marco Polo)","pasquetta":"lunes de Pascua",
+"befana":"la Befana (la viejecita que trae los regalos el 6 de enero)","colosseo":"Coliseo","firenze":"Florencia","napoli":"Nápoles","pompei":"Pompeya","spagna":"España","bologna":"Bolonia","venezia":"Venecia","milano":"Milán",
+"siviglia":"Sevilla","sicilia":"Sicilia","italia":"Italia","made":"(inglés) hecho (Made in Italy)","italy":"(inglés) Italia (Made in Italy)","augusti":"de Augusto (latín: feriae Augusti)","quanti":"cuántos","quante":"cuántas","questa":"esta","questi":"estos","queste":"estas",
+"chiavi":"llaves","san":"san, santo","como":"Como (ciudad junto al lago de Como); como","fratelli":"hermanos; hermanos y hermanas"
+});

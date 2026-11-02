@@ -66,8 +66,8 @@ function look(x){return DICT[x]||(typeof CONJ_IDX!=="undefined"&&CONJ_IDX[x])||"
 function meaning(w){var k=norm(w);if(look(k))return look(k);
   /* elision: l'amica, dell'acqua, c'è, un'idea */
   var i=k.indexOf("'");if(i>0&&i<k.length-1){var a=k.slice(0,i+1),b=k.slice(i+1),mb=meaning(b);if(look(a)||mb)return (look(a)||a)+" + "+(mb||b)}
-  if(/^[A-ZÀ-Ý]/.test(w))return "nombre propio";
-  return formMeaning(k)}
+  /* a capital letter at the start of a sentence is not a name: try the known forms first */
+  var f=formMeaning(k);if(f||!/^[A-ZÀ-Ý]/.test(w))return f;return "nombre propio"}
 /* forms of known words: plural / feminine, participles, gerunds, imperfect, conditional, infinitive + pronoun */
 function formMeaning(k){var c,m,i;
   var NOUN=[["chi","co"],["ghi","go"],["che","ca"],["ghe","ga"],["i","o"],["i","e"],["i","a"],["e","a"],["e","o"],["a","o"],["ie","ia"]];

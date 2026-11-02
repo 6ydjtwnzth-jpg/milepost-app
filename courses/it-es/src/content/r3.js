@@ -1,0 +1,23 @@
+EX.r3=[
+ {q:"[Comprensión] Escucha y elige el significado:",au:"Mentre aspettavo l'autobus, ho incontrato un mio vecchio amico.",o:["Mientras esperaba el autobús, me encontré con un viejo amigo.","Esperé el autobús con un viejo amigo.","Un viejo amigo me esperaba en el autobús."],e:"{mentre} + imperfetto; el hecho en passato prossimo."},
+ {q:"[Comprensión] Escucha y elige el significado:",au:"Se domani fa bel tempo, andremo in montagna.",o:["Si mañana hace buen tiempo, iremos a la montaña.","Mañana hizo buen tiempo y fuimos a la montaña.","Como hace buen tiempo, estamos en la montaña."],e:"{se} + presente, futuro {andremo}."},
+ {q:"[Comprensión] Escucha y elige el significado:",au:"Mi fa male la testa, potrebbe darmi qualcosa?",o:["Me duele la cabeza, ¿podría darme algo?","¿Le duele la cabeza? ¿Quiere algo?","Me duele la cabeza, así que no puedo venir."],e:"{mi fa male} + condicional {potrebbe}."},
+ {q:"[Lectura] ¿Qué tiempo hacía cuando Giulia y su hermana llegaron a Nápoles?",o:["Llovía mucho","Hacía sol","Nevaba"],e:"«pioveva molto»"},
+ {q:"[Lectura] ¿Cómo llegaron al hotel?",o:["Un señor las llevó en coche","En taxi","A pie"],e:"«un signore ci ha dato un passaggio»"},
+ {q:"[Lectura] ¿Qué están haciendo mientras escriben el correo?",o:["Comen una pizza cerca del mar","Visitan Pompeya","Están en la estación"],e:"«stiamo mangiando una pizza vicino al mare»"},
+ {q:"[Gramática] «Llegamos ayer» (dos mujeres):",o:["{Siamo arrivate ieri.}","{Abbiamo arrivato ieri.}","{Siamo arrivati ieri.}"],e:"{arrivare} con {essere}; dos mujeres → {arrivate}."},
+ {q:"[Gramática] «De pequeño iba a la playa cada verano.»",o:["{Da piccolo andavo al mare ogni estate.}","{Da piccolo sono andato al mare ogni estate.}","{Da piccolo vado al mare ogni estate.}"],e:"Costumbre en el pasado → imperfetto."},
+ {q:"[Gramática] «¿La falda? ¡Me la llevo!»",o:["{La gonna? La prendo!}","{La gonna? Lo prendo!}","{La gonna? Prendo la!}"],e:"{gonna} femenino → {la}, delante del verbo."},
+ {q:"[Gramática] «A Marco le gustan los gatos.»",o:["{A Marco piacciono i gatti.}","{A Marco gli piacciono i gatti.}","{A Marco le piacciono i gatti.}"],e:"Sin repetir el pronombre; nunca {le} para un hombre."},
+ {t:"type",q:"[Gramática] Completa: {Domani io} ＿ {dal medico.} (andare)",a:["andrò","vado"],full:"Domani io andrò dal medico.",e:"Para un plan seguro también vale el presente {vado}."},
+ {t:"type",q:"[Gramática] Completa: {Che cosa stai} ＿ {? — Sto cucinando.} (fare)",a:["facendo"],full:"Che cosa stai facendo?"},
+ {t:"type",q:"[Gramática] Completa: {Ieri sera} ＿ {molto stanca.} (essere, yo)",a:["ero"],full:"Ieri sera ero molto stanca.",e:"Un estado como fondo → imperfetto."},
+ {t:"type",q:"[Gramática] Completa: {Tu} ＿ {bere più acqua.} (dovere, condicional, consejo)",a:["dovresti"],full:"Tu dovresti bere più acqua."},
+ {t:"type",q:"[Gramática] Completa: {Quando} ＿ {a Roma, ti chiamerò.} (arrivare, futuro, yo)",a:["arriverò","arrivo"],full:"Quando arriverò a Roma, ti chiamerò.",e:"Sin subjuntivo después de {quando}."},
+ {t:"dict",au:"La settimana scorsa sono andata a Napoli."},
+ {t:"dict",au:"Mi piacerebbe vedere Pompei."},
+ {t:"ord",q:"[Gramática] Ordena: «Mientras leía, sonó el teléfono.»",w:["Mentre","leggevo,","è","squillato","il","telefono."],a:["Mentre leggevo, è squillato il telefono."]},
+ {t:"say",zh:"[Oral] Cuenta tu último viaje: adónde fuiste, qué tiempo hacía, qué pasó",it:"L'estate scorsa sono andato a Venezia. Faceva molto caldo. Un giorno mi sono perso, ma alla fine ho trovato l'albergo."},
+ {t:"say",zh:"[Oral] Cuenta tus planes en Italia y un deseo",it:"Il prossimo anno studierò a Bologna. Mi piacerebbe trovare un lavoro in Italia."},
+ {t:"say",zh:"[Oral] Dale dos consejos a un amigo resfriado",it:"Dovresti riposarti e bere molta acqua. Se la febbre non passa, dovresti andare dal medico."}
+];
