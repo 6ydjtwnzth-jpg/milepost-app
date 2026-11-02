@@ -6,7 +6,7 @@ EX.l4=[
  {q:"«Hay dos ventanas» se dice:",o:["{Ci sono due finestre.}","{C'è due finestre.}","{Hai due finestre.}"],e:"Plural: {ci sono}."},
  {q:"Plural de {la città}:",o:["{le città}","{le cittàe}","{le cittàs}"],e:"Las palabras con acento final no cambian."},
  {q:"Escucha: ¿qué palabra oyes?",au:"bagno",o:["{bagno}","{bango}"],e:"{gn} = ñ: «baño»."},
- {q:"Indeterminado: ＿ {amica}",o:["{un'amica}","{una amica} (incorrecto)","{un amica}"],e:"Femenino + vocal: {un'} con apóstrofo."},
+ {q:"Indeterminado: ＿ {amica}",o:["{un'amica}","{uno amica}","{un amica}"],e:"Femenino + vocal: {un'} con apóstrofo."},
  {t:"type",q:"Completa: {Nella camera} ＿ {un letto.} (hay)",a:["c'è"],full:"Nella camera c'è un letto."},
  {t:"dict",au:"Ci sono due finestre."},
  {t:"say",zh:"Describe tu habitación: hay una cama, un armario y dos ventanas",it:"Nella mia camera c'è un letto, c'è un armadio e ci sono due finestre."}
