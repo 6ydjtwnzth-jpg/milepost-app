@@ -467,3 +467,6 @@ html.mp section.lesson .kicker::before{content:none}
   .mp-cols-t .mp-main{position:sticky;top:16px}
   .mp-tabs{justify-content:center;gap:12px}
 }
+
+/* the meaning of a tapped word shows above everything the app opens (steps, sheets, exam), below the opening splash */
+html.mp .tip{z-index:900}

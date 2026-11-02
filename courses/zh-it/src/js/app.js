@@ -119,7 +119,9 @@ function showTip(w){var h=w.getAttribute("data-say"),s=jsurf(h),m=meaning(h);
   var x=Math.max(8,Math.min(vw-tw-8,rc.left+rc.width/2-tw/2)),y=rc.top-th-8;if(y<8)y=rc.bottom+8;
   tip.style.left=x+"px";tip.style.top=y+"px"}
 function hideTip(){tip.hidden=true;tipFor=null;clearTimeout(tipTimer)}
-document.addEventListener("mouseover",function(e){var w=e.target.closest&&e.target.closest(".w");if(w&&w!==tipFor)showTip(w);else if(!w&&tipFor)hideTip()});
+/* hover opens and closes the meaning only with a real mouse: after a tap, phones send «mouse» events that would close it at once */
+var tipTouch=0;document.addEventListener("touchstart",function(){tipTouch=Date.now()},{passive:true,capture:true});
+document.addEventListener("mouseover",function(e){if(Date.now()-tipTouch<1500)return;var w=e.target.closest&&e.target.closest(".w");if(w&&w!==tipFor)showTip(w);else if(!w&&tipFor)hideTip()});
 document.addEventListener("focusin",function(e){var w=e.target.closest&&e.target.closest(".w");if(w)showTip(w)});
 document.addEventListener("focusout",function(e){if(e.target===tipFor)hideTip()});
 document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer)}else if(tipFor&&!(e.target.closest&&e.target.closest(".tip")))hideTip()});
