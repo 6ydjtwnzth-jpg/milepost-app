@@ -1,0 +1,55 @@
+name: Android APK (solo francese)
+
+# A separate app with only the French course inside: pages, fonts and audio are in the APK,
+# so it works without the website and without a connection.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'android/**'
+      - 'docs/c/fr-it/**'
+      - 'docs/index.html'
+      - 'docs/catalog.js'
+      - 'docs/course-app.css'
+      - 'standalone/**'
+      - 'tools/standalone.py'
+      - '.github/workflows/android-francese.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Pack the French course into the app
+        run: python3 tools/standalone.py fr-it android/app/src/francese/assets/site
+      - name: Build
+        working-directory: android
+        run: gradle assembleFranceseRelease --no-daemon
+      - name: Rename
+        run: cp android/app/build/outputs/apk/francese/release/app-francese-release.apk milepost-francese-beta.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: milepost-francese-beta-apk
+          path: milepost-francese-beta.apk
+      - name: Publish on the "android-francese" release page
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NOTES="Beta con il solo corso di francese per italiani. Tutto è dentro l'app (lezioni, audio, esami DELF A2 e B1): non apre siti e funziona anche senza connessione. Si installa accanto alle altre versioni di Milepost."
+          if gh release view android-francese >/dev/null 2>&1; then
+            gh release upload android-francese milepost-francese-beta.apk --clobber
+            gh release edit android-francese --notes "$NOTES"
+          else
+            gh release create android-francese milepost-francese-beta.apk --prerelease --title "Milepost Francese (beta) per Android" --notes "$NOTES"
+          fi

@@ -16,3 +16,8 @@ VOC.l20=[
  ["en solde","in saldo",""],["à la mode","di moda",""],["au fond","in fondo",""],["laine","lana","f"],["automne","autunno","m"],["celle-ci","questa qui",""],["aller bien","stare bene (vestito)",""],
  ["être en train de","stare facendo",""],["couleur","colore","f"],["rouge","rosso",""],["noir","nero",""],["blanc","bianco",""],["bleu","blu",""],["vert","verde",""]
 ];
+EX.l20=EX.l20.concat([
+ {t:"dict",au:"Je peux l'essayer ?"},
+ {t:"say",zh:"In un negozio: «Cerco una giacca per l'autunno»",it:"Oui, je cherche une veste pour l'automne."},
+ {t:"type",q:"Completa: {Parfait, je} ＿ {prends !} (la giacca)",a:["la"],full:"Parfait, je la prends !"}
+]);

@@ -16,3 +16,8 @@ VOC.l12=[
  ["tourner","girare",""],["traverser","attraversare",""],["à pied","a piedi",""],["puis","poi",""],["chez","da, a casa di",""],["en","in; ne (pronome)",""],["au","al, allo (à + le)",""],["du","del, dello (de + le)",""],
  ["d'accord","d'accordo",""],["je vous en prie","prego (formale)",""],["visite","visita","f"],["deuxième","secondo",""],["premier","primo",""]
 ];
+EX.l12=EX.l12.concat([
+ {t:"dict",au:"C'est à dix minutes à pied."},
+ {t:"say",zh:"Chiedi a un signore come andare al museo d'Orsay",it:"Pardon, monsieur. Pour aller au musée d'Orsay, s'il vous plaît ?"},
+ {t:"type",q:"Completa: {Traversez le pont, puis} ＿ {à gauche.} (tourner, vous)",a:["tournez"],full:"Traversez le pont, puis tournez à gauche. Le musée est sur votre droite."}
+]);

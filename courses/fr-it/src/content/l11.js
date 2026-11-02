@@ -17,3 +17,8 @@ VOC.l11=[
  ["cinéma","cinema","m"],["concert","concerto","m"],["film","film","m"],["samedi","sabato","m"],["souvent","spesso",""],["parfois","a volte",""],["rarement","raramente",""],["ne… jamais","mai",""],
  ["maintenant","adesso",""],["ménage","faccende di casa","m"],["y","ci, là",""]
 ];
+EX.l11=EX.l11.concat([
+ {t:"dict",au:"Je joue de la guitare."},
+ {t:"say",zh:"Di' che il sabato mattina vai in bici",it:"Le samedi matin, je fais du vélo. Et l'après-midi, je joue au foot."},
+ {t:"type",q:"Completa: {L'après-midi, je joue} ＿ {foot.}",a:["au"],full:"Le samedi matin, je fais du vélo. Et l'après-midi, je joue au foot."}
+]);

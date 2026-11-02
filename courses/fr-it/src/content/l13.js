@@ -16,3 +16,8 @@ VOC.l13=[
  ["avec plaisir","con piacere",""],["invitation","invito","f"],["inviter","invitare",""],["sortir","uscire",""],["vendredi","venerdì","m"],["fête","festa","f"],["pleuvoir","piovere",""],
  ["téléphone","telefono","m"],["portable","cellulare","m"],["message","messaggio","m"],["ne quittez pas","resti in linea",""],["à samedi","a sabato",""]
 ];
+EX.l13=EX.l13.concat([
+ {t:"dict",au:"Désolée, je ne peux pas, je dois travailler."},
+ {t:"say",zh:"Proponi di vedersi davanti al cinema alle venti",it:"Parfait ! On se retrouve devant le cinéma à vingt heures ?"},
+ {t:"type",q:"Completa: {Tu} ＿ {venir au cinéma ce soir ?} (vouloir)",a:["veux"],full:"Allô, Inès ? C'est Paul. Tu veux venir au cinéma ce soir ?"}
+]);

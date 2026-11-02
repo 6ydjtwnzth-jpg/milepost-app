@@ -4,3 +4,4 @@ __pycache__/
 android/.gradle/
 android/**/build/
 android/local.properties
+android/app/src/francese/assets/site/

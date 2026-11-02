@@ -239,6 +239,7 @@ html.mp .stage .st-foot:has(.st-go:disabled){display:none}
 .mp-sub2 b{display:block;font-family:var(--f-disp);font-size:22px;margin-top:2px}
 .mp-sub2 small{font-size:12px;color:var(--muted)}
 .mp-exc{display:flex;flex-direction:column;gap:6px}
+.mp-exc+.mp-exc{margin-top:12px}
 .mp-exc b{font-family:var(--f-disp);font-weight:800;font-size:18px;display:block}
 .mp-exc small{display:block;color:var(--muted);font-size:13.5px}
 .mp-exc .mp-cta{margin-top:8px}

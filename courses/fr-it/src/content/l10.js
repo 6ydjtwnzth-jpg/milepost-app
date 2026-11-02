@@ -16,3 +16,8 @@ VOC.l10=[
  ["se lever","alzarsi",""],["se coucher","andare a letto",""],["s'habiller","vestirsi",""],["se doucher","farsi la doccia",""],["se réveiller","svegliarsi",""],
  ["commencer","cominciare",""],["finir","finire",""],["rentrer","rientrare, tornare a casa",""],["dîner","cenare",""],["petit-déjeuner","colazione","m"],["déjeuner","pranzo; pranzare","m"],["si","così; se; sì (dopo una domanda negativa)",""]
 ];
+EX.l10=EX.l10.concat([
+ {t:"dict",au:"Je me lève à six heures et demie."},
+ {t:"say",zh:"Racconta a che ora torni la sera e a che ora vai a letto",it:"Je rentre vers dix-neuf heures. Je dîne et je me couche à onze heures."},
+ {t:"type",q:"Completa: {Le week-end, je ne} ＿ {lève pas avant dix heures !}",a:["me"],full:"Le week-end, je ne me lève pas avant dix heures !"}
+]);

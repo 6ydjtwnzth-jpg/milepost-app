@@ -16,3 +16,8 @@ VOC.l18=[
  ["chien","cane","m"],["voiture","macchina","f"],["sous","sotto",""],["pauvre","povero",""],["bras","braccio","m"],["emmener","portare (qualcuno)",""],["vétérinaire","veterinario","m"],
  ["rater","perdere (un treno), mancare",""],["rencontrer","incontrare",""],["sonner","suonare, squillare",""],["lumière","luce","f"],["danser","ballare",""],["cuisiner","cucinare",""]
 ];
+EX.l18=EX.l18.concat([
+ {t:"dict",au:"Il était huit heures et il pleuvait."},
+ {t:"say",zh:"Chiedi a un amico: «Sai che cosa mi è successo ieri?»",it:"Tu sais ce qui m'est arrivé hier ?"},
+ {t:"type",q:"Completa: {Tout à coup, j'}＿ {un petit chien.} (voir, passé composé)",a:["ai vu"],full:"Tout à coup, j'ai vu un petit chien sous une voiture. Il avait froid et il avait peur."}
+]);

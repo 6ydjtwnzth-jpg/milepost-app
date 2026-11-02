@@ -17,3 +17,8 @@ VOC.l4=[
  ["télé","tv","f"],["frigo","frigo","m"],["école","scuola","f"],["mer","mare","f"],["fleur","fiore","f"],["gâteau","torta, dolce","m"],["journal","giornale","m"],
  ["il y a","c'è, ci sono",""],["voilà","ecco",""],["joli","carino, bello",""],["à côté de","accanto a",""],["en face","di fronte",""],["dans","in, dentro",""],["sur","su, sopra",""],["bien sûr","certo",""]
 ];
+EX.l4=EX.l4.concat([
+ {t:"dict",au:"Il y a un lit, une table et deux chaises."},
+ {t:"say",zh:"Chiedi se c'è il wi-fi",it:"Et il y a le wifi ?"},
+ {t:"type",q:"Completa: {Mais il n'y a pas} ＿ {baignoire.}",a:["de"],full:"Mais il n'y a pas de baignoire."}
+]);

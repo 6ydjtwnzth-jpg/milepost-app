@@ -17,3 +17,8 @@ VOC.l8=[
  ["sucre","zucchero","m"],["addition","conto (al ristorante)","f"],["carte","carta; menù","f"],["euro","euro","m"],["centime","centesimo","m"],["combien","quanto",""],["payer","pagare",""],
  ["pour","per",""],["avec","con",""],["sans","senza",""],["soixante-dix","settanta",""],["quatre-vingts","ottanta",""],["quatre-vingt-dix","novanta",""],["cent","cento",""]
 ];
+EX.l8=EX.l8.concat([
+ {t:"dict",au:"Je peux payer par carte ?"},
+ {t:"say",zh:"Ordina un cappuccino e un croissant, per favore",it:"Bonjour ! Je voudrais un café crème et un croissant, s'il vous plaît."},
+ {t:"type",q:"Completa: {Ça fait neuf euros} ＿ {.} (80)",a:["quatre-vingts"],full:"Voilà. Ça fait neuf euros quatre-vingts."}
+]);

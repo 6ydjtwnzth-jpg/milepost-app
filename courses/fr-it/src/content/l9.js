@@ -16,3 +16,8 @@ VOC.l9=[
  ["week-end","fine settimana","m"],["plage","spiaggia","f"],["soir","sera","m"],["ce soir","stasera",""],["venir","venire",""],["poser une question","fare una domanda",""],
  ["quelques","qualche, alcuni",""],["voyager","viaggiare",""],["apprendre","imparare",""],["ah bon","ah sì? davvero?",""],["coûter","costare",""]
 ];
+EX.l9=EX.l9.concat([
+ {t:"dict",au:"Où habitez-vous ?"},
+ {t:"say",zh:"Chiedi a una persona dove abita (con vous)",it:"Où habitez-vous ?"},
+ {t:"type",q:"Completa: ＿ {ma femme est française !} (perché)",a:["parce que"],full:"Parce que ma femme est française !"}
+]);

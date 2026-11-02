@@ -16,3 +16,8 @@ VOC.l22=[
  ["surtout","soprattutto",""],["se reposer","riposarsi",""],["conseiller","consigliare",""],["conseil","consiglio","m"],["à ta place","al posto tuo",""],["fois","volta","f"],["fumer","fumare",""],
  ["poste","ufficio postale","f"],["colis","pacco","m"],["quelque chose","qualcosa",""],["avoir mal à","avere male a",""]
 ];
+EX.l22=EX.l22.concat([
+ {t:"dict",au:"J'ai mal à la gorge."},
+ {t:"say",zh:"Chiedi al medico un certificato per il lavoro",it:"Pourriez-vous me faire un certificat pour mon travail ?"},
+ {t:"type",q:"Completa: {Vous} ＿ {rester au lit deux jours.} (devoir, condizionale)",a:["devriez"],full:"C'est une petite grippe. Il faut prendre ce sirop trois fois par jour, et vous devriez rester au lit deux jours."}
+]);

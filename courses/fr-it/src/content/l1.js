@@ -18,3 +18,8 @@ VOC.l1=[
  ["oui","sì",""],["non","no",""],["bien","bene",""],
  ["café","caffè; bar","m"],["rue","strada, via","f"],["roue","ruota","f"],["maison","casa","f"],["livre","libro","m"],["ami","amico","m"],["amie","amica","f"],["chat","gatto","m"],["vin","vino","m"]
 ];
+EX.l1=EX.l1.concat([
+ {t:"type",q:"Completa: {Merci,} ＿ {revoir !}",a:["au"],full:"Merci, au revoir !"},
+ {t:"dict",au:"De rien !"},
+ {t:"say",zh:"Al bar ti offrono un caffè: rispondi «Sì, grazie!»",it:"Oui, merci !"}
+]);

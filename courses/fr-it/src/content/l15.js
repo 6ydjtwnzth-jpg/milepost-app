@@ -17,3 +17,6 @@ VOC.l15=[
  ["voir","vedere",""],["écrire","scrivere",""],["mettre","mettere",""],["dire","dire",""],["attendre","aspettare",""],["bus","autobus","m"],["métro","metropolitana","m"],["lettre","lettera","f"],
  ["problème","problema","m"],["nouveau","nuovo",""],["super","fantastico",""],["jour","giorno","m"]
 ];
+EX.l15=EX.l15.concat([
+ {t:"say",zh:"Chiedi a un amico che cosa ha fatto nel fine settimana",it:"Qu'est-ce que tu as fait ce week-end ?"}
+]);

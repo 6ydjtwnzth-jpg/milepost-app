@@ -284,3 +284,89 @@ CULT.l23=[
   q:{q:"Come si dice «chi vivrà vedrà» in francese?",o:["{Qui vivra verra.}","{Qui vit voit.}","{Qui vivra voit.}"],e:"Con due futuri: {vivra}, {verra}."}}
 ];
 CULT.r3=[];
+
+/* ---------- extra cards: one per review, and a third card where the topic asks for it ---------- */
+CULT.l1=CULT.l1.concat([
+ {s:"abc",t:"Accenti: é, è, ê, ç",i:"Les accents",
+  p:["Il francese usa quattro accenti e la cediglia. L'accento acuto ({é}) e quello grave ({è}) cambiano il suono della {e}; il circonflesso ({ê}, {â}, {ô}) ricorda spesso una {s} che c'era in latino e c'è ancora in italiano: {forêt} = foresta, {fête} = festa, {hôpital} = ospedale.","La {ç} si legge come una {s} davanti ad {a}, {o}, {u}: {ça}, {garçon}, {français}."],
+  it:"In italiano l'accento si scrive solo sull'ultima sillaba (città, perché).",fr:"Gli accenti si scrivono anche dentro la parola e non indicano dove cade l'accento della voce, che è sempre alla fine.",
+  w:[["l'accent","l'accento"],["la forêt","la foresta"],["la fête","la festa"],["le garçon","il ragazzo"]],
+  q:{q:"Che cosa ricorda spesso il circonflesso, come in {forêt}?",o:["una s scomparsa","una doppia","una vocale lunga"],e:"{forêt} = foresta: la {s} è rimasta in italiano."}}
+]);
+CULT.l3=CULT.l3.concat([
+ {s:"phone",t:"Il verlan: parlare al contrario",i:"Le verlan",
+  p:["Tra i giovani francesi è diffuso il {verlan}, un gergo che rovescia le sillabe delle parole: il nome stesso viene da {l'envers} (il rovescio). {Fou} diventa {ouf} (pazzo), {femme} diventa {meuf}, {lourd} diventa {relou} (pesante, noioso).","Non serve parlarlo, ma è utile riconoscerlo: lo sentirai nei film, nelle canzoni e per strada."],
+  it:"Gli slang giovanili cambiano da città a città.",fr:"Il {verlan} si capisce in tutta la Francia e alcune parole sono entrate nei dizionari.",
+  w:[["le verlan","il gergo al contrario"],["ouf","pazzo (verlan di fou)"],["relou","noioso (verlan di lourd)"]],
+  q:{q:"Da dove viene la parola {verlan}?",o:["da «l'envers», il rovescio","da «verre», bicchiere","da un cantante"],e:"{l'envers} rovesciato: {vers-l'en} → {verlan}."}}
+]);
+CULT.l8=CULT.l8.concat([
+ {s:"shop",t:"La baguette, patrimonio dell'umanità",i:"La baguette",
+  p:["Nel 2022 l'UNESCO ha inserito il saper fare e la cultura della {baguette} nel patrimonio immateriale dell'umanità. In Francia se ne vendono milioni ogni giorno, spesso ancora calde, nelle {boulangeries}.","Si chiede {une baguette, s'il vous plaît}, oppure {une tradition}, fatta solo con farina, acqua, sale e lievito. Molti la vogliono {bien cuite} (ben cotta) o {pas trop cuite}."],
+  it:"Il pane cambia da regione a regione: michetta, pane toscano, pane di Altamura.",fr:"La {baguette} è uguale in tutto il paese ed è il simbolo stesso della Francia.",
+  w:[["la boulangerie","il panificio"],["la baguette","la baguette, il filone"],["bien cuite","ben cotta"]],
+  q:{q:"Dove si compra la baguette?",o:["{à la boulangerie}","{à la pharmacie}","{au tabac}"],e:"{la boulangerie} = il panificio."}}
+]);
+CULT.r1=[
+ {s:"map",t:"Tredici regioni e cento dipartimenti",i:"Régions et départements",
+  p:["La Francia metropolitana è divisa in 13 regioni (come la {Bretagne} o la {Provence-Alpes-Côte d'Azur}) e in 96 dipartimenti, più 5 dipartimenti d'oltremare: la Guadalupa, la Martinica, la Guyana, la Riunione e Mayotte.","Ogni dipartimento ha un numero, che si vede ancora nei codici postali e sulle targhe: 75 è Parigi, 13 le Bocche del Rodano (Marsiglia), 69 il Rodano (Lione)."],
+  it:"20 regioni e circa 100 province; le targhe non dicono più da dove viene l'auto.",fr:"13 regioni, 101 dipartimenti con un numero che tutti conoscono.",
+  w:[["la région","la regione"],["le département","il dipartimento"],["le code postal","il codice postale"]],
+  q:{q:"Che numero ha il dipartimento di Parigi?",o:["75","13","1"],e:"I codici postali di Parigi cominciano con 75."}}
+];
+CULT.l10=CULT.l10.concat([
+ {s:"table",t:"La pausa pranzo è sacra",i:"La pause déjeuner",
+  p:["In Francia il pranzo dura spesso un'ora o più, anche al lavoro: si mangia seduti, alla {cantine} (mensa) o al ristorante con i colleghi. Molti usano i {tickets-restaurant}, buoni pasto pagati in parte dal datore di lavoro.","Mangiare davanti al computer è sempre più comune, ma per molti francesi resta una cosa triste."],
+  it:"Pausa pranzo spesso breve, un panino al bar.",fr:"Un vero pasto anche in settimana, con antipasto, piatto e dolce alla mensa.",
+  w:[["le déjeuner","il pranzo"],["la cantine","la mensa"],["le collègue","il collega"]],
+  q:{q:"Che cos'è la {cantine}?",o:["la mensa","la cantina","la cucina di casa"],e:"Falso amico: {la cave} è la cantina."}}
+]);
+CULT.l11=CULT.l11.concat([
+ {s:"sun",t:"Il Tour de France",i:"Le Tour de France",
+  p:["Ogni luglio, da più di cento anni, il {Tour de France} attraversa il paese in tre settimane e finisce sugli {Champs-Élysées} a Parigi. Milioni di persone lo guardano dal bordo della strada, spesso facendo un picnic.","Il primo in classifica porta il {maillot jaune}, la maglia gialla. In italiano diciamo «maglia gialla» proprio per il Tour."],
+  it:"Il Giro d'Italia a maggio, con la maglia rosa.",fr:"Il {Tour} a luglio, con la maglia gialla.",
+  w:[["le vélo","la bici"],["le maillot jaune","la maglia gialla"],["la course","la corsa, la gara"]],
+  q:{q:"Di che colore è la maglia del primo in classifica al Tour?",o:["gialla","rosa","verde"],e:"{le maillot jaune}."}}
+]);
+CULT.l14=CULT.l14.concat([
+ {s:"pasta",t:"Il croissant viene da Vienna",i:"Le croissant",
+  p:["Il {croissant} è il simbolo della colazione francese, ma la sua origine è austriaca: a Parigi arrivò nell'Ottocento con le panetterie viennesi, che vendevano le {viennoiseries}. È così che in Francia si chiamano ancora croissant, {pain au chocolat} e brioche.","Nel sud-ovest il {pain au chocolat} si chiama {chocolatine}: una disputa che divide la Francia in due."],
+  it:"Il cornetto è più dolce e spesso ripieno.",fr:"Il {croissant} è semplice, al burro, e si mangia anche inzuppato nel caffè.",
+  w:[["le croissant","il croissant"],["le pain au chocolat","il saccottino al cioccolato"],["les viennoiseries","i prodotti da forno dolci"]],
+  q:{q:"Come si chiama il {pain au chocolat} nel sud-ovest della Francia?",o:["{chocolatine}","{croissant}","{brioche}"],e:"Una disputa nazionale!"}}
+]);
+CULT.r2=[
+ {s:"calendar",t:"Il 14 luglio e le altre feste",i:"Les fêtes en France",
+  p:["La festa nazionale è il 14 luglio, anniversario della presa della Bastiglia (1789): sfilata militare sugli {Champs-Élysées} al mattino, fuochi d'artificio e balli dei pompieri la sera.","Altri giorni di festa: il 1° maggio (si regala il mughetto, {le muguet}), l'8 maggio, l'11 novembre, Pasqua, l'Ascensione, la Pentecoste, il 15 agosto, Ognissanti e Natale."],
+  it:"Il 2 giugno si festeggia la Repubblica; il 25 aprile la Liberazione.",fr:"Il 14 luglio, con i fuochi d'artificio in ogni città.",
+  w:[["la fête nationale","la festa nazionale"],["le feu d'artifice","i fuochi d'artificio"],["le muguet","il mughetto"]],
+  q:{q:"Che cosa si regala in Francia il 1° maggio?",o:["il mughetto","una rosa","un uovo"],e:"{le muguet} porta fortuna."}}
+];
+CULT.l17=CULT.l17.concat([
+ {s:"dante",t:"Astérix e la BD",i:"La bande dessinée",
+  p:["In Francia il fumetto, {la bande dessinée} o {BD}, è chiamato «la nona arte». Astérix, Tintin, Lucky Luke e il Piccolo Spirou sono cresciuti con generazioni di bambini; il festival di Angoulême è il più importante d'Europa.","Le {BD} si leggono a tutte le età e si trovano in ogni libreria, in grandi volumi rilegati e a colori."],
+  it:"Topolino, Tex, Dylan Dog: albi da edicola, spesso in bianco e nero.",fr:"Volumi cartonati a colori, in libreria; anche gli adulti le comprano.",
+  w:[["la bande dessinée","il fumetto"],["la BD","il fumetto (abbreviato)"],["l'album","il volume"]],
+  q:{q:"Come chiamano i francesi il fumetto?",o:["la nona arte","la settima arte","l'arte povera"],e:"La settima è il cinema."}}
+]);
+CULT.l21=CULT.l21.concat([
+ {s:"seventeen",t:"Venerdì 13 porta fortuna?",i:"Vendredi 13",
+  p:["Per molti francesi il {vendredi 13} porta sfortuna, ma per altri porta fortuna: in quel giorno la lotteria nazionale fa estrazioni speciali e milioni di persone giocano.","Il 17, il numero sfortunato degli italiani, in Francia è un numero come gli altri."],
+  it:"Il giorno sfortunato è venerdì 17.",fr:"Venerdì 13: sfortuna per alcuni, fortuna per chi gioca al {Loto}.",
+  w:[["vendredi","venerdì"],["la chance","la fortuna"],["la malchance","la sfortuna"]],
+  q:{q:"Qual è il numero «speciale» per i francesi?",o:["13","17","7"],e:"{vendredi 13}."}}
+]);
+CULT.l22=CULT.l22.concat([
+ {s:"documents",t:"La carte Vitale",i:"La carte Vitale",
+  p:["In Francia chi è assistito dal servizio sanitario ha la {carte Vitale}, una tessera verde con il chip. La si presenta dal medico e in farmacia: una parte della spesa viene rimborsata direttamente sul conto.","Molti hanno anche una {mutuelle}, un'assicurazione complementare che paga il resto."],
+  it:"La tessera sanitaria con il codice fiscale; il medico di base è gratuito.",fr:"Dal medico si paga la visita, poi lo Stato e la {mutuelle} rimborsano.",
+  w:[["la carte Vitale","la tessera sanitaria"],["la mutuelle","l'assicurazione complementare"],["rembourser","rimborsare"]],
+  q:{q:"A che cosa serve la {carte Vitale}?",o:["al rimborso delle spese mediche","a prendere il treno","a votare"],e:"È la tessera sanitaria."}}
+]);
+CULT.r3=[
+ {s:"diploma",t:"Dopo l'A2: il DELF B1 e B2",i:"Et après ? Le DELF B1",
+  p:["Con il DELF A2 puoi cavartela nella vita di tutti i giorni. Il {DELF B1} dimostra che sai raccontare, spiegare e dare la tua opinione; il {DELF B2} serve spesso per iscriversi a un'università francese.","Nella scheda Esame trovi anche una simulazione nel formato del DELF B1: è più difficile del corso, ed è normale. Usala per capire che cosa ti manca."],
+  it:"Le certificazioni di lingua servono per studio e lavoro.",fr:"Il DELF B2 è richiesto da molte università; vale per tutta la vita.",
+  w:[["le niveau","il livello"],["l'avis","l'opinione"],["s'inscrire","iscriversi"]],
+  q:{q:"Quale livello chiedono spesso le università francesi?",o:["B2","A2","A1"],e:"Il {DELF B2} o il {DALF}."}}
+];

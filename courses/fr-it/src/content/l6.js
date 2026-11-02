@@ -17,3 +17,8 @@ VOC.l6=[
  ["un peu","un po'",""],["seulement","solo, soltanto",""],["heure","ora","f"],["idée","idea","f"],["on","noi (colloquiale); si",""],
  ["zéro","zero",""],["deux","due",""],["trois","tre",""],["dix","dieci",""],["vingt","venti",""],["trente","trenta",""],["quarante","quaranta",""],["cinquante","cinquanta",""],["soixante","sessanta",""]
 ];
+EX.l6=EX.l6.concat([
+ {t:"dict",au:"Je suis fatigué et j'ai faim !"},
+ {t:"say",zh:"Proponi a un amico di andare al bar",it:"Allez, on va au café ?"},
+ {t:"type",q:"Completa: {J'ai vingt ans, j'ai toujours} ＿ {!} (fame)",a:["faim"],full:"Oui, mais j'ai vingt ans, j'ai toujours faim !"}
+]);

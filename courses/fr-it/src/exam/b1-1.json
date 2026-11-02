@@ -1,0 +1,566 @@
+{
+ "id": "b1-1",
+ "exam": "b1",
+ "title": "Prova 1",
+ "it": "Simulazione nel formato del DELF B1: comprensione dell'orale e degli scritti con punteggio stimato; scritto e orale da allenare con le tracce e gli esempi.",
+ "scheme": {
+  "name": "DELF B1",
+  "total": 50,
+  "pass": 25,
+  "lang": "fr",
+  "plays": 2,
+  "opts": "abc",
+  "part": "Exercice ",
+  "groups": [
+   {
+    "id": "oral",
+    "label": "Compréhension de l'oral",
+    "max": 25,
+    "min": 5
+   },
+   {
+    "id": "ecrit",
+    "label": "Compréhension des écrits",
+    "max": 25,
+    "min": 5
+   }
+  ],
+  "skills": {
+   "listening": [
+    "Ascolto",
+    "Compréhension de l'oral"
+   ],
+   "reading": [
+    "Lettura",
+    "Compréhension des écrits"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "F : ",
+   "M": "H : "
+  },
+  "passText": "Ogni prova vale 25 punti e ne servono almeno 5. Al DELF vero le prove sono quattro (anche produzione scritta e orale) e si passa con 50 su 100: qui la soglia è riportata in proporzione.",
+  "notOfficial": "Simulazione nel formato del DELF B1, non un esame ufficiale: il punteggio è solo una stima. Il DELF vero ha anche la produzione scritta e orale, valutate da esaminatori; il numero e il tipo di esercizi possono cambiare tra una sessione e l'altra: controlla le indicazioni della tua sede d'esame. Il corso arriva all'A2: questa prova serve a vedere quanto manca al livello successivo.",
+  "note": "Come all'esame vero, consegne e domande sono in francese. Se ti serve, premi «Traduzione» per vedere la consegna in italiano."
+ },
+ "sections": [
+  {
+   "id": "oral",
+   "jp": "Compréhension de l'oral",
+   "it": "Comprensione orale",
+   "min": 25,
+   "score": "oral",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Exercice 1",
+     "skill": "listening",
+     "kind": "conversation",
+     "inst": "Vous écoutez une conversation entre deux collègues. Lisez les questions, écoutez le document puis répondez.",
+     "itInst": "Ascolti una conversazione tra due colleghi. Leggi le domande, ascolta il documento e rispondi.",
+     "items": [
+      {
+       "script": [
+        [
+         "F",
+         "Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."
+        ],
+        [
+         "M",
+         "Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"
+        ],
+        [
+         "F",
+         "Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."
+        ],
+        [
+         "M",
+         "Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"
+        ],
+        [
+         "F",
+         "Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."
+        ],
+        [
+         "M",
+         "Tu as raison. Bon, j'appelle le cabinet tout de suite."
+        ]
+       ],
+       "q": "Pourquoi la réunion de lundi est-elle annulée ?",
+       "o": [
+        "La directrice sera absente.",
+        "Le rapport n'est pas prêt.",
+        "Karim est malade."
+       ],
+       "a": 0,
+       "e": "«Elle sera à Lyon toute la journée pour un salon» = la direttrice sarà a Lione."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."
+        ],
+        [
+         "M",
+         "Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"
+        ],
+        [
+         "F",
+         "Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."
+        ],
+        [
+         "M",
+         "Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"
+        ],
+        [
+         "F",
+         "Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."
+        ],
+        [
+         "M",
+         "Tu as raison. Bon, j'appelle le cabinet tout de suite."
+        ]
+       ],
+       "q": "Quand la directrice propose-t-elle de faire la réunion ?",
+       "o": [
+        "Lundi après-midi.",
+        "Vendredi matin.",
+        "Jeudi matin."
+       ],
+       "a": 2,
+       "e": "«Elle propose de la faire jeudi matin, à neuf heures et demie»."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."
+        ],
+        [
+         "M",
+         "Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"
+        ],
+        [
+         "F",
+         "Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."
+        ],
+        [
+         "M",
+         "Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"
+        ],
+        [
+         "F",
+         "Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."
+        ],
+        [
+         "M",
+         "Tu as raison. Bon, j'appelle le cabinet tout de suite."
+        ]
+       ],
+       "q": "Quel est le problème de Karim ?",
+       "o": [
+        "Il doit aller à Lyon.",
+        "Il a un rendez-vous médical.",
+        "Il ne connaît pas le budget."
+       ],
+       "a": 1,
+       "e": "«j'ai rendez-vous chez le dentiste»."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."
+        ],
+        [
+         "M",
+         "Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"
+        ],
+        [
+         "F",
+         "Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."
+        ],
+        [
+         "M",
+         "Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"
+        ],
+        [
+         "F",
+         "Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."
+        ],
+        [
+         "M",
+         "Tu as raison. Bon, j'appelle le cabinet tout de suite."
+        ]
+       ],
+       "q": "Que conseille la collègue à Karim ?",
+       "o": [
+        "Écrire à la directrice pour annuler la réunion.",
+        "Déplacer son rendez-vous.",
+        "Finir le rapport avant jeudi."
+       ],
+       "a": 1,
+       "e": "«je déplacerais plutôt le dentiste» = io sposterei il dentista: è un consiglio al condizionale."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Exercice 2",
+     "skill": "listening",
+     "kind": "interview",
+     "inst": "Vous écoutez une émission de radio. Lisez les questions, écoutez le document puis répondez.",
+     "itInst": "Ascolti una trasmissione radiofonica. Leggi le domande, ascolta il documento e rispondi.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "Bonjour à tous et bienvenue dans « Vivre autrement ». Aujourd'hui, nous recevons Claire Martin, qui a quitté Paris il y a trois ans pour s'installer dans un petit village de Bourgogne. Claire, pourquoi ce choix ?"
+        ],
+        [
+         "F",
+         "Je travaillais dans une agence de publicité, je passais deux heures par jour dans les transports et je n'avais jamais le temps de voir mes enfants. Pendant le confinement, j'ai découvert le télétravail et j'ai compris que je pouvais vivre ailleurs."
+        ],
+        [
+         "N",
+         "Et aujourd'hui, est-ce que Paris vous manque ?"
+        ],
+        [
+         "F",
+         "Parfois, pour les musées et les cinémas. Mais ici, la vie est beaucoup moins chère, j'ai un jardin et je connais tous mes voisins. Le seul vrai problème, c'est la voiture : sans voiture, on ne peut rien faire."
+        ]
+       ],
+       "q": "Avant, Claire…",
+       "o": [
+        "passait beaucoup de temps dans les transports.",
+        "travaillait dans un village.",
+        "avait un jardin à Paris."
+       ],
+       "a": 0,
+       "e": "«je passais deux heures par jour dans les transports»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Bonjour à tous et bienvenue dans « Vivre autrement ». Aujourd'hui, nous recevons Claire Martin, qui a quitté Paris il y a trois ans pour s'installer dans un petit village de Bourgogne. Claire, pourquoi ce choix ?"
+        ],
+        [
+         "F",
+         "Je travaillais dans une agence de publicité, je passais deux heures par jour dans les transports et je n'avais jamais le temps de voir mes enfants. Pendant le confinement, j'ai découvert le télétravail et j'ai compris que je pouvais vivre ailleurs."
+        ],
+        [
+         "N",
+         "Et aujourd'hui, est-ce que Paris vous manque ?"
+        ],
+        [
+         "F",
+         "Parfois, pour les musées et les cinémas. Mais ici, la vie est beaucoup moins chère, j'ai un jardin et je connais tous mes voisins. Le seul vrai problème, c'est la voiture : sans voiture, on ne peut rien faire."
+        ]
+       ],
+       "q": "Qu'est-ce qui lui a permis de quitter Paris ?",
+       "o": [
+        "Un nouveau travail en Bourgogne.",
+        "Le télétravail.",
+        "Ses enfants."
+       ],
+       "a": 1,
+       "e": "«j'ai découvert le télétravail»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Bonjour à tous et bienvenue dans « Vivre autrement ». Aujourd'hui, nous recevons Claire Martin, qui a quitté Paris il y a trois ans pour s'installer dans un petit village de Bourgogne. Claire, pourquoi ce choix ?"
+        ],
+        [
+         "F",
+         "Je travaillais dans une agence de publicité, je passais deux heures par jour dans les transports et je n'avais jamais le temps de voir mes enfants. Pendant le confinement, j'ai découvert le télétravail et j'ai compris que je pouvais vivre ailleurs."
+        ],
+        [
+         "N",
+         "Et aujourd'hui, est-ce que Paris vous manque ?"
+        ],
+        [
+         "F",
+         "Parfois, pour les musées et les cinémas. Mais ici, la vie est beaucoup moins chère, j'ai un jardin et je connais tous mes voisins. Le seul vrai problème, c'est la voiture : sans voiture, on ne peut rien faire."
+        ]
+       ],
+       "q": "Selon Claire, quel est l'inconvénient de la vie au village ?",
+       "o": [
+        "Les voisins.",
+        "Le prix des maisons.",
+        "On a besoin d'une voiture."
+       ],
+       "a": 2,
+       "e": "«sans voiture, on ne peut rien faire»."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Exercice 3",
+     "skill": "listening",
+     "kind": "reportage",
+     "inst": "Vous écoutez des documents à la radio et au téléphone. Lisez les questions, écoutez puis répondez.",
+     "itInst": "Ascolti dei documenti alla radio e al telefono. Leggi le domande, ascolta e rispondi.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "De plus en plus de Français réparent leurs objets au lieu de les jeter. Dans les « repair cafés », des bénévoles aident gratuitement les habitants à réparer un grille-pain, un vélo ou un vêtement. On en compte aujourd'hui plus de trois cents dans le pays."
+        ],
+        [
+         "M",
+         "Moi, je viens ici tous les samedis. Au début, c'était pour faire des économies, mais maintenant je viens surtout pour l'ambiance. On boit un café, on discute, on apprend des choses. La semaine dernière, j'ai réparé ma machine à café avec un retraité qui était électricien."
+        ],
+        [
+         "N",
+         "Selon les organisateurs, deux objets sur trois repartent réparés. Prochain rendez-vous : samedi, de quatorze à dix-huit heures, à la médiathèque."
+        ]
+       ],
+       "q": "Dans un « repair café »…",
+       "o": [
+        "on achète des objets d'occasion.",
+        "des bénévoles aident à réparer des objets.",
+        "on apprend à faire du café."
+       ],
+       "a": 1,
+       "e": "«des bénévoles aident gratuitement les habitants à réparer»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "De plus en plus de Français réparent leurs objets au lieu de les jeter. Dans les « repair cafés », des bénévoles aident gratuitement les habitants à réparer un grille-pain, un vélo ou un vêtement. On en compte aujourd'hui plus de trois cents dans le pays."
+        ],
+        [
+         "M",
+         "Moi, je viens ici tous les samedis. Au début, c'était pour faire des économies, mais maintenant je viens surtout pour l'ambiance. On boit un café, on discute, on apprend des choses. La semaine dernière, j'ai réparé ma machine à café avec un retraité qui était électricien."
+        ],
+        [
+         "N",
+         "Selon les organisateurs, deux objets sur trois repartent réparés. Prochain rendez-vous : samedi, de quatorze à dix-huit heures, à la médiathèque."
+        ]
+       ],
+       "q": "Aujourd'hui, l'homme interviewé vient surtout…",
+       "o": [
+        "pour faire des économies.",
+        "pour travailler comme électricien.",
+        "pour l'ambiance et les rencontres."
+       ],
+       "a": 2,
+       "e": "«maintenant je viens surtout pour l'ambiance»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Message sur le répondeur."
+        ],
+        [
+         "M",
+         "Bonjour madame Petit, ici le garage Dupuis. Votre voiture est prête, mais nous avons dû changer les freins arrière, ce qui n'était pas prévu dans le devis. Le total est donc de quatre cent vingt euros. Vous pouvez passer la chercher demain à partir de huit heures. Merci et bonne soirée."
+        ]
+       ],
+       "q": "Pourquoi le prix est-il plus élevé que prévu ?",
+       "o": [
+        "Le garage a changé les freins.",
+        "La voiture est restée une semaine.",
+        "Madame Petit a demandé un lavage."
+       ],
+       "a": 0,
+       "e": "«nous avons dû changer les freins arrière, ce qui n'était pas prévu»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Annonce dans une gare."
+        ],
+        [
+         "F",
+         "Mesdames et messieurs, en raison d'un incident technique, le train TER en provenance de Dijon arrivera avec un retard d'environ quarante minutes. Les voyageurs à destination de Lyon sont invités à prendre le car de remplacement, qui partira à dix-sept heures quinze devant la gare. Nous vous prions de nous excuser pour ce désagrément."
+        ]
+       ],
+       "q": "Les voyageurs pour Lyon doivent…",
+       "o": [
+        "attendre le train de Dijon.",
+        "prendre un car à 17 h 15.",
+        "acheter un nouveau billet."
+       ],
+       "a": 1,
+       "e": "«prendre le car de remplacement, qui partira à dix-sept heures quinze»."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ecrit",
+   "jp": "Compréhension des écrits",
+   "it": "Comprensione scritta",
+   "min": 45,
+   "score": "ecrit",
+   "parts": [
+    {
+     "n": 1,
+     "label": "Exercice 1",
+     "skill": "reading",
+     "kind": "choix",
+     "inst": "Lisez le texte et les annonces, puis répondez aux questions.",
+     "itInst": "Leggi il testo e gli annunci, poi rispondi alle domande.",
+     "text": "Vous voulez vous inscrire à un cours pour votre amie Giulia. Elle travaille du lundi au vendredi jusqu'à 19 heures, elle a un budget de 200 euros maximum pour l'année et elle voudrait rencontrer des gens en pratiquant une activité en groupe, de préférence en plein air.\n\nA. Atelier photo — Le mardi de 18 h à 20 h, en salle. 8 participants maximum. 180 € l'année.\nB. Randonnée découverte — Un samedi sur deux, sorties en groupe dans la région. Matériel prêté. 150 € l'année.\nC. Cours de tennis — Cours individuels le samedi matin, au club. 25 € l'heure.\nD. Chorale du quartier — Le jeudi de 20 h 30 à 22 h, à la salle des fêtes. 60 € l'année.",
+     "items": [
+      {
+       "q": "Quelle activité ne convient pas à cause de l'horaire ?",
+       "o": [
+        "L'atelier photo.",
+        "La chorale.",
+        "La randonnée."
+       ],
+       "a": 0,
+       "e": "Il martedì l'atelier comincia alle 18, ma Giulia lavora fino alle 19."
+      },
+      {
+       "q": "Quelle activité est trop chère pour Giulia ?",
+       "o": [
+        "La chorale.",
+        "La randonnée.",
+        "Le tennis."
+       ],
+       "a": 2,
+       "e": "25 € l'ora: in un anno si superano facilmente i 200 €."
+      },
+      {
+       "q": "Quelle activité ne permet pas vraiment de rencontrer des gens ?",
+       "o": [
+        "Le tennis.",
+        "La chorale.",
+        "La randonnée."
+       ],
+       "a": 0,
+       "e": "«Cours individuels»: lezioni da sola."
+      },
+      {
+       "q": "Quelle est la meilleure activité pour Giulia ?",
+       "o": [
+        "La chorale.",
+        "La randonnée découverte.",
+        "L'atelier photo."
+       ],
+       "a": 1,
+       "e": "Il sabato, in gruppo, all'aria aperta, 150 €: rispetta tutte le condizioni."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Exercice 2",
+     "skill": "reading",
+     "kind": "article",
+     "inst": "Lisez l'article, puis répondez aux questions.",
+     "itInst": "Leggi l'articolo, poi rispondi alle domande.",
+     "text": "Faut-il interdire le téléphone portable à l'école ?\n\nDepuis 2018, les élèves des écoles et des collèges français n'ont plus le droit d'utiliser leur téléphone portable pendant la journée, même pendant la récréation. À la rentrée 2024, le gouvernement a voulu aller plus loin avec une « pause numérique » : dans certains collèges, les élèves doivent déposer leur téléphone dans un casier en arrivant le matin et le reprendre le soir.\n\nPour beaucoup d'enseignants, c'est une bonne nouvelle. « Les élèves se parlent de nouveau pendant les pauses, ils jouent au ballon, ils sont plus calmes en classe », explique Sophie, professeure de mathématiques à Nantes. Selon plusieurs études, l'utilisation des écrans réduit l'attention et le temps de sommeil des adolescents.\n\nMais tout le monde n'est pas d'accord. Certains parents veulent pouvoir joindre leurs enfants à tout moment, surtout quand ils rentrent seuls à la maison. D'autres font remarquer que l'interdiction ne règle pas le vrai problème : le soir, à la maison, les jeunes passent encore plusieurs heures devant leur écran. « Il faudrait plutôt apprendre aux enfants à utiliser le téléphone de manière raisonnable », estime le président d'une association de parents.\n\nPour l'instant, le ministère observe les résultats de l'expérience avant de décider si la mesure sera appliquée dans tous les collèges du pays.",
+     "items": [
+      {
+       "q": "Depuis 2018, dans les écoles et les collèges…",
+       "o": [
+        "les élèves peuvent utiliser leur téléphone à la récréation.",
+        "le téléphone est interdit toute la journée.",
+        "le téléphone est autorisé seulement en classe."
+       ],
+       "a": 1,
+       "e": "«n'ont plus le droit d'utiliser leur téléphone portable pendant la journée, même pendant la récréation»."
+      },
+      {
+       "q": "Avec la « pause numérique », les élèves…",
+       "o": [
+        "laissent leur téléphone dans un casier.",
+        "ne doivent plus avoir de téléphone.",
+        "utilisent le téléphone une heure par jour."
+       ],
+       "a": 0,
+       "e": "«déposer leur téléphone dans un casier en arrivant le matin»."
+      },
+      {
+       "q": "Selon Sophie, depuis l'interdiction, les élèves…",
+       "o": [
+        "dorment davantage.",
+        "ont de meilleures notes en mathématiques.",
+        "communiquent plus entre eux."
+       ],
+       "a": 2,
+       "e": "«Les élèves se parlent de nouveau pendant les pauses»."
+      },
+      {
+       "q": "Pourquoi certains parents sont-ils contre ?",
+       "o": [
+        "Ils veulent pouvoir contacter leurs enfants.",
+        "Le casier coûte cher.",
+        "Ils n'aiment pas les enseignants."
+       ],
+       "a": 0,
+       "e": "«veulent pouvoir joindre leurs enfants à tout moment»."
+      },
+      {
+       "q": "Selon le président de l'association, il faudrait…",
+       "o": [
+        "interdire le téléphone aussi à la maison.",
+        "apprendre aux jeunes à bien l'utiliser.",
+        "donner un téléphone à tous les élèves."
+       ],
+       "a": 1,
+       "e": "«apprendre aux enfants à utiliser le téléphone de manière raisonnable»."
+      },
+      {
+       "q": "Que va faire le ministère ?",
+       "o": [
+        "Il va appliquer la mesure partout dès demain.",
+        "Il va supprimer la mesure.",
+        "Il attend les résultats avant de décider."
+       ],
+       "a": 2,
+       "e": "«observe les résultats de l'expérience avant de décider»."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Production écrite",
+   "time": "45 min",
+   "task": "Dans votre ville, la mairie veut transformer un parc en parking. Vous écrivez au journal local pour donner votre opinion : vous présentez la situation, vous expliquez si vous êtes pour ou contre et vous donnez des exemples (160 mots minimum).",
+   "tr": "Nella tua città il comune vuole trasformare un parco in un parcheggio. Scrivi al giornale locale per dare la tua opinione: presenti la situazione, spieghi se sei a favore o contro e porti degli esempi (almeno 160 parole).",
+   "model": "Madame, Monsieur, j'ai appris dans votre journal que la mairie veut transformer le parc Victor-Hugo en parking. Je voudrais exprimer mon désaccord. D'abord, ce parc est le seul espace vert du quartier : tous les jours, des familles, des personnes âgées et des étudiants s'y retrouvent. Mes enfants y jouent après l'école et je m'y promène souvent le dimanche. Ensuite, je comprends qu'il est difficile de se garer en centre-ville, mais un nouveau parking attirera encore plus de voitures et donc plus de pollution. À mon avis, il vaudrait mieux améliorer les transports en commun, par exemple avec des bus plus fréquents le soir, et créer des pistes cyclables. Enfin, beaucoup d'habitants pensent comme moi : nous avons déjà réuni plus de cinq cents signatures. J'espère que la mairie écoutera notre avis et qu'elle trouvera une autre solution. Veuillez agréer, Madame, Monsieur, mes salutations distinguées. Sara Bianchi"
+  },
+  {
+   "kind": "Production orale · Entretien dirigé",
+   "time": "3 min",
+   "task": "Présentez-vous : parlez de vos études ou de votre travail, de vos loisirs et de vos projets.",
+   "tr": "Presentati: parla dei tuoi studi o del tuo lavoro, del tempo libero e dei tuoi progetti.",
+   "model": "Je m'appelle Marco, j'ai vingt-six ans et je suis italien, de Turin. Je travaille comme ingénieur dans une entreprise qui fabrique des pièces pour les voitures. Pendant mon temps libre, je fais beaucoup de sport, surtout du vélo, et j'aime cuisiner pour mes amis. J'apprends le français parce que mon entreprise travaille avec des clients français et parce que j'aimerais vivre quelque temps à Lyon. L'année prochaine, si tout va bien, je demanderai un transfert en France."
+  },
+  {
+   "kind": "Production orale · Exercice en interaction",
+   "time": "3-4 min",
+   "task": "Vous avez acheté un ordinateur sur internet, mais il ne fonctionne pas. Vous téléphonez au service client pour obtenir un remboursement. L'examinateur joue le rôle de l'employé.",
+   "tr": "Hai comprato un computer su internet, ma non funziona. Telefoni al servizio clienti per avere un rimborso. L'esaminatore fa la parte dell'impiegato.",
+   "model": "Bonjour, je vous appelle parce que j'ai commandé un ordinateur sur votre site il y a dix jours, et il ne s'allume pas. J'ai déjà essayé de le recharger, mais rien ne fonctionne. Je voudrais être remboursée, s'il vous plaît. — Je comprends, mais je n'ai pas envie d'attendre trois semaines pour une réparation : j'ai besoin d'un ordinateur pour mon travail. Est-ce que vous pourriez au moins m'envoyer un nouvel appareil cette semaine ? — D'accord, je vous renvoie le colis demain. Vous pouvez me confirmer tout cela par e-mail ? Merci beaucoup."
+  },
+  {
+   "kind": "Production orale · Expression d'un point de vue",
+   "time": "5-7 min",
+   "task": "« Le télétravail : liberté ou isolement ? » Dégagez le thème de ce titre et donnez votre opinion avec des exemples.",
+   "tr": "«Il telelavoro: libertà o isolamento?» Spiega il tema di questo titolo e dai la tua opinione con degli esempi.",
+   "model": "Ce titre pose la question des avantages et des inconvénients du travail à la maison. D'un côté, le télétravail donne beaucoup de liberté : on ne perd pas de temps dans les transports, on organise sa journée comme on veut et on peut habiter loin des grandes villes. Par exemple, ma sœur travaille de chez elle trois jours par semaine et elle a enfin le temps de faire du sport. De l'autre côté, on peut se sentir seul : on ne voit plus ses collègues, on parle moins et il est difficile de séparer la vie privée et le travail. À mon avis, la meilleure solution, c'est un mélange : deux ou trois jours à la maison et le reste au bureau, pour garder le contact avec les autres."
+  }
+ ]
+}

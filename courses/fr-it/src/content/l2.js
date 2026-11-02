@@ -18,3 +18,8 @@ VOC.l2=[
  ["italien","italiano",""],["français","francese",""],["espagnol","spagnolo",""],["allemand","tedesco",""],["suisse","svizzero",""],
  ["étudiant","studente","m"],["étudiante","studentessa","f"],["enchanté","piacere (detto da un uomo)",""],["nom","nome, cognome","m"],["prénom","nome di battesimo","m"]
 ];
+EX.l2=EX.l2.concat([
+ {t:"dict",au:"Je suis italien, de Rome."},
+ {t:"say",zh:"Chiedi a una ragazza se è francese",it:"Tu es française ?"},
+ {t:"type",q:"Completa: {Moi, je} ＿ {Marco.} (s'appeler)",a:["m'appelle"],full:"Moi, je m'appelle Marco."}
+]);

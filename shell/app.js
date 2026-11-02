@@ -33,6 +33,9 @@ setLang(ST.speak||"it");
 var course=MPPlan.course,coursesFor=MPPlan.coursesFor,examOf=MPPlan.examOf,uIndex=MPPlan.uIndex,weight=MPPlan.weight,sum=MPPlan.sum,
     pathKey=MPPlan.pathKey,prog=MPPlan.prog,passed=MPPlan.passed,GOAL_STEPS=MPPlan.GOAL_STEPS,iso=MPPlan.iso,parseISO=MPPlan.parseISO,
     today=MPPlan.today,addDays=MPPlan.addDays,daysBetween=MPPlan.daysBetween,plan=MPPlan.plan,status=MPPlan.status;
+/* single-course edition (standalone app): CATALOG.only names the one course; its learner language is fixed */
+var ONLY=CATALOG.only?course(CATALOG.only):null;
+if(ONLY&&ST.speak!==ONLY.speak){ST.speak=ONLY.speak;save();setLang(ST.speak)}
 function fmt(d,o){try{return new Intl.DateTimeFormat(T.locale,o||{day:"numeric",month:"long",year:"numeric"}).format(d)}catch(e){return iso(d)}}
 function fmtMonth(d){return fmt(d,{month:"short",year:"numeric"})}
 
@@ -61,7 +64,7 @@ function render(){
   location.replace("c/"+active.id+"/#/oggi")}
 
 /* ---------- 0 · which language do you speak ---------- */
-function vSpeak(){
+function vSpeak(){if(ONLY)return go("#/corso");
   screen(top()+'<h1>'+esc(I18N.it.speakQ)+'<br><span lang="es">'+esc(I18N.es.speakQ)+'</span><br><span lang="zh-CN">'+esc(I18N.zh.speakQ)+'</span></h1>'+
     '<div class="opts" role="radiogroup">'+
     ['it','es','zh'].map(function(l){var lab={it:["Italiano","Corsi spiegati in italiano"],es:["Español","Cursos explicados en español"],zh:["中文","用中文讲解的课程"]}[l];
@@ -87,14 +90,14 @@ function vSignIn(){if(!syncOn())return go("#/");var L=uiLang(),S=MPSYNC.str(L);
 /* ---------- 1 · what do you want to learn ---------- */
 function vCourses(){
   var cs=coursesFor(ST.speak);
-  screen(top('<button class="chip" id="chlang">'+esc(T.speaks)+' · <b>'+esc(T.change)+'</b></button>')+
+  screen(top(ONLY?'':'<button class="chip" id="chlang">'+esc(T.speaks)+' · <b>'+esc(T.change)+'</b></button>')+
     '<h1>'+esc(T.learnQ)+'</h1><p class="lead">'+esc(T.learnSub)+'</p>'+
     cs.map(function(c){return '<button class="course '+c.color+'" data-c="'+c.id+'"><div class="art">'+(ART[c.learn]||"")+'</div>'+
       '<div class="body"><div><h3>'+esc(c.name)+'<span lang="'+c.learn+'">'+esc(c.native)+'</span></h3><p>'+esc(c.levelsLabel)+'<br>'+esc(c.exams.filter(function(e){return !e.soon}).map(function(e){return e.name}).join(" · "))+'</p></div>'+
       '<span class="go">'+ICO.arrow+'</span></div></button>'}).join("")+
-    '<div class="soon">'+esc(T.soon)+'</div><div class="soonrow">'+
-    (CATALOG.soon[ST.speak]||[]).map(function(s){return '<span><b>'+esc(s[0])+'</b>'+esc(s[1])+'</span>'}).join("")+'</div>'+haveAccount(false));
-  $("#chlang").onclick=function(){go("#/lingua")};
+    (ONLY?'':'<div class="soon">'+esc(T.soon)+'</div><div class="soonrow">'+
+    (CATALOG.soon[ST.speak]||[]).map(function(s){return '<span><b>'+esc(s[0])+'</b>'+esc(s[1])+'</span>'}).join("")+'</div>')+haveAccount(false));
+  if($("#chlang"))$("#chlang").onclick=function(){go("#/lingua")};
   $$(".course",app).forEach(function(b){b.onclick=function(){var c=course(b.dataset.c),old=ST.plans[c.id];
     ON=old?JSON.parse(JSON.stringify(old)):{cid:c.id,goal:null,exam:null,date:null,start:1,mins:30};ON.cid=c.id;go("#/obiettivo")}})}
 

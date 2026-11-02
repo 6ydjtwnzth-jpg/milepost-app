@@ -18,3 +18,7 @@ VOC.l7=[
  ["hôpital","ospedale","m"],["bureau","ufficio; scrivania","m"],["ville","città","f"],["campagne","campagna","f"],["près de","vicino a",""],["lundi","lunedì","m"],["dimanche","domenica","m"],
  ["ne… pas","non",""],["anglais","inglese",""]
 ];
+EX.l7=EX.l7.concat([
+ {t:"dict",au:"Je travaille dans un hôpital."},
+ {t:"say",zh:"Di' che non abiti in città ma in campagna",it:"Non, je n'habite pas en ville, j'habite à la campagne."}
+]);

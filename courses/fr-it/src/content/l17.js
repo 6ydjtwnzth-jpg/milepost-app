@@ -15,3 +15,8 @@ VOC.l17=[
  ["dehors","fuori",""],["après l'école","dopo la scuola",""],["au bord de la mer","al mare",""],["grands-parents","nonni","mp"],["boulanger","panettiere","m"],["enfance","infanzia","f"],["souvenir","ricordo","m"],
  ["génial","fantastico, geniale",""],["savoir","sapere",""],["plein","pieno",""],["vieux","vecchio",""],["village","paese, villaggio","m"],["ferme","fattoria","f"],["vache","mucca","f"],["arbre","albero","m"],["rivière","fiume","f"]
 ];
+EX.l17=EX.l17.concat([
+ {t:"dict",au:"Il n'y avait pas de télé, tu sais !"},
+ {t:"say",zh:"Chiedi alla nonna dove abitava quando era piccola",it:"Mamie, quand tu étais petite, tu habitais où ?"},
+ {t:"type",q:"Completa: {Tous les étés, nous} ＿ {chez ma tante.} (aller, imparfait)",a:["allions"],full:"Tous les étés, nous allions chez ma tante, au bord de la mer."}
+]);

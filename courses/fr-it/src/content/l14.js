@@ -16,3 +16,8 @@ VOC.l14=[
  ["boire","bere",""],["vendre","vendere",""],["servir","servire",""],["assez de","abbastanza",""],["trop de","troppo",""],
  ["restaurant","ristorante","m"],["menu","menù a prezzo fisso","m"],["formule","menù fisso","f"],["entrée","antipasto","f"],["plat","piatto","m"],["dessert","dolce, dessert","m"],["boisson","bevanda","f"],["carafe","caraffa","f"],["cuit","cotto",""]
 ];
+EX.l14=EX.l14.concat([
+ {t:"dict",au:"Je voudrais un kilo de tomates."},
+ {t:"say",zh:"Chiedi se hanno del formaggio di capra",it:"Oui, une barquette. Et vous avez du fromage de chèvre ?"},
+ {t:"type",q:"Completa: {Non, désolé, je n'}＿ {ai pas.}",a:["en"],full:"Non, désolé, je n'en ai pas. Je vends seulement des fruits et des légumes."}
+]);

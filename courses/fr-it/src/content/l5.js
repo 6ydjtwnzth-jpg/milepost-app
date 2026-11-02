@@ -18,3 +18,6 @@ VOC.l5=[
  ["mon","mio",""],["ma","mia",""],["mes","miei, mie",""],["ton","tuo",""],["son","suo",""],["notre","nostro",""],["votre","vostro; Suo",""],["leur","loro (possessivo); a loro",""],
  ["grand","grande, alto",""],["alors","allora",""],["beaucoup de","molto, tanti",""]
 ];
+EX.l5=EX.l5.concat([
+ {t:"say",zh:"Chiedi a un amico se ha fratelli o sorelle",it:"Tu as des frères et sœurs ?"}
+]);

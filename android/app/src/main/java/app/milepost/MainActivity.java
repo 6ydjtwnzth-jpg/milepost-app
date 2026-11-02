@@ -13,8 +13,10 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.MimeTypeMap;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -32,6 +34,8 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.regex.Matcher;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
@@ -42,10 +46,15 @@ import java.util.regex.Pattern;
  * (supabase/beta.sql): it works on the first phone that uses it and on no other. The Supabase address and
  * public key are read from the site's sync-config.js, so the beta starts working as soon as the site is set up.
  * Every later launch checks the code again in the background, so a revoked code stops working.
+ *
+ * Standalone build (flavor «francese»): the pages and the audio are inside the APK (assets/site, packed by
+ * tools/standalone.py) and are served under a private https address, so the app needs no website and no connection.
  */
 public class MainActivity extends Activity {
     static final String HOME = "https://6ydjtwnzth-jpg.github.io/milepost-app/";
     static final String OFFLINE = "file:///android_asset/offline.html";
+    /* standalone: a private address that never reaches the network; every request is answered from assets/site */
+    static final String LOCAL = "https://appassets.androidplatform.net/";
 
     private WebView web;
     private SharedPreferences prefs;
@@ -71,13 +80,24 @@ public class MainActivity extends Activity {
         s.setDomStorageEnabled(true);
         s.setDatabaseEnabled(true);
         s.setCacheMode(WebSettings.LOAD_DEFAULT);
-        s.setUserAgentString(s.getUserAgentString() + (BuildConfig.BETA ? " MilepostAndroidBeta/1" : " MilepostAndroid/1"));
+        s.setUserAgentString(s.getUserAgentString() + (BuildConfig.STANDALONE ? " MilepostAndroidStandalone/1" : BuildConfig.BETA ? " MilepostAndroidBeta/1" : " MilepostAndroid/1"));
+        // the course plays the exam recordings by itself after the first tap
+        if (BuildConfig.STANDALONE) s.setMediaPlaybackRequiresUserGesture(false);
+        final String home = BuildConfig.STANDALONE ? LOCAL : HOME;
         web.setWebViewClient(new WebViewClient() {
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest req) {
+                if (!BuildConfig.STANDALONE) return null;
+                String url = req.getUrl().toString();
+                if (!url.startsWith(LOCAL)) return blocked();
+                return asset(req.getUrl().getPath());
+            }
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest req) {
                 Uri u = req.getUrl();
                 String url = u.toString();
-                if (url.startsWith(HOME) || url.startsWith("file:///android_asset/")) return false;
+                if (url.startsWith(home) || url.startsWith("file:///android_asset/")) return false;
                 // links outside the app open in the browser
                 try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (Exception e) { /* no app for this link */ }
                 return true;
@@ -85,13 +105,52 @@ public class MainActivity extends Activity {
 
             @Override
             public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError err) {
-                // first launch without a connection: nothing is cached yet
-                if (req.isForMainFrame()) view.loadUrl(OFFLINE);
+                // first launch without a connection: nothing is cached yet (the standalone app never needs one)
+                if (req.isForMainFrame() && !BuildConfig.STANDALONE) view.loadUrl(OFFLINE);
             }
         });
         setContentView(web);
         if (state != null) web.restoreState(state);
-        else web.loadUrl(HOME);
+        else web.loadUrl(home);
+    }
+
+    /* ---------- standalone: pages and audio from assets/site ---------- */
+    private static final Map<String, String> TYPES = new HashMap<>();
+    static {
+        TYPES.put("html", "text/html"); TYPES.put("js", "text/javascript"); TYPES.put("css", "text/css");
+        TYPES.put("json", "application/json"); TYPES.put("svg", "image/svg+xml"); TYPES.put("png", "image/png");
+        TYPES.put("mp3", "audio/mpeg"); TYPES.put("woff2", "font/woff2"); TYPES.put("webmanifest", "application/manifest+json");
+    }
+
+    private WebResourceResponse asset(String path) {
+        if (path == null || path.isEmpty() || path.endsWith("/")) path = (path == null ? "/" : path) + "index.html";
+        String rel = Uri.decode(path).replaceFirst("^/+", "");
+        if (rel.contains("..")) return notFound();
+        String ext = rel.substring(rel.lastIndexOf('.') + 1).toLowerCase();
+        String type = TYPES.get(ext);
+        if (type == null) type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext);
+        if (type == null) type = "application/octet-stream";
+        try {
+            InputStream in = getAssets().open("site/" + rel);
+            boolean text = type.startsWith("text/") || type.endsWith("javascript") || type.endsWith("json") || type.endsWith("xml");
+            WebResourceResponse r = new WebResourceResponse(type, text ? "UTF-8" : null, in);
+            Map<String, String> h = new HashMap<>();
+            h.put("Cache-Control", "no-cache");
+            h.put("Access-Control-Allow-Origin", "*");
+            r.setResponseHeaders(h);
+            return r;
+        } catch (Exception e) {
+            return notFound();
+        }
+    }
+
+    private static WebResourceResponse notFound() {
+        return new WebResourceResponse("text/plain", "UTF-8", 404, "Not Found", new HashMap<>(), new java.io.ByteArrayInputStream(new byte[0]));
+    }
+
+    /** the standalone app never goes on the internet */
+    private static WebResourceResponse blocked() {
+        return new WebResourceResponse("text/plain", "UTF-8", 403, "Offline app", new HashMap<>(), new java.io.ByteArrayInputStream(new byte[0]));
     }
 
     /* ---------- beta: invite code ---------- */

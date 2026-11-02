@@ -199,7 +199,10 @@
         {
           "id": "b1",
           "name": "DELF B1",
-          "soon": true
+          "upto": "r3",
+          "hours": 400,
+          "partial": true,
+          "dates": []
         }
       ],
       "examNote": "Il DELF si tiene più volte all'anno: controlla le date nella sede più vicina (Institut français, Alliance française)."

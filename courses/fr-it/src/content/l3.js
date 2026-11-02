@@ -17,3 +17,8 @@ VOC.l3=[
  ["comment allez-vous","come sta",""],["ici","qui",""],["vacances","vacanze","fp"],["en vacances","in vacanza",""],["présenter","presentare",""],
  ["un","un, uno",""],["une","una",""],["voisin","vicino di casa","m"],["voisine","vicina di casa","f"],["à vous aussi","anche a Lei",""],["coucou","ciao! (molto familiare)",""]
 ];
+EX.l3=EX.l3.concat([
+ {t:"dict",au:"Comment allez-vous ?"},
+ {t:"say",zh:"Presenta Sara, un'amica italiana, alla signora Dubois",it:"Je vous présente Sara, une amie italienne."},
+ {t:"type",q:"Completa: {Vous} ＿ {en vacances ?} (être)",a:["êtes"],full:"Vous êtes en vacances ?"}
+]);

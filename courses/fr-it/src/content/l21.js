@@ -15,3 +15,8 @@ VOC.l21=[
  ["là-bas","laggiù, là",""],["accent","accento","m"],["québécois","del Québec",""],["appartement","appartamento","m"],["argent","soldi; argento","m"],["promis","promesso",""],
  ["venir voir","venire a trovare",""],["changer","cambiare",""],["devenir","diventare",""],["un jour","un giorno",""],["lentement","lentamente",""],["président","presidente","m"],["temps","tempo","m"]
 ];
+EX.l21=EX.l21.concat([
+ {t:"dict",au:"Je partirai au Canada en septembre."},
+ {t:"say",zh:"Di' che, se trovi un buon lavoro, comprerai un appartamento",it:"Moi, je resterai ici. Si je trouve un bon travail, j'achèterai un appartement."},
+ {t:"type",q:"Completa: {Si j'ai assez d'argent, je} ＿ {, promis !} (venir, futuro)",a:["viendrai"],full:"Si j'ai assez d'argent, je viendrai, promis !"}
+]);

@@ -24,7 +24,7 @@ ciò che manca si mostra come "In arrivo".
   - `i18n.js`: testi dell'interfaccia (`it`, `es`, `zh`). L'interfaccia parla sempre la lingua di chi studia.
 - `courses/<id>/`: sorgenti di ogni corso (contenuti, motore, `build.py`).
   - `courses/<id>/src/exam/*.json`: simulazioni d'esame nel formato reale (JLPT N5 per ja-it, HSK 1 per zh-it, CILS A2 per
-    it-zh e it-es, DELF A2 per fr-it). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
+    it-zh e it-es, DELF A2 e B1 per fr-it). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
     quante volte si ascolta ogni registrazione, etichette di parti e opzioni, immagini (`img`, `oi`, `pics`: icone dello
     sprite del corso), esercizi di scritto/orale non valutati (`practice`). Senza `scheme` valgono le regole del JLPT.
     Le opzioni non vengono mescolate dall'app: la risposta giusta va distribuita tra le posizioni già nel file.
@@ -67,6 +67,9 @@ ciò che manca si mostra come "In arrivo".
   corso. Parte una volta per avvio (sessionStorage), poi le pagine mostrano il logo fermo finché non hanno disegnato
   (`mpSplashReady()`). Su iPhone/iPad l'avvio da Home mostra le immagini `docs/icons/launch/` (color carta, chiaro e scuro),
   generate dal build dai token `--paper`.
+- App Android (`android/`, vedi `android/README.md`): varianti `beta` (apre il sito, codice invito) e `francese` (app a parte
+  con il solo corso fr-it dentro l'APK, senza rete: `tools/standalone.py` + `standalone/fonts`; `CATALOG.only` nella shell
+  nasconde lingua, altri corsi e download offline).
 - `docs/`: sito generato (GitHub Pages, cartella `/docs`). L'audio dei corsi vive direttamente in `docs/c/<id>/audio/`.
 - Offline: `shell/sw.js` (il build ci scrive versione ed elenco dei corsi) salva all'installazione la shell e tutte le pagine dei
   corsi; l'audio si salva all'ascolto o tutto insieme da Impostazioni → Senza connessione (elenco in `docs/c/<id>/audio/index.json`).

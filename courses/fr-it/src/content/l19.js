@@ -15,3 +15,8 @@ VOC.l19=[
  ["peut-être","forse",""],["roman","romanzo","m"],["bande dessinée","fumetto","f"],["lui","gli, le (a lui, a lei)",""],["plus","più",""],["moins","meno",""],["aussi… que","tanto… quanto",""],
  ["meilleur","migliore",""],["mieux","meglio",""],["cher","caro (prezzo)",""],["avion","aereo","m"],["tranquille","tranquillo",""],["intéressant","interessante",""],["beau","bello",""],["belle","bella",""],["vie","vita","f"],["la mienne","la mia",""]
 ];
+EX.l19=EX.l19.concat([
+ {t:"dict",au:"Elle adore lire."},
+ {t:"say",zh:"Di' che telefoni ai tuoi genitori tutte le domeniche",it:"Tous les dimanches. Ma mère parle plus que mon père !"},
+ {t:"type",q:"Completa: {Et tes parents, tu} ＿ {téléphones souvent ?}",a:["leur"],full:"Et tes parents, tu leur téléphones souvent ?"}
+]);

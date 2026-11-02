@@ -15,3 +15,8 @@ VOC.l16=[
  ["copain","ragazzo, amico","m"],["copine","ragazza, amica","f"],["d'abord","prima, per prima cosa",""],["semaine","settimana","f"],["mois","mese","m"],["janvier","gennaio","m"],["mai","maggio","m"],["juillet","luglio","m"],["août","agosto","m"],
  ["décembre","dicembre","m"],["été","estate","m"],["hiver","inverno","m"],["il fait beau","fa bel tempo",""],["il pleut","piove",""],["il neige","nevica",""],["vent","vento","m"],["orage","temporale","m"],["soleil","sole","m"],["magnifique","magnifico",""]
 ];
+EX.l16=EX.l16.concat([
+ {t:"dict",au:"Nous sommes rentrés hier soir."},
+ {t:"say",zh:"Racconta: «Sono partita il 3 agosto con il mio ragazzo»",it:"Magnifiques ! Je suis partie le 3 août avec mon copain."},
+ {t:"type",q:"Completa: {D'abord, nous} ＿ {allés à Marseille.} (être)",a:["sommes"],full:"D'abord, nous sommes allés à Marseille, puis nous sommes restés une semaine en Corse."}
+]);

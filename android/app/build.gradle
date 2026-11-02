@@ -7,23 +7,36 @@ android {
         applicationId 'app.milepost'
         minSdk 26
         targetSdk 34
-        versionCode 2
-        versionName '0.2'
+        versionCode 3
+        versionName '0.3'
     }
     buildFeatures { buildConfig true }
     // open: anyone can use it. beta: asks for a personal invite code that works on one phone only (supabase/beta.sql).
+    // francese: standalone app with only the French course, all pages and audio inside the APK.
     flavorDimensions 'access'
     productFlavors {
         open {
             dimension 'access'
             buildConfigField 'boolean', 'BETA', 'false'
+            buildConfigField 'boolean', 'STANDALONE', 'false'
             resValue 'string', 'app_name', 'Milepost'
         }
         beta {
             dimension 'access'
             applicationIdSuffix '.beta'
             buildConfigField 'boolean', 'BETA', 'true'
+            buildConfigField 'boolean', 'STANDALONE', 'false'
             resValue 'string', 'app_name', 'Milepost Beta'
+        }
+        // francese: a separate app with only the French course inside (no website, works offline from the first launch).
+        // Its pages are packed into src/francese/assets/site by tools/standalone.py before the build.
+        francese {
+            dimension 'access'
+            applicationIdSuffix '.francese'
+            versionNameSuffix '-francese'
+            buildConfigField 'boolean', 'BETA', 'false'
+            buildConfigField 'boolean', 'STANDALONE', 'true'
+            resValue 'string', 'app_name', 'Milepost Francese'
         }
     }
     signingConfigs {

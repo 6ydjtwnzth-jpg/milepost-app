@@ -447,13 +447,13 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
     (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+(hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
     (window.MPSYNC&&MPSYNC.enabled?'<div class="mp-lbl" style="margin-top:6px">'+h(MPSYNC.str(UI).ttl)+'</div><div class="mp-off" id="mpacct"></div>':'')+
-    '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
+    (CATALOG.only?'':'<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>')+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
-    '<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>'+
+    (CATALOG.only?'':'<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>')+
     '<button class="mp-set mp-a danger" id="mpreset">'+h(S.reset)+'</button>'+
     '<button class="mp-cta alt" id="mpclose">'+h(S.close)+'</button>';
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
-  drawOffline(q("#mpoff",sh));if(window.MPSYNC&&MPSYNC.enabled)MPSYNC.ui(q("#mpacct",sh),{lang:UI});if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
+  if(q("#mpoff",sh))drawOffline(q("#mpoff",sh));if(window.MPSYNC&&MPSYNC.enabled)MPSYNC.ui(q("#mpacct",sh),{lang:UI});if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
   q("#mpclose",sh).onclick=closeSettings;q(".grab",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;
