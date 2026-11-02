@@ -6,6 +6,7 @@ Corsi disponibili:
 - **Giapponese per italiani** (`ja-it`): da zero all'A2, preparazione JLPT N5 (N4 in completamento).
 - **Cinese per italiani** (`zh-it`): dai suoni e dai toni alle basi dell'HSK 3; grammatica di HSK 1 e 2 (le parole richieste dal nuovo HSK sono più di quelle del corso: lo diciamo nella pagina Esame).
 - **Italiano per cinesi** (`it-zh`): da zero all'A2, preparazione CILS / PLIDA A2.
+- **Francese per italiani** (`fr-it`): da zero all'A2, preparazione DELF A2.
 
 ## Come funziona
 1. Scegli la lingua che parli (rilevata dal telefono) e la lingua da imparare.

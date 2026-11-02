@@ -20,10 +20,11 @@ ciò che manca si mostra come "In arrivo".
     nella stessa closure del motore del corso, così riusa tappe, quiz e audio.
   - `plan.js`: catalogo, progressi e piano onesto, condivisi da ingresso e corsi.
   - `courses.json`: metadati dei corsi (esami, ore tipiche, livelli di partenza). Le unità vengono da `courses/<id>/src/course.json`.
+    `"hidden": true` nasconde dall'elenco un corso ancora in lavorazione (le sue pagine esistono, ma non si può scegliere).
   - `i18n.js`: testi dell'interfaccia (`it`, `zh`). L'interfaccia parla sempre la lingua di chi studia.
 - `courses/<id>/`: sorgenti di ogni corso (contenuti, motore, `build.py`).
   - `courses/<id>/src/exam/*.json`: simulazioni d'esame nel formato reale (JLPT N5 per ja-it, HSK 1 per zh-it, CILS A2 per
-    it-zh). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
+    it-zh, DELF A2 per fr-it). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
     quante volte si ascolta ogni registrazione, etichette di parti e opzioni, immagini (`img`, `oi`, `pics`: icone dello
     sprite del corso), esercizi di scritto/orale non valutati (`practice`). Senza `scheme` valgono le regole del JLPT.
     Le opzioni non vengono mescolate dall'app: la risposta giusta va distribuita tra le posizioni già nel file.
@@ -37,6 +38,13 @@ ciò che manca si mostra come "In arrivo".
     dell'utente, non cambiarla. I file in `docs/c/zh-it/audio/` sono solo la riserva per i dispositivi senza voce cinese:
     una sola voce femminile (Kokoro v1.1-zh, zf_002), generata dal pinyin del corso con il cambio di tono 3-3 e
     verificata con il riconoscimento vocale (SenseVoice) e la curva d'intonazione.
+  - `courses/fr-it/`: francese per italiani. Motore preso da it-zh (lingua in alfabeto latino): `data-it`, `.it`, `.it-l`
+    indicano la lingua che si studia (qui il francese), `data-zh` la lingua di chi studia (qui l'italiano). Nei testi misti
+    (domande, spiegazioni, cultura, pagine delle lezioni) il francese va tra parentesi graffe: «Si dice {je suis}.»; il build
+    lo rende toccabile. Nelle opzioni degli esercizi classici un'opzione in francese è tutta tra graffe: `"{Je suis}"`.
+    Coniugatore in `src/js/app.js` (présent, passé composé, imparfait, futur, conditionnel). Voce: Kokoro `ff_siwis`
+    (l'unica voce francese di Kokoro); nella simulazione DELF la voce maschile è la stessa abbassata di tono.
+    `window.FRSAYS()` elenca tutto ciò che il corso può pronunciare, per generare e controllare l'audio.
 - Racconti (scheda Cultura): `courses/<id>/src/reads.js` (`READS`: titolo, lezione consigliata `after`, frasi [testo, traduzione],
   parole nuove `gloss`, domande con risposta `a`). Solo fiabe tradizionali o testi nostri (niente opere protette).
   `node tools/reads_check.js <id>` elenca le parole non ancora viste nel corso fino a `after` e senza nota: deve restare vuoto.

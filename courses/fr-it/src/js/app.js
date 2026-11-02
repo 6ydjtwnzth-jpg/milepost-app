@@ -438,3 +438,24 @@ function frZone(el){
 /* ---------- table of contents ---------- */
 var d=$("#tocd");try{if(d&&matchMedia("(min-width:1000px)").matches)d.open=true}catch(e){}
 $$(".toc a").forEach(function(a){a.addEventListener("click",function(){try{if(!matchMedia("(min-width:1000px)").matches)d.open=false}catch(e){}})});
+
+/* ---------- everything the course can say (used to record and check the audio files) ---------- */
+window.FRSAYS=function(){var S={},box=document.createElement("div");
+  function add(t){if(!t||typeof t!=="string")return;t=t.trim().replace(/\s+/g," ");if(!t||!LET.test(t))return;S[akey(t)]=t}
+  function words(html){box.innerHTML=html;$$(".w[data-say]",box).forEach(function(e){add(e.getAttribute("data-say"))})}
+  function fr(t){if(!t)return;add(t);words(itHTML(t))}
+  function mix(t){if(!t)return;String(t).replace(/\{([^{}]*)\}/g,function(_,x){fr(x)})}
+  $$("[data-it]").forEach(function(d){fr(d.getAttribute("data-it"))});
+  Object.keys(DLG).forEach(function(k){DLG[k].forEach(function(r){fr(r[1])})});
+  W.forEach(function(w){var full=art(w[0],w[2])+w[0];fr(full);fr(w[0])});
+  Object.keys(EX).forEach(function(k){EX[k].forEach(function(it){[it.au,it.full,it.it&&it.t==="say"?it.it:null,it.ask,it.fix,it.s&&it.t==="err"?it.s:null].forEach(fr);
+    (it.a||[]).forEach(fr);if(it.t==="gap")fr(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")it.o.forEach(function(o){fr(o[0])});
+    if(it.t==="ord")(it.w||[]).concat(it.x||[]).forEach(fr);if(!it.t&&it.o)it.o.forEach(function(o){if(isFr(o))fr(unbrace(o));else mix(o)});
+    [it.q,it.e,it.zh].forEach(mix)})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){fr(c.i);(c.w||[]).forEach(function(w){fr(w[0])});[c.t].concat(c.p,[c.it,c.fr]).forEach(mix);if(c.q){mix(c.q.q);mix(c.q.e);c.q.o.forEach(function(o){isFr(o)?fr(unbrace(o)):mix(o)})}})});
+  (typeof READS!=="undefined"?READS:[]).forEach(function(r){r.lines.forEach(function(l){fr(l[0])});(r.gloss||[]).forEach(function(g){fr(g[0])})});
+  FRASI.forEach(function(g){g[1].forEach(function(r){fr(r[0])})});
+  NUM.forEach(function(n){fr(n[1])});ALF.forEach(function(a){add(a[2])});
+  VERBS.forEach(function(v){["pr","pc","im","fu","co"].forEach(function(t){cjForms(v,t).forEach(function(f,i){fr(cjSay(v,t,i,f))})})});
+  renderDrills(document);buildVocab();$$("[data-say]").forEach(function(e){add(e.getAttribute("data-say"))});
+  return Object.keys(S).map(function(k){return {t:S[k],f:audioSrc(S[k]).slice(6)}})};
