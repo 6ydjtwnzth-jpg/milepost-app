@@ -10,7 +10,7 @@ EX.r3=[
  {q:"[Gramática] «¿La falda? ¡Me la llevo!»",o:["{La gonna? La prendo!}","{La gonna? Lo prendo!}","{La gonna? Prendo la!}"],e:"{gonna} femenino → {la}, delante del verbo."},
  {q:"[Gramática] «A Marco le gustan los gatos.»",o:["{A Marco piacciono i gatti.}","{A Marco gli piacciono i gatti.}","{A Marco le piacciono i gatti.}"],e:"Sin repetir el pronombre; nunca {le} para un hombre."},
  {t:"type",q:"[Gramática] Completa: {Domani io} ＿ {dal medico.} (andare)",a:["andrò","vado"],full:"Domani io andrò dal medico.",e:"Para un plan seguro también vale el presente {vado}."},
- {t:"type",q:"[Gramática] Completa: {Che cosa stai} ＿ {? — Sto cucinando.} (fare)",a:["facendo"],full:"Che cosa stai facendo?"},
+ {t:"type",q:"[Gramática] Completa: {Che cosa stai} ＿? — {Sto cucinando.} (fare)",a:["facendo"],full:"Che cosa stai facendo?"},
  {t:"type",q:"[Gramática] Completa: {Ieri sera} ＿ {molto stanca.} (essere, yo)",a:["ero"],full:"Ieri sera ero molto stanca.",e:"Un estado como fondo → imperfetto."},
  {t:"type",q:"[Gramática] Completa: {Tu} ＿ {bere più acqua.} (dovere, condicional, consejo)",a:["dovresti"],full:"Tu dovresti bere più acqua."},
  {t:"type",q:"[Gramática] Completa: {Quando} ＿ {a Roma, ti chiamerò.} (arrivare, futuro, yo)",a:["arriverò","arrivo"],full:"Quando arriverò a Roma, ti chiamerò.",e:"Sin subjuntivo después de {quando}."},
