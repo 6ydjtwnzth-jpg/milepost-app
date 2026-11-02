@@ -53,3 +53,16 @@ dell'app il link «Hai già un account? Accedi».
 ## Prima di aprire al pubblico
 - Una pagina **privacy** con il nome del titolare del trattamento e un contatto (gli account raccolgono un'email).
 - Prova completa: crea l'account su un telefono, entra da un secondo dispositivo e controlla che i progressi arrivino.
+
+## Beta per Android: codici invito
+L'app «Milepost Beta» si apre solo con un codice invito personale, che vale su un solo telefono (il primo che lo usa).
+1. In **SQL Editor → New query** incolla tutto `supabase/beta.sql` e premi **Run** (una volta sola).
+2. Per creare un codice: `select public.beta_new_code('Nome del tester');` → ti restituisce per esempio `MP-7K3Q-2Z9X`.
+3. Mandalo al tester insieme al link dell'APK: https://github.com/6ydjtwnzth-jpg/milepost-app/releases/download/android/milepost-beta.apk
+4. Vedere i codici e su quale telefono sono attivi: `select * from public.beta_invites order by created_at;`
+5. Il tester cambia telefono: `update public.beta_invites set device = null where code = 'MP-7K3Q-2Z9X';`
+6. Revocare un codice (l'app si richiude alla prossima apertura con internet):
+   `update public.beta_invites set revoked = true where code = 'MP-7K3Q-2Z9X';`
+
+L'app legge indirizzo e chiave di Supabase da `sync-config.js` del sito: finché il passo 5 qui sopra («Collega l'app») non è
+fatto, la beta mostra «La beta non è ancora aperta».

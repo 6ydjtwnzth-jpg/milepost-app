@@ -1,0 +1,25 @@
+name: Supabase SQL
+
+on:
+  push:
+    branches: [main]
+    paths: ['supabase/**', '.github/workflows/supabase.yml']
+  workflow_dispatch:
+
+jobs:
+  beta-sql:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 2s --health-timeout 2s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the beta invite tests
+        env:
+          PGPASSWORD: test
+        run: psql -h localhost -U postgres -d postgres -f supabase/tests/beta_test.sql

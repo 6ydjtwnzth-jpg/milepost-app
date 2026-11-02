@@ -45,7 +45,7 @@ function mergeText(local,server){var a,b;try{a=JSON.parse(local)}catch(e){return
 
 /* ---------- talking to the server ---------- */
 function api(path,opt){opt=opt||{};var h={"apikey":CFG.key,"Content-Type":"application/json"},s=jget(SK);
-  if(opt.auth!==false&&s&&s.access_token)h.Authorization="Bearer "+s.access_token;else h.Authorization="Bearer "+CFG.key;
+  if(opt.auth!==false&&s&&s.access_token)h.Authorization="Bearer "+s.access_token;else if(/^eyJ/.test(CFG.key))h.Authorization="Bearer "+CFG.key;/* new sb_publishable_ keys are not JWTs: apikey alone */
   for(var k in (opt.headers||{}))h[k]=opt.headers[k];
   return fetch(CFG.url.replace(/\/$/,"")+path,{method:opt.method||"GET",headers:h,body:opt.body?JSON.stringify(opt.body):undefined,keepalive:!!opt.keepalive})
     .then(function(r){return r.text().then(function(t){var d=null;try{d=t?JSON.parse(t):null}catch(e){}if(!r.ok){var e=new Error((d&&(d.msg||d.message||d.error_description||d.error))||("HTTP "+r.status));e.status=r.status;e.code=d&&(d.error_code||d.code);throw e}return d})})}

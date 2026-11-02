@@ -23,20 +23,24 @@ jobs:
           gradle-version: '8.9'
       - name: Build
         working-directory: android
-        run: gradle assembleRelease --no-daemon
+        run: gradle assembleBetaRelease --no-daemon
       - name: Rename
-        run: cp android/app/build/outputs/apk/release/app-release.apk milepost.apk
+        run: cp android/app/build/outputs/apk/beta/release/app-beta-release.apk milepost-beta.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: milepost-apk
-          path: milepost.apk
+          name: milepost-beta-apk
+          path: milepost-beta.apk
       - name: Publish on the "android" release page
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           if gh release view android >/dev/null 2>&1; then
-            gh release upload android milepost.apk --clobber
+            gh release upload android milepost-beta.apk --clobber
           else
-            gh release create android milepost.apk --prerelease --title "Milepost per Android (prova)" \
-              --notes "APK di prova da installare a mano. Si aggiorna a ogni modifica della cartella android/."
+            gh release create android milepost-beta.apk --prerelease --title "Milepost Beta per Android" \
+              --notes "Versione beta: si apre solo con un codice invito personale, valido su un solo telefono."
           fi
+          # the open APK (no invite code) is no longer handed out
+          gh release delete-asset android milepost.apk --yes || true
+          gh release edit android --title "Milepost Beta per Android" \
+            --notes "Versione beta: si apre solo con un codice invito personale, valido su un solo telefono. Codici: supabase/beta.sql."
