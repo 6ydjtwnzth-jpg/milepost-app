@@ -202,8 +202,7 @@
           "soon": true
         }
       ],
-      "examNote": "Il DELF si tiene più volte all'anno: controlla le date nella sede più vicina (Institut français, Alliance française).",
-      "hidden": true
+      "examNote": "Il DELF si tiene più volte all'anno: controlla le date nella sede più vicina (Institut français, Alliance française)."
     }
   ],
   "soon": {
@@ -219,10 +218,6 @@
       [
         "ES",
         "Spagnolo"
-      ],
-      [
-        "FR",
-        "Francese"
       ],
       [
         "DE",

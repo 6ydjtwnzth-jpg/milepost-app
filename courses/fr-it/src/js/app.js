@@ -298,7 +298,7 @@ function renderSet(el,opt){
       if(it.au)$(".lsp",q).onclick=function(){speak(it.au)};
       var opts=document.createElement("div");opts.className="opts";var ex2=document.createElement("div");ex2.className="expl";
       var order=shuffle(it.o.map(function(_,k){return k}));
-      order.forEach(function(k){var o=it.o[k],fr=isFr(o);var b=document.createElement("button");b.className="opt";if(fr)b.setAttribute("lang","fr");b.textContent=fr?frSp(unbrace(o)):o;
+      order.forEach(function(k){var o=it.o[k],fr=isFr(o);var b=document.createElement("button");b.className="opt";if(fr)b.setAttribute("lang","fr");b.textContent=fr?frSp(unbrace(o)):o.replace(/[{}]/g,"");
         b.onclick=function(){var ok=k===0;$$(".opt",opts).forEach(function(x){x.disabled=true});opts.children[order.indexOf(0)].classList.add("right");if(!ok)b.classList.add("wrong");
           ex2.innerHTML=(ok?'<b class="ok">Giusto!</b> ':'<b class="no">No.</b> ')+mixHTML(it.e||"")+(isFr(it.o[0])&&/\s/.test(unbrace(it.o[0]))?' '+itLine(unbrace(it.o[0])):'');
           if(it.au){var r=$(".lsr",q);r.hidden=false;r.innerHTML='Hai sentito: '+itLine(it.au)}
