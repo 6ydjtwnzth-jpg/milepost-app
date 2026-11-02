@@ -89,7 +89,7 @@ function vCourses(){
   var cs=coursesFor(ST.speak);
   screen(top('<button class="chip" id="chlang">'+esc(T.speaks)+' · <b>'+esc(T.change)+'</b></button>')+
     '<h1>'+esc(T.learnQ)+'</h1><p class="lead">'+esc(T.learnSub)+'</p>'+
-    cs.map(function(c){return '<button class="course '+c.color+'" data-c="'+c.id+'"><div class="art">'+ART[c.learn]+'</div>'+
+    cs.map(function(c){return '<button class="course '+c.color+'" data-c="'+c.id+'"><div class="art">'+(ART[c.learn]||"")+'</div>'+
       '<div class="body"><div><h3>'+esc(c.name)+'<span lang="'+c.learn+'">'+esc(c.native)+'</span></h3><p>'+esc(c.levelsLabel)+'<br>'+esc(c.exams.filter(function(e){return !e.soon}).map(function(e){return e.name}).join(" · "))+'</p></div>'+
       '<span class="go">'+ICO.arrow+'</span></div></button>'}).join("")+
     '<div class="soon">'+esc(T.soon)+'</div><div class="soonrow">'+

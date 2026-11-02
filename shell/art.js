@@ -20,6 +20,18 @@ zh:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden=
   '<rect x="44" y="6" width="3" height="18" fill="#1a1720"/><rect x="32" y="22" width="27" height="6" rx="3" fill="#1a1720"/>'+
   '<ellipse cx="45.5" cy="50" rx="24" ry="24" fill="#ffc532"/><path d="M34 30 C27 42 27 58 34 70 M57 30 C64 42 64 58 57 70 M45.5 27 V73" stroke="#ea4a2a" stroke-opacity=".5" stroke-width="2.5" fill="none"/>'+
   '<rect x="32" y="71" width="27" height="6" rx="3" fill="#1a1720"/><path d="M41 77 V90 M45.5 77 V94 M50 77 V90" stroke="#ffc532" stroke-width="2.5" stroke-linecap="round"/></svg>',
+/* Francia: tetti di Parigi, Tour Eiffel, sole */
+fr:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#2b50d8"/>'+
+  '<circle cx="306" cy="54" r="30" fill="#ffc532"/><circle cx="196" cy="34" r="3" fill="#ff9fb6"/><circle cx="34" cy="64" r="4" fill="#ff9fb6"/>'+
+  '<g fill="#1a1720"><rect x="248" y="18" width="4" height="12"/><path d="M245 30 H255 L259 70 H241Z"/><rect x="235" y="70" width="30" height="5" rx="1"/>'+
+  '<path d="M238 75 H262 L271 118 H229Z"/><rect x="219" y="118" width="62" height="6" rx="1"/><path d="M222 124 L205 184 H226 Q250 144 274 184 H295 L278 124Z"/></g>'+
+  '<g fill="#2b50d8" opacity=".5"><path d="M247 40 h6 l1 22 h-8z"/><path d="M243 84 h14 l4 26 h-22z"/></g>'+
+  '<g fill="#fff"><rect x="16" y="122" width="48" height="62"/><rect x="68" y="104" width="54" height="80"/><rect x="126" y="130" width="46" height="54"/></g>'+
+  '<g fill="#1a1720"><path d="M14 122 H66 L60 108 H20Z"/><path d="M66 104 H124 L117 88 H73Z"/><path d="M124 130 H174 L168 118 H130Z"/></g>'+
+  '<g fill="#2b50d8" opacity=".75"><rect x="24" y="132" width="8" height="12"/><rect x="40" y="132" width="8" height="12"/><rect x="24" y="152" width="8" height="12"/><rect x="40" y="152" width="8" height="12"/>'+
+  '<rect x="78" y="114" width="8" height="12"/><rect x="92" y="114" width="8" height="12"/><rect x="106" y="114" width="8" height="12"/><rect x="78" y="136" width="8" height="12"/><rect x="92" y="136" width="8" height="12"/><rect x="106" y="136" width="8" height="12"/>'+
+  '<rect x="134" y="140" width="8" height="12"/><rect x="150" y="140" width="8" height="12"/></g>'+
+  '<path d="M0 182 Q100 168 200 184 T346 180 V200 H0Z" fill="#ea4a2a"/></svg>',
 /* Italia: colline, cipressi, Colosseo, sole */
 it:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#12965a"/>'+
   '<circle cx="84" cy="60" r="34" fill="#ffc532"/><circle cx="150" cy="30" r="3" fill="#ff9fb6"/><circle cx="40" cy="128" r="4" fill="#ff9fb6"/>'+
