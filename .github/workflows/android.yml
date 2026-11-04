@@ -23,13 +23,17 @@ jobs:
           gradle-version: '8.9'
       - name: Build
         working-directory: android
-        run: gradle assembleBetaRelease --no-daemon
+        run: gradle assembleOpenRelease assembleBetaRelease --no-daemon
       - name: Rename
-        run: cp android/app/build/outputs/apk/beta/release/app-beta-release.apk milepost-beta.apk
+        run: |
+          cp android/app/build/outputs/apk/beta/release/app-beta-release.apk milepost-beta.apk
+          cp android/app/build/outputs/apk/open/release/app-open-release.apk milepost.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: milepost-beta-apk
-          path: milepost-beta.apk
+          name: milepost-apk
+          path: |
+            milepost.apk
+            milepost-beta.apk
       - name: Publish on the "android" release page
         env:
           GH_TOKEN: ${{ github.token }}
@@ -40,7 +44,16 @@ jobs:
             gh release create android milepost-beta.apk --prerelease --title "Milepost Beta per Android" \
               --notes "Versione beta: si apre solo con un codice invito personale, valido su un solo telefono."
           fi
-          # the open APK (no invite code) is no longer handed out
-          gh release delete-asset android milepost.apk --yes || true
           gh release edit android --title "Milepost Beta per Android" \
             --notes "Versione beta: si apre solo con un codice invito personale, valido su un solo telefono. Codici: supabase/beta.sql."
+      - name: Publish the app without invite code on the "android-app" release page
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NOTES="Milepost per Android con tutti i corsi, senza codice di accesso. Apre il sito dell'app a schermo intero; dopo il primo avvio con internet funziona anche offline."
+          if gh release view android-app >/dev/null 2>&1; then
+            gh release upload android-app milepost.apk --clobber
+            gh release edit android-app --notes "$NOTES"
+          else
+            gh release create android-app milepost.apk --latest --title "Milepost per Android" --notes "$NOTES"
+          fi
