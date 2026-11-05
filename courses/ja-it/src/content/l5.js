@@ -1,5 +1,7 @@
-DLG.l5=[["A","ゆき さん 、 それ は かぞく の しゃしん です か 。","Yuki, è una foto della tua famiglia?"],["B","はい 。 これ が 父[ちち] で 、 これ が 母[はは] です 。","Sì. Questo è mio padre e questa è mia madre."],["A","いい しゃしん です ね 。 この ひと は ？","Bella foto. E questa persona?"],["B","姉[あね] です 。 二十五[にじゅうご]さい です 。","È mia sorella maggiore. Ha 25 anni."],["A","何[なん]人[にん] かぞく です か 。","Quanti siete in famiglia?"],["B","五人[ごにん] かぞく です 。 弟[おとうと] も います 。 マルコ さん は ？","Siamo in cinque. Ho anche un fratello minore. E tu, Marco?"],["A","わたし は 三人[さんにん] かぞく です 。 きょうだい は いません 。 でも 、 いぬ が います 。","Noi siamo in tre. Non ho fratelli. Però ho un cane."]];
+DLG.l5=[["A","ゆき さん 、 それ は かぞく の しゃしん です か 。","Yuki, è una foto della tua famiglia?"],["B","はい 。 これ が 父[ちち] で 、 これ が 母[はは] です 。","Sì. Questo è mio padre e questa è mia madre."],["A","いい しゃしん です ね 。 この ひと は ？","Bella foto. E questa persona?"],["B","姉[あね] です 。 二十五[にじゅうご]さい です 。","È mia sorella maggiore. Ha 25 anni."],["A","何[なん]人[にん] かぞく です か 。","Quanti siete in famiglia?"],["B","五人[ごにん] かぞく です 。 弟[おとうと] も います 。 マルコ さん は ？","Siamo in cinque. Ho anche un fratello minore. E tu, Marco?"],["A","わたし は 三人[さんにん] かぞく です 。 きょうだい は いません 。","Noi siamo in tre. Non ho fratelli."],["B","そう です か 。","Ah, capisco."],["A","でも 、 いぬ が います よ 。","Però ho un cane!"]];
 EX.l5=[
+ {q:"Come si legge ケーキ?",o:["kēki","keki","kēke"],e:"ー allunga la vocale: kē-ki."},
+ {q:"Quale katakana è «tsu»?",o:["ツ","シ","ソ"],e:"ツ = tsu; シ = shi."},
  {q:"Ascolta: quanti sono in famiglia?",au:"四人[よにん] かぞく です 。",o:["quattro","tre","sette"],e:"四人[よにん] = よにん, quattro persone."},
  {q:"Ascolta: quanti anni ha?",au:"兄[あに] は 二十八[にじゅうはっ]さい です 。",o:["28","18","82"],e:"二十八[にじゅうはち] = 28."},
  {q:"Parlando di TUA madre con un collega dici:",o:["母[はは]","お母[かあ]さん","母[はは]さん"],e:"Per la propria famiglia: 母[はは]."},

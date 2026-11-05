@@ -16,6 +16,7 @@ EX.l7=[
  {t:"say",zh:"说「我没听懂，可以再说一遍吗？」",it:"Non capisco, puoi ripetere?"}
 ];
 VOC.l7=[
+ ["persona", "人", "f"],["poco", "少、不多", ""],["normale", "正常的", ""],
  ["parlare","说（讲话）",""],["abitare","住",""],["lavorare","工作",""],["studiare","学习",""],["capire","懂",""],["prendere","拿；点（餐）",""],
  ["dormire","睡觉",""],["leggere","读",""],["scrivere","写",""],["fare","做",""],["ripetere","重复",""],
  ["medico","医生","m"],["ingegnere","工程师","m"],["cuoco","厨师","m"],["cameriere","服务员","m"],["commessa","店员（女）","f"],["impiegato","职员","m"],["avvocato","律师","m"],

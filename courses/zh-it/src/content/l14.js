@@ -10,5 +10,6 @@ EX.l14=[
  {"t":"say","it":"«Ho studiato cinese per due anni.»","zh":"我[Wǒ] 学[xué] 了[le] 两[liǎng] 年[nián] 中文[Zhōng-wén] 。"}
 ];
 VOC.l14=[
- ["多长时间[duō-cháng-shí-jiān]","quanto tempo",""],["小时[xiǎo-shí]","ora (durata)",""],["分钟[fēn-zhōng]","minuto (durata)",""],["天[tiān]","giorno",""],["个月[ge-yuè]","mese (durata)",""],["住[zhù]","abitare",""],["只[zhǐ]","solo, soltanto",""],["每[měi]","ogni",""],["才[cái]","solo, appena",""],["厉害[lì-hai]","bravissimo",""],["一下[yí-xià]","un attimo",""],["再[zài]","di nuovo",""],["久[jiǔ]","a lungo",""]
+ ["学[xué]", "studiare, imparare", ""],["长[cháng]", "lungo (多长时间: quanto tempo)", ""],["课[kè]", "lezione (上课: fare lezione)", ""],["睡[shuì]", "dormire", ""],["真[zhēn]", "davvero", ""],
+ ["多长时间[duō-cháng-shí-jiān]","quanto tempo",""],["小时[xiǎo-shí]","ora (durata)",""],["分钟[fēn-zhōng]","minuto (durata)",""],["天[tiān]","giorno",""],["个月[ge-yuè]","mese (durata)",""],["住[zhù]","abitare",""],["只[zhǐ]","solo, soltanto",""],["每[měi]","ogni",""],["才[cái]","solo, appena",""],["厉害[lì-hai]","bravissimo",""],["一下[yí-xià]","un attimo",""],["久[jiǔ]","a lungo",""]
 ];

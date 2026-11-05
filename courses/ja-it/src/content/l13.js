@@ -18,6 +18,7 @@ EX.l13=[
  {t:"say",it:"In un museo, chiedi se puoi fare una foto.",jp:"しゃしん を とって も いい です か 。"}
 ];
 VOC.l13=[
+ ["わかります", "capire; sapere", "v"],["すこし", "un po'", "x"],
  ["待[ま]つ","aspettare","v"],["書[か]く","scrivere","v"],["読[よ]む","leggere","v"],["話[はな]す","parlare","v"],["聞[き]く","ascoltare; chiedere","v"],["言[い]う","dire","v"],["買[か]う","comprare","v"],["使[つか]う","usare","v"],["とる","prendere; fare (foto)","v"],["すう","fumare; aspirare","v"],
  ["〜て ください","per favore, faccia…","x"],["〜て も いい です か","posso…?","x"],["〜て は いけません","non si può…","x"],["もしもし","pronto (al telefono)","x"],["すぐ","subito","x"],["ゆっくり","piano, con calma","x"],["もう 一度[いちど]","ancora una volta","x"],
  ["しゃしん","foto","n"],["たばこ","sigaretta","n"],["飲[の]みもの","bevanda","n"],["電話[でんわ]","telefono","n"],["電車[でんしゃ]","treno","n"],["どう しました か","che succede?","x"],["あの","ehm (per cominciare a parlare)","x"]

@@ -15,6 +15,7 @@ EX.l10=[
  {t:"say",zh:"说一件你从来不做的事。",it:"Non vado mai a letto prima di mezzanotte.",e:"non … mai = 从不。"}
 ];
 VOC.l10=[
+ ["fatica", "辛苦（che fatica!：真辛苦！）", "f"],["invece", "相反、倒是", ""],["fino a", "直到", ""],["prima di", "在……之前", ""],
  ["ora","小时；现在","f"],["mezza","半（点）",""],["un quarto","一刻钟",""],["meno","差、减",""],["mezzogiorno","中午十二点","m"],["mezzanotte","半夜十二点","f"],
  ["mattina","早上","f"],["pomeriggio","下午","m"],["sera","晚上","f"],["alzarsi","起床",""],["svegliarsi","醒来",""],["lavarsi","洗漱",""],["vestirsi","穿衣服",""],["riposarsi","休息",""],
  ["colazione","早饭","f"],["pranzo","午饭","m"],["cena","晚饭","f"],["palestra","健身房","f"],["sempre","总是",""],["spesso","经常",""],["qualche volta","有时",""],["mai","从不（non … mai）",""],

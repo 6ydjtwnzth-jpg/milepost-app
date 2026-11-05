@@ -11,5 +11,6 @@ EX.l9=[
  {"t":"say","it":"Chiedi: «Posso entrare?»","zh":"我[Wǒ] 可以[kě-yǐ] 进来[jìn-lai] 吗[ma] ？"}
 ];
 VOC.l9=[
- ["想[xiǎng]","vorrei; pensare",""],["会[huì]","saper fare; probabilmente",""],["能[néng]","potere (capacità)",""],["可以[kě-yǐ]","potere (permesso)",""],["吧[ba]","particella di proposta",""],["说[shuō]","parlare, dire",""],["一点儿[yì-diǎnr]","un po'",""],["来[lái]","venire",""],["走[zǒu]","andare via, camminare",""],["饺子[jiǎo-zi]","ravioli cinesi",""],["筷子[kuài-zi]","bacchette",""],["用[yòng]","usare",""],["带[dài]","portare",""],["当然[dāng-rán]","certo",""],["没问题[méi-wèn-tí]","nessun problema",""],["不要[bú-yào]","non… (divieto)",""],["下雨[xià-yǔ]","piovere",""]
+ ["问题[wèn-tí]", "domanda; problema (没问题: nessun problema)", ""],
+ ["想[xiǎng]","vorrei; pensare",""],["会[huì]","saper fare; probabilmente",""],["能[néng]","potere (capacità)",""],["可以[kě-yǐ]","potere (permesso)",""],["吧[ba]","particella di proposta",""],["来[lái]","venire",""],["走[zǒu]","andare via, camminare",""],["饺子[jiǎo-zi]","ravioli cinesi",""],["筷子[kuài-zi]","bacchette",""],["用[yòng]","usare",""],["带[dài]","portare",""],["当然[dāng-rán]","certo",""],["没问题[méi-wèn-tí]","nessun problema",""],["不要[bú-yào]","non… (divieto)",""],["下雨[xià-yǔ]","piovere",""]
 ];

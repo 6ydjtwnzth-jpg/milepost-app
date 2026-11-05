@@ -6,8 +6,8 @@ EX.l4=[
  {q:"L'oggetto è lontano da tutti e due:",o:["あれ","それ","これ"],e:"あれ = lontano da tutti e due."},
  {q:"«Questo libro è mio.»",o:["この ほん は わたし の です 。","これ ほん は わたし の です 。","この は わたし の ほん です 。"],e:"この + nome."},
  {q:"«Chi è quella persona?»",o:["あの ひと は だれ です か 。","あれ ひと は 何[なん] です か 。","あの ひと は どれ です か 。"],e:"だれ = chi."},
- {q:"Come si legge コーヒー?",o:["kōhī","kohi","kōfi"],e:"ー allunga la vocale."},
- {q:"Quale katakana è «tsu»?",o:["ツ","シ","ソ"],e:"ツ = tsu; シ = shi."},
+ {q:"Come si legge かぎ?",o:["kagi","kaki","kaji"],e:"き + ゛ = ぎ (gi)."},
+ {q:"Come si legge しゃしん?",o:["shashin","shiyashin","sashin"],e:"し + piccolo ゃ = しゃ, una sillaba sola."},
  {q:"Ascolta e scegli la parola:",au:"テレビ",o:["テレビ","デレビ","テルビ"],e:"テレビ = televisione."},
  {t:"ord",q:"Componi: «Di chi è questo ombrello?»",w:["この","かさ","は","だれ","の","です","か","。"],a:["この かさ は だれ の です か 。"]},
  {t:"type",q:"Completa: ___ は 何[なん] です か 。 (questo, vicino a me)",a:["これ"],full:"これ は 何[なん] です か 。"},
@@ -17,6 +17,7 @@ EX.l4=[
  {t:"say",it:"Di' che il telefono è tuo.",jp:"それ は わたし の でんわ です 。",e:"Anche: わたし の です."}
 ];
 VOC.l4=[
+ ["へえ", "oh! davvero? (meraviglia)", "x"],["千[せん]", "mille", "n"],["えん", "yen", "n"],["〜 を ください", "mi dia…, vorrei…", "x"],
  ["これ","questo (vicino a me)","x"],["それ","quello (vicino a te)","x"],["あれ","quello (lontano)","x"],["どれ","quale?","x"],["この","questo + nome","x"],["その","quel + nome (vicino a te)","x"],["あの","quel + nome (lontano)","x"],
  ["何[なん]","che cosa?","x"],["だれ","chi?","x"],["ほん","libro","n"],["かばん","borsa, zaino","n"],["ペン","penna","n"],["まくら","cuscino","n"],["ふろしき","furoshiki (telo per avvolgere)","n"],["ふくろ","busta, sacchetto","n"],["おかし","dolci, snack","n"],
  ["コーヒー","caffè","n"],["テレビ","televisione","n"],["スマホ","smartphone","n"],["パスタ","pasta","n"],["ピザ","pizza","n"],["いらっしゃいませ","benvenuto (nei negozi)","x"],["きれい","bello, pulito","a"],["いくら","quanto costa?","x"]

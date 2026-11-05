@@ -84,3 +84,4 @@ Object.assign(DICT,{
 "いちまい ":"uno (oggetto piatto)",
 "ぜんぶで":"in tutto"
 });
+Object.assign(DICT,{"かぎ": "chiave", "ベッド": "letto (all'occidentale)", "ごめん": "scusa (tra amici)", "みみ": "orecchio", "かき": "cachi (il frutto)", "えんぴつ": "matita", "きや": "ki + ya: due sillabe (scritto con ゃ piccolo, きゃ, sarebbe una sola)", "スキー": "sci", "タクシー": "taxi", "カナダ": "Canada", "ミルク": "latte", "メロン": "melone", "ファミレス": "family restaurant (ristorante per famiglie)", "かえって": "tornando (forma -て di かえる)"});

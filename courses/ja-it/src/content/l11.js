@@ -16,6 +16,7 @@ EX.l11=[
  {t:"say",it:"Invita Yuki a bere un caffè insieme sabato.",jp:"土曜日[どようび] に いっしょに コーヒー を 飲[の]みません か 。"}
 ];
 VOC.l11=[
+ ["そのあと", "dopo, in seguito", "x"],["わあ", "wow!", "x"],
  ["しゅみ","hobby","n"],["好[す]き","che piace","a"],["大好[だいす]き","che piace tantissimo","a"],["きらい","che non piace, odiato","a"],["上手[じょうず]","bravo","a"],["へた","negato, scarso","a"],["とくい","il proprio forte","a"],
  ["サッカー","calcio","n"],["しあい","partita","n"],["りょうり","cucina, piatto","n"],["うた","canzone","n"],["やさい","verdura","n"],["スポーツ","sport","n"],["ゲーム","videogioco","n"],["昼[ひる] ごはん","pranzo","n"],
  ["いっしょに","insieme","x"],["よく","spesso","x"],["ときどき","a volte","x"],["ぜんぜん","(con negativo) per niente, mai","x"],["作[つく]ります","fare, preparare","v"],["〜 ません か","non vuoi…? (invito)","x"],["〜 ましょう","facciamo…!","x"],["楽[たの]しい","divertente","a"],["楽[たの]しみ です","non vedo l'ora","x"],["うれしい","felice, contento","a"]

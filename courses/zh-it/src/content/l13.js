@@ -11,5 +11,6 @@ EX.l13=[
  {"t":"say","it":"«La porta è aperta, entra pure.»","zh":"门[Mén] 开[kāi] 着[zhe] ， 你[nǐ] 进来[jìn-lai] 吧[ba] 。"}
 ];
 VOC.l13=[
+ ["打[dǎ]", "colpire; fare (打电话: telefonare)", ""],
  ["正在[zhèng-zài]","stare facendo",""],["着[zhe]","particella di stato che dura",""],["门[mén]","porta",""],["开[kāi]","aprire",""],["笑[xiào]","sorridere, ridere",""],["看书[kàn-shū]","leggere",""],["做饭[zuò-fàn]","cucinare",""],["打电话[dǎ-diàn-huà]","telefonare",""],["直接[zhí-jiē]","direttamente",""],["进来[jìn-lai]","entrare (verso chi parla)",""],["就[jiù]","subito",""],["干[gàn]","fare (colloquiale)",""]
 ];

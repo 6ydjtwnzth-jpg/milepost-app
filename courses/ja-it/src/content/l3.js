@@ -1,4 +1,4 @@
-DLG.l3=[["A","マルコ さん は とうきょう だいがく の 学生[がくせい] です か 。","Marco, sei uno studente dell'Università di Tokyo?"],["B","はい 、 そう です 。 けん さん も 学生[がくせい] です か 。","Sì, esatto. Anche tu sei studente, Ken?"],["A","はい 、 わたし も 学生[がくせい] です 。 けいざい の 学生[がくせい] です 。","Sì, anch'io sono studente. Studio economia."],["B","そう です か 。 あ 、 それ は けん さん の かさ です か 。","Ah, davvero? Oh, quello è il tuo ombrello?"],["A","いいえ 、 わたし の かさ じゃ ありません 。 ゆき さん の です 。","No, non è il mio ombrello. È di Yuki."],["B","ゆき さん の ？ じゃあ 、 これ も ゆき さん の です か 。","Di Yuki? Allora anche questo è di Yuki?"],["A","はい 、 たぶん 。","Sì, probabilmente."]];
+DLG.l3=[["A", "マルコ さん は とうきょう だいがく の 学生[がくせい] です か 。", "Marco, sei uno studente dell'Università di Tokyo?"], ["B", "はい 、 そう です 。 けん さん は ？", "Sì, esatto. E tu, Ken?"], ["A", "わたし も 学生[がくせい] です 。 けいざい の 学生[がくせい] です 。", "Anch'io sono studente. Studio economia."], ["B", "あ 、 それ は けん さん の かさ です か 。", "Oh, quello è il tuo ombrello?"], ["A", "いいえ 、 ゆき さん の です 。", "No, è di Yuki."], ["B", "じゃあ 、 これ も ゆき さん の です か 。", "Allora anche questo è di Yuki?"], ["A", "はい 、 たぶん 。", "Sì, probabilmente."]];
 EX.l3=[
  {q:"Ascolta: di chi è l'ombrello?",au:"それ は ゆき さん の かさ です 。",o:["di Yuki","di Ken","di Marco"],e:"ゆき さん の かさ = l'ombrello di Yuki."},
  {q:"Ascolta: che cosa significa?",au:"わたし も 学生[がくせい] です 。",o:["Anch'io sono studente.","Io non sono studente.","Sono uno studente?"],e:"も = anche."},
@@ -7,7 +7,7 @@ EX.l3=[
  {q:"Come si legge きって?",o:["kitte","kite","kiite"],e:"っ piccolo = doppia."},
  {q:"Ascolta e scegli la parola:",au:"おばあさん",o:["おばあさん","おばさん","おじさん"],e:"おばあさん (vocale lunga) = nonna; おばさん = zia."},
  {q:"Ascolta e scegli la parola:",au:"きょう",o:["きょう","きよう","こう"],e:"きょう = oggi, una sola sillaba kyō."},
- {q:"Quale kana si legge «ga»?",o:["が","か","ぱ"],e:"か + ゛ = が."},
+ {q:"Quale kana si legge «ra»?",o:["ら","る","ろ"],e:"ら = ra: un colpetto di lingua, tra r e l."},
  {q:"を come particella si legge:",o:["o","wo","wa"],e:"を si legge o."},
  {t:"ord",q:"Componi: «È l'insegnante di giapponese.»",w:["日本語[にほんご]","の","先生[せんせい]","です","。"],a:["日本語[にほんご] の 先生[せんせい] です 。"]},
  {t:"type",q:"Scrivi come si legge: がっこう",a:["がっこう"],full:"がっこう",e:"Si legge gakkō."},

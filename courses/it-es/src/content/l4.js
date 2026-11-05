@@ -12,6 +12,7 @@ EX.l4=[
  {t:"say",zh:"Describe tu habitación: hay una cama, un armario y dos ventanas",it:"Nella mia camera c'è un letto, c'è un armadio e ci sono due finestre."}
 ];
 VOC.l4=[
+ ["la mia", "mi (femenino; los posesivos, en la lección 5)", ""],["i tuoi", "tus (masculino plural)", ""],["televisione", "televisión", "f"],
  ["libro","libro","m"],["quaderno","cuaderno","m"],["penna","bolígrafo","f"],["giornale","periódico","m"],["camera","habitación, dormitorio","f"],["letto","cama","m"],["scrivania","escritorio","f"],["tavolo","mesa","m"],
  ["sedia","silla","f"],["armadio","armario","m"],["finestra","ventana","f"],["porta","puerta","f"],["zaino","mochila","m"],["chiave","llave","f"],["regalo","regalo","m"],["foto","foto","f"],
  ["bagno","baño","m"],["amico","amigo","m"],["amica","amiga","f"],["questo","este, esto",""],["grande","grande",""],["bello","bonito, guapo",""],["c'è","hay (singular)",""],["ci sono","hay (plural)",""],["scuola","escuela","f"],["ecco","aquí está, he aquí",""]

@@ -17,6 +17,7 @@ EX.l1=[
  {t:"say",it:"Ringrazia in modo cortese.",jp:"ありがとう ございます 。"}
 ];
 VOC.l1=[
+ ["これ", "questo (lo studi nella lezione 4)", "x"],["あ", "ah! (sorpresa)", "x"],["えっ", "eh? oh! (stupore)", "x"],
  ["おはよう ございます","buongiorno (al mattino)","x"],["こんにちは","buongiorno, ciao","x"],["こんばんは","buonasera","x"],["さようなら","arrivederci","x"],["ありがとう ございます","grazie","x"],["すみません","mi scusi; grazie","x"],
  ["はい","sì","x"],["いいえ","no; di niente","x"],["どうぞ","prego, tenga","x"],["じゃあ また","allora, a presto","x"],
  ["あい","amore","n"],["いえ","casa","n"],["うえ","sopra","n"],["あお","blu (colore)","n"],["かお","viso","n"],["あさ","mattina","n"],["すし","sushi","n"],["いす","sedia","n"],["えき","stazione","n"],["かさ","ombrello","n"],["あき","autunno","n"],["せき","posto a sedere","n"]

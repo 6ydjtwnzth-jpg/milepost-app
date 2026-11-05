@@ -10,5 +10,6 @@ EX.l16=[
  {"t":"say","it":"Rispondi a un complimento: «Ma no, sono ancora lontano.»","zh":"哪里[Nǎ-li] 哪里[nǎ-li] ， 还[hái] 差[chà] 得[de] 远[yuǎn] 呢[ne] 。"}
 ];
 VOC.l16=[
- ["得[de]","particella del complemento di grado",""],["快[kuài]","veloce",""],["跑[pǎo]","correre",""],["写[xiě]","scrivere",""],["汉字[Hàn-zì]","caratteri cinesi",""],["清楚[qīng-chu]","chiaro",""],["好看[hǎo-kàn]","bello",""],["哪里哪里[nǎ-li-nǎ-li]","ma no, figurati",""],["一起[yì-qǐ]","insieme",""],["练习[liàn-xí]","esercitarsi",""],["真[zhēn]","davvero",""]
+ ["哪里[nǎ-li]", "dove; ma no (哪里哪里: risposta modesta a un complimento)", ""],["远[yuǎn]", "lontano", ""],
+ ["得[de]","particella del complemento di grado",""],["跑[pǎo]","correre",""],["写[xiě]","scrivere",""],["汉字[Hàn-zì]","caratteri cinesi",""],["清楚[qīng-chu]","chiaro",""],["好看[hǎo-kàn]","bello",""],["哪里哪里[nǎ-li-nǎ-li]","ma no, figurati",""],["一起[yì-qǐ]","insieme",""],["练习[liàn-xí]","esercitarsi",""],
 ];

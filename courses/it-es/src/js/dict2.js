@@ -12,3 +12,4 @@ Object.assign(DICT,{
 "siviglia":"Sevilla","sicilia":"Sicilia","italia":"Italia","made":"(inglés) hecho (Made in Italy)","italy":"(inglés) Italia (Made in Italy)","augusti":"de Augusto (latín: feriae Augusti)","quanti":"cuántos","quante":"cuántas","questa":"esta","questi":"estos","queste":"estas",
 "chiavi":"llaves","san":"san, santo","como":"Como (ciudad junto al lago de Como); como","fratelli":"hermanos; hermanos y hermanas"
 });
+Object.assign(DICT,{"svegli": "despiertas (svegliarsi: ti svegli)", "colloquio": "entrevista (de trabajo)"});

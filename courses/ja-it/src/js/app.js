@@ -45,7 +45,8 @@ var MIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width
 function jpHTML(s,plain){var out=[];jtoks(s).forEach(function(t){var su=jsurf(t);
   if(JP_PUNCT.test(su)||!JRUN.test(su)&&!/[A-Za-z0-9]/.test(su)){var pu='<span class="pu">'+esc(su)+'</span>';
     if(out.length&&/^[。、！？」』）…]/.test(su))out[out.length-1]='<span class="nw">'+out[out.length-1]+pu+'</span>';else out.push(pu);return}
-  out.push(plain||/^[っッー゛゜]$/.test(su)?'<span class="tk">'+jruby(t)+'</span>':'<span class="w" tabindex="0" role="button" data-say="'+esc(t)+'">'+jruby(t)+'</span>')});
+  var dk=' data-k="'+esc(jread(t))+'"';
+  out.push(plain||/^[っッー゛゜ゃゅょャュョぁぃぅぇぉァィゥェォ]$/.test(su)?'<span class="tk"'+dk+'>'+jruby(t)+'</span>':'<span class="w" tabindex="0" role="button" data-say="'+esc(t)+'"'+dk+'>'+jruby(t)+'</span>')});
   return out.join("")}
 function jLine(s){return '<span class="jl" lang="ja">'+jpHTML(s)+'</span><span class="ro">'+esc(jromaji(s))+'</span>'}
 var MIXRE=/([぀-ヿ一-鿿々〆ー〜～「](?:[぀-ヿ一-鿿々〆ー〜～・。、！？「」]|\[[぀-ヿ]+\]| (?=[぀-ヿ一-鿿「〜。、！？]))*)/;
@@ -143,15 +144,31 @@ function renderExamples(root){$$("div[data-jp]",root).forEach(function(d){if(d.c
   d.innerHTML='<div class="ex-body"><div class="it-l">'+jLine(j)+'</div><div class="tr">'+esc(d.getAttribute("data-it")||"")+'</div></div><button class="say" data-say="'+esc(j)+'" aria-label="Ascolta">'+SPK+'</button>'})}
 renderExamples(document);
 
+/* ---------- rōmaji a scomparsa ----------
+   Kana are taught a few rows at a time (lessons 1–7). In «auto» mode a word shows its rōmaji underneath only while it
+   still contains kana not yet studied at that point of the course; afterwards the learner reads it alone. */
+var KSTEP={l1:"あいうえおかきくけこさしすせそ",l2:"たちつてとなにぬねのはひふへほ",l3:"まみむめもやゆよらりるれろわをんっ",
+  l4:"がぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽゃゅょ",l5:"アイウエオカキクケコサシスセソタチツテトナニヌネノー",
+  l6:"ハヒフヘホマミムメモヤユヨラリルレロワヲン",l7:"ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポャュョッァィゥェォヴぁぃぅぇぉ"};
+var KNOWN={};(function(){var acc="";LESSONS.forEach(function(u){acc+=KSTEP[u.id]||"";KNOWN[u.id]=acc})})();
+function kUnit(el){var s=el.closest&&el.closest("section.lesson,[data-unit]");if(!s)return null;return s.getAttribute("data-unit")||s.id}
+function needRo(k,unit){var kn=KNOWN[unit];if(kn==null)return false;for(var i=0;i<k.length;i++){var c=k.charAt(i);if(/[ぁ-ゖァ-ヺー]/.test(c)&&kn.indexOf(c)<0)return true}return false}
+function autoRo(root){$$("[data-k]:not([data-ro])",root||document).forEach(function(el){var u=kUnit(el),k=el.getAttribute("data-k");
+  if(u&&needRo(k,u)){el.classList.add("nro");var r=document.createElement("span");r.className="wro";r.textContent=RO_PART[k]!==undefined?RO_PART[k]:toRomaji(k);el.appendChild(r)}
+  el.setAttribute("data-ro",u?"1":"0")})}
+autoRo(document);
+var roQueued=false;try{new MutationObserver(function(){if(roQueued)return;roQueued=true;requestAnimationFrame(function(){roQueued=false;autoRo(document)})}).observe(document.body,{childList:true,subtree:true})}catch(e){}
+
 /* ---------- tabelle dei kana ---------- */
 var KROWS={base:[["","あいうえお"],["k","かきくけこ"],["s","さしすせそ"],["t","たちつてと"],["n","なにぬねの"],["h","はひふへほ"],["m","まみむめも"],["y","や・ゆ・よ"],["r","らりるれろ"],["w","わ・・・を"],["n","ん・・・・"]],
   dak:[["g","がぎぐげご"],["z","ざじずぜぞ"],["d","だぢづでど"],["b","ばびぶべぼ"],["p","ぱぴぷぺぽ"]],
+  ext:[["t",["ティ","ディ","トゥ"]],["f",["ファ","フィ","フェ","フォ"]],["w",["ウィ","ウェ","ウォ"]],["j",["ジェ","チェ","シェ"]],["v",["ヴァ","ヴィ","ヴ"]]],
   yoon:[["ky",["きゃ","きゅ","きょ"]],["sh",["しゃ","しゅ","しょ"]],["ch",["ちゃ","ちゅ","ちょ"]],["ny",["にゃ","にゅ","にょ"]],["hy",["ひゃ","ひゅ","ひょ"]],["my",["みゃ","みゅ","みょ"]],["ry",["りゃ","りゅ","りょ"]],["gy",["ぎゃ","ぎゅ","ぎょ"]],["j",["じゃ","じゅ","じょ"]],["by",["びゃ","びゅ","びょ"]],["py",["ぴゃ","ぴゅ","ぴょ"]]]};
 function hira2kata(s){return String(s).replace(/[ぁ-ゖ]/g,function(c){return String.fromCharCode(c.charCodeAt(0)+0x60)})}
 $$("table.kana").forEach(function(t){var g=t.getAttribute("data-g")||"base",kat=t.getAttribute("data-k")==="kata",rows=KROWS[g],only=(t.getAttribute("data-rows")||"").split(",").filter(Boolean);
   var h="";rows.forEach(function(r,ri){if(only.length&&only.indexOf(String(ri))<0)return;var cells=Array.isArray(r[1])?r[1]:r[1].split("");
     h+='<tr>'+cells.map(function(c){if(c==="・")return '<td class="nk"></td>';var k=kat?hira2kata(c):c;
-      return '<td><button class="kc" type="button"'+(/^[っッー゛゜]$/.test(k)?'':' data-say="'+esc(k)+'"')+' aria-label="'+esc(toRomaji(c))+'"><span lang="ja">'+esc(k)+'</span><small>'+esc(toRomaji(c))+'</small></button></td>'}).join("")+'</tr>'});
+      return '<td><button class="kc" type="button"'+(/^[っッー゛゜ゃゅょャュョぁぃぅぇぉァィゥェォ]$/.test(k)?'':' data-say="'+esc(k)+'"')+' aria-label="'+esc(toRomaji(c))+'"><span lang="ja">'+esc(k)+'</span><small>'+esc(toRomaji(c))+'</small></button></td>'}).join("")+'</tr>'});
   t.innerHTML=h});
 
 /* ---------- numeri ---------- */

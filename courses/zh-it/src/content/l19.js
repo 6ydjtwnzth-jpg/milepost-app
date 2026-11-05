@@ -9,5 +9,6 @@ EX.l19=[
  {"t":"say","it":"Calma un amico: «Non agitarti, non è niente.»","zh":"别[Bié] 着急[zháo-jí] ， 没[méi] 事儿[shìr] 。"}
 ];
 VOC.l19=[
+ ["事儿[shìr]", "faccenda, cosa (没事儿: niente, figurati)", ""],["带来[dài-lai]", "portare (qui)", ""],
  ["把[bǎ]","particella che anticipa l'oggetto",""],["被[bèi]","particella del passivo",""],["放[fàng]","mettere",""],["关上[guān-shang]","chiudere",""],["钱包[qián-bāo]","portafoglio",""],["偷[tōu]","rubare",""],["别[bié]","non (fare)!",""],["着急[zháo-jí]","agitarsi",""],["没事儿[méi-shìr]","non è niente",""],["下面[xià-mian]","sotto",""],["蛋糕[dàn-gāo]","torta",""],["它[tā]","esso, lo",""]
 ];

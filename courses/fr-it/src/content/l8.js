@@ -12,6 +12,7 @@ EX.l8=[
  {t:"say",zh:"Ordina un tè al limone e un croissant, poi chiedi quanto costa",it:"Je voudrais un thé au citron et un croissant, s'il vous plaît. Ça fait combien ?"}
 ];
 VOC.l8=[
+ ["je peux… ?", "posso…? (pouvoir: lezione 13)", ""],
  ["vouloir","volere",""],["je voudrais","vorrei",""],["prendre","prendere",""],["désirer","desiderare",""],["thé","tè","m"],["café crème","caffè con latte, cappuccino","m"],["croissant","cornetto","m"],
  ["eau","acqua","f"],["bouteille","bottiglia","f"],["citron","limone","m"],["lait","latte","m"],["jus d'orange","succo d'arancia","m"],["bière","birra","f"],["verre","bicchiere","m"],
  ["sucre","zucchero","m"],["addition","conto (al ristorante)","f"],["carte","carta; menù","f"],["euro","euro","m"],["centime","centesimo","m"],["combien","quanto",""],["payer","pagare",""],

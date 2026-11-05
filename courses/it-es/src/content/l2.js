@@ -13,6 +13,7 @@ EX.l2=[
  {t:"say",zh:"Pregunta a una chica: «¿Cómo te llamas? ¿Eres italiana?»",it:"Come ti chiami? Sei italiana?"}
 ];
 VOC.l2=[
+ ["messicano", "mexicano", ""],["argentino", "argentino", ""],["colombiano", "colombiano", ""],
  ["io","yo",""],["tu","tú",""],["lui","él",""],["lei","ella; usted (Lei)",""],["noi","nosotros",""],["voi","vosotros, ustedes",""],["loro","ellos, ellas",""],
  ["essere","ser, estar",""],["chiamarsi","llamarse",""],["nome","nombre","m"],["cognome","apellido","m"],["italiano","italiano",""],["spagnolo","español",""],["francese","francés",""],["inglese","inglés",""],
  ["studente","estudiante (hombre)","m"],["studentessa","estudiante (mujer)","f"],["insegnante","profesor, profesora","m"],["città","ciudad","f"],["piacere","encantado; placer",""],["anche","también",""],["non","no",""],["di dove","de dónde",""],

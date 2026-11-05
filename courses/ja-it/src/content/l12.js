@@ -16,6 +16,7 @@ EX.l12=[
  {t:"say",it:"Spiega: «Vada dritto e al semaforo giri a destra.»",jp:"まっすぐ 行[い]って ください 。 しんごう を 右[みぎ] に まがって ください 。"}
 ];
 VOC.l12=[
+ ["つくえ", "scrivania", "n"],
  ["上[うえ]","sopra","n"],["下[した]","sotto","n"],["中[なか]","dentro","n"],["外[そと]","fuori","n"],["前[まえ]","davanti","n"],["うしろ","dietro","n"],["となり","accanto","n"],["ちかく","vicino","n"],["右[みぎ]","destra","n"],["左[ひだり]","sinistra","n"],
  ["ここ","qui","x"],["そこ","lì","x"],["あそこ","là","x"],["道[みち]","strada","n"],["しんごう","semaforo","n"],["ゆうびんきょく","ufficio postale","n"],["こうえん","parco","n"],["ホテル","hotel","n"],["こうばん","posto di polizia","n"],["東口[ひがしぐち]","uscita est","n"],
  ["まっすぐ","dritto","x"],["まがって ください","giri, per favore","x"],["わかりました","ho capito","x"],["たくさん","tanto, tanti","x"],["子[こ]ども","bambino","n"],["気[き]を つけて","fai attenzione","x"]

@@ -11,3 +11,4 @@ Object.assign(DICT,{
 Object.assign(DICT,{"â":"a con l'accento circonflesso","ô":"o con l'accento circonflesso (si legge o chiusa)","ç":"c con la cediglia: si legge s","o":"la vocale o","forêt":"foresta","garçon":"ragazzo; cameriere",
 "verlan":"gergo che rovescia le sillabe","meuf":"donna, ragazza (verlan di femme)","lourd":"pesante","baguette":"baguette, filone di pane","tradition":"tradizione; baguette tradizionale (farina, acqua, sale, lievito)","cave":"cantina",
 "maillot":"maglia","jaune":"giallo","viennoiseries":"cornetti e dolci da forno (alla viennese)","chocolatine":"saccottino al cioccolato (nel sud-ovest)","muguet":"mughetto","mutuelle":"assicurazione sanitaria complementare"});
+Object.assign(DICT,{"jouions": "giocavamo (imparfait di jouer)"});

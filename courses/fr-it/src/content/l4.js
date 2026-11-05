@@ -1,4 +1,4 @@
-DLG.l4=[["A","Voilà la chambre. Il y a un lit, une table et deux chaises.","Ecco la camera. C'è un letto, un tavolo e due sedie."],["B","Elle est jolie ! Il y a une armoire ?","È carina! C'è un armadio?"],["A","Oui, à côté de la fenêtre.","Sì, accanto alla finestra."],["B","Et la salle de bains ?","E il bagno?"],["A","Elle est là, en face. Mais il n'y a pas de baignoire, il y a une douche.","È lì, di fronte. Ma non c'è la vasca, c'è la doccia."],["B","Pas de problème. Et il y a le wifi ?","Nessun problema. E c'è il wi-fi?"],["A","Bien sûr !","Certo!"]];
+DLG.l4=[["A","Voilà la chambre. Il y a un lit, une table et deux chaises.","Ecco la camera. C'è un letto, un tavolo e due sedie."],["B","Elle est jolie ! Il y a une armoire ?","È carina! C'è un armadio?"],["A","Oui, à côté de la fenêtre.","Sì, accanto alla finestra."],["B","Et la salle de bains ?","E il bagno?"],["A","Elle est là, en face.","È lì, di fronte."],["B","Il y a une baignoire ?","C'è la vasca?"],["A","Non, il n'y a pas de baignoire. Il y a une douche.","No, non c'è la vasca. C'è la doccia."],["B","Pas de problème. Et il y a le wifi ?","Nessun problema. E c'è il wi-fi?"],["A","Bien sûr !","Certo!"]];
 EX.l4=[
  {q:"Scegli l'articolo: ＿ {mer}",o:["{la mer}","{le mer}","{les mer}"],e:"{mer} è femminile, al contrario dell'italiano: {la mer}."},
  {q:"Scegli l'articolo: ＿ {école}",o:["{l'école}","{la école}","{le école}"],e:"Davanti a vocale {le} e {la} diventano {l'}."},
@@ -12,6 +12,7 @@ EX.l4=[
  {t:"say",zh:"Descrivi la tua camera: c'è un letto, un armadio, non c'è la tv",it:"Il y a un lit et une armoire. Il n'y a pas de télé."}
 ];
 VOC.l4=[
+ ["là", "lì, là", ""],["pas de problème", "nessun problema", ""],["wifi", "wi-fi", "m"],
  ["chambre","camera da letto","f"],["lit","letto","m"],["table","tavolo","f"],["chaise","sedia","f"],["armoire","armadio","f"],["fenêtre","finestra","f"],["porte","porta","f"],
  ["salle de bains","bagno","f"],["douche","doccia","f"],["baignoire","vasca da bagno","f"],["cuisine","cucina","f"],["salon","salotto","m"],["jardin","giardino","m"],
  ["télé","tv","f"],["frigo","frigo","m"],["école","scuola","f"],["mer","mare","f"],["fleur","fiore","f"],["gâteau","torta, dolce","m"],["journal","giornale","m"],

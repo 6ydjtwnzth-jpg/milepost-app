@@ -17,6 +17,7 @@ EX.l20=[
  {t:"say",it:"Racconta: «Per il compleanno un amico mi ha regalato un libro.»",jp:"たんじょうび に ともだち が 本[ほん] を くれました 。"}
 ];
 VOC.l20=[
+ ["〜 用[よう]", "per… (uso): プレゼント用 = da regalo", "x"],
  ["あげる","dare (a un altro)","v"],["くれる","dare (a me)","v"],["もらう","ricevere","v"],["〜て みる","provare a fare","x"],["プレゼント","regalo","n"],["おみやげ","souvenir, regalo dal viaggio","n"],["たんじょうび","compleanno","n"],["買[か]い物[もの]","spesa, shopping","n"],
  ["スカーフ","sciarpa, foulard","n"],["くつ","scarpe","n"],["Tシャツ","maglietta","n"],["チョコ","cioccolato","n"],["ネクタイ","cravatta","n"],["色[いろ]","colore","n"],["赤[あか]","rosso","n"],["青[あお]","blu","n"],["白[しろ]","bianco","n"],["黒[くろ]","nero","n"],
  ["はく","indossare (sotto la vita)","v"],["つつむ","incartare","v"],["さわる","toccare","v"],["考[かんが]える","pensare, riflettere","v"],["やわらかい","morbido","a"],["にんき","popolarità","n"],["いかが です か","che ne dice? (cortese)","x"],["かしこまりました","certamente (commessi)","x"]

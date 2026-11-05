@@ -17,6 +17,7 @@ EX.l16=[
  {t:"say",zh:"Di cuándo naciste",it:"Sono nata il tre marzo.",e:"Un hombre dice {nato}."}
 ];
 VOC.l16=[
+ ["almeno", "al menos", ""],
  ["viaggio","viaje","m"],["vacanza","vacaciones","f"],["partire","salir (de viaje)",""],["arrivare","llegar",""],["tornare","volver",""],["restare","quedarse",""],["nascere","nacer",""],
  ["aereo","avión","m"],["treno","tren","m"],["barca","barca, barco","f"],["biglietto","billete, entrada","m"],["albergo","hotel","m"],
  ["gennaio","enero",""],["marzo","marzo",""],["maggio","mayo",""],["luglio","julio",""],["agosto","agosto",""],["settembre","septiembre",""],["ottobre","octubre",""],["dicembre","diciembre",""],

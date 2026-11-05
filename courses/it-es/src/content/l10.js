@@ -17,6 +17,7 @@ EX.l10=[
  {t:"say",zh:"Di algo que no haces nunca",it:"Non vado mai a letto prima di mezzanotte.",e:"{non … mai} = nunca."}
 ];
 VOC.l10=[
+ ["fatica", "cansancio, esfuerzo (che fatica!: ¡qué cansancio!)", "f"],["invece", "en cambio", ""],["fino a", "hasta", ""],["prima di", "antes de", ""],
  ["ora","hora","f"],["mezza","media (hora)",""],["un quarto","un cuarto",""],["meno","menos",""],["mezzogiorno","mediodía","m"],["mezzanotte","medianoche","f"],
  ["mattina","mañana (parte del día)","f"],["pomeriggio","tarde","m"],["sera","noche, tarde-noche","f"],["alzarsi","levantarse",""],["svegliarsi","despertarse",""],["lavarsi","lavarse",""],["vestirsi","vestirse",""],["riposarsi","descansar",""],
  ["colazione","desayuno","f"],["pranzo","almuerzo, comida","m"],["cena","cena","f"],["palestra","gimnasio","f"],["sempre","siempre",""],["spesso","a menudo",""],["qualche volta","a veces",""],["mai","nunca (non … mai)",""],

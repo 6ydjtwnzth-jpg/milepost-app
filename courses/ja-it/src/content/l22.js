@@ -17,6 +17,7 @@ EX.l22=[
  {t:"say",it:"Chiedi se qui si può pagare con la carta.",jp:"ここ で カード が 使[つか]えます か 。"}
 ];
 VOC.l22=[
+ ["口[くち]", "bocca", "n"],["なまもの", "cibo crudo", "n"],["早[はや]く", "presto", "x"],
  ["いたい","che fa male","a"],["あたま","testa","n"],["おなか","pancia","n"],["歯[は]","denti","n"],["のど","gola","n"],["ねつ","febbre","n"],["せき","tosse","n"],["かぜ","raffreddore, influenza","n"],["くすり","medicina","n"],["病院[びょういん]","ospedale, clinica","n"],["お医者[いしゃ]さん","medico","n"],
  ["〜 なければ なりません","devo…","x"],["〜 なくて も いい","non c'è bisogno di…","x"],["〜 た ほう が いい","è meglio…","x"],["〜 ん です","è che… (spiegazione)","x"],["できる","potere, saper fare","v"],["休[やす]む","riposare; assentarsi","v"],["あける","aprire","v"],["無理[むり] を する","sforzarsi troppo","v"],
  ["一日[いちにち]","un giorno; al giorno","n"],["けさ","stamattina","n"],["ほけんしょう","tessera sanitaria","n"],["お大事[だいじ] に","riguardati","x"],["どう しました か","che cosa c'è? (medico)","x"]

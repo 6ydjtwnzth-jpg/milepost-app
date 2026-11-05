@@ -15,6 +15,7 @@ EX.l12=[
  {t:"say",zh:"给朋友指路：「一直往前走，然后右转。」（用 tu）",it:"Va' sempre dritto e poi gira a destra."}
 ];
 VOC.l12=[
+ ["aiutare", "帮助", ""],
  ["stazione","火车站","f"],["piazza","广场","f"],["banca","银行","f"],["chiesa","教堂","f"],["museo","博物馆","m"],["farmacia","药店","f"],["supermercato","超市","m"],
  ["autobus","公交车","m"],["fermata","车站（公交）","f"],["metro","地铁","f"],["destra","右边","f"],["sinistra","左边","f"],["dritto","直、一直",""],
  ["davanti a","在……前面",""],["dietro","在……后面",""],["accanto a","在……旁边",""],["di fronte a","在……对面",""],["lontano","远",""],["vicino a","在……附近",""],

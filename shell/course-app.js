@@ -121,13 +121,13 @@ function info(id){var ss=stepsOf(id),tot=0,left=0,done=0;ss.forEach(function(st)
 function nextOf(id){var ss=stepsOf(id);for(var i=0;i<ss.length;i++)if(!stepDone(id,ss[i]))return ss[i];return null}
 function hereIdx(){for(var i=0;i<UNITS.length;i++){var U=UNITS[i];if(U.w<(P.skip||1))continue;if(!info(U.id).verified)return i}return -1}
 function canDo(id){var s=sec(id),cd=s&&q("ul.cando",s);if(!cd)return [];
-  return qa("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);qa("input,rt,.ro-i,.ro",x).forEach(function(e){e.remove()});return x.textContent.replace(/\s+/g," ").trim()}).filter(Boolean)}
+  return qa("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);qa("input,rt,.ro-i,.ro,.wro",x).forEach(function(e){e.remove()});return x.textContent.replace(/\s+/g," ").trim()}).filter(Boolean)}
 function stepSub(id,st){var d=S.stepSub[st.k];
   if(st.k==="voc")return d(lessonWords(id).length);
   if(st.k==="cult")return d((CULT[id]||[]).length);
   if(st.k==="test")return d(exSplit(id).t.length);
   if(st.k==="rule"||st.k==="rev"){var hd=null;st.n.some(function(n){if(n.matches&&n.matches("h3")){hd=n;return true}var x=n.querySelector&&n.querySelector("h3");if(x){hd=x;return true}return false});
-    if(hd){var c=hd.cloneNode(true);qa("rt,.ro-i",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}return ""}
+    if(hd){var c=hd.cloneNode(true);qa("rt,.ro-i,.wro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}return ""}
   return typeof d==="string"?d:""}
 function stepLabel(st){return S.steps[st.k]+(st.of>1?" "+(st.i+1)+"/"+st.of:"")}
 
@@ -135,7 +135,7 @@ function stepLabel(st){return S.steps[st.k]+(st.of>1?" "+(st.i+1)+"/"+st.of:"")}
 var CK=KEY+"-cultread";
 function cultRead(){return M.store.get(CK)||{}}
 function allCult(){var out=[];UNITS.forEach(function(U){(CULT[U.id]||[]).forEach(function(c,i){out.push({c:c,u:U,key:U.id+":"+i})})});return out}
-function plainCult(c){var t=document.createElement("div");t.innerHTML=cultHTML(c);qa("rt,.ro-i,.ro",t).forEach(function(e){e.remove()});
+function plainCult(c){var t=document.createElement("div");t.innerHTML=cultHTML(c);qa("rt,.ro-i,.ro,.wro",t).forEach(function(e){e.remove()});
   var p=qa(".cc-body > p",t).filter(function(x){return !x.classList.contains("cc-it")})[0];return p?p.textContent.replace(/\s+/g," ").trim():""}
 function dayCult(){var all=allCult();if(!all.length)return null;var hi=Math.max(0,hereIdx());
   var pool=all.filter(function(x){return UNITS.indexOf(x.u)<=hi+2});if(!pool.length)pool=all;
@@ -278,7 +278,7 @@ function vCourse(){
 /* ---------- Lezione ---------- */
 /* rules of a lesson, split at each h3: what the learner can open and read on the lesson page */
 function ruleGroups(id,steps){var gs=[],cur=null;
-  function clean(el){var c=el.cloneNode(true);qa("rt,.ro-i,.ro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}
+  function clean(el){var c=el.cloneNode(true);qa("rt,.ro-i,.ro,.wro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}
   bodyNodes(id).forEach(function(n){
     var t=n.matches("h3")?n:n.matches("details")?q("summary",n):q("h3",n);
     if(t){cur={t:t,box:n,nodes:[n],scopri:n.matches("details")};gs.push(cur)}

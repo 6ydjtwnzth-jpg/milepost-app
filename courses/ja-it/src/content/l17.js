@@ -18,6 +18,7 @@ EX.l17=[
  {t:"say",it:"Racconta: «Da bambino abitavo a Napoli. Giocavo spesso a calcio.»",jp:"子[こ]ども の とき 、 ナポリ に 住[す]んで いました 。 よく サッカー を しました 。"}
 ];
 VOC.l17=[
+ ["川[かわ]", "fiume", "n"],["車[くるま]", "automobile", "n"],
  ["子[こ]ども の とき","da bambino","x"],["〜 とき","quando…","x"],["〜た こと が あります","ho già fatto…","x"],["一度[いちど]","una volta","n"],["〜 回[かい]","… volte","x"],["まだ","ancora (non)","x"],["そのころ","a quel tempo","x"],["だから","per questo, quindi","x"],
  ["住[す]む","abitare","v"],["およぐ","nuotare","v"],["あそぶ","giocare, divertirsi","v"],["はじめる","cominciare","v"],["わすれる","dimenticare","v"],["とめる","fermare, parcheggiare","v"],["わかる","capire","v"],
  ["小学校[しょうがっこう]","scuola elementare","n"],["マンガ","manga, fumetti","n"],["ひま","libero, senza impegni","a"],["すごく","tantissimo (parlato)","x"],["うん","sì (informale)","x"],["ううん","no (informale)","x"],["いい なあ","che invidia, che bello","x"],["そう なんだ","ah, capisco (informale)","x"],["おこのみやき","okonomiyaki","n"]

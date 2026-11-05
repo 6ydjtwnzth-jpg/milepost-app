@@ -16,6 +16,7 @@ EX.l16=[
  {t:"say",zh:"说你的生日。",it:"Sono nata il tre marzo.",e:"男生说 nato。"}
 ];
 VOC.l16=[
+ ["almeno", "至少", ""],
  ["viaggio","旅行","m"],["vacanza","假期","f"],["partire","出发",""],["arrivare","到达",""],["tornare","回来",""],["restare","留下、待",""],["nascere","出生",""],
  ["aereo","飞机","m"],["treno","火车","m"],["barca","船","f"],["biglietto","票","m"],["albergo","酒店","m"],
  ["gennaio","一月",""],["marzo","三月",""],["maggio","五月",""],["luglio","七月",""],["agosto","八月",""],["settembre","九月",""],["ottobre","十月",""],["dicembre","十二月",""],

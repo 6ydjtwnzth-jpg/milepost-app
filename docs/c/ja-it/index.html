@@ -596,10 +596,14 @@ body.no-furi rt{visibility:hidden}
 .ro,.ro-i{display:none;font-family:var(--f-disp);font-weight:500;color:var(--muted);letter-spacing:.01em}
 .ro{font-size:14px;line-height:1.4;margin-top:-2px}
 .ro-i{font-size:.86em}
-body.ro-on .ro,body.ro-auto .early .ro,.stage.early .ro{display:block}
-body.ro-on .ro-i,body.ro-auto .early .ro-i,.stage.early .ro-i{display:inline}
+body.ro-on .ro{display:block}
+body.ro-on .ro-i{display:inline}
 .jl+.ro{display:none}
-body.ro-on .jl+.ro,body.ro-auto .early .jl+.ro,.stage.early .jl+.ro{display:block}
+body.ro-on .jl+.ro{display:block}
+/* rōmaji under a single word, only for kana not yet taught (auto mode) */
+.wro{display:none}
+body.ro-auto .nro{display:inline-flex;flex-direction:column;align-items:center;vertical-align:top;line-height:1.5;margin-bottom:.5em}
+body.ro-auto .nro>.wro{display:block;font-family:var(--f-disp);font-weight:500;font-size:.52em;color:var(--muted);letter-spacing:.01em;line-height:1.1;margin-top:.32em;white-space:nowrap}
 .wd .ro{font-size:13px}
 .fc-word .jl{line-height:1.6}
 .fc-ro{font-size:18px!important;text-align:center}
@@ -840,7 +844,7 @@ setTimeout(hide,Math.max(4000,min))})();
   <div class="stats">
     <div class="t-red"><b>23</b><span>lezioni + 3 ripassi · <i lang="ja">課</i></span></div>
     <div class="t-blue"><b>22</b><span>dialoghi · <i lang="ja">会話</i></span></div>
-    <div class="t-green"><b>446</b><span>esercizi · <i lang="ja">練習</i></span></div>
+    <div class="t-green"><b>452</b><span>esercizi · <i lang="ja">練習</i></span></div>
     <div class="t-yellow"><b>539</b><span>parole · <i lang="ja">単語</i></span></div>
   </div>
   <div class="legend"><span>Come si legge:</span><b lang="ja"><ruby>日本<rt>にほん</rt></ruby></b><span>= furigana, la lettura sopra i kanji</span><span>· <b>rōmaji</b>: le lettere latine sotto il giapponese, solo nelle prime lezioni (si cambia in alto)</span><span>· le parole <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">in verde</b> si toccano: senti la pronuncia e vedi il significato</span></div>
@@ -985,11 +989,31 @@ setTimeout(hide,Math.max(4000,min))})();
     </div>
   </div>
   <div class="rule" data-seal="Regola">
+    <h3>Perché si comincia dal cortese</h3>
+    <p>In italiano scegli tra «tu» e «Lei». In giapponese la cortesia sta invece <b>alla fine della frase</b>: です e, per i verbi, ます (lezione 7) sono la forma <b>cortese</b>. Senza di loro la frase diventa <b>informale</b>, quella che si usa tra amici, in famiglia e con i bambini.</p>
+    <div class="tw"><table>
+      <tr><th>cortese</th><th>tra amici</th></tr>
+      <tr><td>マルコ です<br><small>«sono Marco»</small></td><td>マルコ (だ)</td></tr>
+      <tr><td>はい / いいえ<br><small>«sì» / «no»</small></td><td>うん / ううん</td></tr>
+      <tr><td>ありがとう ございます<br><small>«grazie»</small></td><td>ありがとう</td></tr>
+      <tr><td>すみません<br><small>«scusa»</small></td><td>ごめん</td></tr>
+    </table></div>
+    <p>Il corso parte dal cortese per tre motivi: è la forma giusta con chi non conosci (negozi, uffici, insegnanti, colleghi); usata con un amico suona solo un po' distante, mentre l'informale con uno sconosciuto suona maleducato; ed è più semplice, perché です non cambia mai. La forma tra amici la vedrai poco alla volta nei riquadri «Tra amici» e la imparerai tutta nella lezione 17.</p>
+    <div class="exs">
+      <div data-jp="はい 、 学生[がくせい] です 。" data-it="Sì, sono studente. (cortese)"></div>
+      <div data-jp="うん 、 学生[がくせい] 。" data-it="Sì, sono studente. (tra amici)"></div>
+      <div data-jp="ありがとう ございます 。 / ありがとう ！" data-it="Grazie. (cortese) / Grazie! (tra amici)"></div>
+    </div>
+  </div>
+  <div class="rule" data-seal="Regola">
     <h3>No: じゃ ありません</h3>
     <p>Per dire «non è» si sostituisce です con <b>じゃ ありません</b> (nello scritto anche では ありません).</p>
     <div class="exs">
       <div data-jp="わたし は 先生[せんせい] じゃ ありません 。" data-it="Non sono un insegnante."></div>
       <div data-jp="いいえ 、 フランス人[じん] じゃ ありません 。 イタリア人[じん] です 。" data-it="No, non sono francese. Sono italiano."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="マルコ さん は 先生[せんせい] じゃ ありません 。 学生[がくせい] です 。" data-it="Marco non è un insegnante. È uno studente."></div>
     </div>
   </div>
   <div class="warn"><strong>さん: mai per sé stessi</strong>Dopo il nome degli altri si aggiunge さん (signore, signora, ma anche tra amici): ゆき さん, ロッシ さん. Per te stesso non si usa mai: non dire «マルコ さん です».</div>
@@ -1026,6 +1050,7 @@ setTimeout(hide,Math.max(4000,min))})();
     <li>So presentarmi: はじめまして 。 マルコ です 。 よろしく お願[ねが]いします 。</li>
     <li>So dire di dove sono e che cosa faccio: イタリア人[じん] です 。 学生[がくせい] です 。</li>
     <li>So fare domande con か e rispondere はい o いいえ, anche con じゃ ありません.</li>
+    <li>So perché si parla cortese con chi non conosco, e riconosco うん, ありがとう, ごめん tra amici.</li>
     <li>So leggere le righe た, な, は (e che は particella si legge wa).</li>
   </ul>
 
@@ -1033,7 +1058,7 @@ setTimeout(hide,Math.max(4000,min))})();
 <section class="lesson t-yellow early" id="l3" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>Lezione 3</span><span class="itk" lang="ja">第3課</span></div>
   <h2>Tutti gli hiragana, doppie e vocali lunghe<small lang="ja">ひらがな</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-wave"/></svg></header>
-  <p class="lead">Completi gli hiragana e scopri tre segni che per un italiano sono facili: le <b>doppie</b> (っ piccolo), le <b>vocali lunghe</b> e le sillabe come きゃ. La grammatica nuova è piccola ma utilissima: <b>の</b> («di») e <b>も</b> («anche»).</p>
+  <p class="lead">Impari le ultime righe di hiragana semplici (ま, や, ら, わ, ん) e due fenomeni che per un italiano sono facili: le <b>doppie</b> (っ piccolo) e le <b>vocali lunghe</b>. I segni ゛ ゜ e le sillabe come きゃ arrivano nella lezione 4: fino ad allora, sotto le parole che li contengono trovi il rōmaji. La grammatica nuova è piccola ma utilissima: <b>の</b> («di») e <b>も</b> («anche»).</p>
   <div class="dialog" data-dlg="l3"></div>
 
   <details class="scopri"><summary><span class="sq">Nel dialogo si dice とうきょう だいがく の 学生[がくせい]. Che cosa fa の? E perché Ken dice わたし も?</span></summary>
@@ -1053,20 +1078,24 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="けん さん は 学生[がくせい] です 。 マルコ さん も 学生[がくせい] です 。" data-it="Ken è studente. Anche Marco è studente."></div>
       <div data-jp="わたし も イタリア人[じん] です 。" data-it="Anch'io sono italiano."></div>
     </div>
+    <div class="exs">
+      <div data-jp="ゆき さん は 日本人[にほんじん] です 。 たなか さん も 日本人[にほんじん] です 。" data-it="Yuki è giapponese. Anche Tanaka è giapponese."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Suoni">
     <h3>Doppie e vocali lunghe: cambiano il significato</h3>
     <ul class="plain">
       <li><b>っ piccolo</b> = consonante doppia, come in italiano: きって (kitte, francobollo) ≠ きて (kite, vieni).</li>
       <li><b>Vocale lunga</b>: dura il doppio. おばあさん (obaasan, nonna) ≠ おばさん (obasan, zia). おう e えい di solito si leggono ō ed ē: がっこう (scuola) si dice «gakkō».</li>
-      <li><b>き + ゃ = きゃ</b>: una sillaba sola (kya). Piccolo ゃ ゅ ょ = ya, yu, yo attaccati.</li>
     </ul>
     <div class="exs">
       <div data-jp="きって 、 きて" data-it="francobollo, vieni"></div>
       <div data-jp="おばあさん 、 おばさん" data-it="nonna, zia"></div>
       <div data-jp="がっこう" data-it="scuola"></div>
       <div data-jp="とうきょう" data-it="Tokyo"></div>
-      <div data-jp="おちゃ 、 きょう" data-it="tè verde, oggi"></div>
+      <div data-jp="もっと" data-it="di più"></div>
+      <div data-jp="せんせい" data-it="insegnante (sensei: la ei si allunga)"></div>
+      <div data-jp="おおきい" data-it="grande (oo lunga)"></div>
     </div>
   </div>
   <div class="warn"><strong>Come per un italiano</strong>Le doppie giapponesi sono proprio come le nostre: una piccola pausa prima della consonante. Gli stranieri fanno fatica, tu no! Fai invece attenzione alle vocali lunghe, che in italiano non distinguiamo.</div>
@@ -1077,15 +1106,16 @@ setTimeout(hide,Math.max(4000,min))})();
   </ul></div>
 
   <div class="suono">
-    <h3>Gli ultimi hiragana: ま · や · ら · わ · ん, e i segni ゛ ゜</h3>
-    <p>ら si dice con un colpetto di lingua, a metà tra la nostra r e la l. を si legge <i>o</i> ed è usato solo come particella. Con due trattini ゛ la consonante diventa sonora: か → が, さ → ざ, た → だ, は → ば; con il cerchietto ゜ は → ぱ.</p>
+    <h3>Gli ultimi hiragana semplici: ま · や · ら · わ · ん</h3>
+    <p>ら si dice con un colpetto di lingua, a metà tra la nostra r e la l. を si legge <i>o</i> ed è usato solo come particella. ん è l'unica consonante che sta da sola: si legge come una n leggera, nasale.</p>
     <div class="tw"><table class="kana" data-k="hira" data-g="base" data-rows="6,7,8,9,10"></table></div>
-    <div class="tw"><table class="kana" data-k="hira" data-g="dak"></table></div>
     <div class="exs">
       <div data-jp="やま" data-it="montagna"></div>
-      <div data-jp="みず" data-it="acqua"></div>
-      <div data-jp="ごはん" data-it="riso; pasto"></div>
-      <div data-jp="でんわ" data-it="telefono"></div>
+      <div data-jp="みみ" data-it="orecchio"></div>
+      <div data-jp="よる" data-it="sera, notte"></div>
+      <div data-jp="くるま" data-it="automobile"></div>
+      <div data-jp="ほん" data-it="libro"></div>
+      <div data-jp="わたし" data-it="io"></div>
     </div>
   </div>
 
@@ -1093,7 +1123,7 @@ setTimeout(hide,Math.max(4000,min))})();
   <div class="words" data-voc="l3"></div>
   <div class="drill" data-set="l3"></div>
   <ul class="cando" data-cando="l3">
-    <li>So leggere tutti gli hiragana, anche con ゛ ゜.</li>
+    <li>So leggere gli hiragana semplici, da あ a ん.</li>
     <li>So leggere doppie e vocali lunghe: きって, おばあさん, がっこう.</li>
     <li>So dire «di» con の: わたし の かさ, 日本語[にほんご] の 先生[せんせい].</li>
     <li>So dire «anche» con も: わたし も 学生[がくせい] です.</li>
@@ -1103,7 +1133,7 @@ setTimeout(hide,Math.max(4000,min))})();
 <section class="lesson t-green early" id="l4" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>Lezione 4</span><span class="itk" lang="ja">第4課</span></div>
   <h2>Che cos&#x27;è? これ・それ・あれ<small lang="ja">これは何ですか</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-book"/></svg></header>
-  <p class="lead">Indicare le cose e chiedere che cosa sono. In giapponese ci sono tre «distanze»: vicino a chi parla, vicino a chi ascolta, lontano da tutti e due. È la serie こ・そ・あ・ど, che tornerà spesso. Impari anche i <b>katakana</b>, l'alfabeto delle parole straniere.</p>
+  <p class="lead">Indicare le cose e chiedere che cosa sono. In giapponese ci sono tre «distanze»: vicino a chi parla, vicino a chi ascolta, lontano da tutti e due. È la serie こ・そ・あ・ど, che tornerà spesso. Completi gli hiragana con i segni <b>゛ ゜</b> (か → が) e le sillabe come <b>きゃ</b>.</p>
   <div class="dialog" data-dlg="l4"></div>
 
   <details class="scopri"><summary><span class="sq">Il commesso dice それ è un cuscino, ma Marco poco prima aveva detto これ indicando la stessa cosa. Chi ha sbagliato?</span></summary>
@@ -1128,25 +1158,41 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="わたし の です 。" data-it="È mia."></div>
     </div>
     <p>Quando è chiaro di che cosa si parla, il nome dopo の si può togliere: わたし の かばん → わたし の «la mia».</p>
+    <div class="exs">
+      <div data-jp="あの ひと は だれ です か 。 — たなか さん です 。" data-it="Chi è quella persona? — È il signor Tanaka."></div>
+    </div>
   </div>
   <div class="warn"><strong>これ o この?</strong>これ sta da solo: これ は ペン です. この vuole sempre un nome dopo: この ペン は わたし の です. Non si dice «この は».</div>
 
   <div class="speech" data-seal="Nella vita"><h3>Nella vita reale</h3><ul class="plain">
     <li>Nei negozi, indicando: これ を ください 。 «Mi dia questo.» (lo vedrai bene nella lezione 8).</li>
     <li>何[なん] です か 。 detto con un tono sorpreso vale anche «Che cosa c'è?».</li>
-    <li>Molte parole italiane sono entrate in giapponese in katakana: パスタ, ピザ, カプチーノ, ジェラート.</li>
+    <li>Molte parole italiane sono entrate in giapponese in katakana: パスタ, ピザ, カプチーノ, ジェラート. I katakana li impari nelle lezioni 5, 6 e 7.</li>
   </ul></div>
 
   <div class="suono">
-    <h3>Katakana: カタカナ</h3>
-    <p>Gli stessi suoni degli hiragana, con forme più squadrate. Si usano per parole straniere, nomi stranieri e suoni. <b>ー</b> allunga la vocale. Attenzione a due coppie che si confondono: <b>シ</b> (shi) e <b>ツ</b> (tsu), <b>ソ</b> (so) e <b>ン</b> (n).</p>
-    <div class="tw"><table class="kana" data-k="kata" data-g="base"></table></div>
+    <h3>Hiragana: i segni ゛ ゜</h3>
+    <p>Due trattini <b>゛</b> rendono sonora la consonante: か → が (ga), さ → ざ (za), た → だ (da), は → ば (ba). Il cerchietto <b>゜</b> si mette solo sulla riga は: は → ぱ (pa). Attenzione: じ e ぢ si leggono tutti e due <i>ji</i>, ず e づ <i>zu</i>; nelle parole si usano quasi sempre じ e ず.</p>
+    <div class="tw"><table class="kana" data-k="hira" data-g="dak"></table></div>
     <div class="exs">
-      <div data-jp="コーヒー" data-it="caffè"></div>
-      <div data-jp="パスタ 、 ピザ" data-it="pasta, pizza"></div>
-      <div data-jp="テレビ" data-it="televisione"></div>
-      <div data-jp="スマホ" data-it="smartphone"></div>
-      <div data-jp="マルコ ・ ロッシ" data-it="Marco Rossi"></div>
+      <div data-jp="かき 、 かぎ" data-it="cachi, chiave"></div>
+      <div data-jp="みず" data-it="acqua"></div>
+      <div data-jp="ごはん" data-it="riso; pasto"></div>
+      <div data-jp="でんわ" data-it="telefono"></div>
+      <div data-jp="かばん" data-it="borsa"></div>
+      <div data-jp="えんぴつ" data-it="matita (pitsu)"></div>
+    </div>
+  </div>
+  <div class="suono">
+    <h3>Hiragana: sillabe come きゃ</h3>
+    <p>Un kana della colonna i (き, し, ち, に, ひ, み, り e i sonori) + un piccolo <b>ゃ ゅ ょ</b> fa <b>una sola sillaba</b>: き + ゃ = きゃ (kya), し + ょ = しょ (sho). Scritti grandi (きや) sono due sillabe: ki-ya.</p>
+    <div class="tw"><table class="kana" data-k="hira" data-g="yoon"></table></div>
+    <div class="exs">
+      <div data-jp="おちゃ" data-it="tè verde"></div>
+      <div data-jp="きょう" data-it="oggi"></div>
+      <div data-jp="しゃしん" data-it="fotografia"></div>
+      <div data-jp="とうきょう" data-it="Tokyo"></div>
+      <div data-jp="りょこう" data-it="viaggio"></div>
     </div>
   </div>
 
@@ -1157,7 +1203,7 @@ setTimeout(hide,Math.max(4000,min))})();
     <li>So chiedere che cos'è una cosa: これ は 何[なん] です か 。</li>
     <li>So usare これ・それ・あれ e この・その・あの secondo la distanza.</li>
     <li>So chiedere e dire di chi è: だれ の です か 。 わたし の です 。</li>
-    <li>So leggere i katakana e scrivere il mio nome in katakana.</li>
+    <li>So leggere tutti gli hiragana, con ゛ ゜ e le sillabe come きゃ, しょ.</li>
   </ul>
 
 </section>
@@ -1180,6 +1226,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>fratello minore</td><td>弟[おとうと]</td><td>弟[おとうと]さん</td></tr>
       <tr><td>sorella minore</td><td>妹[いもうと]</td><td>妹[いもうと]さん</td></tr>
     </table></div>
+    <div class="exs">
+      <div data-jp="わたし の 父[ちち] は 先生[せんせい] です 。" data-it="Mio padre è insegnante."></div>
+      <div data-jp="ゆき さん の お父[とう]さん は 先生[せんせい] です か 。" data-it="Il papà di Yuki è insegnante?"></div>
+      <div data-jp="わたし は 妹[いもうと] が 一人[ひとり] います 。" data-it="Ho una sorella minore."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>C'è / ci sono: います e あります</h3>
@@ -1204,6 +1255,9 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="何[なん]人[にん] かぞく です か 。 — 四人[よにん] かぞく です 。" data-it="Quanti siete in famiglia? — Siamo in quattro."></div>
       <div data-jp="妹[いもうと] は 十八[じゅうはっ]さい です 。" data-it="Mia sorella minore ha 18 anni."></div>
     </div>
+    <div class="exs">
+      <div data-jp="わたし は 二十[にじゅう]さい です 。" data-it="Ho vent'anni."></div>
+    </div>
   </div>
 
   <div class="speech" data-seal="Nella vita"><h3>Nella vita reale</h3><ul class="plain">
@@ -1211,6 +1265,18 @@ setTimeout(hide,Math.max(4000,min))})();
     <li>I giapponesi chiedono spesso l'età per capire come parlarsi: con chi è più grande si è più formali.</li>
   </ul></div>
 
+  <div class="suono">
+    <h3>Katakana 1: ア · カ · サ · タ · ナ</h3>
+    <p>I katakana hanno gli stessi suoni degli hiragana, con forme più dritte e squadrate. Servono per le <b>parole straniere</b>, i nomi stranieri e i suoni. In katakana la vocale lunga si scrive con un trattino: <b>ー</b>. Attenzione a due coppie che si confondono: <b>シ</b> (shi) e <b>ツ</b> (tsu), <b>ソ</b> (so) e <b>ン</b> (n, che arriva nella lezione 6).</p>
+    <div class="tw"><table class="kana" data-k="kata" data-g="base" data-rows="0,1,2,3,4"></table></div>
+    <div class="exs">
+      <div data-jp="ケーキ" data-it="torta"></div>
+      <div data-jp="スキー" data-it="sci"></div>
+      <div data-jp="タクシー" data-it="taxi"></div>
+      <div data-jp="ネクタイ" data-it="cravatta"></div>
+      <div data-jp="カナダ" data-it="Canada"></div>
+    </div>
+  </div>
   <div class="suono">
     <h3>I primi kanji</h3>
     <p>I kanji sono caratteri che hanno un significato e di solito più letture. Non imparare le letture a memoria: imparale dentro le parole. In questo corso ogni kanji ha sempre i furigana sopra.</p>
@@ -1233,7 +1299,8 @@ setTimeout(hide,Math.max(4000,min))})();
     <li>So usare le parole giuste per la famiglia degli altri: お父[とう]さん, お母[かあ]さん.</li>
     <li>So contare da 1 a 99 e dire l'età: 二十[にじゅう]さい です 。</li>
     <li>So usare います (persone, animali) e あります (cose).</li>
-  </ul>
+      <li>So leggere i katakana da ア a ノ, con il trattino ー.</li>
+</ul>
 
 </section>
 <section class="lesson t-red" id="l6" data-kind="lesson">
@@ -1253,6 +1320,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>buono, bello</td><td>いい です</td><td><b>よくない</b> です</td></tr>
     </table></div>
     <p>いい è l'unica eccezione: il negativo è よくない. Davanti a un nome l'aggettivo resta uguale: たかい やま «una montagna alta».</p>
+    <div class="exs">
+      <div data-jp="この ラーメン は おいしい です 。" data-it="Questo ramen è buono."></div>
+      <div data-jp="この へや は さむくない です 。" data-it="Questa stanza non è fredda."></div>
+      <div data-jp="たかい やま です ね 。" data-it="Che montagna alta!"></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Aggettivi な</h3>
@@ -1277,14 +1349,35 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="この ラーメン は あまり たかくない です 。" data-it="Questo ramen non è molto caro."></div>
     </div>
     <p><b>あまり</b> si usa solo con il negativo: «non molto».</p>
+    <div class="exs">
+      <div data-jp="この まち は とても にぎやか です 。" data-it="Questa città è molto vivace."></div>
+    </div>
   </div>
 
   <div class="speech" data-seal="Nella vita"><h3>Nella vita reale</h3><ul class="plain">
     <li>お元気[げんき] です か 。 «Come sta?» si chiede solo a chi non vedi da tempo; con i colleghi di ogni giorno non si usa.</li>
     <li>Per il tempo: あつい です ね 。 «Fa caldo, eh?» è la frase più comune dell'estate giapponese.</li>
     <li>Rispondendo a un complimento si usa minimizzare: いいえ 、 まだまだ です 。 «No, ho ancora tanto da imparare».</li>
-  </ul></div>
+      <li><b>Tra amici</b> l'aggettivo in -い si dice senza です: おいしい です → おいしい !</li>
+  </ul>
+    <div class="exs">
+      <div data-jp="この ケーキ 、 おいしい です ね 。" data-it="Questa torta è buona, vero? (cortese)"></div>
+      <div data-jp="この ケーキ 、 おいしい ね ！" data-it="Buonissima questa torta! (tra amici)"></div>
+    </div></div>
 
+  <div class="suono">
+    <h3>Katakana 2: ハ · マ · ヤ · ラ · ワ · ン</h3>
+    <p>Con queste righe sai leggere quasi tutti i nomi stranieri. Le parole italiane si adattano ai suoni giapponesi: ogni consonante ha la sua vocale (Marco → マルコ, <i>ma-ru-ko</i>) e la r diventa la riga ラ.</p>
+    <div class="tw"><table class="kana" data-k="kata" data-g="base" data-rows="5,6,7,8,9,10"></table></div>
+    <div class="exs">
+      <div data-jp="マルコ" data-it="Marco"></div>
+      <div data-jp="ローマ" data-it="Roma"></div>
+      <div data-jp="ミルク" data-it="latte (da bere)"></div>
+      <div data-jp="ホテル" data-it="hotel"></div>
+      <div data-jp="ラーメン" data-it="ramen"></div>
+      <div data-jp="メロン" data-it="melone"></div>
+    </div>
+  </div>
   <div class="suono">
     <h3>Kanji: 大 · 小 · 山 · 川 · 高 · 元気</h3>
     <div class="kanji-row">
@@ -1309,7 +1402,8 @@ setTimeout(hide,Math.max(4000,min))})();
     <li>So descrivere con aggettivi in -い e な, anche al negativo.</li>
     <li>So mettere un aggettivo davanti a un nome: しずか な まち, たかい やま.</li>
     <li>So dire «molto» e «non molto»: とても, あまり 〜ない.</li>
-  </ul>
+      <li>So leggere tutti i katakana semplici e scrivere il mio nome.</li>
+</ul>
 
 </section>
 <section class="lesson t-blue" id="l7" data-kind="lesson">
@@ -1330,6 +1424,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>fare</td><td>します</td><td>しません</td></tr>
     </table></div>
     <p>La stessa forma vale per il presente e per il futuro: あした 行[い]きます = «domani vado / andrò».</p>
+    <div class="exs">
+      <div data-jp="毎朝[まいあさ] パン を 食[た]べます 。" data-it="Ogni mattina mangio il pane."></div>
+      <div data-jp="わたし は コーヒー を 飲[の]みません 。" data-it="Non bevo caffè."></div>
+      <div data-jp="あした 、 としょかん に 行[い]きます 。" data-it="Domani vado in biblioteca."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Le particelle del verbo</h3>
@@ -1349,17 +1448,40 @@ setTimeout(hide,Math.max(4000,min))})();
     <h3>Che lavoro fai?</h3>
     <div class="exs">
       <div data-jp="おしごと は 何[なん] です か 。" data-it="Che lavoro fa?"></div>
-      <div data-jp="かいしゃいん です 。 ぎんこう で はたらいて います 。" data-it="Sono impiegato. Lavoro in banca."></div>
+      <div data-jp="かいしゃいん です 。 ぎんこう で はたらきます 。" data-it="Sono impiegato. Lavoro in banca."></div>
     </div>
-    <p>はたらいて います «lavoro» usa una forma che vedrai nella lezione 18; per ora impara la frase intera.</p>
+    <p>La forma in -ます vale per il presente abituale e per il futuro: はたらきます = «lavoro (di solito)» o «lavorerò». Per «sto lavorando, lavoro qui adesso» il giapponese usa un'altra forma, che vedrai nella lezione 18.</p>
+    <div class="exs">
+      <div data-jp="おしごと は 何[なん] です か 。 — 先生[せんせい] です 。" data-it="Che lavoro fa? — Sono insegnante."></div>
+    </div>
   </div>
   <div class="warn"><strong>Niente «io» e niente «lo»</strong>In giapponese si tolgono le parole già chiare: «Bevi il caffè? — Sì, lo bevo.» diventa コーヒー を 飲[の]みます か 。 — はい 、 飲[の]みます 。</div>
 
   <div class="speech" data-seal="Nella vita"><h3>Nella vita reale</h3><ul class="plain">
     <li>Per rifiutare con gentilezza si usa ちょっと… lasciando la frase a metà: «Un caffè? — ちょっと…» vuol dire no, grazie.</li>
     <li>I giapponesi spesso presentano il lavoro con il nome dell'azienda: トヨタ の たなか です 。</li>
-  </ul></div>
+      <li><b>Tra amici</b> al posto di 行[い]きます si dice 行[い]く: è la forma del vocabolario. Per ora basta riconoscerla; il sistema completo è nella lezione 17.</li>
+  </ul>
+    <div class="exs">
+      <div data-jp="あした 、 行[い]きます か 。" data-it="Ci vai domani? (cortese)"></div>
+      <div data-jp="あした 、 行[い]く ？" data-it="Ci vai domani? (tra amici)"></div>
+    </div></div>
 
+  <div class="suono">
+    <h3>Katakana 3: ゛ ゜, piccoli kana e suoni nuovi</h3>
+    <p>Come negli hiragana: ゛ e ゜ (カ → ガ, ハ → パ), il piccolo <b>ッ</b> per le doppie e <b>ャ ュ ョ</b> per le sillabe unite. In più, per i suoni stranieri, i katakana usano vocali piccole: <b>ティ</b> (ti), <b>ディ</b> (di), <b>ファ</b> (fa), <b>ジェ</b> (je), <b>ウィ</b> (wi).</p>
+    <div class="tw"><table class="kana" data-k="kata" data-g="dak"></table></div>
+    <div class="tw"><table class="kana" data-k="kata" data-g="ext"></table></div>
+    <div class="exs">
+      <div data-jp="パスタ 、 ピザ" data-it="pasta, pizza"></div>
+      <div data-jp="テレビ" data-it="televisione"></div>
+      <div data-jp="ベッド" data-it="letto"></div>
+      <div data-jp="ジェラート" data-it="gelato"></div>
+      <div data-jp="パーティー" data-it="festa"></div>
+      <div data-jp="ファミレス" data-it="ristorante per famiglie"></div>
+      <div data-jp="マルコ ・ ロッシ" data-it="Marco Rossi"></div>
+    </div>
+  </div>
   <div class="suono">
     <h3>Kanji: 行 · 来 · 食 · 飲 · 見 · 学 · 生 · 先</h3>
     <div class="kanji-row">
@@ -1386,7 +1508,8 @@ setTimeout(hide,Math.max(4000,min))})();
     <li>So usare を, で, に, へ per dire che cosa, dove e a che ora.</li>
     <li>So raccontare che cosa faccio ogni giorno, mettendo il verbo alla fine.</li>
     <li>So chiedere e dire che lavoro faccio.</li>
-  </ul>
+      <li>So leggere i katakana con ゛ ゜ e i suoni stranieri come ティ, ファ.</li>
+</ul>
 
 </section>
 <section class="lesson t-yellow" id="l8" data-kind="lesson">
@@ -1415,6 +1538,10 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>六[むっ]つ</td><td>七[なな]つ</td><td>八[やっ]つ</td><td>九[ここの]つ</td><td>十[とお]</td></tr>
     </table></div>
     <p>Servono per quasi tutte le cose, fino a 10. Per le persone hai già visto 一人[ひとり], 二人[ふたり].</p>
+    <div class="exs">
+      <div data-jp="これ を 一[ひと]つ ください 。" data-it="Me ne dia uno di questi, per favore."></div>
+      <div data-jp="この ペン は 三百[さんびゃく] えん です 。" data-it="Questa penna costa trecento yen."></div>
+    </div>
   </div>
   <h3>Numeri grandi e prezzi</h3>
   <p>Dopo 9999 il giapponese conta a <b>diecimila</b>: 一万[いちまん] = 10.000. Attenzione ai cambi di suono: 三百[さんびゃく], 六百[ろっぴゃく], 八百[はっぴゃく], 三千[さんぜん], 八千[はっせん].</p>
@@ -1541,6 +1668,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <li><b>ね</b> cerca l'accordo, come «vero?», «eh?»: いい 天気[てんき] です ね 。 «Che bel tempo, eh?»</li>
       <li><b>よ</b> dà un'informazione che l'altro non sa, come «sai», «guarda che»: あした は 休[やす]み です よ 。 «Guarda che domani è festa.»</li>
     </ul>
+    <div class="exs">
+      <div data-jp="いい 天気[てんき] です ね 。" data-it="Che bel tempo, eh?"></div>
+      <div data-jp="あした は 休[やす]み です よ 。" data-it="Guarda che domani è festa."></div>
+      <div data-jp="この アニメ 、 おもしろい です よ 。" data-it="Questo anime è divertente, sai."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Da dove? 〜 から</h3>
@@ -1548,6 +1680,10 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="どこ から 来[き]ました か 。 — イタリア から 来[き]ました 。" data-it="Da dove vieni? — Vengo dall'Italia."></div>
     </div>
     <p>来[き]ました è il passato di 来[き]ます: la regola del passato arriva nella prossima lezione, per ora usa la frase intera.</p>
+    <div class="exs">
+      <div data-jp="マルコ さん は どこ から 来[き]ました か 。 — イタリア から 来[き]ました 。" data-it="Marco, da dove vieni? — Vengo dall'Italia."></div>
+      <div data-jp="ゆき さん は とうきょう から 来[き]ました 。" data-it="Yuki viene da Tokyo."></div>
+    </div>
   </div>
   <div class="warn"><strong>Niente «tu»</strong>In giapponese あなた («tu») si usa poco e può suonare freddo. Per chiedere a qualcuno si usa il suo nome + さん: マルコ さん は どこ から 来[き]ました か 。</div>
 
@@ -1555,7 +1691,12 @@ setTimeout(hide,Math.max(4000,min))})();
     <li>Per chiamare l'attenzione di uno sconosciuto si comincia sempre con すみません 。</li>
     <li>そう です ね 。 «Eh, già» è anche il modo per prendere tempo prima di rispondere.</li>
     <li>えーと… è il nostro «ehm…».</li>
-  </ul></div>
+      <li><b>Tra amici</b> か cade e la domanda si fa alzando la voce; anche は spesso sparisce.</li>
+  </ul>
+    <div class="exs">
+      <div data-jp="これ は 何[なん] です か 。" data-it="Che cos'è questo? (cortese)"></div>
+      <div data-jp="これ 、 なに ？" data-it="Cos'è questo? (tra amici)"></div>
+    </div></div>
 
   <div class="suono">
     <h3>Kanji: 今 · 名 · 前 · 国 · 語 · 何</h3>
@@ -1602,6 +1743,9 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-jp="きのう 、 えいが を 見[み]ました 。" data-it="Ieri ho visto un film."></div>
       <div data-jp="朝[あさ] ごはん を 食[た]べません でした 。" data-it="Non ho fatto colazione."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="きのう 、 えいが を 見[み]ました 。" data-it="Ieri ho visto un film."></div>
     </div>
   </div>
   <div class="rule" data-seal="Regola">
@@ -1698,7 +1842,12 @@ setTimeout(hide,Math.max(4000,min))})();
   <div class="speech" data-seal="Nella vita"><h3>Nella vita reale</h3><ul class="plain">
     <li>大好[だいす]き = «mi piace tantissimo»; si usa anche per le persone: 大好[だいす]き です = «ti voglio tanto bene».</li>
     <li>しゅみ は 何[なん] です か 。 «Quali sono i tuoi hobby?» è una domanda frequentissima tra conoscenti.</li>
-  </ul></div>
+      <li><b>Tra amici</b> l'invito 〜ません か diventa 〜ない ? con la voce che sale.</li>
+  </ul>
+    <div class="exs">
+      <div data-jp="いっしょ に 行[い]きません か 。" data-it="Andiamo insieme? (cortese)"></div>
+      <div data-jp="いっしょ に 行[い]かない ？" data-it="Andiamo insieme? (tra amici)"></div>
+    </div></div>
 
   <div class="suono">
     <h3>Kanji: 好 · 友 · 休 · 音 · 楽 · 見</h3>
@@ -1753,6 +1902,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>右[みぎ] destra</td><td>左[ひだり] sinistra</td><td>あいだ tra</td><td>むこう di fronte, oltre</td></tr>
     </table></div>
     <p>E la serie di luogo: <b>ここ</b> (qui), <b>そこ</b> (lì, vicino a te), <b>あそこ</b> (là), <b>どこ</b> (dove).</p>
+    <div class="exs">
+      <div data-jp="ねこ は つくえ の 下[した] に います 。" data-it="Il gatto è sotto la scrivania."></div>
+      <div data-jp="えき の 前[まえ] に コンビニ が あります 。" data-it="Davanti alla stazione c'è un konbini."></div>
+      <div data-jp="トイレ は どこ です か 。 — あそこ です 。" data-it="Dov'è il bagno? — È laggiù."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Chiedere la strada</h3>
@@ -1820,6 +1974,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>irregolari</td><td></td><td>する → して, 来[く]る → 来[き]て, 行[い]く → 行[い]って</td></tr>
     </table></div>
     <p>Trucco per ricordarla: canticchiala come una filastrocca, «u-tsu-ru tte, mu-bu-nu nde, ku ite, gu ide, su shite». Nel coniugatore (appendice E) puoi provare tutti i verbi.</p>
+    <div class="exs">
+      <div data-jp="ちょっと 待[ま]って ください 。" data-it="Aspetti un momento, per favore."></div>
+      <div data-jp="ここ に 名前[なまえ] を 書[か]いて ください 。" data-it="Scriva qui il nome, per favore."></div>
+      <div data-jp="もう 一度[いちど] 言[い]って ください 。" data-it="Lo ripeta, per favore."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Tre usi della forma -te</h3>
@@ -1839,6 +1998,9 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-jp="もしもし 、 マルコ です 。" data-it="Pronto, sono Marco."></div>
       <div data-jp="すみません 、 もう すこし ゆっくり 話[はな]して ください 。" data-it="Scusi, parli un po' più piano, per favore."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="もしもし 、 マルコ です 。 今[いま] 、 いい です か 。" data-it="Pronto, sono Marco. Hai un momento?"></div>
     </div>
   </div>
 
@@ -1892,6 +2054,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>?</td><td>なんぼん</td><td>なんまい</td><td>なんばい</td></tr>
     </table></div>
     <p>本[ほん] e 杯[はい] cambiano suono (ぽん / ぼん, ぱい / ばい): impara a memoria 1, 3 e 6 (ろっぽん, ろっぱい). Il classificatore va dopo la particella, come ひとつ: ビール を 二本[にほん] ください 。</p>
+    <div class="exs">
+      <div data-jp="ビール を 二本[にほん] ください 。" data-it="Due birre, per favore."></div>
+      <div data-jp="お茶[ちゃ] を 一杯[いっぱい] ください 。" data-it="Una tazza di tè, per favore."></div>
+      <div data-jp="紙[かみ] を 三枚[さんまい] ください 。" data-it="Tre fogli, per favore."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Ordinare: 〜 に します, 〜 が いい です</h3>
@@ -1909,6 +2076,9 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="何[なに] も ほしくない です 。" data-it="Non voglio niente."></div>
     </div>
     <p>ほしい è un aggettivo in -い: negativo ほしくない. Si usa per sé stessi; per gli altri suona un po' diretto.</p>
+    <div class="exs">
+      <div data-jp="あたらしい スマホ が ほしい です 。" data-it="Vorrei uno smartphone nuovo."></div>
+    </div>
   </div>
 
   <div class="speech" data-seal="Nella vita"><h3>Nella vita reale</h3><ul class="plain">
@@ -2013,6 +2183,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>no</td><td>たかくない です</td><td>たかくなかった です</td></tr>
     </table></div>
     <p>いい → <b>よかった</b> です, よくなかった です. Lo senti spessissimo: よかった ！ «Meno male! / Che bello!».</p>
+    <div class="exs">
+      <div data-jp="きのう は さむかった です 。" data-it="Ieri faceva freddo."></div>
+      <div data-jp="その ホテル は たかくなかった です 。" data-it="Quell'hotel non era caro."></div>
+      <div data-jp="りょこう は とても よかった です 。" data-it="Il viaggio è andato benissimo."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Aggettivi な e nomi al passato</h3>
@@ -2025,6 +2200,9 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="きのう は いい 天気[てんき] でした 。" data-it="Ieri era una bella giornata."></div>
       <div data-jp="ホテル は あまり きれい じゃ ありません でした 。" data-it="L'hotel non era molto pulito."></div>
     </div>
+    <div class="exs">
+      <div data-jp="まち は とても しずか でした 。" data-it="La città era molto tranquilla."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Due aggettivi insieme: 〜くて, 〜で</h3>
@@ -2032,6 +2210,9 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-jp="この みせ は やすくて 、 おいしい です 。" data-it="Questo locale è economico e buono."></div>
       <div data-jp="きょうと は しずか で 、 きれい でした 。" data-it="Kyoto era tranquilla e bella."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="この みせ は やすくて おいしい です 。" data-it="Questo locale è economico e buono."></div>
     </div>
   </div>
   <div class="rule" data-seal="Regola">
@@ -2041,12 +2222,20 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="日本[にほん] は 食[た]べもの が おいしい です 。" data-it="In Giappone il cibo è buono."></div>
       <div data-jp="ゆき さん は かみ が ながい です 。" data-it="Yuki ha i capelli lunghi."></div>
     </div>
+    <div class="exs">
+      <div data-jp="マルコ さん は 日本語[にほんご] が 上手[じょうず] です 。" data-it="Marco è bravo in giapponese."></div>
+    </div>
   </div>
 
   <div class="speech" data-seal="Nella vita"><h3>Nella vita reale</h3><ul class="plain">
     <li>Il lunedì in ufficio: 週末[しゅうまつ] は どう でした か 。 «Com'è andato il fine settimana?»</li>
     <li>大変[たいへん] でした ね 。 «Dev'essere stata dura»: si usa quando qualcuno racconta un problema.</li>
-  </ul></div>
+      <li><b>Tra amici</b> anche il passato degli aggettivi perde です: たのしかった です → たのしかった !</li>
+  </ul>
+    <div class="exs">
+      <div data-jp="りょこう は たのしかった です 。" data-it="Il viaggio è stato divertente. (cortese)"></div>
+      <div data-jp="りょこう 、 たのしかった ！" data-it="Che bello il viaggio! (tra amici)"></div>
+    </div></div>
 
   <div class="suono">
     <h3>Kanji: 週 · 末 · 天 · 気 · 雨 · 暑 · 寒 · 長</h3>
@@ -2103,6 +2292,10 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-jp="東京[とうきょう] から おおさか まで しんかんせん で 二時間[にじかん] 半[はん] かかります 。" data-it="Da Tokyo a Osaka in shinkansen ci vogliono due ore e mezza."></div>
     </div>
+    <div class="exs">
+      <div data-jp="えき まで あるいて 行[い]きます 。" data-it="Vado alla stazione a piedi."></div>
+      <div data-jp="きょうと まで どのくらい かかります か 。 — しんかんせん で 二時間[にじかん] ぐらい です 。" data-it="Quanto ci vuole fino a Kyoto? — Circa due ore in shinkansen."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Le date: 〜月[がつ] 〜日[にち]</h3>
@@ -2151,7 +2344,7 @@ setTimeout(hide,Math.max(4000,min))})();
 <section class="lesson t-green" id="l17" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>Lezione 17</span><span class="itk" lang="ja">第17課</span></div>
   <h2>Quando ero piccolo: la forma informale<small lang="ja">子どものころ</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-kite"/></svg></header>
-  <p class="lead">Tra amici e in famiglia i giapponesi non usano です e ます: usano la <b>forma informale</b> (o «piana»). È anche la forma che serve per costruire frasi più complesse, come «quando ero piccolo…» o «ci sono stato una volta». In questa lezione la impari tutta.</p>
+  <p class="lead">Tra amici e in famiglia i giapponesi non usano です e ます: usano la <b>forma informale</b> (o «piana»). È anche la forma che serve per costruire frasi più complesse, come «quando ero piccolo…» o «ci sono stato una volta». Finora l'hai incontrata nei riquadri «Tra amici» (lezioni 2, 6, 7, 9, 11, 13, 15): in questa lezione la impari tutta, con le regole per formarla.</p>
   <div class="dialog" data-dlg="l17"></div>
 
   <details class="scopri"><summary><span class="sq">Ken e Marco ora parlano tra amici: Ken dice 行[い]った こと ある ? invece di 行[い]った こと が あります か. Che cosa è sparito?</span></summary>
@@ -2166,6 +2359,11 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>食[た]べません でした</td><td>食[た]べなかった</td><td>ない → なかった</td></tr>
     </table></div>
     <p>Eccezioni: ある → ない; 買[か]う → 買[か]わない (non «かあない»); する → しない, した; 来[く]る → 来[こ]ない, 来[き]た. Prova tutte le forme nel coniugatore (appendice E).</p>
+    <div class="exs">
+      <div data-jp="あした 、 なに する ？ — うち で マンガ を 読[よ]む 。" data-it="Domani che fai? — Leggo manga a casa."></div>
+      <div data-jp="きのう 、 えいが を 見[み]た 。" data-it="Ieri ho visto un film."></div>
+      <div data-jp="今日[きょう] は 大学[だいがく] に 行[い]かない 。" data-it="Oggi non vado all'università."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Aggettivi e nomi informali</h3>
@@ -2176,12 +2374,20 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>passato な / nome</td><td>しずか でした</td><td>しずか だった</td></tr>
     </table></div>
     <p>Nel parlato だ spesso cade del tutto, soprattutto nelle domande: 学生[がくせい] ? «Sei studente?»</p>
+    <div class="exs">
+      <div data-jp="この ラーメン 、 おいしい ！" data-it="Buonissimo questo ramen!"></div>
+      <div data-jp="あの へや は しずか だった 。" data-it="Quella stanza era tranquilla."></div>
+      <div data-jp="ゆき は 学生[がくせい] ？ — うん 、 学生[がくせい] だ よ 。" data-it="Yuki è studentessa? — Sì, è studentessa."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Esperienze: 〜た こと が あります</h3>
     <div class="exs">
       <div data-jp="すし を 食[た]べた こと が あります か 。" data-it="Hai mai mangiato il sushi?"></div>
       <div data-jp="はい 、 二回[にかい] あります 。 / いいえ 、 一度[いちど] も ありません 。" data-it="Sì, due volte. / No, mai."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="ふじ山[さん] に のぼった こと が あります か 。" data-it="Sei mai salito sul Fuji?"></div>
     </div>
   </div>
   <div class="rule" data-seal="Regola">
@@ -2198,6 +2404,9 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-jp="ここ に 車[くるま] を とめない で ください 。" data-it="Per favore non parcheggiate qui."></div>
       <div data-jp="わすれない で ください 。" data-it="Non dimenticarlo, per favore."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="ここ で しゃしん を とらない で ください 。" data-it="Per favore, non fate foto qui."></div>
     </div>
   </div>
 
@@ -2256,6 +2465,10 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-jp="朝[あさ] 起[お]きて 、 シャワー を あびて 、 大学[だいがく] に 行[い]きました 。" data-it="La mattina mi sono alzato, ho fatto la doccia e sono andato all'università."></div>
     </div>
+    <div class="exs">
+      <div data-jp="うち に かえって 、 ばん ごはん を 食[た]べて 、 ねました 。" data-it="Sono tornato a casa, ho cenato e sono andato a dormire."></div>
+      <div data-jp="毎朝[まいあさ] 起[お]きて 、 コーヒー を 飲[の]みます 。" data-it="Ogni mattina mi alzo e bevo un caffè."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Dopo aver…: 〜て から</h3>
@@ -2263,12 +2476,18 @@ setTimeout(hide,Math.max(4000,min))})();
       <div data-jp="しゅくだい を して から 、 あそびます 。" data-it="Dopo aver fatto i compiti, gioco."></div>
       <div data-jp="日本[にほん] に 来[き]て から 、 三年[さんねん] に なります 。" data-it="Sono tre anni che sono arrivato in Giappone."></div>
     </div>
+    <div class="exs">
+      <div data-jp="ごはん を 食[た]べて から 、 しゅくだい を します 。" data-it="Dopo aver mangiato faccio i compiti."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Le parole del racconto</h3>
     <div class="exs">
       <div data-jp="まず 、 それから 、 そのあと 、 さいご に" data-it="prima, poi, dopo, alla fine"></div>
       <div data-jp="すると 、 ところが" data-it="e allora, ma ecco che"></div>
+    </div>
+    <div class="exs">
+      <div data-jp="まず シャワー を あびて 、 そのあと 、 出[で]かけました 。" data-it="Prima ho fatto la doccia, poi sono uscito."></div>
     </div>
   </div>
 
@@ -2387,12 +2606,20 @@ setTimeout(hide,Math.max(4000,min))})();
       <tr><td>くれる</td><td>altri → me</td><td>ゆき さん が わたし に はな を くれました 。</td></tr>
       <tr><td>もらう</td><td>ricevo da</td><td>わたし は ゆき さん に はな を もらいました 。</td></tr>
     </table></div>
+    <div class="exs">
+      <div data-jp="わたし は ゆき さん に はな を あげました 。" data-it="Ho regalato dei fiori a Yuki."></div>
+      <div data-jp="ゆき さん が わたし に はな を くれました 。" data-it="Yuki mi ha regalato dei fiori."></div>
+      <div data-jp="わたし は ゆき さん に はな を もらいました 。" data-it="Ho ricevuto dei fiori da Yuki."></div>
+    </div>
   </div>
   <div class="rule" data-seal="Regola">
     <h3>Provare a fare: 〜て みる</h3>
     <div class="exs">
       <div data-jp="この くつ 、 はいて みて も いい です か 。" data-it="Posso provare queste scarpe?"></div>
       <div data-jp="なっとう を 食[た]べて みました 。 … ちょっと にがて です 。" data-it="Ho provato il natto… Non fa molto per me."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="この ケーキ 、 食[た]べて みて ください 。" data-it="Assaggia questa torta."></div>
     </div>
   </div>
   <div class="rule" data-seal="Regola">
@@ -2458,6 +2685,9 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-jp="いっしょに 行[い]こう ！" data-it="Andiamo insieme! (informale di 行[い]きましょう)"></div>
       <div data-jp="来年[らいねん] 、 日本[にほん] に 留学[りゅうがく] しよう と 思[おも]って います 。" data-it="L'anno prossimo penso di andare a studiare in Giappone."></div>
+    </div>
+    <div class="exs">
+      <div data-jp="あした 、 いっしょ に 勉強[べんきょう] しよう 。" data-it="Domani studiamo insieme."></div>
     </div>
   </div>
   <div class="rule" data-seal="Regola">
@@ -2908,6 +3138,7 @@ Object.assign(DICT,{
 "いちまい ":"uno (oggetto piatto)",
 "ぜんぶで":"in tutto"
 });
+Object.assign(DICT,{"かぎ": "chiave", "ベッド": "letto (all'occidentale)", "ごめん": "scusa (tra amici)", "みみ": "orecchio", "かき": "cachi (il frutto)", "えんぴつ": "matita", "きや": "ki + ya: due sillabe (scritto con ゃ piccolo, きゃ, sarebbe una sola)", "スキー": "sci", "タクシー": "taxi", "カナダ": "Canada", "ミルク": "latte", "メロン": "melone", "ファミレス": "family restaurant (ristorante per famiglie)", "かえって": "tornando (forma -て di かえる)"});
 
 var DLG={},EX={},VOC={},CULT={};
 var LESSONS=[{"id": "l1", "n": 1, "t": "Suoni, primi kana e saluti", "j": "あいさつ", "kind": "lesson", "icon": "i-kana", "color": "red", "w": 1}, {"id": "l2", "n": 2, "t": "Mi chiamo Marco", "j": "じこしょうかい", "kind": "lesson", "icon": "i-tag", "color": "blue", "w": 1}, {"id": "l3", "n": 3, "t": "Tutti gli hiragana, doppie e vocali lunghe", "j": "ひらがな", "kind": "lesson", "icon": "i-wave", "color": "yellow", "w": 1}, {"id": "l4", "n": 4, "t": "Che cos'è? これ・それ・あれ", "j": "これは何ですか", "kind": "lesson", "icon": "i-book", "color": "green", "w": 1}, {"id": "l5", "n": 5, "t": "La mia famiglia e i numeri", "j": "かぞく", "kind": "lesson", "icon": "i-family", "color": "pink", "w": 1}, {"id": "l6", "n": 6, "t": "Come stai? Gli aggettivi", "j": "げんきですか", "kind": "lesson", "icon": "i-sun", "color": "red", "w": 1}, {"id": "l7", "n": 7, "t": "Che cosa fai? I verbi in -masu", "j": "まいにち", "kind": "lesson", "icon": "i-chat", "color": "blue", "w": 1}, {"id": "l8", "n": 8, "t": "Al konbini e al caffè", "j": "コンビニで", "kind": "lesson", "icon": "i-cup", "color": "yellow", "w": 1}, {"id": "r1", "n": null, "t": "Ripasso 1", "j": "ふくしゅう", "kind": "review", "icon": "i-loop", "color": "green", "w": 1}, {"id": "l9", "n": 9, "t": "Fare domande", "j": "しつもん", "kind": "lesson", "icon": "i-q", "color": "pink", "w": 2}, {"id": "l10", "n": 10, "t": "La mia giornata: ore e passato", "j": "わたしの一日", "kind": "lesson", "icon": "i-clock", "color": "red", "w": 2}, {"id": "l11", "n": 11, "t": "Il tempo libero: piacere e inviti", "j": "しゅみ", "kind": "lesson", "icon": "i-ball", "color": "blue", "w": 2}, {"id": "l12", "n": 12, "t": "In città: dove si trova?", "j": "まちで", "kind": "lesson", "icon": "i-pin", "color": "yellow", "w": 2}, {"id": "l13", "n": 13, "t": "La forma -te: per favore, posso…?", "j": "て形", "kind": "lesson", "icon": "i-phone", "color": "green", "w": 2}, {"id": "l14", "n": 14, "t": "Al ristorante: contare e ordinare", "j": "レストランで", "kind": "lesson", "icon": "i-fork", "color": "pink", "w": 2}, {"id": "r2", "n": null, "t": "Ripasso 2", "j": "ふくしゅう", "kind": "review", "icon": "i-loop", "color": "red", "w": 2}, {"id": "l15", "n": 15, "t": "Il fine settimana: passato degli aggettivi", "j": "週末", "kind": "lesson", "icon": "i-ticket", "color": "blue", "w": 3}, {"id": "l16", "n": 16, "t": "In viaggio: voglio andare…", "j": "りょこう", "kind": "lesson", "icon": "i-umbrella", "color": "yellow", "w": 3}, {"id": "l17", "n": 17, "t": "Quando ero piccolo: la forma informale", "j": "子どものころ", "kind": "lesson", "icon": "i-kite", "color": "green", "w": 3}, {"id": "l18", "n": 18, "t": "Raccontare: -te iru, -te kara", "j": "ものがたり", "kind": "lesson", "icon": "i-scroll", "color": "pink", "w": 3}, {"id": "l19", "n": 19, "t": "Gusti, confronti e opinioni", "j": "くらべる", "kind": "lesson", "icon": "i-heart", "color": "red", "w": 3}, {"id": "l20", "n": 20, "t": "Fare spese e fare regali", "j": "かいもの", "kind": "lesson", "icon": "i-bag", "color": "blue", "w": 3}, {"id": "l21", "n": 21, "t": "Progetti e condizioni", "j": "これから", "kind": "lesson", "icon": "i-suitcase", "color": "yellow", "w": 3}, {"id": "l22", "n": 22, "t": "Salute e servizi: devo, posso", "j": "びょういん", "kind": "lesson", "icon": "i-cross", "color": "green", "w": 3}, {"id": "l23", "n": 23, "t": "Marco a Tokyo: racconta la tua storia", "j": "東京のマルコ", "kind": "lesson", "icon": "i-torii", "color": "pink", "w": 3}, {"id": "r3", "n": null, "t": "Ripasso 3 e test A2", "j": "ふくしゅう・テスト", "kind": "review", "icon": "i-star", "color": "red", "w": 3}];
@@ -2932,6 +3163,7 @@ EX.l1=[
  {t:"say",it:"Ringrazia in modo cortese.",jp:"ありがとう ございます 。"}
 ];
 VOC.l1=[
+ ["これ", "questo (lo studi nella lezione 4)", "x"],["あ", "ah! (sorpresa)", "x"],["えっ", "eh? oh! (stupore)", "x"],
  ["おはよう ございます","buongiorno (al mattino)","x"],["こんにちは","buongiorno, ciao","x"],["こんばんは","buonasera","x"],["さようなら","arrivederci","x"],["ありがとう ございます","grazie","x"],["すみません","mi scusi; grazie","x"],
  ["はい","sì","x"],["いいえ","no; di niente","x"],["どうぞ","prego, tenga","x"],["じゃあ また","allora, a presto","x"],
  ["あい","amore","n"],["いえ","casa","n"],["うえ","sopra","n"],["あお","blu (colore)","n"],["かお","viso","n"],["あさ","mattina","n"],["すし","sushi","n"],["いす","sedia","n"],["えき","stazione","n"],["かさ","ombrello","n"],["あき","autunno","n"],["せき","posto a sedere","n"]
@@ -2956,6 +3188,7 @@ EX.l2=[
  {t:"say",it:"Chiedi a Yuki se è un'insegnante.",jp:"ゆき さん は 先生[せんせい] です か 。"}
 ];
 VOC.l2=[
+ ["うん", "sì (tra amici)", "x"],["フランス人[じん]", "francese (persona)", "n"],
  ["はじめまして","piacere (la prima volta)","x"],["よろしく お願[ねが]いします","piacere di conoscerla","x"],["わたし","io","n"],["〜 さん","signor/signora (dopo il nome)","x"],["学生[がくせい]","studente","n"],["先生[せんせい]","insegnante","n"],
  ["日本[にほん]","Giappone","n"],["日本人[にほんじん]","giapponese (persona)","n"],["日本語[にほんご]","lingua giapponese","n"],["イタリア","Italia","n"],["イタリア人[じん]","italiano (persona)","n"],["イタリア語[ご]","lingua italiana","n"],["中国[ちゅうごく]","Cina","n"],["フランス","Francia","n"],
  ["そう です か","ah, davvero?","x"],["です","è, sono (cortese)","x"],["じゃ ありません","non è, non sono","x"],
@@ -2963,7 +3196,7 @@ VOC.l2=[
 ];
 
 /* ---- l3 ---- */
-DLG.l3=[["A","マルコ さん は とうきょう だいがく の 学生[がくせい] です か 。","Marco, sei uno studente dell'Università di Tokyo?"],["B","はい 、 そう です 。 けん さん も 学生[がくせい] です か 。","Sì, esatto. Anche tu sei studente, Ken?"],["A","はい 、 わたし も 学生[がくせい] です 。 けいざい の 学生[がくせい] です 。","Sì, anch'io sono studente. Studio economia."],["B","そう です か 。 あ 、 それ は けん さん の かさ です か 。","Ah, davvero? Oh, quello è il tuo ombrello?"],["A","いいえ 、 わたし の かさ じゃ ありません 。 ゆき さん の です 。","No, non è il mio ombrello. È di Yuki."],["B","ゆき さん の ？ じゃあ 、 これ も ゆき さん の です か 。","Di Yuki? Allora anche questo è di Yuki?"],["A","はい 、 たぶん 。","Sì, probabilmente."]];
+DLG.l3=[["A", "マルコ さん は とうきょう だいがく の 学生[がくせい] です か 。", "Marco, sei uno studente dell'Università di Tokyo?"], ["B", "はい 、 そう です 。 けん さん は ？", "Sì, esatto. E tu, Ken?"], ["A", "わたし も 学生[がくせい] です 。 けいざい の 学生[がくせい] です 。", "Anch'io sono studente. Studio economia."], ["B", "あ 、 それ は けん さん の かさ です か 。", "Oh, quello è il tuo ombrello?"], ["A", "いいえ 、 ゆき さん の です 。", "No, è di Yuki."], ["B", "じゃあ 、 これ も ゆき さん の です か 。", "Allora anche questo è di Yuki?"], ["A", "はい 、 たぶん 。", "Sì, probabilmente."]];
 EX.l3=[
  {q:"Ascolta: di chi è l'ombrello?",au:"それ は ゆき さん の かさ です 。",o:["di Yuki","di Ken","di Marco"],e:"ゆき さん の かさ = l'ombrello di Yuki."},
  {q:"Ascolta: che cosa significa?",au:"わたし も 学生[がくせい] です 。",o:["Anch'io sono studente.","Io non sono studente.","Sono uno studente?"],e:"も = anche."},
@@ -2972,7 +3205,7 @@ EX.l3=[
  {q:"Come si legge きって?",o:["kitte","kite","kiite"],e:"っ piccolo = doppia."},
  {q:"Ascolta e scegli la parola:",au:"おばあさん",o:["おばあさん","おばさん","おじさん"],e:"おばあさん (vocale lunga) = nonna; おばさん = zia."},
  {q:"Ascolta e scegli la parola:",au:"きょう",o:["きょう","きよう","こう"],e:"きょう = oggi, una sola sillaba kyō."},
- {q:"Quale kana si legge «ga»?",o:["が","か","ぱ"],e:"か + ゛ = が."},
+ {q:"Quale kana si legge «ra»?",o:["ら","る","ろ"],e:"ら = ra: un colpetto di lingua, tra r e l."},
  {q:"を come particella si legge:",o:["o","wo","wa"],e:"を si legge o."},
  {t:"ord",q:"Componi: «È l'insegnante di giapponese.»",w:["日本語[にほんご]","の","先生[せんせい]","です","。"],a:["日本語[にほんご] の 先生[せんせい] です 。"]},
  {t:"type",q:"Scrivi come si legge: がっこう",a:["がっこう"],full:"がっこう",e:"Si legge gakkō."},
@@ -2996,8 +3229,8 @@ EX.l4=[
  {q:"L'oggetto è lontano da tutti e due:",o:["あれ","それ","これ"],e:"あれ = lontano da tutti e due."},
  {q:"«Questo libro è mio.»",o:["この ほん は わたし の です 。","これ ほん は わたし の です 。","この は わたし の ほん です 。"],e:"この + nome."},
  {q:"«Chi è quella persona?»",o:["あの ひと は だれ です か 。","あれ ひと は 何[なん] です か 。","あの ひと は どれ です か 。"],e:"だれ = chi."},
- {q:"Come si legge コーヒー?",o:["kōhī","kohi","kōfi"],e:"ー allunga la vocale."},
- {q:"Quale katakana è «tsu»?",o:["ツ","シ","ソ"],e:"ツ = tsu; シ = shi."},
+ {q:"Come si legge かぎ?",o:["kagi","kaki","kaji"],e:"き + ゛ = ぎ (gi)."},
+ {q:"Come si legge しゃしん?",o:["shashin","shiyashin","sashin"],e:"し + piccolo ゃ = しゃ, una sillaba sola."},
  {q:"Ascolta e scegli la parola:",au:"テレビ",o:["テレビ","デレビ","テルビ"],e:"テレビ = televisione."},
  {t:"ord",q:"Componi: «Di chi è questo ombrello?»",w:["この","かさ","は","だれ","の","です","か","。"],a:["この かさ は だれ の です か 。"]},
  {t:"type",q:"Completa: ___ は 何[なん] です か 。 (questo, vicino a me)",a:["これ"],full:"これ は 何[なん] です か 。"},
@@ -3007,14 +3240,17 @@ EX.l4=[
  {t:"say",it:"Di' che il telefono è tuo.",jp:"それ は わたし の でんわ です 。",e:"Anche: わたし の です."}
 ];
 VOC.l4=[
+ ["へえ", "oh! davvero? (meraviglia)", "x"],["千[せん]", "mille", "n"],["えん", "yen", "n"],["〜 を ください", "mi dia…, vorrei…", "x"],
  ["これ","questo (vicino a me)","x"],["それ","quello (vicino a te)","x"],["あれ","quello (lontano)","x"],["どれ","quale?","x"],["この","questo + nome","x"],["その","quel + nome (vicino a te)","x"],["あの","quel + nome (lontano)","x"],
  ["何[なん]","che cosa?","x"],["だれ","chi?","x"],["ほん","libro","n"],["かばん","borsa, zaino","n"],["ペン","penna","n"],["まくら","cuscino","n"],["ふろしき","furoshiki (telo per avvolgere)","n"],["ふくろ","busta, sacchetto","n"],["おかし","dolci, snack","n"],
  ["コーヒー","caffè","n"],["テレビ","televisione","n"],["スマホ","smartphone","n"],["パスタ","pasta","n"],["ピザ","pizza","n"],["いらっしゃいませ","benvenuto (nei negozi)","x"],["きれい","bello, pulito","a"],["いくら","quanto costa?","x"]
 ];
 
 /* ---- l5 ---- */
-DLG.l5=[["A","ゆき さん 、 それ は かぞく の しゃしん です か 。","Yuki, è una foto della tua famiglia?"],["B","はい 。 これ が 父[ちち] で 、 これ が 母[はは] です 。","Sì. Questo è mio padre e questa è mia madre."],["A","いい しゃしん です ね 。 この ひと は ？","Bella foto. E questa persona?"],["B","姉[あね] です 。 二十五[にじゅうご]さい です 。","È mia sorella maggiore. Ha 25 anni."],["A","何[なん]人[にん] かぞく です か 。","Quanti siete in famiglia?"],["B","五人[ごにん] かぞく です 。 弟[おとうと] も います 。 マルコ さん は ？","Siamo in cinque. Ho anche un fratello minore. E tu, Marco?"],["A","わたし は 三人[さんにん] かぞく です 。 きょうだい は いません 。 でも 、 いぬ が います 。","Noi siamo in tre. Non ho fratelli. Però ho un cane."]];
+DLG.l5=[["A","ゆき さん 、 それ は かぞく の しゃしん です か 。","Yuki, è una foto della tua famiglia?"],["B","はい 。 これ が 父[ちち] で 、 これ が 母[はは] です 。","Sì. Questo è mio padre e questa è mia madre."],["A","いい しゃしん です ね 。 この ひと は ？","Bella foto. E questa persona?"],["B","姉[あね] です 。 二十五[にじゅうご]さい です 。","È mia sorella maggiore. Ha 25 anni."],["A","何[なん]人[にん] かぞく です か 。","Quanti siete in famiglia?"],["B","五人[ごにん] かぞく です 。 弟[おとうと] も います 。 マルコ さん は ？","Siamo in cinque. Ho anche un fratello minore. E tu, Marco?"],["A","わたし は 三人[さんにん] かぞく です 。 きょうだい は いません 。","Noi siamo in tre. Non ho fratelli."],["B","そう です か 。","Ah, capisco."],["A","でも 、 いぬ が います よ 。","Però ho un cane!"]];
 EX.l5=[
+ {q:"Come si legge ケーキ?",o:["kēki","keki","kēke"],e:"ー allunga la vocale: kē-ki."},
+ {q:"Quale katakana è «tsu»?",o:["ツ","シ","ソ"],e:"ツ = tsu; シ = shi."},
  {q:"Ascolta: quanti sono in famiglia?",au:"四人[よにん] かぞく です 。",o:["quattro","tre","sette"],e:"四人[よにん] = よにん, quattro persone."},
  {q:"Ascolta: quanti anni ha?",au:"兄[あに] は 二十八[にじゅうはっ]さい です 。",o:["28","18","82"],e:"二十八[にじゅうはち] = 28."},
  {q:"Parlando di TUA madre con un collega dici:",o:["母[はは]","お母[かあ]さん","母[はは]さん"],e:"Per la propria famiglia: 母[はは]."},
@@ -3039,6 +3275,8 @@ VOC.l5=[
 /* ---- l6 ---- */
 DLG.l6=[["A","ゆき さん 、 お元気[げんき] です か 。","Yuki, come stai?"],["B","はい 、 元気[げんき] です 。 マルコ さん は ？","Bene, grazie. E tu, Marco?"],["A","元気[げんき] です 。 でも 、 とうきょう は ちょっと あつい です ね 。","Bene. Però a Tokyo fa un po' caldo, eh?"],["B","そう です ね 。 ミラノ は どう です か 。","Eh sì. E Milano com'è?"],["A","ミラノ も にぎやか です 。 でも 、 とうきょう は もっと 大[おお]きい です 。","Anche Milano è vivace. Ma Tokyo è più grande."],["B","とうきょう の アパート は どう です か 。","E il tuo appartamento a Tokyo com'è?"],["A","きれい です が 、 あまり 大[おお]きくない です 。 それに 、 たかい です 。","È pulito, ma non è molto grande. E poi è caro."],["B","とうきょう は たかい です から ね 。","Eh, Tokyo è cara."]];
 EX.l6=[
+ {q:"Come si legge ローマ?",o:["rōma","roma","rōmu"],e:"ロ + ー + マ = rō-ma."},
+ {q:"Quale katakana è «n»?",o:["ン","ソ","シ"],e:"ン = n; ソ = so."},
  {q:"Ascolta: com'è il ramen?",au:"この ラーメン は おいしい です 。",o:["buono","caro","piccolo"],e:"おいしい = buono (cibo)."},
  {q:"Ascolta: com'è la stanza?",au:"へや は あまり 大[おお]きくない です 。",o:["non molto grande","molto grande","molto piccola"],e:"あまり + negativo = non molto."},
  {q:"Negativo di たかい:",o:["たかくない です","たかい じゃ ありません","たかくな です"],e:"-い → -くない."},
@@ -3056,14 +3294,17 @@ EX.l6=[
  {t:"say",it:"Descrivi la tua città: «È tranquilla, ma non è molto grande.»",jp:"しずか です が 、 あまり 大[おお]きくない です 。"}
 ];
 VOC.l6=[
+ ["お元気[げんき] です か", "come sta?", "x"],["それに", "e poi, inoltre", "x"],["子[こ]ども", "bambino", "n"],
  ["元気[げんき]","in forma, in salute","a"],["大[おお]きい","grande","a"],["小[ちい]さい","piccolo","a"],["たかい","alto; caro","a"],["やすい","economico","a"],["おいしい","buono (cibo)","a"],["あつい","caldo","a"],["さむい","freddo (tempo)","a"],
  ["あたらしい","nuovo","a"],["ふるい","vecchio (cose)","a"],["おもしろい","interessante, divertente","a"],["しずか","tranquillo","a"],["にぎやか","vivace, animato","a"],["ゆうめい","famoso","a"],["しんせつ","gentile","a"],
  ["とても","molto","x"],["あまり","(con negativo) non molto","x"],["ちょっと","un po'","x"],["もっと","di più","x"],["どう","come?","x"],["まち","città, quartiere","n"],["へや","stanza","n"],["アパート","appartamento","n"],["ラーメン","ramen","n"],["が","ma (tra due frasi)","x"]
 ];
 
 /* ---- l7 ---- */
-DLG.l7=[["A","マルコ さん 、 毎日[まいにち] 何[なに] を します か 。","Marco, che cosa fai ogni giorno?"],["B","毎朝[まいあさ] コーヒー を 飲[の]みます 。 それから 、 大学[だいがく] に 行[い]きます 。","Ogni mattina bevo un caffè. Poi vado all'università."],["A","大学[だいがく] で 何[なに] を 勉強[べんきょう]します か 。","Che cosa studi all'università?"],["B","日本語[にほんご] と れきし を 勉強[べんきょう]します 。 ゆき さん は ？","Studio giapponese e storia. E tu, Yuki?"],["A","わたし は かいしゃいん です 。 ぎんこう で はたらいて います 。","Io sono impiegata. Lavoro in banca."],["B","ばん ごはん は うち で 食[た]べます か 。","La cena la mangi a casa?"],["A","はい 。 でも 、 金曜日[きんようび] は ともだち と 食[た]べます 。","Sì. Però il venerdì mangio con gli amici."],["B","いい です ね 。 わたし も 行[い]きます ！","Che bello. Vengo anch'io!"]];
+DLG.l7=[["A","マルコ さん 、 毎日[まいにち] 何[なに] を します か 。","Marco, che cosa fai ogni giorno?"],["B","毎朝[まいあさ] コーヒー を 飲[の]みます 。 それから 、 大学[だいがく] に 行[い]きます 。","Ogni mattina bevo un caffè. Poi vado all'università."],["A","大学[だいがく] で 何[なに] を 勉強[べんきょう]します か 。","Che cosa studi all'università?"],["B","日本語[にほんご] と れきし を 勉強[べんきょう]します 。 ゆき さん は ？","Studio giapponese e storia. E tu, Yuki?"],["A","わたし は かいしゃいん です 。 ぎんこう で はたらきます 。","Io sono impiegata. Lavoro in banca."],["B","ばん ごはん は うち で 食[た]べます か 。","La cena la mangi a casa?"],["A","はい 。 でも 、 金曜日[きんようび] は ともだち と 食[た]べます 。","Sì. Però il venerdì mangio con gli amici."],["B","いい です ね 。 わたし も 行[い]きます ！","Che bello. Vengo anch'io!"]];
 EX.l7=[
+ {q:"Come si legge パーティー?",o:["pātī","pati","pātei"],e:"ティ = ti, con la i piccola."},
+ {q:"Come si legge ベッド?",o:["beddo","bedo","betto"],e:"ッ piccolo = doppia: bed-do."},
  {q:"Ascolta: che cosa beve ogni mattina?",au:"毎朝[まいあさ] おちゃ を 飲[の]みます 。",o:["tè verde","caffè","acqua"],e:"おちゃ = tè verde."},
  {q:"Ascolta: dove mangia?",au:"うち で 食[た]べます 。",o:["a casa","all'università","al ristorante"],e:"うち で = a casa."},
  {q:"«Non bevo il caffè.»",o:["コーヒー を 飲[の]みません 。","コーヒー を 飲[の]みます 。","コーヒー が 飲[の]みません 。"],e:"Negativo: -ません."},
@@ -3081,6 +3322,7 @@ EX.l7=[
  {t:"say",it:"Chiedi a un collega che lavoro fa.",jp:"おしごと は 何[なん] です か 。"}
 ];
 VOC.l7=[
+ ["大学[だいがく]", "università", "n"],["はたらきます", "lavorare", "v"],
  ["食[た]べます","mangiare","v"],["飲[の]みます","bere","v"],["行[い]きます","andare","v"],["来[き]ます","venire","v"],["かえります","tornare (a casa)","v"],["見[み]ます","vedere, guardare","v"],["読[よ]みます","leggere","v"],["します","fare","v"],["勉強[べんきょう]します","studiare","v"],["起[お]きます","alzarsi","v"],["ねます","dormire, andare a letto","v"],
  ["毎日[まいにち]","ogni giorno","n"],["毎朝[まいあさ]","ogni mattina","n"],["あした","domani","n"],["ばん ごはん","cena","n"],["うち","casa (mia)","n"],["としょかん","biblioteca","n"],["ともだち","amico","n"],["れきし","storia","n"],["パン","pane","n"],
  ["おしごと","lavoro (di altri)","n"],["かいしゃいん","impiegato","n"],["ぎんこう","banca","n"],["それから","poi, e poi","x"],["何[なに]","che cosa?","x"],["金曜日[きんようび]","venerdì","n"]
@@ -3105,6 +3347,7 @@ EX.l8=[
  {t:"say",it:"Chiedi quanto costa questo (vicino a te) e se puoi pagare con la carta.",jp:"これ は いくら です か 。 カード で いい です か 。"}
 ];
 VOC.l8=[
+ ["ありがとう ございました", "grazie (per qualcosa che è già successo)", "x"],
  ["コンビニ","konbini, minimarket","n"],["おにぎり","onigiri (polpetta di riso)","n"],["サンドイッチ","panino, tramezzino","n"],["お茶[ちゃ]","tè verde","n"],["お水[みず]","acqua","n"],["ホット","caldo (bevanda)","x"],["アイス","freddo, con ghiaccio","x"],["ケーキ","torta, dolce","n"],
  ["〜 円[えん]","… yen","x"],["百[ひゃく]","cento","n"],["千[せん]","mille","n"],["一万[いちまん]","diecimila","n"],["いくら","quanto costa?","x"],["ぜんぶ で","in tutto","x"],["ください","mi dia, per favore","x"],["お願[ねが]いします","per favore","x"],
  ["一[ひと]つ","uno (cosa)","n"],["二[ふた]つ","due (cose)","n"],["三[みっ]つ","tre (cose)","n"],["ふくろ","busta","n"],["いります","serve, è necessario","v"],["あたためます","scaldare","v"],["カード","carta (di credito)","n"],["だいじょうぶ","va bene, a posto","a"]
@@ -3155,13 +3398,14 @@ EX.l9=[
  {t:"say",it:"Rispondi: «Studio giapponese perché mi piace il Giappone.»",jp:"日本[にほん] が 好[す]き です から 。"}
 ];
 VOC.l9=[
+ ["お名前[なまえ]", "il suo nome (cortese)", "n"],["聞[き]きます", "ascoltare; chiedere", "v"],
  ["どこ","dove?","x"],["いつ","quando?","x"],["どうして","perché?","x"],["どんな","che tipo di?","x"],["どう","come?","x"],["〜 から","da; perché","x"],["ね","vero? eh? (alla fine)","x"],["よ","sai, guarda che (alla fine)","x"],
  ["今[いま]","adesso","n"],["名前[なまえ]","nome","n"],["国[くに]","paese, nazione","n"],["英語[えいご]","inglese (lingua)","n"],["トイレ","bagno, toilette","n"],["えき","stazione","n"],["アニメ","anime, cartoni animati","n"],["音楽[おんがく]","musica","n"],["えいが","film","n"],["天気[てんき]","tempo (meteo)","n"],
  ["好[す]き","che piace","a"],["上手[じょうず]","bravo (in qualcosa)","a"],["すごい","fantastico, incredibile","a"],["休[やす]み","vacanza, giorno libero","n"],["来[き]ました","è venuto, sono venuto","v"],["さあ","mah, chissà","x"],["えーと","ehm…","x"]
 ];
 
 /* ---- l10 ---- */
-DLG.l10=[["A","おはよう ございます 。 ねむそう です ね 。","Buongiorno. Hai l'aria assonnata."],["B","ええ 。 きのう は 十二時[じゅうにじ] ごろ ねました から 。","Eh sì. Ieri sono andata a letto verso mezzanotte."],["A","何[なに] を しました か 。","Che cosa hai fatto?"],["B","ともだち と えいが を 見[み]ました 。 マルコ さん は ？","Ho visto un film con un'amica. E tu, Marco?"],["A","わたし は うち で 日本語[にほんご] を 勉強[べんきょう]しました 。 テレビ は 見[み]ません でした 。","Io ho studiato giapponese a casa. Non ho guardato la TV."],["B","えらい です ね 。 毎朝[まいあさ] 何時[なんじ] に 起[お]きます か 。","Bravo! A che ora ti alzi ogni mattina?"],["A","七時[しちじ] に 起[お]きます 。 じゅぎょう は 九時[くじ] から です 。","Mi alzo alle sette. Le lezioni cominciano alle nove."],["B","わたし も 七時[しちじ] です 。 でも 、 きょう は 八時[はちじ] に 起[お]きました 。","Anch'io alle sette. Ma oggi mi sono alzata alle otto."]];
+DLG.l10=[["A","おはよう ございます 。 ねむい です か 。","Buongiorno. Hai sonno?"],["B","ええ 。 きのう は 十二時[じゅうにじ] ごろ ねました から 。","Eh sì. Ieri sono andata a letto verso mezzanotte."],["A","何[なに] を しました か 。","Che cosa hai fatto?"],["B","ともだち と えいが を 見[み]ました 。 マルコ さん は ？","Ho visto un film con un'amica. E tu, Marco?"],["A","わたし は うち で 日本語[にほんご] を 勉強[べんきょう]しました 。 テレビ は 見[み]ません でした 。","Io ho studiato giapponese a casa. Non ho guardato la TV."],["B","えらい です ね 。 毎朝[まいあさ] 何時[なんじ] に 起[お]きます か 。","Bravo! A che ora ti alzi ogni mattina?"],["A","七時[しちじ] に 起[お]きます 。 じゅぎょう は 九時[くじ] から です 。","Mi alzo alle sette. Le lezioni cominciano alle nove."],["B","わたし も 七時[しちじ] です 。 でも 、 きょう は 八時[はちじ] に 起[お]きました 。","Anch'io alle sette. Ma oggi mi sono alzata alle otto."]];
 EX.l10=[
  {q:"Ascolta: che ore sono?",au:"今[いま] 、 四時[よじ] 半[はん] です 。",o:["4.30","4.15","7.30"],e:"四時[よじ] 半[はん] = le quattro e mezza."},
  {q:"Ascolta: a che ora si alza?",au:"毎朝[まいあさ] 六時[ろくじ] に 起[お]きます 。",o:["alle 6","alle 9","alle 7"],e:"六時[ろくじ] = le sei."},
@@ -3180,6 +3424,7 @@ EX.l10=[
  {t:"say",it:"Chiedi a un amico che ore sono.",jp:"今[いま] 、 何時[なんじ] です か 。"}
 ];
 VOC.l10=[
+ ["ねむい", "avere sonno", "a"],["ええ", "sì (più morbido di はい)", "x"],
  ["〜 時[じ]","… in punto (ore)","x"],["〜 分[ふん]","… minuti","x"],["半[はん]","e mezza","x"],["何時[なんじ]","che ore?","x"],["午前[ごぜん]","di mattina (a.m.)","n"],["午後[ごご]","di pomeriggio (p.m.)","n"],["ごろ","verso, circa (ore)","x"],["〜 まで","fino a","x"],
  ["きのう","ieri","n"],["きょう","oggi","n"],["あした","domani","n"],["朝[あさ]","mattina","n"],["ばん","sera","n"],["月曜日[げつようび]","lunedì","n"],["火曜日[かようび]","martedì","n"],["水曜日[すいようび]","mercoledì","n"],["木曜日[もくようび]","giovedì","n"],["土曜日[どようび]","sabato","n"],["日曜日[にちようび]","domenica","n"],
  ["起[お]きました","mi sono alzato","v"],["ねました","sono andato a letto","v"],["はたらきます","lavorare","v"],["じゅぎょう","lezione (a scuola)","n"],["えらい","bravo, ammirevole","a"],["そして","e poi","x"],["おつかれさま です","grazie della fatica (tra colleghi)","x"]
@@ -3204,6 +3449,7 @@ EX.l11=[
  {t:"say",it:"Invita Yuki a bere un caffè insieme sabato.",jp:"土曜日[どようび] に いっしょに コーヒー を 飲[の]みません か 。"}
 ];
 VOC.l11=[
+ ["そのあと", "dopo, in seguito", "x"],["わあ", "wow!", "x"],
  ["しゅみ","hobby","n"],["好[す]き","che piace","a"],["大好[だいす]き","che piace tantissimo","a"],["きらい","che non piace, odiato","a"],["上手[じょうず]","bravo","a"],["へた","negato, scarso","a"],["とくい","il proprio forte","a"],
  ["サッカー","calcio","n"],["しあい","partita","n"],["りょうり","cucina, piatto","n"],["うた","canzone","n"],["やさい","verdura","n"],["スポーツ","sport","n"],["ゲーム","videogioco","n"],["昼[ひる] ごはん","pranzo","n"],
  ["いっしょに","insieme","x"],["よく","spesso","x"],["ときどき","a volte","x"],["ぜんぜん","(con negativo) per niente, mai","x"],["作[つく]ります","fare, preparare","v"],["〜 ません か","non vuoi…? (invito)","x"],["〜 ましょう","facciamo…!","x"],["楽[たの]しい","divertente","a"],["楽[たの]しみ です","non vedo l'ora","x"],["うれしい","felice, contento","a"]
@@ -3228,6 +3474,7 @@ EX.l12=[
  {t:"say",it:"Spiega: «Vada dritto e al semaforo giri a destra.»",jp:"まっすぐ 行[い]って ください 。 しんごう を 右[みぎ] に まがって ください 。"}
 ];
 VOC.l12=[
+ ["つくえ", "scrivania", "n"],
  ["上[うえ]","sopra","n"],["下[した]","sotto","n"],["中[なか]","dentro","n"],["外[そと]","fuori","n"],["前[まえ]","davanti","n"],["うしろ","dietro","n"],["となり","accanto","n"],["ちかく","vicino","n"],["右[みぎ]","destra","n"],["左[ひだり]","sinistra","n"],
  ["ここ","qui","x"],["そこ","lì","x"],["あそこ","là","x"],["道[みち]","strada","n"],["しんごう","semaforo","n"],["ゆうびんきょく","ufficio postale","n"],["こうえん","parco","n"],["ホテル","hotel","n"],["こうばん","posto di polizia","n"],["東口[ひがしぐち]","uscita est","n"],
  ["まっすぐ","dritto","x"],["まがって ください","giri, per favore","x"],["わかりました","ho capito","x"],["たくさん","tanto, tanti","x"],["子[こ]ども","bambino","n"],["気[き]を つけて","fai attenzione","x"]
@@ -3254,6 +3501,7 @@ EX.l13=[
  {t:"say",it:"In un museo, chiedi se puoi fare una foto.",jp:"しゃしん を とって も いい です か 。"}
 ];
 VOC.l13=[
+ ["わかります", "capire; sapere", "v"],["すこし", "un po'", "x"],
  ["待[ま]つ","aspettare","v"],["書[か]く","scrivere","v"],["読[よ]む","leggere","v"],["話[はな]す","parlare","v"],["聞[き]く","ascoltare; chiedere","v"],["言[い]う","dire","v"],["買[か]う","comprare","v"],["使[つか]う","usare","v"],["とる","prendere; fare (foto)","v"],["すう","fumare; aspirare","v"],
  ["〜て ください","per favore, faccia…","x"],["〜て も いい です か","posso…?","x"],["〜て は いけません","non si può…","x"],["もしもし","pronto (al telefono)","x"],["すぐ","subito","x"],["ゆっくり","piano, con calma","x"],["もう 一度[いちど]","ancora una volta","x"],
  ["しゃしん","foto","n"],["たばこ","sigaretta","n"],["飲[の]みもの","bevanda","n"],["電話[でんわ]","telefono","n"],["電車[でんしゃ]","treno","n"],["どう しました か","che succede?","x"],["あの","ehm (per cominciare a parlare)","x"]
@@ -3353,6 +3601,7 @@ EX.l16=[
  {t:"say",it:"Chiedi quanto ci vuole in treno fino a Kyoto.",jp:"きょうと まで 電車[でんしゃ] で どのくらい かかります か 。"}
 ];
 VOC.l16=[
+ ["ふつか", "il 2 (del mese); due giorni", "n"],["みっか", "il 3 (del mese)", "n"],["よっか", "il 4 (del mese)", "n"],["いつか", "il 5 (del mese)", "n"],["むいか", "il 6 (del mese)", "n"],["なのか", "il 7 (del mese)", "n"],["ようか", "l'8 (del mese)", "n"],["ここのか", "il 9 (del mese)", "n"],["とおか", "il 10 (del mese)", "n"],["のぼります", "salire (su un monte)", "v"],["ほっかいどう", "Hokkaidō (isola del nord)", "n"],["おおさか", "Osaka", "n"],
  ["〜 たい です","voglio…","x"],["旅行[りょこう]","viaggio","n"],["夏休[なつやす]み","vacanze estive","n"],["出発[しゅっぱつ]します","partire","v"],["乗[の]ります","salire (su un mezzo)","v"],["かかります","volerci (tempo, soldi)","v"],["どのくらい","quanto (tempo)?","x"],["ぐらい","circa","x"],["〜 時間[じかん]","… ore (durata)","x"],
  ["ひこうき","aereo","n"],["しんかんせん","shinkansen, treno ad alta velocità","n"],["くるま","automobile","n"],["バス","autobus","n"],["あるいて","a piedi","x"],["きっぷ","biglietto","n"],["くうこう","aeroporto","n"],
  ["〜 月[がつ]","mese …","x"],["ついたち","il primo (del mese)","n"],["春[はる]","primavera","n"],["夏[なつ]","estate","n"],["秋[あき]","autunno","n"],["冬[ふゆ]","inverno","n"],["いって きます","vado (e torno)","x"],["ただいま","sono tornato!","x"],["カニ","granchio","n"]
@@ -3379,13 +3628,14 @@ EX.l17=[
  {t:"say",it:"Racconta: «Da bambino abitavo a Napoli. Giocavo spesso a calcio.»",jp:"子[こ]ども の とき 、 ナポリ に 住[す]んで いました 。 よく サッカー を しました 。"}
 ];
 VOC.l17=[
+ ["川[かわ]", "fiume", "n"],["車[くるま]", "automobile", "n"],
  ["子[こ]ども の とき","da bambino","x"],["〜 とき","quando…","x"],["〜た こと が あります","ho già fatto…","x"],["一度[いちど]","una volta","n"],["〜 回[かい]","… volte","x"],["まだ","ancora (non)","x"],["そのころ","a quel tempo","x"],["だから","per questo, quindi","x"],
  ["住[す]む","abitare","v"],["およぐ","nuotare","v"],["あそぶ","giocare, divertirsi","v"],["はじめる","cominciare","v"],["わすれる","dimenticare","v"],["とめる","fermare, parcheggiare","v"],["わかる","capire","v"],
  ["小学校[しょうがっこう]","scuola elementare","n"],["マンガ","manga, fumetti","n"],["ひま","libero, senza impegni","a"],["すごく","tantissimo (parlato)","x"],["うん","sì (informale)","x"],["ううん","no (informale)","x"],["いい なあ","che invidia, che bello","x"],["そう なんだ","ah, capisco (informale)","x"],["おこのみやき","okonomiyaki","n"]
 ];
 
 /* ---- l18 ---- */
-DLG.l18=[["A","もしもし 、 ゆき さん 。 今[いま] 、 何[なに] を して います か 。","Pronto, Yuki. Che cosa stai facendo?"],["B","今[いま] 、 りょうり を して います 。 あした 、 母[はは] が 来[き]ます から 。","Sto cucinando. Domani viene mia madre."],["A","お母[かあ]さん は どこ に 住[す]んで います か 。","Dove abita tua madre?"],["B","おおさか に 住[す]んで います 。 しんかんせん で 来[き]て 、 二日[ふつか] とまります 。","Abita a Osaka. Viene in shinkansen e si ferma due giorni."],["A","そう です か 。 じゃあ 、 あした は いそがしい です ね 。","Ah. Allora domani sei impegnata."],["B","ええ 。 まず 、 えき に むかえ に 行[い]って 、 それから 、 いっしょに あさくさ を 見[み]て 、 夜[よる] は うち で 食[た]べます 。","Sì. Prima la vado a prendere alla stazione, poi visitiamo insieme Asakusa e la sera mangiamo a casa."],["A","いい です ね 。 マルコ も 知[し]って います か 。","Bello. E Marco lo sa?"],["B","はい 。 マルコ さん も 夜[よる] ごはん を 食[た]べて から 、 来[き]ます よ 。","Sì. Anche Marco viene, dopo aver cenato."]];
+DLG.l18=[["A","もしもし 、 ゆき さん 。 今[いま] 、 何[なに] を して います か 。","Pronto, Yuki. Che cosa stai facendo?"],["B","今[いま] 、 りょうり を して います 。 あした 、 母[はは] が 来[き]ます から 。","Sto cucinando. Domani viene mia madre."],["A","お母[かあ]さん は どこ に 住[す]んで います か 。","Dove abita tua madre?"],["B","おおさか に 住[す]んで います 。 しんかんせん で 来[き]て 、 二日[ふつか] とまります 。","Abita a Osaka. Viene in shinkansen e si ferma due giorni."],["A","そう です か 。 じゃあ 、 あした は いそがしい です ね 。","Ah. Allora domani sei impegnata."],["B","ええ 。 まず 、 えき に むかえ に 行[い]きます 。","Sì. Prima la vado a prendere alla stazione."],["A","それから ？","E poi?"],["B","いっしょに あさくさ を 見[み]て 、 夜[よる] は うち で 食[た]べます 。","Visitiamo insieme Asakusa e la sera mangiamo a casa."],["A","いい です ね 。 マルコ も 知[し]って います か 。","Bello. E Marco lo sa?"],["B","はい 。 マルコ さん も 夜[よる] ごはん を 食[た]べて から 、 来[き]ます よ 。","Sì. Anche Marco viene, dopo aver cenato."]];
 EX.l18=[
  {q:"Ascolta: che cosa sta facendo?",au:"今[いま] 、 本[ほん] を 読[よ]んで います 。",o:["sta leggendo un libro","ha letto un libro","leggerà un libro"],e:"〜て います = sta facendo."},
  {q:"Ascolta: dove abita?",au:"あね は ローマ に 住[す]んで います 。",o:["a Roma","a Milano","a Osaka"],e:"住[す]んで います = abita."},
@@ -3403,6 +3653,7 @@ EX.l18=[
  {t:"say",it:"Di' dove abiti e dove lavori o studi.",jp:"ミラノ に 住[す]んで います 。 大学[だいがく] で 勉強[べんきょう]して います 。"}
 ];
 VOC.l18=[
+ ["なります", "diventare; (di tempo) fare", "v"],
  ["〜て います","sto facendo; (stato)","x"],["知[し]って います","conoscere, sapere","v"],["知[し]りません","non so, non conosco","v"],["けっこん して います","essere sposato","v"],["〜て から","dopo aver…","x"],["とまります","fermarsi, alloggiare","v"],["むかえ に 行[い]きます","andare a prendere","v"],["シャワー を あびます","fare la doccia","v"],["出[で]かけます","uscire","v"],
  ["いそがしい","impegnato, occupato","a"],["しゅくだい","compiti","n"],["夜[よる]","notte, sera","n"],["昼[ひる]","mezzogiorno","n"],["まず","prima di tutto","x"],["そのあと","dopo","x"],["さいご に","alla fine","x"],["むかし","tanto tempo fa","n"],["ところが","ma ecco che","x"],["〜年[ねん]","… anni (durata/anno)","x"],["あさくさ","Asakusa (quartiere di Tokyo)","n"]
 ];
@@ -3450,6 +3701,7 @@ EX.l20=[
  {t:"say",it:"Racconta: «Per il compleanno un amico mi ha regalato un libro.»",jp:"たんじょうび に ともだち が 本[ほん] を くれました 。"}
 ];
 VOC.l20=[
+ ["〜 用[よう]", "per… (uso): プレゼント用 = da regalo", "x"],
  ["あげる","dare (a un altro)","v"],["くれる","dare (a me)","v"],["もらう","ricevere","v"],["〜て みる","provare a fare","x"],["プレゼント","regalo","n"],["おみやげ","souvenir, regalo dal viaggio","n"],["たんじょうび","compleanno","n"],["買[か]い物[もの]","spesa, shopping","n"],
  ["スカーフ","sciarpa, foulard","n"],["くつ","scarpe","n"],["Tシャツ","maglietta","n"],["チョコ","cioccolato","n"],["ネクタイ","cravatta","n"],["色[いろ]","colore","n"],["赤[あか]","rosso","n"],["青[あお]","blu","n"],["白[しろ]","bianco","n"],["黒[くろ]","nero","n"],
  ["はく","indossare (sotto la vita)","v"],["つつむ","incartare","v"],["さわる","toccare","v"],["考[かんが]える","pensare, riflettere","v"],["やわらかい","morbido","a"],["にんき","popolarità","n"],["いかが です か","che ne dice? (cortese)","x"],["かしこまりました","certamente (commessi)","x"]
@@ -3500,6 +3752,7 @@ EX.l22=[
  {t:"say",it:"Chiedi se qui si può pagare con la carta.",jp:"ここ で カード が 使[つか]えます か 。"}
 ];
 VOC.l22=[
+ ["口[くち]", "bocca", "n"],["なまもの", "cibo crudo", "n"],["早[はや]く", "presto", "x"],
  ["いたい","che fa male","a"],["あたま","testa","n"],["おなか","pancia","n"],["歯[は]","denti","n"],["のど","gola","n"],["ねつ","febbre","n"],["せき","tosse","n"],["かぜ","raffreddore, influenza","n"],["くすり","medicina","n"],["病院[びょういん]","ospedale, clinica","n"],["お医者[いしゃ]さん","medico","n"],
  ["〜 なければ なりません","devo…","x"],["〜 なくて も いい","non c'è bisogno di…","x"],["〜 た ほう が いい","è meglio…","x"],["〜 ん です","è che… (spiegazione)","x"],["できる","potere, saper fare","v"],["休[やす]む","riposare; assentarsi","v"],["あける","aprire","v"],["無理[むり] を する","sforzarsi troppo","v"],
  ["一日[いちにち]","un giorno; al giorno","n"],["けさ","stamattina","n"],["ほけんしょう","tessera sanitaria","n"],["お大事[だいじ] に","riguardati","x"],["どう しました か","che cosa c'è? (medico)","x"]
@@ -3920,7 +4173,7 @@ CULT.r3=[
 var READS=[
 {id:"oshogatsu",after:"l8",kind:"Vita in Giappone",t:"Il Capodanno di Yuki",j:"おしょうがつ",min:3,
  intro:"In Giappone il Capodanno (お正月[しょうがつ]) è la festa più importante dell'anno: si passa in famiglia, un po' come da noi il Natale. Si mangiano piatti speciali, si va al santuario e i bambini ricevono un regalo in denaro.",
- gloss:[["一月[いちがつ]","gennaio"],["一日[ついたち]","il primo giorno del mese"],["おしょうがつ","Capodanno (i primi giorni di gennaio)"],["おせち","osechi: i piatti del Capodanno, in scatole laccate"],["はこ","scatola"],["中[なか]","dentro, interno"],["りょうり","cucina, piatto"],["それから","e poi"],["じんじゃ","santuario shintoista"],["おおい","numeroso, tanto"],["おねがい","richiesta; desiderio (espresso al santuario)"],["ひみつ","segreto"],["おとしだま","otoshidama: soldi regalati ai bambini a Capodanno"],["もらいます","ricevere"],["おかね","soldi"],["うれしい","contento, felice"],["みんな","tutti"],["よる","sera, notte"],["あけまして","(nell'augurio di Capodanno) ora che l'anno è cominciato"],["おめでとう","auguri, congratulazioni"]],
+ gloss:[["五[ご]さい", "cinque anni (di età)"],["一月[いちがつ]","gennaio"],["一日[ついたち]","il primo giorno del mese"],["おしょうがつ","Capodanno (i primi giorni di gennaio)"],["おせち","osechi: i piatti del Capodanno, in scatole laccate"],["はこ","scatola"],["中[なか]","dentro, interno"],["りょうり","cucina, piatto"],["それから","e poi"],["じんじゃ","santuario shintoista"],["おおい","numeroso, tanto"],["おねがい","richiesta; desiderio (espresso al santuario)"],["ひみつ","segreto"],["おとしだま","otoshidama: soldi regalati ai bambini a Capodanno"],["もらいます","ricevere"],["おかね","soldi"],["うれしい","contento, felice"],["みんな","tutti"],["よる","sera, notte"],["あけまして","(nell'augurio di Capodanno) ora che l'anno è cominciato"],["おめでとう","auguri, congratulazioni"]],
  lines:[
   ["一月[いちがつ] 一日[ついたち] です 。 きょう は おしょうがつ です 。","È il primo gennaio. Oggi è Capodanno."],
   ["ゆき さん の かぞく は 、 みんな うち に います 。","La famiglia di Yuki è tutta a casa."],
@@ -3941,7 +4194,7 @@ var READS=[
 
 {id:"momotaro",after:"l14",kind:"Fiaba",t:"Momotarō, il bambino nato da una pesca",j:"ももたろう",min:4,
  intro:"È la fiaba più famosa del Giappone: tutti i bambini la conoscono, e davanti alla stazione di Okayama c'è la statua di Momotarō con il cane, la scimmia e il fagiano. Comincia con むかし むかし, il nostro «c'era una volta».",
- gloss:[["むかし","tanto tempo fa (むかし むかし: c'era una volta)"],["ある","un certo (ある ところ: in un certo posto; ある 日: un giorno)"],["ところ","posto, luogo"],["おじいさん","vecchietto; nonno"],["おばあさん","vecchietta; nonna"],["山[やま]","montagna"],["川[かわ]","fiume"],["もも","pesca (il frutto)"],["切[き]りました","tagliò (passato di 切[き]ります)"],["すると","e allora, ed ecco che"],["中[なか]","dentro, interno"],["男[おとこ]","maschio (男 の 子: bambino, ragazzo)"],["子[こ]","bambino (男 の 子: bambino maschio)"],["出[で]ました","uscì (passato di 出[で]ます)"],["よろこびました","si rallegrò, fu felice"],["名前[なまえ]","nome"],["ももたろう","Momotarō (nome: «ragazzo della pesca»)"],["大[おお]きく","grande (大きく なる: diventare grande, crescere)"],["なりました","diventò (passato di なります)"],["つよい","forte"],["言[い]いました","disse"],["おにがしま","l'isola dei demoni (おに)"],["おに","oni, demone con le corna"],["きびだんご","kibidango: palline dolci di miglio"],["作[つく]りました","preparò, fece"],["みち","strada"],["あいました","incontrò (〜 に あいました)"],["いっしょ","insieme (いっしょ に)"],["さる","scimmia"],["きじ","fagiano"],["みんな","tutti (みんな で: tutti insieme)"],["たたかいました","combatté"],["ごめんなさい","scusa, scusate"],["たから","tesoro"],["もって","tenendo, portando (forma -te di もちます)"],["かえりました","tornò (a casa)"]],
+ gloss:[["いました", "c'era, c'erano (passato di います)"],["むかし","tanto tempo fa (むかし むかし: c'era una volta)"],["ある","un certo (ある ところ: in un certo posto; ある 日: un giorno)"],["ところ","posto, luogo"],["おじいさん","vecchietto; nonno"],["おばあさん","vecchietta; nonna"],["山[やま]","montagna"],["川[かわ]","fiume"],["もも","pesca (il frutto)"],["切[き]りました","tagliò (passato di 切[き]ります)"],["すると","e allora, ed ecco che"],["中[なか]","dentro, interno"],["男[おとこ]","maschio (男 の 子: bambino, ragazzo)"],["子[こ]","bambino (男 の 子: bambino maschio)"],["出[で]ました","uscì (passato di 出[で]ます)"],["よろこびました","si rallegrò, fu felice"],["名前[なまえ]","nome"],["ももたろう","Momotarō (nome: «ragazzo della pesca»)"],["大[おお]きく","grande (大きく なる: diventare grande, crescere)"],["なりました","diventò (passato di なります)"],["つよい","forte"],["言[い]いました","disse"],["おにがしま","l'isola dei demoni (おに)"],["おに","oni, demone con le corna"],["きびだんご","kibidango: palline dolci di miglio"],["作[つく]りました","preparò, fece"],["みち","strada"],["あいました","incontrò (〜 に あいました)"],["いっしょ","insieme (いっしょ に)"],["さる","scimmia"],["きじ","fagiano"],["みんな","tutti (みんな で: tutti insieme)"],["たたかいました","combatté"],["ごめんなさい","scusa, scusate"],["たから","tesoro"],["もって","tenendo, portando (forma -te di もちます)"],["かえりました","tornò (a casa)"]],
  lines:[
   ["むかし むかし 、 ある ところ に おじいさん と おばあさん が いました 。","C'erano una volta, in un certo posto, un vecchietto e una vecchietta."],
   ["おじいさん は 山[やま] へ 行[い]きました 。 おばあさん は 川[かわ] へ 行[い]きました 。","Il vecchietto andò in montagna. La vecchietta andò al fiume."],
@@ -3964,7 +4217,7 @@ var READS=[
 
 {id:"urashima",after:"l23",kind:"Fiaba",t:"Urashima Tarō e il palazzo sotto il mare",j:"うらしまたろう",min:5,
  intro:"Una delle fiabe giapponesi più antiche: ne parlano già testi dell'VIII secolo. È raccontata con la forma informale (だった, 行[い]った), come si fa nei libri. Attenzione al finale: non è un lieto fine.",
- gloss:[["むかし","tanto tempo fa"],["うみ","mare"],["うらしまたろう","Urashima Tarō (nome del pescatore)"],["たろう","Tarō (nome)"],["いう","dire (X と いう Y: uno Y di nome X)"],["わかい","giovane"],["りょうし","pescatore"],["はま","spiaggia"],["かめ","tartaruga"],["たち","(dopo persone) plurale: 子どもたち = i bambini"],["いじめて","maltrattando (いじめる: maltrattare, fare i prepotenti)"],["かわいそう","poverino, che pena"],["やめて","smettetela, basta"],["かえした","restituì, riportò (かえす)"],["つぎ","seguente (つぎ の 日: il giorno dopo)"],["りゅうぐうじょう","il Palazzo del Drago, in fondo al mare"],["せなか","schiena, dorso"],["のって","salendo su (のる: salire su un mezzo)"],["おとひめ","Otohime, la principessa del mare"],["さま","titolo molto rispettoso (più di さん)"],["まって","aspettando (まつ: aspettare)"],["ごちそう","pranzo squisito, banchetto"],["おどり","danza"],["たのしく","in modo divertente (たのしい)"],["すごした","passò (il tempo)"],["しばらく","un po' di tempo (しばらく して: dopo un po')"],["会[あ]いたく","(volere) vedere: 会いたく なる = venire voglia di vedere"],["はこ","scatola"],["くれた","gli diede (a lui, il protagonista)"],["ぜったい","assolutamente (ぜったい に 〜ないで: mai e poi mai)"],["あけないで","non aprire (あける: aprire)"],["むら","villaggio"],["かえる","tornare (かえる と: quando tornò)"],["何[なに]","che cosa (何 も かも: tutto quanto)"],["かも","(in 何 も かも) tutto quanto"],["ちがって","essendo diverso (ちがう: essere diverso)"],["家[いえ]","casa"],["しって","conoscendo (しって いる: conoscere)"],["だれ","chi (だれ も いない: non c'è nessuno)"],["三百[さんびゃく]","trecento"],["年[ねん]","anno"],["たって","essendo passato (たつ: passare, del tempo)"],["の","(の だ) è che…: spiega quello che è successo"],["さびしく","triste, solo (さびしい)"],["あけて","aprendo (あける: aprire)"],["しまった","(dopo -te) purtroppo, irrimediabilmente"],["しろい","bianco"],["けむり","fumo"],["出[で]て","uscendo (出[で]る: uscire)"]],
+ gloss:[["いた", "c'era (forma informale di いました)"],["来[き]た", "venne (forma informale di 来[き]ました)"],["なった", "diventò (forma informale di なりました)"],["いない", "non c'è (forma informale di いません)"],["いる", "c'è (forma informale di います)"],["むかし","tanto tempo fa"],["うみ","mare"],["うらしまたろう","Urashima Tarō (nome del pescatore)"],["たろう","Tarō (nome)"],["いう","dire (X と いう Y: uno Y di nome X)"],["わかい","giovane"],["りょうし","pescatore"],["はま","spiaggia"],["かめ","tartaruga"],["たち","(dopo persone) plurale: 子どもたち = i bambini"],["いじめて","maltrattando (いじめる: maltrattare, fare i prepotenti)"],["かわいそう","poverino, che pena"],["やめて","smettetela, basta"],["かえした","restituì, riportò (かえす)"],["つぎ","seguente (つぎ の 日: il giorno dopo)"],["りゅうぐうじょう","il Palazzo del Drago, in fondo al mare"],["せなか","schiena, dorso"],["のって","salendo su (のる: salire su un mezzo)"],["おとひめ","Otohime, la principessa del mare"],["さま","titolo molto rispettoso (più di さん)"],["まって","aspettando (まつ: aspettare)"],["ごちそう","pranzo squisito, banchetto"],["おどり","danza"],["たのしく","in modo divertente (たのしい)"],["すごした","passò (il tempo)"],["しばらく","un po' di tempo (しばらく して: dopo un po')"],["会[あ]いたく","(volere) vedere: 会いたく なる = venire voglia di vedere"],["はこ","scatola"],["くれた","gli diede (a lui, il protagonista)"],["ぜったい","assolutamente (ぜったい に 〜ないで: mai e poi mai)"],["あけないで","non aprire (あける: aprire)"],["むら","villaggio"],["かえる","tornare (かえる と: quando tornò)"],["何[なに]","che cosa (何 も かも: tutto quanto)"],["かも","(in 何 も かも) tutto quanto"],["ちがって","essendo diverso (ちがう: essere diverso)"],["家[いえ]","casa"],["しって","conoscendo (しって いる: conoscere)"],["だれ","chi (だれ も いない: non c'è nessuno)"],["三百[さんびゃく]","trecento"],["年[ねん]","anno"],["たって","essendo passato (たつ: passare, del tempo)"],["の","(の だ) è che…: spiega quello che è successo"],["さびしく","triste, solo (さびしい)"],["あけて","aprendo (あける: aprire)"],["しまった","(dopo -te) purtroppo, irrimediabilmente"],["しろい","bianco"],["けむり","fumo"],["出[で]て","uscendo (出[で]る: uscire)"]],
  lines:[
   ["むかし 、 うみ の ちかく に 、 うらしまたろう と いう わかい りょうし が いた 。","Tanto tempo fa, vicino al mare, viveva un giovane pescatore di nome Urashima Tarō."],
   ["ある 日[ひ] 、 たろう は はま で 小[ちい]さい かめ を 見[み]た 。 子[こ]ども たち が かめ を いじめて いた 。","Un giorno, sulla spiaggia, Tarō vide una piccola tartaruga. Dei bambini la stavano maltrattando."],
@@ -4286,7 +4539,8 @@ var MIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width
 function jpHTML(s,plain){var out=[];jtoks(s).forEach(function(t){var su=jsurf(t);
   if(JP_PUNCT.test(su)||!JRUN.test(su)&&!/[A-Za-z0-9]/.test(su)){var pu='<span class="pu">'+esc(su)+'</span>';
     if(out.length&&/^[。、！？」』）…]/.test(su))out[out.length-1]='<span class="nw">'+out[out.length-1]+pu+'</span>';else out.push(pu);return}
-  out.push(plain||/^[っッー゛゜]$/.test(su)?'<span class="tk">'+jruby(t)+'</span>':'<span class="w" tabindex="0" role="button" data-say="'+esc(t)+'">'+jruby(t)+'</span>')});
+  var dk=' data-k="'+esc(jread(t))+'"';
+  out.push(plain||/^[っッー゛゜ゃゅょャュョぁぃぅぇぉァィゥェォ]$/.test(su)?'<span class="tk"'+dk+'>'+jruby(t)+'</span>':'<span class="w" tabindex="0" role="button" data-say="'+esc(t)+'"'+dk+'>'+jruby(t)+'</span>')});
   return out.join("")}
 function jLine(s){return '<span class="jl" lang="ja">'+jpHTML(s)+'</span><span class="ro">'+esc(jromaji(s))+'</span>'}
 var MIXRE=/([぀-ヿ一-鿿々〆ー〜～「](?:[぀-ヿ一-鿿々〆ー〜～・。、！？「」]|\[[぀-ヿ]+\]| (?=[぀-ヿ一-鿿「〜。、！？]))*)/;
@@ -4384,15 +4638,31 @@ function renderExamples(root){$$("div[data-jp]",root).forEach(function(d){if(d.c
   d.innerHTML='<div class="ex-body"><div class="it-l">'+jLine(j)+'</div><div class="tr">'+esc(d.getAttribute("data-it")||"")+'</div></div><button class="say" data-say="'+esc(j)+'" aria-label="Ascolta">'+SPK+'</button>'})}
 renderExamples(document);
 
+/* ---------- rōmaji a scomparsa ----------
+   Kana are taught a few rows at a time (lessons 1–7). In «auto» mode a word shows its rōmaji underneath only while it
+   still contains kana not yet studied at that point of the course; afterwards the learner reads it alone. */
+var KSTEP={l1:"あいうえおかきくけこさしすせそ",l2:"たちつてとなにぬねのはひふへほ",l3:"まみむめもやゆよらりるれろわをんっ",
+  l4:"がぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽゃゅょ",l5:"アイウエオカキクケコサシスセソタチツテトナニヌネノー",
+  l6:"ハヒフヘホマミムメモヤユヨラリルレロワヲン",l7:"ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポャュョッァィゥェォヴぁぃぅぇぉ"};
+var KNOWN={};(function(){var acc="";LESSONS.forEach(function(u){acc+=KSTEP[u.id]||"";KNOWN[u.id]=acc})})();
+function kUnit(el){var s=el.closest&&el.closest("section.lesson,[data-unit]");if(!s)return null;return s.getAttribute("data-unit")||s.id}
+function needRo(k,unit){var kn=KNOWN[unit];if(kn==null)return false;for(var i=0;i<k.length;i++){var c=k.charAt(i);if(/[ぁ-ゖァ-ヺー]/.test(c)&&kn.indexOf(c)<0)return true}return false}
+function autoRo(root){$$("[data-k]:not([data-ro])",root||document).forEach(function(el){var u=kUnit(el),k=el.getAttribute("data-k");
+  if(u&&needRo(k,u)){el.classList.add("nro");var r=document.createElement("span");r.className="wro";r.textContent=RO_PART[k]!==undefined?RO_PART[k]:toRomaji(k);el.appendChild(r)}
+  el.setAttribute("data-ro",u?"1":"0")})}
+autoRo(document);
+var roQueued=false;try{new MutationObserver(function(){if(roQueued)return;roQueued=true;requestAnimationFrame(function(){roQueued=false;autoRo(document)})}).observe(document.body,{childList:true,subtree:true})}catch(e){}
+
 /* ---------- tabelle dei kana ---------- */
 var KROWS={base:[["","あいうえお"],["k","かきくけこ"],["s","さしすせそ"],["t","たちつてと"],["n","なにぬねの"],["h","はひふへほ"],["m","まみむめも"],["y","や・ゆ・よ"],["r","らりるれろ"],["w","わ・・・を"],["n","ん・・・・"]],
   dak:[["g","がぎぐげご"],["z","ざじずぜぞ"],["d","だぢづでど"],["b","ばびぶべぼ"],["p","ぱぴぷぺぽ"]],
+  ext:[["t",["ティ","ディ","トゥ"]],["f",["ファ","フィ","フェ","フォ"]],["w",["ウィ","ウェ","ウォ"]],["j",["ジェ","チェ","シェ"]],["v",["ヴァ","ヴィ","ヴ"]]],
   yoon:[["ky",["きゃ","きゅ","きょ"]],["sh",["しゃ","しゅ","しょ"]],["ch",["ちゃ","ちゅ","ちょ"]],["ny",["にゃ","にゅ","にょ"]],["hy",["ひゃ","ひゅ","ひょ"]],["my",["みゃ","みゅ","みょ"]],["ry",["りゃ","りゅ","りょ"]],["gy",["ぎゃ","ぎゅ","ぎょ"]],["j",["じゃ","じゅ","じょ"]],["by",["びゃ","びゅ","びょ"]],["py",["ぴゃ","ぴゅ","ぴょ"]]]};
 function hira2kata(s){return String(s).replace(/[ぁ-ゖ]/g,function(c){return String.fromCharCode(c.charCodeAt(0)+0x60)})}
 $$("table.kana").forEach(function(t){var g=t.getAttribute("data-g")||"base",kat=t.getAttribute("data-k")==="kata",rows=KROWS[g],only=(t.getAttribute("data-rows")||"").split(",").filter(Boolean);
   var h="";rows.forEach(function(r,ri){if(only.length&&only.indexOf(String(ri))<0)return;var cells=Array.isArray(r[1])?r[1]:r[1].split("");
     h+='<tr>'+cells.map(function(c){if(c==="・")return '<td class="nk"></td>';var k=kat?hira2kata(c):c;
-      return '<td><button class="kc" type="button"'+(/^[っッー゛゜]$/.test(k)?'':' data-say="'+esc(k)+'"')+' aria-label="'+esc(toRomaji(c))+'"><span lang="ja">'+esc(k)+'</span><small>'+esc(toRomaji(c))+'</small></button></td>'}).join("")+'</tr>'});
+      return '<td><button class="kc" type="button"'+(/^[っッー゛゜ゃゅょャュョぁぃぅぇぉァィゥェォ]$/.test(k)?'':' data-say="'+esc(k)+'"')+' aria-label="'+esc(toRomaji(c))+'"><span lang="ja">'+esc(k)+'</span><small>'+esc(toRomaji(c))+'</small></button></td>'}).join("")+'</tr>'});
   t.innerHTML=h});
 
 /* ---------- numeri ---------- */
@@ -4729,7 +4999,7 @@ document.body.appendChild(ST);
 var stIn=$(".st-in",ST),stGo=$(".st-go",ST),stBody=$(".st-body",ST),stCur=null;
 $(".st-x",ST).onclick=function(){closeModal()};stBody.addEventListener("scroll",function(){if(tipFor)hideTip()},{passive:true});
 function runStage(o){/* o: {title,color,pages:[{draw(box,release),gate,go}],done()} */
-  stCur=o;var i=0;ST.className="stage t-"+(o.color||"blue")+(o.early?" early":"");$(".st-t",ST).textContent=o.title;
+  stCur=o;var i=0;ST.className="stage t-"+(o.color||"blue");if(o.unit)ST.setAttribute("data-unit",o.unit);else ST.removeAttribute("data-unit");$(".st-t",ST).textContent=o.title;
   function show(){quiet();var pg=o.pages[i];stIn.innerHTML="";var box=document.createElement("div");box.className="st-page";stIn.appendChild(box);
     stGo.disabled=!!pg.gate;stGo.textContent=pg.go||(i<o.pages.length-1?"Continua":"Fine");
     pg.draw(box,function(label){stGo.disabled=false;if(label)stGo.textContent=label;stGo.classList.add("ready")});
@@ -4776,7 +5046,7 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-pc">'+Math.round(R.n/Math.max(1,R.m)*100)+'%</div><h3>'+(pass?(k===3?"Punteggio pieno! すごい！":"Lezione verificata"):"Da ripassare")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"Hai completato questa parte: sei al livello "+(WORLDS[U.w-1]||{}).level+".":"La padronanza della lezione è aggiornata."):"Sotto il 70%: rivedi le parti più difficili e riprova quando vuoi. Puoi comunque andare avanti.")+'</p>'+
         (pass&&lis?'<div class="res-can"><b>Adesso sai:</b><ul>'+lis+'</ul></div>':'')+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn again" type="button">Riprova</button></div></div>';
       $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"Torna alla lezione"})}
-  runStage({title:title,color:U.color,early:U.kind==="lesson"&&U.n<=4,pages:pages,done:function(){
+  runStage({title:title,color:U.color,unit:U.id,pages:pages,done:function(){
     if(st.k!=="test"){var fresh=markStep(id,st.key);if(fresh)toast('<b>✓ '+esc(st.zh)+'</b> · '+goalMsg())}
     drawPath();if(!opt.skip)openSheet(id)}})}
 
@@ -4793,7 +5063,7 @@ function openReview(){var ws=reviewWords();if(ws.length<4)return;
 /* ---------- scheda dell'unità ---------- */
 var SH=document.createElement("div");SH.className="sheet-back";SH.hidden=true;SH.innerHTML='<div class="sheet" role="dialog" aria-modal="true"></div>';document.body.appendChild(SH);
 var sheet=$(".sheet",SH);SH.addEventListener("click",function(e){if(e.target===SH)closeModal()});
-function plainText(el){var c=el.cloneNode(true);$$(".ro-i,rt",c).forEach(function(x){x.remove()});return c.textContent.replace(/\s+/g," ").trim()}
+function plainText(el){var c=el.cloneNode(true);$$(".ro-i,rt,.wro",c).forEach(function(x){x.remove()});return c.textContent.replace(/\s+/g," ").trim()}
 function nextStep(id){var ss=stepsOf(id),d=P.done[id]||{};for(var i=0;i<ss.length;i++)if(!d[ss[i].key])return ss[i];return ss[ss.length-1]}
 function openSheet(id){var i=uIdx(id),U=UNITS[i],ss=stepsOf(id),d=P.done[id]||{},open=unlocked(i),nx=nextStep(id),s=sec(id),ld=$("p.lead",s);
   sheet.className="sheet t-"+U.color;
@@ -4851,7 +5121,7 @@ if(!window.MPPlan||!window.CATALOG||typeof UNITS==="undefined"||typeof KEY==="un
 var M=MPPlan,C=null;
 CATALOG.courses.forEach(function(c){if(c.storageKey===KEY)C=c});
 if(!C)return;
-var ZH=C.speak==="zh";
+var ZH=C.speak==="zh",UI=C.speak; /* UI: the learner's language (it, zh, es) */
 /* lang attribute of the language being learned */
 var LL={ja:"ja",zh:"zh-CN",it:"it"}[C.learn]||C.learn;
 var S={
@@ -4880,6 +5150,29 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   settings:"Impostazioni",readingT:"Lettura e voce",
   offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
   ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce cinese",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
+es:{locale:"es-ES",tabs:["Hoy","Curso","Examen","Cultura","Herramientas"],hi:["Buenos días","Buenas tardes","Buenas noches"],
+  steps:{dlg:"Diálogo",voc:"Palabras",rule:"Gramática",rev:"Repaso",snd:"Pronunciación",cult:"Cultura",test:"Prueba"},
+  stepSub:{dlg:"Escucha, lee, actúa",voc:function(n){return n+" palabras nuevas"},snd:"Escucha y repite",cult:function(n){return n===1?"1 ficha":n+" fichas"},test:function(n){return n+" preguntas · actualiza tu dominio"}},
+  lesson:function(n){return "Lección "+n},review:"Repaso",min:"min",left:function(m){return "quedan unos "+m+" min"},
+  forToday:"Para hoy",forTodaySub:function(m){return "Tu tiempo: "+m+" min"},resume:"Continuar",go:"Ir",
+  next:"Siguiente paso",reviewT:"Repaso de palabras",reviewS:function(n){return n+" palabras: vuelven más a menudo las que olvidas"},
+  dayCult:"Curiosidad del día",read:"Leer",week:"Semana",days:"días",canDo:"Ya sabes",canDoEmpty:"Aquí aparecerá lo que ya sabes hacer, a medida que superes las pruebas de las lecciones.",
+  noPlan:"Crea tu plan",noPlanS:"Tres preguntas y sabrás cuándo llegas a la meta.",
+  course:"El curso",here:"Estás aquí",todo:"Pendiente",inProg:function(a,b){return a+" de "+b},verified:"Superada",
+  knowT:"Al final sabrás",introT:"En esta lección",stepsT:"Paso a paso",stepsS:"Cada etapa dura pocos minutos. Este es el orden recomendado, pero puedes abrirlas como quieras.",rulesT:"Las reglas",rulesS:"Toca una regla para leerla aquí. «Practica» abre la explicación con los ejercicios.",practiceBtn:"Practica",introR:"Introducción",wordsT:"Las palabras",wordsS:"Toca ▶ para escuchar, toca la palabra para ver su significado.",showAll:function(n){return "Ver todas ("+n+")"},ahead:function(n){return "Vas más adelante que el recorrido recomendado (estás en la lección "+n+"). Puedes hacerlo: si algo no cuadra, repasa desde ahí."},
+  backTo:"Volver a la lección recomendada",readAll:"Leer la lección completa",cont:function(s){return "Continuar: "+s},redo:"Repetir la prueba",start:"Empezar",
+  exam:"Examen",examNone:"No has elegido un examen.",examNoneS:"Si te preparas para un examen, el plan llega hasta el día de la prueba.",chooseExam:"Elegir un examen",
+  examIn:function(n){return n===1?"día":"días"},ready:function(d){return "Al ritmo actual estarás listo hacia "+d+"."},margin:function(w){return w<=1?"Llegas justo a tiempo.":w+" semanas de margen."},late:function(w){return "Al ritmo actual llegas "+w+" semanas después del examen: dedica un poco más de tiempo o elige una convocatoria posterior."},
+  noDate:"Fecha del examen todavía no elegida.",sections:"Por sección",sectionsSoon:"La preparación por sección (vocabulario, gramática, lectura, escucha) llega con los simulacros de examen.",
+  sim:"Simulacro completo",simS:"Formato real, con tiempo",soon:"Próximamente",mastery:"Dominio de las lecciones superadas",planT:"Tu plan",
+  onTrack:"Al día con el plan",ahead2:function(n){return "Adelantado "+n+(n===1?" día":" días")},behind:function(n){return "Atrasado "+n+(n===1?" día":" días")},practice:"Entrenamiento de examen",
+  cult:"Cultura",cultLead:"Italia y el mundo hispano frente a frente: costumbres, comida, trabajo, fiestas. Cada ficha tiene palabras para escuchar y una pregunta.",
+  all:"Todas",readCount:function(a,b){return a+" de "+b+" leídas"},stories:"Relatos",storiesLead:"Lecturas breves con audio: las palabras nuevas tienen su significado y la traducción la abres solo cuando la necesitas.",afterL:function(n){return "después de la lección "+n},afterR:"después del repaso",mins:function(m){return m+" min"},soonStories:"Más relatos",soonT:"Próximamente",playAll:"Escuchar todo",stopAll:"Parar",trAll:"Traducción",trOne:"Traducir",newWords:function(n){return "Palabras nuevas · "+n},storyQ:"¿Lo has entendido?",storyDone:"Leído",storyDoneT:"Relato leído",nextStory:"Siguiente relato",backCult:"Volver a Cultura",storyListen:"Escuchar la frase",readMark:"Leída",fromLesson:function(n){return "Lección "+n},
+  tools:"Herramientas",toolList:{flash:["Tarjetas","Repaso espaciado"],verbi:["Conjugador","Todos los tiempos verbales"],frasi:["Frases útiles","Frases hechas"],vocab:["Vocabulario","Todas las palabras del curso"]},
+  dailyRev:["Repaso del día","Las palabras que estás a punto de olvidar"],
+  settings:"Ajustes",readingT:"Lectura y voz",
+  offT:"Sin conexión",offPages:"Las lecciones ya están guardadas en este dispositivo.",offBtn:function(mb){return "Descargar el audio del curso ("+mb+" MB)"},offBusy:function(a,b){return "Descargando… "+a+" de "+b}
+  ,offDone:"Listo: lecciones y audio funcionan también sin conexión.",offErr:"Descarga interrumpida: vuelve a intentarlo con una conexión estable.",offVoice:"La voz es la de tu dispositivo: funciona también sin conexión.",voiceT:"Voz",voiceAuto:"Automática",voiceTip:"",theme:"Tema",themes:["Auto","Claro","Oscuro"],redoPlan:"Rehacer el plan",changeCourse:"Cambiar de curso o de idioma",reset:"Borrar todo y empezar de nuevo",resetQ:"¿Borrar el plan y el progreso guardados en este dispositivo?",close:"Cerrar",back:"Atrás"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
   steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
   stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
@@ -4942,13 +5235,13 @@ function info(id){var ss=stepsOf(id),tot=0,left=0,done=0;ss.forEach(function(st)
 function nextOf(id){var ss=stepsOf(id);for(var i=0;i<ss.length;i++)if(!stepDone(id,ss[i]))return ss[i];return null}
 function hereIdx(){for(var i=0;i<UNITS.length;i++){var U=UNITS[i];if(U.w<(P.skip||1))continue;if(!info(U.id).verified)return i}return -1}
 function canDo(id){var s=sec(id),cd=s&&q("ul.cando",s);if(!cd)return [];
-  return qa("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);qa("input,rt,.ro-i,.ro",x).forEach(function(e){e.remove()});return x.textContent.replace(/\s+/g," ").trim()}).filter(Boolean)}
+  return qa("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);qa("input,rt,.ro-i,.ro,.wro",x).forEach(function(e){e.remove()});return x.textContent.replace(/\s+/g," ").trim()}).filter(Boolean)}
 function stepSub(id,st){var d=S.stepSub[st.k];
   if(st.k==="voc")return d(lessonWords(id).length);
   if(st.k==="cult")return d((CULT[id]||[]).length);
   if(st.k==="test")return d(exSplit(id).t.length);
   if(st.k==="rule"||st.k==="rev"){var hd=null;st.n.some(function(n){if(n.matches&&n.matches("h3")){hd=n;return true}var x=n.querySelector&&n.querySelector("h3");if(x){hd=x;return true}return false});
-    if(hd){var c=hd.cloneNode(true);qa("rt,.ro-i",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}return ""}
+    if(hd){var c=hd.cloneNode(true);qa("rt,.ro-i,.wro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}return ""}
   return typeof d==="string"?d:""}
 function stepLabel(st){return S.steps[st.k]+(st.of>1?" "+(st.i+1)+"/"+st.of:"")}
 
@@ -4956,14 +5249,14 @@ function stepLabel(st){return S.steps[st.k]+(st.of>1?" "+(st.i+1)+"/"+st.of:"")}
 var CK=KEY+"-cultread";
 function cultRead(){return M.store.get(CK)||{}}
 function allCult(){var out=[];UNITS.forEach(function(U){(CULT[U.id]||[]).forEach(function(c,i){out.push({c:c,u:U,key:U.id+":"+i})})});return out}
-function plainCult(c){var t=document.createElement("div");t.innerHTML=cultHTML(c);qa("rt,.ro-i,.ro",t).forEach(function(e){e.remove()});
+function plainCult(c){var t=document.createElement("div");t.innerHTML=cultHTML(c);qa("rt,.ro-i,.ro,.wro",t).forEach(function(e){e.remove()});
   var p=qa(".cc-body > p",t).filter(function(x){return !x.classList.contains("cc-it")})[0];return p?p.textContent.replace(/\s+/g," ").trim():""}
 function dayCult(){var all=allCult();if(!all.length)return null;var hi=Math.max(0,hereIdx());
   var pool=all.filter(function(x){return UNITS.indexOf(x.u)<=hi+2});if(!pool.length)pool=all;
   var d=M.today(),n=d.getFullYear()*372+d.getMonth()*31+d.getDate();return pool[n%pool.length]}
 function openCult(x){var c=x.c;
   runStage({title:S.cult+" · "+title(x.u),color:x.u.color,pages:[{gate:!!c.q,draw:function(box,rel){box.innerHTML=cultHTML(c);
-    if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:ZH?"问题":"Domanda",onDone:function(){rel()}})}},go:S.close}],
+    if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:{zh:"问题",es:"Pregunta"}[UI]||"Domanda",onDone:function(){rel()}})}},go:S.close}],
     done:function(){var r=cultRead();r[x.key]=1;M.store.set(CK,r);render()}})}
 function cultCard(x,big){var r=cultRead()[x.key];
   return '<button class="mp-cc'+(big?' big':'')+'" data-ck="'+h(x.key)+'"><span class="art t-'+x.u.color+'">'+(x.c.s?'<svg viewBox="0 0 320 180" aria-hidden="true"><use href="#sc-'+x.c.s+'"/></svg>':'')+'</span>'+
@@ -4990,7 +5283,7 @@ function storiesBlock(){if(!READ.length)return "";
   return '<h2 class="mp-h2">'+h(S.stories)+'</h2><p class="mp-lead mp-lead0">'+h(S.storiesLead)+'</p><div class="mp-sgrid">'+READ.map(storyCard).join("")+
     '<div class="mp-story soon" aria-disabled="true"><span class="art"><span class="j" aria-hidden="true">…</span></span><span class="tx"><b>'+h(S.soonStories)+'</b><em>'+h(S.soonT)+'</em></span></div></div>'}
 function vStory(id){var r=READ.filter(function(x){return x.id===id})[0];if(!r){location.replace("#/cultura");return}
-  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl=ZH?"zh-CN":"it";
+  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl={zh:"zh-CN",es:"es"}[UI]||"it";
   var html='<div class="mp-readbar"><a class="mp-ib" href="#/cultura" aria-label="'+h(S.backCult)+'">'+I.back+'</a><b>'+h(S.stories)+'</b><button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button></div>'+
     '<header class="mp-sh"><div class="mp-k">'+h(r.kind+" · "+storyAfter(r)+" · "+S.mins(r.min))+'</div><h1 tabindex="-1">'+h(r.t)+'</h1><p class="j" lang="'+(ZH?"it":LL)+'">'+h(r.j)+'</p></header>'+
     '<p class="mp-lead">'+sRich(r.intro)+'</p>'+
@@ -5017,7 +5310,7 @@ window.addEventListener("hashchange",function(){if(storyPl&&!/^#\/racconto\//.te
 /* ---------- plan ---------- */
 function myPlan(){return M.load().plans[C.id]||null}
 function weekActive(){var mon=M.addDays(M.today(),-((M.today().getDay()+6)%7)),n=0,cells="";
-  var lbl=ZH?["一","二","三","四","五","六","日"]:["L","M","M","G","V","S","D"];
+  var lbl=ZH?["一","二","三","四","五","六","日"]:UI==="es"?["L","M","X","J","V","S","D"]:["L","M","M","G","V","S","D"];
   for(var i=0;i<7;i++){var d=M.addDays(mon,i),on=!!P.days[M.iso(d)];if(on)n++;cells+='<span class="'+(on?'on':'')+(M.daysBetween(d,M.today())===0?' td':'')+'"><i></i>'+lbl[i]+'</span>'}
   return {n:n,html:cells}}
 
@@ -5099,7 +5392,7 @@ function vCourse(){
 /* ---------- Lezione ---------- */
 /* rules of a lesson, split at each h3: what the learner can open and read on the lesson page */
 function ruleGroups(id,steps){var gs=[],cur=null;
-  function clean(el){var c=el.cloneNode(true);qa("rt,.ro-i,.ro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}
+  function clean(el){var c=el.cloneNode(true);qa("rt,.ro-i,.ro,.wro",c).forEach(function(e){e.remove()});return c.textContent.replace(/\s+/g," ").trim()}
   bodyNodes(id).forEach(function(n){
     var t=n.matches("h3")?n:n.matches("details")?q("summary",n):q("h3",n);
     if(t){cur={t:t,box:n,nodes:[n],scopri:n.matches("details")};gs.push(cur)}
@@ -5184,7 +5477,7 @@ function vTools(){
   var rw=reviewWords().length,cols=["red","blue","yellow","green","pink"],i=0;
   if(rw>=4)html+='<button class="mp-tool hc-pink" id="mprev"><span class="g">↻</span><b>'+h(S.dailyRev[0])+'</b><small>'+h(S.dailyRev[1])+'</small></button>';
   Object.keys(S.toolList).forEach(function(k){if(!document.getElementById(k))return;var L=S.toolList[k];
-    var g={flash:"⇄",verbi:ZH?"essere":C.learn==="zh"?"了过":C.learn==="fr"?"être":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":C.learn==="fr"?"« »":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
+    var g={flash:"⇄",verbi:C.learn==="it"?"essere":C.learn==="zh"?"了过":C.learn==="fr"?"être":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":C.learn==="fr"?"« »":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
     html+='<a class="mp-tool hc-'+cols[i++%cols.length]+'" href="#/leggi/'+k+'"><span class="g"'+(/^(verbi|kana|tratti|caratteri)$/.test(k)?' lang="'+(ZH?"it":LL)+'"':'')+'>'+h(g)+'</span><b>'+h(L[0])+'</b><small>'+h(L[1])+'</small></a>'});
   html+='</div>';show(html);
   var rv=q("#mprev",view);if(rv)rv.onclick=function(){openReview()}}
@@ -5267,14 +5560,14 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
   sh.innerHTML='<button class="grab" aria-label="'+h(S.close)+'"><i></i></button><h2>'+h(S.settings)+'</h2>'+
     (readCtl.children.length?'<div class="mp-lbl" style="margin-top:6px">'+h(S.readingT)+'</div><div id="mprc"></div>':'')+(hasV?'<div class="mp-off" id="mpvoice"></div>':'')+
     '<div class="mp-set"><span>'+h(S.theme)+'</span><div class="mp-seg">'+["auto","light","dark"].map(function(t,i){return '<button data-th="'+t+'" aria-pressed="'+(th===t)+'">'+h(S.themes[i])+'</button>'}).join("")+'</div></div>'+
-    (window.MPSYNC&&MPSYNC.enabled?'<div class="mp-lbl" style="margin-top:6px">'+h(MPSYNC.str(ZH?"zh":"it").ttl)+'</div><div class="mp-off" id="mpacct"></div>':'')+
-    '<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>'+
+    (window.MPSYNC&&MPSYNC.enabled?'<div class="mp-lbl" style="margin-top:6px">'+h(MPSYNC.str(UI).ttl)+'</div><div class="mp-off" id="mpacct"></div>':'')+
+    (CATALOG.only?'':'<div class="mp-lbl" style="margin-top:6px">'+h(S.offT)+'</div><div class="mp-off" id="mpoff"></div>')+
     '<a class="mp-set mp-a" href="../../#/rifai/'+C.id+'">'+h(S.redoPlan)+' ›</a>'+
-    '<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>'+
+    (CATALOG.only?'':'<a class="mp-set mp-a" href="../../#/corso">'+h(S.changeCourse)+' ›</a>')+
     '<button class="mp-set mp-a danger" id="mpreset">'+h(S.reset)+'</button>'+
     '<button class="mp-cta alt" id="mpclose">'+h(S.close)+'</button>';
   var rc=q("#mprc",sh);if(rc)rc.appendChild(readCtl);
-  drawOffline(q("#mpoff",sh));if(window.MPSYNC&&MPSYNC.enabled)MPSYNC.ui(q("#mpacct",sh),{lang:ZH?"zh":"it"});if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
+  if(q("#mpoff",sh))drawOffline(q("#mpoff",sh));if(window.MPSYNC&&MPSYNC.enabled)MPSYNC.ui(q("#mpacct",sh),{lang:UI});if(hasV){drawVoice(q("#mpvoice",sh));try{speechSynthesis.addEventListener("voiceschanged",function(){if(!sh.hidden)drawVoice(q("#mpvoice",sh))},{once:true})}catch(e){}}
   qa("[data-th]",sh).forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-th"));openSettings()}});
   q("#mpclose",sh).onclick=closeSettings;q(".grab",sh).onclick=closeSettings;
   q("#mpreset",sh).onclick=function(){if(!confirm(S.resetQ))return;
@@ -5299,6 +5592,19 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   secRes:function(c,t){return "答对 "+c+" / "+t},practiceT:"另外要练习的：写作和口语",
   practiceN:"这两部分由考官评分，这里不计分。先自己写或说，再看参考答案。",model:"参考答案",
   estShort:function(s,t,p){return "估计 "+s+"/"+t+" · 及格 "+p}}
+ :UI==="es"?{start:"Empezar",full:"Simulacro completo",secN:function(n,m){return n+(n===1?" sección":" secciones")+" · "+m+" min con tiempo"},train:"Entrena una sección",
+   last:function(s,t,d){return "Última vez: "+s+"/"+t+" · "+d},none:"Después del primer simulacro aquí verás tu preparación, sección por sección.",
+   est:"Hoy sacarías unos",weak:function(s){return "Te falta sobre todo: "+s+"."},hist:"Tus pruebas",
+   prev:"Atrás",next:"Siguiente",finishSec:"Entregar la sección",finishQ:"¿Entregar la sección? Las preguntas sin respuesta cuentan como incorrectas.",
+   exitQ:"¿Salir del simulacro? Las respuestas dadas se perderán.",tr:"Traducir",listen:"Escuchar",heard:"Escuchado",again:"Escuchar de nuevo",replay:"Volver a escuchar",
+   plays:function(n){return n===1?"Se escucha una sola vez, como en el examen.":"Cada grabación se escucha dos veces, como en el examen."},
+   playing:"Escuchando…",introGo:"Empezar la sección",introTime:function(m,n){return m+" minutos · "+n+" preguntas"},timeUp:"Se acabó el tiempo: la sección se ha entregado.",
+   result:"Resultado",passed:"Aprobado (estimación)",notYet:"Todavía no aprobado",min:function(n){return "mínimo "+n},review:"Revisar las respuestas",back:"Volver al examen",
+   all:"Todas las preguntas",done:function(n,t){return n+" de "+t+" respondidas"},legA:"respondida",legT:"pendiente",qLabel:function(n,a){return "Pregunta "+n+(a?", respondida":"")},
+   your:"Tu respuesta",right:"Respuesta correcta",empty:"sin respuesta",script:"Transcripción",soon:function(n){return "El simulacro "+n+" llegará pronto: mientras tanto entrena con el que ya está."},
+   secRes:function(c,t){return c+" correctas de "+t},practiceT:"Para entrenar aparte: expresión escrita y oral",
+   practiceN:"Estas pruebas las evalúa un examinador, aquí no tienen puntuación. Intenta escribir o hablar y luego mira el ejemplo.",model:"Ejemplo de respuesta",
+   estShort:function(s,t,p){return "Estimación: "+s+"/"+t+" · aprobado "+p}}
  :{start:"Inizia",full:"Simulazione completa",secN:function(n,m){return n+(n===1?" sezione":" sezioni")+" · "+m+" min a tempo"},train:"Allenati su una sezione",
   last:function(s,t,d){return "Ultima volta: "+s+"/"+t+" · "+d},none:"Dopo la prima simulazione qui vedi la tua preparazione, sezione per sezione.",
   est:"Oggi prenderesti circa",weak:function(s){return "Ti manca soprattutto: "+s+"."},hist:"Le tue prove",
@@ -5497,7 +5803,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
-  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,c.es,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;
@@ -5534,7 +5840,12 @@ render();
 function exLang(){return typeof itHTML==="function"?"it":typeof pyWord==="function"?"zh":"ja"}
 /* the course this page belongs to (shell/courses.json): its interface language and the language being learned */
 function exCourse(){var c=null;try{CATALOG.courses.forEach(function(x){if(x.storageKey===KEY)c=x})}catch(e){}return c||{speak:"it",learn:exLang()}}
-function exS(){return exCourse().speak==="zh"?{
+function exS(){var sp=exCourse().speak;if(sp==="es")return {
+    ord:"Ordena",ear:"Escucha y ordena",gap:"Completa",err:"Busca el error",chr:"Construye",rep:"Responde",tone:"Tono",chk:"Comprobar",rst:"Empezar de nuevo",ok:"¡Correcto!",no:"No exactamente.",ans:"Respuesta:",
+    play:"Escuchar",again:"Escuchar de nuevo",errQ:"Toca la palabra equivocada.",errFine:"Esta está bien.",fixed:"La frase correcta:",earQ:"Escucha y ordena la frase.",
+    repQ:"Elige la respuesta adecuada.",useSome:"Elige primero algunas palabras.",next:"Todavía falta una parte.",chrQ:function(c,m){return "Construye "+c+" («"+m+"»): elige las piezas."},
+    toneQ:"Escucha la sílaba y elige el tono."};
+  return sp==="zh"?{
     ord:"组句",ear:"听后组句",gap:"选词填空",err:"找错误",rep:"回答",tone:"声调",chk:"检查",rst:"重来",ok:"正确！",no:"不对。",ans:"答案：",
     play:"听",again:"再听一遍",errQ:"点出用错的那个词。",errFine:"这个词没问题。",fixed:"正确的句子：",earQ:"听，然后把句子拼出来。",
     repQ:"选择合适的回答。",useSome:"先选几个词。",next:"还差一个部分。"}:{

@@ -11,5 +11,6 @@ EX.l12=[
  {"t":"say","it":"«Sono arrivato il mese scorso.»","zh":"我[Wǒ] 是[shì] 上[shàng] 个[ge] 月[yuè] 来[lái] 的[de] 。"}
 ];
 VOC.l12=[
+ ["时候[shí-hou]", "momento (什么时候: quando)", ""],
  ["过[guo]","particella di esperienza",""],["次[cì]","volta",""],["长城[Cháng-chéng]","la Grande Muraglia",""],["烤鸭[kǎo-yā]","anatra laccata",""],["是[shì] …… 的[de]","struttura per quando, dove, come",""],["什么时候[shén-me-shí-hou]","quando",""],["怎么[zěn-me]","come",""],["坐[zuò]","sedersi; prendere (un mezzo)",""],["飞机[fēi-jī]","aereo",""],["上个月[shàng-ge-yuè]","il mese scorso",""],["第一次[dì-yī-cì]","la prima volta",""],["那[nà]","allora",""]
 ];

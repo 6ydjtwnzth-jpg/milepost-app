@@ -16,6 +16,7 @@ EX.l2=[
  {t:"say",it:"Chiedi a Yuki se è un'insegnante.",jp:"ゆき さん は 先生[せんせい] です か 。"}
 ];
 VOC.l2=[
+ ["うん", "sì (tra amici)", "x"],["フランス人[じん]", "francese (persona)", "n"],
  ["はじめまして","piacere (la prima volta)","x"],["よろしく お願[ねが]いします","piacere di conoscerla","x"],["わたし","io","n"],["〜 さん","signor/signora (dopo il nome)","x"],["学生[がくせい]","studente","n"],["先生[せんせい]","insegnante","n"],
  ["日本[にほん]","Giappone","n"],["日本人[にほんじん]","giapponese (persona)","n"],["日本語[にほんご]","lingua giapponese","n"],["イタリア","Italia","n"],["イタリア人[じん]","italiano (persona)","n"],["イタリア語[ご]","lingua italiana","n"],["中国[ちゅうごく]","Cina","n"],["フランス","Francia","n"],
  ["そう です か","ah, davvero?","x"],["です","è, sono (cortese)","x"],["じゃ ありません","non è, non sono","x"],

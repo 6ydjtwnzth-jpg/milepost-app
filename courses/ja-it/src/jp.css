@@ -11,10 +11,14 @@ body.no-furi rt{visibility:hidden}
 .ro,.ro-i{display:none;font-family:var(--f-disp);font-weight:500;color:var(--muted);letter-spacing:.01em}
 .ro{font-size:14px;line-height:1.4;margin-top:-2px}
 .ro-i{font-size:.86em}
-body.ro-on .ro,body.ro-auto .early .ro,.stage.early .ro{display:block}
-body.ro-on .ro-i,body.ro-auto .early .ro-i,.stage.early .ro-i{display:inline}
+body.ro-on .ro{display:block}
+body.ro-on .ro-i{display:inline}
 .jl+.ro{display:none}
-body.ro-on .jl+.ro,body.ro-auto .early .jl+.ro,.stage.early .jl+.ro{display:block}
+body.ro-on .jl+.ro{display:block}
+/* rōmaji under a single word, only for kana not yet taught (auto mode) */
+.wro{display:none}
+body.ro-auto .nro{display:inline-flex;flex-direction:column;align-items:center;vertical-align:top;line-height:1.5;margin-bottom:.5em}
+body.ro-auto .nro>.wro{display:block;font-family:var(--f-disp);font-weight:500;font-size:.52em;color:var(--muted);letter-spacing:.01em;line-height:1.1;margin-top:.32em;white-space:nowrap}
 .wd .ro{font-size:13px}
 .fc-word .jl{line-height:1.6}
 .fc-ro{font-size:18px!important;text-align:center}

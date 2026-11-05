@@ -14,5 +14,6 @@ EX.l2=[
  {"t":"say","it":"Rispondi a «grazie»: «Prego.»","zh":"不[Bú] 客气[kè-qi] 。"}
 ];
 VOC.l2=[
+ ["客气[kè-qi]", "cortese, cerimonioso (不客气: non c'è di che)", ""],["拜拜[bái-bai]", "ciao ciao (dall'inglese bye-bye)", ""],
  ["你好[nǐ-hǎo]","ciao, buongiorno",""],["谢谢[xiè-xie]","grazie",""],["不客气[bú-kè-qi]","prego (risposta a grazie)",""],["再见[zài-jiàn]","arrivederci",""],["对不起[duì-bu-qǐ]","scusa, mi dispiace",""],["没关系[méi-guān-xi]","non importa",""],["我[wǒ]","io",""],["你[nǐ]","tu",""],["好[hǎo]","buono, bene",""],["不[bù]","non",""]
 ];

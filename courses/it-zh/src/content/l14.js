@@ -16,6 +16,7 @@ EX.l14=[
  {t:"say",zh:"在餐厅点菜：「我第一道要番茄意大利面，再来一瓶带气的水。」",it:"Per me, come primo, gli spaghetti al pomodoro e una bottiglia d'acqua frizzante."}
 ];
 VOC.l14=[
+ ["Cosa Le do?", "您要什么？（店员问）", ""],
  ["mercato","市场","m"],["pane","面包","m"],["frutta","水果","f"],["verdura","蔬菜","f"],["pomodoro","西红柿","m"],["mela","苹果","f"],["arancia","橙子","f"],["patata","土豆","f"],
  ["uovo","鸡蛋（复数 le uova）","m"],["formaggio","奶酪","m"],["prosciutto","火腿","m"],["olio","油","m"],["carne","肉","f"],["pollo","鸡肉","m"],["insalata","沙拉","f"],
  ["chilo","公斤","m"],["etto","一百克","m"],["litro","升","m"],["pacco","包","m"],["menù","菜单","m"],["primo","第一道菜","m"],["secondo","第二道菜","m"],["contorno","配菜","m"],["dolce","甜点；甜的","m"],

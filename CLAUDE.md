@@ -58,6 +58,13 @@ ciò che manca si mostra come "In arrivo".
   costruisci il carattere (`chr`, cinese e giapponese), rispondi nel dialogo (`rep`), riconosci il tono (`tone`, cinese).
   Contenuti per lezione in `courses/<id>/src/drills.js`; `node tools/drills_check.js <id>` controlla forma, tessere e (cinese)
   i cambi di tono di 不 e 一. Nelle spiegazioni il giapponese va scritto a parole separate da spazi, come nel resto del corso.
+- Gradualità: `node tools/progress_check.js <id> [--words] [--rules]` misura lezione per lezione parole nuove, lunghezza delle
+  battute, parole usate prima di comparire nelle liste e regole con meno di 3 esempi. Ogni parola deve entrare nella lista della
+  lezione in cui compare per la prima volta; ogni regola ha almeno 3 esempi. È euristico: le segnalazioni su lezioni di soli suoni,
+  saluti o ripassi sono attese.
+- ja-it: i kana sono distribuiti su l1–l7 (`KSTEP` in `src/js/app.js`: hiragana l1–l4, katakana l5–l7). Con il rōmaji su «auto»
+  compare sotto ogni parola solo finché contiene kana non ancora insegnati nella lezione (`autoRo`). Si parte dal cortese
+  (spiegato in l2) e fino a l17 le regole hanno una nota «Tra amici» con la forma informale.
 - Account e salvataggio dei progressi: `shell/sync.js` (nessuna libreria: parla con Supabase via REST), configurazione in
   `shell/sync-config.js` (vuota = niente account in app), schema e regole in `supabase/schema.sql`, guida in `supabase/README.md`.
   Accesso con codice di 6 cifre via email. Si sincronizzano le chiavi `milepost-…` e quelle dei corsi (storageKey…), tranne

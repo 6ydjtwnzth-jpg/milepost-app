@@ -9,5 +9,6 @@ EX.l18=[
  {"t":"say","it":"«È troppo lontano, non riesco a vedere.»","zh":"太[Tài] 远[yuǎn] 了[le] ， 我[wǒ] 看[kàn] 不[bu] 见[jiàn] 。"}
 ];
 VOC.l18=[
+ ["见[jiàn]", "vedere, percepire (看不见: non riuscire a vedere)", ""],
  ["听得懂[tīng-de-dǒng]","riuscire a capire",""],["听不懂[tīng-bu-dǒng]","non riuscire a capire",""],["看不见[kàn-bu-jiàn]","non riuscire a vedere",""],["买不到[mǎi-bu-dào]","non trovarlo da comprare",""],["来不及[lái-bu-jí]","non fare in tempo",""],["普通话[pǔ-tōng-huà]","cinese standard",""],["上海话[Shàng-hǎi-huà]","shanghaiese",""],["不好意思[bù-hǎo-yì-si]","scusi",""],["回[huí]","tornare",""],["下个月[xià-ge-yuè]","il mese prossimo",""]
 ];

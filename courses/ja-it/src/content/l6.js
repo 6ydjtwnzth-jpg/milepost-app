@@ -1,5 +1,7 @@
 DLG.l6=[["A","ゆき さん 、 お元気[げんき] です か 。","Yuki, come stai?"],["B","はい 、 元気[げんき] です 。 マルコ さん は ？","Bene, grazie. E tu, Marco?"],["A","元気[げんき] です 。 でも 、 とうきょう は ちょっと あつい です ね 。","Bene. Però a Tokyo fa un po' caldo, eh?"],["B","そう です ね 。 ミラノ は どう です か 。","Eh sì. E Milano com'è?"],["A","ミラノ も にぎやか です 。 でも 、 とうきょう は もっと 大[おお]きい です 。","Anche Milano è vivace. Ma Tokyo è più grande."],["B","とうきょう の アパート は どう です か 。","E il tuo appartamento a Tokyo com'è?"],["A","きれい です が 、 あまり 大[おお]きくない です 。 それに 、 たかい です 。","È pulito, ma non è molto grande. E poi è caro."],["B","とうきょう は たかい です から ね 。","Eh, Tokyo è cara."]];
 EX.l6=[
+ {q:"Come si legge ローマ?",o:["rōma","roma","rōmu"],e:"ロ + ー + マ = rō-ma."},
+ {q:"Quale katakana è «n»?",o:["ン","ソ","シ"],e:"ン = n; ソ = so."},
  {q:"Ascolta: com'è il ramen?",au:"この ラーメン は おいしい です 。",o:["buono","caro","piccolo"],e:"おいしい = buono (cibo)."},
  {q:"Ascolta: com'è la stanza?",au:"へや は あまり 大[おお]きくない です 。",o:["non molto grande","molto grande","molto piccola"],e:"あまり + negativo = non molto."},
  {q:"Negativo di たかい:",o:["たかくない です","たかい じゃ ありません","たかくな です"],e:"-い → -くない."},
@@ -17,6 +19,7 @@ EX.l6=[
  {t:"say",it:"Descrivi la tua città: «È tranquilla, ma non è molto grande.»",jp:"しずか です が 、 あまり 大[おお]きくない です 。"}
 ];
 VOC.l6=[
+ ["お元気[げんき] です か", "come sta?", "x"],["それに", "e poi, inoltre", "x"],["子[こ]ども", "bambino", "n"],
  ["元気[げんき]","in forma, in salute","a"],["大[おお]きい","grande","a"],["小[ちい]さい","piccolo","a"],["たかい","alto; caro","a"],["やすい","economico","a"],["おいしい","buono (cibo)","a"],["あつい","caldo","a"],["さむい","freddo (tempo)","a"],
  ["あたらしい","nuovo","a"],["ふるい","vecchio (cose)","a"],["おもしろい","interessante, divertente","a"],["しずか","tranquillo","a"],["にぎやか","vivace, animato","a"],["ゆうめい","famoso","a"],["しんせつ","gentile","a"],
  ["とても","molto","x"],["あまり","(con negativo) non molto","x"],["ちょっと","un po'","x"],["もっと","di più","x"],["どう","come?","x"],["まち","città, quartiere","n"],["へや","stanza","n"],["アパート","appartamento","n"],["ラーメン","ramen","n"],["が","ma (tra due frasi)","x"]

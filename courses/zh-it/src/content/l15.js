@@ -10,5 +10,6 @@ EX.l15=[
  {"t":"say","it":"«Non ho capito.»","zh":"我[Wǒ] 没[méi] 听懂[tīng-dǒng] 。"}
 ];
 VOC.l15=[
- ["听[tīng]","ascoltare",""],["懂[dǒng]","capire",""],["听懂[tīng-dǒng]","capire (ascoltando)",""],["看见[kàn-jiàn]","vedere",""],["找[zhǎo]","cercare",""],["找到[zhǎo-dào]","trovare",""],["完[wán]","finire",""],["做完[zuò-wán]","finire di fare",""],["作业[zuò-yè]","compiti",""],["手机[shǒu-jī]","cellulare",""],["慢[màn]","lento",""],["一遍[yí-biàn]","una volta (dall'inizio alla fine)",""],["写错[xiě-cuò]","scrivere sbagliato",""],["话[huà]","parole, discorso",""]
+ ["哎[āi]", "ehi! (per attirare l'attenzione o quando ci si ricorda di qualcosa)", ""],["快[kuài]", "veloce", ""],
+ ["听[tīng]","ascoltare",""],["懂[dǒng]","capire",""],["听懂[tīng-dǒng]","capire (ascoltando)",""],["看见[kàn-jiàn]","vedere",""],["找[zhǎo]","cercare",""],["找到[zhǎo-dào]","trovare",""],["完[wán]","finire",""],["做完[zuò-wán]","finire di fare",""],["作业[zuò-yè]","compiti",""],["手机[shǒu-jī]","cellulare",""],["一遍[yí-biàn]","una volta (dall'inizio alla fine)",""],["写错[xiě-cuò]","scrivere sbagliato",""],["话[huà]","parole, discorso",""]
 ];

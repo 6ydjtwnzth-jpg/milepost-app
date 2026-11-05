@@ -14,5 +14,6 @@ EX.l3=[
  {"t":"say","it":"«Io sono italiano, e tu?»","zh":"我[Wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] ， 你[nǐ] 呢[ne] ？"}
 ];
 VOC.l3=[
+ ["他们[tā-men]", "loro (uomini o gruppo misto)", ""],["你们[nǐ-men]", "voi", ""],
  ["是[shì]","essere (tra due nomi)",""],["叫[jiào]","chiamarsi",""],["什么[shén-me]","che cosa, quale",""],["名字[míng-zi]","nome",""],["吗[ma]","particella di domanda sì/no",""],["呢[ne]","«e…?»",""],["他[tā]","lui",""],["她[tā]","lei",""],["我们[wǒ-men]","noi",""],["谁[shéi]","chi",""],["哪[nǎ]","quale",""],["国[guó]","paese",""],["人[rén]","persona",""],["中国[Zhōng-guó]","Cina",""],["意大利[Yì-dà-lì]","Italia",""],["学生[xué-sheng]","studente",""],["老师[lǎo-shī]","insegnante",""],["也[yě]","anche",""],["都[dōu]","tutti, entrambi",""],["认识[rèn-shi]","conoscere (una persona)",""],["高兴[gāo-xìng]","contento",""]
 ];

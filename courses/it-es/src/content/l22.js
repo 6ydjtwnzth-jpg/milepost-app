@@ -17,6 +17,7 @@ EX.l22=[
  {t:"say",zh:"Dale un consejo a un amigo enfermo",it:"Dovresti bere molta acqua e riposarti."}
 ];
 VOC.l22=[
+ ["soprattutto", "sobre todo", ""],["notte", "noche", "f"],["qualcosa", "algo", ""],
  ["testa","cabeza","f"],["gola","garganta","f"],["denti","dientes",""],["pancia","barriga","f"],["schiena","espalda","f"],["braccio","brazo","m"],["gamba","pierna","f"],["piede","pie","m"],["ginocchio","rodilla","m"],["occhio","ojo","m"],
  ["febbre","fiebre","f"],["tosse","tos","f"],["raffreddore","resfriado","m"],["mal di testa","dolor de cabeza","m"],["fare male","doler",""],["costipato","estreñido",""],
  ["medico","médico","m"],["farmacia","farmacia","f"],["farmacista","farmacéutico","m"],["ricetta","receta","f"],["sciroppo","jarabe","m"],["medicina","medicina","f"],["appuntamento","cita","m"],["pronto soccorso","urgencias","m"],

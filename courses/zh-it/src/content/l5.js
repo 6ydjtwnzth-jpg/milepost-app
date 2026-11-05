@@ -13,5 +13,6 @@ EX.l5=[
  {"t":"say","it":"Chiedi: «Sei occupato?» ripetendo l'aggettivo","zh":"你[Nǐ] 忙不忙[máng-bu-máng] ？","e":"Va bene anche 你[nǐ] 忙[máng] 吗[ma] ？"}
 ];
 VOC.l5=[
+ ["请[qǐng]", "per favore; prego (all'inizio della richiesta)", ""],["行[xíng]", "va bene, si può (还行: così così)", ""],["说[shuō]", "parlare, dire", ""],["一点儿[yì-diǎnr]", "un po'", ""],["慢[màn]", "lento", ""],
  ["很[hěn]","molto",""],["忙[máng]","occupato",""],["累[lèi]","stanco",""],["饿[è]","avere fame",""],["难[nán]","difficile",""],["容易[róng-yì]","facile",""],["冷[lěng]","freddo",""],["今天[jīn-tiān]","oggi",""],["太好了[tài-hǎo-le]","benissimo! che bello!",""],["不太[bú-tài]","non molto",""],["有点儿[yǒu-diǎnr]","un po' (troppo)",""],["喝[hē]","bere",""],["茶[chá]","tè",""],["咖啡[kā-fēi]","caffè",""],["时间[shí-jiān]","tempo",""],["中文[Zhōng-wén]","lingua cinese",""],["可是[kě-shì]","ma, però",""],["还行[hái-xíng]","così così",""],["休息[xiū-xi]","riposare",""],["哎呀[āi-yā]","ahi! accidenti!",""]
 ];

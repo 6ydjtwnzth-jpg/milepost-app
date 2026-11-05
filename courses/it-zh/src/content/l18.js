@@ -14,6 +14,7 @@ EX.l18=[
  {t:"say",zh:"不看范文，讲一件你经历过的小事（先背景，后事件）。",it:"L'anno scorso ero a Roma con un'amica. Faceva caldo. Cercavamo il Colosseo, ma non lo trovavamo. Alla fine abbiamo chiesto a un signore.",e:"用你自己的故事。"}
 ];
 VOC.l18=[
+ ["torcia", "手电筒", "f"],
  ["succedere","发生",""],["storia","故事；历史","f"],["mentre","当……的时候（正在）",""],["all'improvviso","突然",""],["alla fine","最后",""],["lo stesso","还是、照样",""],
  ["quindi","所以",""],["scendere","下（车）",""],["salire","上（车）",""],["portafoglio","钱包","m"],["polizia","警察（局）","f"],["poliziotto","警察","m"],
  ["fortuna","运气","f"],["strano","奇怪的",""],["gente","人们","f"],["luce","灯、光","f"],["candela","蜡烛","f"],["vicina","邻居（女）","f"],

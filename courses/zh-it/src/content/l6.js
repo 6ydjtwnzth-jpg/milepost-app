@@ -12,5 +12,6 @@ EX.l6=[
  {"t":"say","it":"«È troppo caro!»","zh":"太[Tài] 贵[guì] 了[le] ！"}
 ];
 VOC.l6=[
+ ["票[piào]", "biglietto", ""],["车[chē]", "auto, veicolo", ""],["猫[māo]", "gatto", ""],["再[zài]", "di nuovo", ""],
  ["要[yào]","volere, prendere",""],["杯[bēi]","tazza, bicchiere",""],["本[běn]","classificatore per libri",""],["张[zhāng]","classificatore per oggetti piatti",""],["只[zhī]","classificatore per animali",""],["书[shū]","libro",""],["水[shuǐ]","acqua",""],["的[de]","particella di possesso",""],["朋友[péng-you]","amico",""],["这个[zhè-ge]","questo",""],["那个[nà-ge]","quello",""],["钱[qián]","soldi",""],["多少钱[duō-shao-qián]","quanto costa?",""],["块[kuài]","yuan (nel parlato)",""],["贵[guì]","caro",""],["便宜[pián-yi]","economico",""],["一共[yí-gòng]","in tutto",""],["给[gěi]","dare",""],["别的[bié-de]","altro",""],["还[hái]","ancora, inoltre",""]
 ];
