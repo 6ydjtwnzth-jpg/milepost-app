@@ -37,3 +37,4 @@ Object.assign(DICT,{
 "mail":"电子邮件","verbi":"动词（复数）","presente":"现在时；在场的","passato":"过去；过去时","condizionale":"条件式"
 });
 Object.assign(DICT,{"occhi": "眼睛（occhio 的复数）"});
+Object.assign(DICT,{"messicano": "墨西哥的；墨西哥人", "colombiano": "哥伦比亚的；哥伦比亚人", "ama": "爱（amare 的第三人称）", "esercizio": "练习", "buio": "黑暗", "entra": "进来（entrare 的命令式）", "nuoto": "游泳（名词）", "aspetto": "我等（aspettare）", "parcheggio": "停车场", "prenotare": "预订", "pioggia": "雨", "compiti": "作业", "torta": "蛋糕", "bici": "自行车", "brava": "好的，能干的（阴性）", "cominciato": "开始了（cominciare 的过去分词）", "acceso": "点燃了（accendere 的过去分词）", "piccante": "辣的", "sembrano": "看起来（sembrare 的复数）", "palazzo": "大楼", "gradino": "台阶", "maglione": "毛衣", "cappotto": "大衣", "elegante": "优雅的", "carina": "可爱的（阴性）", "migliorerà": "会好转（migliorare 的将来时）", "palla": "球"});

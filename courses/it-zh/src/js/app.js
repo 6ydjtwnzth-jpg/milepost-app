@@ -306,7 +306,7 @@ var vt=$("#vocabtbl");if(vt){var rowsV=['<tr><th>意大利语</th><th>中文</th
   vt.innerHTML=rowsV.join("")}
 /* parole di ogni lezione */
 function renderWords(el){var ws=VOC[el.getAttribute("data-voc")]||[];
-  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="it">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="播放">'+SPK+'</button></div>'}).join("")}
+  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="it">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="播放">'+SPK+'</button>'+wordExHTML(r)+'</div>'}).join("")}
 $$(".words[data-voc]").forEach(renderWords);
 /* sono capace di */
 $$("ul.cando[data-cando]").forEach(function(ul){var id=ul.getAttribute("data-cando"),lis=$$("li",ul),st=state.can[id]||[];

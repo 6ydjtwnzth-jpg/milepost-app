@@ -74,3 +74,20 @@ var SRS=(function(){
 function SRSMK(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok)}
 function SRSREV(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok,1)}
 if(/[?&]audit=1/.test(location.search))window.MPSRS=SRS;
+/* ---------- words in context: an example sentence for each word (src/wordex.js → EXW) ----------
+   In word quizzes every second word that has an example becomes a fill-in-the-blank on its sentence: the word is
+   recalled inside a sentence, not only as a translation. The word list shows the sentence under the word. */
+function exwOf(w){return (typeof EXW!=="undefined"&&EXW[w[0]])||null}
+function exwLatin(){return typeof itHTML==="function"}
+function wordGap(w,pool){var x=exwOf(w);if(!x)return null;var s=x[0],lat=exwLatin(),gs,right,cap=false;
+  if(lat){var esc2=w[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),m=s.match(new RegExp("(^|[^\\p{L}'’])("+esc2+")(?=$|[^\\p{L}])","iu"));if(!m)return null;
+    var at=m.index+m[1].length;right=s.substr(at,w[0].length);cap=right.charAt(0)!==right.charAt(0).toLowerCase();gs=s.slice(0,at)+"＿"+s.slice(at+w[0].length)}
+  else{var toks=s.split(/\s+/),i=toks.indexOf(w[0]);if(i<0)return null;toks[i]="＿";gs=toks.join(" ");right=w[0]}
+  function ok(y){return y[0]!==w[0]&&y[1]!==w[1]&&(!lat||(y[0].indexOf(" ")<0)===(w[0].indexOf(" ")<0))}
+  var same=pool.filter(function(y){return ok(y)&&y[2]===w[2]});if(same.length<2)same=pool.filter(ok);
+  var d=shuffle(same).slice(0,2).map(function(y){var t=y[0];return cap?t.charAt(0).toUpperCase()+t.slice(1):t});if(d.length<2)return null;
+  return {t:"gap",s:gs,o:[right].concat(d),it:x[1],e:(lat?"{"+w[0]+"}":w[0])+" = "+w[1],w:w}}
+function withContext(items,pool){var k=0;return items.map(function(it){if(!it||!it.w||!exwOf(it.w))return it;var g=(k++%2===1)?wordGap(it.w,pool||W):null;return g||it})}
+function wordExHTML(r){var x=exwOf(r);if(!x)return "";
+  return '<span class="wdx"><span class="wdx-s" lang="'+(exwLatin()?(typeof LL!=="undefined"?LL:"it"):(typeof pyWord==="function"?"zh":"ja"))+'">'+(exwLatin()?itHTML(x[0]):jpHTML(x[0]))+'</span>'+
+    '<span class="wdx-t">'+esc(x[1])+'</span><button class="say sm wdx-p" type="button" data-say="'+esc(x[0])+'" aria-label="▶">'+SPK+'</button></span>'}

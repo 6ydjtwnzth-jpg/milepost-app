@@ -70,6 +70,11 @@ ciò che manca si mostra come "In arrivo".
 - Vocabolario d'esame: le liste parole coprono il JLPT N5 (ja-it, ~92% della lista N5 di open-anki-jlpt-decks), l'HSK 2.0
   livelli 1–2 (zh-it, 100%/99%) e le parole più frequenti utili (fr-it, it-zh, it-es). Verifica: `cover.js`/`freq.js` nello
   scratchpad di sviluppo; nuove parole vanno nella lezione del loro tema, mai più di ~45 per lezione.
+- Parole in contesto: `courses/<id>/src/wordex.js` (`EXW[parola come nella lista] = [frase, traduzione]`) dà una frase
+  d'esempio a ogni parola che nessun dialogo o regola usa. La frase compare sotto la parola nella lista e, nei quiz di
+  parole, una domanda su due diventa un «completa» su quella frase (`wordGap` in `shell/srs.js`): la parola deve comparire
+  nella frase esattamente come nella lista (in cinese e giapponese come token, non all'inizio della frase). Le frasi
+  italiane sono condivise da it-zh e it-es (stesso file audio).
 - zh-it: pinyin «che sparisce» (impostazione `tbpya`, attiva di default): nelle tappe delle lezioni le parole studiate da 3+
   lezioni non mostrano il pinyin. Gli esercizi sui toni usano 4 voci registrate (`audio/<hash>-v1..v4.mp3`, `speakVar`).
 - Esami con scritto/orale (fr-it, it-zh, it-es): sotto ogni prova c'è una griglia di autovalutazione con i criteri delle griglie

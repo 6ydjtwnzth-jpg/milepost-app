@@ -62,7 +62,7 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
     oth.forEach(function(x){if(d.length<2&&!seen[x[1]]){seen[x[1]]=1;d.push(x)}});
     if(k%2===0)out.push({q:"听，选择意思：",au:fullW(w),o:[w[1]].concat(d.map(function(x){return x[1]})),e:fullW(w)+" = "+w[1],w:w});
     else out.push({q:"「"+w[1]+"」意大利语怎么说？",o:[fullW(w)].concat(d.map(fullW)),e:fullW(w)+" = "+w[1],w:w})});
-  return out}
+  return withContext(out,pool)}
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
 /* words from earlier lessons for the "words from before" step (spaced: due first, then 1, 2, 4, 8 lessons back) */
 function recWords(id){var li=LESSONS.findIndex(function(L){return L.id===id});return li>0?SRS.recycle(W,li,10):[]}

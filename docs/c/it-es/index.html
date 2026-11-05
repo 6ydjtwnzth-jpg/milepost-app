@@ -2610,6 +2610,23 @@ var SRS=(function(){
 function SRSMK(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok)}
 function SRSREV(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok,1)}
 if(/[?&]audit=1/.test(location.search))window.MPSRS=SRS;
+/* ---------- words in context: an example sentence for each word (src/wordex.js → EXW) ----------
+   In word quizzes every second word that has an example becomes a fill-in-the-blank on its sentence: the word is
+   recalled inside a sentence, not only as a translation. The word list shows the sentence under the word. */
+function exwOf(w){return (typeof EXW!=="undefined"&&EXW[w[0]])||null}
+function exwLatin(){return typeof itHTML==="function"}
+function wordGap(w,pool){var x=exwOf(w);if(!x)return null;var s=x[0],lat=exwLatin(),gs,right,cap=false;
+  if(lat){var esc2=w[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),m=s.match(new RegExp("(^|[^\\p{L}'’])("+esc2+")(?=$|[^\\p{L}])","iu"));if(!m)return null;
+    var at=m.index+m[1].length;right=s.substr(at,w[0].length);cap=right.charAt(0)!==right.charAt(0).toLowerCase();gs=s.slice(0,at)+"＿"+s.slice(at+w[0].length)}
+  else{var toks=s.split(/\s+/),i=toks.indexOf(w[0]);if(i<0)return null;toks[i]="＿";gs=toks.join(" ");right=w[0]}
+  function ok(y){return y[0]!==w[0]&&y[1]!==w[1]&&(!lat||(y[0].indexOf(" ")<0)===(w[0].indexOf(" ")<0))}
+  var same=pool.filter(function(y){return ok(y)&&y[2]===w[2]});if(same.length<2)same=pool.filter(ok);
+  var d=shuffle(same).slice(0,2).map(function(y){var t=y[0];return cap?t.charAt(0).toUpperCase()+t.slice(1):t});if(d.length<2)return null;
+  return {t:"gap",s:gs,o:[right].concat(d),it:x[1],e:(lat?"{"+w[0]+"}":w[0])+" = "+w[1],w:w}}
+function withContext(items,pool){var k=0;return items.map(function(it){if(!it||!it.w||!exwOf(it.w))return it;var g=(k++%2===1)?wordGap(it.w,pool||W):null;return g||it})}
+function wordExHTML(r){var x=exwOf(r);if(!x)return "";
+  return '<span class="wdx"><span class="wdx-s" lang="'+(exwLatin()?(typeof LL!=="undefined"?LL:"it"):(typeof pyWord==="function"?"zh":"ja"))+'">'+(exwLatin()?itHTML(x[0]):jpHTML(x[0]))+'</span>'+
+    '<span class="wdx-t">'+esc(x[1])+'</span><button class="say sm wdx-p" type="button" data-say="'+esc(x[0])+'" aria-label="▶">'+SPK+'</button></span>'}
 
 
 "use strict";
@@ -2674,6 +2691,7 @@ Object.assign(DICT,{
 "chiavi":"llaves","san":"san, santo","como":"Como (ciudad junto al lago de Como); como","fratelli":"hermanos; hermanos y hermanas"
 });
 Object.assign(DICT,{"svegli": "despiertas (svegliarsi: ti svegli)", "colloquio": "entrevista (de trabajo)"});
+Object.assign(DICT,{"giugno": "junio", "professore": "profesor", "ama": "ama, quiere (amare)", "esercizio": "ejercicio", "buio": "oscuridad", "entra": "entra (entrare)", "nuoto": "natación", "aspetto": "espero (aspettare: esperar)", "qui": "aquí", "parcheggio": "aparcamiento", "accanto": "al lado (accanto a)", "fronte": "frente (di fronte a: enfrente de)", "d'oliva": "de oliva", "pioggia": "lluvia", "compiti": "deberes", "torta": "tarta", "bici": "bici", "elementare": "primaria (scuola elementare)", "compagno": "compañero", "classe": "clase", "acceso": "encendido (accendere)", "cominciato": "empezado (cominciare)", "sembrano": "parecen (sembrare)", "palazzo": "edificio (falso amigo: no es «palacio» en general)", "gradino": "escalón", "maglione": "jersey", "cappotto": "abrigo", "carina": "bonita, mona", "migliorerà": "mejorará (migliorare)", "occhi": "ojos (occhio, occhi)", "bisogno": "necesidad (ho bisogno di: necesito)"});
 
 var DLG={},EX={},VOC={},CULT={};
 var LESSONS=[{"id": "l1", "n": 1, "t": "Letras, sonidos y saludos", "j": "Ciao!", "kind": "lesson", "icon": "i-abc", "color": "red", "w": 1}, {"id": "l2", "n": 2, "t": "¿Cómo te llamas? Essere", "j": "Come ti chiami?", "kind": "lesson", "icon": "i-tag", "color": "blue", "w": 1}, {"id": "l3", "n": 3, "t": "Acento, entonación, tu y Lei", "j": "Tu o Lei?", "kind": "lesson", "icon": "i-wave", "color": "yellow", "w": 1}, {"id": "l4", "n": 4, "t": "Cosas y personas: artículos y c'è", "j": "Cose e persone", "kind": "lesson", "icon": "i-book", "color": "green", "w": 1}, {"id": "l5", "n": 5, "t": "Mi familia: avere y posesivos", "j": "La mia famiglia", "kind": "lesson", "icon": "i-family", "color": "pink", "w": 1}, {"id": "l6", "n": 6, "t": "¿Cómo estás? Stare y avere", "j": "Come stai?", "kind": "lesson", "icon": "i-sun", "color": "red", "w": 1}, {"id": "l7", "n": 7, "t": "¿En qué trabajas? Verbos regulares", "j": "Che lavoro fai?", "kind": "lesson", "icon": "i-chat", "color": "blue", "w": 1}, {"id": "l8", "n": 8, "t": "En el bar: vorrei y precios", "j": "Al bar", "kind": "lesson", "icon": "i-cup", "color": "yellow", "w": 1}, {"id": "r1", "n": null, "t": "Repaso 1", "j": "Ripasso 1", "kind": "review", "icon": "i-loop", "color": "green", "w": 1}, {"id": "l9", "n": 9, "t": "Hacer preguntas", "j": "Fare domande", "kind": "lesson", "icon": "i-q", "color": "pink", "w": 2}, {"id": "l10", "n": 10, "t": "Mi día: la hora y los reflexivos", "j": "La mia giornata", "kind": "lesson", "icon": "i-clock", "color": "red", "w": 2}, {"id": "l11", "n": 11, "t": "Tiempo libre: mi piace y andare", "j": "Il tempo libero", "kind": "lesson", "icon": "i-ball", "color": "blue", "w": 2}, {"id": "l12", "n": 12, "t": "En la ciudad: preposiciones e indicaciones", "j": "In città", "kind": "lesson", "icon": "i-pin", "color": "yellow", "w": 2}, {"id": "l13", "n": 13, "t": "¿Quieres venir? Volere, potere, dovere", "j": "Vuoi venire?", "kind": "lesson", "icon": "i-phone", "color": "green", "w": 2}, {"id": "l14", "n": 14, "t": "En el mercado y el restaurante: del, della, ne", "j": "Al mercato", "kind": "lesson", "icon": "i-fork", "color": "pink", "w": 2}, {"id": "r2", "n": null, "t": "Repaso 2", "j": "Ripasso 2", "kind": "review", "icon": "i-loop", "color": "red", "w": 2}, {"id": "l15", "n": 15, "t": "El fin de semana: passato prossimo con avere", "j": "Il fine settimana", "kind": "lesson", "icon": "i-ticket", "color": "blue", "w": 3}, {"id": "l16", "n": 16, "t": "De viaje: passato prossimo con essere, fechas y tiempo", "j": "In viaggio", "kind": "lesson", "icon": "i-umbrella", "color": "yellow", "w": 3}, {"id": "l17", "n": 17, "t": "Cuando era pequeña: el imperfetto", "j": "Quando ero piccola", "kind": "lesson", "icon": "i-kite", "color": "green", "w": 3}, {"id": "l18", "n": 18, "t": "Contar una historia: los dos pasados", "j": "Raccontare una storia", "kind": "lesson", "icon": "i-scroll", "color": "pink", "w": 3}, {"id": "l19", "n": 19, "t": "Gustos y comparaciones: gli, le, più, meno", "j": "Gusti e confronti", "kind": "lesson", "icon": "i-heart", "color": "red", "w": 3}, {"id": "l20", "n": 20, "t": "De compras: lo, la, li y stare + gerundio", "j": "Fare spese", "kind": "lesson", "icon": "i-bag", "color": "blue", "w": 3}, {"id": "l21", "n": 21, "t": "Planes: el futuro y se", "j": "Progetti", "kind": "lesson", "icon": "i-suitcase", "color": "yellow", "w": 3}, {"id": "l22", "n": 22, "t": "Salud y servicios: el condicional", "j": "Salute e servizi", "kind": "lesson", "icon": "i-cross", "color": "green", "w": 3}, {"id": "l23", "n": 23, "t": "Lucía en Roma: cuenta tu historia", "j": "Lucía a Roma", "kind": "lesson", "icon": "i-arch", "color": "pink", "w": 3}, {"id": "r3", "n": null, "t": "Repaso 3 y prueba A2", "j": "Ripasso 3 e test A2", "kind": "review", "icon": "i-star", "color": "red", "w": 3}];
@@ -3989,6 +4007,353 @@ XX("r3",[
  {t:"rep",ask:"Ti piacerebbe venire con noi la prossima volta?",o:[["Sì, volentieri!","¡Sí, con mucho gusto!"],["Sì, mi piaceria.","(error)"],["Sì, vado.","Sí, voy."]],e:"Aceptar: {Volentieri!}"}
 ]);
 
+/* ---------- Words in context: one example sentence for each word that no dialogue or rule uses ----------
+   EXW[word as in the word list] = [Italian sentence, Spanish translation]. Shown under the word in the word list and used by
+   the word quizzes as a fill-in-the-blank (shell/srs.js: wordGap). The Italian sentences are shared with it-zh. */
+var EXW={};function WX(a){a.forEach(function(r){EXW[r[0]]=[r[1],r[2]]})}
+WX([
+["buonasera", "Buonasera, signora Rossi!", "¡Buenas tardes, señora Rossi!"],
+["buonanotte", "Buonanotte, mamma!", "¡Buenas noches, mamá!"],
+["a presto", "Ciao Marco, a presto!", "¡Adiós, Marco, hasta pronto!"],
+["luna", "Stasera la luna è bella.", "Esta noche la luna está bonita."],
+["pasta", "Mi piace la pasta.", "Me gusta la pasta."],
+["essere", "Voglio essere in Italia a giugno.", "Quiero estar en Italia en junio."],
+["chiamarsi", "Il gatto deve chiamarsi Tigre!", "¡El gato tiene que llamarse Tigre!"],
+["nome", "Qual è il tuo nome?", "¿Cuál es tu nombre?"],
+["cognome", "Il mio cognome è Wang.", "Mi apellido es Wang."],
+["aula", "L'aula è grande.", "El aula es grande."],
+["quindici", "Ho quindici anni.", "Tengo quince años."],
+["messicano", "Carlos è messicano.", "Carlos es mexicano."],
+["colombiano", "Juan è colombiano.", "Juan es colombiano."],
+["inglese", "John è inglese.", "John es inglés."],
+["salve", "Salve, come sta?", "Hola, ¿cómo está?"],
+["come va?", "Ciao Luca, come va?", "Hola, Luca, ¿qué tal?"],
+["a dopo", "Ciao, a dopo!", "¡Adiós, hasta luego!"],
+["cellulare", "Il mio cellulare è nuovo.", "Mi móvil es nuevo."],
+["signorina", "Buongiorno, signorina!", "¡Buenos días, señorita!"],
+["papà", "Mio papà è italiano.", "Mi papá es italiano."],
+["come sta?", "Buongiorno, professore, come sta?", "Buenos días, profesor, ¿cómo está?"],
+["vicina", "La mia vicina è molto gentile.", "Mi vecina es muy amable."],
+["uomo", "Quell'uomo è il mio professore.", "Ese hombre es mi profesor."],
+["donna", "Quella donna è la mia insegnante.", "Esa mujer es mi profesora."],
+["parola", "Questa parola è difficile.", "Esta palabra es difícil."],
+["mondo", "Il mondo è grande.", "El mundo es grande."],
+["tipo", "Che tipo di libro è?", "¿Qué tipo de libro es?"],
+["quaderno", "Il quaderno è sul tavolo.", "El cuaderno está sobre la mesa."],
+["penna", "Hai una penna?", "¿Tienes un bolígrafo?"],
+["giornale", "C'è un giornale sulla sedia.", "Hay un periódico en la silla."],
+["sedia", "La sedia è vicino alla finestra.", "La silla está cerca de la ventana."],
+["mano", "Ho una penna in mano.", "Tengo un bolígrafo en la mano."],
+["problema", "Non c'è problema.", "No hay problema."],
+["amica", "Lei è la mia amica Anna.", "Ella es mi amiga Anna."],
+["chiave", "Dov'è la chiave?", "¿Dónde está la llave?"],
+["bagno", "Il bagno è a destra.", "El baño está a la derecha."],
+["i figli", "I figli di Marco sono piccoli.", "Los hijos de Marco son pequeños."],
+["matrimonio", "Il matrimonio di mia sorella è a maggio.", "La boda de mi hermana es en mayo."],
+["tutti", "Siamo tutti italiani.", "Todos somos italianos."],
+["genitore", "Ogni genitore ama i figli.", "Todos los padres quieren a sus hijos."],
+["figlia", "Mia figlia ha sei anni.", "Mi hija tiene seis años."],
+["marito", "Suo marito è medico.", "Su marido es médico."],
+["zio", "Mio zio abita a Roma.", "Mi tío vive en Roma."],
+["zia", "Mia zia è simpatica.", "Mi tía es simpática."],
+["cugino", "Mio cugino ha vent'anni.", "Mi primo tiene veinte años."],
+["avere", "Vorrei avere un cane.", "Me gustaría tener un perro."],
+["suo", "Questo è suo fratello.", "Este es su hermano."],
+["basso", "Mio padre è basso.", "Mi padre es bajo."],
+["giovane", "Mia madre è giovane.", "Mi madre es joven."],
+["figlio unico", "Sono figlio unico.", "Soy hijo único."],
+["trenta", "Mio fratello ha trenta anni.", "Mi hermano tiene treinta años."],
+["nipote", "Mio nipote ha due anni.", "Mi sobrino tiene dos años."],
+["tuo", "Com'è tuo padre?", "¿Cómo es tu padre?"],
+["alto", "Mio fratello è alto.", "Mi hermano es alto."],
+["proprio", "Sono proprio stanco.", "Estoy realmente cansado."],
+["tanto", "Ho tanto sonno.", "Tengo mucho sueño."],
+["giusto", "È giusto?", "¿Es correcto?"],
+["sicuro", "Sei sicuro?", "¿Estás seguro?"],
+["serio", "Mio padre è serio.", "Mi padre es serio."],
+["forte", "Mio fratello è forte.", "Mi hermano es fuerte."],
+["importante", "È importante.", "Es importante."],
+["difficile", "L'italiano non è difficile.", "El italiano no es difícil."],
+["facile", "Questo esercizio è facile.", "Este ejercicio es fácil."],
+["stare", "Oggi vorrei stare a casa.", "Hoy me gustaría quedarme en casa."],
+["come stai?", "Ciao Anna, come stai?", "Hola, Anna, ¿cómo estás?"],
+["tutto bene", "Tutto bene, grazie.", "Todo bien, gracias."],
+["paura", "Ho paura del buio.", "Tengo miedo de la oscuridad."],
+["malato", "Oggi sono malato.", "Hoy estoy enfermo."],
+["arrabbiato", "Perché sei arrabbiato?", "¿Por qué estás enfadado?"],
+["dai!", "Dai, andiamo!", "¡Venga, vamos!"],
+["insomma", "Come stai? — Insomma…", "¿Cómo estás? — Regular…"],
+["sonno", "Ho sonno.", "Tengo sueño."],
+["fretta", "Scusa, ho fretta.", "Perdona, tengo prisa."],
+["triste", "Perché sei triste?", "¿Por qué estás triste?"],
+["nervoso", "Oggi sono un po' nervoso.", "Hoy estoy un poco nervioso."],
+["tranquillo", "Stai tranquillo!", "¡Tranquilo!"],
+["i soldi", "Non ho i soldi per la macchina.", "No tengo el dinero para el coche."],
+["capo", "Il mio capo è simpatico.", "Mi jefe es simpático."],
+["persona", "È una persona gentile.", "Es una persona amable."],
+["abitare", "Mi piace abitare a Milano.", "Me gusta vivir en Milán."],
+["capire", "Non è facile capire tutto.", "No es fácil entenderlo todo."],
+["dormire", "Mi piace dormire fino a tardi.", "Me gusta dormir hasta tarde."],
+["scrivere", "Mi piace scrivere lettere.", "Me gusta escribir cartas."],
+["ingegnere", "Mio padre fa l'ingegnere.", "Mi padre es ingeniero."],
+["commessa", "Mia sorella fa la commessa.", "Mi hermana es dependienta."],
+["impiegato", "Sono impiegato in banca.", "Soy empleado de banca."],
+["avvocato", "Lei fa l'avvocato.", "Ella es abogada."],
+["ufficio", "Lavoro in un ufficio.", "Trabajo en una oficina."],
+["lingua", "Che lingua parli?", "¿Qué idioma hablas?"],
+["parlare", "Mi piace parlare italiano.", "Me gusta hablar italiano."],
+["prendere", "Vado a prendere il treno.", "Voy a coger el tren."],
+["università", "Studio all'università di Roma.", "Estudio en la universidad de Roma."],
+["nulla", "Non voglio nulla, grazie.", "No quiero nada, gracias."],
+["abbastanza", "Il caffè è abbastanza buono.", "El café es bastante bueno."],
+["paio", "Vorrei un paio di cornetti.", "Quisiera un par de cruasanes."],
+["tramezzino", "Un tramezzino, per favore.", "Un sándwich, por favor."],
+["panino", "Vorrei un panino al prosciutto.", "Quisiera un bocadillo de jamón."],
+["zucchero", "Il caffè senza zucchero, per favore.", "El café sin azúcar, por favor."],
+["cassa", "Si paga alla cassa.", "Se paga en la caja."],
+["quanto costa?", "Scusi, quanto costa?", "Perdone, ¿cuánto cuesta?"],
+["subito", "Arrivo subito!", "¡Voy enseguida!"],
+["altrettanto", "Buona giornata! — Grazie, altrettanto!", "¡Que tenga un buen día! — ¡Gracias, igualmente!"],
+["qualcuno", "C'è qualcuno?", "¿Hay alguien?"],
+["nessuno", "Non c'è nessuno.", "No hay nadie."],
+["senza", "Un caffè senza latte, per favore.", "Un café sin leche, por favor."],
+["comunque", "Comunque, grazie!", "¡De todos modos, gracias!"],
+["motivo", "Per quale motivo studi italiano?", "¿Por qué motivo estudias italiano?"],
+["esattamente", "Dove abiti esattamente?", "¿Dónde vives exactamente?"],
+["possibile", "È possibile?", "¿Es posible?"],
+["quale", "Quale preferisci?", "¿Cuál prefieres?"],
+["vero?", "Sei italiano, vero?", "Eres italiano, ¿verdad?"],
+["partire", "Quando vuoi partire?", "¿Cuándo quieres salir?"],
+["momento", "Un momento, per favore.", "Un momento, por favor."],
+["attimo", "Aspetta un attimo!", "¡Espera un momento!"],
+["appena", "Sono appena arrivato.", "Acabo de llegar."],
+["avanti", "Avanti, entra!", "¡Adelante, pasa!"],
+["indietro", "Torno indietro a prendere le chiavi.", "Vuelvo atrás a coger las llaves."],
+["durante", "Durante la settimana lavoro.", "Durante la semana trabajo."],
+["alzarsi", "Non mi piace alzarsi presto.", "No me gusta levantarse temprano."],
+["lavarsi", "È importante lavarsi le mani.", "Es importante lavarse las manos."],
+["vestirsi", "Bisogna vestirsi in fretta.", "Hay que vestirse deprisa."],
+["riposarsi", "La domenica è bello riposarsi.", "El domingo da gusto descansar."],
+["pranzo", "Il pranzo è all'una.", "La comida es a la una."],
+["qualche volta", "Qualche volta vado al cinema.", "A veces voy al cine."],
+["ritardo", "Scusa il ritardo!", "¡Perdona el retraso!"],
+["svegliarsi", "È difficile svegliarsi alle sei.", "Es difícil despertarse a las seis."],
+["martedì", "Martedì ho lezione.", "El martes tengo clase."],
+["mercoledì", "Mercoledì lavoro fino a tardi.", "El miércoles trabajo hasta tarde."],
+["divertente", "Il film è divertente.", "La película es divertida."],
+["amore", "La musica è il mio amore.", "La música es mi amor."],
+["vita", "La vita in Italia è bella.", "La vida en Italia es bonita."],
+["prova", "Domani ho una prova di nuoto.", "Mañana tengo una prueba de natación."],
+["squadra", "Gioco in una squadra di calcio.", "Juego en un equipo de fútbol."],
+["uscire", "Stasera vuoi uscire?", "¿Quieres salir esta noche?"],
+["nuotare", "Mi piace nuotare.", "Me gusta nadar."],
+["concerto", "Sabato vado a un concerto.", "El sábado voy a un concierto."],
+["libro di storia", "Leggo un libro di storia.", "Leo un libro de historia."],
+["posto", "È un bel posto.", "Es un sitio bonito."],
+["parte", "Da che parte è la stazione?", "¿Hacia dónde está la estación?"],
+["fuori", "Ti aspetto fuori.", "Te espero fuera."],
+["dentro", "Il bar è dentro la stazione.", "El bar está dentro de la estación."],
+["sopra", "Il bagno è sopra.", "El baño está arriba."],
+["ospedale", "L'ospedale è vicino.", "El hospital está cerca."],
+["farmacia", "C'è una farmacia qui vicino?", "¿Hay una farmacia aquí cerca?"],
+["metro", "Prendo la metro.", "Cojo el metro."],
+["accanto a", "La banca è accanto a un bar.", "El banco está al lado de un bar."],
+["di fronte a", "Il museo è di fronte a una chiesa.", "El museo está enfrente de una iglesia."],
+["vicino a", "Abito vicino a una scuola.", "Vivo cerca de un colegio."],
+["girare", "Deve girare a sinistra.", "Tiene que girar a la izquierda."],
+["attraversare", "Bisogna attraversare la piazza.", "Hay que cruzar la plaza."],
+["minuto", "La stazione è a un minuto da qui.", "La estación está a un minuto de aquí."],
+["museo", "Il museo è aperto.", "El museo está abierto."],
+["supermercato", "Il supermercato è chiuso.", "El supermercado está cerrado."],
+["dietro", "Il parcheggio è dietro la chiesa.", "El aparcamiento está detrás de la iglesia."],
+["lontano", "È lontano?", "¿Está lejos?"],
+["sapere", "Vorrei sapere a che ora parte il treno.", "Quisiera saber a qué hora sale el tren."],
+["credere", "Non posso credere!", "¡No me lo puedo creer!"],
+["pensare", "Devo pensare.", "Tengo que pensar."],
+["sembrare", "Può sembrare difficile, ma non lo è.", "Puede parecer difícil, pero no lo es."],
+["riuscire", "Vorrei riuscire a venire.", "Me gustaría conseguir venir."],
+["lasciare", "Posso lasciare qui la borsa?", "¿Puedo dejar aquí el bolso?"],
+["mettere", "Dove posso mettere la giacca?", "¿Dónde puedo poner la chaqueta?"],
+["volere", "Non devi volere tutto subito.", "No debes querer todo enseguida."],
+["potere", "Vorrei potere venire.", "Me gustaría poder ir."],
+["dovere", "Non mi piace dovere lavorare il sabato.", "No me gusta tener que trabajar el sábado."],
+["invitare", "Voglio invitare i miei amici.", "Quiero invitar a mis amigos."],
+["entrare", "Posso entrare?", "¿Puedo entrar?"],
+["peccato", "Non puoi venire? Peccato!", "¿No puedes venir? ¡Qué pena!"],
+["chiamare", "Ti posso chiamare stasera?", "¿Te puedo llamar esta noche?"],
+["ci sentiamo", "Ciao, ci sentiamo domani!", "¡Adiós, hablamos mañana!"],
+["insieme", "Vuoi venire insieme a noi?", "¿Quieres venir con nosotros?"],
+["festa", "Sabato c'è una festa.", "El sábado hay una fiesta."],
+["aiutare", "Posso aiutare?", "¿Puedo ayudar?"],
+["pronto", "Pronto, chi parla?", "¿Diga? ¿Quién habla?"],
+["messaggio", "Ti mando un messaggio.", "Te mando un mensaje."],
+["più tardi", "Ci vediamo più tardi.", "Nos vemos más tarde."],
+["bisogna", "Bisogna prenotare.", "Hay que reservar."],
+["modo", "In che modo?", "¿De qué manera?"],
+["caso", "In questo caso, va bene.", "En este caso, vale."],
+["scelta", "C'è molta scelta.", "Hay mucho para elegir."],
+["ottimo", "Il pesce è ottimo.", "El pescado está buenísimo."],
+["Cosa Le do?", "Buongiorno! Cosa Le do?", "¡Buenos días! ¿Qué le pongo?"],
+["verdura", "Mangio molta verdura.", "Como mucha verdura."],
+["mela", "Vorrei una mela.", "Quisiera una manzana."],
+["arancia", "Una spremuta d'arancia, per favore.", "Un zumo de naranja natural, por favor."],
+["patata", "Vorrei una patata.", "Quisiera una patata."],
+["uovo", "Vorrei un uovo.", "Quisiera un huevo."],
+["olio", "L'olio d'oliva è buono.", "El aceite de oliva es bueno."],
+["carne", "Non mangio carne.", "No como carne."],
+["pollo", "Prendo il pollo.", "Tomo el pollo."],
+["insalata", "Un'insalata, per favore.", "Una ensalada, por favor."],
+["menù", "Il menù, per favore.", "La carta, por favor."],
+["contorno", "Come contorno, patate.", "De guarnición, patatas."],
+["dolce", "Per dolce, un tiramisù.", "De postre, un tiramisú."],
+["ordinare", "Possiamo ordinare?", "¿Podemos pedir?"],
+["consigliare", "Cosa mi può consigliare?", "¿Qué me puede recomendar?"],
+["naturale", "Acqua naturale, per favore.", "Agua sin gas, por favor."],
+["litro", "Un litro di latte, per favore.", "Un litro de leche, por favor."],
+["pacco", "Un pacco di pasta, per favore.", "Un paquete de pasta, por favor."],
+["burro", "Pane e burro, per favore.", "Pan con mantequilla, por favor."],
+["sentire", "Mi piace sentire la pioggia.", "Me gusta oír la lluvia."],
+["finito", "Ho finito i compiti.", "He terminado los deberes."],
+["fantastico", "Il weekend è stato fantastico!", "¡El fin de semana fue fantástico!"],
+["già", "Ho già mangiato.", "Ya he comido."],
+["non ancora", "Hai finito? — Non ancora.", "¿Has terminado? — Todavía no."],
+["preparare", "Domenica vado a preparare una torta.", "El domingo voy a preparar una tarta."],
+["pulire", "Sabato devo pulire la casa.", "El sábado tengo que limpiar la casa."],
+["guardare", "Mi piace guardare i film.", "Me gusta ver películas."],
+["vendere", "Voglio vendere la mia bici.", "Quiero vender mi bici."],
+["aprire", "Puoi aprire la finestra?", "¿Puedes abrir la ventana?"],
+["chiudere", "Puoi chiudere la porta?", "¿Puedes cerrar la puerta?"],
+["perdere", "Non voglio perdere il treno.", "No quiero perder el tren."],
+["preso", "Ho preso il treno delle otto.", "He cogido el tren de las ocho."],
+["auto", "Sono andato in auto.", "Fui en coche."],
+["giro", "Abbiamo fatto un giro in centro.", "Dimos una vuelta por el centro."],
+["sbagliato", "Ho preso il treno sbagliato!", "¡He cogido el tren equivocado!"],
+["vacanza", "Sono in vacanza.", "Estoy de vacaciones."],
+["arrivare", "A che ora vuoi arrivare?", "¿A qué hora quieres llegar?"],
+["tornare", "Voglio tornare in Italia.", "Quiero volver a Italia."],
+["restare", "Vorrei restare una settimana.", "Quisiera quedarme una semana."],
+["nascere", "Il bambino deve nascere a maggio.", "El niño tiene que nacer en mayo."],
+["albergo", "L'albergo è vicino al mare.", "El hotel está cerca del mar."],
+["piovere", "Domani può piovere.", "Mañana puede llover."],
+["nevicare", "In montagna può nevicare.", "En la montaña puede nevar."],
+["nuvoloso", "Oggi è nuvoloso.", "Hoy está nublado."],
+["aereo", "Sono partito in aereo.", "Salí en avión."],
+["biglietto", "Ho comprato il biglietto.", "He comprado el billete."],
+["gennaio", "Sono nato a gennaio.", "Nací en enero."],
+["agosto", "Ad agosto vado al mare.", "En agosto voy a la playa."],
+["settembre", "La scuola comincia a settembre.", "El colegio empieza en septiembre."],
+["ottobre", "Sono partito a ottobre.", "Salí en octubre."],
+["dicembre", "Natale è a dicembre.", "Navidad es en diciembre."],
+["vento", "Oggi c'è vento.", "Hoy hace viento."],
+["primavera", "In primavera fa bel tempo.", "En primavera hace buen tiempo."],
+["autunno", "In autunno piove spesso.", "En otoño llueve a menudo."],
+["inverno", "In inverno fa freddo.", "En invierno hace frío."],
+["cuore", "Mia nonna aveva un grande cuore.", "Mi abuela tenía un gran corazón."],
+["ragione", "Hai ragione.", "Tienes razón."],
+["senso", "Non ha senso.", "No tiene sentido."],
+["di solito", "Di solito andavo a scuola a piedi.", "Normalmente iba al colegio andando."],
+["campagna", "Da piccola abitavo in campagna.", "De pequeña vivía en el campo."],
+["giocare", "Mi piaceva giocare in giardino.", "Me gustaba jugar en el jardín."],
+["timido", "Da bambino ero timido.", "De niño era tímido."],
+["vivace", "Mia sorella era molto vivace.", "Mi hermana era muy vivaz."],
+["felice", "Ero un bambino felice.", "Era un niño feliz."],
+["ricordo", "È un bel ricordo.", "Es un bonito recuerdo."],
+["ricordare", "Mi piace ricordare l'estate al mare.", "Me gusta recordar el verano en el mar."],
+["scuola elementare", "Alla scuola elementare avevo una maestra gentile.", "En la escuela primaria tenía una maestra amable."],
+["maestra", "La maestra era molto brava.", "La maestra era muy buena."],
+["compagno di classe", "Il mio compagno di classe si chiamava Luca.", "Mi compañero de clase se llamaba Luca."],
+["bambino", "Da bambino giocavo a calcio.", "De niño jugaba al fútbol."],
+["ultimo", "È l'ultimo treno.", "Es el último tren."],
+["punto", "A quel punto è arrivato Marco.", "En ese momento llegó Marco."],
+["domanda", "Posso fare una domanda?", "¿Puedo hacer una pregunta?"],
+["succedere", "Cosa può succedere?", "¿Qué puede pasar?"],
+["scendere", "Dobbiamo scendere qui.", "Tenemos que bajar aquí."],
+["salire", "Devi salire sul treno.", "Tienes que subir al tren."],
+["fortuna", "Che fortuna!", "¡Qué suerte!"],
+["strano", "È strano!", "¡Qué raro!"],
+["squillare", "Il telefono ha cominciato a squillare.", "El teléfono empezó a sonar."],
+["cercare", "Sono andato a cercare le chiavi.", "Fui a buscar las llaves."],
+["chiedere", "Ho dovuto chiedere aiuto.", "Tuve que pedir ayuda."],
+["perdersi", "È facile perdersi a Venezia.", "Es fácil perderse en Venecia."],
+["candela", "Abbiamo acceso una candela.", "Encendimos una vela."],
+["terribile", "È stato un viaggio terribile.", "Fue un viaje terrible."],
+["genere", "Che genere di musica ti piace?", "¿Qué tipo de música te gusta?"],
+["unico", "È l'unico ristorante aperto.", "Es el único restaurante abierto."],
+["entrambi", "Mi piacciono entrambi.", "Me gustan los dos."],
+["coreano", "Il cibo coreano è più piccante di quello italiano.", "La comida coreana es más picante que la italiana."],
+["peggiore", "È il film peggiore dell'anno.", "Es la peor película del año."],
+["preferire", "Puoi preferire il tè o il caffè.", "Puedes preferir el té o el café."],
+["adorare", "Tutti sembrano adorare il gelato.", "Todos parecen adorar el helado."],
+["moderno", "Questo palazzo è più moderno.", "Este edificio es más moderno."],
+["antico", "Il centro è antico.", "El centro es antiguo."],
+["economico", "Il treno è più economico dell'aereo.", "El tren es más barato que el avión."],
+["telefonare", "Posso telefonare dopo?", "¿Puedo llamar después?"],
+["d'accordo", "Sono d'accordo con te.", "Estoy de acuerdo contigo."],
+["sicurezza", "La sicurezza è importante.", "La seguridad es importante."],
+["attenzione", "Attenzione al gradino!", "¡Cuidado con el escalón!"],
+["maglietta", "Vorrei una maglietta bianca.", "Quisiera una camiseta blanca."],
+["camicia", "Questa camicia è troppo stretta.", "Esta camisa es demasiado estrecha."],
+["gonna", "La gonna rossa è bella.", "La falda roja es bonita."],
+["vestito", "Questo vestito costa troppo.", "Este vestido cuesta demasiado."],
+["scarpa", "Ho perso una scarpa!", "¡He perdido un zapato!"],
+["borsa", "La borsa nera è più grande.", "El bolso negro es más grande."],
+["saldi", "A gennaio ci sono i saldi.", "En enero hay rebajas."],
+["stretto", "Questo vestito è stretto.", "Este vestido es estrecho."],
+["largo", "Il maglione è troppo largo.", "El jersey es demasiado ancho."],
+["provare", "Posso provare questa giacca?", "¿Puedo probarme esta chaqueta?"],
+["portare", "Puoi portare la borsa?", "¿Puedes llevar el bolso?"],
+["comprare", "Voglio comprare un cappotto.", "Quiero comprar un abrigo."],
+["conoscere", "Vorrei conoscere i tuoi amici.", "Me gustaría conocer a tus amigos."],
+["bianco", "Il vestito bianco è elegante.", "El vestido blanco es elegante."],
+["rosso", "Ho comprato un maglione rosso.", "He comprado un jersey rojo."],
+["giallo", "Il giallo non mi piace.", "No me gusta el amarillo."],
+["verde", "La borsa verde costa meno.", "El bolso verde cuesta menos."],
+["blu", "Vorrei una camicia blu.", "Quisiera una camisa azul."],
+["grigio", "Il cappotto grigio è caldo.", "El abrigo gris es abrigado."],
+["rosa", "La maglietta rosa è carina.", "La camiseta rosa es bonita."],
+["lungo", "Il vestito è troppo lungo.", "El vestido es demasiado largo."],
+["probabilmente", "Probabilmente partirò a luglio.", "Probablemente saldré en julio."],
+["situazione", "La situazione migliorerà.", "La situación mejorará."],
+["assolutamente", "Devo assolutamente finire.", "Tengo que terminar sin falta."],
+["qualsiasi", "Puoi chiamarmi a qualsiasi ora.", "Puedes llamarme a cualquier hora."],
+["passare", "Voglio passare l'estate al mare.", "Quiero pasar el verano en el mar."],
+["futuro", "Nel futuro vivrò in Italia.", "En el futuro viviré en Italia."],
+["progetto", "Ho un nuovo progetto.", "Tengo un nuevo proyecto."],
+["però", "È caro, però è bello.", "Es caro, pero es bonito."],
+["sperare", "Bisogna sperare.", "Hay que tener esperanza."],
+["magari", "Magari andrò a Roma.", "A lo mejor iré a Roma."],
+["crepi", "In bocca al lupo! — Crepi!", "¡Mucha suerte! — ¡Gracias!"],
+["corpo", "Lo sport fa bene al corpo.", "El deporte es bueno para el cuerpo."],
+["gli occhi", "Mi fanno male gli occhi.", "Me duelen los ojos."],
+["le mani", "Lavati le mani!", "¡Lávate las manos!"],
+["cura", "Il dottore mi ha dato una cura.", "El médico me dio un tratamiento."],
+["dottore", "Devo andare dal dottore.", "Tengo que ir al médico."],
+["stanza", "La stanza è piccola.", "La habitación es pequeña."],
+["pancia", "Mi fa male la pancia.", "Me duele la barriga."],
+["piede", "Mi fa male il piede.", "Me duele el pie."],
+["occhio", "Ho qualcosa nell'occhio.", "Tengo algo en el ojo."],
+["raffreddore", "Ho il raffreddore.", "Estoy resfriado."],
+["fare male", "Non voglio fare male a nessuno.", "No quiero hacer daño a nadie."],
+["farmacista", "Il farmacista è molto gentile.", "El farmacéutico es muy amable."],
+["medicina", "Devo prendere una medicina.", "Tengo que tomar una medicina."],
+["pronto soccorso", "Siamo andati al pronto soccorso.", "Fuimos a urgencias."],
+["sentirsi", "È normale sentirsi stanchi.", "Es normal sentirse cansados."],
+["guarire", "Voglio guarire presto.", "Quiero curarme pronto."],
+["braccio", "Mi fa male il braccio.", "Me duele el brazo."],
+["gamba", "Mi fa male la gamba.", "Me duele la pierna."],
+["ginocchio", "Mi fa male il ginocchio.", "Me duele la rodilla."],
+["ricetta", "Ecco la ricetta per la medicina.", "Aquí tiene la receta para la medicina."],
+["ho bisogno di", "Ho bisogno di un medico.", "Necesito un médico."],
+["sognare", "Mi piace sognare di viaggiare.", "Me gusta soñar con viajar."],
+["accompagnare", "Ti posso accompagnare alla stazione.", "Te puedo acompañar a la estación."],
+["turista", "Sono un turista.", "Soy un turista."],
+["decidere", "Devo decidere cosa fare.", "Tengo que decidir qué hacer."],
+["azienda", "Lavoro in un'azienda italiana.", "Trabajo en una empresa italiana."],
+["velocemente", "Parla velocemente.", "Habla rápido."],
+["lentamente", "Parla più lentamente, per favore.", "Habla más despacio, por favor."],
+["doppia", "«Pala» e «palla»: attenzione alla doppia!", "«Pala» y «palla»: ¡cuidado con la doble!"]
+]);
+
 var EXAMS=[{"id":"a2-1","exam":"a2","title":"Prova 1","it":"Simulación en el formato del CILS A2: comprensión auditiva, comprensión de lectura y análisis de las estructuras de comunicación, con puntuación estimada.","scheme":{"name":"CILS A2","total":60,"pass":33,"lang":"it","plays":2,"opts":"abc","part":"Prova n. ","groups":[{"id":"ascolto","label":"Comprensión auditiva · Ascolto","max":20,"min":11},{"id":"lettura","label":"Lectura · Lettura","max":20,"min":11},{"id":"strutture","label":"Estructuras · Strutture","max":20,"min":11}],"skills":{"listening":["Comprensión auditiva","Ascolto"],"reading":["Comprensión de lectura","Comprensione della lettura"],"grammar":["Estructuras de comunicación","Strutture di comunicazione"]},"who":{"N":"","F":"Mujer: ","M":"Hombre: "},"passText":"Cada parte vale 20 puntos y hacen falta al menos 11 (umbral estimado: valen las reglas publicadas por el centro de examen). La expresión escrita y la oral se practican aparte.","notOfficial":"Simulación en el formato del CILS A2, no un examen oficial: la puntuación es solo una estimación. El examen real incluye también expresión escrita y oral, evaluadas por examinadores; los centros y los módulos (por ejemplo A2 Integrazione) pueden puntuar de forma distinta.","note":"Como en el examen real, las preguntas y las instrucciones están en italiano. Si lo necesitas, pulsa «Traducción» para ver las instrucciones en español."},"sections":[{"id":"ascolto","jp":"Ascolto","it":"Comprensión auditiva","min":25,"score":"ascolto","listen":true,"parts":[{"n":1,"label":"Prova n. 1","skill":"listening","kind":"dialoghi","inst":"Ascolta i dialoghi e scegli la risposta giusta.","itInst":"Escucha los diálogos y elige la respuesta correcta.","items":[{"script":[["F","Scusi, a che ora parte il treno per Firenze?"],["M","Alle dieci e un quarto, dal binario tre."]],"q":"A che ora parte il treno?","o":["Alle 3:10.","Alle 10:15.","Alle 10:45."],"a":1,"e":"Le dieci e un quarto = 10:15; binario tre es el número del andén."},{"script":[["M","Ciao Giulia, vieni al cinema stasera?"],["F","Mi dispiace, stasera non posso: devo studiare per l'esame di domani."]],"q":"Perché Giulia non va al cinema?","o":["Lavora fino a tardi.","Deve studiare.","Non le piace il film."],"a":1,"e":"devo studiare per l'esame = tengo que estudiar para el examen."},{"script":[["F","Buongiorno, vorrei un chilo di mele e mezzo chilo di pomodori."],["M","Ecco a Lei. Sono quattro euro e venti."]],"q":"Quanto spende la signora?","o":["4,50 euro.","2,40 euro.","4,20 euro."],"a":2,"e":"quattro euro e venti = 4,20 €."},{"script":[["M","Pronto, ristorante Da Mario."],["F","Buonasera, vorrei prenotare un tavolo per quattro persone, sabato alle otto."]],"q":"Che cosa vuole fare la signora?","o":["Parlare con Mario.","Prenotare un tavolo.","Ordinare una pizza a casa."],"a":1,"e":"prenotare un tavolo = reservar una mesa."},{"script":[["F","Dove hai messo le chiavi della macchina?"],["M","Sono sul tavolo della cucina, vicino al telefono."]],"q":"Dove sono le chiavi?","o":["Nella macchina.","In cucina, sul tavolo.","Vicino alla porta."],"a":1,"e":"sul tavolo della cucina = sobre la mesa de la cocina."},{"script":[["M","Com'era il tempo a Napoli?"],["F","Bellissimo! Sole e caldo tutti i giorni, siamo andati al mare ogni mattina."]],"q":"Che tempo ha fatto a Napoli?","o":["Ha piovuto spesso.","Faceva freddo.","Bel tempo, caldo."],"a":2,"e":"sole e caldo = sol y calor."}]},{"n":2,"label":"Prova n. 2","skill":"listening","kind":"annunci e messaggi","inst":"Ascolta gli annunci e i messaggi e scegli la risposta giusta.","itInst":"Escucha los avisos y los mensajes y elige la respuesta correcta.","items":[{"script":[["N","Attenzione: il treno regionale per Bologna delle ore 14 e 30 partirà con venti minuti di ritardo. Ci scusiamo per il disagio."]],"q":"Che cosa succede al treno per Bologna?","o":["Parte in ritardo.","Non parte oggi.","Parte da un altro binario."],"a":0,"e":"venti minuti di ritardo = veinte minutos de retraso."},{"script":[["F","Ciao Marco, sono Li Wei. Domani la lezione di italiano non è alle nove ma alle undici, perché la professoressa ha un appuntamento. Ci vediamo dopo!"]],"q":"Domani la lezione comincia…","o":["alle nove.","dopo l'appuntamento del pomeriggio.","alle undici."],"a":2,"e":"non è alle nove ma alle undici = no es a las nueve sino a las once."},{"script":[["N","Gentili clienti, il supermercato chiude tra quindici minuti. Vi preghiamo di andare alle casse."]],"q":"Che cosa devono fare i clienti?","o":["Uscire subito senza pagare.","Prendere il carrello.","Andare a pagare."],"a":2,"e":"andare alle casse = ir a las cajas (a pagar)."},{"script":[["M","Buongiorno, sono il dottor Bianchi. Le analisi sono pronte: può venire a prenderle in farmacia da lunedì a venerdì, dalle otto alle dodici."]],"q":"Quando si possono prendere le analisi?","o":["Solo il sabato.","Tutti i giorni, la sera.","Dal lunedì al venerdì, la mattina."],"a":2,"e":"dalle otto alle dodici = de ocho a doce de la mañana."}]}]},{"id":"lettura","jp":"Comprensione della lettura","it":"Comprensión de lectura","min":40,"score":"lettura","parts":[{"n":1,"label":"Prova n. 1","skill":"reading","kind":"testo","inst":"Leggi il testo e scegli la risposta giusta.","itInst":"Lee el texto y elige la respuesta correcta.","items":[{"q":"Perché Chen Yu è in Italia?","o":["Per lavorare in un ristorante.","Per fare una vacanza.","Per studiare architettura."],"a":2,"e":"per studiare architettura = para estudiar arquitectura."},{"q":"Con chi abita?","o":["Con due ragazze italiane.","Con la sua famiglia.","Da sola."],"a":0,"e":"con due ragazze italiane。"},{"q":"Come va all'università?","o":["In autobus.","A piedi.","In bicicletta."],"a":2,"e":"vado all'università in bicicletta。"},{"q":"Che cosa fa la sera?","o":["Studia in biblioteca.","Guarda la televisione da sola.","Spesso cucina con le amiche."],"a":2,"e":"la sera spesso cucino con le mie amiche; estudia en la biblioteca por la tarde."},{"q":"Come parla italiano adesso?","o":["Molto meglio di prima.","Non parla italiano.","Male, come all'inizio."],"a":0,"e":"adesso va molto meglio = ahora va mucho mejor."},{"q":"Che cosa farà a dicembre?","o":["Andrà a Siena.","Comincerà l'università.","Tornerà in Cina per le vacanze."],"a":2,"e":"a dicembre torno in Cina per le vacanze。"}],"text":"Mi chiamo Chen Yu e ho ventidue anni. Sono arrivata in Italia sei mesi fa per studiare architettura all'Università di Firenze. Abito in un piccolo appartamento con due ragazze italiane, Sara e Francesca. La mattina vado all'università in bicicletta, perché la casa non è lontana. Il pomeriggio studio in biblioteca e la sera spesso cucino con le mie amiche: io preparo i ravioli cinesi, loro mi insegnano a fare la pasta. All'inizio parlavo poco e capivo pochissimo, ma adesso va molto meglio. Il fine settimana visitiamo le città vicine: siamo già state a Siena e a Pisa. A dicembre torno in Cina per le vacanze, ma a gennaio ritorno a Firenze."},{"n":2,"label":"Prova n. 2","skill":"reading","kind":"avvisi e annunci","inst":"Leggi gli avvisi e scegli la risposta giusta.","itInst":"Lee los avisos y los anuncios y elige la respuesta correcta.","items":[{"text":"FARMACIA CENTRALE — Aperta tutti i giorni dalle 8:30 alle 19:30. Domenica: 9:00–12:30.","q":"La domenica pomeriggio la farmacia…","o":["è chiusa.","è aperta fino alle 19:30.","apre alle 15:00."],"a":0,"e":"El domingo solo abre hasta las 12:30, así que por la tarde está cerrado."},{"text":"CERCASI cameriere/a per il fine settimana. Esperienza non necessaria. Telefonare a Luca, 340 1234567, dopo le 15.","q":"Che cosa serve per questo lavoro?","o":["Bisogna avere esperienza.","Non serve esperienza.","Bisogna lavorare tutti i giorni."],"a":1,"e":"esperienza non necessaria = no hace falta experiencia."},{"text":"Corso di cucina italiana per stranieri: ogni martedì dalle 18 alle 20. Costo: 15 euro a lezione. Iscrizioni in segreteria.","q":"Quando c'è il corso?","o":["Ogni giorno.","Il martedì mattina.","Il martedì sera."],"a":2,"e":"ogni martedì dalle 18 alle 20 = todos los martes de seis a ocho de la tarde."},{"text":"AVVISO: dal 1° al 15 agosto la biblioteca è chiusa per lavori. Per restituire i libri usate la cassetta all'ingresso.","q":"Ad agosto, per restituire un libro…","o":["si aspetta il 16 settembre.","si usa la cassetta all'ingresso.","si va in segreteria."],"a":1,"e":"usate la cassetta all'ingresso = usad el buzón de la entrada."},{"text":"Affittasi camera singola in centro, vicino alla stazione. 350 euro al mese, spese comprese. Solo studenti.","q":"Chi può prendere la camera?","o":["Solo le famiglie.","Solo gli studenti.","Tutti, anche i turisti."],"a":1,"e":"solo studenti = se alquila solo a estudiantes."}]}]},{"id":"strutture","jp":"Analisi delle strutture di comunicazione","it":"Análisis de las estructuras de comunicación","min":35,"score":"strutture","parts":[{"n":1,"label":"Prova n. 1","skill":"grammar","kind":"testo da completare","inst":"Leggi la lettera e scegli la parola giusta per ogni spazio.","itInst":"Lee la carta y elige la palabra correcta para cada hueco.","items":[{"q":"(1)","o":["fa","da","per"],"a":1,"e":"Para algo que empezó en el pasado y sigue: da (como «desde hace»): sono a casa da due giorni."},{"q":"(2)","o":["ho","sono","è"],"a":1,"e":"andare con essere: sono andata."},{"q":"(3)","o":["un'","un","una"],"a":0,"e":"anatra es femenino y empieza por vocal: un'anatra."},{"q":"(4)","o":["molto","molti","molta"],"a":0,"e":"fa molto caldo: aquí molto es adverbio y no cambia."},{"q":"(5)","o":["vedo","vedi","vede"],"a":0,"e":"Forma de io: vedo."},{"q":"(6)","o":["Ci","Vi","Si"],"a":0,"e":"Ci vediamo = nos vemos."}],"text":"Cara Francesca,\nti scrivo da Shanghai. Sono a casa (1) ＿＿ due giorni e sono molto contenta. Ieri (2) ＿＿ andata al ristorante con i miei genitori e abbiamo mangiato (3) ＿＿ anatra laccata buonissima. Qui fa (4) ＿＿ caldo e piove spesso. Domani (5) ＿＿ i miei amici dell'università. (6) ＿＿ vediamo a gennaio a Firenze!\nUn abbraccio, Chen Yu"},{"n":2,"label":"Prova n. 2","skill":"grammar","kind":"frasi","inst":"Scegli la forma giusta per completare la frase.","itInst":"Elige la forma correcta para completar la frase.","items":[{"q":"Domani vado ＿＿ Roma con il treno.","o":["in","di","a"],"a":2,"e":"Con las ciudades: a Roma."},{"q":"Mia sorella ＿＿ vent'anni.","o":["è","ha","fa"],"a":1,"e":"La edad con avere: ha vent'anni."},{"q":"Ieri sera ＿＿ guardato un film.","o":["avevo","sono","ho"],"a":2,"e":"guardare con avere: ho guardato."},{"q":"Il libro è ＿＿ tavolo.","o":["sul","su","sulla"],"a":0,"e":"su + il = sul (tavolo es masculino)."},{"q":"Mi ＿＿ molto gli spaghetti.","o":["piacciono","piaccio","piace"],"a":0,"e":"gli spaghetti es plural: mi piacciono."},{"q":"Quando ero piccola, ＿＿ sempre con il mio cane.","o":["gioco","giocavo","ho giocato"],"a":1,"e":"Costumbre en el pasado: imperfetto, giocavo."}]}]}],"practice":[{"kind":"Produzione scritta","time":"20 min","task":"Scrivi un messaggio a un amico italiano: racconta che cosa hai fatto lo scorso fine settimana (40–50 parole).","tr":"Escritura: escribe un mensaje a un amigo italiano contándole qué hiciste el fin de semana pasado (40–50 palabras).","model":"Ciao Luca! Sabato sono andata al mercato con la mia coinquilina e abbiamo comprato frutta e verdura. Poi abbiamo cucinato insieme i ravioli. Domenica ho dormito fino a tardi e il pomeriggio ho visitato un museo. E tu, che cosa hai fatto? A presto, Chen"},{"kind":"Produzione scritta","time":"20 min","task":"Scrivi un'email alla segreteria della scuola: chiedi informazioni sul corso di cucina (giorni, orari, prezzo).","tr":"Escritura: escribe un correo a la secretaría de una escuela para pedir información sobre un curso de cocina (fechas, horario, precio).","model":"Gentile segreteria, mi chiamo Chen Yu e vorrei frequentare il corso di cucina italiana. Potete dirmi in quali giorni e a che ora ci sono le lezioni e quanto costa il corso? Grazie mille. Cordiali saluti, Chen Yu"},{"kind":"Produzione orale","time":"2–3 min","task":"Presentati: come ti chiami, da dove vieni, che cosa studi o fai in Italia, che cosa ti piace fare nel tempo libero.","tr":"Oral: preséntate: cómo te llamas, de dónde eres, qué estudias o haces en Italia, qué te gusta hacer en tu tiempo libre.","model":"Mi chiamo Chen Yu, ho ventidue anni e vengo da Shanghai. Sono in Italia da sei mesi e studio architettura a Firenze. Nel tempo libero mi piace cucinare con le mie amiche e visitare le città vicine."},{"kind":"Produzione orale","time":"2–3 min","task":"Dialogo: sei in un negozio di vestiti. Chiedi una giacca della tua taglia, il prezzo e se puoi provarla.","tr":"Oral: juego de roles: estás en una tienda de ropa; pregunta si tienen una chaqueta de tu talla, cuánto cuesta y si te la puedes probar.","model":"Buongiorno, avete questa giacca nella taglia 42? Quanto costa? Posso provarla? … Mi sta bene, la prendo. Posso pagare con la carta?"}]}];
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var KEY="italiano-para-hispanohablantes-v1";
@@ -4302,7 +4667,7 @@ function buildVocab(){if(!vt||vt.dataset.done)return;vt.dataset.done="1";var row
   vt.innerHTML=rowsV.join("");$$('td[lang="it"]',vt).forEach(frZone)}
 /* words of each lesson */
 function renderWords(el){var ws=VOC[el.getAttribute("data-voc")]||[];
-  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="it">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="Escuchar">'+SPK+'</button></div>'}).join("")}
+  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="it">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="Escuchar">'+SPK+'</button>'+wordExHTML(r)+'</div>'}).join("")}
 $$(".words[data-voc]").forEach(renderWords);
 /* I can */
 $$("ul.cando[data-cando]").forEach(function(ul){var id=ul.getAttribute("data-cando"),lis=$$("li",ul),st=state.can[id]||[];
@@ -4418,6 +4783,7 @@ window.FRSAYS=function(){var S={},box=document.createElement("div");
   function mix(t){if(!t)return;String(t).replace(/\{([^{}]*)\}/g,function(_,x){fr(x)})}
   $$("[data-it]").forEach(function(d){fr(d.getAttribute("data-it"))});
   Object.keys(DLG).forEach(function(k){DLG[k].forEach(function(r){fr(r[1])})});
+  if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){fr(EXW[k][0])});
   W.forEach(function(w){var full=art(w[0],w[2])+w[0];fr(full);fr(w[0])});
   Object.keys(EX).forEach(function(k){EX[k].forEach(function(it){[it.au,it.full,it.it&&it.t==="say"?it.it:null,it.ask,it.fix,it.s&&it.t==="err"?it.s:null].forEach(fr);
     (it.a||[]).forEach(fr);if(it.t==="gap")fr(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")it.o.forEach(function(o){fr(o[0])});
@@ -4495,7 +4861,7 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
     oth.forEach(function(x){if(d.length<2&&!seen[x[1]]){seen[x[1]]=1;d.push(x)}});
     if(k%2===0)out.push({q:"Escucha y elige el significado:",au:fullW(w),o:[w[1]].concat(d.map(function(x){return x[1]})),e:"{"+fullW(w)+"} = "+w[1],w:w});
     else out.push({q:"¿Cómo se dice «"+w[1]+"» en italiano?",o:["{"+fullW(w)+"}"].concat(d.map(function(x){return "{"+fullW(x)+"}"})),e:"{"+fullW(w)+"} = "+w[1],w:w})});
-  return out}
+  return withContext(out,pool)}
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
 /* words from earlier lessons for the "words from before" step (spaced: due first, then 1, 2, 4, 8 lessons back) */
 function recWords(id){var li=LESSONS.findIndex(function(L){return L.id===id});return li>0?SRS.recycle(W,li,10):[]}
@@ -5364,6 +5730,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
+  if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){add(EXW[k][0])});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,c.es,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
@@ -5378,6 +5745,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){sa(it.au);sa(it.jp);sa(it.zh);sa(it.full);if(it.a)it.a.forEach(sa);if(it.o)it.o.forEach(sa);if(it.w&&!it.w.length===2)it.w.forEach(sa);
     sa(it.fix);sa(it.ask);if(it.t==="gap")sa(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")sa(it.o[0][0]);if(it.t==="tone")sa(it.s)})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){sa(r[1])})});
+  if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){sa(EXW[k][0])});
   if(typeof W!=="undefined")W.forEach(function(w){sa(w[0])});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){sa(c.i);(c.w||[]).forEach(function(w){sa(w[0])})})});
   (window.TONEDRILL||[]).forEach(function(r){sa(r[0])});

@@ -310,7 +310,7 @@ function buildVocab(){if(!vt||vt.dataset.done)return;vt.dataset.done="1";var row
   vt.innerHTML=rowsV.join("");$$('td[lang="it"]',vt).forEach(frZone)}
 /* words of each lesson */
 function renderWords(el){var ws=VOC[el.getAttribute("data-voc")]||[];
-  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="it">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="Escuchar">'+SPK+'</button></div>'}).join("")}
+  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="it">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="Escuchar">'+SPK+'</button>'+wordExHTML(r)+'</div>'}).join("")}
 $$(".words[data-voc]").forEach(renderWords);
 /* I can */
 $$("ul.cando[data-cando]").forEach(function(ul){var id=ul.getAttribute("data-cando"),lis=$$("li",ul),st=state.can[id]||[];
@@ -426,6 +426,7 @@ window.FRSAYS=function(){var S={},box=document.createElement("div");
   function mix(t){if(!t)return;String(t).replace(/\{([^{}]*)\}/g,function(_,x){fr(x)})}
   $$("[data-it]").forEach(function(d){fr(d.getAttribute("data-it"))});
   Object.keys(DLG).forEach(function(k){DLG[k].forEach(function(r){fr(r[1])})});
+  if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){fr(EXW[k][0])});
   W.forEach(function(w){var full=art(w[0],w[2])+w[0];fr(full);fr(w[0])});
   Object.keys(EX).forEach(function(k){EX[k].forEach(function(it){[it.au,it.full,it.it&&it.t==="say"?it.it:null,it.ask,it.fix,it.s&&it.t==="err"?it.s:null].forEach(fr);
     (it.a||[]).forEach(fr);if(it.t==="gap")fr(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")it.o.forEach(function(o){fr(o[0])});

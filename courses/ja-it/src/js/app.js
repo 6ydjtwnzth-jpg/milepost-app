@@ -299,7 +299,7 @@ function buildVocab(){var vt=$("#vocabtbl");if(vt&&!vt.getAttribute("data-r")){v
     ws.forEach(function(r){rowsV.push('<tr><td class="jpc">'+wordHTML(r)+'<span class="rom">'+esc(jromaji(r[0]))+'</span></td><td>'+esc(r[1])+'</td><td><button class="say sm" data-say="'+esc(r[0])+'" aria-label="Ascolta">'+SPK+'</button></td></tr>')})});
   vt.innerHTML=rowsV.join("")}}
 function renderWords(el){var ws=VOC[el.getAttribute("data-voc")]||[];
-  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi">'+wordHTML(r)+'<span class="ro">'+esc(jromaji(r[0]))+'</span></span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(r[0])+'" aria-label="Ascolta">'+SPK+'</button></div>'}).join("")}
+  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi">'+wordHTML(r)+'<span class="ro">'+esc(jromaji(r[0]))+'</span></span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(r[0])+'" aria-label="Ascolta">'+SPK+'</button>'+wordExHTML(r)+'</div>'}).join("")}
 $$(".words[data-voc]").forEach(renderWords);
 /* so fare */
 $$("ul.cando[data-cando]").forEach(function(ul){var id=ul.getAttribute("data-cando"),lis=$$("li",ul),st=state.can[id]||[];

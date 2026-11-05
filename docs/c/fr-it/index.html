@@ -2659,6 +2659,23 @@ var SRS=(function(){
 function SRSMK(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok)}
 function SRSREV(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok,1)}
 if(/[?&]audit=1/.test(location.search))window.MPSRS=SRS;
+/* ---------- words in context: an example sentence for each word (src/wordex.js → EXW) ----------
+   In word quizzes every second word that has an example becomes a fill-in-the-blank on its sentence: the word is
+   recalled inside a sentence, not only as a translation. The word list shows the sentence under the word. */
+function exwOf(w){return (typeof EXW!=="undefined"&&EXW[w[0]])||null}
+function exwLatin(){return typeof itHTML==="function"}
+function wordGap(w,pool){var x=exwOf(w);if(!x)return null;var s=x[0],lat=exwLatin(),gs,right,cap=false;
+  if(lat){var esc2=w[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),m=s.match(new RegExp("(^|[^\\p{L}'’])("+esc2+")(?=$|[^\\p{L}])","iu"));if(!m)return null;
+    var at=m.index+m[1].length;right=s.substr(at,w[0].length);cap=right.charAt(0)!==right.charAt(0).toLowerCase();gs=s.slice(0,at)+"＿"+s.slice(at+w[0].length)}
+  else{var toks=s.split(/\s+/),i=toks.indexOf(w[0]);if(i<0)return null;toks[i]="＿";gs=toks.join(" ");right=w[0]}
+  function ok(y){return y[0]!==w[0]&&y[1]!==w[1]&&(!lat||(y[0].indexOf(" ")<0)===(w[0].indexOf(" ")<0))}
+  var same=pool.filter(function(y){return ok(y)&&y[2]===w[2]});if(same.length<2)same=pool.filter(ok);
+  var d=shuffle(same).slice(0,2).map(function(y){var t=y[0];return cap?t.charAt(0).toUpperCase()+t.slice(1):t});if(d.length<2)return null;
+  return {t:"gap",s:gs,o:[right].concat(d),it:x[1],e:(lat?"{"+w[0]+"}":w[0])+" = "+w[1],w:w}}
+function withContext(items,pool){var k=0;return items.map(function(it){if(!it||!it.w||!exwOf(it.w))return it;var g=(k++%2===1)?wordGap(it.w,pool||W):null;return g||it})}
+function wordExHTML(r){var x=exwOf(r);if(!x)return "";
+  return '<span class="wdx"><span class="wdx-s" lang="'+(exwLatin()?(typeof LL!=="undefined"?LL:"it"):(typeof pyWord==="function"?"zh":"ja"))+'">'+(exwLatin()?itHTML(x[0]):jpHTML(x[0]))+'</span>'+
+    '<span class="wdx-t">'+esc(x[1])+'</span><button class="say sm wdx-p" type="button" data-say="'+esc(x[0])+'" aria-label="▶">'+SPK+'</button></span>'}
 
 
 "use strict";
@@ -2725,6 +2742,7 @@ Object.assign(DICT,{"â":"a con l'accento circonflesso","ô":"o con l'accento ci
 "verlan":"gergo che rovescia le sillabe","meuf":"donna, ragazza (verlan di femme)","lourd":"pesante","baguette":"baguette, filone di pane","tradition":"tradizione; baguette tradizionale (farina, acqua, sale, lievito)","cave":"cantina",
 "maillot":"maglia","jaune":"giallo","viennoiseries":"cornetti e dolci da forno (alla viennese)","chocolatine":"saccottino al cioccolato (nel sud-ovest)","muguet":"mughetto","mutuelle":"assicurazione sanitaria complementare"});
 Object.assign(DICT,{"jouions": "giocavamo (imparfait di jouer)"});
+Object.assign(DICT,{"gens": "gente (les gens: la gente)", "ouverte": "aperta (ouvert, ouverte)", "juin": "giugno", "collègue": "collega", "jus": "succo", "vite": "in fretta, veloce", "doucher": "(se doucher) farsi la doccia", "réveiller": "(se réveiller) svegliarsi", "bel": "bello (davanti a vocale: un bel endroit)", "longue": "lunga (long, longue)", "mouillée": "bagnata", "coin": "angolo", "boulevard": "viale", "examen": "esame", "valise": "valigia", "retrouver": "(se retrouver) ritrovarsi, incontrarsi", "laisser": "lasciare", "glace": "gelato; ghiaccio", "sel": "sale", "salade": "insalata", "envie": "voglia (avoir envie de: avere voglia di)", "postale": "postale (une carte postale: una cartolina)", "troisième": "terzo", "étage": "piano (di un edificio)", "station": "stazione (della metro)", "bébé": "bambino piccolo, neonato", "né": "nato (je suis né: sono nato)", "montagne": "montagna", "pilote": "pilota", "racontait": "raccontava (imparfait di raconter)", "jouais": "giocavo (imparfait di jouer)", "nager": "nuotare", "champ": "campo", "baignait": "(se baigner) faceva il bagno (imparfait)", "chinois": "cinese", "rapide": "veloce", "blanche": "bianca (blanc, blanche)", "manteau": "cappotto", "tee-shirt": "maglietta", "pense": "penso; pensa (penser)", "voyagerai": "viaggerò (futuro di voyager)", "yeux": "occhi (un œil, des yeux)", "demander": "chiedere", "important": "importante", "ouvre": "apre (ouvrir)", "envoyer": "spedire, mandare", "promener": "(se promener) passeggiare"});
 
 var DLG={},EX={},VOC={},CULT={};
 var LESSONS=[{"id": "l1", "n": 1, "t": "Suoni, lettere e saluti", "j": "Bonjour !", "kind": "lesson", "icon": "i-abc", "color": "red", "w": 1}, {"id": "l2", "n": 2, "t": "Mi chiamo…: être e nazionalità", "j": "Je m'appelle…", "kind": "lesson", "icon": "i-tag", "color": "blue", "w": 1}, {"id": "l3", "n": 3, "t": "Tu o vous? Accento e legami", "j": "Tu ou vous ?", "kind": "lesson", "icon": "i-wave", "color": "yellow", "w": 1}, {"id": "l4", "n": 4, "t": "Cose e persone: articoli e il y a", "j": "Les choses", "kind": "lesson", "icon": "i-book", "color": "green", "w": 1}, {"id": "l5", "n": 5, "t": "La mia famiglia: avoir e possessivi", "j": "Ma famille", "kind": "lesson", "icon": "i-family", "color": "pink", "w": 1}, {"id": "l6", "n": 6, "t": "Come va? Aller, età e numeri", "j": "Ça va ?", "kind": "lesson", "icon": "i-sun", "color": "red", "w": 1}, {"id": "l7", "n": 7, "t": "Che lavoro fai? Verbi in -er e negazione", "j": "Tu fais quoi ?", "kind": "lesson", "icon": "i-chat", "color": "blue", "w": 1}, {"id": "l8", "n": 8, "t": "Al caffè: je voudrais e prezzi", "j": "Au café", "kind": "lesson", "icon": "i-cup", "color": "yellow", "w": 1}, {"id": "r1", "n": null, "t": "Ripasso 1", "j": "Révision 1", "kind": "review", "icon": "i-loop", "color": "green", "w": 1}, {"id": "l9", "n": 9, "t": "Fare domande", "j": "Poser des questions", "kind": "lesson", "icon": "i-q", "color": "pink", "w": 2}, {"id": "l10", "n": 10, "t": "La mia giornata: ore e verbi pronominali", "j": "Ma journée", "kind": "lesson", "icon": "i-clock", "color": "red", "w": 2}, {"id": "l11", "n": 11, "t": "Il tempo libero: aimer, faire, jouer", "j": "Le temps libre", "kind": "lesson", "icon": "i-ball", "color": "blue", "w": 2}, {"id": "l12", "n": 12, "t": "In città: preposizioni e indicazioni", "j": "En ville", "kind": "lesson", "icon": "i-pin", "color": "yellow", "w": 2}, {"id": "l13", "n": 13, "t": "Vuoi venire? Vouloir, pouvoir, devoir", "j": "Tu veux venir ?", "kind": "lesson", "icon": "i-phone", "color": "green", "w": 2}, {"id": "l14", "n": 14, "t": "Al mercato e al ristorante: du, de la, en", "j": "Au marché", "kind": "lesson", "icon": "i-fork", "color": "pink", "w": 2}, {"id": "r2", "n": null, "t": "Ripasso 2", "j": "Révision 2", "kind": "review", "icon": "i-loop", "color": "red", "w": 2}, {"id": "l15", "n": 15, "t": "Il fine settimana: passé composé con avoir", "j": "Le week-end", "kind": "lesson", "icon": "i-ticket", "color": "blue", "w": 3}, {"id": "l16", "n": 16, "t": "In viaggio: passé composé con être, date e meteo", "j": "En voyage", "kind": "lesson", "icon": "i-umbrella", "color": "yellow", "w": 3}, {"id": "l17", "n": 17, "t": "Quando ero piccola: l'imparfait", "j": "Quand j'étais petite", "kind": "lesson", "icon": "i-kite", "color": "green", "w": 3}, {"id": "l18", "n": 18, "t": "Raccontare una storia: i due passati", "j": "Raconter une histoire", "kind": "lesson", "icon": "i-scroll", "color": "pink", "w": 3}, {"id": "l19", "n": 19, "t": "Gusti e confronti: lui, leur, plus, moins", "j": "Goûts et comparaisons", "kind": "lesson", "icon": "i-heart", "color": "red", "w": 3}, {"id": "l20", "n": 20, "t": "Fare acquisti: le, la, les ed être en train de", "j": "Faire les courses", "kind": "lesson", "icon": "i-bag", "color": "blue", "w": 3}, {"id": "l21", "n": 21, "t": "Progetti: il futuro e si", "j": "Projets", "kind": "lesson", "icon": "i-suitcase", "color": "yellow", "w": 3}, {"id": "l22", "n": 22, "t": "Salute e servizi: il condizionale", "j": "Santé et services", "kind": "lesson", "icon": "i-cross", "color": "green", "w": 3}, {"id": "l23", "n": 23, "t": "Giulia a Parigi: racconta la tua storia", "j": "Giulia à Paris", "kind": "lesson", "icon": "i-arch", "color": "pink", "w": 3}, {"id": "r3", "n": null, "t": "Ripasso 3 e test A2", "j": "Révision 3 et test A2", "kind": "review", "icon": "i-star", "color": "red", "w": 3}];
@@ -2838,7 +2856,7 @@ EX.l4=EX.l4.concat([
 ]);
 
 /* ---- l5 ---- */
-DLG.l5=[["A","Tu as des frères et sœurs, Emma ?","Hai fratelli e sorelle, Emma?"],["B","Oui, j'ai un frère et une sœur. Mon frère s'appelle Hugo.","Sì, ho un fratello e una sorella. Mio fratello si chiama Hugo."],["A","Et ta sœur ?","E tua sorella?"],["B","Ma sœur s'appelle Chloé. Elle a un mari et deux enfants.","Mia sorella si chiama Chloé. Ha un marito e due figli."],["A","Alors tu es tante !","Allora sei zia!"],["B","Oui ! Et toi, tu as une grande famille ?","Sì! E tu, hai una famiglia grande?"],["A","Non, je suis fils unique. Mais j'ai beaucoup de cousins.","No, sono figlio unico. Ma ho tanti cugini."]];
+DLG.l5=[["A","Tu as des frères et sœurs, Emma ?","Hai fratelli e sorelle, Emma?"],["B", "Oui, j'ai un frère et une sœur.", "Sì, ho un fratello e una sorella."],["A", "Comment s'appelle ton frère ?", "Come si chiama tuo fratello?"],["B", "Il s'appelle Hugo.", "Si chiama Hugo."],["A","Et ta sœur ?","E tua sorella?"],["B", "Ma sœur s'appelle Chloé.", "Mia sorella si chiama Chloé."],["A", "Elle est mariée ?", "È sposata?"],["B", "Oui, elle a un mari et deux enfants.", "Sì, ha un marito e due figli."],["A","Alors tu es tante !","Allora sei zia!"],["B","Oui ! Et toi, tu as une grande famille ?","Sì! E tu, hai una famiglia grande?"],["A","Non, je suis fils unique. Mais j'ai beaucoup de cousins.","No, sono figlio unico. Ma ho tanti cugini."]];
 EX.l5=[
  {q:"{nous} + {avoir}:",o:["{nous avons}","{nous ont}","{nous avez}"],e:"{nous avons}, {vous avez}, {ils ont}."},
  {q:"Ascolta: «sono» o «hanno»?",au:"Ils ont deux enfants.",o:["hanno: {ils ont}","sono: {ils sont}"],e:"{ils ont} ha la liaison: «il-zon», con la s sonora."},
@@ -2991,7 +3009,7 @@ EX.l9=EX.l9.concat([
 ]);
 
 /* ---- l10 ---- */
-DLG.l10=[["A","Julie, tu te lèves à quelle heure le matin ?","Julie, a che ora ti alzi la mattina?"],["B","Je me lève à six heures et demie.","Mi alzo alle sei e mezza."],["A","Si tôt ! Pourquoi ?","Così presto! Perché?"],["B","Parce que je commence à huit heures et j'habite loin.","Perché comincio alle otto e abito lontano."],["A","Et le soir, tu rentres tard ?","E la sera torni tardi?"],["B","Je rentre vers dix-neuf heures. Je dîne et je me couche à onze heures.","Torno verso le diciannove. Ceno e vado a letto alle undici."],["A","Et le week-end ?","E nel fine settimana?"],["B","Le week-end, je ne me lève pas avant dix heures !","Nel fine settimana non mi alzo prima delle dieci!"]];
+DLG.l10=[["A","Julie, tu te lèves à quelle heure le matin ?","Julie, a che ora ti alzi la mattina?"],["B","Je me lève à six heures et demie.","Mi alzo alle sei e mezza."],["A","Si tôt ! Pourquoi ?","Così presto! Perché?"],["B","Parce que je commence à huit heures et j'habite loin.","Perché comincio alle otto e abito lontano."],["A","Et le soir, tu rentres tard ?","E la sera torni tardi?"],["B", "Je rentre vers dix-neuf heures.", "Torno verso le diciannove."],["A", "Et après ?", "E dopo?"],["B", "Je dîne et je me couche à onze heures.", "Ceno e vado a letto alle undici."],["A","Et le week-end ?","E nel fine settimana?"],["B","Le week-end, je ne me lève pas avant dix heures !","Nel fine settimana non mi alzo prima delle dieci!"]];
 EX.l10=[
  {q:"Ascolta: che ore sono?",au:"Il est huit heures et quart.",o:["8:15","8:45","4:15"],e:"{et quart} = e un quarto."},
  {q:"Ascolta: che ore sono?",au:"Il est onze heures moins le quart.",o:["10:45","11:15","11:45"],e:"{moins le quart} = meno un quarto."},
@@ -3017,7 +3035,7 @@ EX.l10=EX.l10.concat([
 ]);
 
 /* ---- l11 ---- */
-DLG.l11=[["A","Qu'est-ce que tu fais le week-end, Hugo ?","Che cosa fai nel fine settimana, Hugo?"],["B","Le samedi matin, je fais du vélo. Et l'après-midi, je joue au foot.","Il sabato mattina vado in bici. E il pomeriggio gioco a calcio."],["A","Tu es très sportif ! Moi, je déteste le sport.","Sei molto sportivo! Io odio lo sport."],["B","Ah bon ? Qu'est-ce que tu aimes, alors ?","Ah sì? Che cosa ti piace, allora?"],["A","J'adore la musique. Je joue de la guitare et je vais souvent à des concerts.","Adoro la musica. Suono la chitarra e vado spesso ai concerti."],["B","Et le cinéma ?","E il cinema?"],["A","J'aime bien, mais je n'y vais pas souvent.","Mi piace, ma non ci vado spesso."]];
+DLG.l11=[["A","Qu'est-ce que tu fais le week-end, Hugo ?","Che cosa fai nel fine settimana, Hugo?"],["B", "Le samedi matin, je fais du vélo.", "Il sabato mattina vado in bici."],["A", "Et l'après-midi ?", "E il pomeriggio?"],["B", "L'après-midi, je joue au foot.", "Il pomeriggio gioco a calcio."],["A","Tu es très sportif ! Moi, je déteste le sport.","Sei molto sportivo! Io odio lo sport."],["B","Ah bon ? Qu'est-ce que tu aimes, alors ?","Ah sì? Che cosa ti piace, allora?"],["A", "J'adore la musique. Je joue de la guitare.", "Adoro la musica. Suono la chitarra."],["B", "Tu vas aussi à des concerts ?", "Vai anche ai concerti?"],["A", "Oui, souvent !", "Sì, spesso!"],["B","Et le cinéma ?","E il cinema?"],["A","J'aime bien, mais je n'y vais pas souvent.","Mi piace, ma non ci vado spesso."]];
 EX.l11=[
  {q:"«Mi piace il calcio»:",o:["{J'aime le foot.}","{J'aime foot.}","{Me plaît le foot.}"],e:"{aimer} + articolo determinativo."},
  {q:"«Gioco a tennis»:",o:["{Je joue au tennis.}","{Je joue le tennis.}","{Je fais au tennis.}"],e:"{jouer à} + {le} = {au}."},
@@ -4027,6 +4045,318 @@ XX("l23",[
  {t:"rep",ask:"Tu es à Paris depuis quand ?",o:[["Depuis un an.","Da un anno."],["Il y a un an.","Un anno fa."],["Dans un an.","Fra un anno."]],e:"{depuis} = da (quanto tempo)."}
 ]);
 
+/* ---------- Words in context: one example sentence for each word that no dialogue or rule uses ----------
+   EXW[word as in the word list] = [French sentence, Italian translation]. Shown under the word in the word list and
+   used by the word quizzes as a fill-in-the-blank (shell/srs.js: wordGap): the sentence contains the word exactly as
+   it is listed (infinitive, masculine singular), so it can be blanked out. */
+var EXW={};function WX(a){a.forEach(function(r){EXW[r[0]]=[r[1],r[2]]})}
+WX([
+["à bientôt","Merci, à bientôt !","Grazie, a presto!"],
+["s'appeler","Comment va s'appeler ton chien ?","Come si chiamerà il tuo cane?"],
+["allemand","Hans est allemand.","Hans è tedesco."],
+["suisse","Le chocolat suisse est bon.","Il cioccolato svizzero è buono."],
+["étudiant","Paul est étudiant à Lyon.","Paul è studente a Lione."],
+["nom","Quel est votre nom ?","Qual è il suo cognome?"],
+["prénom","Mon prénom est Sara.","Il mio nome è Sara."],
+["mademoiselle","Bonjour, mademoiselle !","Buongiorno, signorina!"],
+["bonne nuit","Bonne nuit, maman !","Buona notte, mamma!"],
+["présenter","Je voudrais te présenter Claire.","Vorrei presentarti Claire."],
+["voisin","Le voisin est très gentil.","Il vicino è molto gentile."],
+["voisine","Ma voisine s'appelle Anne.","La mia vicina si chiama Anne."],
+["coucou","Coucou, Léa ! Ça va ?","Ciao, Léa! Come va?"],
+["homme","Cet homme est mon professeur.","Quell'uomo è il mio professore."],
+["les gens","Il y a beaucoup de gens ici.","Qui c'è tanta gente."],
+["monde","Il y a du monde dans la rue.","In strada c'è gente."],
+["mot","Je ne connais pas ce mot.","Non conosco questa parola."],
+["photo","Il y a une photo sur la table.","Sul tavolo c'è una foto."],
+["porte","La porte est ouverte.","La porta è aperta."],
+["cuisine","La cuisine est petite.","La cucina è piccola."],
+["école","L'école est à côté de la gare.","La scuola è accanto alla stazione."],
+["fleur","Il y a une fleur dans le jardin.","In giardino c'è un fiore."],
+["joli","C'est un joli appartement.","È un bell'appartamento."],
+["garçon","J'ai un garçon et une fille.","Ho un maschio e una femmina."],
+["jeune","Mon père est jeune.","Mio padre è giovane."],
+["mariage","Le mariage de ma sœur est en juin.","Il matrimonio di mia sorella è a giugno."],
+["ensemble","Nous habitons ensemble.","Abitiamo insieme."],
+["avoir","Je voudrais avoir un chien.","Vorrei avere un cane."],
+["fille","Leur fille a dix ans.","La loro figlia ha dieci anni."],
+["enfant","Ils ont un enfant.","Hanno un figlio."],
+["oncle","Mon oncle habite à Paris.","Mio zio abita a Parigi."],
+["cousin","Mon cousin s'appelle Hugo.","Mio cugino si chiama Hugo."],
+["son","Voici son frère.","Ecco suo fratello."],
+["notre","C'est notre maison.","È la nostra casa."],
+["vraiment","C'est vraiment bon !","È davvero buono!"],
+["encore","Tu as encore faim ?","Hai ancora fame?"],
+["déjà","Tu as déjà vingt ans ?","Hai già vent'anni?"],
+["vrai","C'est vrai ?","È vero?"],
+["même","On a le même âge !","Abbiamo la stessa età!"],
+["seul","Il habite seul.","Abita da solo."],
+["heureux","Je suis très heureux aujourd'hui.","Oggi sono molto felice."],
+["gentil","Ton frère est gentil.","Tuo fratello è gentile."],
+["calme","Mon chat est très calme.","Il mio gatto è molto tranquillo."],
+["pas mal","Ça va ? — Pas mal, merci.","Come va? — Non male, grazie."],
+["sommeil","J'ai sommeil, je vais au lit.","Ho sonno, vado a letto."],
+["content","Il est content de son travail.","È contento del suo lavoro."],
+["malade","Je suis malade aujourd'hui.","Oggi sono malato."],
+["bof","Le film ? Bof…","Il film? Mah…"],
+["zéro","Mon numéro commence par zéro.","Il mio numero comincia per zero."],
+["chaque","Je travaille chaque samedi.","Lavoro ogni sabato."],
+["équipe","Je travaille dans une petite équipe.","Lavoro in una piccola squadra."],
+["chef","Mon chef est très sympa.","Il mio capo è molto simpatico."],
+["groupe","Il travaille avec un groupe d'amis.","Lavora con un gruppo di amici."],
+["sérieux","Mon collègue est très sérieux.","Il mio collega è molto serio."],
+["aimer","Je vais aimer ce travail.","Questo lavoro mi piacerà."],
+["adorer","Tu vas adorer Paris !","Adorerai Parigi!"],
+["métier","Quel est ton métier ?","Che mestiere fai?"],
+["infirmier","Mon frère est infirmier.","Mio fratello è infermiere."],
+["serveur","Le serveur est italien.","Il cameriere è italiano."],
+["serveuse","La serveuse ne travaille pas le lundi.","La cameriera non lavora il lunedì."],
+["vendeur","Il est vendeur dans un magasin.","È commesso in un negozio."],
+["avocat","Mon père est avocat.","Mio padre è avvocato."],
+["bureau","Je travaille dans un bureau.","Lavoro in un ufficio."],
+["besoin","J'ai besoin d'un café.","Ho bisogno di un caffè."],
+["prix","Quel est le prix du croissant ?","Qual è il prezzo del croissant?"],
+["choix","Il y a beaucoup de choix.","C'è molta scelta."],
+["vouloir","Qu'est-ce que tu vas vouloir ?","Che cosa vorrai?"],
+["désirer","Qu'est-ce que vous allez désirer ?","Che cosa desidera?"],
+["jus d'orange","Un jus d'orange, s'il vous plaît.","Un succo d'arancia, per favore."],
+["bière","Une bière, s'il vous plaît.","Una birra, per favore."],
+["verre","Un verre d'eau, s'il vous plaît.","Un bicchiere d'acqua, per favore."],
+["addition","L'addition, s'il vous plaît !","Il conto, per favore!"],
+["centime","Ça fait deux euros et cinquante centimes, pas un centime de plus.","Sono due euro e cinquanta centesimi, non un centesimo di più."],
+["sans","Un café sans sucre, s'il vous plaît.","Un caffè senza zucchero, per favore."],
+["soixante-dix","Ça fait soixante-dix euros.","Sono settanta euro."],
+["quatre-vingt-dix","Mon grand-père a quatre-vingt-dix ans.","Mio nonno ha novant'anni."],
+["quelqu'un","Il y a quelqu'un ?","C'è qualcuno?"],
+["donc","Il pleut, donc je reste à la maison.","Piove, quindi resto a casa."],
+["pourquoi pas ?","On va au cinéma ? — Pourquoi pas ?","Andiamo al cinema? — Perché no?"],
+["juste","Tu veux juste un café ?","Vuoi solo un caffè?"],
+["exactement","Où est-ce que tu habites exactement ?","Dove abiti esattamente?"],
+["possible","C'est possible ?","È possibile?"],
+["impossible","Ce n'est pas impossible.","Non è impossibile."],
+["quoi","Tu fais quoi ce soir ?","Che fai stasera?"],
+["question","J'ai une question.","Ho una domanda."],
+["réponse","Quelle est la réponse ?","Qual è la risposta?"],
+["poser une question","Je peux poser une question ?","Posso fare una domanda?"],
+["apprendre","Pourquoi est-ce que tu veux apprendre le français ?","Perché vuoi imparare il francese?"],
+["coûter","Combien ça va coûter ?","Quanto costerà?"],
+["longtemps","Tu attends depuis longtemps ?","Aspetti da tanto?"],
+["retard","Je suis en retard !","Sono in ritardo!"],
+["presque","Il est presque huit heures.","Sono quasi le otto."],
+["instant","Un instant, s'il vous plaît.","Un attimo, per favore."],
+["minute","J'arrive dans une minute.","Arrivo tra un minuto."],
+["minuit","Je me couche à minuit.","Vado a letto a mezzanotte."],
+["après-midi","L'après-midi, je travaille.","Il pomeriggio lavoro."],
+["se lever","Il faut se lever tôt demain.","Domani bisogna alzarsi presto."],
+["se coucher","Je n'aime pas se coucher tard.","Non mi piace andare a letto tardi."],
+["s'habiller","Il faut s'habiller vite !","Bisogna vestirsi in fretta!"],
+["se doucher","Il aime se doucher le soir.","Gli piace farsi la doccia la sera."],
+["se réveiller","C'est difficile de se réveiller à six heures.","È difficile svegliarsi alle sei."],
+["commencer","Je vais commencer à huit heures.","Comincerò alle otto."],
+["finir","Je vais finir à cinq heures.","Finirò alle cinque."],
+["rentrer","Je vais rentrer tard ce soir.","Stasera tornerò tardi."],
+["déjeuner","Le déjeuner est à midi.","Il pranzo è a mezzogiorno."],
+["jeu","C'est un jeu très drôle.","È un gioco molto divertente."],
+["drôle","Ce film est très drôle.","Questo film è molto divertente."],
+["sympa","Ton ami est sympa !","Il tuo amico è simpatico!"],
+["gagner","J'aime gagner.","Mi piace vincere."],
+["perdre","Je n'aime pas perdre.","Non mi piace perdere."],
+["surprise","Quelle surprise !","Che sorpresa!"],
+["temps libre","Qu'est-ce que tu fais pendant ton temps libre ?","Che cosa fai nel tempo libero?"],
+["détester","Mon frère va détester ce film.","Mio fratello odierà questo film."],
+["jouer","J'aime jouer au tennis.","Mi piace giocare a tennis."],
+["écouter","J'aime écouter de la musique.","Mi piace ascoltare musica."],
+["concert","Je vais à un concert samedi.","Sabato vado a un concerto."],
+["parfois","Parfois, je vais au cinéma.","A volte vado al cinema."],
+["rarement","Je regarde rarement la télé.","Guardo raramente la tv."],
+["ne… jamais","Je ne fais jamais de sport.","Non faccio mai sport."],
+["endroit","C'est un bel endroit.","È un bel posto."],
+["route","La route est longue.","La strada è lunga."],
+["chemin","C'est le bon chemin ?","È la strada giusta?"],
+["partout","Il y a des cafés partout.","Ci sono caffè dappertutto."],
+["ailleurs","On mange ailleurs ?","Mangiamo da un'altra parte?"],
+["pays","La France est un grand pays.","La Francia è un grande paese."],
+["terre","La terre est mouillée.","La terra è bagnata."],
+["lieu","C'est le lieu du rendez-vous.","È il luogo dell'appuntamento."],
+["hôtel","L'hôtel est en face de la gare.","L'albergo è di fronte alla stazione."],
+["église","L'église est sur la place.","La chiesa è in piazza."],
+["magasin","Le magasin est à droite.","Il negozio è a destra."],
+["boulangerie","La boulangerie est au coin de la rue.","La panetteria è all'angolo della strada."],
+["pharmacie","Il y a une pharmacie près d'ici ?","C'è una farmacia qui vicino?"],
+["banque","La banque est à gauche.","La banca è a sinistra."],
+["tourner","Il faut tourner à droite.","Bisogna girare a destra."],
+["traverser","Il faut traverser la rue.","Bisogna attraversare la strada."],
+["premier","Prenez la première rue… non, le premier boulevard à gauche.","Prenda la prima strada… no, il primo viale a sinistra."],
+["garder","Tu peux garder mon sac ?","Puoi tenermi la borsa?"],
+["penser","Je dois penser à mon examen.","Devo pensare al mio esame."],
+["croire","Je ne peux pas croire ça !","Non ci posso credere!"],
+["comprendre","Je ne peux pas comprendre.","Non riesco a capire."],
+["expliquer","Tu peux expliquer ?","Puoi spiegare?"],
+["décider","Tu dois décider ce soir.","Devi decidere stasera."],
+["oublier","Je ne veux pas oublier ton anniversaire.","Non voglio dimenticare il tuo compleanno."],
+["porter","Tu peux porter ma valise ?","Puoi portarmi la valigia?"],
+["pouvoir","Je voudrais pouvoir venir.","Vorrei poter venire."],
+["devoir","Je vais devoir partir tôt.","Dovrò partire presto."],
+["se retrouver","On peut se retrouver devant le cinéma ?","Possiamo trovarci davanti al cinema?"],
+["derrière","Le parc est derrière la gare.","Il parco è dietro la stazione."],
+["invitation","Merci pour ton invitation !","Grazie del tuo invito!"],
+["inviter","Je veux inviter mes amis.","Voglio invitare i miei amici."],
+["portable","Tu peux me donner ton portable ?","Puoi darmi il tuo cellulare?"],
+["message","Je peux laisser un message ?","Posso lasciare un messaggio?"],
+["plutôt","Je voudrais plutôt du poisson.","Vorrei piuttosto del pesce."],
+["sauf","Tout est bon, sauf le café.","È tutto buono, tranne il caffè."],
+["moyen","Le train est le meilleur moyen.","Il treno è il mezzo migliore."],
+["qu'est-ce que je vous sers ?","Bonjour, qu'est-ce que je vous sers ?","Buongiorno, che cosa le servo?"],
+["poisson","Je voudrais du poisson.","Vorrei del pesce."],
+["poulet","Je prends le poulet.","Prendo il pollo."],
+["légume","Ce légume est très bon.","Questa verdura è molto buona."],
+["fruit","Je mange un fruit chaque jour.","Mangio un frutto ogni giorno."],
+["tomate","Une tomate, s'il vous plaît.","Un pomodoro, per favore."],
+["fraise","Une glace à la fraise !","Un gelato alla fragola!"],
+["vendre","Vous allez vendre ces fraises ?","Venderete queste fragole?"],
+["servir","Je peux vous servir un café ?","Posso servirle un caffè?"],
+["assez de","Il y a assez de pain ?","C'è abbastanza pane?"],
+["trop de","Il y a trop de sel.","C'è troppo sale."],
+["menu","Le menu, s'il vous plaît.","Il menù, per favore."],
+["entrée","Comme entrée, je prends une salade.","Come antipasto prendo un'insalata."],
+["plat","Quel est le plat du jour ?","Qual è il piatto del giorno?"],
+["dessert","Et comme dessert ?","E come dolce?"],
+["cuit","Le poulet est bien cuit.","Il pollo è ben cotto."],
+["fin","À la fin du week-end, j'ai lu un livre.","Alla fine del fine settimana ho letto un libro."],
+["première","C'est la première fois que je viens ici.","È la prima volta che vengo qui."],
+["nouvelle","J'ai une bonne nouvelle !","Ho una bella notizia!"],
+["revenir","J'ai envie de revenir ici.","Ho voglia di tornare qui."],
+["façon","De toute façon, j'ai passé un bon week-end.","Comunque ho passato un bel fine settimana."],
+["passer","On va passer le week-end à la mer.","Passeremo il fine settimana al mare."],
+["visiter","J'ai envie de visiter Lyon.","Ho voglia di visitare Lione."],
+["délicieux","Le gâteau est délicieux.","La torta è deliziosa."],
+["avoir de la chance","On peut dire qu'il a eu de la chance… c'est bien d'avoir de la chance !","Si può dire che ha avuto fortuna… è bello avere fortuna!"],
+["écrire","J'ai envie d'écrire une carte postale.","Ho voglia di scrivere una cartolina."],
+["mettre","Où est-ce que je peux mettre ma valise ?","Dove posso mettere la valigia?"],
+["bus","J'ai pris le bus.","Ho preso l'autobus."],
+["retour","Le retour est dimanche.","Il ritorno è domenica."],
+["tour","On a fait le tour de la ville.","Abbiamo fatto il giro della città."],
+["accident","Il y a eu un accident sur la route.","C'è stato un incidente sulla strada."],
+["ressembler","Tu vas ressembler à ton père.","Assomiglierai a tuo padre."],
+["arriver","Le train va arriver à six heures.","Il treno arriverà alle sei."],
+["entrer","On peut entrer ?","Possiamo entrare?"],
+["monter","Il faut monter au troisième étage.","Bisogna salire al terzo piano."],
+["descendre","Je vais descendre à la prochaine station.","Scenderò alla prossima stazione."],
+["tomber","Attention, tu vas tomber !","Attento, cadrai!"],
+["naître","Le bébé va naître en mai.","Il bambino nascerà a maggio."],
+["mois","Je suis parti un mois.","Sono stato via un mese."],
+["janvier","Je suis né en janvier.","Sono nato a gennaio."],
+["décembre","Noël est en décembre.","Natale è a dicembre."],
+["il fait beau","Aujourd'hui, il fait beau.","Oggi fa bello."],
+["il neige","En hiver, il neige à la montagne.","D'inverno in montagna nevica."],
+["vérité","Il disait toujours la vérité.","Diceva sempre la verità."],
+["rêve","Mon rêve était de devenir pilote.","Il mio sogno era diventare pilota."],
+["cœur","Mon grand-père avait un grand cœur.","Mio nonno aveva un gran cuore."],
+["papi","Papi me racontait des histoires.","Il nonno mi raccontava delle storie."],
+["autrefois","Autrefois, il n'y avait pas de portable.","Un tempo non c'erano i cellulari."],
+["d'habitude","D'habitude, je prenais le bus.","Di solito prendevo l'autobus."],
+["tous les jours","Je jouais au foot tous les jours.","Giocavo a calcio tutti i giorni."],
+["enfance","J'ai eu une enfance heureuse.","Ho avuto un'infanzia felice."],
+["souvenir","C'est un beau souvenir.","È un bel ricordo."],
+["savoir","Je voulais savoir nager.","Volevo saper nuotare."],
+["vieux","Il y avait un vieux pont.","C'era un vecchio ponte."],
+["village","J'habitais dans un petit village.","Abitavo in un piccolo paese."],
+["ferme","Mes grands-parents avaient une ferme.","I miei nonni avevano una fattoria."],
+["vache","Il y avait une vache dans le champ.","C'era una mucca nel campo."],
+["arbre","Il y avait un grand arbre dans le jardin.","In giardino c'era un grande albero."],
+["rivière","On se baignait dans la rivière.","Facevamo il bagno nel fiume."],
+["faute","Ce n'est pas ta faute.","Non è colpa tua."],
+["erreur","J'ai fait une erreur.","Ho fatto un errore."],
+["doute","J'ai un doute.","Ho un dubbio."],
+["raconter","Je vais te raconter une histoire.","Ti racconterò una storia."],
+["histoire","C'est une histoire vraie.","È una storia vera."],
+["marcher","Il aime marcher en montagne.","Gli piace camminare in montagna."],
+["soudain","Soudain, le téléphone a sonné.","All'improvviso il telefono ha squillato."],
+["enfin","Enfin, nous sommes arrivés.","Finalmente siamo arrivati."],
+["à ce moment-là","À ce moment-là, il pleuvait.","In quel momento pioveva."],
+["emmener","Je vais t'emmener au restaurant… je veux t'emmener dans un bon endroit.","Ti porterò al ristorante… voglio portarti in un bel posto."],
+["rater","Il ne faut pas rater le train.","Non bisogna perdere il treno."],
+["rencontrer","J'ai envie de rencontrer tes amis.","Ho voglia di conoscere i tuoi amici."],
+["sonner","Le téléphone va sonner.","Il telefono squillerà."],
+["cuisiner","J'adore cuisiner.","Adoro cucinare."],
+["pire","Le film est pire que le livre.","Il film è peggio del libro."],
+["mauvais","Ce café est mauvais.","Questo caffè è cattivo."],
+["fort","Mon frère est plus fort que moi.","Mio fratello è più forte di me."],
+["dur","L'examen était dur.","L'esame era difficile."],
+["facile","Le français est plus facile que le chinois.","Il francese è più facile del cinese."],
+["avis","À mon avis, c'est une bonne idée.","Secondo me è una buona idea."],
+["sujet","C'est un sujet intéressant.","È un argomento interessante."],
+["anniversaire","Bon anniversaire !","Buon compleanno!"],
+["cadeau","Je lui fais un cadeau.","Gli faccio un regalo."],
+["offrir","Je veux lui offrir un livre.","Voglio regalargli un libro."],
+["donner","Tu peux me donner ton avis ?","Puoi darmi il tuo parere?"],
+["téléphoner","Je vais lui téléphoner ce soir.","Gli telefonerò stasera."],
+["plaire","Ce cadeau va lui plaire.","Questo regalo gli piacerà."],
+["aussi… que","Marie est aussi grande que moi.","Marie è alta quanto me."],
+["mieux","C'est mieux comme ça.","È meglio così."],
+["avion","L'avion est plus rapide que le train.","L'aereo è più veloce del treno."],
+["clair","Ce n'est pas très clair.","Non è molto chiaro."],
+["faux","C'est faux !","È falso!"],
+["chemise","Je cherche une chemise blanche.","Cerco una camicia bianca."],
+["pantalon","Ce pantalon est trop long.","Questi pantaloni sono troppo lunghi."],
+["jupe","Je voudrais essayer cette jupe.","Vorrei provare questa gonna."],
+["robe","Cette robe est jolie.","Questo vestito è carino."],
+["essayer","Je peux essayer ce pantalon ?","Posso provare questi pantaloni?"],
+["trouver","Je n'arrive pas à trouver ma taille.","Non riesco a trovare la mia taglia."],
+["acheter","Je vais acheter cette robe.","Comprerò questo vestito."],
+["automne","En automne, j'achète un manteau.","In autunno compro un cappotto."],
+["aller bien","Ce pull va aller bien avec ta jupe.","Questo maglione starà bene con la tua gonna."],
+["être en train de","Elle aime être en train de lire quand il pleut.","Le piace stare a leggere quando piove."],
+["couleur","Vous l'avez dans une autre couleur ?","Ce l'avete in un altro colore?"],
+["noir","Je voudrais un pull noir.","Vorrei un maglione nero."],
+["blanc","Un tee-shirt blanc, s'il vous plaît.","Una maglietta bianca, per favore."],
+["vert","Je préfère le pull vert.","Preferisco il maglione verde."],
+["plan","Quel est ton plan pour l'été ?","Qual è il tuo piano per l'estate?"],
+["risque","Il n'y a pas de risque.","Non c'è rischio."],
+["confiance","J'ai confiance en toi.","Ho fiducia in te."],
+["situation","La situation va changer.","La situazione cambierà."],
+["certains","Certains amis viendront.","Alcuni amici verranno."],
+["ainsi","Ainsi, je pourrai voyager.","Così potrò viaggiare."],
+["probablement","Je partirai probablement en juillet.","Partirò probabilmente a luglio."],
+["simplement","Je voudrais simplement être heureux.","Vorrei semplicemente essere felice."],
+["complètement","Ma vie va changer complètement.","La mia vita cambierà completamente."],
+["absolument","Je dois absolument finir ce projet.","Devo assolutamente finire questo progetto."],
+["projet","J'ai un nouveau projet.","Ho un nuovo progetto."],
+["année","L'année prochaine, j'irai au Canada.","L'anno prossimo andrò in Canada."],
+["avenir","Je pense à mon avenir.","Penso al mio futuro."],
+["accent","Il a un accent italien.","Ha un accento italiano."],
+["argent","Si j'ai de l'argent, je voyagerai.","Se avrò soldi, viaggerò."],
+["venir voir","Tu pourras venir voir mon appartement.","Potrai venire a vedere il mio appartamento."],
+["changer","Je voudrais changer de travail.","Vorrei cambiare lavoro."],
+["devenir","Je veux devenir médecin.","Voglio diventare medico."],
+["lentement","Parle lentement, s'il te plaît.","Parla lentamente, per favore."],
+["président","Le président parlera ce soir.","Il presidente parlerà stasera."],
+["corps","Le sport est bon pour le corps.","Lo sport fa bene al corpo."],
+["main","J'ai mal à la main.","Mi fa male la mano."],
+["les yeux","J'ai mal aux yeux… j'ai les yeux fatigués.","Mi fanno male gli occhi… ho gli occhi stanchi."],
+["visage","Il a un visage fatigué.","Ha il viso stanco."],
+["voix","Je n'ai plus de voix.","Non ho più voce."],
+["grave","Ce n'est pas grave.","Non è grave."],
+["peine","Ce n'est pas la peine.","Non ne vale la pena."],
+["service","Je peux vous demander un service ?","Posso chiederle un favore?"],
+["utiliser","Est-ce que je pourrais utiliser votre téléphone ?","Potrei usare il suo telefono?"],
+["santé","La santé, c'est important.","La salute è importante."],
+["ventre","J'ai mal au ventre.","Mi fa male la pancia."],
+["dos","J'ai mal au dos.","Mi fa male la schiena."],
+["rhume","J'ai un rhume.","Ho il raffreddore."],
+["tousser","Il ne faut pas tousser sans mettre la main.","Non bisogna tossire senza mettere la mano."],
+["se reposer","Vous devriez vous reposer… il faut se reposer.","Dovrebbe riposarsi… bisogna riposarsi."],
+["conseil","Je peux te donner un conseil ?","Posso darti un consiglio?"],
+["à ta place","À ta place, j'irais chez le médecin.","Al posto tuo andrei dal medico."],
+["poste","La poste ouvre à neuf heures.","La posta apre alle nove."],
+["colis","Je voudrais envoyer un colis.","Vorrei spedire un pacco."],
+["avoir mal à","Je n'aime pas avoir mal à la tête.","Non mi piace avere mal di testa."],
+["connaître","J'aimerais connaître ta famille.","Mi piacerebbe conoscere la tua famiglia."],
+["se promener","Giulia aime se promener à Paris.","A Giulia piace passeggiare per Parigi."],
+["manquer","Tu vas me manquer !","Mi mancherai!"],
+["montrer","Je vais te montrer mes photos.","Ti mostrerò le mie foto."]
+]);
+
 var EXAMS=[{"id":"a2-1","exam":"a2","title":"Prova 1","it":"Simulazione nel formato del DELF A2: comprensione orale e comprensione scritta con punteggio stimato; produzione scritta e orale da esercitare con i modelli.","scheme":{"name":"DELF A2","total":50,"pass":25,"lang":"fr","plays":2,"opts":"abc","part":"Exercice ","groups":[{"id":"oral","label":"Compréhension de l'oral","max":25,"min":5},{"id":"ecrit","label":"Compréhension des écrits","max":25,"min":5}],"skills":{"listening":["Ascolto","Compréhension de l'oral"],"reading":["Lettura","Compréhension des écrits"]},"who":{"N":"","F":"F : ","M":"H : "},"passText":"Ogni prova vale 25 punti e ne servono almeno 5. Al DELF vero le prove sono quattro (anche produzione scritta e orale) e si passa con 50 su 100: qui la soglia è riportata in proporzione.","notOfficial":"Simulazione nel formato del DELF A2, non un esame ufficiale: il punteggio è solo una stima. Il DELF vero ha anche la produzione scritta e orale, valutate da esaminatori.","note":"Come all'esame vero, consegne e domande sono in francese. Se ti serve, premi «Traduzione» per vedere la consegna in italiano."},"sections":[{"id":"oral","jp":"Compréhension de l'oral","it":"Comprensione orale","min":25,"score":"oral","listen":true,"parts":[{"n":1,"label":"Exercice 1","skill":"listening","kind":"annonces","inst":"Écoutez les annonces et répondez aux questions.","itInst":"Ascolta gli annunci e rispondi alle domande.","items":[{"script":[["N","Mesdames et messieurs, le TGV numéro 6613 à destination de Lyon partira voie sept. Départ prévu à dix heures douze."]],"q":"Le train pour Lyon part de quelle voie ?","o":["De la voie 17.","De la voie 7.","De la voie 2."],"a":1,"e":"«voie sept» = binario 7."},{"script":[["N","Chers clients, notre magasin fermera dans dix minutes. Merci de vous diriger vers les caisses. Bonne soirée !"]],"q":"Que doivent faire les clients ?","o":["Quitter le magasin tout de suite.","Aller au rayon fruits.","Aller aux caisses."],"a":2,"e":"«Le magasin fermera dans dix minutes. Merci de vous diriger vers les caisses» = andare alle casse."},{"script":[["N","Les passagers du vol AF 1404 à destination de Rome sont informés que le départ aura un retard d'environ quarante minutes."]],"q":"Le vol pour Rome…","o":["est annulé.","a du retard.","part en avance."],"a":1,"e":"«un retard d'environ quarante minutes» = un ritardo di circa quaranta minuti."},{"script":[["N","Le musée est ouvert tous les jours de neuf heures à dix-huit heures, sauf le mardi. Entrée gratuite le premier dimanche du mois."]],"q":"Le musée est fermé…","o":["le mardi.","le lundi.","le dimanche."],"a":0,"e":"«fermé le mardi» = chiuso il martedì."}]},{"n":2,"label":"Exercice 2","skill":"listening","kind":"messages","inst":"Écoutez les messages sur le répondeur et répondez aux questions.","itInst":"Ascolta i messaggi in segreteria e rispondi alle domande.","items":[{"script":[["F","Salut Marc, c'est Julie. Pour ce soir, j'ai un problème au travail. On peut se retrouver à vingt heures au lieu de dix-neuf heures ? Rappelle-moi !"]],"q":"Pourquoi Julie appelle Marc ?","o":["Pour annuler le dîner.","Pour l'inviter au cinéma.","Pour changer l'heure du rendez-vous."],"a":2,"e":"«On peut se retrouver à vingt heures au lieu de dix-neuf heures ?» = cambiare l'ora."},{"script":[["F","Bonjour, ici le cabinet du docteur Morel. Votre rendez-vous de lundi est annulé. Nous vous proposons jeudi à dix heures. Merci de confirmer par téléphone."]],"q":"Qu'est-ce que le docteur Morel propose ?","o":["Un rendez-vous jeudi à 10 h.","Un rendez-vous lundi à 10 h.","Une visite à la maison."],"a":0,"e":"«jeudi à dix heures» = giovedì alle 10."},{"script":[["M","Paul, c'est papa. Tu peux passer au marché en rentrant ? Prends du pain et du fromage, s'il te plaît. Le vin, je l'ai déjà acheté."]],"q":"Qu'est-ce que Paul doit acheter ?","o":["Du vin et des fruits.","Du pain et du fromage.","Du pain et du vin."],"a":1,"e":"«prends du pain et du fromage» = prendi pane e formaggio."}]},{"n":3,"label":"Exercice 3","skill":"listening","kind":"radio","inst":"Écoutez ces informations à la radio et répondez aux questions.","itInst":"Ascolta queste notizie alla radio e rispondi alle domande.","items":[{"script":[["N","La météo de demain : du soleil et de la chaleur dans le sud, jusqu'à trente degrés à Marseille. Dans le nord, de la pluie toute la journée."]],"q":"Quel temps fera-t-il demain dans le nord ?","o":["Il pleuvra.","Il fera beau.","Il neigera."],"a":0,"e":"«de la pluie dans le nord» = pioggia al nord."},{"script":[["N","Ce week-end, c'est la fête de la ville ! Samedi et dimanche, concerts gratuits sur la place de la mairie, marché et animations pour les enfants."]],"q":"La fête de la ville a lieu…","o":["seulement samedi soir.","vendredi.","samedi et dimanche."],"a":2,"e":"«samedi et dimanche» = sabato e domenica."},{"script":[["N","Ce week-end, c'est la fête de la ville ! Samedi et dimanche, concerts gratuits sur la place de la mairie, marché et animations pour les enfants."]],"q":"Les concerts sont…","o":["à dix euros.","réservés aux enfants.","gratuits."],"a":2,"e":"«concerts gratuits» = concerti gratuiti."}]},{"n":4,"label":"Exercice 4","skill":"listening","kind":"dialogues","inst":"Écoutez les dialogues et répondez aux questions.","itInst":"Ascolta i dialoghi e rispondi alle domande.","items":[{"script":[["F","Bonjour, vous avez cette veste en 40 ?"],["M","Oui, la voilà. La cabine est au fond, à droite."]],"q":"Où sont les deux personnes ?","o":["Au restaurant.","À la gare.","Dans un magasin de vêtements."],"a":2,"e":"Si parla di taglie e di provare una giacca."},{"script":[["M","Vous avez choisi ?"],["F","Oui, je vais prendre la salade du jour et une carafe d'eau, s'il vous plaît."]],"q":"Qu'est-ce que la femme commande ?","o":["Une salade et une carafe d'eau.","Un steak et un verre de vin.","Une salade et une bière."],"a":0,"e":"«une salade… et une carafe d'eau»."},{"script":[["F","Tu viens au cinéma ce soir ?"],["M","Désolé, je ne peux pas. J'ai de la fièvre depuis ce matin, je reste au lit."]],"q":"Pourquoi l'homme ne va pas au cinéma ?","o":["Il doit travailler.","Il est malade.","Il n'aime pas le film."],"a":1,"e":"«j'ai de la fièvre» = ho la febbre."},{"script":[["F","Pardon, monsieur, pour aller à la gare, s'il vous plaît ?"],["M","Prenez la deuxième rue à gauche, c'est à cinq minutes à pied."]],"q":"Où va la femme ?","o":["À la poste.","À la gare.","Au musée."],"a":1,"e":"«pour aller à la gare» = per andare alla stazione."}]}]},{"id":"ecrit","jp":"Compréhension des écrits","it":"Comprensione scritta","min":30,"score":"ecrit","parts":[{"n":1,"label":"Exercice 1","skill":"reading","kind":"annonce","inst":"Lisez l'annonce et répondez aux questions.","itInst":"Leggi l'annuncio e rispondi alle domande.","text":"Bonjour à tous ! Je m'appelle Inès, j'ai vingt-huit ans et je cherche une colocation à Bordeaux. Je suis infirmière et je commence un nouveau travail à l'hôpital Saint-André le premier septembre. Je suis calme, je ne fume pas et j'adore cuisiner : je peux préparer des plats italiens, parce que ma mère est italienne ! Je voudrais une chambre près du centre ou près d'une ligne de tram, pour un loyer de 500 euros maximum. Le week-end, je fais du vélo et je vais souvent au marché. Si vous avez une chambre, écrivez-moi : ines.b@mail.fr","items":[{"q":"Inès cherche…","o":["un travail à Bordeaux.","une chambre dans un appartement partagé.","un appartement pour une famille."],"a":1,"e":"«je cherche une colocation» = cerco un appartamento in condivisione."},{"q":"Quel est le métier d'Inès ?","o":["Infirmière.","Cuisinière.","Professeure d'italien."],"a":0,"e":"«Je suis infirmière»."},{"q":"Quand commence son travail ?","o":["Le 1er septembre.","Le 1er octobre.","Ce week-end."],"a":0,"e":"«le premier septembre»."},{"q":"Combien veut-elle payer au maximum ?","o":["500 euros.","50 euros.","400 euros."],"a":0,"e":"«un loyer de 500 euros maximum»."}]},{"n":2,"label":"Exercice 2","skill":"reading","kind":"affiches","inst":"Lisez ces documents et répondez aux questions.","itInst":"Leggi questi documenti e rispondi alle domande.","items":[{"text":"PHARMACIE DU CENTRE — Ouverte du lundi au samedi de 8 h 30 à 19 h 30. Dimanche : de 9 h à 12 h 30.","q":"Vous voulez acheter des médicaments dimanche à 15 h. C'est possible ?","o":["Non, la pharmacie est fermée.","Oui, jusqu'à 19 h 30.","Oui, toute la journée."],"a":0,"e":"Domenica è aperta solo dalle 9 alle 12:30."},{"text":"CONCERT DE JAZZ — Samedi 14 juin, 20 h 30, salle des fêtes. Places limitées : réservation obligatoire à l'office de tourisme. 12 €, gratuit pour les moins de 12 ans.","q":"Pour aller au concert, il faut…","o":["acheter un billet avant.","arriver à 21 h.","apporter à manger."],"a":0,"e":"«Réservation obligatoire» = prenotazione obbligatoria."},{"q":"Un enfant de 8 ans paie…","o":["rien.","12 euros.","6 euros."],"a":0,"e":"«gratuit pour les moins de 12 ans»."},{"text":"Chers voisins, samedi 21 juin, nous organisons une fête dans la cour de l'immeuble à partir de 19 h. Apportez quelque chose à boire ou à manger ! Famille Martin, 3e étage.","q":"Ce message est pour…","o":["les voisins de l'immeuble.","les clients d'un hôtel.","les élèves d'une école."],"a":0,"e":"«Chers voisins» = cari vicini."}]},{"n":3,"label":"Exercice 3","skill":"reading","kind":"lettre","inst":"Lisez la lettre et répondez aux questions.","itInst":"Leggi la lettera e rispondi alle domande.","text":"Chère Léa,\nmerci pour ta carte ! Je suis bien arrivée à Montréal il y a deux semaines. Au début, il faisait très froid et je ne comprenais pas toujours l'accent québécois, mais maintenant ça va mieux. J'habite chez une famille très gentille : ils ont deux enfants et un gros chien. Tous les matins, je prends le bus pour aller à l'université. Le week-end dernier, nous sommes allés voir les chutes du Niagara : c'était magnifique ! En décembre, je rentrerai en France pour Noël. On se voit à Paris ?\nGros bisous, Camille","items":[{"q":"Depuis combien de temps Camille est à Montréal ?","o":["Deux mois.","Deux jours.","Deux semaines."],"a":2,"e":"«il y a deux semaines»."},{"q":"Au début, qu'est-ce qui était difficile ?","o":["La nourriture.","Le bus et l'université.","Le froid et l'accent."],"a":2,"e":"«il faisait très froid et je ne comprenais pas toujours l'accent»."},{"q":"Le week-end dernier, Camille…","o":["est rentrée en France.","est restée à la maison.","a visité les chutes du Niagara."],"a":2,"e":"«nous sommes allés voir les chutes du Niagara»."}]}]}],"practice":[{"kind":"Production écrite","time":"25 min","task":"Vous avez passé un week-end à la mer avec des amis. Vous écrivez à un ami français pour lui raconter : où, avec qui, ce que vous avez fait, ce que vous avez aimé (60 à 80 mots).","tr":"Hai passato un fine settimana al mare con degli amici. Scrivi a un amico francese per raccontarglielo: dove, con chi, che cosa avete fatto, che cosa ti è piaciuto (60-80 parole).","model":"Salut Hugo ! Le week-end dernier, je suis allée à Rimini avec trois amies. Il faisait très beau et l'eau était chaude. Samedi, nous avons nagé et nous avons mangé du poisson dans un petit restaurant. Dimanche, nous avons fait du vélo le long de la mer. J'ai adoré la plage le soir, quand il n'y a personne. Et toi, tu viens en Italie cet été ? Bises, Sara"},{"kind":"Production écrite","time":"20 min","task":"Votre ami français vous invite à son anniversaire samedi soir, mais vous ne pouvez pas venir. Vous lui répondez : vous le remerciez, vous expliquez pourquoi et vous proposez un autre jour (60 à 80 mots).","tr":"Un amico francese ti invita al suo compleanno sabato sera, ma non puoi andare. Gli rispondi: lo ringrazi, spieghi perché e proponi un altro giorno (60-80 parole).","model":"Cher Thomas, merci beaucoup pour ton invitation ! Malheureusement, samedi je ne peux pas venir : ma sœur se marie à Naples et je dois partir vendredi. Je suis vraiment désolé. Je rentre lundi soir. On peut dîner ensemble mardi ou mercredi ? Je t'apporterai un petit cadeau d'Italie ! Bon anniversaire et bonne fête ! Amitiés, Luca"},{"kind":"Production orale","time":"2 min","task":"Entretien dirigé : présentez-vous (nom, âge, ville, travail ou études, famille, loisirs).","tr":"Colloquio guidato: presentati (nome, età, città, lavoro o studio, famiglia, tempo libero).","model":"Je m'appelle Marco, j'ai trente-deux ans et j'habite à Turin. Je suis ingénieur dans une entreprise de voitures. Je suis marié et j'ai une petite fille de trois ans. Le week-end, j'aime faire du vélo en montagne et cuisiner pour mes amis. J'apprends le français parce que je travaille souvent avec des collègues français."},{"kind":"Production orale","time":"3 min","task":"Dialogue simulé : vous êtes dans un office de tourisme à Nice. Vous demandez des informations sur les visites, les horaires et les prix.","tr":"Dialogo simulato: sei in un ufficio del turismo a Nizza. Chiedi informazioni su visite, orari e prezzi.","model":"Bonjour, madame. Je voudrais visiter la vieille ville. Il y a des visites guidées ? À quelle heure elles commencent ? C'est combien ? Il y a un tarif pour les étudiants ? Et le musée Matisse, il est ouvert le lundi ? Merci beaucoup, au revoir !"}]},{"id":"b1-1","exam":"b1","title":"Prova 1","it":"Simulazione nel formato del DELF B1: comprensione dell'orale e degli scritti con punteggio stimato; scritto e orale da allenare con le tracce e gli esempi.","scheme":{"name":"DELF B1","total":50,"pass":25,"lang":"fr","plays":2,"opts":"abc","part":"Exercice ","groups":[{"id":"oral","label":"Compréhension de l'oral","max":25,"min":5},{"id":"ecrit","label":"Compréhension des écrits","max":25,"min":5}],"skills":{"listening":["Ascolto","Compréhension de l'oral"],"reading":["Lettura","Compréhension des écrits"]},"who":{"N":"","F":"F : ","M":"H : "},"passText":"Ogni prova vale 25 punti e ne servono almeno 5. Al DELF vero le prove sono quattro (anche produzione scritta e orale) e si passa con 50 su 100: qui la soglia è riportata in proporzione.","notOfficial":"Simulazione nel formato del DELF B1, non un esame ufficiale: il punteggio è solo una stima. Il DELF vero ha anche la produzione scritta e orale, valutate da esaminatori; il numero e il tipo di esercizi possono cambiare tra una sessione e l'altra: controlla le indicazioni della tua sede d'esame. Il corso arriva all'A2: questa prova serve a vedere quanto manca al livello successivo.","note":"Come all'esame vero, consegne e domande sono in francese. Se ti serve, premi «Traduzione» per vedere la consegna in italiano."},"sections":[{"id":"oral","jp":"Compréhension de l'oral","it":"Comprensione orale","min":25,"score":"oral","listen":true,"parts":[{"n":1,"label":"Exercice 1","skill":"listening","kind":"conversation","inst":"Vous écoutez une conversation entre deux collègues. Lisez les questions, écoutez le document puis répondez.","itInst":"Ascolti una conversazione tra due colleghi. Leggi le domande, ascolta il documento e rispondi.","items":[{"script":[["F","Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."],["M","Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"],["F","Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."],["M","Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"],["F","Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."],["M","Tu as raison. Bon, j'appelle le cabinet tout de suite."]],"q":"Pourquoi la réunion de lundi est-elle annulée ?","o":["La directrice sera absente.","Le rapport n'est pas prêt.","Karim est malade."],"a":0,"e":"«Elle sera à Lyon toute la journée pour un salon» = la direttrice sarà a Lione."},{"script":[["F","Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."],["M","Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"],["F","Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."],["M","Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"],["F","Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."],["M","Tu as raison. Bon, j'appelle le cabinet tout de suite."]],"q":"Quand la directrice propose-t-elle de faire la réunion ?","o":["Lundi après-midi.","Vendredi matin.","Jeudi matin."],"a":2,"e":"«Elle propose de la faire jeudi matin, à neuf heures et demie»."},{"script":[["F","Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."],["M","Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"],["F","Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."],["M","Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"],["F","Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."],["M","Tu as raison. Bon, j'appelle le cabinet tout de suite."]],"q":"Quel est le problème de Karim ?","o":["Il doit aller à Lyon.","Il a un rendez-vous médical.","Il ne connaît pas le budget."],"a":1,"e":"«j'ai rendez-vous chez le dentiste»."},{"script":[["F","Dis, Karim, tu as vu le message de la directrice ? La réunion de lundi est annulée."],["M","Ah bon ? Tant mieux, parce que je n'avais pas encore fini le rapport. Elle a dit pourquoi ?"],["F","Elle sera à Lyon toute la journée pour un salon. Elle propose de la faire jeudi matin, à neuf heures et demie."],["M","Jeudi matin, je ne peux pas, j'ai rendez-vous chez le dentiste. Tu crois qu'on pourrait la faire l'après-midi ?"],["F","Je ne sais pas, écris-lui directement. Mais à ta place, je déplacerais plutôt le dentiste : elle veut absolument parler du budget avant vendredi."],["M","Tu as raison. Bon, j'appelle le cabinet tout de suite."]],"q":"Que conseille la collègue à Karim ?","o":["Écrire à la directrice pour annuler la réunion.","Déplacer son rendez-vous.","Finir le rapport avant jeudi."],"a":1,"e":"«je déplacerais plutôt le dentiste» = io sposterei il dentista: è un consiglio al condizionale."}]},{"n":2,"label":"Exercice 2","skill":"listening","kind":"interview","inst":"Vous écoutez une émission de radio. Lisez les questions, écoutez le document puis répondez.","itInst":"Ascolti una trasmissione radiofonica. Leggi le domande, ascolta il documento e rispondi.","items":[{"script":[["N","Bonjour à tous et bienvenue dans « Vivre autrement ». Aujourd'hui, nous recevons Claire Martin, qui a quitté Paris il y a trois ans pour s'installer dans un petit village de Bourgogne. Claire, pourquoi ce choix ?"],["F","Je travaillais dans une agence de publicité, je passais deux heures par jour dans les transports et je n'avais jamais le temps de voir mes enfants. Pendant le confinement, j'ai découvert le télétravail et j'ai compris que je pouvais vivre ailleurs."],["N","Et aujourd'hui, est-ce que Paris vous manque ?"],["F","Parfois, pour les musées et les cinémas. Mais ici, la vie est beaucoup moins chère, j'ai un jardin et je connais tous mes voisins. Le seul vrai problème, c'est la voiture : sans voiture, on ne peut rien faire."]],"q":"Avant, Claire…","o":["passait beaucoup de temps dans les transports.","travaillait dans un village.","avait un jardin à Paris."],"a":0,"e":"«je passais deux heures par jour dans les transports»."},{"script":[["N","Bonjour à tous et bienvenue dans « Vivre autrement ». Aujourd'hui, nous recevons Claire Martin, qui a quitté Paris il y a trois ans pour s'installer dans un petit village de Bourgogne. Claire, pourquoi ce choix ?"],["F","Je travaillais dans une agence de publicité, je passais deux heures par jour dans les transports et je n'avais jamais le temps de voir mes enfants. Pendant le confinement, j'ai découvert le télétravail et j'ai compris que je pouvais vivre ailleurs."],["N","Et aujourd'hui, est-ce que Paris vous manque ?"],["F","Parfois, pour les musées et les cinémas. Mais ici, la vie est beaucoup moins chère, j'ai un jardin et je connais tous mes voisins. Le seul vrai problème, c'est la voiture : sans voiture, on ne peut rien faire."]],"q":"Qu'est-ce qui lui a permis de quitter Paris ?","o":["Un nouveau travail en Bourgogne.","Le télétravail.","Ses enfants."],"a":1,"e":"«j'ai découvert le télétravail»."},{"script":[["N","Bonjour à tous et bienvenue dans « Vivre autrement ». Aujourd'hui, nous recevons Claire Martin, qui a quitté Paris il y a trois ans pour s'installer dans un petit village de Bourgogne. Claire, pourquoi ce choix ?"],["F","Je travaillais dans une agence de publicité, je passais deux heures par jour dans les transports et je n'avais jamais le temps de voir mes enfants. Pendant le confinement, j'ai découvert le télétravail et j'ai compris que je pouvais vivre ailleurs."],["N","Et aujourd'hui, est-ce que Paris vous manque ?"],["F","Parfois, pour les musées et les cinémas. Mais ici, la vie est beaucoup moins chère, j'ai un jardin et je connais tous mes voisins. Le seul vrai problème, c'est la voiture : sans voiture, on ne peut rien faire."]],"q":"Selon Claire, quel est l'inconvénient de la vie au village ?","o":["Les voisins.","Le prix des maisons.","On a besoin d'une voiture."],"a":2,"e":"«sans voiture, on ne peut rien faire»."}]},{"n":3,"label":"Exercice 3","skill":"listening","kind":"reportage","inst":"Vous écoutez des documents à la radio et au téléphone. Lisez les questions, écoutez puis répondez.","itInst":"Ascolti dei documenti alla radio e al telefono. Leggi le domande, ascolta e rispondi.","items":[{"script":[["N","De plus en plus de Français réparent leurs objets au lieu de les jeter. Dans les « repair cafés », des bénévoles aident gratuitement les habitants à réparer un grille-pain, un vélo ou un vêtement. On en compte aujourd'hui plus de trois cents dans le pays."],["M","Moi, je viens ici tous les samedis. Au début, c'était pour faire des économies, mais maintenant je viens surtout pour l'ambiance. On boit un café, on discute, on apprend des choses. La semaine dernière, j'ai réparé ma machine à café avec un retraité qui était électricien."],["N","Selon les organisateurs, deux objets sur trois repartent réparés. Prochain rendez-vous : samedi, de quatorze à dix-huit heures, à la médiathèque."]],"q":"Dans un « repair café »…","o":["on achète des objets d'occasion.","des bénévoles aident à réparer des objets.","on apprend à faire du café."],"a":1,"e":"«des bénévoles aident gratuitement les habitants à réparer»."},{"script":[["N","De plus en plus de Français réparent leurs objets au lieu de les jeter. Dans les « repair cafés », des bénévoles aident gratuitement les habitants à réparer un grille-pain, un vélo ou un vêtement. On en compte aujourd'hui plus de trois cents dans le pays."],["M","Moi, je viens ici tous les samedis. Au début, c'était pour faire des économies, mais maintenant je viens surtout pour l'ambiance. On boit un café, on discute, on apprend des choses. La semaine dernière, j'ai réparé ma machine à café avec un retraité qui était électricien."],["N","Selon les organisateurs, deux objets sur trois repartent réparés. Prochain rendez-vous : samedi, de quatorze à dix-huit heures, à la médiathèque."]],"q":"Aujourd'hui, l'homme interviewé vient surtout…","o":["pour faire des économies.","pour travailler comme électricien.","pour l'ambiance et les rencontres."],"a":2,"e":"«maintenant je viens surtout pour l'ambiance»."},{"script":[["N","Message sur le répondeur."],["M","Bonjour madame Petit, ici le garage Dupuis. Votre voiture est prête, mais nous avons dû changer les freins arrière, ce qui n'était pas prévu dans le devis. Le total est donc de quatre cent vingt euros. Vous pouvez passer la chercher demain à partir de huit heures. Merci et bonne soirée."]],"q":"Pourquoi le prix est-il plus élevé que prévu ?","o":["Le garage a changé les freins.","La voiture est restée une semaine.","Madame Petit a demandé un lavage."],"a":0,"e":"«nous avons dû changer les freins arrière, ce qui n'était pas prévu»."},{"script":[["N","Annonce dans une gare."],["F","Mesdames et messieurs, en raison d'un incident technique, le train TER en provenance de Dijon arrivera avec un retard d'environ quarante minutes. Les voyageurs à destination de Lyon sont invités à prendre le car de remplacement, qui partira à dix-sept heures quinze devant la gare. Nous vous prions de nous excuser pour ce désagrément."]],"q":"Les voyageurs pour Lyon doivent…","o":["attendre le train de Dijon.","prendre un car à 17 h 15.","acheter un nouveau billet."],"a":1,"e":"«prendre le car de remplacement, qui partira à dix-sept heures quinze»."}]}]},{"id":"ecrit","jp":"Compréhension des écrits","it":"Comprensione scritta","min":45,"score":"ecrit","parts":[{"n":1,"label":"Exercice 1","skill":"reading","kind":"choix","inst":"Lisez le texte et les annonces, puis répondez aux questions.","itInst":"Leggi il testo e gli annunci, poi rispondi alle domande.","text":"Vous voulez vous inscrire à un cours pour votre amie Giulia. Elle travaille du lundi au vendredi jusqu'à 19 heures, elle a un budget de 200 euros maximum pour l'année et elle voudrait rencontrer des gens en pratiquant une activité en groupe, de préférence en plein air.\n\nA. Atelier photo — Le mardi de 18 h à 20 h, en salle. 8 participants maximum. 180 € l'année.\nB. Randonnée découverte — Un samedi sur deux, sorties en groupe dans la région. Matériel prêté. 150 € l'année.\nC. Cours de tennis — Cours individuels le samedi matin, au club. 25 € l'heure.\nD. Chorale du quartier — Le jeudi de 20 h 30 à 22 h, à la salle des fêtes. 60 € l'année.","items":[{"q":"Quelle activité ne convient pas à cause de l'horaire ?","o":["L'atelier photo.","La chorale.","La randonnée."],"a":0,"e":"Il martedì l'atelier comincia alle 18, ma Giulia lavora fino alle 19."},{"q":"Quelle activité est trop chère pour Giulia ?","o":["La chorale.","La randonnée.","Le tennis."],"a":2,"e":"25 € l'ora: in un anno si superano facilmente i 200 €."},{"q":"Quelle activité ne permet pas vraiment de rencontrer des gens ?","o":["Le tennis.","La chorale.","La randonnée."],"a":0,"e":"«Cours individuels»: lezioni da sola."},{"q":"Quelle est la meilleure activité pour Giulia ?","o":["La chorale.","La randonnée découverte.","L'atelier photo."],"a":1,"e":"Il sabato, in gruppo, all'aria aperta, 150 €: rispetta tutte le condizioni."}]},{"n":2,"label":"Exercice 2","skill":"reading","kind":"article","inst":"Lisez l'article, puis répondez aux questions.","itInst":"Leggi l'articolo, poi rispondi alle domande.","text":"Faut-il interdire le téléphone portable à l'école ?\n\nDepuis 2018, les élèves des écoles et des collèges français n'ont plus le droit d'utiliser leur téléphone portable pendant la journée, même pendant la récréation. À la rentrée 2024, le gouvernement a voulu aller plus loin avec une « pause numérique » : dans certains collèges, les élèves doivent déposer leur téléphone dans un casier en arrivant le matin et le reprendre le soir.\n\nPour beaucoup d'enseignants, c'est une bonne nouvelle. « Les élèves se parlent de nouveau pendant les pauses, ils jouent au ballon, ils sont plus calmes en classe », explique Sophie, professeure de mathématiques à Nantes. Selon plusieurs études, l'utilisation des écrans réduit l'attention et le temps de sommeil des adolescents.\n\nMais tout le monde n'est pas d'accord. Certains parents veulent pouvoir joindre leurs enfants à tout moment, surtout quand ils rentrent seuls à la maison. D'autres font remarquer que l'interdiction ne règle pas le vrai problème : le soir, à la maison, les jeunes passent encore plusieurs heures devant leur écran. « Il faudrait plutôt apprendre aux enfants à utiliser le téléphone de manière raisonnable », estime le président d'une association de parents.\n\nPour l'instant, le ministère observe les résultats de l'expérience avant de décider si la mesure sera appliquée dans tous les collèges du pays.","items":[{"q":"Depuis 2018, dans les écoles et les collèges…","o":["les élèves peuvent utiliser leur téléphone à la récréation.","le téléphone est interdit toute la journée.","le téléphone est autorisé seulement en classe."],"a":1,"e":"«n'ont plus le droit d'utiliser leur téléphone portable pendant la journée, même pendant la récréation»."},{"q":"Avec la « pause numérique », les élèves…","o":["laissent leur téléphone dans un casier.","ne doivent plus avoir de téléphone.","utilisent le téléphone une heure par jour."],"a":0,"e":"«déposer leur téléphone dans un casier en arrivant le matin»."},{"q":"Selon Sophie, depuis l'interdiction, les élèves…","o":["dorment davantage.","ont de meilleures notes en mathématiques.","communiquent plus entre eux."],"a":2,"e":"«Les élèves se parlent de nouveau pendant les pauses»."},{"q":"Pourquoi certains parents sont-ils contre ?","o":["Ils veulent pouvoir contacter leurs enfants.","Le casier coûte cher.","Ils n'aiment pas les enseignants."],"a":0,"e":"«veulent pouvoir joindre leurs enfants à tout moment»."},{"q":"Selon le président de l'association, il faudrait…","o":["interdire le téléphone aussi à la maison.","apprendre aux jeunes à bien l'utiliser.","donner un téléphone à tous les élèves."],"a":1,"e":"«apprendre aux enfants à utiliser le téléphone de manière raisonnable»."},{"q":"Que va faire le ministère ?","o":["Il va appliquer la mesure partout dès demain.","Il va supprimer la mesure.","Il attend les résultats avant de décider."],"a":2,"e":"«observe les résultats de l'expérience avant de décider»."}]}]}],"practice":[{"kind":"Production écrite","time":"45 min","task":"Dans votre ville, la mairie veut transformer un parc en parking. Vous écrivez au journal local pour donner votre opinion : vous présentez la situation, vous expliquez si vous êtes pour ou contre et vous donnez des exemples (160 mots minimum).","tr":"Nella tua città il comune vuole trasformare un parco in un parcheggio. Scrivi al giornale locale per dare la tua opinione: presenti la situazione, spieghi se sei a favore o contro e porti degli esempi (almeno 160 parole).","model":"Madame, Monsieur, j'ai appris dans votre journal que la mairie veut transformer le parc Victor-Hugo en parking. Je voudrais exprimer mon désaccord. D'abord, ce parc est le seul espace vert du quartier : tous les jours, des familles, des personnes âgées et des étudiants s'y retrouvent. Mes enfants y jouent après l'école et je m'y promène souvent le dimanche. Ensuite, je comprends qu'il est difficile de se garer en centre-ville, mais un nouveau parking attirera encore plus de voitures et donc plus de pollution. À mon avis, il vaudrait mieux améliorer les transports en commun, par exemple avec des bus plus fréquents le soir, et créer des pistes cyclables. Enfin, beaucoup d'habitants pensent comme moi : nous avons déjà réuni plus de cinq cents signatures. J'espère que la mairie écoutera notre avis et qu'elle trouvera une autre solution. Veuillez agréer, Madame, Monsieur, mes salutations distinguées. Sara Bianchi"},{"kind":"Production orale · Entretien dirigé","time":"3 min","task":"Présentez-vous : parlez de vos études ou de votre travail, de vos loisirs et de vos projets.","tr":"Presentati: parla dei tuoi studi o del tuo lavoro, del tempo libero e dei tuoi progetti.","model":"Je m'appelle Marco, j'ai vingt-six ans et je suis italien, de Turin. Je travaille comme ingénieur dans une entreprise qui fabrique des pièces pour les voitures. Pendant mon temps libre, je fais beaucoup de sport, surtout du vélo, et j'aime cuisiner pour mes amis. J'apprends le français parce que mon entreprise travaille avec des clients français et parce que j'aimerais vivre quelque temps à Lyon. L'année prochaine, si tout va bien, je demanderai un transfert en France."},{"kind":"Production orale · Exercice en interaction","time":"3-4 min","task":"Vous avez acheté un ordinateur sur internet, mais il ne fonctionne pas. Vous téléphonez au service client pour obtenir un remboursement. L'examinateur joue le rôle de l'employé.","tr":"Hai comprato un computer su internet, ma non funziona. Telefoni al servizio clienti per avere un rimborso. L'esaminatore fa la parte dell'impiegato.","model":"Bonjour, je vous appelle parce que j'ai commandé un ordinateur sur votre site il y a dix jours, et il ne s'allume pas. J'ai déjà essayé de le recharger, mais rien ne fonctionne. Je voudrais être remboursée, s'il vous plaît. — Je comprends, mais je n'ai pas envie d'attendre trois semaines pour une réparation : j'ai besoin d'un ordinateur pour mon travail. Est-ce que vous pourriez au moins m'envoyer un nouvel appareil cette semaine ? — D'accord, je vous renvoie le colis demain. Vous pouvez me confirmer tout cela par e-mail ? Merci beaucoup."},{"kind":"Production orale · Expression d'un point de vue","time":"5-7 min","task":"« Le télétravail : liberté ou isolement ? » Dégagez le thème de ce titre et donnez votre opinion avec des exemples.","tr":"«Il telelavoro: libertà o isolamento?» Spiega il tema di questo titolo e dai la tua opinione con degli esempi.","model":"Ce titre pose la question des avantages et des inconvénients du travail à la maison. D'un côté, le télétravail donne beaucoup de liberté : on ne perd pas de temps dans les transports, on organise sa journée comme on veut et on peut habiter loin des grandes villes. Par exemple, ma sœur travaille de chez elle trois jours par semaine et elle a enfin le temps de faire du sport. De l'autre côté, on peut se sentir seul : on ne voit plus ses collègues, on parle moins et il est difficile de séparer la vie privée et le travail. À mon avis, la meilleure solution, c'est un mélange : deux ou trois jours à la maison et le reste au bureau, pour garder le contact avec les autres."}]}];
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var KEY="francese-per-italiani-v1";
@@ -4363,7 +4693,7 @@ function buildVocab(){if(!vt||vt.dataset.done)return;vt.dataset.done="1";var row
   vt.innerHTML=rowsV.join("");$$('td[lang="fr"]',vt).forEach(frZone)}
 /* words of each lesson */
 function renderWords(el){var ws=VOC[el.getAttribute("data-voc")]||[];
-  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="fr">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="Ascolta">'+SPK+'</button></div>'}).join("")}
+  el.innerHTML=ws.map(function(r){return '<div class="wd"><span class="wi" lang="fr">'+wordHTML(r)+'</span><span class="wz">'+esc(r[1])+'</span><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="Ascolta">'+SPK+'</button>'+wordExHTML(r)+'</div>'}).join("")}
 $$(".words[data-voc]").forEach(renderWords);
 /* I can */
 $$("ul.cando[data-cando]").forEach(function(ul){var id=ul.getAttribute("data-cando"),lis=$$("li",ul),st=state.can[id]||[];
@@ -4479,6 +4809,7 @@ window.FRSAYS=function(){var S={},box=document.createElement("div");
   function mix(t){if(!t)return;String(t).replace(/\{([^{}]*)\}/g,function(_,x){fr(x)})}
   $$("[data-it]").forEach(function(d){fr(d.getAttribute("data-it"))});
   Object.keys(DLG).forEach(function(k){DLG[k].forEach(function(r){fr(r[1])})});
+  if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){fr(EXW[k][0])});
   W.forEach(function(w){var full=art(w[0],w[2])+w[0];fr(full);fr(w[0])});
   Object.keys(EX).forEach(function(k){EX[k].forEach(function(it){[it.au,it.full,it.it&&it.t==="say"?it.it:null,it.ask,it.fix,it.s&&it.t==="err"?it.s:null].forEach(fr);
     (it.a||[]).forEach(fr);if(it.t==="gap")fr(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")it.o.forEach(function(o){fr(o[0])});
@@ -4556,7 +4887,7 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
     oth.forEach(function(x){if(d.length<2&&!seen[x[1]]){seen[x[1]]=1;d.push(x)}});
     if(k%2===0)out.push({q:"Ascolta e scegli il significato:",au:fullW(w),o:[w[1]].concat(d.map(function(x){return x[1]})),e:"{"+fullW(w)+"} = "+w[1],w:w});
     else out.push({q:"Come si dice «"+w[1]+"» in francese?",o:["{"+fullW(w)+"}"].concat(d.map(function(x){return "{"+fullW(x)+"}"})),e:"{"+fullW(w)+"} = "+w[1],w:w})});
-  return out}
+  return withContext(out,pool)}
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
 /* words from earlier lessons for the "words from before" step (spaced: due first, then 1, 2, 4, 8 lessons back) */
 function recWords(id){var li=LESSONS.findIndex(function(L){return L.id===id});return li>0?SRS.recycle(W,li,10):[]}
@@ -5425,6 +5756,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   var strs=[];function add(x){if(x==null)return;if(Array.isArray(x))x.forEach(add);else if(typeof x==="string")strs.push(x)}
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
+  if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){add(EXW[k][0])});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,c.es,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
@@ -5439,6 +5771,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){sa(it.au);sa(it.jp);sa(it.zh);sa(it.full);if(it.a)it.a.forEach(sa);if(it.o)it.o.forEach(sa);if(it.w&&!it.w.length===2)it.w.forEach(sa);
     sa(it.fix);sa(it.ask);if(it.t==="gap")sa(String(it.s).replace("＿",it.o[0]));if(it.t==="rep")sa(it.o[0][0]);if(it.t==="tone")sa(it.s)})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){sa(r[1])})});
+  if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){sa(EXW[k][0])});
   if(typeof W!=="undefined")W.forEach(function(w){sa(w[0])});
   Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){sa(c.i);(c.w||[]).forEach(function(w){sa(w[0])})})});
   (window.TONEDRILL||[]).forEach(function(r){sa(r[0])});

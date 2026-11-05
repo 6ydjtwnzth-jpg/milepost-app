@@ -16,3 +16,4 @@
 "馬":"马 «cavallo» in caratteri tradizionali","門":"门 «porta» in caratteri tradizionali","說":"说 «parlare» in caratteri tradizionali","國":"国 «paese» in caratteri tradizionali","愛":"爱 «amore» in caratteri tradizionali",
 "然后":"poi, dopo","地铁站":"stazione della metropolitana","往":"verso (direzione)","拐":"girare (a destra, a sinistra)","一直":"sempre dritto; continuamente"};
 for(var k in D)if(!DICT[k])DICT[k]=D[k]})();
+Object.assign(DICT,{"碗[wǎn]": "ciotola (classificatore: 一碗米饭)", "座[zuò]": "classificatore di montagne ed edifici", "广州[Guǎng-zhōu]": "Canton (Guangzhou)", "色[sè]": "colore (红色: rosso)", "背[bēi]": "portare sulla schiena", "音乐[yīn-yuè]": "musica", "足球[zú-qiú]": "calcio", "考[kǎo]": "dare un esame", "首[shǒu]": "classificatore di canzoni e poesie", "跳[tiào]": "saltare; ballare (跳舞)", "起不来[qǐ-bu-lái]": "non riuscire ad alzarsi", "安静[ān-jìng]": "tranquillo, silenzioso"});
