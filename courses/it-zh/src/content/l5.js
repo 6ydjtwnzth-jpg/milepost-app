@@ -16,6 +16,7 @@ EX.l5=[
  {t:"say",zh:"问朋友：「你有兄弟姐妹吗？」",it:"Hai fratelli?"}
 ];
 VOC.l5=[
+ ["i figli", "孩子们（儿女）", ""],["matrimonio", "婚姻；婚礼", "m"],["tutti", "大家，所有人", ""],
  ["interessante", "有意思的", ""],
  ["famiglia","家庭","f"],["padre","父亲","m"],["madre","母亲","f"],["genitore","父亲或母亲（复数 genitori 父母）","m"],["mamma","妈妈","f"],
  ["fratello","兄弟","m"],["sorella","姐妹","f"],["figlia","女儿","f"],["marito","丈夫","m"],["moglie","妻子","f"],

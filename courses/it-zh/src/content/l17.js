@@ -15,6 +15,7 @@ EX.l17=[
  {t:"say",zh:"讲一个小时候的习惯：每年夏天、每个星期天……",it:"Ogni domenica andavamo a mangiare dai nonni."}
 ];
 VOC.l17=[
+ ["cuore", "心", "m"],["ragione", "理由（avere ragione：有道理）", "f"],["senso", "意义；感觉", "m"],
  ["tantissimo", "非常多", ""],
  ["bambino","孩子（男）","m"],["bambina","孩子（女）","f"],["da piccolo","小时候",""],["una volta","以前；一次",""],["ogni","每",""],["di solito","通常",""],
  ["paese","小镇；国家","m"],["campagna","乡下","f"],["giardino","花园","m"],["cane","狗","m"],["gatto","猫","m"],["giocare","玩",""],

@@ -15,6 +15,7 @@ EX.l22=[
  {t:"say",zh:"给生病的朋友一个建议。",it:"Dovresti bere molta acqua e riposarti."}
 ];
 VOC.l22=[
+ ["corpo", "身体", "m"],["gli occhi", "眼睛", ""],["le mani", "手（单数：la mano）", ""],["cura", "治疗；照顾", "f"],["dottore", "医生", "m"],["stanza", "房间", "f"],
  ["soprattutto", "尤其", ""],["notte", "夜里", "f"],["qualcosa", "某样东西", ""],["cucchiaio", "勺子", "m"],["lentamente", "慢慢地", ""],["firmare", "签名", ""],
  ["testa","头","f"],["gola","嗓子","f"],["denti","牙齿（复数）",""],["pancia","肚子","f"],["schiena","背","f"],["braccio","手臂","m"],["gamba","腿","f"],["piede","脚","m"],["ginocchio","膝盖","m"],["occhio","眼睛","m"],
  ["febbre","发烧","f"],["tosse","咳嗽","f"],["raffreddore","感冒","m"],["mal di testa","头疼","m"],["fare male","疼",""],

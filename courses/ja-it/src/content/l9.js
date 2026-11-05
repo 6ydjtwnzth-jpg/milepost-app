@@ -17,6 +17,7 @@ EX.l9=[
  {t:"say",it:"Rispondi: «Studio giapponese perché mi piace il Giappone.»",jp:"日本[にほん] が 好[す]き です から 。"}
 ];
 VOC.l9=[
+ ["ああ", "ah!, oh!", "x"],["いくつ", "quanti? quanti anni?", "x"],["どなた", "chi? (cortese)", "x"],["どの", "quale? (+ nome)", "x"],["どっち", "quale dei due? (informale)", "x"],["こっち", "da questa parte (informale)", "x"],["そっち", "da quella parte (vicino a te)", "x"],["あっち", "laggiù (informale)", "x"],["こちら", "da questa parte; questa persona (cortese)", "x"],["そちら", "da quella parte (cortese)", "x"],["あちら", "laggiù (cortese)", "x"],["なぜ", "perché? (= どうして)", "x"],["誰[だれ]か", "qualcuno", "x"],["意味[いみ]", "significato", "n"],["質問[しつもん]", "domanda", "n"],["答[こた]えます", "rispondere", "v"],["言葉[ことば]", "parola, lingua", "n"],
  ["お名前[なまえ]", "il suo nome (cortese)", "n"],["聞[き]きます", "ascoltare; chiedere", "v"],
  ["どこ","dove?","x"],["いつ","quando?","x"],["どうして","perché?","x"],["どんな","che tipo di?","x"],["どう","come?","x"],["〜 から","da; perché","x"],["ね","vero? eh? (alla fine)","x"],["よ","sai, guarda che (alla fine)","x"],
  ["今[いま]","adesso","n"],["名前[なまえ]","nome","n"],["国[くに]","paese, nazione","n"],["英語[えいご]","inglese (lingua)","n"],["トイレ","bagno, toilette","n"],["えき","stazione","n"],["アニメ","anime, cartoni animati","n"],["音楽[おんがく]","musica","n"],["えいが","film","n"],["天気[てんき]","tempo (meteo)","n"],

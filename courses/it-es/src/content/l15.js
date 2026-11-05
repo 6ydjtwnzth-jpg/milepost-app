@@ -18,6 +18,7 @@ EX.l15=[
  {t:"say",zh:"Pregunta a un amigo: «¿Has comido alguna vez helado italiano?»",it:"Hai mai mangiato il gelato italiano?"}
 ];
 VOC.l15=[
+ ["sentire", "oír; sentir", ""],["finito", "terminado", ""],["fantastico", "fantástico", ""],
  ["ieri","ayer",""],["ieri sera","anoche",""],["scorso","pasado (la semana pasada)",""],["fa","hace (due giorni fa)",""],["già","ya",""],["non ancora","todavía no",""],
  ["fine settimana","fin de semana","m"],["tutto il giorno","todo el día",""],["fino a tardi","hasta tarde",""],["preparare","preparar",""],["pulire","limpiar",""],["guardare","mirar, ver",""],
  ["vendere","vender",""],["aprire","abrir",""],["chiudere","cerrar",""],["perdere","perder",""],["assaggiare","probar (comida)",""],["lettera","carta","f"],["macchina","coche","f"],

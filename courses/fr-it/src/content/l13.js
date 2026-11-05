@@ -11,6 +11,7 @@ EX.l13=[
  {t:"say",zh:"Invita un'amica a cena venerdì e proponi di trovarvi alle otto",it:"Tu veux dîner avec moi vendredi ? On se retrouve à huit heures ?"}
 ];
 VOC.l13=[
+ ["garder", "tenere, custodire", ""],["penser", "pensare", ""],["croire", "credere", ""],["comprendre", "capire", ""],["expliquer", "spiegare", ""],["décider", "decidere", ""],["oublier", "dimenticare", ""],["porter", "portare; indossare", ""],
  ["pouvoir","potere",""],["devoir","dovere",""],["allô","pronto (al telefono)",""],["désolé","dispiaciuto; mi dispiace",""],["dommage","peccato",""],["libre","libero",""],["parfait","perfetto",""],
  ["comédie","commedia","f"],["rendez-vous","appuntamento","m"],["se retrouver","ritrovarsi, incontrarsi",""],["se voir","vedersi",""],["devant","davanti a",""],["derrière","dietro",""],
  ["avec plaisir","con piacere",""],["invitation","invito","f"],["inviter","invitare",""],["sortir","uscire",""],["vendredi","venerdì","m"],["fête","festa","f"],["pleuvoir","piovere",""],

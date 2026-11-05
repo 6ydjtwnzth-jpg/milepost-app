@@ -18,6 +18,7 @@ EX.l5=[
  {t:"say",zh:"Pregunta a un amigo: «¿Tienes hermanos?»",it:"Hai fratelli?"}
 ];
 VOC.l5=[
+ ["i figli", "hijos", ""],["matrimonio", "matrimonio, boda", "m"],["tutti", "todos", ""],
  ["famiglia","familia","f"],["padre","padre","m"],["madre","madre","f"],["genitore","padre o madre (plural genitori: los padres)","m"],["mamma","mamá","f"],
  ["fratello","hermano","m"],["sorella","hermana","f"],["figlia","hija","f"],["marito","marido","m"],["moglie","esposa, mujer","f"],
  ["nonno","abuelo","m"],["nonna","abuela","f"],["zio","tío","m"],["zia","tía","f"],["cugino","primo","m"],["nipote","sobrino; nieto","m"],

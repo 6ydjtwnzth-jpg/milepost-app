@@ -17,6 +17,7 @@ EX.l15=[
  {t:"say",it:"Chiedi a un collega com'è andato il fine settimana.",jp:"週末[しゅうまつ] は どう でした か 。"}
 ];
 VOC.l15=[
+ ["暖[あたた]かい", "tiepido, mite", "a"],["涼[すず]しい", "fresco", "a"],["冷[つめ]たい", "freddo (al tatto)", "a"],["甘[あま]い", "dolce", "a"],["辛[から]い", "piccante", "a"],["重[おも]い", "pesante", "a"],["軽[かる]い", "leggero", "a"],["強[つよ]い", "forte", "a"],["弱[よわ]い", "debole", "a"],["低[ひく]い", "basso", "a"],["汚[きたな]い", "sporco", "a"],["危[あぶ]ない", "pericoloso", "a"],["うるさい", "rumoroso", "a"],["まずい", "cattivo (di sapore)", "a"],["晴[は]れ", "sereno", "n"],["曇[くも]り", "nuvoloso", "n"],["晴[は]れます", "rasserenarsi", "v"],["曇[くも]ります", "rannuvolarsi", "v"],["降[ふ]ります", "cadere (pioggia, neve)", "v"],["吹[ふ]きます", "soffiare (vento)", "v"],["咲[さ]きます", "fiorire", "v"],["空[そら]", "cielo", "n"],
  ["週末[しゅうまつ]","fine settimana","n"],["どう でした か","com'è andato?","x"],["楽[たの]しかった","è stato divertente","a"],["よかった","è stato bello; meno male","a"],["おもしろい","interessante, divertente","a"],["つまらない","noioso","a"],["多[おお]い","numeroso, tanto","a"],["すくない","poco","a"],
  ["暑[あつ]い","caldo (clima)","a"],["寒[さむ]い","freddo (clima)","a"],["ながい","lungo","a"],["みじかい","corto","a"],["雨[あめ]","pioggia","n"],["ゆき","neve","n"],["天気[てんき]","tempo (meteo)","n"],["お寺[てら]","tempio buddhista","n"],["じんじゃ","santuario shintoista","n"],
  ["きょうと","Kyoto","n"],["うみ","mare","n"],["かみ","capelli","n"],["食[た]べもの","cibo","n"],["大変[たいへん]","faticoso, duro","a"],["せいかく","preciso, puntuale","a"]

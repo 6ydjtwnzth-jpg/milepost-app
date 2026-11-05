@@ -11,6 +11,8 @@ EX.l13=[
  {"t":"say","it":"«La porta è aperta, entra pure.»","zh":"门[Mén] 开[kāi] 着[zhe] ， 你[nǐ] 进来[jìn-lai] 吧[ba] 。"}
 ];
 VOC.l13=[
+ ["电视机[diàn-shì-jī]", "televisore", ""],["电影院[diàn-yǐng-yuàn]", "cinema (la sala)", ""],["图书馆[tú-shū-guǎn]", "biblioteca", ""],["书店[shū-diàn]", "libreria", ""],["书包[shū-bāo]", "cartella, zaino per la scuola", ""],["本子[běn-zi]", "quaderno", ""],["课本[kè-běn]", "libro di testo", ""],["课文[kè-wén]", "testo della lezione", ""],["小学[xiǎo-xué]", "scuola elementare", ""],["中学[zhōng-xué]", "scuola media e superiore", ""],["学院[xué-yuàn]", "istituto, facoltà", ""],["一会儿[yí-huìr]", "un momento", ""],["马上[mǎ-shàng]", "subito", ""],["男朋友[nán-péng-you]", "ragazzo, fidanzato", ""],["女朋友[nǚ-péng-you]", "ragazza, fidanzata", ""],["小孩儿[xiǎo-háir]", "bambino", ""],
+ ["电视[diàn-shì]", "televisione (看电视)", ""],["报纸[bào-zhǐ]", "giornale", ""],["男人[nán-rén]", "uomo", ""],["女人[nǚ-rén]", "donna", ""],["教室[jiào-shì]", "aula", ""],["公司[gōng-sī]", "azienda, ditta", ""],
  ["打[dǎ]", "colpire; fare (打电话: telefonare)", ""],
  ["正在[zhèng-zài]","stare facendo",""],["着[zhe]","particella di stato che dura",""],["门[mén]","porta",""],["开[kāi]","aprire",""],["笑[xiào]","sorridere, ridere",""],["看书[kàn-shū]","leggere",""],["做饭[zuò-fàn]","cucinare",""],["打电话[dǎ-diàn-huà]","telefonare",""],["直接[zhí-jiē]","direttamente",""],["进来[jìn-lai]","entrare (verso chi parla)",""],["就[jiù]","subito",""],["干[gàn]","fare (colloquiale)",""]
 ];

@@ -12,5 +12,7 @@ EX.l10=[
  {"t":"say","it":"Chiedi: «Hai mangiato?»","zh":"你[Nǐ] 吃[chī] 饭[fàn] 了[le] 吗[ma] ？"}
 ];
 VOC.l10=[
+ ["早饭[zǎo-fàn]", "colazione", ""],["午饭[wǔ-fàn]", "pranzo", ""],["晚饭[wǎn-fàn]", "cena", ""],["前天[qián-tiān]", "l'altro ieri", ""],["后天[hòu-tiān]", "dopodomani", ""],["面包[miàn-bāo]", "pane", ""],["包子[bāo-zi]", "panino ripieno cotto al vapore", ""],["面条儿[miàn-tiáor]", "spaghetti cinesi", ""],["肉[ròu]", "carne", ""],["记得[jì-de]", "ricordarsi", ""],["忘[wàng]", "dimenticare", ""],["忘记[wàng-jì]", "dimenticare", ""],["见面[jiàn-miàn]", "incontrarsi", ""],["上次[shàng-cì]", "la volta scorsa", ""],["下次[xià-cì]", "la prossima volta", ""],
+ ["饭馆[fàn-guǎn]", "ristorante, trattoria", ""],["米饭[mǐ-fàn]", "riso cotto", ""],["鸡蛋[jī-dàn]", "uovo (di gallina)", ""],["牛奶[niú-nǎi]", "latte", ""],["苹果[píng-guǒ]", "mela", ""],["水果[shuǐ-guǒ]", "frutta", ""],["鱼[yú]", "pesce", ""],
  ["了[le]","particella di azione compiuta",""],["没[méi]","non (non è successo)",""],["已经[yǐ-jīng]","già",""],["还没[hái-méi]","non ancora",""],["做[zuò]","fare",""],["买[mǎi]","comprare",""],["商店[shāng-diàn]","negozio",""],["衣服[yī-fu]","vestiti",""],["件[jiàn]","classificatore per vestiti",""],["看[kàn]","guardare, leggere",""],["电影[diàn-yǐng]","film",""],["以前[yǐ-qián]","prima, in passato",""],["常常[cháng-cháng]","spesso",""]
 ];

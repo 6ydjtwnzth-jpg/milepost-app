@@ -16,6 +16,7 @@ EX.l13=[
  {t:"say",zh:"礼貌地拒绝，并说一个理由。",it:"Mi dispiace, non posso: domani ho un esame.",e:"意大利人拒绝时通常会说理由。"}
 ];
 VOC.l13=[
+ ["sapere", "知道；会", ""],["credere", "相信；认为", ""],["pensare", "想", ""],["sembrare", "好像，看起来", ""],["riuscire", "能够，成功做到", ""],["lasciare", "留下；让", ""],["mettere", "放", ""],
  ["volere","想要",""],["potere","能、可以",""],["dovere","必须",""],["invitare","邀请",""],["entrare","进入",""],["aiutare","帮助",""],["finire","完成、结束",""],
  ["mi dispiace","对不起、很遗憾",""],["volentieri","很乐意",""],["va bene","好的",""],["peccato","可惜","m"],["niente","什么也没有",""],["speciale","特别的",""],
  ["pronto","喂（电话）；准备好的",""],["chiamare","打电话；叫",""],["messaggio","消息","m"],["esame","考试","m"],["più tardi","晚一点",""],["ci sentiamo","再联系",""],

@@ -14,6 +14,8 @@ EX.l3=[
  {"t":"say","it":"«Io sono italiano, e tu?»","zh":"我[Wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] ， 你[nǐ] 呢[ne] ？"}
 ];
 VOC.l3=[
+ ["大学[dà-xué]", "università", ""],["大学生[dà-xué-shēng]", "studente universitario", ""],["外国[wài-guó]", "estero; straniero (外国人)", ""],["国家[guó-jiā]", "paese, stato", ""],["外语[wài-yǔ]", "lingua straniera", ""],["她们[tā-men]", "loro (solo donne)", ""],
+ ["姓[xìng]", "chiamarsi (di cognome): 我姓王", ""],["您[nín]", "Lei (forma di rispetto di 你)", ""],["先生[xiān-sheng]", "signore; marito", ""],["小姐[xiǎo-jie]", "signorina", ""],["同学[tóng-xué]", "compagno di classe", ""],["汉语[Hàn-yǔ]", "lingua cinese (come materia)", ""],["欢迎[huān-yíng]", "benvenuto; accogliere", ""],["这[zhè]", "questo (这个, 这儿)", ""],
  ["他们[tā-men]", "loro (uomini o gruppo misto)", ""],["你们[nǐ-men]", "voi", ""],
  ["是[shì]","essere (tra due nomi)",""],["叫[jiào]","chiamarsi",""],["什么[shén-me]","che cosa, quale",""],["名字[míng-zi]","nome",""],["吗[ma]","particella di domanda sì/no",""],["呢[ne]","«e…?»",""],["他[tā]","lui",""],["她[tā]","lei",""],["我们[wǒ-men]","noi",""],["谁[shéi]","chi",""],["哪[nǎ]","quale",""],["国[guó]","paese",""],["人[rén]","persona",""],["中国[Zhōng-guó]","Cina",""],["意大利[Yì-dà-lì]","Italia",""],["学生[xué-sheng]","studente",""],["老师[lǎo-shī]","insegnante",""],["也[yě]","anche",""],["都[dōu]","tutti, entrambi",""],["认识[rèn-shi]","conoscere (una persona)",""],["高兴[gāo-xìng]","contento",""]
 ];

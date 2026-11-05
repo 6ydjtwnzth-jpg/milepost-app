@@ -11,6 +11,7 @@ EX.l9=[
  {t:"say",zh:"Chiedi a un collega, in modo neutro, dove abita e perché studia il francese",it:"Où est-ce que tu habites ? Pourquoi est-ce que tu apprends le français ?"}
 ];
 VOC.l9=[
+ ["quelqu'un", "qualcuno", ""],["donc", "quindi", ""],["pourquoi pas ?", "perché no?", ""],["juste", "giusto; appena, soltanto", ""],["exactement", "esattamente", ""],["possible", "possibile", ""],["impossible", "impossibile", ""],
  ["où","dove",""],["quand","quando",""],["pourquoi","perché (domanda)",""],["parce que","perché (risposta)",""],["qui","chi",""],["quoi","che cosa",""],["qu'est-ce que","che cosa",""],["est-ce que","(introduce una domanda)",""],
  ["quel","quale, che",""],["quelle","quale, che (f.)",""],["question","domanda","f"],["réponse","risposta","f"],["sondage","sondaggio","m"],["adresse","indirizzo","f"],
  ["week-end","fine settimana","m"],["plage","spiaggia","f"],["soir","sera","m"],["ce soir","stasera",""],["venir","venire",""],["poser une question","fare una domanda",""],

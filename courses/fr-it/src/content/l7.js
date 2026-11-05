@@ -12,6 +12,7 @@ EX.l7=[
  {t:"say",zh:"Di' che lavoro fai, dove abiti e un giorno in cui non lavori",it:"Je suis professeur, j'habite à Bologne et je ne travaille pas le dimanche."}
 ];
 VOC.l7=[
+ ["chaque", "ogni", ""],["équipe", "squadra, gruppo di lavoro", "f"],["chef", "capo; cuoco", "m"],["groupe", "gruppo", "m"],["sérieux", "serio", ""],
  ["travailler","lavorare",""],["habiter","abitare",""],["parler","parlare",""],["aimer","amare; piacere",""],["adorer","adorare",""],["étudier","studiare",""],["chercher","cercare",""],["manger","mangiare",""],
  ["travail","lavoro","m"],["métier","mestiere","m"],["médecin","medico","m"],["infirmier","infermiere","m"],["infirmière","infermiera","f"],["professeur","professore, insegnante","m"],
  ["cuisinier","cuoco","m"],["serveur","cameriere","m"],["serveuse","cameriera","f"],["vendeur","commesso","m"],["vendeuse","commessa","f"],["avocat","avvocato","m"],["ingénieur","ingegnere","m"],

@@ -16,6 +16,7 @@ EX.l12=[
  {t:"say",zh:"Da indicaciones a un amigo: «Sigue recto y luego gira a la derecha.»",it:"Va' sempre dritto e poi gira a destra."}
 ];
 VOC.l12=[
+ ["posto", "lugar, sitio", "m"],["parte", "parte", "f"],["fuori", "fuera", ""],["dentro", "dentro", ""],["sopra", "encima", ""],["ospedale", "hospital", "m"],
  ["stazione","estación","f"],["piazza","plaza","f"],["banca","banco (dinero)","f"],["chiesa","iglesia","f"],["museo","museo","m"],["farmacia","farmacia","f"],["supermercato","supermercado","m"],
  ["autobus","autobús","m"],["fermata","parada","f"],["metro","metro","f"],["destra","derecha","f"],["sinistra","izquierda","f"],["dritto","recto",""],
  ["davanti a","delante de",""],["dietro","detrás de",""],["accanto a","al lado de",""],["di fronte a","enfrente de",""],["lontano","lejos",""],["vicino a","cerca de",""],

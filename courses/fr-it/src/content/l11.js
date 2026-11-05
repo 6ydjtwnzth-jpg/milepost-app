@@ -12,6 +12,7 @@ EX.l11=[
  {t:"say",zh:"Di' che cosa ti piace fare nel fine settimana e una cosa che odi",it:"Le week-end, j'aime faire du vélo et lire. Je déteste faire le ménage."}
 ];
 VOC.l11=[
+ ["jeu", "gioco", "m"],["drôle", "divertente, buffo", ""],["sympa", "simpatico, carino", ""],["gagner", "vincere; guadagnare", ""],["perdre", "perdere", ""],["surprise", "sorpresa", "f"],
  ["temps libre","tempo libero","m"],["détester","odiare",""],["faire","fare",""],["jouer","giocare; suonare",""],["regarder","guardare",""],["lire","leggere",""],["écouter","ascoltare",""],
  ["sport","sport","m"],["sportif","sportivo",""],["foot","calcio","m"],["tennis","tennis","m"],["vélo","bicicletta","m"],["natation","nuoto","f"],["musique","musica","f"],["guitare","chitarra","f"],["piano","pianoforte","m"],
  ["cinéma","cinema","m"],["concert","concerto","m"],["film","film","m"],["samedi","sabato","m"],["souvent","spesso",""],["parfois","a volte",""],["rarement","raramente",""],["ne… jamais","mai",""],

@@ -11,6 +11,8 @@ EX.l9=[
  {"t":"say","it":"Chiedi: «Posso entrare?»","zh":"我[Wǒ] 可以[kě-yǐ] 进来[jìn-lai] 吗[ma] ？"}
 ];
 VOC.l9=[
+ ["帮忙[bāng-máng]", "dare una mano", ""],["帮[bāng]", "aiutare", ""],["不用[bú-yòng]", "non serve, non c'è bisogno", ""],["试[shì]", "provare", ""],["爱好[ài-hào]", "hobby, passione", ""],["上网[shàng-wǎng]", "andare su internet", ""],["网上[wǎng-shang]", "su internet", ""],["请进[qǐng-jìn]", "avanti! (entri pure)", ""],["请坐[qǐng-zuò]", "si accomodi", ""],["最好[zuì-hǎo]", "è meglio (che…)", ""],["哪些[nǎ-xiē]", "quali (plurale)", ""],
+ ["知道[zhī-dào]", "sapere (un fatto)", ""],["可能[kě-néng]", "forse; possibile", ""],["帮助[bāng-zhù]", "aiutare; aiuto", ""],["玩[wán]", "giocare, divertirsi", ""],
  ["问题[wèn-tí]", "domanda; problema (没问题: nessun problema)", ""],
  ["想[xiǎng]","vorrei; pensare",""],["会[huì]","saper fare; probabilmente",""],["能[néng]","potere (capacità)",""],["可以[kě-yǐ]","potere (permesso)",""],["吧[ba]","particella di proposta",""],["来[lái]","venire",""],["走[zǒu]","andare via, camminare",""],["饺子[jiǎo-zi]","ravioli cinesi",""],["筷子[kuài-zi]","bacchette",""],["用[yòng]","usare",""],["带[dài]","portare",""],["当然[dāng-rán]","certo",""],["没问题[méi-wèn-tí]","nessun problema",""],["不要[bú-yào]","non… (divieto)",""],["下雨[xià-yǔ]","piovere",""]
 ];

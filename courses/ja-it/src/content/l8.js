@@ -16,6 +16,7 @@ EX.l8=[
  {t:"say",it:"Chiedi quanto costa questo (vicino a te) e se puoi pagare con la carta.",jp:"これ は いくら です か 。 カード で いい です か 。"}
 ];
 VOC.l8=[
+ ["牛乳[ぎゅうにゅう]", "latte", "n"],["紅茶[こうちゃ]", "tè nero", "n"],["卵[たまご]", "uovo", "n"],["砂糖[さとう]", "zucchero", "n"],["塩[しお]", "sale", "n"],["醤油[しょうゆ]", "salsa di soia", "n"],["果物[くだもの]", "frutta", "n"],["お弁当[べんとう]", "pranzo al sacco (bentō)", "n"],["カップ", "tazza", "n"],["コップ", "bicchiere", "n"],["喫茶店[きっさてん]", "caffè, bar", "n"],["どうも", "grazie (informale); molto", "x"],
  ["ありがとう ございました", "grazie (per qualcosa che è già successo)", "x"],
  ["コンビニ","konbini, minimarket","n"],["おにぎり","onigiri (polpetta di riso)","n"],["サンドイッチ","panino, tramezzino","n"],["お茶[ちゃ]","tè verde","n"],["お水[みず]","acqua","n"],["ホット","caldo (bevanda)","x"],["アイス","freddo, con ghiaccio","x"],["ケーキ","torta, dolce","n"],
  ["〜 円[えん]","… yen","x"],["百[ひゃく]","cento","n"],["千[せん]","mille","n"],["一万[いちまん]","diecimila","n"],["いくら","quanto costa?","x"],["ぜんぶ で","in tutto","x"],["ください","mi dia, per favore","x"],["お願[ねが]いします","per favore","x"],

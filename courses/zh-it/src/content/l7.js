@@ -10,6 +10,8 @@ EX.l7=[
  {"t":"say","it":"«Sul tavolo c'è un libro.»","zh":"桌子[Zhuō-zi] 上[shang] 有[yǒu] 一[yì] 本[běn] 书[shū] 。"}
 ];
 VOC.l7=[
+ ["这里[zhè-li]", "qui (= 这儿)", ""],["那里[nà-li]", "lì (= 那儿)", ""],["这边[zhè-bian]", "da questa parte", ""],["那边[nà-bian]", "da quella parte", ""],["里边[lǐ-bian]", "dentro", ""],["外边[wài-bian]", "fuori", ""],["上边[shàng-bian]", "sopra", ""],["下边[xià-bian]", "sotto", ""],["中间[zhōng-jiān]", "in mezzo", ""],["家里[jiā-li]", "a casa, in famiglia", ""],["在家[zài-jiā]", "essere a casa", ""],
+ ["前面[qián-mian]", "davanti", ""],["后面[hòu-mian]", "dietro", ""],["旁边[páng-biān]", "accanto", ""],["左边[zuǒ-bian]", "a sinistra", ""],["右边[yòu-bian]", "a destra", ""],["椅子[yǐ-zi]", "sedia", ""],["房间[fáng-jiān]", "stanza, camera", ""],["电脑[diàn-nǎo]", "computer", ""],
  ["吃[chī]", "mangiare", ""],["饭[fàn]", "riso cotto; pasto (吃饭: mangiare)", ""],
  ["在[zài]","trovarsi in",""],["哪儿[nǎr]","dove",""],["这儿[zhèr]","qui",""],["那儿[nàr]","lì",""],["去[qù]","andare",""],["银行[yín-háng]","banca",""],["工作[gōng-zuò]","lavorare; lavoro",""],["桌子[zhuō-zi]","tavolo",""],["上[shang]","sopra",""],["下[xia]","sotto",""],["里[li]","dentro",""],["喂[wéi]","pronto? (al telefono)",""],["现在[xiàn-zài]","adesso",""],["等[děng]","aspettare",""],["狗[gǒu]","cane",""],["吃饭[chī-fàn]","mangiare (un pasto)",""],["很多[hěn-duō]","tanti, molto",""]
 ];

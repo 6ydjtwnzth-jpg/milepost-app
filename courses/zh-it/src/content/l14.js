@@ -10,6 +10,8 @@ EX.l14=[
  {"t":"say","it":"«Ho studiato cinese per due anni.»","zh":"我[Wǒ] 学[xué] 了[le] 两[liǎng] 年[nián] 中文[Zhōng-wén] 。"}
 ];
 VOC.l14=[
+ ["有时候[yǒu-shí-hou]", "a volte", ""],["常[cháng]", "spesso (常常)", ""],["打球[dǎ-qiú]", "giocare a palla", ""],["球[qiú]", "palla", ""],["先[xiān]", "prima (先……再……)", ""],["最后[zuì-hòu]", "alla fine; ultimo", ""],["一边[yì-biān]", "mentre (一边……一边……)", ""],["半天[bàn-tiān]", "mezza giornata; un bel po'", ""],["半年[bàn-nián]", "sei mesi", ""],["上学[shàng-xué]", "andare a scuola", ""],["放学[fàng-xué]", "uscire da scuola", ""],["下课[xià-kè]", "finire la lezione", ""],["下班[xià-bān]", "uscire dal lavoro", ""],["放假[fàng-jià]", "andare in vacanza", ""],
+ ["运动[yùn-dòng]", "sport; fare sport", ""],["跑步[pǎo-bù]", "correre (fare jogging)", ""],["游泳[yóu-yǒng]", "nuotare", ""],["打篮球[dǎ-lán-qiú]", "giocare a pallacanestro", ""],["踢[tī]", "calciare (踢足球: giocare a calcio)", ""],["开始[kāi-shǐ]", "cominciare", ""],
  ["学[xué]", "studiare, imparare", ""],["长[cháng]", "lungo (多长时间: quanto tempo)", ""],["课[kè]", "lezione (上课: fare lezione)", ""],["睡[shuì]", "dormire", ""],["真[zhēn]", "davvero", ""],
  ["多长时间[duō-cháng-shí-jiān]","quanto tempo",""],["小时[xiǎo-shí]","ora (durata)",""],["分钟[fēn-zhōng]","minuto (durata)",""],["天[tiān]","giorno",""],["个月[ge-yuè]","mese (durata)",""],["住[zhù]","abitare",""],["只[zhǐ]","solo, soltanto",""],["每[měi]","ogni",""],["才[cái]","solo, appena",""],["厉害[lì-hai]","bravissimo",""],["一下[yí-xià]","un attimo",""],["久[jiǔ]","a lungo",""]
 ];

@@ -16,6 +16,7 @@ EX.l19=[
  {t:"say",it:"Dai un'opinione: «Penso che il giapponese sia difficile, ma divertente.»",jp:"日本語[にほんご] は むずかしい です が 、 おもしろい と 思[おも]います 。"}
 ];
 VOC.l19=[
+ ["黄色[きいろ]い", "giallo", "a"],["茶色[ちゃいろ]", "marrone", "n"],["緑[みどり]", "verde", "n"],["太[ふと]い", "grosso, spesso", "a"],["細[ほそ]い", "sottile", "a"],["丸[まる]い", "rotondo", "a"],["大切[たいせつ]", "importante, prezioso", "a"],["丈夫[じょうぶ]", "robusto, resistente", "a"],["いや", "sgradevole, che non piace", "a"],["りっぱ", "splendido, magnifico", "a"],["〜 など", "eccetera", "x"],
  ["どちら","quale (tra due)?","x"],["〜 の ほう が","(preferenza) più…","x"],["より","più di, rispetto a","x"],["〜 ほど 〜ない","non … come","x"],["いちばん","il più","x"],["〜 の 中[なか] で","tra…","x"],["〜 と 思[おも]います","penso che…","x"],["どう 思[おも]います か","che cosa ne pensi?","x"],
  ["やっぱり","alla fine, come pensavo","x"],["じょうだん","scherzo","n"],["ほんとう","vero","n"],["きせつ","stagione","n"],["もの","cosa, oggetto","n"],["むずかしい","difficile","a"],["やさしい","facile; gentile","a"],["はやい","presto; veloce","a"],["おそい","tardi; lento","a"],["ちかい","vicino","a"],["とおい","lontano","a"],["べんり","comodo, pratico","a"],["どちら も","tutti e due","x"],["かも しれません","forse","x"]
 ];

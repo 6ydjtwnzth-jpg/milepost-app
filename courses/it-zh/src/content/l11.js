@@ -15,6 +15,7 @@ EX.l11=[
  {t:"say",zh:"邀请朋友：「今晚你和我们一起出去吗？」",it:"Stasera esci con noi?"}
 ];
 VOC.l11=[
+ ["divertente", "有趣的", ""],["amore", "爱；爱情", "m"],["vita", "生活；生命", "f"],["prova", "尝试；考试", "f"],["squadra", "队", "f"],
  ["tempo libero","空闲时间","m"],["piacere","让……喜欢",""],["mi piace","我喜欢",""],["andare","去",""],["venire","来",""],["uscire","出去",""],
  ["leggere","读、看书",""],["ascoltare","听",""],["cucinare","做饭",""],["ballare","跳舞",""],["nuotare","游泳",""],["viaggiare","旅行",""],
  ["sport","运动","m"],["calcio","足球","m"],["film","电影","m"],["cinema","电影院","m"],["concerto","音乐会","m"],["libro di storia","历史书","m"],

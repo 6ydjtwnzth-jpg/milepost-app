@@ -19,6 +19,7 @@ EX.l6=[
  {t:"say",it:"Descrivi la tua città: «È tranquilla, ma non è molto grande.»",jp:"しずか です が 、 あまり 大[おお]きくない です 。"}
 ];
 VOC.l6=[
+ ["青[あお]い", "blu, azzurro", "a"],["赤[あか]い", "rosso", "a"],["白[しろ]い", "bianco", "a"],["黒[くろ]い", "nero", "a"],["明[あか]るい", "luminoso; allegro", "a"],["暗[くら]い", "buio; cupo", "a"],["広[ひろ]い", "spazioso, largo", "a"],["狭[せま]い", "stretto, piccolo (di spazio)", "a"],["若[わか]い", "giovane", "a"],["悪[わる]い", "cattivo, brutto", "a"],["可愛[かわい]い", "carino", "a"],["同[おな]じ", "uguale, lo stesso", "a"],
  ["お元気[げんき] です か", "come sta?", "x"],["それに", "e poi, inoltre", "x"],["子[こ]ども", "bambino", "n"],
  ["元気[げんき]","in forma, in salute","a"],["大[おお]きい","grande","a"],["小[ちい]さい","piccolo","a"],["たかい","alto; caro","a"],["やすい","economico","a"],["おいしい","buono (cibo)","a"],["あつい","caldo","a"],["さむい","freddo (tempo)","a"],
  ["あたらしい","nuovo","a"],["ふるい","vecchio (cose)","a"],["おもしろい","interessante, divertente","a"],["しずか","tranquillo","a"],["にぎやか","vivace, animato","a"],["ゆうめい","famoso","a"],["しんせつ","gentile","a"],

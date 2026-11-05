@@ -17,6 +17,7 @@ EX.l4=[
  {t:"say",it:"Di' che il telefono è tuo.",jp:"それ は わたし の でんわ です 。",e:"Anche: わたし の です."}
 ];
 VOC.l4=[
+ ["鉛筆[えんぴつ]", "matita", "n"],["辞書[じしょ]", "dizionario", "n"],["時計[とけい]", "orologio", "n"],["財布[さいふ]", "portafoglio", "n"],["鍵[かぎ]", "chiave", "n"],["ノート", "quaderno", "n"],["雑誌[ざっし]", "rivista", "n"],["新聞[しんぶん]", "giornale", "n"],["帽子[ぼうし]", "cappello", "n"],["眼鏡[めがね]", "occhiali", "n"],["テーブル", "tavolo", "n"],
  ["へえ", "oh! davvero? (meraviglia)", "x"],["千[せん]", "mille", "n"],["えん", "yen", "n"],["〜 を ください", "mi dia…, vorrei…", "x"],
  ["これ","questo (vicino a me)","x"],["それ","quello (vicino a te)","x"],["あれ","quello (lontano)","x"],["どれ","quale?","x"],["この","questo + nome","x"],["その","quel + nome (vicino a te)","x"],["あの","quel + nome (lontano)","x"],
  ["何[なん]","che cosa?","x"],["だれ","chi?","x"],["ほん","libro","n"],["かばん","borsa, zaino","n"],["ペン","penna","n"],["まくら","cuscino","n"],["ふろしき","furoshiki (telo per avvolgere)","n"],["ふくろ","busta, sacchetto","n"],["おかし","dolci, snack","n"],

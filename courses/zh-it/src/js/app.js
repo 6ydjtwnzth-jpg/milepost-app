@@ -3,8 +3,8 @@ var KEY="cinese-per-italiani-v1";
 var state={best:{},box:{},can:{}};
 try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);state.best=p.best||{};state.box=p.box||{};state.can=p.can||{}}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify({best:state.best,box:state.box,can:state.can}))}catch(e){}}
-var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true,voice:""};
-try{var pr=JSON.parse(localStorage.getItem(KEY+"-prefs")||"{}");["tr","slow","fcm","furi","hz","fcr"].forEach(function(k){if(pr[k]!==undefined)prefs[k]=pr[k]})}catch(e){}
+var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true,pya:true,voice:""};
+try{var pr=JSON.parse(localStorage.getItem(KEY+"-prefs")||"{}");["tr","slow","fcm","furi","hz","fcr","pya"].forEach(function(k){if(pr[k]!==undefined)prefs[k]=pr[k]})}catch(e){}
 function savePrefs(){try{localStorage.setItem(KEY+"-prefs",JSON.stringify(prefs))}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
@@ -48,6 +48,13 @@ function ttsSpeak(t,fin,wait,pitch){var txt=jplain(t);
     u.onend=fin;u.onerror=function(){setTimeout(fin,200)};speechSynthesis.speak(u);
     if(wait)setTimeout(fin,Math.max(2500,txt.length*(prefs.slow?1100:750)));
   }catch(e){if(wait)setTimeout(fin,800)}}
+/* tone exercises: each listen picks one of 4 recorded voices (2 women, 2 men), so the ear learns the tone and not
+   one speaker (high-variability training, Wang et al. 1999). Falls back to the normal voice if a file is missing. */
+var VAR_N=4,varLast=0;
+function speakVar(t){stopPlayers();stopAll();var k;do{k=1+Math.floor(Math.random()*VAR_N)}while(k===varLast&&VAR_N>1);varLast=k;
+  if(!AUD){speak(t);return}
+  try{var src="audio/"+cyrb53(akey(t)).toString(36)+"-v"+k+".mp3";AUD.onended=null;AUD.onerror=function(){AUD.onerror=null;speak(t)};AUD.src=src;
+    var r=prefs.slow?.75:1;AUD.defaultPlaybackRate=r;AUD.playbackRate=r;var pp=AUD.play();if(pp&&pp.catch)pp.catch(function(e){if(e&&e.name==="AbortError")return;speak(t)})}catch(e){speak(t)}}
 function speak(t,cb,opt){
   opt=opt||{};if(!opt.chain)stopPlayers();
   var my=++speakSeq,done=false,fell=false;
@@ -240,6 +247,14 @@ updateToc();
 
 /* ---------- parole e vocabolario ---------- */
 var W=[];LESSONS.forEach(function(L,li){(VOC[L.id]||[]).forEach(function(r){W.push([r[0],r[1],r[2],li,L.id]);var s=jsurf(r[0]);if(!DICT[s])DICT[s]=r[1];if(!DICT[r[0]])DICT[r[0]]=r[1]})});
+/* ---------- fading pinyin: on a lesson page or step, words taught 3 or more lessons earlier lose their pinyin
+   (tap them to see it). The help steps back once the word is known, as the rōmaji does in the Japanese course. */
+var PYI={};W.forEach(function(w){var k=jsurf(w[0]);if(PYI[k]===undefined)PYI[k]=w[3]});
+function pyUnit(el){var s=el.closest&&el.closest("section.lesson,[data-unit]");if(!s)return -1;var id=s.getAttribute("data-unit")||s.id;return LESSONS.findIndex(function(L){return L.id===id})}
+function autoPy(root){(root.querySelectorAll?root:document).querySelectorAll(".w[data-say]").forEach(function(el){var u=pyUnit(el);if(u<0)return;
+  var k=jsurf(el.getAttribute("data-say")),li=PYI[k];el.classList.toggle("pyk",li!==undefined&&li<=u-3)})}
+autoPy(document);
+(function(){var t=null;try{new MutationObserver(function(){if(t)return;t=requestAnimationFrame(function(){t=null;autoPy(document)})}).observe(document.body,{childList:true,subtree:true})}catch(e){}})();
 var TYP={n:"nome",v:"verbo",a:"aggettivo",x:"espressione"};
 function wordHTML(r){return '<span class="jl" lang="zh-CN">'+jpHTML(r[0],true)+'</span>'}
 function lessonLabel(L){return L.kind==="lesson"?"Lezione "+L.n+" · "+L.t:L.t}
@@ -289,13 +304,15 @@ $$("[data-fcm]").forEach(function(b){b.onclick=function(){fcMode(b.getAttribute(
 
 /* ---------- barra in alto ---------- */
 $("#totop").onclick=function(){try{window.scrollTo({top:0,behavior:rmotion()?"auto":"smooth"})}catch(e){window.scrollTo(0,0)}};
-function applyPrefs(){var B=document.body;B.classList.toggle("no-tr",!prefs.tr);B.classList.toggle("no-furi",!prefs.furi);B.classList.toggle("no-hz",!prefs.hz);
+function applyPrefs(){var B=document.body;B.classList.toggle("no-tr",!prefs.tr);B.classList.toggle("no-furi",!prefs.furi);B.classList.toggle("py-auto",!!prefs.furi&&!!prefs.pya);B.classList.toggle("no-hz",!prefs.hz);
   $("#tbtr").setAttribute("aria-pressed",prefs.tr?"true":"false");$("#tbtrl").textContent=prefs.tr?"sì":"no";
   $("#tbfuri").setAttribute("aria-pressed",prefs.furi?"true":"false");$("#tbfuril").textContent=prefs.furi?"sì":"no";
+  var pa=$("#tbpya");if(pa){pa.setAttribute("aria-pressed",prefs.pya?"true":"false");$("#tbpyal").textContent=prefs.pya?"sì":"no";pa.disabled=!prefs.furi}
   $("#tbro").setAttribute("aria-pressed",prefs.hz?"true":"false");$("#tbrol").textContent=prefs.hz?"sì":"no";
   $("#tbslow").setAttribute("aria-pressed",prefs.slow?"true":"false");$("#tbslowl").textContent=prefs.slow?"lenta":"normale"}
 $("#tbtr").onclick=function(){prefs.tr=!prefs.tr;savePrefs();applyPrefs()};
 $("#tbfuri").onclick=function(){prefs.furi=!prefs.furi;if(!prefs.furi)prefs.hz=true;savePrefs();applyPrefs()};
+if($("#tbpya"))$("#tbpya").onclick=function(){prefs.pya=!prefs.pya;savePrefs();applyPrefs()};
 $("#tbro").onclick=function(){prefs.hz=!prefs.hz;if(!prefs.hz)prefs.furi=true;savePrefs();applyPrefs()};
 $("#tbslow").onclick=function(){prefs.slow=!prefs.slow;savePrefs();applyPrefs();speak("你好[nǐ-hǎo]")};
 applyPrefs();

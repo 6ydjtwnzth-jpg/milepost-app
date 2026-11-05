@@ -12,6 +12,7 @@ EX.l15=[
  {t:"say",zh:"Racconta il tuo fine settimana in due frasi al passato",it:"Samedi, j'ai fait du sport. Dimanche, j'ai regardé un film avec mes amis."}
 ];
 VOC.l15=[
+ ["fin", "fine", "f"],["première", "prima", ""],["nouvelle", "notizia", "f"],["revenir", "tornare", ""],["façon", "modo (de toute façon: comunque)", "f"],
  ["hier","ieri",""],["hier soir","ieri sera",""],["dernier","scorso, ultimo",""],["passer","passare",""],["visiter","visitare (un luogo)",""],["promenade","passeggiata","f"],
  ["crêpe","crêpe","f"],["délicieux","delizioso",""],["chance","fortuna","f"],["avoir de la chance","essere fortunato",""],["tout le week-end","tutto il fine settimana",""],["match","partita","m"],
  ["voir","vedere",""],["écrire","scrivere",""],["mettre","mettere",""],["dire","dire",""],["attendre","aspettare",""],["bus","autobus","m"],["métro","metropolitana","m"],["lettre","lettera","f"],

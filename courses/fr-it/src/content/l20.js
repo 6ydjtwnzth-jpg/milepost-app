@@ -11,6 +11,7 @@ EX.l20=[
  {t:"say",zh:"In negozio: cerchi un maglione, chiedi se puoi provarlo e quanto costa",it:"Je cherche un pull. Je peux l'essayer ? Il coûte combien ?"}
 ];
 VOC.l20=[
+ ["clair", "chiaro", ""],["faux", "falso, sbagliato", ""],
  ["veste","giacca","f"],["pull","maglione","m"],["chemise","camicia","f"],["pantalon","pantaloni","m"],["jupe","gonna","f"],["robe","vestito (da donna)","f"],["chaussures","scarpe","fp"],["lunettes","occhiali","fp"],
  ["taille","taglia","f"],["cabine","camerino","f"],["essayer","provare",""],["trouver","trovare",""],["acheter","comprare",""],["aider","aiutare",""],["conduire","guidare",""],
  ["en solde","in saldo",""],["à la mode","di moda",""],["au fond","in fondo",""],["laine","lana","f"],["automne","autunno","m"],["celle-ci","questa qui",""],["aller bien","stare bene (vestito)",""],

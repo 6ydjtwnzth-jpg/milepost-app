@@ -16,6 +16,7 @@ EX.l4=[
  {t:"say",zh:"指着一个东西问：「这是什么？」",it:"Che cos'è?"}
 ];
 VOC.l4=[
+ ["uomo", "男人", "m"],["donna", "女人", "f"],["cosa", "东西；事情", "f"],["parola", "词，单词", "f"],["mondo", "世界", "m"],["tipo", "类型；家伙", "m"],
  ["la mia", "我的（阴性；物主代词见第五课）", ""],["i tuoi", "你的（阳性复数）", ""],
  ["libro","书","m"],["quaderno","本子","m"],["penna","笔","f"],["giornale","报纸","m"],["camera","房间、卧室","f"],["letto","床","m"],["scrivania","书桌","f"],
  ["tavolo","桌子","m"],["sedia","椅子","f"],["armadio","衣柜","m"],["finestra","窗户","f"],["porta","门","f"],["zaino","背包","m"],["chiave","钥匙","f"],

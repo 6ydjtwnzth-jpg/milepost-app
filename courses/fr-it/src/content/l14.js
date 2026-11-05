@@ -11,6 +11,7 @@ EX.l14=[
  {t:"say",zh:"Al mercato: chiedi un chilo di mele e della frutta di stagione, poi chiedi quanto costa",it:"Je voudrais un kilo de pommes et des fruits de saison. Ça fait combien ?"}
 ];
 VOC.l14=[
+ ["plutôt", "piuttosto", ""],["assez", "abbastanza", ""],["sauf", "tranne", ""],["moyen", "mezzo, modo", "m"],
  ["qu'est-ce que je vous sers ?", "che cosa le servo? (al banco)", ""],
  ["marché","mercato","m"],["pain","pane","m"],["fromage","formaggio","m"],["viande","carne","f"],["poisson","pesce","m"],["poulet","pollo","m"],["légume","verdura, ortaggio","m"],["fruit","frutto","m"],
  ["tomate","pomodoro","f"],["pomme","mela","f"],["fraise","fragola","f"],["confiture","marmellata","f"],["chèvre","capra","f"],["kilo","chilo","m"],["barquette","vaschetta","f"],

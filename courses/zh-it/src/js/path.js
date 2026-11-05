@@ -107,7 +107,7 @@ document.body.appendChild(ST);
 var stIn=$(".st-in",ST),stGo=$(".st-go",ST),stBody=$(".st-body",ST),stCur=null;
 $(".st-x",ST).onclick=function(){closeModal()};stBody.addEventListener("scroll",function(){if(tipFor)hideTip()},{passive:true});
 function runStage(o){/* o: {title,color,pages:[{draw(box,release),gate,go}],done()} */
-  stCur=o;var i=0;ST.className="stage t-"+(o.color||"blue")+(o.early?" early":"");$(".st-t",ST).textContent=o.title;
+  stCur=o;var i=0;ST.className="stage t-"+(o.color||"blue")+(o.early?" early":"");if(o.unit)ST.setAttribute("data-unit",o.unit);else ST.removeAttribute("data-unit");$(".st-t",ST).textContent=o.title;
   function show(){quiet();var pg=o.pages[i];stIn.innerHTML="";var box=document.createElement("div");box.className="st-page";stIn.appendChild(box);
     stGo.disabled=!!pg.gate;stGo.textContent=pg.go||(i<o.pages.length-1?"Continua":"Fine");
     pg.draw(box,function(label){stGo.disabled=false;if(label)stGo.textContent=label;stGo.classList.add("ready")});
@@ -155,7 +155,7 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-pc">'+Math.round(R.n/Math.max(1,R.m)*100)+'%</div><h3>'+(pass?(k===3?"Punteggio pieno! 太棒了！":"Lezione verificata"):"Da ripassare")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"Hai completato questa parte: sei al livello "+(WORLDS[U.w-1]||{}).level+".":"La padronanza della lezione è aggiornata."):"Sotto il 70%: rivedi le parti più difficili e riprova quando vuoi. Puoi comunque andare avanti.")+'</p>'+
         (pass&&lis?'<div class="res-can"><b>Adesso sai:</b><ul>'+lis+'</ul></div>':'')+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn again" type="button">Riprova</button></div></div>';
       $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"Torna alla lezione"})}
-  runStage({title:title,color:U.color,early:U.kind==="lesson"&&U.n<=4,pages:pages,done:function(){
+  runStage({title:title,color:U.color,unit:U.id,early:U.kind==="lesson"&&U.n<=4,pages:pages,done:function(){
     if(st.k!=="test"){var fresh=markStep(id,st.key);if(fresh)toast('<b>✓ '+esc(st.zh)+'</b> · '+goalMsg())}
     drawPath();if(!opt.skip)openSheet(id)}})}
 

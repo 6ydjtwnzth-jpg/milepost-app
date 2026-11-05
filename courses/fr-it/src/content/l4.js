@@ -12,6 +12,7 @@ EX.l4=[
  {t:"say",zh:"Descrivi la tua camera: c'è un letto, un armadio, non c'è la tv",it:"Il y a un lit et une armoire. Il n'y a pas de télé."}
 ];
 VOC.l4=[
+ ["homme", "uomo", "m"],["chose", "cosa", "f"],["les gens", "la gente, le persone", ""],["monde", "mondo; gente (tout le monde: tutti)", "m"],["mot", "parola", "m"],["photo", "foto", "f"],
  ["là", "lì, là", ""],["pas de problème", "nessun problema", ""],["wifi", "wi-fi", "m"],
  ["chambre","camera da letto","f"],["lit","letto","m"],["table","tavolo","f"],["chaise","sedia","f"],["armoire","armadio","f"],["fenêtre","finestra","f"],["porte","porta","f"],
  ["salle de bains","bagno","f"],["douche","doccia","f"],["baignoire","vasca da bagno","f"],["cuisine","cucina","f"],["salon","salotto","m"],["jardin","giardino","m"],

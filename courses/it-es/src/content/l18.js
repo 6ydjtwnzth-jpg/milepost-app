@@ -14,6 +14,7 @@ EX.l18=[
  {t:"say",zh:"Sin mirar el modelo, cuenta algo que te pasó (primero el fondo, luego los hechos)",it:"L'anno scorso ero a Roma con un'amica. Faceva caldo. Cercavamo il Colosseo, ma non lo trovavamo. Alla fine abbiamo chiesto a un signore.",e:"Usa tu historia."}
 ];
 VOC.l18=[
+ ["ultimo", "último", ""],["punto", "punto", "m"],["domanda", "pregunta", "f"],
  ["succedere","pasar, suceder",""],["storia","historia","f"],["mentre","mientras",""],["all'improvviso","de repente",""],["alla fine","al final",""],["lo stesso","igualmente, de todas formas",""],
  ["quindi","así que",""],["scendere","bajar",""],["salire","subir",""],["portafoglio","cartera","m"],["polizia","policía (la institución)","f"],["poliziotto","policía (la persona)","m"],
  ["fortuna","suerte","f"],["strano","raro, extraño",""],["gente","gente","f"],["luce","luz","f"],["candela","vela","f"],["vicina","vecina","f"],

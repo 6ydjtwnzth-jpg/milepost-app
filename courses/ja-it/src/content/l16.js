@@ -17,6 +17,7 @@ EX.l16=[
  {t:"say",it:"Chiedi quanto ci vuole in treno fino a Kyoto.",jp:"きょうと まで 電車[でんしゃ] で どのくらい かかります か 。"}
 ];
 VOC.l16=[
+ ["東[ひがし]", "est", "n"],["西[にし]", "ovest", "n"],["南[みなみ]", "sud", "n"],["北[きた]", "nord", "n"],["荷物[にもつ]", "bagaglio", "n"],["自転車[じてんしゃ]", "bicicletta", "n"],["自動車[じどうしゃ]", "automobile", "n"],["降[お]ります", "scendere (da un mezzo)", "v"],["飛[と]びます", "volare", "v"],
  ["ふつか", "il 2 (del mese); due giorni", "n"],["みっか", "il 3 (del mese)", "n"],["よっか", "il 4 (del mese)", "n"],["いつか", "il 5 (del mese)", "n"],["むいか", "il 6 (del mese)", "n"],["なのか", "il 7 (del mese)", "n"],["ようか", "l'8 (del mese)", "n"],["ここのか", "il 9 (del mese)", "n"],["とおか", "il 10 (del mese)", "n"],["のぼります", "salire (su un monte)", "v"],["ほっかいどう", "Hokkaidō (isola del nord)", "n"],["おおさか", "Osaka", "n"],
  ["〜 たい です","voglio…","x"],["旅行[りょこう]","viaggio","n"],["夏休[なつやす]み","vacanze estive","n"],["出発[しゅっぱつ]します","partire","v"],["乗[の]ります","salire (su un mezzo)","v"],["かかります","volerci (tempo, soldi)","v"],["どのくらい","quanto (tempo)?","x"],["ぐらい","circa","x"],["〜 時間[じかん]","… ore (durata)","x"],
  ["ひこうき","aereo","n"],["しんかんせん","shinkansen, treno ad alta velocità","n"],["くるま","automobile","n"],["バス","autobus","n"],["あるいて","a piedi","x"],["きっぷ","biglietto","n"],["くうこう","aeroporto","n"],

@@ -83,3 +83,6 @@ td.hz{font-size:28px;font-family:var(--f-body)}
 @media (prefers-reduced-motion:reduce){.tonebtn:active,.zcard:active{transform:none}}
 .tonebtn .tp{font-size:17px;font-weight:800}
 .tonebtn small{font-family:var(--f-body);font-weight:500;font-size:12px;color:var(--muted)}
+
+/* fading pinyin: words learned 3+ lessons earlier */
+body.py-auto .pyk rt{visibility:hidden}

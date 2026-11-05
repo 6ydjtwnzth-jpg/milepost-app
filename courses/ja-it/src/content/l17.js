@@ -18,6 +18,8 @@ EX.l17=[
  {t:"say",it:"Racconta: «Da bambino abitavo a Napoli. Giocavo spesso a calcio.»",jp:"子[こ]ども の とき 、 ナポリ に 住[す]んで いました 。 よく サッカー を しました 。"}
 ];
 VOC.l17=[
+ ["〜 キロ", "chilo; chilometro", "x"],["メートル", "metro", "n"],["タクシー", "taxi", "n"],["池[いけ]", "stagno", "n"],["村[むら]", "villaggio", "n"],
+ ["先週[せんしゅう]", "la settimana scorsa", "n"],["先月[せんげつ]", "il mese scorso", "n"],["おととし", "due anni fa", "n"],["生[う]まれます", "nascere", "v"],["〜 か月[げつ]", "… mesi (durata)", "x"],["〜 週間[しゅうかん]", "… settimane (durata)", "x"],["初[はじ]めて", "per la prima volta", "x"],["初[はじ]め", "inizio", "n"],["だんだん", "a poco a poco", "x"],["覚[おぼ]えます", "ricordare, imparare a memoria", "v"],["やる", "fare (informale)", "v"],
  ["川[かわ]", "fiume", "n"],["車[くるま]", "automobile", "n"],
  ["子[こ]ども の とき","da bambino","x"],["〜 とき","quando…","x"],["〜た こと が あります","ho già fatto…","x"],["一度[いちど]","una volta","n"],["〜 回[かい]","… volte","x"],["まだ","ancora (non)","x"],["そのころ","a quel tempo","x"],["だから","per questo, quindi","x"],
  ["住[す]む","abitare","v"],["およぐ","nuotare","v"],["あそぶ","giocare, divertirsi","v"],["はじめる","cominciare","v"],["わすれる","dimenticare","v"],["とめる","fermare, parcheggiare","v"],["わかる","capire","v"],

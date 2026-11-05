@@ -18,6 +18,7 @@ EX.l13=[
  {t:"say",it:"In un museo, chiedi se puoi fare una foto.",jp:"しゃしん を とって も いい です か 。"}
 ];
 VOC.l13=[
+ ["窓[まど]", "finestra", "n"],["ドア", "porta", "n"],["電気[でんき]", "luce; elettricità", "n"],["つけます", "accendere", "v"],["消[け]します", "spegnere; cancellare", "v"],["開[あ]けます", "aprire", "v"],["開[あ]きます", "aprirsi (si apre)", "v"],["閉[し]めます", "chiudere", "v"],["閉[し]まります", "chiudersi (si chiude)", "v"],["入[い]れます", "mettere dentro", "v"],["出[だ]します", "tirare fuori; consegnare", "v"],["見[み]せます", "mostrare", "v"],["押[お]します", "premere, spingere", "v"],["引[ひ]きます", "tirare", "v"],["貸[か]します", "prestare", "v"],["借[か]ります", "prendere in prestito", "v"],["返[かえ]します", "restituire", "v"],["渡[わた]します", "consegnare", "v"],["持[も]ちます", "tenere, portare", "v"],["すぐに", "subito", "x"],
  ["わかります", "capire; sapere", "v"],["すこし", "un po'", "x"],
  ["待[ま]つ","aspettare","v"],["書[か]く","scrivere","v"],["読[よ]む","leggere","v"],["話[はな]す","parlare","v"],["聞[き]く","ascoltare; chiedere","v"],["言[い]う","dire","v"],["買[か]う","comprare","v"],["使[つか]う","usare","v"],["とる","prendere; fare (foto)","v"],["すう","fumare; aspirare","v"],
  ["〜て ください","per favore, faccia…","x"],["〜て も いい です か","posso…?","x"],["〜て は いけません","non si può…","x"],["もしもし","pronto (al telefono)","x"],["すぐ","subito","x"],["ゆっくり","piano, con calma","x"],["もう 一度[いちど]","ancora una volta","x"],

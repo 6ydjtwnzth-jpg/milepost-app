@@ -16,6 +16,7 @@ EX.l12=[
  {t:"say",it:"Spiega: «Vada dritto e al semaforo giri a destra.»",jp:"まっすぐ 行[い]って ください 。 しんごう を 右[みぎ] に まがって ください 。"}
 ];
 VOC.l12=[
+ ["交差点[こうさてん]", "incrocio", "n"],["角[かど]", "angolo", "n"],["地下鉄[ちかてつ]", "metropolitana", "n"],["地図[ちず]", "cartina", "n"],["建物[たてもの]", "edificio", "n"],["大使館[たいしかん]", "ambasciata", "n"],["八百屋[やおや]", "fruttivendolo", "n"],["デパート", "grande magazzino", "n"],["食堂[しょくどう]", "mensa", "n"],["入口[いりぐち]", "ingresso", "n"],["出口[でぐち]", "uscita", "n"],["曲[ま]がります", "girare (svoltare)", "v"],["渡[わた]ります", "attraversare", "v"],["向[む]こう", "dall'altra parte, laggiù", "n"],["横[よこ]", "di fianco", "n"],["そば", "vicino, accanto", "n"],["所[ところ]", "posto, luogo", "n"],
  ["つくえ", "scrivania", "n"],
  ["上[うえ]","sopra","n"],["下[した]","sotto","n"],["中[なか]","dentro","n"],["外[そと]","fuori","n"],["前[まえ]","davanti","n"],["うしろ","dietro","n"],["となり","accanto","n"],["ちかく","vicino","n"],["右[みぎ]","destra","n"],["左[ひだり]","sinistra","n"],
  ["ここ","qui","x"],["そこ","lì","x"],["あそこ","là","x"],["道[みち]","strada","n"],["しんごう","semaforo","n"],["ゆうびんきょく","ufficio postale","n"],["こうえん","parco","n"],["ホテル","hotel","n"],["こうばん","posto di polizia","n"],["東口[ひがしぐち]","uscita est","n"],

@@ -15,6 +15,7 @@ EX.l8=[
  {t:"say",zh:"Al pagar di «Aquí tiene» y al salir «Gracias, adiós»",it:"Ecco a Lei. Grazie, arrivederci!"}
 ];
 VOC.l8=[
+ ["nulla", "nada", ""],["abbastanza", "bastante", ""],["paio", "par", "m"],
  ["bar","bar, cafetería","m"],["cappuccino","capuchino","m"],["cornetto","cruasán","m"],["spremuta","zumo natural","f"],["tramezzino","sándwich triangular","m"],["panino","bocadillo","m"],
  ["acqua","agua","f"],["tè","té","m"],["latte","leche","m"],["zucchero","azúcar","m"],["bicchiere","vaso","m"],["bottiglia","botella","f"],
  ["conto","cuenta","m"],["euro","euro","m"],["cassa","caja","f"],["scontrino","tique, recibo","m"],["vorrei","quisiera",""],["quanto costa?","¿cuánto cuesta?",""],

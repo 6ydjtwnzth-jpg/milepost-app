@@ -478,3 +478,9 @@ html.mp .tip{z-index:900}
 .mp-memn small{font-size:12.5px;color:var(--muted);font-weight:600}
 .mp-mem p{margin:4px 0 0;font-size:13.5px;color:var(--muted);line-height:1.4}
 .mp-mem .mp-memz{color:var(--green);font-weight:600}
+/* exam self-assessment grid */
+.mp-grid{margin-top:8px}
+.mp-grid .mp-gnote{margin:0 16px 8px;font-size:13px;color:var(--muted);line-height:1.4}
+.mp-grid label{display:flex;gap:10px;align-items:flex-start;padding:8px 16px;min-height:44px;font-size:14px;line-height:1.4;cursor:pointer}
+.mp-grid input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--green)}
+.mp-grid .mp-gn{color:var(--muted);font-weight:600}

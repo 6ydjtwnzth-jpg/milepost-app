@@ -12,6 +12,8 @@ EX.l4=[
  {"t":"say","it":"«Ho un fratello minore, ha dieci anni.»","zh":"我[Wǒ] 有[yǒu] 一[yí] 个[ge] 弟弟[dì-di] ， 他[tā] 十[shí] 岁[suì] 。"}
 ];
 VOC.l4=[
+ ["奶奶[nǎi-nai]", "nonna (paterna)", ""],["爷爷[yé-ye]", "nonno (paterno)", ""],["家人[jiā-rén]", "familiari", ""],
+ ["儿子[ér-zi]", "figlio", ""],["女儿[nǚ-ér]", "figlia", ""],["孩子[hái-zi]", "bambino; figlio", ""],["丈夫[zhàng-fu]", "marito", ""],["妻子[qī-zi]", "moglie", ""],
  ["多[duō]", "molto; quanto (in 多大, 多少)", ""],["太[tài]", "troppo (太……了: troppo…!)", ""],["小[xiǎo]", "piccolo; giovane", ""],["啊[a]", "particella finale: «già», «eh» (dà calore)", ""],
  ["一[yī]","uno",""],["二[èr]","due",""],["三[sān]","tre",""],["四[sì]","quattro",""],["五[wǔ]","cinque",""],["六[liù]","sei",""],["七[qī]","sette",""],["八[bā]","otto",""],["九[jiǔ]","nove",""],["十[shí]","dieci",""],["零[líng]","zero",""],["百[bǎi]","cento",""],["两[liǎng]","due (davanti a un classificatore)",""],["个[gè]","classificatore generico",""],["几[jǐ]","quanti (numeri piccoli)",""],["多少[duō-shao]","quanto, quanti",""],["岁[suì]","anni (di età)",""],["多大[duō-dà]","quanti anni (età)",""],["今年[jīn-nián]","quest'anno",""],["有[yǒu]","avere; esserci",""],["没有[méi-yǒu]","non avere",""],["家[jiā]","casa, famiglia",""],["口[kǒu]","classificatore per i membri della famiglia",""],["爸爸[bà-ba]","papà",""],["妈妈[mā-ma]","mamma",""],["哥哥[gē-ge]","fratello maggiore",""],["姐姐[jiě-jie]","sorella maggiore",""],["弟弟[dì-di]","fratello minore",""],["妹妹[mèi-mei]","sorella minore",""],["和[hé]","e (solo tra nomi)",""],["爱[ài]","amare, voler bene",""],["班[bān]","classe",""]
 ];

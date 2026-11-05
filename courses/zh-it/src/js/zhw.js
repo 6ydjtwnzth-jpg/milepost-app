@@ -21,8 +21,8 @@ var LS=[["妈[mā]",1],["麻[má]",2],["马[mǎ]",3],["骂[mà]",4],["汤[tāng]
   ["飞[fēi]",1],["肥[féi]",2],["匪[fěi]",3],["费[fèi]",4],["通[tōng]",1],["同[tóng]",2],["桶[tǒng]",3],["痛[tòng]",4],["呼[hū]",1],["湖[hú]",2],["虎[hǔ]",3],["户[hù]",4]];
 window.TONEDRILL=LS;
 function toneGame(root){var nw=$("#lnew",root);if(!nw)return;var cur=null,lr=0,lt=0,btns=$$("#ltones .opt",root),again=$("#lagain",root),rev=$("#lreveal",root),sc=$("#lscore",root);
-  nw.onclick=function(){var n;do{n=LS[Math.floor(Math.random()*LS.length)]}while(n===cur);cur=n;speak(cur[0]);again.disabled=false;rev.innerHTML="Quale tono hai sentito?";btns.forEach(function(b){b.disabled=false;b.classList.remove("right","wrong")})};
-  again.onclick=function(){if(cur)speak(cur[0])};
+  nw.onclick=function(){var n;do{n=LS[Math.floor(Math.random()*LS.length)]}while(n===cur);cur=n;speakVar(cur[0]);again.disabled=false;rev.innerHTML="Quale tono hai sentito?";btns.forEach(function(b){b.disabled=false;b.classList.remove("right","wrong")})};
+  again.onclick=function(){if(cur)speakVar(cur[0])};
   btns.forEach(function(b){b.onclick=function(){if(!cur)return;var t=+b.getAttribute("data-t");lt++;if(t===cur[1])lr++;
     btns.forEach(function(x){x.disabled=true;if(+x.getAttribute("data-t")===cur[1])x.classList.add("right")});if(t!==cur[1])b.classList.add("wrong");
     rev.innerHTML=(t===cur[1]?'<b class="ok">Giusto!</b> ':'<b class="no">Era il '+cur[1]+'° tono.</b> ')+'<span class="jl" lang="zh-CN">'+jpHTML(cur[0])+'</span> = '+esc(meaning(cur[0])||"");

@@ -15,6 +15,7 @@ EX.l21=[
  {t:"say",zh:"说说你明年的计划（至少三句，用将来时）。",it:"L'anno prossimo finirò l'università. Poi andrò in Italia e cercherò un lavoro."}
 ];
 VOC.l21=[
+ ["probabilmente", "大概", ""],["situazione", "情况", "f"],["assolutamente", "绝对", ""],["qualsiasi", "任何", ""],["passare", "经过；度过", ""],
  ["futuro","将来","m"],["progetto","计划","m"],["laurea","大学毕业；学位","f"],["esame","考试","m"],["lavoro","工作","m"],["idea","主意","f"],
  ["prossimo","下一个",""],["l'anno prossimo","明年",""],["forse","也许",""],["se","如果",""],["quindi","所以",""],["allora","那么",""],["però","不过",""],["anche se","即使、虽然",""],
  ["dopo","之后",""],["restare","留下",""],["trovare","找到",""],["sperare","希望",""],["magari","但愿；也许",""],["in bocca al lupo","祝你好运",""],["crepi","（对 in bocca al lupo 的回答）",""],["Sicilia","西西里","f"]

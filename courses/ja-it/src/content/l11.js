@@ -16,6 +16,7 @@ EX.l11=[
  {t:"say",it:"Invita Yuki a bere un caffè insieme sabato.",jp:"土曜日[どようび] に いっしょに コーヒー を 飲[の]みません か 。"}
 ];
 VOC.l11=[
+ ["弾[ひ]きます", "suonare (strumento a corde)", "v"],["ギター", "chitarra", "n"],["映画館[えいがかん]", "cinema (la sala)", "n"],["散歩[さんぽ]します", "passeggiare", "v"],["プール", "piscina", "n"],["絵[え]", "quadro, disegno", "n"],["動物[どうぶつ]", "animale", "n"],["ペット", "animale domestico", "n"],["鳥[とり]", "uccello", "n"],["鳴[な]きます", "cantare, fare il verso (animali)", "v"],["パーティー", "festa", "n"],["ニュース", "notizie, telegiornale", "n"],["会[あ]います", "incontrare", "v"],["呼[よ]びます", "chiamare; invitare", "v"],
  ["そのあと", "dopo, in seguito", "x"],["わあ", "wow!", "x"],
  ["しゅみ","hobby","n"],["好[す]き","che piace","a"],["大好[だいす]き","che piace tantissimo","a"],["きらい","che non piace, odiato","a"],["上手[じょうず]","bravo","a"],["へた","negato, scarso","a"],["とくい","il proprio forte","a"],
  ["サッカー","calcio","n"],["しあい","partita","n"],["りょうり","cucina, piatto","n"],["うた","canzone","n"],["やさい","verdura","n"],["スポーツ","sport","n"],["ゲーム","videogioco","n"],["昼[ひる] ごはん","pranzo","n"],

@@ -16,6 +16,7 @@ EX.l18=[
  {t:"say",it:"Di' dove abiti e dove lavori o studi.",jp:"ミラノ に 住[す]んで います 。 大学[だいがく] で 勉強[べんきょう]して います 。"}
 ];
 VOC.l18=[
+ ["台所[だいどころ]", "cucina", "n"],["冷蔵庫[れいぞうこ]", "frigorifero", "n"],["庭[にわ]", "giardino", "n"],["家庭[かてい]", "famiglia, casa", "n"],["玄関[げんかん]", "ingresso di casa", "n"],["廊下[ろうか]", "corridoio", "n"],["階段[かいだん]", "scale", "n"],["エレベーター", "ascensore", "n"],["門[もん]", "cancello", "n"],["石鹸[せっけん]", "sapone", "n"],["本棚[ほんだな]", "libreria (mobile)", "n"],["ベッド", "letto", "n"],["ストーブ", "stufa", "n"],["話[はなし]", "discorso, storia", "n"],["後[あと]で", "dopo, più tardi", "x"],
  ["なります", "diventare; (di tempo) fare", "v"],
  ["〜て います","sto facendo; (stato)","x"],["知[し]って います","conoscere, sapere","v"],["知[し]りません","non so, non conosco","v"],["けっこん して います","essere sposato","v"],["〜て から","dopo aver…","x"],["とまります","fermarsi, alloggiare","v"],["むかえ に 行[い]きます","andare a prendere","v"],["シャワー を あびます","fare la doccia","v"],["出[で]かけます","uscire","v"],
  ["いそがしい","impegnato, occupato","a"],["しゅくだい","compiti","n"],["夜[よる]","notte, sera","n"],["昼[ひる]","mezzogiorno","n"],["まず","prima di tutto","x"],["そのあと","dopo","x"],["さいご に","alla fine","x"],["むかし","tanto tempo fa","n"],["ところが","ma ecco che","x"],["〜年[ねん]","… anni (durata/anno)","x"],["あさくさ","Asakusa (quartiere di Tokyo)","n"]

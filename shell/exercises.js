@@ -116,7 +116,7 @@ function exExtra(q,it,i,mark){
   if(T==="tone"){
     var m=String(it.s).match(/^(.+)\[([^\]]+)\]$/),py=m?m[2]:"",tn=tone(py),base=toneOff(py);
     exHead(q,i,'<span class="qtag ear-t">'+SPK+esc(S.tone)+'</span>',esc(S.toneQ));
-    var pa3=document.createElement("div");pa3.className="acts";var lb3=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb3.onclick=function(){speak(it.s)};pa3.appendChild(lb3);q.appendChild(pa3);
+    var pa3=document.createElement("div");pa3.className="acts";var lb3=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb3.onclick=function(){(typeof speakVar==="function"?speakVar:speak)(it.s)};pa3.appendChild(lb3);q.appendChild(pa3);
     var tb=document.createElement("div");tb.className="xtiles xtones";q.appendChild(tb);var fb6=exFb(q);
     [1,2,3,4].forEach(function(k){var v=toneOn(base,k),b=exBtn("xtile t"+k,'<span class="t'+k+'">'+esc(v)+'</span><small>'+["","‾ alto","／ sale","∨ scende e sale","＼ scende"][k]+'</small>');tb.appendChild(b);
       b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===tn;$$(".xtile",tb).forEach(function(x){x.disabled=true});tb.children[tn-1].classList.add("ok");if(!ok)b.classList.add("no");

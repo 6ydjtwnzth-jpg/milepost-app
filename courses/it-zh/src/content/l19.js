@@ -15,6 +15,7 @@ EX.l19=[
  {t:"say",zh:"比较你的城市和一个意大利城市。",it:"Secondo me, Pechino è più grande di Roma, ma Roma è più antica."}
 ];
 VOC.l19=[
+ ["genere", "种类（in genere：一般）", "m"],["unico", "唯一的", ""],["entrambi", "两个都", ""],
  ["carbonara", "培根蛋酱（意面）", "f"],["coreano", "韩国的；韩国人", ""],
  ["gli","对他；对他们",""],["le","对她",""],["a me","对我（强调）",""],["anche a me","我也（喜欢）",""],["neanche a me","我也不（喜欢）",""],
  ["più","更",""],["meno","更少、不那么",""],["come","像、和……一样",""],["migliore","更好的",""],["peggiore","更差的",""],["meglio","更好地",""],

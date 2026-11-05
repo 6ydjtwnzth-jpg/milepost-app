@@ -672,6 +672,9 @@ td.hz{font-size:28px;font-family:var(--f-body)}
 .tonebtn .tp{font-size:17px;font-weight:800}
 .tonebtn small{font-family:var(--f-body);font-weight:500;font-size:12px;color:var(--muted)}
 
+/* fading pinyin: words learned 3+ lessons earlier */
+body.py-auto .pyk rt{visibility:hidden}
+
 </style>
 <link rel="stylesheet" href="../../course-app.css">
 <script>document.documentElement.classList.add("mp")</script>
@@ -763,6 +766,7 @@ setTimeout(hide,Math.max(4000,min))})();
   <button class="tb tb-top" id="totop" type="button" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="tbl">su</span></button>
   <div class="setp" id="setp" hidden>
     <button class="sw" id="tbfuri" type="button" aria-pressed="true"><span><b>Pinyin</b><small>pronuncia sopra i caratteri</small></span><span class="swv" id="tbfuril">sì</span></button>
+    <button class="sw" id="tbpya" type="button" aria-pressed="true"><span><b>Pinyin che sparisce</b><small>nascosto sulle parole studiate da almeno 3 lezioni (toccale per vederlo)</small></span><span class="swv" id="tbpyal">sì</span></button>
     <button class="sw" id="tbro" type="button" aria-pressed="true"><span><b lang="zh-CN">汉字</b><small>caratteri: nascondili per leggere solo il pinyin</small></span><span class="swv" id="tbrol">sì</span></button>
     <button class="sw" id="tbtr" type="button" aria-pressed="true"><span><b>Traduzione</b><small>nascondila per allenare l'orecchio</small></span><span class="swv" id="tbtrl">sì</span></button>
     <button class="sw" id="tbslow" type="button" aria-pressed="false"><span><b>Voce</b><small>velocità di lettura</small></span><span class="swv" id="tbslowl">normale</span></button>
@@ -2588,6 +2592,8 @@ EX.l3=[
  {"t":"say","it":"«Io sono italiano, e tu?»","zh":"我[Wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] ， 你[nǐ] 呢[ne] ？"}
 ];
 VOC.l3=[
+ ["大学[dà-xué]", "università", ""],["大学生[dà-xué-shēng]", "studente universitario", ""],["外国[wài-guó]", "estero; straniero (外国人)", ""],["国家[guó-jiā]", "paese, stato", ""],["外语[wài-yǔ]", "lingua straniera", ""],["她们[tā-men]", "loro (solo donne)", ""],
+ ["姓[xìng]", "chiamarsi (di cognome): 我姓王", ""],["您[nín]", "Lei (forma di rispetto di 你)", ""],["先生[xiān-sheng]", "signore; marito", ""],["小姐[xiǎo-jie]", "signorina", ""],["同学[tóng-xué]", "compagno di classe", ""],["汉语[Hàn-yǔ]", "lingua cinese (come materia)", ""],["欢迎[huān-yíng]", "benvenuto; accogliere", ""],["这[zhè]", "questo (这个, 这儿)", ""],
  ["他们[tā-men]", "loro (uomini o gruppo misto)", ""],["你们[nǐ-men]", "voi", ""],
  ["是[shì]","essere (tra due nomi)",""],["叫[jiào]","chiamarsi",""],["什么[shén-me]","che cosa, quale",""],["名字[míng-zi]","nome",""],["吗[ma]","particella di domanda sì/no",""],["呢[ne]","«e…?»",""],["他[tā]","lui",""],["她[tā]","lei",""],["我们[wǒ-men]","noi",""],["谁[shéi]","chi",""],["哪[nǎ]","quale",""],["国[guó]","paese",""],["人[rén]","persona",""],["中国[Zhōng-guó]","Cina",""],["意大利[Yì-dà-lì]","Italia",""],["学生[xué-sheng]","studente",""],["老师[lǎo-shī]","insegnante",""],["也[yě]","anche",""],["都[dōu]","tutti, entrambi",""],["认识[rèn-shi]","conoscere (una persona)",""],["高兴[gāo-xìng]","contento",""]
 ];
@@ -2607,6 +2613,8 @@ EX.l4=[
  {"t":"say","it":"«Ho un fratello minore, ha dieci anni.»","zh":"我[Wǒ] 有[yǒu] 一[yí] 个[ge] 弟弟[dì-di] ， 他[tā] 十[shí] 岁[suì] 。"}
 ];
 VOC.l4=[
+ ["奶奶[nǎi-nai]", "nonna (paterna)", ""],["爷爷[yé-ye]", "nonno (paterno)", ""],["家人[jiā-rén]", "familiari", ""],
+ ["儿子[ér-zi]", "figlio", ""],["女儿[nǚ-ér]", "figlia", ""],["孩子[hái-zi]", "bambino; figlio", ""],["丈夫[zhàng-fu]", "marito", ""],["妻子[qī-zi]", "moglie", ""],
  ["多[duō]", "molto; quanto (in 多大, 多少)", ""],["太[tài]", "troppo (太……了: troppo…!)", ""],["小[xiǎo]", "piccolo; giovane", ""],["啊[a]", "particella finale: «già», «eh» (dà calore)", ""],
  ["一[yī]","uno",""],["二[èr]","due",""],["三[sān]","tre",""],["四[sì]","quattro",""],["五[wǔ]","cinque",""],["六[liù]","sei",""],["七[qī]","sette",""],["八[bā]","otto",""],["九[jiǔ]","nove",""],["十[shí]","dieci",""],["零[líng]","zero",""],["百[bǎi]","cento",""],["两[liǎng]","due (davanti a un classificatore)",""],["个[gè]","classificatore generico",""],["几[jǐ]","quanti (numeri piccoli)",""],["多少[duō-shao]","quanto, quanti",""],["岁[suì]","anni (di età)",""],["多大[duō-dà]","quanti anni (età)",""],["今年[jīn-nián]","quest'anno",""],["有[yǒu]","avere; esserci",""],["没有[méi-yǒu]","non avere",""],["家[jiā]","casa, famiglia",""],["口[kǒu]","classificatore per i membri della famiglia",""],["爸爸[bà-ba]","papà",""],["妈妈[mā-ma]","mamma",""],["哥哥[gē-ge]","fratello maggiore",""],["姐姐[jiě-jie]","sorella maggiore",""],["弟弟[dì-di]","fratello minore",""],["妹妹[mèi-mei]","sorella minore",""],["和[hé]","e (solo tra nomi)",""],["爱[ài]","amare, voler bene",""],["班[bān]","classe",""]
 ];
@@ -2627,6 +2635,8 @@ EX.l5=[
  {"t":"say","it":"Chiedi: «Sei occupato?» ripetendo l'aggettivo","zh":"你[Nǐ] 忙不忙[máng-bu-máng] ？","e":"Va bene anche 你[nǐ] 忙[máng] 吗[ma] ？"}
 ];
 VOC.l5=[
+ ["渴[kě]", "aver sete", ""],["生气[shēng-qì]", "arrabbiarsi", ""],["病[bìng]", "malattia; malato", ""],["认真[rèn-zhēn]", "serio, diligente", ""],["好听[hǎo-tīng]", "bello da ascoltare", ""],["好玩儿[hǎo-wánr]", "divertente", ""],
+ ["身体[shēn-tǐ]", "corpo; salute (身体好吗？)", ""],["非常[fēi-cháng]", "molto, estremamente", ""],["快乐[kuài-lè]", "felice (生日快乐: buon compleanno)", ""],["喜欢[xǐ-huan]", "piacere, amare (我喜欢茶)", ""],["少[shǎo]", "poco, pochi", ""],
  ["请[qǐng]", "per favore; prego (all'inizio della richiesta)", ""],["行[xíng]", "va bene, si può (还行: così così)", ""],["说[shuō]", "parlare, dire", ""],["一点儿[yì-diǎnr]", "un po'", ""],["慢[màn]", "lento", ""],
  ["很[hěn]","molto",""],["忙[máng]","occupato",""],["累[lèi]","stanco",""],["饿[è]","avere fame",""],["难[nán]","difficile",""],["容易[róng-yì]","facile",""],["冷[lěng]","freddo",""],["今天[jīn-tiān]","oggi",""],["太好了[tài-hǎo-le]","benissimo! che bello!",""],["不太[bú-tài]","non molto",""],["有点儿[yǒu-diǎnr]","un po' (troppo)",""],["喝[hē]","bere",""],["茶[chá]","tè",""],["咖啡[kā-fēi]","caffè",""],["时间[shí-jiān]","tempo",""],["中文[Zhōng-wén]","lingua cinese",""],["可是[kě-shì]","ma, però",""],["还行[hái-xíng]","così così",""],["休息[xiū-xi]","riposare",""],["哎呀[āi-yā]","ahi! accidenti!",""]
 ];
@@ -2646,6 +2656,8 @@ EX.l6=[
  {"t":"say","it":"«È troppo caro!»","zh":"太[Tài] 贵[guì] 了[le] ！"}
 ];
 VOC.l6=[
+ ["一些[yì-xiē]", "alcuni, un po' di", ""],["这些[zhè-xiē]", "questi", ""],["那些[nà-xiē]", "quelli", ""],
+ ["杯子[bēi-zi]", "bicchiere, tazza", ""],["东西[dōng-xi]", "cosa, oggetto", ""],["卖[mài]", "vendere (≠ 买 mǎi, comprare)", ""],["千[qiān]", "mille", ""],["元[yuán]", "yuan (moneta; nello scritto al posto di 块)", ""],["些[xiē]", "alcuni (一些, 这些, 那些)", ""],["服务员[fú-wù-yuán]", "cameriere, commesso", ""],["公斤[gōng-jīn]", "chilo", ""],
  ["票[piào]", "biglietto", ""],["车[chē]", "auto, veicolo", ""],["猫[māo]", "gatto", ""],["再[zài]", "di nuovo", ""],
  ["要[yào]","volere, prendere",""],["杯[bēi]","tazza, bicchiere",""],["本[běn]","classificatore per libri",""],["张[zhāng]","classificatore per oggetti piatti",""],["只[zhī]","classificatore per animali",""],["书[shū]","libro",""],["水[shuǐ]","acqua",""],["的[de]","particella di possesso",""],["朋友[péng-you]","amico",""],["这个[zhè-ge]","questo",""],["那个[nà-ge]","quello",""],["钱[qián]","soldi",""],["多少钱[duō-shao-qián]","quanto costa?",""],["块[kuài]","yuan (nel parlato)",""],["贵[guì]","caro",""],["便宜[pián-yi]","economico",""],["一共[yí-gòng]","in tutto",""],["给[gěi]","dare",""],["别的[bié-de]","altro",""],["还[hái]","ancora, inoltre",""]
 ];
@@ -2663,6 +2675,8 @@ EX.l7=[
  {"t":"say","it":"«Sul tavolo c'è un libro.»","zh":"桌子[Zhuō-zi] 上[shang] 有[yǒu] 一[yì] 本[běn] 书[shū] 。"}
 ];
 VOC.l7=[
+ ["这里[zhè-li]", "qui (= 这儿)", ""],["那里[nà-li]", "lì (= 那儿)", ""],["这边[zhè-bian]", "da questa parte", ""],["那边[nà-bian]", "da quella parte", ""],["里边[lǐ-bian]", "dentro", ""],["外边[wài-bian]", "fuori", ""],["上边[shàng-bian]", "sopra", ""],["下边[xià-bian]", "sotto", ""],["中间[zhōng-jiān]", "in mezzo", ""],["家里[jiā-li]", "a casa, in famiglia", ""],["在家[zài-jiā]", "essere a casa", ""],
+ ["前面[qián-mian]", "davanti", ""],["后面[hòu-mian]", "dietro", ""],["旁边[páng-biān]", "accanto", ""],["左边[zuǒ-bian]", "a sinistra", ""],["右边[yòu-bian]", "a destra", ""],["椅子[yǐ-zi]", "sedia", ""],["房间[fáng-jiān]", "stanza, camera", ""],["电脑[diàn-nǎo]", "computer", ""],
  ["吃[chī]", "mangiare", ""],["饭[fàn]", "riso cotto; pasto (吃饭: mangiare)", ""],
  ["在[zài]","trovarsi in",""],["哪儿[nǎr]","dove",""],["这儿[zhèr]","qui",""],["那儿[nàr]","lì",""],["去[qù]","andare",""],["银行[yín-háng]","banca",""],["工作[gōng-zuò]","lavorare; lavoro",""],["桌子[zhuō-zi]","tavolo",""],["上[shang]","sopra",""],["下[xia]","sotto",""],["里[li]","dentro",""],["喂[wéi]","pronto? (al telefono)",""],["现在[xiàn-zài]","adesso",""],["等[děng]","aspettare",""],["狗[gǒu]","cane",""],["吃饭[chī-fàn]","mangiare (un pasto)",""],["很多[hěn-duō]","tanti, molto",""]
 ];
@@ -2682,6 +2696,8 @@ EX.l8=[
  {"t":"say","it":"Chiedi: «Che giorno della settimana è oggi?»","zh":"今天[Jīn-tiān] 星期[xīng-qī] 几[jǐ] ？"}
 ];
 VOC.l8=[
+ ["白天[bái-tiān]", "di giorno", ""],["早[zǎo]", "presto; buongiorno (早！)", ""],["晚[wǎn]", "tardi", ""],["星期日[xīng-qī-rì]", "domenica (scritto)", ""],["星期天[xīng-qī-tiān]", "domenica", ""],["日期[rì-qī]", "data", ""],
+ ["上午[shàng-wǔ]", "mattina (fino a mezzogiorno)", ""],["中午[zhōng-wǔ]", "mezzogiorno", ""],["下午[xià-wǔ]", "pomeriggio", ""],["日[rì]", "giorno (nelle date scritte: 10月8日)", ""],["生日[shēng-rì]", "compleanno", ""],["手表[shǒu-biǎo]", "orologio da polso", ""],
  ["点[diǎn]","ora (sull'orologio)",""],["几点[jǐ-diǎn]","che ora",""],["半[bàn]","mezza",""],["分[fēn]","minuto",""],["刻[kè]","quarto d'ora",""],["差[chà]","mancare",""],["明天[míng-tiān]","domani",""],["昨天[zuó-tiān]","ieri",""],["早上[zǎo-shang]","mattina",""],["晚上[wǎn-shang]","sera",""],["星期[xīng-qī]","settimana",""],["星期几[xīng-qī-jǐ]","che giorno della settimana",""],["号[hào]","giorno del mese",""],["月[yuè]","mese",""],["年[nián]","anno",""],["起床[qǐ-chuáng]","alzarsi",""],["上课[shàng-kè]","fare lezione",""],["睡觉[shuì-jiào]","dormire",""],["回家[huí-jiā]","tornare a casa",""],["学习[xué-xí]","studiare",""],["糟糕[zāo-gāo]","accidenti!",""]
 ];
 
@@ -2699,6 +2715,8 @@ EX.l9=[
  {"t":"say","it":"Chiedi: «Posso entrare?»","zh":"我[Wǒ] 可以[kě-yǐ] 进来[jìn-lai] 吗[ma] ？"}
 ];
 VOC.l9=[
+ ["帮忙[bāng-máng]", "dare una mano", ""],["帮[bāng]", "aiutare", ""],["不用[bú-yòng]", "non serve, non c'è bisogno", ""],["试[shì]", "provare", ""],["爱好[ài-hào]", "hobby, passione", ""],["上网[shàng-wǎng]", "andare su internet", ""],["网上[wǎng-shang]", "su internet", ""],["请进[qǐng-jìn]", "avanti! (entri pure)", ""],["请坐[qǐng-zuò]", "si accomodi", ""],["最好[zuì-hǎo]", "è meglio (che…)", ""],["哪些[nǎ-xiē]", "quali (plurale)", ""],
+ ["知道[zhī-dào]", "sapere (un fatto)", ""],["可能[kě-néng]", "forse; possibile", ""],["帮助[bāng-zhù]", "aiutare; aiuto", ""],["玩[wán]", "giocare, divertirsi", ""],
  ["问题[wèn-tí]", "domanda; problema (没问题: nessun problema)", ""],
  ["想[xiǎng]","vorrei; pensare",""],["会[huì]","saper fare; probabilmente",""],["能[néng]","potere (capacità)",""],["可以[kě-yǐ]","potere (permesso)",""],["吧[ba]","particella di proposta",""],["来[lái]","venire",""],["走[zǒu]","andare via, camminare",""],["饺子[jiǎo-zi]","ravioli cinesi",""],["筷子[kuài-zi]","bacchette",""],["用[yòng]","usare",""],["带[dài]","portare",""],["当然[dāng-rán]","certo",""],["没问题[méi-wèn-tí]","nessun problema",""],["不要[bú-yào]","non… (divieto)",""],["下雨[xià-yǔ]","piovere",""]
 ];
@@ -2718,6 +2736,8 @@ EX.l10=[
  {"t":"say","it":"Chiedi: «Hai mangiato?»","zh":"你[Nǐ] 吃[chī] 饭[fàn] 了[le] 吗[ma] ？"}
 ];
 VOC.l10=[
+ ["早饭[zǎo-fàn]", "colazione", ""],["午饭[wǔ-fàn]", "pranzo", ""],["晚饭[wǎn-fàn]", "cena", ""],["前天[qián-tiān]", "l'altro ieri", ""],["后天[hòu-tiān]", "dopodomani", ""],["面包[miàn-bāo]", "pane", ""],["包子[bāo-zi]", "panino ripieno cotto al vapore", ""],["面条儿[miàn-tiáor]", "spaghetti cinesi", ""],["肉[ròu]", "carne", ""],["记得[jì-de]", "ricordarsi", ""],["忘[wàng]", "dimenticare", ""],["忘记[wàng-jì]", "dimenticare", ""],["见面[jiàn-miàn]", "incontrarsi", ""],["上次[shàng-cì]", "la volta scorsa", ""],["下次[xià-cì]", "la prossima volta", ""],
+ ["饭馆[fàn-guǎn]", "ristorante, trattoria", ""],["米饭[mǐ-fàn]", "riso cotto", ""],["鸡蛋[jī-dàn]", "uovo (di gallina)", ""],["牛奶[niú-nǎi]", "latte", ""],["苹果[píng-guǒ]", "mela", ""],["水果[shuǐ-guǒ]", "frutta", ""],["鱼[yú]", "pesce", ""],
  ["了[le]","particella di azione compiuta",""],["没[méi]","non (non è successo)",""],["已经[yǐ-jīng]","già",""],["还没[hái-méi]","non ancora",""],["做[zuò]","fare",""],["买[mǎi]","comprare",""],["商店[shāng-diàn]","negozio",""],["衣服[yī-fu]","vestiti",""],["件[jiàn]","classificatore per vestiti",""],["看[kàn]","guardare, leggere",""],["电影[diàn-yǐng]","film",""],["以前[yǐ-qián]","prima, in passato",""],["常常[cháng-cháng]","spesso",""]
 ];
 
@@ -2751,6 +2771,8 @@ EX.l11=[
  {"t":"say","it":"«Lui ha tre anni più di me.»","zh":"他[Tā] 比[bǐ] 我[wǒ] 大[dà] 三[sān] 岁[suì] 。"}
 ];
 VOC.l11=[
+ ["风[fēng]", "vento (刮风: tira vento)", ""],["雨[yǔ]", "pioggia", ""],["树[shù]", "albero", ""],["花[huā]", "fiore", ""],["山[shān]", "montagna", ""],["北[běi]", "nord", ""],["南[nán]", "sud", ""],["东[dōng]", "est", ""],["西[xī]", "ovest", ""],["干净[gān-jìng]", "pulito", ""],["坏[huài]", "rotto; cattivo", ""],["老[lǎo]", "vecchio", ""],
+ ["晴[qíng]", "sereno (晴天: giornata di sole)", ""],["阴[yīn]", "nuvoloso (阴天)", ""],["雪[xuě]", "neve (下雪: nevicare)", ""],["颜色[yán-sè]", "colore", ""],["白[bái]", "bianco", ""],["黑[hēi]", "nero", ""],["红[hóng]", "rosso", ""],["新[xīn]", "nuovo", ""],
  ["天气[tiān-qì]","tempo atmosferico",""],["怎么样[zěn-me-yàng]","com'è? che ne pensi?",""],["热[rè]","caldo",""],["下雪[xià-xuě]","nevicare",""],["冬天[dōng-tiān]","inverno",""],["夏天[xià-tiān]","estate",""],["比[bǐ]","rispetto a (comparativo)",""],["跟[gēn]","con",""],["一样[yí-yàng]","uguale",""],["更[gèng]","ancora più",""],["最[zuì]","il più",""],["那么[nà-me]","così, tanto",""],["觉得[jué-de]","pensare, ritenere",""],["菜[cài]","piatto, cucina",""],["好吃[hǎo-chī]","buono (da mangiare)",""],["差不多[chà-bu-duō]","più o meno",""],["北京[Běi-jīng]","Pechino",""],["罗马[Luó-mǎ]","Roma",""],["高[gāo]","alto",""],["大[dà]","grande",""]
 ];
 
@@ -2768,6 +2790,8 @@ EX.l12=[
  {"t":"say","it":"«Sono arrivato il mese scorso.»","zh":"我[Wǒ] 是[shì] 上[shàng] 个[ge] 月[yuè] 来[lái] 的[de] 。"}
 ];
 VOC.l12=[
+ ["有名[yǒu-míng]", "famoso", ""],["地方[dì-fang]", "posto, luogo", ""],["地图[dì-tú]", "cartina, mappa", ""],["机票[jī-piào]", "biglietto aereo", ""],["车票[chē-piào]", "biglietto (treno, autobus)", ""],["门票[mén-piào]", "biglietto d'ingresso", ""],["火车[huǒ-chē]", "treno", ""],["汽车[qì-chē]", "automobile", ""],["飞[fēi]", "volare", ""],["新年[xīn-nián]", "anno nuovo", ""],["商场[shāng-chǎng]", "centro commerciale", ""],["第二[dì-èr]", "secondo (ordinale)", ""],
+ ["旅游[lǚ-yóu]", "fare turismo, viaggiare", ""],["机场[jī-chǎng]", "aeroporto", ""],["船[chuán]", "nave, barca", ""],["出租车[chū-zū-chē]", "taxi", ""],["公共汽车[gōng-gòng-qì-chē]", "autobus", ""],["西瓜[xī-guā]", "anguria", ""],["羊肉[yáng-ròu]", "carne di montone", ""],
  ["时候[shí-hou]", "momento (什么时候: quando)", ""],
  ["过[guo]","particella di esperienza",""],["次[cì]","volta",""],["长城[Cháng-chéng]","la Grande Muraglia",""],["烤鸭[kǎo-yā]","anatra laccata",""],["是[shì] …… 的[de]","struttura per quando, dove, come",""],["什么时候[shén-me-shí-hou]","quando",""],["怎么[zěn-me]","come",""],["坐[zuò]","sedersi; prendere (un mezzo)",""],["飞机[fēi-jī]","aereo",""],["上个月[shàng-ge-yuè]","il mese scorso",""],["第一次[dì-yī-cì]","la prima volta",""],["那[nà]","allora",""]
 ];
@@ -2786,6 +2810,8 @@ EX.l13=[
  {"t":"say","it":"«La porta è aperta, entra pure.»","zh":"门[Mén] 开[kāi] 着[zhe] ， 你[nǐ] 进来[jìn-lai] 吧[ba] 。"}
 ];
 VOC.l13=[
+ ["电视机[diàn-shì-jī]", "televisore", ""],["电影院[diàn-yǐng-yuàn]", "cinema (la sala)", ""],["图书馆[tú-shū-guǎn]", "biblioteca", ""],["书店[shū-diàn]", "libreria", ""],["书包[shū-bāo]", "cartella, zaino per la scuola", ""],["本子[běn-zi]", "quaderno", ""],["课本[kè-běn]", "libro di testo", ""],["课文[kè-wén]", "testo della lezione", ""],["小学[xiǎo-xué]", "scuola elementare", ""],["中学[zhōng-xué]", "scuola media e superiore", ""],["学院[xué-yuàn]", "istituto, facoltà", ""],["一会儿[yí-huìr]", "un momento", ""],["马上[mǎ-shàng]", "subito", ""],["男朋友[nán-péng-you]", "ragazzo, fidanzato", ""],["女朋友[nǚ-péng-you]", "ragazza, fidanzata", ""],["小孩儿[xiǎo-háir]", "bambino", ""],
+ ["电视[diàn-shì]", "televisione (看电视)", ""],["报纸[bào-zhǐ]", "giornale", ""],["男人[nán-rén]", "uomo", ""],["女人[nǚ-rén]", "donna", ""],["教室[jiào-shì]", "aula", ""],["公司[gōng-sī]", "azienda, ditta", ""],
  ["打[dǎ]", "colpire; fare (打电话: telefonare)", ""],
  ["正在[zhèng-zài]","stare facendo",""],["着[zhe]","particella di stato che dura",""],["门[mén]","porta",""],["开[kāi]","aprire",""],["笑[xiào]","sorridere, ridere",""],["看书[kàn-shū]","leggere",""],["做饭[zuò-fàn]","cucinare",""],["打电话[dǎ-diàn-huà]","telefonare",""],["直接[zhí-jiē]","direttamente",""],["进来[jìn-lai]","entrare (verso chi parla)",""],["就[jiù]","subito",""],["干[gàn]","fare (colloquiale)",""]
 ];
@@ -2803,6 +2829,8 @@ EX.l14=[
  {"t":"say","it":"«Ho studiato cinese per due anni.»","zh":"我[Wǒ] 学[xué] 了[le] 两[liǎng] 年[nián] 中文[Zhōng-wén] 。"}
 ];
 VOC.l14=[
+ ["有时候[yǒu-shí-hou]", "a volte", ""],["常[cháng]", "spesso (常常)", ""],["打球[dǎ-qiú]", "giocare a palla", ""],["球[qiú]", "palla", ""],["先[xiān]", "prima (先……再……)", ""],["最后[zuì-hòu]", "alla fine; ultimo", ""],["一边[yì-biān]", "mentre (一边……一边……)", ""],["半天[bàn-tiān]", "mezza giornata; un bel po'", ""],["半年[bàn-nián]", "sei mesi", ""],["上学[shàng-xué]", "andare a scuola", ""],["放学[fàng-xué]", "uscire da scuola", ""],["下课[xià-kè]", "finire la lezione", ""],["下班[xià-bān]", "uscire dal lavoro", ""],["放假[fàng-jià]", "andare in vacanza", ""],
+ ["运动[yùn-dòng]", "sport; fare sport", ""],["跑步[pǎo-bù]", "correre (fare jogging)", ""],["游泳[yóu-yǒng]", "nuotare", ""],["打篮球[dǎ-lán-qiú]", "giocare a pallacanestro", ""],["踢[tī]", "calciare (踢足球: giocare a calcio)", ""],["开始[kāi-shǐ]", "cominciare", ""],
  ["学[xué]", "studiare, imparare", ""],["长[cháng]", "lungo (多长时间: quanto tempo)", ""],["课[kè]", "lezione (上课: fare lezione)", ""],["睡[shuì]", "dormire", ""],["真[zhēn]", "davvero", ""],
  ["多长时间[duō-cháng-shí-jiān]","quanto tempo",""],["小时[xiǎo-shí]","ora (durata)",""],["分钟[fēn-zhōng]","minuto (durata)",""],["天[tiān]","giorno",""],["个月[ge-yuè]","mese (durata)",""],["住[zhù]","abitare",""],["只[zhǐ]","solo, soltanto",""],["每[měi]","ogni",""],["才[cái]","solo, appena",""],["厉害[lì-hai]","bravissimo",""],["一下[yí-xià]","un attimo",""],["久[jiǔ]","a lungo",""]
 ];
@@ -2820,6 +2848,8 @@ EX.l15=[
  {"t":"say","it":"«Non ho capito.»","zh":"我[Wǒ] 没[méi] 听懂[tīng-dǒng] 。"}
 ];
 VOC.l15=[
+ ["明白[míng-bai]", "capire; chiaro", ""],["记住[jì-zhu]", "memorizzare", ""],["听见[tīng-jiàn]", "sentire (con le orecchie)", ""],["听写[tīng-xiě]", "dettato", ""],["对[duì]", "giusto, corretto", ""],["不对[bú-duì]", "sbagliato, non è così", ""],["知识[zhī-shi]", "conoscenza, sapere", ""],["重要[zhòng-yào]", "importante", ""],["有用[yǒu-yòng]", "utile", ""],["真的[zhēn-de]", "davvero", ""],["看到[kàn-dào]", "vedere (riuscire a vedere)", ""],["听到[tīng-dào]", "sentire (riuscire a sentire)", ""],
+ ["题[tí]", "domanda, esercizio (d'esame)", ""],["回答[huí-dá]", "rispondere; risposta", ""],["问[wèn]", "chiedere, domandare", ""],["意思[yì-si]", "significato (什么意思？)", ""],["错[cuò]", "sbagliato; errore", ""],["字[zì]", "carattere (scritto)", ""],["读[dú]", "leggere (ad alta voce); studiare", ""],["告诉[gào-su]", "dire, far sapere a qualcuno", ""],["考试[kǎo-shì]", "esame; dare un esame", ""],
  ["哎[āi]", "ehi! (per attirare l'attenzione o quando ci si ricorda di qualcosa)", ""],["快[kuài]", "veloce", ""],
  ["听[tīng]","ascoltare",""],["懂[dǒng]","capire",""],["听懂[tīng-dǒng]","capire (ascoltando)",""],["看见[kàn-jiàn]","vedere",""],["找[zhǎo]","cercare",""],["找到[zhǎo-dào]","trovare",""],["完[wán]","finire",""],["做完[zuò-wán]","finire di fare",""],["作业[zuò-yè]","compiti",""],["手机[shǒu-jī]","cellulare",""],["一遍[yí-biàn]","una volta (dall'inizio alla fine)",""],["写错[xiě-cuò]","scrivere sbagliato",""],["话[huà]","parole, discorso",""]
 ];
@@ -2837,6 +2867,8 @@ EX.l16=[
  {"t":"say","it":"Rispondi a un complimento: «Ma no, sono ancora lontano.»","zh":"哪里[Nǎ-li] 哪里[nǎ-li] ， 还[hái] 差[chà] 得[de] 远[yuǎn] 呢[ne] 。"}
 ];
 VOC.l16=[
+ ["动作[dòng-zuò]", "movimento, gesto", ""],["歌[gē]", "canzone", ""],["唱[chàng]", "cantare", ""],["开玩笑[kāi-wán-xiào]", "scherzare", ""],["老人[lǎo-rén]", "anziano", ""],
+ ["唱歌[chàng-gē]", "cantare", ""],["跳舞[tiào-wǔ]", "ballare", ""],["说话[shuō-huà]", "parlare", ""],["漂亮[piào-liang]", "bello, carino", ""],["准备[zhǔn-bèi]", "preparare, prepararsi", ""],
  ["哪里[nǎ-li]", "dove; ma no (哪里哪里: risposta modesta a un complimento)", ""],["远[yuǎn]", "lontano", ""],
  ["得[de]","particella del complemento di grado",""],["跑[pǎo]","correre",""],["写[xiě]","scrivere",""],["汉字[Hàn-zì]","caratteri cinesi",""],["清楚[qīng-chu]","chiaro",""],["好看[hǎo-kàn]","bello",""],["哪里哪里[nǎ-li-nǎ-li]","ma no, figurati",""],["一起[yì-qǐ]","insieme",""],["练习[liàn-xí]","esercitarsi",""],
 ];
@@ -2870,6 +2902,8 @@ EX.l17=[
  {"t":"say","it":"«Torno a casa a piedi.»","zh":"我[Wǒ] 走路[zǒu-lù] 回[huí] 家[jiā] 。"}
 ];
 VOC.l17=[
+ ["车站[chē-zhàn]", "fermata, stazione", ""],["站[zhàn]", "stare in piedi; fermata", ""],["路口[lù-kǒu]", "incrocio", ""],["马路[mǎ-lù]", "strada", ""],["路上[lù-shang]", "per strada", ""],["门口[mén-kǒu]", "ingresso, davanti alla porta", ""],["上车[shàng-chē]", "salire (sul mezzo)", ""],["下车[xià-chē]", "scendere (dal mezzo)", ""],["打车[dǎ-chē]", "prendere un taxi", ""],["东边[dōng-bian]", "a est", ""],["西边[xī-bian]", "a ovest", ""],["南边[nán-bian]", "a sud", ""],["北边[běi-bian]", "a nord", ""],["前边[qián-bian]", "davanti", ""],["后边[hòu-bian]", "dietro", ""],
+ ["路[lù]", "strada", ""],["向[xiàng]", "verso (向左拐)", ""],["进[jìn]", "entrare (进来, 进去)", ""],["出[chū]", "uscire (出来, 出去)", ""],
  ["地铁站[dì-tiě-zhàn]", "stazione della metropolitana", ""],["出去[chū-qu]", "uscire (allontanandosi da chi parla)", ""],["然后[rán-hòu]", "e poi", ""],
  ["请问[qǐng-wèn]","scusi, posso chiedere",""],["怎么走[zěn-me-zǒu]","come si arriva",""],["离[lí]","distare da",""],["近[jìn]","vicino",""],["从[cóng]","da",""],["到[dào]","a, fino a; arrivare",""],["地铁[dì-tiě]","metropolitana",""],["火车站[huǒ-chē-zhàn]","stazione ferroviaria",""],["往[wǎng]","verso",""],["前[qián]","avanti",""],["左[zuǒ]","sinistra",""],["右[yòu]","destra",""],["拐[guǎi]","girare",""],["一直[yì-zhí]","sempre (dritto)",""],["开车[kāi-chē]","guidare",""],["走路[zǒu-lù]","andare a piedi",""],["学校[xué-xiào]","scuola",""],["上班[shàng-bān]","andare al lavoro",""],["出来[chū-lai]","uscire (verso chi parla)",""],["回来[huí-lai]","tornare (qui)",""],["左右[zuǒ-yòu]","circa",""]
 ];
@@ -2886,6 +2920,9 @@ EX.l18=[
  {"t":"say","it":"«È troppo lontano, non riesco a vedere.»","zh":"太[Tài] 远[yuǎn] 了[le] ， 我[wǒ] 看[kàn] 不[bu] 见[jiàn] 。"}
 ];
 VOC.l18=[
+ ["回去[huí-qu]", "tornare (là)", ""],["进去[jìn-qu]", "entrare (allontanandosi)", ""],["楼上[lóu-shàng]", "al piano di sopra", ""],["楼下[lóu-xià]", "al piano di sotto", ""],["洗手间[xǐ-shǒu-jiān]", "bagno, toilette", ""],["回到[huí-dào]", "tornare a", ""],["来到[lái-dào]", "arrivare a", ""],
+ ["别人[bié-ren]", "gli altri", ""],["拿[ná]", "prendere (in mano)", ""],["起来[qǐ-lai]", "alzarsi", ""],["坐下[zuò-xia]", "sedersi", ""],["打开[dǎ-kāi]", "aprire", ""],["关[guān]", "chiudere; spegnere", ""],["电话[diàn-huà]", "telefono", ""],["得到[dé-dào]", "ottenere", ""],
+ ["眼睛[yǎn-jing]", "occhi", ""],["外[wài]", "fuori (外面)", ""],["大家[dà-jiā]", "tutti (le persone)", ""],
  ["见[jiàn]", "vedere, percepire (看不见: non riuscire a vedere)", ""],
  ["听得懂[tīng-de-dǒng]","riuscire a capire",""],["听不懂[tīng-bu-dǒng]","non riuscire a capire",""],["看不见[kàn-bu-jiàn]","non riuscire a vedere",""],["买不到[mǎi-bu-dào]","non trovarlo da comprare",""],["来不及[lái-bu-jí]","non fare in tempo",""],["普通话[pǔ-tōng-huà]","cinese standard",""],["上海话[Shàng-hǎi-huà]","shanghaiese",""],["不好意思[bù-hǎo-yì-si]","scusi",""],["回[huí]","tornare",""],["下个月[xià-ge-yuè]","il mese prossimo",""]
 ];
@@ -2902,6 +2939,8 @@ EX.l19=[
  {"t":"say","it":"Calma un amico: «Non agitarti, non è niente.»","zh":"别[Bié] 着急[zháo-jí] ， 没[méi] 事儿[shìr] 。"}
 ];
 VOC.l19=[
+ ["看病[kàn-bìng]", "andare dal medico", ""],["病人[bìng-rén]", "paziente, malato", ""],["请假[qǐng-jià]", "chiedere un permesso", ""],["身上[shēn-shang]", "addosso", ""],["手[shǒu]", "mano", ""],["记[jì]", "ricordare; annotare", ""],["没什么[méi-shén-me]", "non è niente", ""],["干什么[gàn-shén-me]", "che cosa fai? / a che serve?", ""],["地上[dì-shang]", "per terra", ""],["床[chuáng]", "letto", ""],["房子[fáng-zi]", "casa (l'edificio)", ""],
+ ["洗[xǐ]", "lavare", ""],["穿[chuān]", "indossare, mettersi", ""],["送[sòng]", "regalare; accompagnare", ""],["让[ràng]", "far fare, lasciare (让我看看)", ""],["药[yào]", "medicina", ""],["生病[shēng-bìng]", "ammalarsi", ""],["医院[yī-yuàn]", "ospedale", ""],["医生[yī-shēng]", "medico", ""],["事情[shì-qing]", "faccenda, cosa da fare", ""],
  ["事儿[shìr]", "faccenda, cosa (没事儿: niente, figurati)", ""],["带来[dài-lai]", "portare (qui)", ""],
  ["把[bǎ]","particella che anticipa l'oggetto",""],["被[bèi]","particella del passivo",""],["放[fàng]","mettere",""],["关上[guān-shang]","chiudere",""],["钱包[qián-bāo]","portafoglio",""],["偷[tōu]","rubare",""],["别[bié]","non (fare)!",""],["着急[zháo-jí]","agitarsi",""],["没事儿[méi-shìr]","non è niente",""],["下面[xià-mian]","sotto",""],["蛋糕[dàn-gāo]","torta",""],["它[tā]","esso, lo",""]
 ];
@@ -2919,6 +2958,8 @@ EX.l20=[
  {"t":"say","it":"Proponi: «Se domani non piove, andiamo al parco.»","zh":"如果[Rú-guǒ] 明天[míng-tiān] 不[bú] 下[xià] 雨[yǔ] ， 我们[wǒ-men] 就[jiù] 去[qù] 公园[gōng-yuán] 。"}
 ];
 VOC.l20=[
+ ["还有[hái-yǒu]", "inoltre, e poi", ""],["有时[yǒu-shí]", "a volte", ""],["有些[yǒu-xiē]", "alcuni", ""],["有的[yǒu-de]", "alcuni (有的人……)", ""],["是不是[shì-bu-shì]", "non è vero che…?", ""],["不大[bú-dà]", "non molto", ""],["一块儿[yí-kuàir]", "insieme", ""],["网友[wǎng-yǒu]", "amico conosciuto online", ""],["小朋友[xiǎo-péng-you]", "bambino (rivolgendosi a lui)", ""],["男生[nán-shēng]", "ragazzo (studente)", ""],["女生[nǚ-shēng]", "ragazza (studentessa)", ""],["中学生[zhōng-xué-shēng]", "studente delle medie/superiori", ""],["小学生[xiǎo-xué-shēng]", "alunno delle elementari", ""],["工人[gōng-rén]", "operaio", ""],["教学楼[jiào-xué-lóu]", "edificio delle aule", ""],
+ ["希望[xī-wàng]", "sperare; speranza", ""],["为[wèi]", "per, a favore di (为什么: perché)", ""],
  ["走走[zǒu-zou]", "fare due passi (verbo ripetuto: «un po'»)", ""],
  ["因为[yīn-wèi]","siccome, perché",""],["所以[suǒ-yǐ]","quindi",""],["虽然[suī-rán]","anche se",""],["但是[dàn-shì]","ma, però",""],["如果[rú-guǒ]","se",""],["还是[hái-shi]","oppure (nelle domande)",""],["或者[huò-zhě]","oppure (nelle affermazioni)",""],["公园[gōng-yuán]","parco",""],["最近[zuì-jìn]","ultimamente",""],["有意思[yǒu-yì-si]","interessante",""],["又[yòu]","sia… sia…",""],["不但[bú-dàn]","non solo",""],["而且[ér-qiě]","ma anche",""]
 ];
@@ -3588,8 +3629,8 @@ var KEY="cinese-per-italiani-v1";
 var state={best:{},box:{},can:{}};
 try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);state.best=p.best||{};state.box=p.box||{};state.can=p.can||{}}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify({best:state.best,box:state.box,can:state.can}))}catch(e){}}
-var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true,voice:""};
-try{var pr=JSON.parse(localStorage.getItem(KEY+"-prefs")||"{}");["tr","slow","fcm","furi","hz","fcr"].forEach(function(k){if(pr[k]!==undefined)prefs[k]=pr[k]})}catch(e){}
+var prefs={tr:true,slow:false,fcm:"ear",furi:true,hz:true,pya:true,voice:""};
+try{var pr=JSON.parse(localStorage.getItem(KEY+"-prefs")||"{}");["tr","slow","fcm","furi","hz","fcr","pya"].forEach(function(k){if(pr[k]!==undefined)prefs[k]=pr[k]})}catch(e){}
 function savePrefs(){try{localStorage.setItem(KEY+"-prefs",JSON.stringify(prefs))}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
@@ -3633,6 +3674,13 @@ function ttsSpeak(t,fin,wait,pitch){var txt=jplain(t);
     u.onend=fin;u.onerror=function(){setTimeout(fin,200)};speechSynthesis.speak(u);
     if(wait)setTimeout(fin,Math.max(2500,txt.length*(prefs.slow?1100:750)));
   }catch(e){if(wait)setTimeout(fin,800)}}
+/* tone exercises: each listen picks one of 4 recorded voices (2 women, 2 men), so the ear learns the tone and not
+   one speaker (high-variability training, Wang et al. 1999). Falls back to the normal voice if a file is missing. */
+var VAR_N=4,varLast=0;
+function speakVar(t){stopPlayers();stopAll();var k;do{k=1+Math.floor(Math.random()*VAR_N)}while(k===varLast&&VAR_N>1);varLast=k;
+  if(!AUD){speak(t);return}
+  try{var src="audio/"+cyrb53(akey(t)).toString(36)+"-v"+k+".mp3";AUD.onended=null;AUD.onerror=function(){AUD.onerror=null;speak(t)};AUD.src=src;
+    var r=prefs.slow?.75:1;AUD.defaultPlaybackRate=r;AUD.playbackRate=r;var pp=AUD.play();if(pp&&pp.catch)pp.catch(function(e){if(e&&e.name==="AbortError")return;speak(t)})}catch(e){speak(t)}}
 function speak(t,cb,opt){
   opt=opt||{};if(!opt.chain)stopPlayers();
   var my=++speakSeq,done=false,fell=false;
@@ -3825,6 +3873,14 @@ updateToc();
 
 /* ---------- parole e vocabolario ---------- */
 var W=[];LESSONS.forEach(function(L,li){(VOC[L.id]||[]).forEach(function(r){W.push([r[0],r[1],r[2],li,L.id]);var s=jsurf(r[0]);if(!DICT[s])DICT[s]=r[1];if(!DICT[r[0]])DICT[r[0]]=r[1]})});
+/* ---------- fading pinyin: on a lesson page or step, words taught 3 or more lessons earlier lose their pinyin
+   (tap them to see it). The help steps back once the word is known, as the rōmaji does in the Japanese course. */
+var PYI={};W.forEach(function(w){var k=jsurf(w[0]);if(PYI[k]===undefined)PYI[k]=w[3]});
+function pyUnit(el){var s=el.closest&&el.closest("section.lesson,[data-unit]");if(!s)return -1;var id=s.getAttribute("data-unit")||s.id;return LESSONS.findIndex(function(L){return L.id===id})}
+function autoPy(root){(root.querySelectorAll?root:document).querySelectorAll(".w[data-say]").forEach(function(el){var u=pyUnit(el);if(u<0)return;
+  var k=jsurf(el.getAttribute("data-say")),li=PYI[k];el.classList.toggle("pyk",li!==undefined&&li<=u-3)})}
+autoPy(document);
+(function(){var t=null;try{new MutationObserver(function(){if(t)return;t=requestAnimationFrame(function(){t=null;autoPy(document)})}).observe(document.body,{childList:true,subtree:true})}catch(e){}})();
 var TYP={n:"nome",v:"verbo",a:"aggettivo",x:"espressione"};
 function wordHTML(r){return '<span class="jl" lang="zh-CN">'+jpHTML(r[0],true)+'</span>'}
 function lessonLabel(L){return L.kind==="lesson"?"Lezione "+L.n+" · "+L.t:L.t}
@@ -3874,13 +3930,15 @@ $$("[data-fcm]").forEach(function(b){b.onclick=function(){fcMode(b.getAttribute(
 
 /* ---------- barra in alto ---------- */
 $("#totop").onclick=function(){try{window.scrollTo({top:0,behavior:rmotion()?"auto":"smooth"})}catch(e){window.scrollTo(0,0)}};
-function applyPrefs(){var B=document.body;B.classList.toggle("no-tr",!prefs.tr);B.classList.toggle("no-furi",!prefs.furi);B.classList.toggle("no-hz",!prefs.hz);
+function applyPrefs(){var B=document.body;B.classList.toggle("no-tr",!prefs.tr);B.classList.toggle("no-furi",!prefs.furi);B.classList.toggle("py-auto",!!prefs.furi&&!!prefs.pya);B.classList.toggle("no-hz",!prefs.hz);
   $("#tbtr").setAttribute("aria-pressed",prefs.tr?"true":"false");$("#tbtrl").textContent=prefs.tr?"sì":"no";
   $("#tbfuri").setAttribute("aria-pressed",prefs.furi?"true":"false");$("#tbfuril").textContent=prefs.furi?"sì":"no";
+  var pa=$("#tbpya");if(pa){pa.setAttribute("aria-pressed",prefs.pya?"true":"false");$("#tbpyal").textContent=prefs.pya?"sì":"no";pa.disabled=!prefs.furi}
   $("#tbro").setAttribute("aria-pressed",prefs.hz?"true":"false");$("#tbrol").textContent=prefs.hz?"sì":"no";
   $("#tbslow").setAttribute("aria-pressed",prefs.slow?"true":"false");$("#tbslowl").textContent=prefs.slow?"lenta":"normale"}
 $("#tbtr").onclick=function(){prefs.tr=!prefs.tr;savePrefs();applyPrefs()};
 $("#tbfuri").onclick=function(){prefs.furi=!prefs.furi;if(!prefs.furi)prefs.hz=true;savePrefs();applyPrefs()};
+if($("#tbpya"))$("#tbpya").onclick=function(){prefs.pya=!prefs.pya;savePrefs();applyPrefs()};
 $("#tbro").onclick=function(){prefs.hz=!prefs.hz;if(!prefs.hz)prefs.furi=true;savePrefs();applyPrefs()};
 $("#tbslow").onclick=function(){prefs.slow=!prefs.slow;savePrefs();applyPrefs();speak("你好[nǐ-hǎo]")};
 applyPrefs();
@@ -3940,8 +3998,8 @@ var LS=[["妈[mā]",1],["麻[má]",2],["马[mǎ]",3],["骂[mà]",4],["汤[tāng]
   ["飞[fēi]",1],["肥[féi]",2],["匪[fěi]",3],["费[fèi]",4],["通[tōng]",1],["同[tóng]",2],["桶[tǒng]",3],["痛[tòng]",4],["呼[hū]",1],["湖[hú]",2],["虎[hǔ]",3],["户[hù]",4]];
 window.TONEDRILL=LS;
 function toneGame(root){var nw=$("#lnew",root);if(!nw)return;var cur=null,lr=0,lt=0,btns=$$("#ltones .opt",root),again=$("#lagain",root),rev=$("#lreveal",root),sc=$("#lscore",root);
-  nw.onclick=function(){var n;do{n=LS[Math.floor(Math.random()*LS.length)]}while(n===cur);cur=n;speak(cur[0]);again.disabled=false;rev.innerHTML="Quale tono hai sentito?";btns.forEach(function(b){b.disabled=false;b.classList.remove("right","wrong")})};
-  again.onclick=function(){if(cur)speak(cur[0])};
+  nw.onclick=function(){var n;do{n=LS[Math.floor(Math.random()*LS.length)]}while(n===cur);cur=n;speakVar(cur[0]);again.disabled=false;rev.innerHTML="Quale tono hai sentito?";btns.forEach(function(b){b.disabled=false;b.classList.remove("right","wrong")})};
+  again.onclick=function(){if(cur)speakVar(cur[0])};
   btns.forEach(function(b){b.onclick=function(){if(!cur)return;var t=+b.getAttribute("data-t");lt++;if(t===cur[1])lr++;
     btns.forEach(function(x){x.disabled=true;if(+x.getAttribute("data-t")===cur[1])x.classList.add("right")});if(t!==cur[1])b.classList.add("wrong");
     rev.innerHTML=(t===cur[1]?'<b class="ok">Giusto!</b> ':'<b class="no">Era il '+cur[1]+'° tono.</b> ')+'<span class="jl" lang="zh-CN">'+jpHTML(cur[0])+'</span> = '+esc(meaning(cur[0])||"");
@@ -4072,7 +4130,7 @@ document.body.appendChild(ST);
 var stIn=$(".st-in",ST),stGo=$(".st-go",ST),stBody=$(".st-body",ST),stCur=null;
 $(".st-x",ST).onclick=function(){closeModal()};stBody.addEventListener("scroll",function(){if(tipFor)hideTip()},{passive:true});
 function runStage(o){/* o: {title,color,pages:[{draw(box,release),gate,go}],done()} */
-  stCur=o;var i=0;ST.className="stage t-"+(o.color||"blue")+(o.early?" early":"");$(".st-t",ST).textContent=o.title;
+  stCur=o;var i=0;ST.className="stage t-"+(o.color||"blue")+(o.early?" early":"");if(o.unit)ST.setAttribute("data-unit",o.unit);else ST.removeAttribute("data-unit");$(".st-t",ST).textContent=o.title;
   function show(){quiet();var pg=o.pages[i];stIn.innerHTML="";var box=document.createElement("div");box.className="st-page";stIn.appendChild(box);
     stGo.disabled=!!pg.gate;stGo.textContent=pg.go||(i<o.pages.length-1?"Continua":"Fine");
     pg.draw(box,function(label){stGo.disabled=false;if(label)stGo.textContent=label;stGo.classList.add("ready")});
@@ -4120,7 +4178,7 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       box.innerHTML='<div class="res '+(pass?"pass":"fail")+'"><div class="res-pc">'+Math.round(R.n/Math.max(1,R.m)*100)+'%</div><h3>'+(pass?(k===3?"Punteggio pieno! 太棒了！":"Lezione verificata"):"Da ripassare")+'</h3><p class="res-sc">'+R.n+' / '+R.m+'</p><p>'+(pass?(U.kind==="review"?"Hai completato questa parte: sei al livello "+(WORLDS[U.w-1]||{}).level+".":"La padronanza della lezione è aggiornata."):"Sotto il 70%: rivedi le parti più difficili e riprova quando vuoi. Puoi comunque andare avanti.")+'</p>'+
         (pass&&lis?'<div class="res-can"><b>Adesso sai:</b><ul>'+lis+'</ul></div>':'')+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn again" type="button">Riprova</button></div></div>';
       $(".again",box).onclick=function(){stCur=null;closeModal(function(){openStep(id,"test",opt)})};drawPath()},go:"Torna alla lezione"})}
-  runStage({title:title,color:U.color,early:U.kind==="lesson"&&U.n<=4,pages:pages,done:function(){
+  runStage({title:title,color:U.color,unit:U.id,early:U.kind==="lesson"&&U.n<=4,pages:pages,done:function(){
     if(st.k!=="test"){var fresh=markStep(id,st.key);if(fresh)toast('<b>✓ '+esc(st.zh)+'</b> · '+goalMsg())}
     drawPath();if(!opt.skip)openSheet(id)}})}
 
@@ -4599,7 +4657,7 @@ var shb=document.createElement("div");shb.className="mp-sheetback";shb.hidden=tr
 var sh=document.createElement("section");sh.className="mp-sheet";sh.hidden=true;sh.setAttribute("role","dialog");sh.setAttribute("aria-modal","true");
 document.body.appendChild(shb);document.body.appendChild(sh);
 var readCtl=document.createElement("div");readCtl.className="mp-readctl";
-["tbfuri","tbro","tbtr","tbslow"].forEach(function(i){var b=document.getElementById(i);if(b)readCtl.appendChild(b)});
+["tbfuri","tbpya","tbro","tbtr","tbslow"].forEach(function(i){var b=document.getElementById(i);if(b)readCtl.appendChild(b)});
 function themeNow(){try{return localStorage.getItem("milepost-theme")||"auto"}catch(e){return "auto"}}
 function setTheme(t){try{if(t==="auto"){localStorage.removeItem("milepost-theme");localStorage.removeItem(KEY+"-theme")}else{localStorage.setItem("milepost-theme",t);localStorage.setItem(KEY+"-theme",t)}}catch(e){}
   if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t)}
@@ -4670,6 +4728,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   all:"全部题目",done:function(n,t){return "已答 "+n+" / "+t},legA:"已答",legT:"未答",qLabel:function(n,a){return "第 "+n+" 题"+(a?"，已答":"")},
   your:"你的答案",right:"正确答案",empty:"没有回答",script:"录音原文",soon:function(n){return n+" 的模拟考试即将推出。先用现有的模拟考试练习。"},
   secRes:function(c,t){return "答对 "+c+" / "+t},practiceT:"另外要练习的：写作和口语",
+  gridT:"对照评分表检查",gridN:"这些标准来自官方评分表：勾出你做到的，就知道还要改进什么。",gridS:function(n,m){return "做到 "+n+" / "+m+" 条"},gridW:["完成了题目要求：文体、对象和字数。", "写到了题目要求的每一点。", "开头和结尾用了合适的问候和落款（Ciao / Gentile…，A presto / Cordiali saluti）。", "用连接词把句子连起来（e, ma, perché, poi, quindi）。", "检查了动词：时态、人称，passato prossimo 用 essere 还是 avere。", "检查了冠词、阴阳性、单复数一致和拼写（双辅音）。"],gridO:["说够了要求的时间，没有长时间停顿。", "回答了任务的所有要求。", "正确选择了 tu 和 Lei。", "在对话中至少问了对方一个问题。", "发音清楚：双辅音、r 和 l 分清楚。", "句子完整，动词变位正确。"],gridB1:"表达了自己的看法，并举例说明理由。",
   practiceN:"这两部分由考官评分，这里不计分。先自己写或说，再看参考答案。",model:"参考答案",
   estShort:function(s,t,p){return "估计 "+s+"/"+t+" · 及格 "+p}}
  :UI==="es"?{start:"Empezar",full:"Simulacro completo",secN:function(n,m){return n+(n===1?" sección":" secciones")+" · "+m+" min con tiempo"},train:"Entrena una sección",
@@ -4683,6 +4742,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
    all:"Todas las preguntas",done:function(n,t){return n+" de "+t+" respondidas"},legA:"respondida",legT:"pendiente",qLabel:function(n,a){return "Pregunta "+n+(a?", respondida":"")},
    your:"Tu respuesta",right:"Respuesta correcta",empty:"sin respuesta",script:"Transcripción",soon:function(n){return "El simulacro "+n+" llegará pronto: mientras tanto entrena con el que ya está."},
    secRes:function(c,t){return c+" correctas de "+t},practiceT:"Para entrenar aparte: expresión escrita y oral",
+  gridT:"Revisa con la parrilla",gridN:"Criterios tomados de las parrillas oficiales de evaluación: marca los que cumpliste y sabrás qué mejorar.",gridS:function(n,m){return n+" de "+m+" criterios"},gridW:["Cumplí la consigna: tipo de texto, destinatario y extensión pedida.", "Traté todos los puntos de la consigna.", "Empecé y terminé con fórmulas adecuadas (Ciao / Gentile…, A presto / Cordiali saluti).", "Uní las frases con conectores (e, ma, perché, poi, quindi).", "Revisé los verbos: tiempos, personas, passato prossimo con essere o avere.", "Revisé artículos (también con los posesivos: il mio), concordancias, consonantes dobles y falsos amigos."],gridO:["Hablé el tiempo pedido, sin pausas largas.", "Respondí a todo lo que pedía la tarea.", "Elegí bien entre tu y Lei.", "En los diálogos hice al menos una pregunta.", "Pronunciación clara: consonantes dobles, vocales abiertas y cerradas.", "Frases completas y verbos bien conjugados (cuidado con stare + gerundio)."],gridB1:"Di mi opinión y la justifiqué con ejemplos.",
    practiceN:"Estas pruebas las evalúa un examinador, aquí no tienen puntuación. Intenta escribir o hablar y luego mira el ejemplo.",model:"Ejemplo de respuesta",
    estShort:function(s,t,p){return "Estimación: "+s+"/"+t+" · aprobado "+p}}
  :{start:"Inizia",full:"Simulazione completa",secN:function(n,m){return n+(n===1?" sezione":" sezioni")+" · "+m+" min a tempo"},train:"Allenati su una sezione",
@@ -4696,6 +4756,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   all:"Tutte le domande",done:function(n,t){return n+" di "+t+" con risposta"},legA:"con risposta",legT:"da fare",qLabel:function(n,a){return "Domanda "+n+(a?", con risposta":"")},
   your:"La tua risposta",right:"Risposta giusta",empty:"nessuna risposta",script:"Trascrizione",soon:function(n){return "La simulazione "+n+" è in arrivo: intanto allenati con quella che c'è già."},
   secRes:function(c,t){return c+" giuste su "+t},practiceT:"Da allenare a parte: scritto e orale",
+  gridT:"Rileggi con la griglia",gridN:"Criteri ripresi dalle griglie ufficiali di valutazione: spunta quelli che hai rispettato, così sai che cosa migliorare.",gridS:function(n,m){return n+" su "+m+" criteri"},gridW:["Ho rispettato la consegna: tipo di testo, destinatario e lunghezza richiesta.", "Ho trattato tutti i punti chiesti dalla traccia.", "Ho aperto e chiuso con le formule adatte (saluti, firma).", "Ho collegato le frasi con i connettivi (et, mais, parce que, puis, alors…).", "Ho controllato i verbi: tempi, persone, passé composé con être o avoir.", "Ho controllato genere, numero, accordi e ortografia."],gridO:["Ho parlato per il tempo richiesto, senza lunghe pause.", "Ho risposto a tutte le richieste del compito.", "Ho scelto bene tra tu e vous.", "Nei dialoghi ho fatto almeno una domanda all'altra persona.", "Pronuncia chiara: vocali nasali, e finale muta, legami.", "Frasi complete, con i verbi coniugati correttamente."],gridB1:"Ho espresso la mia opinione e l'ho motivata con esempi.",
   practiceN:"Queste prove le valuta un esaminatore, qui non hanno punteggio. Prova a scrivere o a parlare, poi guarda l'esempio.",model:"Esempio di risposta",
   estShort:function(s,t,p){return "Stima: "+s+"/"+t+" · soglia "+p}};
 function SCH(e){if(e&&e.scheme)return e.scheme;
@@ -4743,16 +4804,24 @@ function examBlock(planEx){var d=exStore(),ex=curExam(planEx),sc=SCH(ex),rd=read
     html+='<div class="mp-card mp-exc"><div><b>'+h(e.title)+' · '+h(s2.name)+'</b><small>'+h(EXS.secN(e.sections.length,mins))+'</small>'+(r&&r.total!=null?'<small>'+h(EXS.last(r.total,s2.total,fmt(new Date(last.d),{day:"numeric",month:"short"})))+'</small>':'')+'</div>'+
       '<button class="mp-cta" data-sim="'+e.id+'">'+h(EXS.start)+I.arrow+'</button></div>'});
   html+='<h2 class="mp-h2">'+h(EXS.train)+'</h2><div class="mp-trains">'+ex.sections.map(function(s){return '<button class="mp-train" data-sim="'+ex.id+'" data-sec="'+s.id+'"><b lang="'+TL+'">'+h(s.jp)+'</b><small>'+h(s.it)+' · '+s.min+' min</small></button>'}).join("")+'</div>';
-  if(ex.practice&&ex.practice.length)html+='<h2 class="mp-h2">'+h(EXS.practiceT)+'</h2><p class="mp-lead mp-lead0">'+h(EXS.practiceN)+'</p>'+ex.practice.map(function(t){
+  if(ex.practice&&ex.practice.length)html+='<h2 class="mp-h2">'+h(EXS.practiceT)+'</h2><p class="mp-lead mp-lead0">'+h(EXS.practiceN)+'</p>'+ex.practice.map(function(t,pi){
     return '<div class="mp-card mp-prac"><div class="mp-k">'+h(t.kind)+' · '+h(t.time||"")+'</div><p class="mp-p" lang="'+TL+'"><b>'+h(t.task)+'</b></p>'+(t.tr?'<p class="mp-p mp-tr">'+h(t.tr)+'</p>':'')+
-      '<details class="mp-gl"><summary>'+h(EXS.model)+'</summary><p class="mp-p" lang="'+TL+'" style="padding:0 16px 14px">'+h(t.model)+'</p></details></div>'}).join("");
+      '<details class="mp-gl"><summary>'+h(EXS.model)+'</summary><p class="mp-p" lang="'+TL+'" style="padding:0 16px 14px">'+h(t.model)+'</p></details>'+gridHTML(ex,t,pi)+'</div>'}).join("");
   if(d.att.length)html+='<h2 class="mp-h2">'+h(EXS.hist)+'</h2><div class="mp-card mp-hist">'+d.att.map(function(a,k){var r=score(a),e=exById(a.id);if(!e)return "";var s2=SCH(e);
     var lbl=a.mode==="full"?e.title+" · "+s2.name:(e.sections.filter(function(s){return s.id===a.mode})[0]||{}).it;
     var tc=0,tt=0;Object.keys(r.g).forEach(function(k){tc+=r.g[k][0];tt+=r.g[k][1]});
     return '<a href="#/simres/'+k+'"><span>'+h(lbl)+'</span><small>'+h(fmt(new Date(a.d),{day:"numeric",month:"short"}))+'</small><b>'+(r.total!=null?r.total+'/'+s2.total:h(EXS.secRes(tc,tt)))+'</b></a>'}).reverse().join("")+'</div>';
   html+='<p class="mp-note">'+h(sc.notOfficial)+'</p>';
   return html}
-function bindExam(root){qa("[data-sim]",root).forEach(function(b){b.onclick=function(){startExam(b.getAttribute("data-sim"),b.getAttribute("data-sec"))}})}
+/* self-assessment for writing and speaking: criteria from the official marking grids, ticked by the learner */
+var GK=KEY+"-exgrid";function gridGet(){try{return JSON.parse(localStorage.getItem(GK)||"{}")}catch(e){return {}}}
+function gridHTML(ex,t,pi){if(!EXS.gridW)return "";var oral=/oral/i.test(t.kind||""),L=(oral?EXS.gridO:EXS.gridW).slice();if(/B1/.test(SCH(ex).name||""))L.push(EXS.gridB1);
+  var id=ex.id+"-"+pi,st=gridGet()[id]||[],n=L.filter(function(x,i){return st[i]}).length;
+  return '<details class="mp-gl mp-grid" data-grid="'+h(id)+'"><summary>'+h(EXS.gridT)+' · <span class="mp-gn">'+h(EXS.gridS(n,L.length))+'</span></summary><p class="mp-gnote">'+h(EXS.gridN)+'</p>'+
+    L.map(function(c,i){return '<label><input type="checkbox" data-i="'+i+'"'+(st[i]?' checked':'')+'><span>'+h(c)+'</span></label>'}).join("")+'</details>'}
+function bindExam(root){qa("[data-sim]",root).forEach(function(b){b.onclick=function(){startExam(b.getAttribute("data-sim"),b.getAttribute("data-sec"))}});
+  qa(".mp-grid",root).forEach(function(g){var id=g.getAttribute("data-grid"),bs=qa("input",g);bs.forEach(function(b){b.onchange=function(){var all=gridGet(),st=all[id]||[];st[+b.getAttribute("data-i")]=b.checked?1:0;all[id]=st;
+    try{localStorage.setItem(GK,JSON.stringify(all))}catch(e){}q(".mp-gn",g).textContent=EXS.gridS(bs.filter(function(x){return x.checked}).length,bs.length)}})})}
 
 /* ---------- the exam itself: full screen, timer per section ---------- */
 var XR=null,xel=document.createElement("div");xel.id="mpexam";xel.hidden=true;document.body.appendChild(xel);
@@ -5026,7 +5095,7 @@ function exExtra(q,it,i,mark){
   if(T==="tone"){
     var m=String(it.s).match(/^(.+)\[([^\]]+)\]$/),py=m?m[2]:"",tn=tone(py),base=toneOff(py);
     exHead(q,i,'<span class="qtag ear-t">'+SPK+esc(S.tone)+'</span>',esc(S.toneQ));
-    var pa3=document.createElement("div");pa3.className="acts";var lb3=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb3.onclick=function(){speak(it.s)};pa3.appendChild(lb3);q.appendChild(pa3);
+    var pa3=document.createElement("div");pa3.className="acts";var lb3=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb3.onclick=function(){(typeof speakVar==="function"?speakVar:speak)(it.s)};pa3.appendChild(lb3);q.appendChild(pa3);
     var tb=document.createElement("div");tb.className="xtiles xtones";q.appendChild(tb);var fb6=exFb(q);
     [1,2,3,4].forEach(function(k){var v=toneOn(base,k),b=exBtn("xtile t"+k,'<span class="t'+k+'">'+esc(v)+'</span><small>'+["","‾ alto","／ sale","∨ scende e sale","＼ scende"][k]+'</small>');tb.appendChild(b);
       b.onclick=function(){if(q.dataset.locked)return;q.dataset.locked="1";var ok=k===tn;$$(".xtile",tb).forEach(function(x){x.disabled=true});tb.children[tn-1].classList.add("ok");if(!ok)b.classList.add("no");

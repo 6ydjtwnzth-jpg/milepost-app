@@ -16,6 +16,7 @@ EX.l15=[
  {t:"say",zh:"问朋友：「你吃过意大利冰淇淋吗？」",it:"Hai mai mangiato il gelato italiano?"}
 ];
 VOC.l15=[
+ ["sentire", "听到；感到", ""],["finito", "结束了的", ""],["fantastico", "太棒了", ""],
  ["ieri","昨天",""],["ieri sera","昨晚",""],["scorso","上一个",""],["fa","……以前（due giorni fa）",""],["già","已经",""],["non ancora","还没有",""],
  ["fine settimana","周末","m"],["tutto il giorno","一整天",""],["fino a tardi","到很晚",""],["preparare","准备、做（饭）",""],["pulire","打扫",""],["guardare","看",""],
  ["vendere","卖",""],["aprire","打开",""],["chiudere","关上",""],["perdere","丢失",""],["assaggiare","尝",""],["lettera","信","f"],["macchina","汽车","f"],

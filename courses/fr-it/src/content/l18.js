@@ -11,6 +11,7 @@ EX.l18=[
  {t:"say",zh:"Racconta: camminavi per strada quando hai incontrato un vecchio amico",it:"Je marchais dans la rue quand j'ai rencontré un vieil ami."}
 ];
 VOC.l18=[
+ ["faute", "colpa; errore", "f"],["erreur", "errore", "f"],["doute", "dubbio", "m"],
  ["raconter","raccontare",""],["histoire","storia","f"],["marcher","camminare",""],["tout à coup","all'improvviso",""],["soudain","all'improvviso",""],
  ["ensuite","poi, in seguito",""],["finalement","alla fine",""],["enfin","finalmente, infine",""],["pendant","durante",""],["pendant que","mentre",""],["à ce moment-là","in quel momento",""],
  ["chien","cane","m"],["voiture","macchina","f"],["sous","sotto",""],["pauvre","povero",""],["bras","braccio","m"],["emmener","portare (qualcuno)",""],["vétérinaire","veterinario","m"],

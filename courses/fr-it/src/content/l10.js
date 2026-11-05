@@ -11,6 +11,7 @@ EX.l10=[
  {t:"say",zh:"Racconta: mi alzo alle sette, faccio colazione e comincio a lavorare alle nove",it:"Je me lève à sept heures, je prends le petit-déjeuner et je commence à travailler à neuf heures."}
 ];
 VOC.l10=[
+ ["longtemps", "a lungo, per molto tempo", ""],["retard", "ritardo (en retard: in ritardo)", "m"],["presque", "quasi", ""],["instant", "istante, momento", "m"],
  ["minute","minuto","f"],["midi","mezzogiorno","m"],["minuit","mezzanotte","m"],["et quart","e un quarto",""],["et demie","e mezza",""],["moins le quart","meno un quarto",""],
  ["matin","mattina","m"],["après-midi","pomeriggio","m"],["nuit","notte","f"],["tôt","presto",""],["tard","tardi",""],["loin","lontano",""],["vers","verso, circa",""],["avant","prima di",""],["après","dopo",""],
  ["se lever","alzarsi",""],["se coucher","andare a letto",""],["s'habiller","vestirsi",""],["se doucher","farsi la doccia",""],["se réveiller","svegliarsi",""],

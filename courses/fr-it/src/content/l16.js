@@ -11,6 +11,7 @@ EX.l16=[
  {t:"say",zh:"Racconta: sei partito/a in luglio, sei andato/a in Bretagna, ha piovuto",it:"Je suis parti en juillet, je suis allé en Bretagne et il a plu."}
 ];
 VOC.l16=[
+ ["retour", "ritorno", "m"],["tour", "giro (faire un tour: fare un giro)", "m"],["accident", "incidente", "m"],["ressembler", "somigliare", ""],
  ["voyage","viaggio","m"],["partir","partire",""],["arriver","arrivare; succedere",""],["rester","restare, rimanere",""],["entrer","entrare",""],["monter","salire",""],["descendre","scendere",""],["tomber","cadere",""],["naître","nascere",""],
  ["copain","ragazzo, amico","m"],["copine","ragazza, amica","f"],["d'abord","prima, per prima cosa",""],["semaine","settimana","f"],["mois","mese","m"],["janvier","gennaio","m"],["mai","maggio","m"],["juillet","luglio","m"],["août","agosto","m"],
  ["décembre","dicembre","m"],["été","estate","m"],["hiver","inverno","m"],["il fait beau","fa bel tempo",""],["il pleut","piove",""],["il neige","nevica",""],["vent","vento","m"],["orage","temporale","m"],["soleil","sole","m"],["magnifique","magnifico",""]

@@ -36,7 +36,7 @@ ciò che manca si mostra come "In arrivo".
     colorato per tono, pinyin e controllo delle risposte). Voce: quella cinese del dispositivo (sintesi vocale del browser,
     velocità 0,85, persona B dei dialoghi con tono più acuto; mai le voci «Eloquence»/giocattolo di iOS come Eddy o Flo: si preferiscono le voci Premium/Ottimizzate, altrimenti la voce cinese di sistema; l'utente può sceglierla in Impostazioni), come nel vecchio «Primo libro di cinese»: è una scelta
     dell'utente, non cambiarla. I file in `docs/c/zh-it/audio/` sono solo la riserva per i dispositivi senza voce cinese:
-    una sola voce femminile (Kokoro v1.1-zh, zf_002), generata dal pinyin del corso con il cambio di tono 3-3 e
+    una voce femminile (Kokoro v1.1-zh, zf_002; per gli esercizi sui toni 4 voci, vedi sotto), generata dal pinyin del corso con il cambio di tono 3-3 e
     verificata con il riconoscimento vocale (SenseVoice) e la curva d'intonazione.
   - `courses/fr-it/`: francese per italiani. Motore preso da it-zh (lingua in alfabeto latino): `data-it`, `.it`, `.it-l`
     indicano la lingua che si studia (qui il francese), `data-zh` la lingua di chi studia (qui l'italiano). Nei testi misti
@@ -62,6 +62,18 @@ ciò che manca si mostra come "In arrivo".
   battute, parole usate prima di comparire nelle liste e regole con meno di 3 esempi. Ogni parola deve entrare nella lista della
   lezione in cui compare per la prima volta; ogni regola ha almeno 3 esempi. È euristico: le segnalazioni su lezioni di soli suoni,
   saluti o ripassi sono attese.
+- Ripasso a intervalli (`shell/srs.js`, inserito dal build in testa alla closure di ogni corso): ogni parola ha una data di
+  ritorno (1, 3, 7, 16, 37, 85, 180 giorni; se sbagliata torna domani). Lo usano flashcard, ripasso del giorno («Oggi» mostra
+  quante parole sono in scadenza) e quiz delle parole; la scheda «La tua memoria» mostra parole in ripasso, consolidate e
+  percentuale di ricordo misurata dopo 7+ giorni. Dati in `<storageKey>-srs`. Ogni lezione dalla seconda comincia con la
+  tappa «Parole di prima» (10 parole delle lezioni precedenti: prima quelle in scadenza, poi 1, 2, 4 e 8 lezioni indietro).
+- Vocabolario d'esame: le liste parole coprono il JLPT N5 (ja-it, ~92% della lista N5 di open-anki-jlpt-decks), l'HSK 2.0
+  livelli 1–2 (zh-it, 100%/99%) e le parole più frequenti utili (fr-it, it-zh, it-es). Verifica: `cover.js`/`freq.js` nello
+  scratchpad di sviluppo; nuove parole vanno nella lezione del loro tema, mai più di ~45 per lezione.
+- zh-it: pinyin «che sparisce» (impostazione `tbpya`, attiva di default): nelle tappe delle lezioni le parole studiate da 3+
+  lezioni non mostrano il pinyin. Gli esercizi sui toni usano 4 voci registrate (`audio/<hash>-v1..v4.mp3`, `speakVar`).
+- Esami con scritto/orale (fr-it, it-zh, it-es): sotto ogni prova c'è una griglia di autovalutazione con i criteri delle griglie
+  ufficiali (`gridHTML` in `shell/course-app.js`, spunte in `<storageKey>-exgrid`).
 - ja-it: i kana sono distribuiti su l1–l7 (`KSTEP` in `src/js/app.js`: hiragana l1–l4, katakana l5–l7). Con il rōmaji su «auto»
   compare sotto ogni parola solo finché contiene kana non ancora insegnati nella lezione (`autoRo`). Si parte dal cortese
   (spiegato in l2) e fino a l17 le regole hanno una nota «Tra amici» con la forma informale.

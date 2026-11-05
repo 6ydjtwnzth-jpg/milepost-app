@@ -11,6 +11,7 @@ EX.l22=[
  {t:"say",zh:"In farmacia: hai mal di testa, chiedi con gentilezza se possono consigliarti qualcosa",it:"Bonjour, j'ai mal à la tête. Pourriez-vous me conseiller quelque chose ?"}
 ];
 VOC.l22=[
+ ["corps", "corpo", "m"],["main", "mano", "f"],["les yeux", "gli occhi (un œil: un occhio)", ""],["visage", "viso", "m"],["voix", "voce", "f"],["grave", "grave", ""],["peine", "pena, fatica (ça vaut la peine: ne vale la pena)", "f"],["service", "servizio; favore", "m"],["utiliser", "usare", ""],
  ["santé","salute","f"],["docteur","dottore","m"],["gorge","gola","f"],["ventre","pancia","m"],["dos","schiena","m"],["fièvre","febbre","f"],["grippe","influenza","f"],["rhume","raffreddore","m"],
  ["tousser","tossire",""],["sirop","sciroppo","m"],["médicament","medicina","m"],["ordonnance","ricetta medica","f"],["certificat","certificato","m"],["il faut","bisogna",""],["depuis","da (tempo)",""],
  ["surtout","soprattutto",""],["se reposer","riposarsi",""],["conseiller","consigliare",""],["conseil","consiglio","m"],["à ta place","al posto tuo",""],["fois","volta","f"],["fumer","fumare",""],

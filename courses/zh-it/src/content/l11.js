@@ -11,5 +11,7 @@ EX.l11=[
  {"t":"say","it":"«Lui ha tre anni più di me.»","zh":"他[Tā] 比[bǐ] 我[wǒ] 大[dà] 三[sān] 岁[suì] 。"}
 ];
 VOC.l11=[
+ ["风[fēng]", "vento (刮风: tira vento)", ""],["雨[yǔ]", "pioggia", ""],["树[shù]", "albero", ""],["花[huā]", "fiore", ""],["山[shān]", "montagna", ""],["北[běi]", "nord", ""],["南[nán]", "sud", ""],["东[dōng]", "est", ""],["西[xī]", "ovest", ""],["干净[gān-jìng]", "pulito", ""],["坏[huài]", "rotto; cattivo", ""],["老[lǎo]", "vecchio", ""],
+ ["晴[qíng]", "sereno (晴天: giornata di sole)", ""],["阴[yīn]", "nuvoloso (阴天)", ""],["雪[xuě]", "neve (下雪: nevicare)", ""],["颜色[yán-sè]", "colore", ""],["白[bái]", "bianco", ""],["黑[hēi]", "nero", ""],["红[hóng]", "rosso", ""],["新[xīn]", "nuovo", ""],
  ["天气[tiān-qì]","tempo atmosferico",""],["怎么样[zěn-me-yàng]","com'è? che ne pensi?",""],["热[rè]","caldo",""],["下雪[xià-xuě]","nevicare",""],["冬天[dōng-tiān]","inverno",""],["夏天[xià-tiān]","estate",""],["比[bǐ]","rispetto a (comparativo)",""],["跟[gēn]","con",""],["一样[yí-yàng]","uguale",""],["更[gèng]","ancora più",""],["最[zuì]","il più",""],["那么[nà-me]","così, tanto",""],["觉得[jué-de]","pensare, ritenere",""],["菜[cài]","piatto, cucina",""],["好吃[hǎo-chī]","buono (da mangiare)",""],["差不多[chà-bu-duō]","più o meno",""],["北京[Běi-jīng]","Pechino",""],["罗马[Luó-mǎ]","Roma",""],["高[gāo]","alto",""],["大[dà]","grande",""]
 ];

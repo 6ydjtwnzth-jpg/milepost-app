@@ -9,6 +9,9 @@ EX.l18=[
  {"t":"say","it":"«È troppo lontano, non riesco a vedere.»","zh":"太[Tài] 远[yuǎn] 了[le] ， 我[wǒ] 看[kàn] 不[bu] 见[jiàn] 。"}
 ];
 VOC.l18=[
+ ["回去[huí-qu]", "tornare (là)", ""],["进去[jìn-qu]", "entrare (allontanandosi)", ""],["楼上[lóu-shàng]", "al piano di sopra", ""],["楼下[lóu-xià]", "al piano di sotto", ""],["洗手间[xǐ-shǒu-jiān]", "bagno, toilette", ""],["回到[huí-dào]", "tornare a", ""],["来到[lái-dào]", "arrivare a", ""],
+ ["别人[bié-ren]", "gli altri", ""],["拿[ná]", "prendere (in mano)", ""],["起来[qǐ-lai]", "alzarsi", ""],["坐下[zuò-xia]", "sedersi", ""],["打开[dǎ-kāi]", "aprire", ""],["关[guān]", "chiudere; spegnere", ""],["电话[diàn-huà]", "telefono", ""],["得到[dé-dào]", "ottenere", ""],
+ ["眼睛[yǎn-jing]", "occhi", ""],["外[wài]", "fuori (外面)", ""],["大家[dà-jiā]", "tutti (le persone)", ""],
  ["见[jiàn]", "vedere, percepire (看不见: non riuscire a vedere)", ""],
  ["听得懂[tīng-de-dǒng]","riuscire a capire",""],["听不懂[tīng-bu-dǒng]","non riuscire a capire",""],["看不见[kàn-bu-jiàn]","non riuscire a vedere",""],["买不到[mǎi-bu-dào]","non trovarlo da comprare",""],["来不及[lái-bu-jí]","non fare in tempo",""],["普通话[pǔ-tōng-huà]","cinese standard",""],["上海话[Shàng-hǎi-huà]","shanghaiese",""],["不好意思[bù-hǎo-yì-si]","scusi",""],["回[huí]","tornare",""],["下个月[xià-ge-yuè]","il mese prossimo",""]
 ];

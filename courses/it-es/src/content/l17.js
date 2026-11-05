@@ -16,6 +16,7 @@ EX.l17=[
  {t:"say",zh:"Cuenta una costumbre de tu infancia: cada verano, cada domingo…",it:"Ogni domenica andavamo a mangiare dai nonni."}
 ];
 VOC.l17=[
+ ["cuore", "corazón", "m"],["ragione", "razón", "f"],["senso", "sentido", "m"],
  ["tantissimo", "muchísimo", ""],
  ["bambino","niño","m"],["bambina","niña","f"],["da piccolo","de pequeño",""],["una volta","antes, una vez",""],["ogni","cada",""],["di solito","normalmente",""],
  ["paese","pueblo; país","m"],["campagna","campo","f"],["giardino","jardín","m"],["cane","perro","m"],["gatto","gato","m"],["giocare","jugar",""],

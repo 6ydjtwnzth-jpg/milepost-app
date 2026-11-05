@@ -11,6 +11,8 @@ EX.l12=[
  {"t":"say","it":"«Sono arrivato il mese scorso.»","zh":"我[Wǒ] 是[shì] 上[shàng] 个[ge] 月[yuè] 来[lái] 的[de] 。"}
 ];
 VOC.l12=[
+ ["有名[yǒu-míng]", "famoso", ""],["地方[dì-fang]", "posto, luogo", ""],["地图[dì-tú]", "cartina, mappa", ""],["机票[jī-piào]", "biglietto aereo", ""],["车票[chē-piào]", "biglietto (treno, autobus)", ""],["门票[mén-piào]", "biglietto d'ingresso", ""],["火车[huǒ-chē]", "treno", ""],["汽车[qì-chē]", "automobile", ""],["飞[fēi]", "volare", ""],["新年[xīn-nián]", "anno nuovo", ""],["商场[shāng-chǎng]", "centro commerciale", ""],["第二[dì-èr]", "secondo (ordinale)", ""],
+ ["旅游[lǚ-yóu]", "fare turismo, viaggiare", ""],["机场[jī-chǎng]", "aeroporto", ""],["船[chuán]", "nave, barca", ""],["出租车[chū-zū-chē]", "taxi", ""],["公共汽车[gōng-gòng-qì-chē]", "autobus", ""],["西瓜[xī-guā]", "anguria", ""],["羊肉[yáng-ròu]", "carne di montone", ""],
  ["时候[shí-hou]", "momento (什么时候: quando)", ""],
  ["过[guo]","particella di esperienza",""],["次[cì]","volta",""],["长城[Cháng-chéng]","la Grande Muraglia",""],["烤鸭[kǎo-yā]","anatra laccata",""],["是[shì] …… 的[de]","struttura per quando, dove, come",""],["什么时候[shén-me-shí-hou]","quando",""],["怎么[zěn-me]","come",""],["坐[zuò]","sedersi; prendere (un mezzo)",""],["飞机[fēi-jī]","aereo",""],["上个月[shàng-ge-yuè]","il mese scorso",""],["第一次[dì-yī-cì]","la prima volta",""],["那[nà]","allora",""]
 ];

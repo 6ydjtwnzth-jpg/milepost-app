@@ -11,6 +11,7 @@ EX.l12=[
  {t:"say",zh:"Chiedi a una signora come andare alla stazione",it:"Pardon, madame. Pour aller à la gare, s'il vous plaît ?"}
 ];
 VOC.l12=[
+ ["endroit", "posto", "m"],["route", "strada (fuori città)", "f"],["chemin", "strada, cammino", "m"],["partout", "dappertutto", ""],["ailleurs", "altrove", ""],["pays", "paese, nazione", "m"],["terre", "terra", "f"],["lieu", "luogo", "m"],
  ["musée","museo","m"],["gare","stazione","f"],["hôtel","albergo","m"],["place","piazza; posto","f"],["pont","ponte","m"],["église","chiesa","f"],["magasin","negozio","m"],["boulangerie","panetteria","f"],
  ["pharmacie","farmacia","f"],["banque","banca","f"],["centre-ville","centro città","m"],["à gauche","a sinistra",""],["à droite","a destra",""],["tout droit","sempre dritto",""],["jusqu'à","fino a",""],
  ["tourner","girare",""],["traverser","attraversare",""],["à pied","a piedi",""],["puis","poi",""],["chez","da, a casa di",""],["en","in; ne (pronome)",""],["au","al, allo (à + le)",""],["du","del, dello (de + le)",""],

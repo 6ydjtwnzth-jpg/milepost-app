@@ -85,3 +85,4 @@ Object.assign(DICT,{
 "ぜんぶで":"in tutto"
 });
 Object.assign(DICT,{"かぎ": "chiave", "ベッド": "letto (all'occidentale)", "ごめん": "scusa (tra amici)", "みみ": "orecchio", "かき": "cachi (il frutto)", "えんぴつ": "matita", "きや": "ki + ya: due sillabe (scritto con ゃ piccolo, きゃ, sarebbe una sola)", "スキー": "sci", "タクシー": "taxi", "カナダ": "Canada", "ミルク": "latte", "メロン": "melone", "ファミレス": "family restaurant (ristorante per famiglie)", "かえって": "tornando (forma -て di かえる)"});
+Object.assign(DICT,{"すぎ": "passate (dopo un'ora: 五時すぎ); troppo (dopo un verbo)", "個[こ]": "classificatore di oggetti piccoli (三個: tre)", "冊[さつ]": "classificatore di libri e quaderni", "台[だい]": "classificatore di macchine e veicoli", "匹[ひき]": "classificatore di piccoli animali", "キロ": "chilo; chilometro", "か月[げつ]": "… mesi (durata: 三か月)", "週間[しゅうかん]": "… settimane (durata: 二週間)", "など": "eccetera", "グラム": "grammo", "度[ど]": "gradi; volte (一度: una volta)"});

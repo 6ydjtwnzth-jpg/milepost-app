@@ -17,6 +17,7 @@ EX.l10=[
  {t:"say",it:"Chiedi a un amico che ore sono.",jp:"今[いま] 、 何時[なんじ] です か 。"}
 ];
 VOC.l10=[
+ ["朝[あさ]ご飯[はん]", "colazione", "n"],["昼[ひる]ご飯[はん]", "pranzo", "n"],["晩[ばん]ご飯[はん]", "cena", "n"],["夕方[ゆうがた]", "tardo pomeriggio, sera", "n"],["毎晩[まいばん]", "ogni sera", "n"],["ゆうべ", "ieri sera", "n"],["おととい", "l'altro ieri", "n"],["あさって", "dopodomani", "n"],["今晩[こんばん]", "stasera", "n"],["〜 ごろ", "verso le… (ora approssimativa)", "x"],["〜 すぎ", "passate (五時すぎ: le cinque passate)", "x"],["お風呂[ふろ]", "bagno (nella vasca)", "n"],["始[はじ]まります", "cominciare (qualcosa comincia)", "v"],["終[お]わります", "finire", "v"],["出[で]ます", "uscire; partire", "v"],["入[はい]ります", "entrare", "v"],["いつも", "sempre, di solito", "x"],["ちょうど", "esattamente, proprio", "x"],
  ["ねむい", "avere sonno", "a"],["ええ", "sì (più morbido di はい)", "x"],
  ["〜 時[じ]","… in punto (ore)","x"],["〜 分[ふん]","… minuti","x"],["半[はん]","e mezza","x"],["何時[なんじ]","che ore?","x"],["午前[ごぜん]","di mattina (a.m.)","n"],["午後[ごご]","di pomeriggio (p.m.)","n"],["ごろ","verso, circa (ore)","x"],["〜 まで","fino a","x"],
  ["きのう","ieri","n"],["きょう","oggi","n"],["あした","domani","n"],["朝[あさ]","mattina","n"],["ばん","sera","n"],["月曜日[げつようび]","lunedì","n"],["火曜日[かようび]","martedì","n"],["水曜日[すいようび]","mercoledì","n"],["木曜日[もくようび]","giovedì","n"],["土曜日[どようび]","sabato","n"],["日曜日[にちようび]","domenica","n"],

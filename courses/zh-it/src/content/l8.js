@@ -12,5 +12,7 @@ EX.l8=[
  {"t":"say","it":"Chiedi: «Che giorno della settimana è oggi?»","zh":"今天[Jīn-tiān] 星期[xīng-qī] 几[jǐ] ？"}
 ];
 VOC.l8=[
+ ["白天[bái-tiān]", "di giorno", ""],["早[zǎo]", "presto; buongiorno (早！)", ""],["晚[wǎn]", "tardi", ""],["星期日[xīng-qī-rì]", "domenica (scritto)", ""],["星期天[xīng-qī-tiān]", "domenica", ""],["日期[rì-qī]", "data", ""],
+ ["上午[shàng-wǔ]", "mattina (fino a mezzogiorno)", ""],["中午[zhōng-wǔ]", "mezzogiorno", ""],["下午[xià-wǔ]", "pomeriggio", ""],["日[rì]", "giorno (nelle date scritte: 10月8日)", ""],["生日[shēng-rì]", "compleanno", ""],["手表[shǒu-biǎo]", "orologio da polso", ""],
  ["点[diǎn]","ora (sull'orologio)",""],["几点[jǐ-diǎn]","che ora",""],["半[bàn]","mezza",""],["分[fēn]","minuto",""],["刻[kè]","quarto d'ora",""],["差[chà]","mancare",""],["明天[míng-tiān]","domani",""],["昨天[zuó-tiān]","ieri",""],["早上[zǎo-shang]","mattina",""],["晚上[wǎn-shang]","sera",""],["星期[xīng-qī]","settimana",""],["星期几[xīng-qī-jǐ]","che giorno della settimana",""],["号[hào]","giorno del mese",""],["月[yuè]","mese",""],["年[nián]","anno",""],["起床[qǐ-chuáng]","alzarsi",""],["上课[shàng-kè]","fare lezione",""],["睡觉[shuì-jiào]","dormire",""],["回家[huí-jiā]","tornare a casa",""],["学习[xué-xí]","studiare",""],["糟糕[zāo-gāo]","accidenti!",""]
 ];

@@ -16,6 +16,7 @@ EX.l20=[
  {t:"say",zh:"Di lo que estás haciendo ahora",it:"Sto studiando l'italiano e sto ascoltando la musica."}
 ];
 VOC.l20=[
+ ["sicurezza", "seguridad", "f"],["attenzione", "atención", "f"],
  ["solo", "solo", ""],["pagare", "pagar", ""],["troppo", "demasiado", ""],
  ["giacca","chaqueta","f"],["maglietta","camiseta","f"],["camicia","camisa","f"],["pantaloni","pantalones",""],["gonna","falda","f"],["vestito","vestido; traje","m"],["scarpa","zapato","f"],["borsa","bolso","f"],
  ["taglia","talla","f"],["numero","número (de zapato)","m"],["camerino","probador","m"],["sconto","descuento","m"],["saldi","rebajas",""],["carta","tarjeta; papel","f"],

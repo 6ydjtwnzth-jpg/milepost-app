@@ -16,6 +16,7 @@ EX.l9=[
  {t:"say",zh:"Responde: «Soy de Sevilla, pero vivo en Milán.»",it:"Sono di Siviglia, ma abito a Milano."}
 ];
 VOC.l9=[
+ ["qualcuno", "alguien", ""],["nessuno", "nadie", ""],["senza", "sin", ""],["comunque", "de todos modos", ""],["motivo", "motivo", "m"],["esattamente", "exactamente", ""],["possibile", "posible", ""],
  ["che cosa","qué",""],["chi","quién",""],["dove","dónde",""],["quando","cuándo",""],["perché","por qué; porque",""],["come","cómo; como",""],
  ["quanto","cuánto",""],["quale","cuál",""],["con","con",""],["adesso","ahora",""],["vicino","cerca",""],["vero?","¿verdad?",""],
  ["musica","música","f"],["Duomo","catedral","m"],["Milano","Milán",""],["Siviglia","Sevilla",""],["tempo","tiempo","m"],["partire","salir, irse de viaje",""],["ma","pero",""]

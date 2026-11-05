@@ -10,6 +10,8 @@ EX.l16=[
  {"t":"say","it":"Rispondi a un complimento: «Ma no, sono ancora lontano.»","zh":"哪里[Nǎ-li] 哪里[nǎ-li] ， 还[hái] 差[chà] 得[de] 远[yuǎn] 呢[ne] 。"}
 ];
 VOC.l16=[
+ ["动作[dòng-zuò]", "movimento, gesto", ""],["歌[gē]", "canzone", ""],["唱[chàng]", "cantare", ""],["开玩笑[kāi-wán-xiào]", "scherzare", ""],["老人[lǎo-rén]", "anziano", ""],
+ ["唱歌[chàng-gē]", "cantare", ""],["跳舞[tiào-wǔ]", "ballare", ""],["说话[shuō-huà]", "parlare", ""],["漂亮[piào-liang]", "bello, carino", ""],["准备[zhǔn-bèi]", "preparare, prepararsi", ""],
  ["哪里[nǎ-li]", "dove; ma no (哪里哪里: risposta modesta a un complimento)", ""],["远[yuǎn]", "lontano", ""],
  ["得[de]","particella del complemento di grado",""],["跑[pǎo]","correre",""],["写[xiě]","scrivere",""],["汉字[Hàn-zì]","caratteri cinesi",""],["清楚[qīng-chu]","chiaro",""],["好看[hǎo-kàn]","bello",""],["哪里哪里[nǎ-li-nǎ-li]","ma no, figurati",""],["一起[yì-qǐ]","insieme",""],["练习[liàn-xí]","esercitarsi",""],
 ];

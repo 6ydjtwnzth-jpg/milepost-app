@@ -12,6 +12,7 @@ EX.l6=[
  {t:"say",zh:"Di' quanti anni hai e che hai sete",it:"J'ai trente ans et j'ai soif."}
 ];
 VOC.l6=[
+ ["vraiment", "davvero", ""],["encore", "ancora", ""],["déjà", "già", ""],["vrai", "vero", ""],["même", "stesso; perfino", ""],["seul", "solo", ""],["heureux", "felice", ""],["gentil", "gentile", ""],["calme", "calmo, tranquillo", ""],
  ["pas mal", "non male", ""],
  ["aller","andare; stare (di salute)",""],["faim","fame","f"],["soif","sete","f"],["chaud","caldo",""],["froid","freddo",""],["peur","paura","f"],["sommeil","sonno","m"],
  ["fatigué","stanco",""],["content","contento",""],["malade","malato",""],["tête","testa","f"],["âge","età","m"],["an","anno","m"],["bof","mah, così così",""],["toujours","sempre",""],

@@ -15,6 +15,7 @@ EX.l6=[
  {t:"say",zh:"Di cómo estás ahora: si tienes hambre o estás cansado",it:"Ho un po' di fame, ma non sono stanco.",e:"Una chica dice {stanca}."}
 ];
 VOC.l6=[
+ ["proprio", "justo, realmente", ""],["tanto", "tanto", ""],["giusto", "correcto, justo", ""],["sicuro", "seguro", ""],["serio", "serio", ""],["forte", "fuerte", ""],["importante", "importante", ""],["difficile", "difícil", ""],["facile", "fácil", ""],
  ["stare","estar (bien, mal); quedarse",""],["come stai?","¿cómo estás?",""],["bene","bien",""],["male","mal",""],["così così","así así",""],["tutto bene","todo bien",""],
  ["fame","hambre","f"],["sete","sed","f"],["freddo","frío",""],["caldo","calor",""],["sonno","sueño (ganas de dormir)","m"],["fretta","prisa","f"],["paura","miedo","f"],
  ["stanco","cansado",""],["contento","contento",""],["triste","triste",""],["nervoso","nervioso",""],["tranquillo","tranquilo",""],["malato","enfermo",""],["arrabbiato","enfadado",""],

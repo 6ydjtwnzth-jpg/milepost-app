@@ -14,6 +14,7 @@ EX.l6=[
  {t:"say",zh:"说你现在的状态：饿不饿、累不累。",it:"Ho un po' di fame, ma non sono stanco.",e:"女生说 stanca。"}
 ];
 VOC.l6=[
+ ["proprio", "正是；真的", ""],["tanto", "很多；那么", ""],["giusto", "对的", ""],["sicuro", "肯定的；安全的", ""],["serio", "认真的", ""],["forte", "强的；厉害", ""],["importante", "重要的", ""],["difficile", "难的", ""],["facile", "容易的", ""],
  ["stare","待；（身体）状态",""],["come stai?","你好吗？",""],["bene","好",""],["male","不好、坏",""],["così così","一般般",""],["tutto bene","一切都好",""],
  ["fame","饥饿","f"],["sete","口渴","f"],["freddo","冷",""],["caldo","热",""],["sonno","困","m"],["fretta","匆忙","f"],["paura","害怕","f"],
  ["stanco","累的",""],["contento","高兴的",""],["triste","难过的",""],["nervoso","紧张的",""],["tranquillo","平静的",""],["malato","生病的",""],["arrabbiato","生气的",""],

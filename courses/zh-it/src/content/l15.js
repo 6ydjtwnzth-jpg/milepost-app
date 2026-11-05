@@ -10,6 +10,8 @@ EX.l15=[
  {"t":"say","it":"«Non ho capito.»","zh":"我[Wǒ] 没[méi] 听懂[tīng-dǒng] 。"}
 ];
 VOC.l15=[
+ ["明白[míng-bai]", "capire; chiaro", ""],["记住[jì-zhu]", "memorizzare", ""],["听见[tīng-jiàn]", "sentire (con le orecchie)", ""],["听写[tīng-xiě]", "dettato", ""],["对[duì]", "giusto, corretto", ""],["不对[bú-duì]", "sbagliato, non è così", ""],["知识[zhī-shi]", "conoscenza, sapere", ""],["重要[zhòng-yào]", "importante", ""],["有用[yǒu-yòng]", "utile", ""],["真的[zhēn-de]", "davvero", ""],["看到[kàn-dào]", "vedere (riuscire a vedere)", ""],["听到[tīng-dào]", "sentire (riuscire a sentire)", ""],
+ ["题[tí]", "domanda, esercizio (d'esame)", ""],["回答[huí-dá]", "rispondere; risposta", ""],["问[wèn]", "chiedere, domandare", ""],["意思[yì-si]", "significato (什么意思？)", ""],["错[cuò]", "sbagliato; errore", ""],["字[zì]", "carattere (scritto)", ""],["读[dú]", "leggere (ad alta voce); studiare", ""],["告诉[gào-su]", "dire, far sapere a qualcuno", ""],["考试[kǎo-shì]", "esame; dare un esame", ""],
  ["哎[āi]", "ehi! (per attirare l'attenzione o quando ci si ricorda di qualcosa)", ""],["快[kuài]", "veloce", ""],
  ["听[tīng]","ascoltare",""],["懂[dǒng]","capire",""],["听懂[tīng-dǒng]","capire (ascoltando)",""],["看见[kàn-jiàn]","vedere",""],["找[zhǎo]","cercare",""],["找到[zhǎo-dào]","trovare",""],["完[wán]","finire",""],["做完[zuò-wán]","finire di fare",""],["作业[zuò-yè]","compiti",""],["手机[shǒu-jī]","cellulare",""],["一遍[yí-biàn]","una volta (dall'inizio alla fine)",""],["写错[xiě-cuò]","scrivere sbagliato",""],["话[huà]","parole, discorso",""]
 ];

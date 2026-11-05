@@ -412,7 +412,7 @@ var shb=document.createElement("div");shb.className="mp-sheetback";shb.hidden=tr
 var sh=document.createElement("section");sh.className="mp-sheet";sh.hidden=true;sh.setAttribute("role","dialog");sh.setAttribute("aria-modal","true");
 document.body.appendChild(shb);document.body.appendChild(sh);
 var readCtl=document.createElement("div");readCtl.className="mp-readctl";
-["tbfuri","tbro","tbtr","tbslow"].forEach(function(i){var b=document.getElementById(i);if(b)readCtl.appendChild(b)});
+["tbfuri","tbpya","tbro","tbtr","tbslow"].forEach(function(i){var b=document.getElementById(i);if(b)readCtl.appendChild(b)});
 function themeNow(){try{return localStorage.getItem("milepost-theme")||"auto"}catch(e){return "auto"}}
 function setTheme(t){try{if(t==="auto"){localStorage.removeItem("milepost-theme");localStorage.removeItem(KEY+"-theme")}else{localStorage.setItem("milepost-theme",t);localStorage.setItem(KEY+"-theme",t)}}catch(e){}
   if(t==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",t)}
@@ -483,6 +483,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   all:"全部题目",done:function(n,t){return "已答 "+n+" / "+t},legA:"已答",legT:"未答",qLabel:function(n,a){return "第 "+n+" 题"+(a?"，已答":"")},
   your:"你的答案",right:"正确答案",empty:"没有回答",script:"录音原文",soon:function(n){return n+" 的模拟考试即将推出。先用现有的模拟考试练习。"},
   secRes:function(c,t){return "答对 "+c+" / "+t},practiceT:"另外要练习的：写作和口语",
+  gridT:"对照评分表检查",gridN:"这些标准来自官方评分表：勾出你做到的，就知道还要改进什么。",gridS:function(n,m){return "做到 "+n+" / "+m+" 条"},gridW:["完成了题目要求：文体、对象和字数。", "写到了题目要求的每一点。", "开头和结尾用了合适的问候和落款（Ciao / Gentile…，A presto / Cordiali saluti）。", "用连接词把句子连起来（e, ma, perché, poi, quindi）。", "检查了动词：时态、人称，passato prossimo 用 essere 还是 avere。", "检查了冠词、阴阳性、单复数一致和拼写（双辅音）。"],gridO:["说够了要求的时间，没有长时间停顿。", "回答了任务的所有要求。", "正确选择了 tu 和 Lei。", "在对话中至少问了对方一个问题。", "发音清楚：双辅音、r 和 l 分清楚。", "句子完整，动词变位正确。"],gridB1:"表达了自己的看法，并举例说明理由。",
   practiceN:"这两部分由考官评分，这里不计分。先自己写或说，再看参考答案。",model:"参考答案",
   estShort:function(s,t,p){return "估计 "+s+"/"+t+" · 及格 "+p}}
  :UI==="es"?{start:"Empezar",full:"Simulacro completo",secN:function(n,m){return n+(n===1?" sección":" secciones")+" · "+m+" min con tiempo"},train:"Entrena una sección",
@@ -496,6 +497,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
    all:"Todas las preguntas",done:function(n,t){return n+" de "+t+" respondidas"},legA:"respondida",legT:"pendiente",qLabel:function(n,a){return "Pregunta "+n+(a?", respondida":"")},
    your:"Tu respuesta",right:"Respuesta correcta",empty:"sin respuesta",script:"Transcripción",soon:function(n){return "El simulacro "+n+" llegará pronto: mientras tanto entrena con el que ya está."},
    secRes:function(c,t){return c+" correctas de "+t},practiceT:"Para entrenar aparte: expresión escrita y oral",
+  gridT:"Revisa con la parrilla",gridN:"Criterios tomados de las parrillas oficiales de evaluación: marca los que cumpliste y sabrás qué mejorar.",gridS:function(n,m){return n+" de "+m+" criterios"},gridW:["Cumplí la consigna: tipo de texto, destinatario y extensión pedida.", "Traté todos los puntos de la consigna.", "Empecé y terminé con fórmulas adecuadas (Ciao / Gentile…, A presto / Cordiali saluti).", "Uní las frases con conectores (e, ma, perché, poi, quindi).", "Revisé los verbos: tiempos, personas, passato prossimo con essere o avere.", "Revisé artículos (también con los posesivos: il mio), concordancias, consonantes dobles y falsos amigos."],gridO:["Hablé el tiempo pedido, sin pausas largas.", "Respondí a todo lo que pedía la tarea.", "Elegí bien entre tu y Lei.", "En los diálogos hice al menos una pregunta.", "Pronunciación clara: consonantes dobles, vocales abiertas y cerradas.", "Frases completas y verbos bien conjugados (cuidado con stare + gerundio)."],gridB1:"Di mi opinión y la justifiqué con ejemplos.",
    practiceN:"Estas pruebas las evalúa un examinador, aquí no tienen puntuación. Intenta escribir o hablar y luego mira el ejemplo.",model:"Ejemplo de respuesta",
    estShort:function(s,t,p){return "Estimación: "+s+"/"+t+" · aprobado "+p}}
  :{start:"Inizia",full:"Simulazione completa",secN:function(n,m){return n+(n===1?" sezione":" sezioni")+" · "+m+" min a tempo"},train:"Allenati su una sezione",
@@ -509,6 +511,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   all:"Tutte le domande",done:function(n,t){return n+" di "+t+" con risposta"},legA:"con risposta",legT:"da fare",qLabel:function(n,a){return "Domanda "+n+(a?", con risposta":"")},
   your:"La tua risposta",right:"Risposta giusta",empty:"nessuna risposta",script:"Trascrizione",soon:function(n){return "La simulazione "+n+" è in arrivo: intanto allenati con quella che c'è già."},
   secRes:function(c,t){return c+" giuste su "+t},practiceT:"Da allenare a parte: scritto e orale",
+  gridT:"Rileggi con la griglia",gridN:"Criteri ripresi dalle griglie ufficiali di valutazione: spunta quelli che hai rispettato, così sai che cosa migliorare.",gridS:function(n,m){return n+" su "+m+" criteri"},gridW:["Ho rispettato la consegna: tipo di testo, destinatario e lunghezza richiesta.", "Ho trattato tutti i punti chiesti dalla traccia.", "Ho aperto e chiuso con le formule adatte (saluti, firma).", "Ho collegato le frasi con i connettivi (et, mais, parce que, puis, alors…).", "Ho controllato i verbi: tempi, persone, passé composé con être o avoir.", "Ho controllato genere, numero, accordi e ortografia."],gridO:["Ho parlato per il tempo richiesto, senza lunghe pause.", "Ho risposto a tutte le richieste del compito.", "Ho scelto bene tra tu e vous.", "Nei dialoghi ho fatto almeno una domanda all'altra persona.", "Pronuncia chiara: vocali nasali, e finale muta, legami.", "Frasi complete, con i verbi coniugati correttamente."],gridB1:"Ho espresso la mia opinione e l'ho motivata con esempi.",
   practiceN:"Queste prove le valuta un esaminatore, qui non hanno punteggio. Prova a scrivere o a parlare, poi guarda l'esempio.",model:"Esempio di risposta",
   estShort:function(s,t,p){return "Stima: "+s+"/"+t+" · soglia "+p}};
 function SCH(e){if(e&&e.scheme)return e.scheme;
@@ -556,16 +559,24 @@ function examBlock(planEx){var d=exStore(),ex=curExam(planEx),sc=SCH(ex),rd=read
     html+='<div class="mp-card mp-exc"><div><b>'+h(e.title)+' · '+h(s2.name)+'</b><small>'+h(EXS.secN(e.sections.length,mins))+'</small>'+(r&&r.total!=null?'<small>'+h(EXS.last(r.total,s2.total,fmt(new Date(last.d),{day:"numeric",month:"short"})))+'</small>':'')+'</div>'+
       '<button class="mp-cta" data-sim="'+e.id+'">'+h(EXS.start)+I.arrow+'</button></div>'});
   html+='<h2 class="mp-h2">'+h(EXS.train)+'</h2><div class="mp-trains">'+ex.sections.map(function(s){return '<button class="mp-train" data-sim="'+ex.id+'" data-sec="'+s.id+'"><b lang="'+TL+'">'+h(s.jp)+'</b><small>'+h(s.it)+' · '+s.min+' min</small></button>'}).join("")+'</div>';
-  if(ex.practice&&ex.practice.length)html+='<h2 class="mp-h2">'+h(EXS.practiceT)+'</h2><p class="mp-lead mp-lead0">'+h(EXS.practiceN)+'</p>'+ex.practice.map(function(t){
+  if(ex.practice&&ex.practice.length)html+='<h2 class="mp-h2">'+h(EXS.practiceT)+'</h2><p class="mp-lead mp-lead0">'+h(EXS.practiceN)+'</p>'+ex.practice.map(function(t,pi){
     return '<div class="mp-card mp-prac"><div class="mp-k">'+h(t.kind)+' · '+h(t.time||"")+'</div><p class="mp-p" lang="'+TL+'"><b>'+h(t.task)+'</b></p>'+(t.tr?'<p class="mp-p mp-tr">'+h(t.tr)+'</p>':'')+
-      '<details class="mp-gl"><summary>'+h(EXS.model)+'</summary><p class="mp-p" lang="'+TL+'" style="padding:0 16px 14px">'+h(t.model)+'</p></details></div>'}).join("");
+      '<details class="mp-gl"><summary>'+h(EXS.model)+'</summary><p class="mp-p" lang="'+TL+'" style="padding:0 16px 14px">'+h(t.model)+'</p></details>'+gridHTML(ex,t,pi)+'</div>'}).join("");
   if(d.att.length)html+='<h2 class="mp-h2">'+h(EXS.hist)+'</h2><div class="mp-card mp-hist">'+d.att.map(function(a,k){var r=score(a),e=exById(a.id);if(!e)return "";var s2=SCH(e);
     var lbl=a.mode==="full"?e.title+" · "+s2.name:(e.sections.filter(function(s){return s.id===a.mode})[0]||{}).it;
     var tc=0,tt=0;Object.keys(r.g).forEach(function(k){tc+=r.g[k][0];tt+=r.g[k][1]});
     return '<a href="#/simres/'+k+'"><span>'+h(lbl)+'</span><small>'+h(fmt(new Date(a.d),{day:"numeric",month:"short"}))+'</small><b>'+(r.total!=null?r.total+'/'+s2.total:h(EXS.secRes(tc,tt)))+'</b></a>'}).reverse().join("")+'</div>';
   html+='<p class="mp-note">'+h(sc.notOfficial)+'</p>';
   return html}
-function bindExam(root){qa("[data-sim]",root).forEach(function(b){b.onclick=function(){startExam(b.getAttribute("data-sim"),b.getAttribute("data-sec"))}})}
+/* self-assessment for writing and speaking: criteria from the official marking grids, ticked by the learner */
+var GK=KEY+"-exgrid";function gridGet(){try{return JSON.parse(localStorage.getItem(GK)||"{}")}catch(e){return {}}}
+function gridHTML(ex,t,pi){if(!EXS.gridW)return "";var oral=/oral/i.test(t.kind||""),L=(oral?EXS.gridO:EXS.gridW).slice();if(/B1/.test(SCH(ex).name||""))L.push(EXS.gridB1);
+  var id=ex.id+"-"+pi,st=gridGet()[id]||[],n=L.filter(function(x,i){return st[i]}).length;
+  return '<details class="mp-gl mp-grid" data-grid="'+h(id)+'"><summary>'+h(EXS.gridT)+' · <span class="mp-gn">'+h(EXS.gridS(n,L.length))+'</span></summary><p class="mp-gnote">'+h(EXS.gridN)+'</p>'+
+    L.map(function(c,i){return '<label><input type="checkbox" data-i="'+i+'"'+(st[i]?' checked':'')+'><span>'+h(c)+'</span></label>'}).join("")+'</details>'}
+function bindExam(root){qa("[data-sim]",root).forEach(function(b){b.onclick=function(){startExam(b.getAttribute("data-sim"),b.getAttribute("data-sec"))}});
+  qa(".mp-grid",root).forEach(function(g){var id=g.getAttribute("data-grid"),bs=qa("input",g);bs.forEach(function(b){b.onchange=function(){var all=gridGet(),st=all[id]||[];st[+b.getAttribute("data-i")]=b.checked?1:0;all[id]=st;
+    try{localStorage.setItem(GK,JSON.stringify(all))}catch(e){}q(".mp-gn",g).textContent=EXS.gridS(bs.filter(function(x){return x.checked}).length,bs.length)}})})}
 
 /* ---------- the exam itself: full screen, timer per section ---------- */
 var XR=null,xel=document.createElement("div");xel.id="mpexam";xel.hidden=true;document.body.appendChild(xel);

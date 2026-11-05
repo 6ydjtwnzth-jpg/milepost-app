@@ -17,6 +17,7 @@ EX.l13=[
  {t:"say",zh:"Rechaza con educación y da una razón",it:"Mi dispiace, non posso: domani ho un esame.",e:"Al rechazar, los italianos suelen dar una razón."}
 ];
 VOC.l13=[
+ ["sapere", "saber", ""],["credere", "creer", ""],["pensare", "pensar", ""],["sembrare", "parecer", ""],["riuscire", "lograr, conseguir", ""],["lasciare", "dejar", ""],["mettere", "poner", ""],
  ["volere","querer",""],["potere","poder",""],["dovere","deber, tener que",""],["invitare","invitar",""],["entrare","entrar",""],["aiutare","ayudar",""],["finire","terminar",""],
  ["mi dispiace","lo siento",""],["volentieri","con mucho gusto",""],["va bene","vale, de acuerdo",""],["peccato","pena, lástima","m"],["niente","nada",""],["speciale","especial",""],
  ["pronto","¿diga? (teléfono); listo",""],["chiamare","llamar",""],["messaggio","mensaje","m"],["esame","examen","m"],["più tardi","más tarde",""],["ci sentiamo","hablamos",""],

@@ -16,6 +16,7 @@ EX.l21=[
  {t:"say",zh:"Cuenta tus planes para el año que viene (al menos tres frases en futuro)",it:"L'anno prossimo finirò l'università. Poi andrò in Italia e cercherò un lavoro."}
 ];
 VOC.l21=[
+ ["probabilmente", "probablemente", ""],["situazione", "situación", "f"],["assolutamente", "absolutamente", ""],["qualsiasi", "cualquier", ""],["passare", "pasar", ""],
  ["futuro","futuro","m"],["progetto","proyecto, plan","m"],["laurea","título universitario, carrera","f"],["esame","examen","m"],["lavoro","trabajo","m"],["idea","idea","f"],
  ["prossimo","próximo",""],["l'anno prossimo","el año que viene",""],["forse","quizás",""],["se","si",""],["quindi","así que",""],["allora","entonces",""],["però","pero",""],["anche se","aunque",""],
  ["dopo","después",""],["restare","quedarse",""],["trovare","encontrar",""],["sperare","esperar (desear)",""],["magari","ojalá; quizás",""],["in bocca al lupo","¡mucha suerte!",""],["crepi","respuesta a «in bocca al lupo»",""],["Sicilia","Sicilia","f"]

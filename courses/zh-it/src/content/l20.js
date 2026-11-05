@@ -10,6 +10,8 @@ EX.l20=[
  {"t":"say","it":"Proponi: «Se domani non piove, andiamo al parco.»","zh":"如果[Rú-guǒ] 明天[míng-tiān] 不[bú] 下[xià] 雨[yǔ] ， 我们[wǒ-men] 就[jiù] 去[qù] 公园[gōng-yuán] 。"}
 ];
 VOC.l20=[
+ ["还有[hái-yǒu]", "inoltre, e poi", ""],["有时[yǒu-shí]", "a volte", ""],["有些[yǒu-xiē]", "alcuni", ""],["有的[yǒu-de]", "alcuni (有的人……)", ""],["是不是[shì-bu-shì]", "non è vero che…?", ""],["不大[bú-dà]", "non molto", ""],["一块儿[yí-kuàir]", "insieme", ""],["网友[wǎng-yǒu]", "amico conosciuto online", ""],["小朋友[xiǎo-péng-you]", "bambino (rivolgendosi a lui)", ""],["男生[nán-shēng]", "ragazzo (studente)", ""],["女生[nǚ-shēng]", "ragazza (studentessa)", ""],["中学生[zhōng-xué-shēng]", "studente delle medie/superiori", ""],["小学生[xiǎo-xué-shēng]", "alunno delle elementari", ""],["工人[gōng-rén]", "operaio", ""],["教学楼[jiào-xué-lóu]", "edificio delle aule", ""],
+ ["希望[xī-wàng]", "sperare; speranza", ""],["为[wèi]", "per, a favore di (为什么: perché)", ""],
  ["走走[zǒu-zou]", "fare due passi (verbo ripetuto: «un po'»)", ""],
  ["因为[yīn-wèi]","siccome, perché",""],["所以[suǒ-yǐ]","quindi",""],["虽然[suī-rán]","anche se",""],["但是[dàn-shì]","ma, però",""],["如果[rú-guǒ]","se",""],["还是[hái-shi]","oppure (nelle domande)",""],["或者[huò-zhě]","oppure (nelle affermazioni)",""],["公园[gōng-yuán]","parco",""],["最近[zuì-jìn]","ultimamente",""],["有意思[yǒu-yì-si]","interessante",""],["又[yòu]","sia… sia…",""],["不但[bú-dàn]","non solo",""],["而且[ér-qiě]","ma anche",""]
 ];

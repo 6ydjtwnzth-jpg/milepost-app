@@ -15,6 +15,7 @@ EX.l20=[
  {t:"say",zh:"说你现在正在做什么。",it:"Sto studiando l'italiano e sto ascoltando la musica."}
 ];
 VOC.l20=[
+ ["sicurezza", "安全", "f"],["attenzione", "注意", "f"],
  ["solo", "只、仅仅", ""],["pagare", "付钱", ""],
  ["giacca","夹克","f"],["maglietta","T 恤","f"],["camicia","衬衫","f"],["pantaloni","裤子（复数）",""],["gonna","裙子","f"],["vestito","连衣裙；衣服","m"],["scarpa","鞋","f"],["borsa","包","f"],
  ["taglia","尺码","f"],["numero","鞋号；号码","m"],["camerino","试衣间","m"],["sconto","折扣","m"],["saldi","打折季（复数）",""],["carta","卡；纸","f"],

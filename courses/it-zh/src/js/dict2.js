@@ -36,3 +36,4 @@ Object.assign(DICT,{
 "imperfetto":"未完成过去时","gioco":"游戏","taxi":"出租车","torcia":"手电筒","confronti":"比较（复数）","jazz":"爵士乐","spese":"购物（fare spese）；费用","servizi":"服务（复数）",
 "mail":"电子邮件","verbi":"动词（复数）","presente":"现在时；在场的","passato":"过去；过去时","condizionale":"条件式"
 });
+Object.assign(DICT,{"occhi": "眼睛（occhio 的复数）"});

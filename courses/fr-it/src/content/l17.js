@@ -11,6 +11,7 @@ EX.l17=[
  {t:"say",zh:"Racconta: quando eri piccolo/a, dove abitavi e che cosa facevi d'estate",it:"Quand j'étais petit, j'habitais à Naples. L'été, j'allais à la plage avec mes cousins."}
 ];
 VOC.l17=[
+ ["vérité", "verità", "f"],["rêve", "sogno", "m"],["cœur", "cuore", "m"],
  ["mamie","nonna (familiare)","f"],["papi","nonno (familiare)","m"],["petit","piccolo",""],["autrefois","una volta, in passato",""],["d'habitude","di solito",""],["tous les jours","tutti i giorni",""],
  ["dehors","fuori",""],["après l'école","dopo la scuola",""],["au bord de la mer","al mare",""],["grands-parents","nonni","mp"],["boulanger","panettiere","m"],["enfance","infanzia","f"],["souvenir","ricordo","m"],
  ["génial","fantastico, geniale",""],["savoir","sapere",""],["plein","pieno",""],["vieux","vecchio",""],["village","paese, villaggio","m"],["ferme","fattoria","f"],["vache","mucca","f"],["arbre","albero","m"],["rivière","fiume","f"]

@@ -17,6 +17,7 @@ EX.l20=[
  {t:"say",it:"Racconta: «Per il compleanno un amico mi ha regalato un libro.»",jp:"たんじょうび に ともだち が 本[ほん] を くれました 。"}
 ];
 VOC.l20=[
+ ["洋服[ようふく]", "vestiti (all'occidentale)", "n"],["服[ふく]", "vestiti", "n"],["シャツ", "camicia, maglietta", "n"],["ワイシャツ", "camicia da ufficio", "n"],["セーター", "maglione", "n"],["スカート", "gonna", "n"],["ズボン", "pantaloni", "n"],["靴下[くつした]", "calzini", "n"],["上着[うわぎ]", "giacca", "n"],["コート", "cappotto", "n"],["背広[せびろ]", "completo da uomo", "n"],["脱[ぬ]ぎます", "togliersi (vestiti)", "v"],["かぶります", "mettersi (in testa)", "v"],["掛[か]けます", "mettersi (occhiali); appendere", "v"],["締[し]めます", "allacciare (cravatta, cintura)", "v"],["〜 グラム", "grammo", "x"],["ハンカチ", "fazzoletto", "n"],["ポケット", "tasca", "n"],["ボタン", "bottone", "n"],["大勢[おおぜい]", "tanta gente", "x"],
  ["〜 用[よう]", "per… (uso): プレゼント用 = da regalo", "x"],
  ["あげる","dare (a un altro)","v"],["くれる","dare (a me)","v"],["もらう","ricevere","v"],["〜て みる","provare a fare","x"],["プレゼント","regalo","n"],["おみやげ","souvenir, regalo dal viaggio","n"],["たんじょうび","compleanno","n"],["買[か]い物[もの]","spesa, shopping","n"],
  ["スカーフ","sciarpa, foulard","n"],["くつ","scarpe","n"],["Tシャツ","maglietta","n"],["チョコ","cioccolato","n"],["ネクタイ","cravatta","n"],["色[いろ]","colore","n"],["赤[あか]","rosso","n"],["青[あお]","blu","n"],["白[しろ]","bianco","n"],["黒[くろ]","nero","n"],

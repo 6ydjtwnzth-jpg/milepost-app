@@ -15,6 +15,7 @@ EX.l9=[
  {t:"say",zh:"回答：「我是上海人，但我住在米兰。」",it:"Sono di Shanghai, ma abito a Milano."}
 ];
 VOC.l9=[
+ ["qualcuno", "某人", ""],["nessuno", "没有人", ""],["senza", "没有，不带", ""],["comunque", "不管怎样", ""],["motivo", "原因", "m"],["esattamente", "正是，完全对", ""],["possibile", "可能的", ""],
  ["che cosa","什么",""],["chi","谁",""],["dove","哪儿",""],["quando","什么时候",""],["perché","为什么；因为",""],["come","怎么、怎么样；像",""],
  ["quanto","多少",""],["quale","哪个",""],["con","和、跟",""],["adesso","现在",""],["vicino","附近、近",""],["vero?","对吧？",""],
  ["musica","音乐","f"],["Duomo","大教堂","m"],["Milano","米兰",""],["Shanghai","上海",""],["tempo","时间；天气","m"],["partire","出发",""],["ma","但是",""]

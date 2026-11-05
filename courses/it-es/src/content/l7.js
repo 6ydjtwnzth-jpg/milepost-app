@@ -17,6 +17,7 @@ EX.l7=[
  {t:"say",zh:"Di «No entiendo, ¿puedes repetir?»",it:"Non capisco, puoi ripetere?"}
 ];
 VOC.l7=[
+ ["i soldi", "dinero", ""],["capo", "jefe", "m"],
  ["persona", "persona", "f"],["poco", "poco", ""],["normale", "normal", ""],["stasera", "esta noche", ""],
  ["parlare","hablar",""],["abitare","vivir (en un lugar)",""],["lavorare","trabajar",""],["studiare","estudiar",""],["capire","entender",""],["prendere","tomar, coger",""],
  ["dormire","dormir",""],["leggere","leer",""],["scrivere","escribir",""],["fare","hacer",""],["ripetere","repetir",""],

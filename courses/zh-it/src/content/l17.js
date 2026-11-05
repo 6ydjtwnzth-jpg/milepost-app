@@ -10,6 +10,8 @@ EX.l17=[
  {"t":"say","it":"«Torno a casa a piedi.»","zh":"我[Wǒ] 走路[zǒu-lù] 回[huí] 家[jiā] 。"}
 ];
 VOC.l17=[
+ ["车站[chē-zhàn]", "fermata, stazione", ""],["站[zhàn]", "stare in piedi; fermata", ""],["路口[lù-kǒu]", "incrocio", ""],["马路[mǎ-lù]", "strada", ""],["路上[lù-shang]", "per strada", ""],["门口[mén-kǒu]", "ingresso, davanti alla porta", ""],["上车[shàng-chē]", "salire (sul mezzo)", ""],["下车[xià-chē]", "scendere (dal mezzo)", ""],["打车[dǎ-chē]", "prendere un taxi", ""],["东边[dōng-bian]", "a est", ""],["西边[xī-bian]", "a ovest", ""],["南边[nán-bian]", "a sud", ""],["北边[běi-bian]", "a nord", ""],["前边[qián-bian]", "davanti", ""],["后边[hòu-bian]", "dietro", ""],
+ ["路[lù]", "strada", ""],["向[xiàng]", "verso (向左拐)", ""],["进[jìn]", "entrare (进来, 进去)", ""],["出[chū]", "uscire (出来, 出去)", ""],
  ["地铁站[dì-tiě-zhàn]", "stazione della metropolitana", ""],["出去[chū-qu]", "uscire (allontanandosi da chi parla)", ""],["然后[rán-hòu]", "e poi", ""],
  ["请问[qǐng-wèn]","scusi, posso chiedere",""],["怎么走[zěn-me-zǒu]","come si arriva",""],["离[lí]","distare da",""],["近[jìn]","vicino",""],["从[cóng]","da",""],["到[dào]","a, fino a; arrivare",""],["地铁[dì-tiě]","metropolitana",""],["火车站[huǒ-chē-zhàn]","stazione ferroviaria",""],["往[wǎng]","verso",""],["前[qián]","avanti",""],["左[zuǒ]","sinistra",""],["右[yòu]","destra",""],["拐[guǎi]","girare",""],["一直[yì-zhí]","sempre (dritto)",""],["开车[kāi-chē]","guidare",""],["走路[zǒu-lù]","andare a piedi",""],["学校[xué-xiào]","scuola",""],["上班[shàng-bān]","andare al lavoro",""],["出来[chū-lai]","uscire (verso chi parla)",""],["回来[huí-lai]","tornare (qui)",""],["左右[zuǒ-yòu]","circa",""]
 ];

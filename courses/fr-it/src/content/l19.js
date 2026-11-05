@@ -11,6 +11,7 @@ EX.l19=[
  {t:"say",zh:"Confronta la tua città con Parigi: più piccola, ma più tranquilla",it:"Ma ville est plus petite que Paris, mais elle est plus tranquille."}
 ];
 VOC.l19=[
+ ["pire", "peggiore", ""],["mauvais", "cattivo, brutto", ""],["fort", "forte", ""],["dur", "duro, difficile", ""],["facile", "facile", ""],["avis", "opinione (à mon avis: secondo me)", "m"],["sujet", "argomento", "m"],
  ["anniversaire","compleanno","m"],["cadeau","regalo","m"],["offrir","regalare, offrire",""],["donner","dare",""],["téléphoner","telefonare",""],["plaire","piacere",""],["bientôt","presto, fra poco",""],
  ["peut-être","forse",""],["roman","romanzo","m"],["bande dessinée","fumetto","f"],["lui","gli, le (a lui, a lei)",""],["plus","più",""],["moins","meno",""],["aussi… que","tanto… quanto",""],
  ["meilleur","migliore",""],["mieux","meglio",""],["cher","caro (prezzo)",""],["avion","aereo","m"],["tranquille","tranquillo",""],["intéressant","interessante",""],["beau","bello",""],["belle","bella",""],["vie","vita","f"],["la mienne","la mia",""]

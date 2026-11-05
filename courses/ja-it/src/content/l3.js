@@ -17,6 +17,7 @@ EX.l3=[
  {t:"say",it:"Un amico dice 学生[がくせい] です. Rispondi «anch'io sono studente».",jp:"わたし も 学生[がくせい] です 。"}
 ];
 VOC.l3=[
+ ["平仮名[ひらがな]", "hiragana", "n"],
  ["だいがく","università","n"],["がっこう","scuola","n"],["けいざい","economia","n"],["かさ","ombrello","n"],["それ","quello (vicino a te)","x"],["これ","questo","x"],["たぶん","probabilmente","x"],["そう です","sì, esatto","x"],
  ["きって","francobollo","n"],["おばあさん","nonna; signora anziana","n"],["おじいさん","nonno; signore anziano","n"],["おばさん","zia; signora","n"],["おじさん","zio; signore","n"],["とうきょう","Tokyo","n"],["おちゃ","tè verde","n"],["きょう","oggi","n"],
  ["やま","montagna","n"],["みず","acqua","n"],["ごはん","riso cotto; pasto","n"],["でんわ","telefono","n"],["あめ","pioggia; caramella","n"],["はし","ponte; bacchette","n"]

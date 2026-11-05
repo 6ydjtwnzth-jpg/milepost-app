@@ -18,6 +18,7 @@ EX.l5=[
  {t:"say",it:"Chiedi a Yuki quanti anni ha sua sorella maggiore.",jp:"お姉[ねえ]さん は 何[なん]さい です か 。"}
 ];
 VOC.l5=[
+ ["片仮名[かたかな]", "katakana", "n"],["一[いち]", "uno", "n"],["四[よん]", "quattro (anche し)", "n"],["六[ろく]", "sei", "n"],["七[なな]", "sette (anche しち)", "n"],["八[はち]", "otto", "n"],["九[きゅう]", "nove (anche く)", "n"],["十[じゅう]", "dieci", "n"],["万[まん]", "diecimila", "n"],["両親[りょうしん]", "genitori", "n"],["奥[おく]さん", "moglie (di un altro)", "n"],["大人[おとな]", "adulto", "n"],["男[おとこ]の子[こ]", "bambino, ragazzo", "n"],["女[おんな]の子[こ]", "bambina, ragazza", "n"],["男[おとこ]", "uomo", "n"],["女[おんな]", "donna", "n"],["二十歳[はたち]", "vent'anni (di età)", "n"],["〜 たち", "plurale delle persone (わたしたち: noi)", "x"],
  ["かぞく","famiglia","n"],["父[ちち]","(mio) padre","n"],["母[はは]","(mia) madre","n"],["お父[とう]さん","padre (di altri); papà","n"],["お母[かあ]さん","madre (di altri); mamma","n"],["兄[あに]","(mio) fratello maggiore","n"],["お兄[にい]さん","fratello maggiore (di altri)","n"],
  ["姉[あね]","(mia) sorella maggiore","n"],["お姉[ねえ]さん","sorella maggiore (di altri)","n"],["弟[おとうと]","fratello minore","n"],["妹[いもうと]","sorella minore","n"],["きょうだい","fratelli e sorelle","n"],["しゃしん","foto","n"],["いぬ","cane","n"],
  ["一人[ひとり]","una persona; da solo","n"],["二人[ふたり]","due persone","n"],["〜 人[にん]","… persone","x"],["〜 さい","… anni (età)","x"],["います","c'è, ci sono (persone, animali)","v"],["あります","c'è, ci sono (cose)","v"],["と","e (tra nomi)","x"],["でも","però","x"],["いい","buono, bello","a"]

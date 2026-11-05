@@ -17,6 +17,7 @@ EX.l14=[
  {t:"say",zh:"En el restaurante: «De primero, espaguetis con tomate y una botella de agua con gas.»",it:"Per me, come primo, gli spaghetti al pomodoro e una bottiglia d'acqua frizzante."}
 ];
 VOC.l14=[
+ ["modo", "modo, manera", "m"],["caso", "caso", "m"],["scelta", "elección", "f"],["ottimo", "óptimo, excelente", ""],
  ["Cosa Le do?", "¿Qué le pongo? (en una tienda)", ""],
  ["mercato","mercado","m"],["pane","pan","m"],["frutta","fruta","f"],["verdura","verdura","f"],["pomodoro","tomate","m"],["mela","manzana","f"],["arancia","naranja","f"],["patata","patata","f"],
  ["uovo","huevo (plural le uova)","m"],["formaggio","queso","m"],["prosciutto","jamón","m"],["olio","aceite","m"],["carne","carne","f"],["pollo","pollo","m"],["insalata","ensalada","f"],

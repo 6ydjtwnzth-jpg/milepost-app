@@ -11,6 +11,7 @@ EX.l21=[
  {t:"say",zh:"Racconta un progetto: l'anno prossimo, se avrai soldi, viaggerai in Francia",it:"L'année prochaine, si j'ai de l'argent, je voyagerai en France."}
 ];
 VOC.l21=[
+ ["plan", "piano, progetto", "m"],["risque", "rischio", "m"],["confiance", "fiducia", "f"],["situation", "situazione", "f"],["certains", "alcuni", ""],["ainsi", "così", ""],["probablement", "probabilmente", ""],["simplement", "semplicemente", ""],["complètement", "completamente", ""],["absolument", "assolutamente", ""],
  ["projet","progetto","m"],["études","studi","fp"],["septembre","settembre","m"],["l'année prochaine","l'anno prossimo",""],["année","anno","f"],["prochain","prossimo",""],["demain","domani",""],["avenir","futuro","m"],
  ["là-bas","laggiù, là",""],["accent","accento","m"],["québécois","del Québec",""],["appartement","appartamento","m"],["argent","soldi; argento","m"],["promis","promesso",""],
  ["venir voir","venire a trovare",""],["changer","cambiare",""],["devenir","diventare",""],["un jour","un giorno",""],["lentement","lentamente",""],["président","presidente","m"],["temps","tempo","m"]

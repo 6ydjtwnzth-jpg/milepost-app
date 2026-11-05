@@ -13,6 +13,7 @@ EX.l23=[
  {t:"say",it:"Di' un tuo progetto con 〜たら e 〜つもり.",jp:"お金[かね] が あったら 、 日本[にほん] に りょこう する つもり です 。"}
 ];
 VOC.l23=[
+ ["葉書[はがき]", "cartolina", "n"],["封筒[ふうとう]", "busta", "n"],["手紙[てがみ]", "lettera", "n"],["ポスト", "cassetta delle lettere", "n"],["箱[はこ]", "scatola", "n"],["ボールペン", "penna a sfera", "n"],["カメラ", "macchina fotografica", "n"],["ラジオ", "radio", "n"],["カレンダー", "calendario", "n"],
  ["ぼく","io (maschile, informale)","x"],["それで","e così, per questo","x"],["高校[こうこう]","liceo","n"],["〜 前[まえ] に","… fa","x"],["いろいろ","tante cose, vari","a"],["教[おし]える","insegnare","v"],["〜て くれる","fare (qualcosa) per me","x"],["ずっと","molto (più); sempre","x"],
  ["〜 ずつ","… alla volta","x"],["〜 に なる","diventare","v"],["去年[きょねん]","l'anno scorso","n"],["のぼる","salire, scalare","v"],["テスト を うける","fare un esame","v"],["お金[かね]","soldi","n"]
 ];

@@ -17,6 +17,7 @@ EX.l11=[
  {t:"say",zh:"Invita a un amigo: «¿Sales con nosotros esta noche?»",it:"Stasera esci con noi?"}
 ];
 VOC.l11=[
+ ["divertente", "divertido", ""],["amore", "amor", "m"],["vita", "vida", "f"],["prova", "prueba", "f"],["squadra", "equipo", "f"],
  ["tempo libero","tiempo libre","m"],["piacere","gustar",""],["mi piace","me gusta",""],["andare","ir",""],["venire","venir",""],["uscire","salir",""],["salire","subir",""],
  ["leggere","leer",""],["ascoltare","escuchar",""],["cucinare","cocinar",""],["ballare","bailar",""],["nuotare","nadar",""],["viaggiare","viajar",""],
  ["sport","deporte","m"],["calcio","fútbol","m"],["film","película","m"],["cinema","cine","m"],["concerto","concierto","m"],["libro di storia","libro de historia","m"],

@@ -17,6 +17,7 @@ EX.l22=[
  {t:"say",it:"Chiedi se qui si può pagare con la carta.",jp:"ここ で カード が 使[つか]えます か 。"}
 ];
 VOC.l22=[
+ ["病気[びょうき]", "malattia", "n"],["医者[いしゃ]", "medico", "n"],["体[からだ]", "corpo", "n"],["背[せ]", "statura", "n"],["声[こえ]", "voce", "n"],["耳[みみ]", "orecchio", "n"],["目[め]", "occhio", "n"],["足[あし]", "piede, gamba", "n"],["疲[つか]れます", "stancarsi", "v"],["警官[けいかん]", "agente di polizia", "n"],["おまわりさん", "poliziotto (familiare)", "n"],["お手洗[てあら]い", "bagno, toilette", "n"],["番号[ばんごう]", "numero", "n"],["無[な]くします", "perdere (un oggetto)", "v"],["頼[たの]みます", "chiedere (un favore)", "v"],["〜 度[ど]", "gradi; volte", "x"],["死[し]にます", "morire", "v"],["磨[みが]きます", "lavare (i denti), lucidare", "v"],["並[なら]びます", "fare la fila", "v"],["並[なら]べます", "mettere in fila", "v"],
  ["口[くち]", "bocca", "n"],["なまもの", "cibo crudo", "n"],["早[はや]く", "presto", "x"],
  ["いたい","che fa male","a"],["あたま","testa","n"],["おなか","pancia","n"],["歯[は]","denti","n"],["のど","gola","n"],["ねつ","febbre","n"],["せき","tosse","n"],["かぜ","raffreddore, influenza","n"],["くすり","medicina","n"],["病院[びょういん]","ospedale, clinica","n"],["お医者[いしゃ]さん","medico","n"],
  ["〜 なければ なりません","devo…","x"],["〜 なくて も いい","non c'è bisogno di…","x"],["〜 た ほう が いい","è meglio…","x"],["〜 ん です","è che… (spiegazione)","x"],["できる","potere, saper fare","v"],["休[やす]む","riposare; assentarsi","v"],["あける","aprire","v"],["無理[むり] を する","sforzarsi troppo","v"],

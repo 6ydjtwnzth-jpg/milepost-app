@@ -19,6 +19,7 @@ EX.l7=[
  {t:"say",it:"Chiedi a un collega che lavoro fa.",jp:"おしごと は 何[なん] です か 。"}
 ];
 VOC.l7=[
+ ["漢字[かんじ]", "kanji, carattere cinese", "n"],["洗[あら]います", "lavare", "v"],["座[すわ]ります", "sedersi", "v"],["立[た]ちます", "alzarsi, stare in piedi", "v"],["歩[ある]きます", "camminare", "v"],["走[はし]ります", "correre", "v"],["歌[うた]います", "cantare", "v"],["習[なら]います", "imparare (da qualcuno)", "v"],["練習[れんしゅう]します", "esercitarsi", "v"],["掃除[そうじ]します", "fare le pulizie", "v"],["洗濯[せんたく]します", "fare il bucato", "v"],
  ["大学[だいがく]", "università", "n"],["はたらきます", "lavorare", "v"],
  ["食[た]べます","mangiare","v"],["飲[の]みます","bere","v"],["行[い]きます","andare","v"],["来[き]ます","venire","v"],["かえります","tornare (a casa)","v"],["見[み]ます","vedere, guardare","v"],["読[よ]みます","leggere","v"],["します","fare","v"],["勉強[べんきょう]します","studiare","v"],["起[お]きます","alzarsi","v"],["ねます","dormire, andare a letto","v"],
  ["毎日[まいにち]","ogni giorno","n"],["毎朝[まいあさ]","ogni mattina","n"],["あした","domani","n"],["ばん ごはん","cena","n"],["うち","casa (mia)","n"],["としょかん","biblioteca","n"],["ともだち","amico","n"],["れきし","storia","n"],["パン","pane","n"],

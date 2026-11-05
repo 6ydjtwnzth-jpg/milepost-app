@@ -14,6 +14,7 @@ EX.l8=[
  {t:"say",zh:"付钱时说「给您」，离开时说「谢谢，再见」。",it:"Ecco a Lei. Grazie, arrivederci!"}
 ];
 VOC.l8=[
+ ["nulla", "什么也没有", ""],["abbastanza", "足够；相当", ""],["paio", "一对；几个（un paio di）", "m"],
  ["bar","咖啡馆、酒吧","m"],["cappuccino","卡布奇诺","m"],["cornetto","羊角面包","m"],["spremuta","鲜榨果汁","f"],["tramezzino","三角三明治","m"],["panino","帕尼尼、面包","m"],
  ["acqua","水","f"],["tè","茶","m"],["latte","牛奶","m"],["zucchero","糖","m"],["bicchiere","杯子","m"],["bottiglia","瓶子","f"],
  ["conto","账单","m"],["euro","欧元","m"],["cassa","收银台","f"],["scontrino","小票","m"],["vorrei","我想要（礼貌）",""],["quanto costa?","多少钱？",""],

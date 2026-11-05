@@ -16,6 +16,7 @@ EX.l19=[
  {t:"say",zh:"Compara tu ciudad con una ciudad italiana",it:"Secondo me, Madrid è più grande di Roma, ma Roma è più antica."}
 ];
 VOC.l19=[
+ ["genere", "tipo, género", "m"],["unico", "único", ""],["entrambi", "ambos", ""],
  ["carbonara", "carbonara (pasta con huevo, queso y guanciale)", "f"],
  ["gli","le, a él; les",""],["le","le, a ella",""],["a me","a mí",""],["anche a me","a mí también",""],["neanche a me","a mí tampoco",""],
  ["più","más",""],["meno","menos",""],["come","como, tan … como",""],["migliore","mejor",""],["peggiore","peor",""],["meglio","mejor (adverbio)",""],

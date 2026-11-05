@@ -12,6 +12,7 @@ EX.l5=[
  {t:"say",zh:"Presenta la tua famiglia: «Ho un fratello e una sorella. Mia madre si chiama…»",it:"J'ai un frère et une sœur. Ma mère s'appelle Anna."}
 ];
 VOC.l5=[
+ ["garçon", "ragazzo", "m"],["jeune", "giovane", ""],["mariage", "matrimonio", "m"],["ensemble", "insieme", ""],
  ["avoir","avere",""],["famille","famiglia","f"],["parents","genitori","mp"],["père","padre","m"],["mère","madre","f"],["frère","fratello","m"],["sœur","sorella","f"],
  ["fils","figlio","m"],["fille","figlia; ragazza","f"],["enfant","bambino, figlio","m"],["mari","marito","m"],["femme","moglie; donna","f"],["oncle","zio","m"],["tante","zia","f"],
  ["cousin","cugino","m"],["cousine","cugina","f"],["grand-père","nonno","m"],["grand-mère","nonna","f"],["fils unique","figlio unico","m"],
