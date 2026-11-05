@@ -11,7 +11,7 @@
       "the": "il giapponese",
       "color": "blue",
       "levelsLabel": "Da zero all'A2 · 23 lezioni",
-      "courseHours": 260,
+      "courseHours": 450,
       "starts": [
         {
           "skip": 1,
@@ -34,7 +34,7 @@
           "id": "n5",
           "name": "JLPT N5",
           "upto": "r2",
-          "hours": 120,
+          "hours": 325,
           "dates": [
             "2026-12-06",
             "2027-07-04",
@@ -45,7 +45,7 @@
           "id": "n4",
           "name": "JLPT N4",
           "upto": "r3",
-          "hours": 280,
+          "hours": 575,
           "partial": true,
           "dates": [
             "2027-07-04",
@@ -67,7 +67,7 @@
       "the": "il cinese",
       "color": "red",
       "levelsLabel": "Da zero alle basi dell'HSK 3 · 21 lezioni",
-      "courseHours": 240,
+      "courseHours": 320,
       "starts": [
         {
           "skip": 1,
@@ -95,7 +95,7 @@
           "id": "hsk1",
           "name": "HSK 1",
           "upto": "r1",
-          "hours": 150,
+          "hours": 200,
           "partial": true,
           "dates": [
             "2026-12-13"
@@ -105,7 +105,7 @@
           "id": "hsk2",
           "name": "HSK 2",
           "upto": "r3",
-          "hours": 300,
+          "hours": 350,
           "partial": true,
           "dates": [
             "2026-12-13"
@@ -125,7 +125,7 @@
       "the": "意大利语",
       "color": "green",
       "levelsLabel": "从零到 A2 · 23 课",
-      "courseHours": 200,
+      "courseHours": 250,
       "starts": [
         {
           "skip": 1,
@@ -148,7 +148,7 @@
           "id": "a2",
           "name": "CILS / PLIDA A2",
           "upto": "r3",
-          "hours": 200,
+          "hours": 250,
           "dates": []
         },
         {

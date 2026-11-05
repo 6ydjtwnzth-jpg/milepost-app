@@ -52,7 +52,9 @@ def build_course(cid):
     end = html.rfind('\n})();\n</script>')
     if start < 0 or end < start:
         raise SystemExit(f'{cid}: course script block not found')
-    html = (html[:start] + head_js + html[start:end] + '\n/* ---- Milepost course app ---- */\n' +
+    # the spaced review engine goes first in the closure, so the course engine can use it while it loads
+    opener = '<script>\n(function(){'
+    html = (html[:start] + head_js + opener + '\n' + rd(SHELL, 'srs.js') + '\n' + html[start + len(opener):end] + '\n/* ---- Milepost course app ---- */\n' +
             rd(SHELL, 'course-app.js') + '\n' + rd(SHELL, 'exercises.js') + html[end:])
     # the class goes on before the first paint, so the old book layout never flashes while the page loads
     html = html.replace('</head>', '<link rel="stylesheet" href="../../course-app.css">\n<script>document.documentElement.classList.add("mp")</script>\n' + splash_head() + '\n</head>', 1)

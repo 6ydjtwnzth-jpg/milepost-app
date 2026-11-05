@@ -2428,6 +2428,84 @@ setTimeout(hide,Math.max(4000,min))})();
 <script src="../../catalog.js"></script><script src="../../plan.js"></script><script src="../../sync-config.js"></script><script src="../../sync.js"></script>
 <script>
 (function(){
+/* ---------- Spaced review with due dates (shared by every course) ----------
+   Each word has [due day, interval in days, correct reviews, lapses, last review day].
+   A right answer pushes the next review further away (1, 3, 7, 16, 37, 85, 180 days), a wrong one brings it back
+   to tomorrow. Answering early (before the word is due) does not inflate the interval: the growth is based on the
+   days that really passed. This follows the research on distributed practice (Cepeda et al. 2006) and on retrieval
+   practice (Karpicke & Roediger 2008). Stored under <course key>-srs, so it syncs with the account. */
+var SRS=(function(){
+  /* loaded on first use: this file sits before the course engine, which defines KEY and state */
+  var K=null,LADDER=[1,3,7,16,37,85,180],NEW_PER_DAY=12,SESSION=20,D={w:{},log:{},nd:{}};
+  function load(){if(K)return;K=KEY+"-srs";
+    try{var raw=localStorage.getItem(K);if(raw){var p=JSON.parse(raw);D.w=p.w||{};D.log=p.log||{};D.nd=p.nd||{}}}catch(e){}
+    migrate()}
+  function day(){var n=new Date();return Math.floor((n.getTime()-n.getTimezoneOffset()*60000)/86400000)}
+  function store(){try{
+    var t=day(),k;for(k in D.log)if(+k<t-120)delete D.log[k];for(k in D.nd)if(+k<t-7)delete D.nd[k];
+    localStorage.setItem(K,JSON.stringify(D))}catch(e){}}
+  /* old flashcard boxes become intervals once, spread over the next days so they do not all fall due together */
+  function migrate(){try{if(Object.keys(D.w).length||!state||!state.box)return;var t=day(),n=0,k;
+    for(k in state.box){var b=state.box[k],iv={2:1,3:3,4:7,5:16}[b];if(!iv)continue;
+      var h=0;for(var i=0;i<k.length;i++)h=(h*31+k.charCodeAt(i))>>>0;
+      D.w[k]=[t+h%(iv+1),iv,b-1,0,t];n++}
+    if(n)store()}catch(e){}}
+  function rec(id){return D.w[id]||null}
+  function next(iv,elapsed){
+    /* the step after the current interval; when answered early, grow from the days that really passed */
+    var base=Math.max(1,Math.min(iv,elapsed)),i=0;while(i<LADDER.length&&LADDER[i]<=base)i++;
+    return Math.max(iv,i<LADDER.length?LADDER[i]:LADDER[LADDER.length-1])}
+  function grade(id,ok,review){if(!id)return;var t=day(),r=D.w[id];
+    /* only words first met in a review count towards the daily limit of new words (lesson quizzes do not) */
+    if(!r){if(review)D.nd[t]=(D.nd[t]||0)+1;r=[t,0,0,0,0]}
+    var due=r[0],iv=r[1],reps=r[2],lap=r[3],last=r[4],elapsed=last?t-last:0;
+    if(reps>0&&elapsed>=7){var L=D.log[t]||[0,0];L[1]++;if(ok)L[0]++;D.log[t]=L}
+    if(ok){if(last===t&&iv>0){/* already reviewed today: no extra credit */}
+      else{iv=(reps===0||iv===0)?1:next(iv,Math.max(elapsed,due<=t?iv:elapsed));reps++}}
+    else{if(iv>0)lap++;iv=1}
+    D.w[id]=[t+iv,iv,reps,lap,t];store()}
+  function box(id){var r=D.w[id];if(!r||r[1]===0||r[2]===0)return 1;var iv=r[1];return iv<=1?2:iv<=7?3:iv<=20?4:5}
+  function isDue(id,t){var r=D.w[id];return !!r&&r[0]<=t}
+  /* what today's review contains: every word that is due (oldest first), then a few words never reviewed */
+  function plan(pool){var t=day(),due=pool.filter(function(w){return isDue(w[0],t)});
+    due.sort(function(a,b){return D.w[a[0]][0]-D.w[b[0]][0]});
+    var room=Math.max(0,NEW_PER_DAY-(D.nd[t]||0)),fresh=pool.filter(function(w){return !D.w[w[0]]}).slice(0,room);
+    return {due:due,fresh:fresh,n:due.length+fresh.length}}
+  function session(pool,max){var p=plan(pool);return p.due.concat(p.fresh).slice(0,max||SESSION)}
+  /* nothing due: extra practice on the weakest words (it does not move their dates forward) */
+  function practice(pool,n){var t=day(),known=pool.filter(function(w){return D.w[w[0]]});
+    known.sort(function(a,b){var x=D.w[a[0]],y=D.w[b[0]];return (x[1]-y[1])||(y[3]-x[3])||(x[0]-y[0])});
+    return (known.length?known:pool).slice(0,n)}
+  function pick(pool,cur){var t=day(),p=plan(pool),c=p.due.concat(p.fresh).filter(function(w){return w!==cur});
+    if(c.length)return c[0];
+    var ws=pool.filter(function(w){return w!==cur}),tot=0,wt=ws.map(function(w){var x=Math.pow(2,5-box(w[0]));tot+=x;return x}),r=Math.random()*tot;
+    for(var i=0;i<ws.length;i++){r-=wt[i];if(r<=0)return ws[i]}return ws[0]||cur}
+
+  /* the "words from before" step of a lesson: due words first, then words of the lessons 1, 2, 4 and 8 back
+     that were reviewed least, then the oldest reviews. Same lesson, same day, same list. */
+  function recycle(pool,li,n){var t=day(),out=[],seen={};function put(w){if(out.length<n&&!seen[w[0]]){seen[w[0]]=1;out.push(w)}}
+    var prev=pool.filter(function(w){return w[3]<li});if(prev.length<4)return [];
+    prev.filter(function(w){return isDue(w[0],t)}).sort(function(a,b){return D.w[a[0]][0]-D.w[b[0]][0]}).forEach(put);
+    var reps=function(w){var r=D.w[w[0]];return r?r[2]:-1},lessons=[];prev.forEach(function(w){if(lessons.indexOf(w[3])<0)lessons.push(w[3])});lessons.sort(function(a,b){return b-a});
+    var groups=[1,2,4,8].map(function(k){var L=lessons.at(k-1);return L===undefined?[]:prev.filter(function(w){return w[3]===L}).sort(function(a,b){return reps(a)-reps(b)})});
+    for(var r=0;out.length<n&&r<40;r++)groups.forEach(function(g){if(g.length>r)put(g.at(r))});
+    prev.slice().sort(function(a,b){var x=D.w[a[0]],y=D.w[b[0]];return (x?x[4]:-1)-(y?y[4]:-1)}).forEach(put);
+    return out}
+  function stats(pool){var t=day(),n=0,solid=0,due=0,ok=0,tot=0,k;
+    pool.forEach(function(w){var r=D.w[w[0]];if(!r)return;n++;if(r[1]>=21)solid++;if(r[0]<=t)due++});
+    for(k in D.log)if(+k>=t-60){ok+=D.log[k][0];tot+=D.log[k][1]}
+    return {learned:n,solid:solid,due:due,retention:tot>=10?Math.round(100*ok/tot):null,checks:tot}}
+  /* when a word will come back, in days (0 = today) */
+  function inDays(id){var r=D.w[id];return r?Math.max(0,r[0]-day()):null}
+  function reset(){D.w={};D.log={};D.nd={};store()}
+  function L(f){return function(){load();return f.apply(null,arguments)}}
+  return {grade:L(grade),box:L(box),plan:L(plan),session:L(session),practice:L(practice),pick:L(pick),stats:L(stats),inDays:L(inDays),reset:L(reset),recycle:L(recycle),day:day}})();
+/* per-question hook for quizzes that contain words (lesson word quiz, recycle step, daily review) */
+function SRSMK(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok)}
+function SRSREV(i,ok,it){if(it&&it.w)SRS.grade(it.w[0],ok,1)}
+if(/[?&]audit=1/.test(location.search))window.MPSRS=SRS;
+
+
 "use strict";
 /* Chinese -> Italian meanings for the tooltip (keys are characters; lesson words are added at runtime) */
 var DICT={"飞机": "aereo","铅笔": "matita","车站": "stazione, fermata","牛奶": "latte","美国": "Stati Uniti","考试": "esame","汽车": "automobile","问题": "domanda, problema","电脑": "computer","班": "classe","年纪": "età","地铁站": "fermata della metropolitana","跑步": "correre","已经": "già","以前": "prima, in passato","快要": "stare per","休息": "riposare","骂": "sgridare","马": "cavallo","麻": "canapa","妈": "mamma","天": "cielo, giorno","第": "prefisso degli ordinali","他们": "loro","意大利人": "italiano/a (persona)","中国人": "cinese (persona)","高": "alto","太": "troppo","了": "particella: azione compiuta o cambiamento","没": "non (nel passato), non avere","没有": "non avere; non (passato)","时间": "tempo","马可": "Marco","这个": "questo","是不是": "è o non è?","忙不忙": "sei occupato o no?","呢": "particella: «e…?»","的": "particella di possesso o descrizione","车": "automobile","十一": "undici","二十": "venti","二十五": "venticinque","九十九": "novantanove","一百": "cento","零": "zero","〇": "zero (nelle date)","杯": "tazza, bicchiere (classificatore)","这": "questo","那": "quello","张": "classificatore per oggetti piatti","票": "biglietto","雨": "pioggia","下雨": "piovere","饿": "avere fame","刻": "quarto d'ora","差": "mancare","年": "anno","星期四": "giovedì","早上": "mattina","睡": "dormire","岁": "anni (di età)","还": "ancora; inoltre","冷": "freddo","北京": "Pechino","罗马": "Roma","多": "molto, tanti","那么": "così, tanto","跟": "con","烤鸭": "anatra laccata","门": "porta","开": "aprire","着": "particella di stato continuo","笑": "ridere, sorridere","打": "colpire; fare (una telefonata)","电话": "telefono","听懂": "capire ascoltando","得": "particella del complemento di grado","跑": "correre","快": "veloce","出去": "uscire","时候": "momento","听": "ascoltare","远": "lontano","见": "vedere","到": "arrivare","放": "mettere","吃完": "finire di mangiare","带来": "portare (qui)","蛋糕": "torta","意思": "significato","有意思": "interessante","公园": "parco","给": "dare; a, per","不但": "non solo","而且": "ma anche","写": "scrivere","汉字": "carattere cinese","苹果": "mela","又": "di nuovo; sia… sia…","甜": "dolce","刚": "appena","说话": "parlare","可是": "ma, però","明年": "l'anno prossimo","上海": "Shanghai","看看": "dare un'occhiata","认识": "conoscere (una persona)","高兴": "contento","认识你很高兴": "piacere di conoscerti","哪": "quale","哪国人": "di che paese","王丽": "Wang Li (nome)","小王": "Xiao Wang (nome)","别的": "altro","还要": "volere ancora","一共": "in tutto","块": "yuan (nel parlato)","元": "yuan (scritto)","给你": "ecco a te","喂": "pronto? (al telefono)","等": "aspettare","用": "usare","筷子": "bacchette","一点儿": "un po'","饺子": "ravioli cinesi","吧": "particella di proposta: «dai, …»","啊": "particella esclamativa","带": "portare","当然": "certo","没问题": "nessun problema","糟糕": "accidenti!","上课": "fare lezione","觉得": "pensare, ritenere","怎么样": "com'è? che ne pensi?","冬天": "inverno","好吃": "buono (da mangiare)","好看": "bello (da vedere)","好听": "bello (da sentire)","真的": "davvero","真": "davvero, proprio","次": "volta","做饭": "cucinare","话": "parole, discorso","说的话": "quello che dice","哪里哪里": "ma no, figurati (risposta modesta)","差得远": "essere ancora lontano","上海话": "shanghaiese","普通话": "cinese standard","方言": "dialetto","下个月": "il mese prossimo","哎呀": "ahi! accidenti!","钱包": "portafoglio","着急": "agitarsi","别着急": "non agitarti","别": "non (fare)!","这儿": "qui","那儿": "lì","下面": "sotto","没事儿": "non è niente","没事": "nessun problema","电影": "film","看电影": "andare al cinema","最近": "ultimamente","累": "stanco","走走": "fare due passi","走": "camminare, andare via","然后": "e poi","嗨": "ciao (informale)","早": "buongiorno (informale)","拜拜": "ciao ciao","不用谢": "non c'è di che","还行": "così così","不错": "niente male","挺好的": "abbastanza bene","挺": "abbastanza","对": "giusto; verso","是的": "sì, esatto","嗯": "mh-mh, sì","幺": "uno (nei numeri di telefono)","这里": "qui","那里": "lì","哪里": "dove","周": "settimana","周一": "lunedì","周末": "fine settimana","一会儿": "tra poco","马上": "subito","差不多": "più o meno","慢": "lento","一遍": "una volta","再": "di nuovo","来不及": "non fare in tempo","来得及": "fare in tempo","关上": "chiudere","让": "lasciare; da (passivo parlato)","那个": "quello; ehm…","就是": "cioè; proprio","不好意思": "scusi, mi scusi","请问": "scusi, posso chiedere","帮": "aiutare","洗手间": "bagno","早上好": "buongiorno","晚安": "buonanotte","慢走": "arrivederci (a chi esce)","贵": "caro","便宜": "economico","辣": "piccante","辣的": "piccante","买单": "il conto","干杯": "cin cin","知道": "sapere","等一下": "aspetta un attimo","一下": "un attimo","加油": "forza! dai!","关系": "relazione","意大利菜": "cucina italiana","北京菜": "cucina di Pechino","怎么说": "come si dice","什么意思": "che cosa significa","只": "solo; classificatore per animali","它": "esso (cosa, animale)","走吧": "andiamo","吃了吗": "hai mangiato? (saluto)","几点": "che ora","多长时间": "quanto tempo","两个月": "due mesi","月": "luna, mese","个月": "mese (durata)","进步": "progredire","回意大利": "tornare in Italia","做": "fare","怕": "avere paura","科": "materia; sezione","看": "guardare","过两次": "due volte","两次": "due volte","爸": "papà","飞": "volare","大": "grande","六": "sei","哥": "fratello maggiore","鸡": "pollo","七": "sette","西": "ovest","中": "centro, medio","人": "persona","菜": "verdura, piatto","八": "otto","爱": "amare","很": "molto","谢": "ringraziare","春": "primavera","学": "studiare","四": "quattro","忙": "occupato","汤": "zuppa","糖": "zucchero","躺": "sdraiarsi","烫": "scottante","衣": "vestito","姨": "zia (materna)","椅": "sedia","意": "idea, intenzione","拔": "estrarre","把": "afferrare; particella 把","肥": "grasso","匪": "bandito","费": "spesa","通": "passare attraverso","同": "uguale, insieme","桶": "secchio","痛": "dolore","呼": "espirare","湖": "lago","虎": "tigre","户": "famiglia, porta","横": "tratto orizzontale","竖": "tratto verticale","撇": "tratto obliquo a sinistra","捺": "tratto obliquo a destra","点": "punto; ora","提": "tratto in risalita","折": "tratto piegato","钩": "gancio","山": "montagna","日": "sole, giorno","木": "albero, legno","口": "bocca","上": "sopra","下": "sotto","本": "origine; classificatore per libri","休": "riposare","明": "luminoso","森": "foresta","吗": "particella di domanda","清": "limpido","晴": "sereno","请": "prego, invitare","情": "sentimento","说": "parlare","国": "paese","们": "suffisso del plurale","笔画": "tratto (di un carattere)","田字格": "griglia per scrivere i caratteri","部首": "radicale","量词": "classificatore","什么时候": "quando","为什么": "perché","怎么": "come","件": "classificatore per vestiti e faccende","要": "volere, dovere","能": "potere (capacità)","看见": "vedere","看完": "finire di guardare","做好": "fare per bene","写错": "scrivere sbagliato","正在": "stare facendo","一刻": "un quarto d'ora","分": "minuto","您": "Lei (cortese)","你们": "voi","好朋友": "buon amico","很好": "molto bene","不是": "non è","不去": "non andare","不忙": "non occupato","一个": "uno (+ classificatore)","一天": "un giorno","第一": "primo","一": "uno","个": "classificatore generico","不太": "non molto","非常": "estremamente","容易": "facile","英文": "inglese","起床": "alzarsi","学校": "scuola","手机": "cellulare","自行车": "bicicletta","偷": "rubare","借": "prestare","借给": "prestare a","去年": "l'anno scorso","每天": "ogni giorno","常常": "spesso","长城": "la Grande Muraglia","进来": "entrare (qui)","回来": "tornare (qui)","回": "tornare","进": "entrare","回家": "tornare a casa","下来": "scendere","买不到": "non trovarlo da comprare","看不见": "non riuscire a vedere","听不懂": "non riuscire a capire","听得懂": "riuscire a capire","看得见": "riuscire a vedere","罗": "rete","银行": "banca","桌子": "tavolo","桌子上": "sul tavolo","家": "casa, famiglia","饭": "pasto, riso cotto","吃饭": "mangiare (un pasto)","中文": "lingua cinese","学习": "studiare","今天": "oggi","明天": "domani","昨天": "ieri","现在": "adesso","几": "quanti","多少": "quanto","钱": "soldi","名字": "nome","叫": "chiamarsi","朋友": "amico","老师": "insegnante","学生": "studente","一样": "uguale","比": "rispetto a","更": "ancora più","最": "il più","过": "particella di esperienza","找到": "trovare","因为": "siccome","所以": "quindi","虽然": "anche se","但是": "ma","如果": "se","就": "allora, subito","还是": "oppure (domanda)","或者": "oppure","不要": "non farlo!","太好了": "benissimo!","小时": "ora (durata)","星期": "settimana","星期一": "lunedì","星期天": "domenica","半": "mezza","": ""};
@@ -3768,10 +3846,10 @@ $$("ul.cando[data-cando]").forEach(function(ul){var id=ul.getAttribute("data-can
   cnt()});
 
 /* ---------- flashcard ---------- */
-function bx(w){return state.box[w[0]]||1}
+function bx(w){return SRS.box(w[0])}
 var fcCur=null,shown=false;
 function FW(){var lim=typeof prefs.fcr==="number"?prefs.fcr:-1;if(lim<0){var hi=0;LESSONS.forEach(function(L,li){if(state.best[L.id]||(typeof pathStarted==="function"&&pathStarted(L.id)))hi=li});lim=Math.max(hi+1,LESSONS.findIndex(function(L){return L.id==="l6"}))}return W.filter(function(w){return w[3]<=lim})}
-function pick(){var WW=FW(),tot=0,ws=WW.map(function(w){var x=Math.pow(2,5-bx(w));if(w===fcCur)x=0;tot+=x;return x});var r=Math.random()*tot;for(var i=0;i<WW.length;i++){r-=ws[i];if(r<=0)return WW[i]}return WW[0]}
+function pick(){return SRS.pick(FW(),fcCur)}
 function drawBoxes(){var b=$("#fcboxes");if(!b)return;var c=[0,0,0,0,0];FW().forEach(function(w){c[bx(w)-1]++});var mx=Math.max.apply(null,c)||1;
   b.innerHTML=c.map(function(n,i){return '<div><div class="bar"><i style="height:'+(n/mx*100)+'%"></i></div><b>'+n+'</b><span>scatola '+(i+1)+'</span></div>'}).join("")}
 function drawCard(auto){var card=$("#fccard");if(!card||!fcCur)return;var w=fcCur,m=prefs.fcm;
@@ -3783,10 +3861,10 @@ function drawCard(auto){var card=$("#fccard");if(!card||!fcCur)return;var w=fcCu
     :front+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn pri" id="fcshow">Mostra la risposta</button></div><p class="fc-box">scatola '+bx(w)+'</p>';
   if(shown){$("#fcno").onclick=function(){grade(false)};$("#fcyes").onclick=function(){grade(true)};speak(w[0])}
   else{$("#fcshow").onclick=function(){shown=true;drawCard()};var pb=$("#fcplay");if(pb){pb.onclick=function(){speak(w[0])};if(auto)speak(w[0])}}}
-function grade(ok){state.box[fcCur[0]]=ok?Math.min(5,bx(fcCur)+1):1;save();drawBoxes();next(true)}
+function grade(ok){SRS.grade(fcCur[0],ok,1);drawBoxes();next(true)}
 function next(auto){fcCur=pick();shown=false;drawCard(auto)}
 function drawReset(conf){var r=$("#fcreset");if(!r)return;r.innerHTML=conf?'<span>Rimettere tutte le parole nella scatola 1?</span><button class="btn" id="rsy">Sì, azzera</button><button class="btn" id="rsn">Annulla</button>':'<button class="btn" id="rs">Azzera le flashcard</button>';
-  if(conf){$("#rsy").onclick=function(){state.box={};save();drawBoxes();next();drawReset(false)};$("#rsn").onclick=function(){drawReset(false)}}else{$("#rs").onclick=function(){drawReset(true)}}}
+  if(conf){$("#rsy").onclick=function(){state.box={};save();SRS.reset();drawBoxes();next();drawReset(false)};$("#rsn").onclick=function(){drawReset(false)}}else{$("#rs").onclick=function(){drawReset(true)}}}
 (function(){var sel=$("#fcrange");if(!sel)return;var cur=FW().length?FW()[FW().length-1][3]:0;
   sel.innerHTML=LESSONS.map(function(L,li){var n=W.filter(function(w){return w[3]<=li}).length;return (VOC[L.id]&&VOC[L.id].length)?'<option value="'+li+'"'+(li===cur?' selected':'')+'>Fino a: '+esc(lessonLabel(L))+' ('+n+' parole)</option>':''}).join("");
   sel.onchange=function(){prefs.fcr=+sel.value;savePrefs();drawBoxes();next()}})();
@@ -3907,7 +3985,7 @@ function tick(){var t=dayKey(0);P.days[t]=(P.days[t]||0)+1;var ks=Object.keys(P.
 CULT=CULT||{};Object.keys(CULT).forEach(function(id){CULT[id].forEach(function(c){(c.w||[]).forEach(function(w){var k=jsurf(w[0]);if(!DICT[k])DICT[k]=w[1];if(!DICT[w[0]])DICT[w[0]]=w[1]})})});
 
 /* ---------- contenuto delle tappe, preso dalle lezioni del libro ---------- */
-var STEPN={dlg:["Ascolta","听","i-ear"],voc:["Parole","生词","i-cards"],rule:["Regola","语法","i-bulb"],rev:["Ripasso","复习","i-loop"],snd:["Scrittura e suoni","汉字","i-wave"],cult:["Cultura","文化","i-lantern"],test:["Verifica","测试","i-check"]};
+var STEPN={rec:["Parole di prima","Parole di prima","i-loop"],dlg:["Ascolta","听","i-ear"],voc:["Parole","生词","i-cards"],rule:["Regola","语法","i-bulb"],rev:["Ripasso","复习","i-loop"],snd:["Scrittura e suoni","汉字","i-wave"],cult:["Cultura","文化","i-lantern"],test:["Verifica","测试","i-check"]};
 function sec(id){return document.getElementById(id)}
 function readingNodes(id){var s=sec(id),rd=$("#reading",s);if(!rd||$(".dialog",s))return [];
   return Array.prototype.filter.call(s.children,function(c){return c===rd||c.contains($("#rdplay",s))||(c.matches("ul.plain")&&c.nextElementSibling&&c.nextElementSibling.contains($("#rdplay",s)))})}
@@ -3921,7 +3999,7 @@ function ruleChunks(id){var ns=bodyNodes(id),tot=0;ns.forEach(function(n){tot+=t
   return best>0?[ns.slice(0,best),ns.slice(best)]:[ns]}
 function stepsOf(id){var U=UNITS[uIdx(id)],s=sec(id),out=[],ch=ruleChunks(id);
   if(U.kind==="review"){ch.forEach(function(c,i){out.push({k:"rev",i:i,of:ch.length,n:c})})}
-  else{if($(".dialog",s)||readingNodes(id).length)out.push({k:"dlg"});
+  else{if(recWords(id).length>=4)out.push({k:"rec"});if($(".dialog",s)||readingNodes(id).length)out.push({k:"dlg"});
     if((VOC[id]||[]).length)out.push({k:"voc"});
     ch.forEach(function(c,i){out.push({k:"rule",i:i,of:ch.length,n:c})});
     if($(".suono",s))out.push({k:"snd"})}
@@ -3951,6 +4029,8 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
     else out.push({q:"Come si dice «"+w[1]+"» in cinese?",o:[fullW(w)].concat(d.map(fullW)),e:fullW(w)+" = "+w[1],w:w})});
   return out}
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
+/* words from earlier lessons for the "words from before" step (spaced: due first, then 1, 2, 4, 8 lessons back) */
+function recWords(id){var li=LESSONS.findIndex(function(L){return L.id===id});return li>0?SRS.recycle(W,li,10):[]}
 function exSplit(id){var it=EX[id]||[],U=UNITS[uIdx(id)];
   if(U.kind==="review")return {p:[],t:it.slice()};
   /* practice after the rule: first the build-and-choose exercises, then a couple of classic ones; the rest is the test */
@@ -4017,9 +4097,10 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       else $$(".dialog[data-dlg]",s).forEach(function(d){var n=document.createElement("div");n.className="dialog";n.setAttribute("data-dlg",d.getAttribute("data-dlg"));box.appendChild(n);renderDialog(n)});
       var h=document.createElement("p");h.className="st-hint";h.textContent="Ascolta qualche volta: quanto capisci senza guardare la traduzione? Poi fai il quiz.";box.insertBefore(h,box.firstChild)},go:"Vai al quiz"});
     var dq=dlgQuiz(id,4);if(dq.length)pages.push(quizPage(dq,"Ascolta le frasi del dialogo e scegli il significato."))}
+  else if(st.k==="rec"){var rw=recWords(id),li=LESSONS.findIndex(function(L){return L.id===id});pages.push(quizPage(vocQuiz(rw,rw.length,W.filter(function(w){return w[3]<=li})),"Parole delle lezioni precedenti: te le ricordi ancora? Tornano quelle che stai per dimenticare.",null,SRSMK))}
   else if(st.k==="voc"){
     pages.push({draw:function(box){box.innerHTML='<p class="st-hint">Premi ▶ su ogni parola e ripetila ad alta voce. Tocca la parola per vedere lettura e significato.</p>';var w=document.createElement("div");w.className="words";w.setAttribute("data-voc",id);box.appendChild(w);renderWords(w)},go:"Vai al quiz"});
-    pages.push(quizPage(vocQuiz(lessonWords(id),6),"Ti ricordi queste parole?"))}
+    pages.push(quizPage(vocQuiz(lessonWords(id),6),"Ti ricordi queste parole?",null,SRSMK))}
   else if(st.k==="rule"||st.k==="rev"){
     pages.push({draw:function(box){if(st.i===0){var ld=$("p.lead",s);if(ld)box.appendChild(ld.cloneNode(true))}box.appendChild(cloneNodes(st.n))},go:st.k==="rule"&&st.i===st.of-1&&exSplit(id).p.length?"Esercitati":null});
     if(st.k==="rule"&&st.i===st.of-1){var pr=exSplit(id).p;if(pr.length)pages.push(quizPage(pr,"Qualche esercizio sulla regola appena vista."))}}
@@ -4047,10 +4128,9 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
 function reviewWords(){var hi=-1;UNITS.forEach(function(U){if(pathStarted(U.id)){var li=LESSONS.findIndex(function(L){return L.id===U.id});if(li>hi)hi=li}});
   return W.filter(function(w){return w[3]<=hi})}
 function openReview(){var ws=reviewWords();if(ws.length<4)return;
-  var tot=0,wt=ws.map(function(w){var x=Math.pow(2,5-bx(w));tot+=x;return x}),pick=[],used={};
-  for(var g=0;g<200&&pick.length<Math.min(8,ws.length);g++){var r=Math.random()*tot,j=0;for(;j<ws.length;j++){r-=wt[j];if(r<=0)break}j=Math.min(j,ws.length-1);if(!used[j]){used[j]=1;pick.push(ws[j])}}
+  var pick=SRS.session(ws,20);if(pick.length<4)pick=SRS.practice(ws,8);
   var items=vocQuiz(pick,pick.length,ws);
-  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripasso: le parole che sbagli tornano più spesso.",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
+  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripasso: le parole che sbagli tornano più spesso.",null,SRSREV)],
     done:function(){P.done._rev=P.done._rev||{};tick();pSave();toast('<b>✓ Ripasso fatto</b> · '+goalMsg());drawPath();try{drawBoxes()}catch(e){}}})}
 
 /* ---------- scheda dell'unità ---------- */
@@ -4119,11 +4199,12 @@ var ZH=C.speak==="zh",UI=C.speak; /* UI: the learner's language (it, zh, es) */
 var LL={ja:"ja",zh:"zh-CN",it:"it"}[C.learn]||C.learn;
 var S={
 it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buongiorno","Buon pomeriggio","Buonasera"],
-  steps:{dlg:"Dialogo",voc:"Parole",rule:"Grammatica",rev:"Ripasso",snd:"Suoni e scrittura",cult:"Cultura",test:"Verifica"},
-  stepSub:{dlg:"Ascolta, leggi, recita",voc:function(n){return n+" parole nuove"},snd:"Ascolta e ripeti",cult:function(n){return n===1?"1 scheda":n+" schede"},test:function(n){return n+" domande · aggiorna la padronanza"}},
+  steps:{rec:"Parole di prima",dlg:"Dialogo",voc:"Parole",rule:"Grammatica",rev:"Ripasso",snd:"Suoni e scrittura",cult:"Cultura",test:"Verifica"},
+  stepSub:{rec:function(n){return n+" parole delle lezioni precedenti"},dlg:"Ascolta, leggi, recita",voc:function(n){return n+" parole nuove"},snd:"Ascolta e ripeti",cult:function(n){return n===1?"1 scheda":n+" schede"},test:function(n){return n+" domande · aggiorna la padronanza"}},
   lesson:function(n){return "Lezione "+n},review:"Ripasso",min:"min",left:function(m){return "circa "+m+" min rimasti"},
   forToday:"Per oggi",forTodaySub:function(m){return "Il tuo tempo: "+m+" min"},resume:"Riprendi",go:"Vai",
-  next:"Prossimo passo",reviewT:"Ripasso parole",reviewS:function(n){return n+" parole: tornano più spesso quelle che dimentichi"},
+  next:"Prossimo passo",reviewT:"Ripasso parole",reviewS:function(n,m){return n+(n===1?" parola":" parole")+" da ripassare oggi · circa "+m+" min"},reviewNone:"Niente da ripassare oggi: ogni parola torna quando stai per dimenticarla.",
+  memT:"La tua memoria",memLearned:"parole in ripasso",memSolid:"consolidate (tornano tra 3+ settimane)",memRet:function(p,n){return "Ricordi il "+p+"% delle parole riviste dopo una settimana o più ("+n+" verifiche negli ultimi 60 giorni)."},memNoRet:"La percentuale di ricordo compare dopo 10 ripassi fatti ad almeno una settimana di distanza.",
   dayCult:"Curiosità del giorno",read:"Leggi",week:"Settimana",days:"giorni",canDo:"Ora sai fare",canDoEmpty:"Qui compariranno le cose che sai fare, man mano che verifichi le lezioni.",
   noPlan:"Crea il tuo piano",noPlanS:"Tre domande e sai quando arrivi al traguardo.",
   course:"Il corso",here:"Sei qui",todo:"Da fare",inProg:function(a,b){return a+" di "+b},verified:"Verificata",
@@ -4144,11 +4225,12 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
   ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce cinese",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
 es:{locale:"es-ES",tabs:["Hoy","Curso","Examen","Cultura","Herramientas"],hi:["Buenos días","Buenas tardes","Buenas noches"],
-  steps:{dlg:"Diálogo",voc:"Palabras",rule:"Gramática",rev:"Repaso",snd:"Pronunciación",cult:"Cultura",test:"Prueba"},
-  stepSub:{dlg:"Escucha, lee, actúa",voc:function(n){return n+" palabras nuevas"},snd:"Escucha y repite",cult:function(n){return n===1?"1 ficha":n+" fichas"},test:function(n){return n+" preguntas · actualiza tu dominio"}},
+  steps:{rec:"Palabras de antes",dlg:"Diálogo",voc:"Palabras",rule:"Gramática",rev:"Repaso",snd:"Pronunciación",cult:"Cultura",test:"Prueba"},
+  stepSub:{rec:function(n){return n+" palabras de lecciones anteriores"},dlg:"Escucha, lee, actúa",voc:function(n){return n+" palabras nuevas"},snd:"Escucha y repite",cult:function(n){return n===1?"1 ficha":n+" fichas"},test:function(n){return n+" preguntas · actualiza tu dominio"}},
   lesson:function(n){return "Lección "+n},review:"Repaso",min:"min",left:function(m){return "quedan unos "+m+" min"},
   forToday:"Para hoy",forTodaySub:function(m){return "Tu tiempo: "+m+" min"},resume:"Continuar",go:"Ir",
-  next:"Siguiente paso",reviewT:"Repaso de palabras",reviewS:function(n){return n+" palabras: vuelven más a menudo las que olvidas"},
+  next:"Siguiente paso",reviewT:"Repaso de palabras",reviewS:function(n,m){return n+(n===1?" palabra":" palabras")+" para repasar hoy · unos "+m+" min"},reviewNone:"Nada que repasar hoy: cada palabra vuelve cuando estás a punto de olvidarla.",
+  memT:"Tu memoria",memLearned:"palabras en repaso",memSolid:"consolidadas (vuelven en 3+ semanas)",memRet:function(p,n){return "Recuerdas el "+p+"% de las palabras repasadas tras una semana o más ("+n+" comprobaciones en los últimos 60 días)."},memNoRet:"El porcentaje de recuerdo aparece tras 10 repasos hechos con al menos una semana de distancia.",
   dayCult:"Curiosidad del día",read:"Leer",week:"Semana",days:"días",canDo:"Ya sabes",canDoEmpty:"Aquí aparecerá lo que ya sabes hacer, a medida que superes las pruebas de las lecciones.",
   noPlan:"Crea tu plan",noPlanS:"Tres preguntas y sabrás cuándo llegas a la meta.",
   course:"El curso",here:"Estás aquí",todo:"Pendiente",inProg:function(a,b){return a+" de "+b},verified:"Superada",
@@ -4167,11 +4249,12 @@ es:{locale:"es-ES",tabs:["Hoy","Curso","Examen","Cultura","Herramientas"],hi:["B
   offT:"Sin conexión",offPages:"Las lecciones ya están guardadas en este dispositivo.",offBtn:function(mb){return "Descargar el audio del curso ("+mb+" MB)"},offBusy:function(a,b){return "Descargando… "+a+" de "+b}
   ,offDone:"Listo: lecciones y audio funcionan también sin conexión.",offErr:"Descarga interrumpida: vuelve a intentarlo con una conexión estable.",offVoice:"La voz es la de tu dispositivo: funciona también sin conexión.",voiceT:"Voz",voiceAuto:"Automática",voiceTip:"",theme:"Tema",themes:["Auto","Claro","Oscuro"],redoPlan:"Rehacer el plan",changeCourse:"Cambiar de curso o de idioma",reset:"Borrar todo y empezar de nuevo",resetQ:"¿Borrar el plan y el progreso guardados en este dispositivo?",close:"Cerrar",back:"Atrás"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
-  steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
-  stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
+  steps:{rec:"复习旧词",dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
+  stepSub:{rec:function(n){return "前几课的 "+n+" 个单词"},dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
   lesson:function(n){return "第 "+n+" 课"},review:"复习",min:"分钟",left:function(m){return "还剩约 "+m+" 分钟"},
   forToday:"今天",forTodaySub:function(m){return "你的时间："+m+" 分钟"},resume:"继续",go:"开始",
-  next:"下一步",reviewT:"复习单词",reviewS:function(n){return n+" 个单词：容易忘的会更常出现"},
+  next:"下一步",reviewT:"复习单词",reviewS:function(n,m){return "今天要复习 "+n+" 个单词 · 约 "+m+" 分钟"},reviewNone:"今天没有要复习的单词：每个词都会在你快要忘记时回来。",
+  memT:"你的记忆",memLearned:"个单词在复习中",memSolid:"个已巩固（3 周以上后再复习）",memRet:function(p,n){return "间隔一周以上复习时，你记得 "+p+"% 的单词（最近 60 天共 "+n+" 次）。"},memNoRet:"至少间隔一周复习 10 次以后，这里会显示你的记忆率。",
   dayCult:"今日文化",read:"阅读",week:"本周",days:"天",canDo:"现在你能",canDoEmpty:"完成小测验后，这里会显示你学会做的事。",
   noPlan:"制定你的计划",noPlanS:"三个问题，就知道什么时候达到目标。",
   course:"课程",here:"你在这里",todo:"未开始",inProg:function(a,b){return a+" / "+b},verified:"已掌握",
@@ -4217,6 +4300,7 @@ function kick(U){var lv=(WORLDS[U.w-1]||{}).level||"";return (U.kind==="lesson"?
 function stepMinutes(id,st){
   if(st.k==="dlg")return 6;
   if(st.k==="voc")return Math.max(4,Math.round(lessonWords(id).length*0.4));
+  if(st.k==="rec")return 3;
   if(st.k==="rule"||st.k==="rev"){var t=0;st.n.forEach(function(n){t+=tlen(n)});return Math.max(4,Math.min(15,Math.round(t/260)+(st.k==="rule"&&st.i===st.of-1?3:0)))}
   if(st.k==="snd")return 5;
   if(st.k==="cult")return 3*(CULT[id]||[]).length;
@@ -4231,6 +4315,7 @@ function canDo(id){var s=sec(id),cd=s&&q("ul.cando",s);if(!cd)return [];
   return qa("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);qa("input,rt,.ro-i,.ro,.wro",x).forEach(function(e){e.remove()});return x.textContent.replace(/\s+/g," ").trim()}).filter(Boolean)}
 function stepSub(id,st){var d=S.stepSub[st.k];
   if(st.k==="voc")return d(lessonWords(id).length);
+  if(st.k==="rec")return d(recWords(id).length);
   if(st.k==="cult")return d((CULT[id]||[]).length);
   if(st.k==="test")return d(exSplit(id).t.length);
   if(st.k==="rule"||st.k==="rev"){var hd=null;st.n.some(function(n){if(n.matches&&n.matches("h3")){hd=n;return true}var x=n.querySelector&&n.querySelector("h3");if(x){hd=x;return true}return false});
@@ -4343,16 +4428,16 @@ openSheet=function(){render()};
 function vToday(){
   var p=myPlan(),hr=new Date().getHours(),hi=S.hi[hr<13?0:hr<18?1:2];
   var i=hereIdx(),U=i>=0?UNITS[i]:null,nx=U&&nextOf(U.id),inf=U&&info(U.id);
-  var rw=reviewWords().length,dc=dayCult(),wk=weekActive();
+  var pool=reviewWords(),rp=pool.length>=4?SRS.plan(pool):{n:0},rw=rp.n,rmin=Math.max(1,Math.round(Math.min(20,rw)*0.25)),dc=dayCult(),wk=weekActive();
   var html=head(fmt(new Date(),{weekday:"long",day:"numeric",month:"long"}),hi);
   /* one next step, big; everything else waits below */
   html+='<div class="mp-cols mp-cols-t"><div class="mp-main">';
-  var rev='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(Math.min(8,rw)))+'</small></span><em>'+I.arrow+'</em></button>';
+  var rev='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(rw,rmin))+'</small></span><em>'+I.arrow+'</em></button>';
   html+='<section class="mp-today mp-hero hc-blue"><div class="mp-k">'+h(S.forToday)+(p?' · '+h(S.forTodaySub(p.mins)):'')+'</div>';
   if(U&&nx)html+='<button class="mp-hgo" id="mpnext"><span class="n">'+(U.kind==="lesson"?U.n:"★")+'</span><b>'+h(title(U))+'</b><small>'+h(S.next+": "+stepLabel(nx))+' · '+stepMinutes(U.id,nx)+' '+h(S.min)+'</small></button><button class="mp-cta" id="mpgo">'+h(S.resume)+I.arrow+'</button>';
-  else if(rw>=4)html+=rev;
+  else if(rw>0)html+=rev;
   html+='</section>';
-  if(U&&nx&&rw>=4)html+='<div class="mp-more">'+rev+'</div>';
+  if(U&&nx&&rw>0)html+='<div class="mp-more">'+rev+'</div>';
   html+='</div><div class="mp-side">';
   html+='<div class="mp-row2"><div class="mp-tile"><span class="mp-lbl">'+h(S.week)+'</span><div class="mp-big">'+wk.n+'<small> / 6 '+h(S.days)+'</small></div><div class="mp-week">'+wk.html+'</div></div>';
   if(p){var pl=M.plan(C,p,P),ex=pl.ex;
@@ -4363,6 +4448,8 @@ function vToday(){
   if(dc)html+='<h2 class="mp-h2">'+h(S.dayCult)+'</h2>'+cultCard(dc,true);
   var cds=[];for(var k=UNITS.length-1;k>=0&&cds.length<3;k--){if(info(UNITS[k].id).verified)canDo(UNITS[k].id).slice(0,3-cds.length).forEach(function(t){cds.push(t)})}
   html+='<h2 class="mp-h2">'+h(S.canDo)+'</h2><div class="mp-card mp-cando">'+(cds.length?cds.map(function(t){return '<div><span>✓</span>'+h(t)+'</div>'}).join(""):'<p>'+h(S.canDoEmpty)+'</p>')+'</div>';
+  var ms=pool.length?SRS.stats(pool):{learned:0};
+  if(ms.learned)html+='<h2 class="mp-h2">'+h(S.memT)+'</h2><div class="mp-card mp-mem"><div class="mp-memn"><div><b>'+ms.learned+'</b><small>'+h(S.memLearned)+'</small></div><div><b>'+ms.solid+'</b><small>'+h(S.memSolid)+'</small></div></div><p>'+h(ms.retention!=null?S.memRet(ms.retention,ms.checks):S.memNoRet)+'</p>'+(rw===0?'<p class="mp-memz">'+h(S.reviewNone)+'</p>':'')+'</div>';
   html+='</div></div>';
   show(html);
   var a=q("#mpnext",view),g=q("#mpgo",view);if(a&&U)a.onclick=g.onclick=function(){openStep(U.id,nx.key)};
@@ -4407,7 +4494,7 @@ function vLesson(id){
     if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,5).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
     html+='</section>'}
   html+='<h2 class="mp-h2">'+h(S.stepsT)+'</h2><p class="mp-sub">'+h(S.stepsS)+'</p>';
-  html+='<div class="mp-secs">'+inf.steps.map(function(st){var dn=stepDone(id,st),now=nx&&st.key===nx.key,m=stepMinutes(id,st),ic=I[st.k==="cult"?"cultS":st.k]||I.rule;
+  html+='<div class="mp-secs">'+inf.steps.map(function(st){var dn=stepDone(id,st),now=nx&&st.key===nx.key,m=stepMinutes(id,st),ic=I[st.k==="cult"?"cultS":st.k==="rec"?"rev":st.k]||I.rule;
     var right=st.k==="test"&&inf.pc!=null?(inf.verified?'✓ ':'')+inf.pc+'%':dn?'✓ '+m+' '+S.min:m+' '+S.min;
     return '<button class="mp-sec'+(dn?' done':'')+(now?' now':'')+'" data-k="'+st.key+'"><span class="ic">'+(dn?I.check:ic)+'</span><span><b>'+h(stepLabel(st))+'</b><small>'+h(stepSub(id,st))+'</small></span><em>'+h(right)+'</em></button>'}).join("")+'</div>';
   html+='<button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button>';

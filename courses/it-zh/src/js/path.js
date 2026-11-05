@@ -20,7 +20,7 @@ function tick(){var t=dayKey(0);P.days[t]=(P.days[t]||0)+1;var ks=Object.keys(P.
 CULT=CULT||{};Object.keys(CULT).forEach(function(id){CULT[id].forEach(function(c){(c.w||[]).forEach(function(w){var k=w[0].toLowerCase();if(!DICT[k])DICT[k]=w[1]})})});
 
 /* ---------- contenuto delle tappe, preso dalle lezioni del libro ---------- */
-var STEPN={dlg:["听对话","Ascolta","i-ear"],voc:["学单词","Parole","i-cards"],rule:["学规则","Regola","i-bulb"],rev:["复习要点","Ripasso","i-loop"],snd:["练发音","Il suono","i-wave"],cult:["意大利文化","Cultura","i-moka"],test:["小测验","Verifica","i-check"]};
+var STEPN={rec:["复习旧词","复习旧词","i-loop"],dlg:["听对话","Ascolta","i-ear"],voc:["学单词","Parole","i-cards"],rule:["学规则","Regola","i-bulb"],rev:["复习要点","Ripasso","i-loop"],snd:["练发音","Il suono","i-wave"],cult:["意大利文化","Cultura","i-moka"],test:["小测验","Verifica","i-check"]};
 function sec(id){return document.getElementById(id)}
 function readingNodes(id){var s=sec(id),rd=$("#reading",s);if(!rd||$(".dialog",s))return [];
   return Array.prototype.filter.call(s.children,function(c){return c===rd||c.contains($("#rdplay",s))||(c.matches("ul.plain")&&c.nextElementSibling&&c.nextElementSibling.contains($("#rdplay",s)))})}
@@ -34,7 +34,7 @@ function ruleChunks(id){var ns=bodyNodes(id),tot=0;ns.forEach(function(n){tot+=t
   return best>0?[ns.slice(0,best),ns.slice(best)]:[ns]}
 function stepsOf(id){var U=UNITS[uIdx(id)],s=sec(id),out=[],ch=ruleChunks(id);
   if(U.kind==="review"){ch.forEach(function(c,i){out.push({k:"rev",i:i,of:ch.length,n:c})})}
-  else{if($(".dialog",s)||readingNodes(id).length)out.push({k:"dlg"});
+  else{if(recWords(id).length>=4)out.push({k:"rec"});if($(".dialog",s)||readingNodes(id).length)out.push({k:"dlg"});
     if((VOC[id]||[]).length)out.push({k:"voc"});
     ch.forEach(function(c,i){out.push({k:"rule",i:i,of:ch.length,n:c})});
     if($(".suono",s))out.push({k:"snd"})}
@@ -64,6 +64,8 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
     else out.push({q:"「"+w[1]+"」意大利语怎么说？",o:[fullW(w)].concat(d.map(fullW)),e:fullW(w)+" = "+w[1],w:w})});
   return out}
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
+/* words from earlier lessons for the "words from before" step (spaced: due first, then 1, 2, 4, 8 lessons back) */
+function recWords(id){var li=LESSONS.findIndex(function(L){return L.id===id});return li>0?SRS.recycle(W,li,10):[]}
 function exSplit(id){var it=EX[id]||[],U=UNITS[uIdx(id)];
   if(U.kind==="review")return {p:[],t:it.slice()};
   /* practice after the rule: first the build-and-choose exercises, then a couple of classic ones; the rest is the test */
@@ -134,9 +136,10 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       else $$(".dialog[data-dlg]",s).forEach(function(d){var n=document.createElement("div");n.className="dialog";n.setAttribute("data-dlg",d.getAttribute("data-dlg"));box.appendChild(n);renderDialog(n)});
       var h=document.createElement("p");h.className="st-hint";h.textContent="先听几遍，不看翻译也能听懂多少？然后做下面的小测验。";box.insertBefore(h,box.firstChild)},go:"去做小测验"});
     var dq=dlgQuiz(id,4);if(dq.length)pages.push(quizPage(dq,"听对话里的句子，选择意思。"))}
+  else if(st.k==="rec"){var rw=recWords(id),li=LESSONS.findIndex(function(L){return L.id===id});pages.push(quizPage(vocQuiz(rw,rw.length,W.filter(function(w){return w[3]<=li})),"前几课的单词：你还记得吗？快要忘记的词会回来。",null,SRSMK))}
   else if(st.k==="voc"){
     pages.push({draw:function(box){box.innerHTML='<p class="st-hint">点 ▶ 听每个词，大声跟读。名词连冠词一起记。</p>';var w=document.createElement("div");w.className="words";w.setAttribute("data-voc",id);box.appendChild(w);renderWords(w)},go:"去做小测验"});
-    pages.push(quizPage(vocQuiz(lessonWords(id),6),"这些词你记住了吗？"))}
+    pages.push(quizPage(vocQuiz(lessonWords(id),6),"这些词你记住了吗？",null,SRSMK))}
   else if(st.k==="rule"||st.k==="rev"){
     pages.push({draw:function(box){if(st.i===0){var ld=$("p.lead",s);if(ld)box.appendChild(ld.cloneNode(true))}box.appendChild(cloneNodes(st.n))},go:st.k==="rule"&&st.i===st.of-1&&exSplit(id).p.length?"练习一下":null});
     if(st.k==="rule"&&st.i===st.of-1){var pr=exSplit(id).p;if(pr.length)pages.push(quizPage(pr,"用刚学的规则做几道题。"))}}
@@ -164,10 +167,9 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
 function reviewWords(){var hi=-1;UNITS.forEach(function(U){if(pathStarted(U.id)){var li=LESSONS.findIndex(function(L){return L.id===U.id});if(li>hi)hi=li}});
   return W.filter(function(w){return w[3]<=hi})}
 function openReview(){var ws=reviewWords();if(ws.length<4)return;
-  var tot=0,wt=ws.map(function(w){var x=Math.pow(2,5-bx(w));tot+=x;return x}),pick=[],used={};
-  for(var g=0;g<200&&pick.length<Math.min(8,ws.length);g++){var r=Math.random()*tot,j=0;for(;j<ws.length;j++){r-=wt[j];if(r<=0)break}j=Math.min(j,ws.length-1);if(!used[j]){used[j]=1;pick.push(ws[j])}}
+  var pick=SRS.session(ws,20);if(pick.length<4)pick=SRS.practice(ws,8);
   var items=vocQuiz(pick,pick.length,ws);
-  runStage({title:"每日复习 · Ripasso",color:"pink",pages:[quizPage(items,"复习：答错的词会更常出现。",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
+  runStage({title:"每日复习 · Ripasso",color:"pink",pages:[quizPage(items,"复习：答错的词会更常出现。",null,SRSREV)],
     done:function(){P.done._rev=P.done._rev||{};tick();pSave();toast('<b>✓ 复习完成</b> · '+goalMsg());drawPath();try{drawBoxes()}catch(e){}}})}
 
 /* ---------- scheda dell'unità ---------- */

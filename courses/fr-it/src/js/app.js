@@ -345,10 +345,10 @@ $$("ul.cando[data-cando]").forEach(function(ul){var id=ul.getAttribute("data-can
   cnt()});
 
 /* ---------- flashcards ---------- */
-function bx(w){return state.box[w[0]]||1}
+function bx(w){return SRS.box(w[0])}
 var fcCur=null,shown=false;
 function FW(){var lim=typeof prefs.fcr==="number"?prefs.fcr:-1;if(lim<0){var hi=0;LESSONS.forEach(function(L,li){if(state.best[L.id]||(typeof pathStarted==="function"&&pathStarted(L.id)))hi=li});lim=Math.max(hi+1,LESSONS.findIndex(function(L){return L.id==="l8"}))}return W.filter(function(w){return w[3]<=lim})}
-function pick(){var WW=FW(),tot=0,ws=WW.map(function(w){var x=Math.pow(2,5-bx(w));if(w===fcCur)x=0;tot+=x;return x});var r=Math.random()*tot;for(var i=0;i<WW.length;i++){r-=ws[i];if(r<=0)return WW[i]}return WW[0]}
+function pick(){return SRS.pick(FW(),fcCur)}
 function drawBoxes(){var el=$("#fcboxes");if(!el)return;var c=[0,0,0,0,0];FW().forEach(function(w){c[bx(w)-1]++});var mx=Math.max.apply(null,c)||1;
   el.innerHTML=c.map(function(n,i){return '<div><div class="bar"><i style="height:'+(n/mx*100)+'%"></i></div><b>'+n+'</b><span>scatola '+(i+1)+'</span></div>'}).join("")}
 function drawCard(auto){var card=$("#fccard");if(!card)return;var w=fcCur,m=prefs.fcm,full=art(w[0],w[2])+w[0];
@@ -360,10 +360,10 @@ function drawCard(auto){var card=$("#fccard");if(!card)return;var w=fcCur,m=pref
     :front+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn pri" id="fcshow">Mostra</button></div><p class="fc-box">Scatola '+bx(w)+'</p>';
   if(shown){$("#fcno").onclick=function(){grade(false)};$("#fcyes").onclick=function(){grade(true)};speak(full)}
   else{$("#fcshow").onclick=function(){shown=true;drawCard()};var pb=$("#fcplay");if(pb){pb.onclick=function(){speak(full)};if(auto)speak(full)}}}
-function grade(ok){state.box[fcCur[0]]=ok?Math.min(5,bx(fcCur)+1):1;save();drawBoxes();next(true)}
+function grade(ok){SRS.grade(fcCur[0],ok,1);drawBoxes();next(true)}
 function next(auto){fcCur=pick();shown=false;drawCard(auto)}
 function drawReset(conf){var r=$("#fcreset");if(!r)return;r.innerHTML=conf?'<span>Rimettere tutte le parole nella scatola 1?</span><button class="btn" id="rsy">Sì, azzera</button><button class="btn" id="rsn">Annulla</button>':'<button class="btn" id="rs">Azzera le flashcard</button>';
-  if(conf){$("#rsy").onclick=function(){state.box={};save();drawBoxes();next();drawReset(false)};$("#rsn").onclick=function(){drawReset(false)}}else{$("#rs").onclick=function(){drawReset(true)}}}
+  if(conf){$("#rsy").onclick=function(){state.box={};save();SRS.reset();drawBoxes();next();drawReset(false)};$("#rsn").onclick=function(){drawReset(false)}}else{$("#rs").onclick=function(){drawReset(true)}}}
 (function(){var sel=$("#fcrange");if(!sel)return;var cur=FW().length?FW()[FW().length-1][3]:0;
   sel.innerHTML=LESSONS.map(function(L,li){var n=W.filter(function(w){return w[3]<=li}).length;return (VOC[L.id]&&VOC[L.id].length)?'<option value="'+li+'"'+(li===cur?' selected':'')+'>Fino a: '+esc(lessonLabel(L))+' ('+n+' parole)</option>':''}).join("");
   sel.onchange=function(){prefs.fcr=+sel.value;savePrefs();drawBoxes();next()}})();

@@ -12,11 +12,12 @@ var ZH=C.speak==="zh",UI=C.speak; /* UI: the learner's language (it, zh, es) */
 var LL={ja:"ja",zh:"zh-CN",it:"it"}[C.learn]||C.learn;
 var S={
 it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buongiorno","Buon pomeriggio","Buonasera"],
-  steps:{dlg:"Dialogo",voc:"Parole",rule:"Grammatica",rev:"Ripasso",snd:"Suoni e scrittura",cult:"Cultura",test:"Verifica"},
-  stepSub:{dlg:"Ascolta, leggi, recita",voc:function(n){return n+" parole nuove"},snd:"Ascolta e ripeti",cult:function(n){return n===1?"1 scheda":n+" schede"},test:function(n){return n+" domande · aggiorna la padronanza"}},
+  steps:{rec:"Parole di prima",dlg:"Dialogo",voc:"Parole",rule:"Grammatica",rev:"Ripasso",snd:"Suoni e scrittura",cult:"Cultura",test:"Verifica"},
+  stepSub:{rec:function(n){return n+" parole delle lezioni precedenti"},dlg:"Ascolta, leggi, recita",voc:function(n){return n+" parole nuove"},snd:"Ascolta e ripeti",cult:function(n){return n===1?"1 scheda":n+" schede"},test:function(n){return n+" domande · aggiorna la padronanza"}},
   lesson:function(n){return "Lezione "+n},review:"Ripasso",min:"min",left:function(m){return "circa "+m+" min rimasti"},
   forToday:"Per oggi",forTodaySub:function(m){return "Il tuo tempo: "+m+" min"},resume:"Riprendi",go:"Vai",
-  next:"Prossimo passo",reviewT:"Ripasso parole",reviewS:function(n){return n+" parole: tornano più spesso quelle che dimentichi"},
+  next:"Prossimo passo",reviewT:"Ripasso parole",reviewS:function(n,m){return n+(n===1?" parola":" parole")+" da ripassare oggi · circa "+m+" min"},reviewNone:"Niente da ripassare oggi: ogni parola torna quando stai per dimenticarla.",
+  memT:"La tua memoria",memLearned:"parole in ripasso",memSolid:"consolidate (tornano tra 3+ settimane)",memRet:function(p,n){return "Ricordi il "+p+"% delle parole riviste dopo una settimana o più ("+n+" verifiche negli ultimi 60 giorni)."},memNoRet:"La percentuale di ricordo compare dopo 10 ripassi fatti ad almeno una settimana di distanza.",
   dayCult:"Curiosità del giorno",read:"Leggi",week:"Settimana",days:"giorni",canDo:"Ora sai fare",canDoEmpty:"Qui compariranno le cose che sai fare, man mano che verifichi le lezioni.",
   noPlan:"Crea il tuo piano",noPlanS:"Tre domande e sai quando arrivi al traguardo.",
   course:"Il corso",here:"Sei qui",todo:"Da fare",inProg:function(a,b){return a+" di "+b},verified:"Verificata",
@@ -37,11 +38,12 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   offT:"Senza connessione",offPages:"Le lezioni sono già salvate su questo dispositivo.",offBtn:function(mb){return "Scarica l'audio del corso ("+mb+" MB)"},offBusy:function(a,b){return "Scaricamento… "+a+" di "+b}
   ,offDone:"Fatto: lezioni e audio funzionano anche senza connessione.",offErr:"Download interrotto: riprova con una connessione stabile.",offVoice:"La voce è quella del tuo dispositivo: funziona anche senza connessione.",voiceT:"Voce cinese",voiceAuto:"Automatica",voiceTip:"Su iPhone la voce più naturale è una voce cinese «Premium» o «Ottimizzata»: si scarica gratis da Impostazioni › Accessibilità › Contenuto letto › Voci › Cinese (Cina continentale). Poi sceglila qui.",theme:"Tema",themes:["Auto","Chiaro","Scuro"],redoPlan:"Rifai il piano",changeCourse:"Cambia corso o lingua",reset:"Cancella tutto e ricomincia",resetQ:"Cancellare piano e progressi salvati in questo dispositivo?",close:"Chiudi",back:"Indietro"},
 es:{locale:"es-ES",tabs:["Hoy","Curso","Examen","Cultura","Herramientas"],hi:["Buenos días","Buenas tardes","Buenas noches"],
-  steps:{dlg:"Diálogo",voc:"Palabras",rule:"Gramática",rev:"Repaso",snd:"Pronunciación",cult:"Cultura",test:"Prueba"},
-  stepSub:{dlg:"Escucha, lee, actúa",voc:function(n){return n+" palabras nuevas"},snd:"Escucha y repite",cult:function(n){return n===1?"1 ficha":n+" fichas"},test:function(n){return n+" preguntas · actualiza tu dominio"}},
+  steps:{rec:"Palabras de antes",dlg:"Diálogo",voc:"Palabras",rule:"Gramática",rev:"Repaso",snd:"Pronunciación",cult:"Cultura",test:"Prueba"},
+  stepSub:{rec:function(n){return n+" palabras de lecciones anteriores"},dlg:"Escucha, lee, actúa",voc:function(n){return n+" palabras nuevas"},snd:"Escucha y repite",cult:function(n){return n===1?"1 ficha":n+" fichas"},test:function(n){return n+" preguntas · actualiza tu dominio"}},
   lesson:function(n){return "Lección "+n},review:"Repaso",min:"min",left:function(m){return "quedan unos "+m+" min"},
   forToday:"Para hoy",forTodaySub:function(m){return "Tu tiempo: "+m+" min"},resume:"Continuar",go:"Ir",
-  next:"Siguiente paso",reviewT:"Repaso de palabras",reviewS:function(n){return n+" palabras: vuelven más a menudo las que olvidas"},
+  next:"Siguiente paso",reviewT:"Repaso de palabras",reviewS:function(n,m){return n+(n===1?" palabra":" palabras")+" para repasar hoy · unos "+m+" min"},reviewNone:"Nada que repasar hoy: cada palabra vuelve cuando estás a punto de olvidarla.",
+  memT:"Tu memoria",memLearned:"palabras en repaso",memSolid:"consolidadas (vuelven en 3+ semanas)",memRet:function(p,n){return "Recuerdas el "+p+"% de las palabras repasadas tras una semana o más ("+n+" comprobaciones en los últimos 60 días)."},memNoRet:"El porcentaje de recuerdo aparece tras 10 repasos hechos con al menos una semana de distancia.",
   dayCult:"Curiosidad del día",read:"Leer",week:"Semana",days:"días",canDo:"Ya sabes",canDoEmpty:"Aquí aparecerá lo que ya sabes hacer, a medida que superes las pruebas de las lecciones.",
   noPlan:"Crea tu plan",noPlanS:"Tres preguntas y sabrás cuándo llegas a la meta.",
   course:"El curso",here:"Estás aquí",todo:"Pendiente",inProg:function(a,b){return a+" de "+b},verified:"Superada",
@@ -60,11 +62,12 @@ es:{locale:"es-ES",tabs:["Hoy","Curso","Examen","Cultura","Herramientas"],hi:["B
   offT:"Sin conexión",offPages:"Las lecciones ya están guardadas en este dispositivo.",offBtn:function(mb){return "Descargar el audio del curso ("+mb+" MB)"},offBusy:function(a,b){return "Descargando… "+a+" de "+b}
   ,offDone:"Listo: lecciones y audio funcionan también sin conexión.",offErr:"Descarga interrumpida: vuelve a intentarlo con una conexión estable.",offVoice:"La voz es la de tu dispositivo: funciona también sin conexión.",voiceT:"Voz",voiceAuto:"Automática",voiceTip:"",theme:"Tema",themes:["Auto","Claro","Oscuro"],redoPlan:"Rehacer el plan",changeCourse:"Cambiar de curso o de idioma",reset:"Borrar todo y empezar de nuevo",resetQ:"¿Borrar el plan y el progreso guardados en este dispositivo?",close:"Cerrar",back:"Atrás"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
-  steps:{dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
-  stepSub:{dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
+  steps:{rec:"复习旧词",dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
+  stepSub:{rec:function(n){return "前几课的 "+n+" 个单词"},dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
   lesson:function(n){return "第 "+n+" 课"},review:"复习",min:"分钟",left:function(m){return "还剩约 "+m+" 分钟"},
   forToday:"今天",forTodaySub:function(m){return "你的时间："+m+" 分钟"},resume:"继续",go:"开始",
-  next:"下一步",reviewT:"复习单词",reviewS:function(n){return n+" 个单词：容易忘的会更常出现"},
+  next:"下一步",reviewT:"复习单词",reviewS:function(n,m){return "今天要复习 "+n+" 个单词 · 约 "+m+" 分钟"},reviewNone:"今天没有要复习的单词：每个词都会在你快要忘记时回来。",
+  memT:"你的记忆",memLearned:"个单词在复习中",memSolid:"个已巩固（3 周以上后再复习）",memRet:function(p,n){return "间隔一周以上复习时，你记得 "+p+"% 的单词（最近 60 天共 "+n+" 次）。"},memNoRet:"至少间隔一周复习 10 次以后，这里会显示你的记忆率。",
   dayCult:"今日文化",read:"阅读",week:"本周",days:"天",canDo:"现在你能",canDoEmpty:"完成小测验后，这里会显示你学会做的事。",
   noPlan:"制定你的计划",noPlanS:"三个问题，就知道什么时候达到目标。",
   course:"课程",here:"你在这里",todo:"未开始",inProg:function(a,b){return a+" / "+b},verified:"已掌握",
@@ -110,6 +113,7 @@ function kick(U){var lv=(WORLDS[U.w-1]||{}).level||"";return (U.kind==="lesson"?
 function stepMinutes(id,st){
   if(st.k==="dlg")return 6;
   if(st.k==="voc")return Math.max(4,Math.round(lessonWords(id).length*0.4));
+  if(st.k==="rec")return 3;
   if(st.k==="rule"||st.k==="rev"){var t=0;st.n.forEach(function(n){t+=tlen(n)});return Math.max(4,Math.min(15,Math.round(t/260)+(st.k==="rule"&&st.i===st.of-1?3:0)))}
   if(st.k==="snd")return 5;
   if(st.k==="cult")return 3*(CULT[id]||[]).length;
@@ -124,6 +128,7 @@ function canDo(id){var s=sec(id),cd=s&&q("ul.cando",s);if(!cd)return [];
   return qa("li:not(.cnt)",cd).map(function(li){var x=li.cloneNode(true);qa("input,rt,.ro-i,.ro,.wro",x).forEach(function(e){e.remove()});return x.textContent.replace(/\s+/g," ").trim()}).filter(Boolean)}
 function stepSub(id,st){var d=S.stepSub[st.k];
   if(st.k==="voc")return d(lessonWords(id).length);
+  if(st.k==="rec")return d(recWords(id).length);
   if(st.k==="cult")return d((CULT[id]||[]).length);
   if(st.k==="test")return d(exSplit(id).t.length);
   if(st.k==="rule"||st.k==="rev"){var hd=null;st.n.some(function(n){if(n.matches&&n.matches("h3")){hd=n;return true}var x=n.querySelector&&n.querySelector("h3");if(x){hd=x;return true}return false});
@@ -236,16 +241,16 @@ openSheet=function(){render()};
 function vToday(){
   var p=myPlan(),hr=new Date().getHours(),hi=S.hi[hr<13?0:hr<18?1:2];
   var i=hereIdx(),U=i>=0?UNITS[i]:null,nx=U&&nextOf(U.id),inf=U&&info(U.id);
-  var rw=reviewWords().length,dc=dayCult(),wk=weekActive();
+  var pool=reviewWords(),rp=pool.length>=4?SRS.plan(pool):{n:0},rw=rp.n,rmin=Math.max(1,Math.round(Math.min(20,rw)*0.25)),dc=dayCult(),wk=weekActive();
   var html=head(fmt(new Date(),{weekday:"long",day:"numeric",month:"long"}),hi);
   /* one next step, big; everything else waits below */
   html+='<div class="mp-cols mp-cols-t"><div class="mp-main">';
-  var rev='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(Math.min(8,rw)))+'</small></span><em>'+I.arrow+'</em></button>';
+  var rev='<button class="mp-blk" id="mprev"><span class="n">↻</span><span><b>'+h(S.reviewT)+'</b><small>'+h(S.reviewS(rw,rmin))+'</small></span><em>'+I.arrow+'</em></button>';
   html+='<section class="mp-today mp-hero hc-blue"><div class="mp-k">'+h(S.forToday)+(p?' · '+h(S.forTodaySub(p.mins)):'')+'</div>';
   if(U&&nx)html+='<button class="mp-hgo" id="mpnext"><span class="n">'+(U.kind==="lesson"?U.n:"★")+'</span><b>'+h(title(U))+'</b><small>'+h(S.next+": "+stepLabel(nx))+' · '+stepMinutes(U.id,nx)+' '+h(S.min)+'</small></button><button class="mp-cta" id="mpgo">'+h(S.resume)+I.arrow+'</button>';
-  else if(rw>=4)html+=rev;
+  else if(rw>0)html+=rev;
   html+='</section>';
-  if(U&&nx&&rw>=4)html+='<div class="mp-more">'+rev+'</div>';
+  if(U&&nx&&rw>0)html+='<div class="mp-more">'+rev+'</div>';
   html+='</div><div class="mp-side">';
   html+='<div class="mp-row2"><div class="mp-tile"><span class="mp-lbl">'+h(S.week)+'</span><div class="mp-big">'+wk.n+'<small> / 6 '+h(S.days)+'</small></div><div class="mp-week">'+wk.html+'</div></div>';
   if(p){var pl=M.plan(C,p,P),ex=pl.ex;
@@ -256,6 +261,8 @@ function vToday(){
   if(dc)html+='<h2 class="mp-h2">'+h(S.dayCult)+'</h2>'+cultCard(dc,true);
   var cds=[];for(var k=UNITS.length-1;k>=0&&cds.length<3;k--){if(info(UNITS[k].id).verified)canDo(UNITS[k].id).slice(0,3-cds.length).forEach(function(t){cds.push(t)})}
   html+='<h2 class="mp-h2">'+h(S.canDo)+'</h2><div class="mp-card mp-cando">'+(cds.length?cds.map(function(t){return '<div><span>✓</span>'+h(t)+'</div>'}).join(""):'<p>'+h(S.canDoEmpty)+'</p>')+'</div>';
+  var ms=pool.length?SRS.stats(pool):{learned:0};
+  if(ms.learned)html+='<h2 class="mp-h2">'+h(S.memT)+'</h2><div class="mp-card mp-mem"><div class="mp-memn"><div><b>'+ms.learned+'</b><small>'+h(S.memLearned)+'</small></div><div><b>'+ms.solid+'</b><small>'+h(S.memSolid)+'</small></div></div><p>'+h(ms.retention!=null?S.memRet(ms.retention,ms.checks):S.memNoRet)+'</p>'+(rw===0?'<p class="mp-memz">'+h(S.reviewNone)+'</p>':'')+'</div>';
   html+='</div></div>';
   show(html);
   var a=q("#mpnext",view),g=q("#mpgo",view);if(a&&U)a.onclick=g.onclick=function(){openStep(U.id,nx.key)};
@@ -300,7 +307,7 @@ function vLesson(id){
     if(cds.length)html+='<div class="mp-know"><b>'+h(S.knowT)+'</b><ul>'+cds.slice(0,5).map(function(t){return '<li>'+h(t)+'</li>'}).join("")+'</ul></div>';
     html+='</section>'}
   html+='<h2 class="mp-h2">'+h(S.stepsT)+'</h2><p class="mp-sub">'+h(S.stepsS)+'</p>';
-  html+='<div class="mp-secs">'+inf.steps.map(function(st){var dn=stepDone(id,st),now=nx&&st.key===nx.key,m=stepMinutes(id,st),ic=I[st.k==="cult"?"cultS":st.k]||I.rule;
+  html+='<div class="mp-secs">'+inf.steps.map(function(st){var dn=stepDone(id,st),now=nx&&st.key===nx.key,m=stepMinutes(id,st),ic=I[st.k==="cult"?"cultS":st.k==="rec"?"rev":st.k]||I.rule;
     var right=st.k==="test"&&inf.pc!=null?(inf.verified?'✓ ':'')+inf.pc+'%':dn?'✓ '+m+' '+S.min:m+' '+S.min;
     return '<button class="mp-sec'+(dn?' done':'')+(now?' now':'')+'" data-k="'+st.key+'"><span class="ic">'+(dn?I.check:ic)+'</span><span><b>'+h(stepLabel(st))+'</b><small>'+h(stepSub(id,st))+'</small></span><em>'+h(right)+'</em></button>'}).join("")+'</div>';
   html+='<button class="mp-cta" id="mpgo">'+h(nx?(inf.started?S.cont(stepLabel(nx)):S.start):S.redo)+I.arrow+'</button>';

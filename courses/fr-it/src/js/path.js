@@ -20,7 +20,7 @@ function tick(){var t=dayKey(0);P.days[t]=(P.days[t]||0)+1;var ks=Object.keys(P.
 CULT=CULT||{};Object.keys(CULT).forEach(function(id){CULT[id].forEach(function(c){(c.w||[]).forEach(function(w){var k=w[0].toLowerCase();if(!DICT[k])DICT[k]=w[1]})})});
 
 /* ---------- contenuto delle tappe, preso dalle lezioni del libro ---------- */
-var STEPN={dlg:["Dialogo","Dialogue","i-ear"],voc:["Parole","Vocabulaire","i-cards"],rule:["Grammatica","Grammaire","i-bulb"],rev:["Ripasso","Révision","i-loop"],snd:["Pronuncia","Prononciation","i-wave"],cult:["Cultura","Culture","i-moka"],test:["Verifica","Bilan","i-check"]};
+var STEPN={rec:["Parole di prima","Parole di prima","i-loop"],dlg:["Dialogo","Dialogue","i-ear"],voc:["Parole","Vocabulaire","i-cards"],rule:["Grammatica","Grammaire","i-bulb"],rev:["Ripasso","Révision","i-loop"],snd:["Pronuncia","Prononciation","i-wave"],cult:["Cultura","Culture","i-moka"],test:["Verifica","Bilan","i-check"]};
 function sec(id){return document.getElementById(id)}
 function readingNodes(id){var s=sec(id),rd=$("#reading",s);if(!rd||$(".dialog",s))return [];
   return Array.prototype.filter.call(s.children,function(c){return c===rd||c.contains($("#rdplay",s))||(c.matches("ul.plain")&&c.nextElementSibling&&c.nextElementSibling.contains($("#rdplay",s)))})}
@@ -34,7 +34,7 @@ function ruleChunks(id){var ns=bodyNodes(id),tot=0;ns.forEach(function(n){tot+=t
   return best>0?[ns.slice(0,best),ns.slice(best)]:[ns]}
 function stepsOf(id){var U=UNITS[uIdx(id)],s=sec(id),out=[],ch=ruleChunks(id);
   if(U.kind==="review"){ch.forEach(function(c,i){out.push({k:"rev",i:i,of:ch.length,n:c})})}
-  else{if($(".dialog",s)||readingNodes(id).length)out.push({k:"dlg"});
+  else{if(recWords(id).length>=4)out.push({k:"rec"});if($(".dialog",s)||readingNodes(id).length)out.push({k:"dlg"});
     if((VOC[id]||[]).length)out.push({k:"voc"});
     ch.forEach(function(c,i){out.push({k:"rule",i:i,of:ch.length,n:c})});
     if($(".suono",s))out.push({k:"snd"})}
@@ -64,6 +64,8 @@ function vocQuiz(words,n,pool){pool=pool&&pool.length>=6?pool:W;var out=[];
     else out.push({q:"Come si dice «"+w[1]+"» in francese?",o:["{"+fullW(w)+"}"].concat(d.map(function(x){return "{"+fullW(x)+"}"})),e:"{"+fullW(w)+"} = "+w[1],w:w})});
   return out}
 function lessonWords(id){return W.filter(function(w){return w[4]===id})}
+/* words from earlier lessons for the "words from before" step (spaced: due first, then 1, 2, 4, 8 lessons back) */
+function recWords(id){var li=LESSONS.findIndex(function(L){return L.id===id});return li>0?SRS.recycle(W,li,10):[]}
 function exSplit(id){var it=EX[id]||[],U=UNITS[uIdx(id)];
   if(U.kind==="review")return {p:[],t:it.slice()};
   /* practice after the rule: first the build-and-choose exercises, then a couple of classic ones; the rest is the test */
@@ -133,9 +135,10 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
       else $$(".dialog[data-dlg]",s).forEach(function(d){var n=document.createElement("div");n.className="dialog";n.setAttribute("data-dlg",d.getAttribute("data-dlg"));box.appendChild(n);renderDialog(n)});
       var h=document.createElement("p");h.className="st-hint";h.textContent="Ascolta qualche volta: quanto capisci senza traduzione? Poi fai il quiz.";box.insertBefore(h,box.firstChild)},go:"Al quiz"});
     var dq=dlgQuiz(id,4);if(dq.length)pages.push(quizPage(dq,"Ascolta le frasi del dialogo e scegli il significato."))}
+  else if(st.k==="rec"){var rw=recWords(id),li=LESSONS.findIndex(function(L){return L.id===id});pages.push(quizPage(vocQuiz(rw,rw.length,W.filter(function(w){return w[3]<=li})),"Parole delle lezioni precedenti: te le ricordi ancora? Tornano quelle che stai per dimenticare.",null,SRSMK))}
   else if(st.k==="voc"){
     pages.push({draw:function(box){box.innerHTML='<p class="st-hint">Premi ▶ su ogni parola e ripetila ad alta voce. Impara i nomi con l\'articolo.</p>';var w=document.createElement("div");w.className="words";w.setAttribute("data-voc",id);box.appendChild(w);renderWords(w)},go:"Al quiz"});
-    pages.push(quizPage(vocQuiz(lessonWords(id),6),"Ti ricordi queste parole?"))}
+    pages.push(quizPage(vocQuiz(lessonWords(id),6),"Ti ricordi queste parole?",null,SRSMK))}
   else if(st.k==="rule"||st.k==="rev"){
     pages.push({draw:function(box){if(st.i===0){var ld=$("p.lead",s);if(ld)box.appendChild(ld.cloneNode(true))}box.appendChild(cloneNodes(st.n))},go:st.k==="rule"&&st.i===st.of-1&&exSplit(id).p.length?"Esercitati":null});
     if(st.k==="rule"&&st.i===st.of-1){var pr=exSplit(id).p;if(pr.length)pages.push(quizPage(pr,"Qualche esercizio sulla regola appena vista."))}}
@@ -163,10 +166,9 @@ function openStep(id,key,opt){opt=opt||{};var U=UNITS[uIdx(id)],steps=stepsOf(id
 function reviewWords(){var hi=-1;UNITS.forEach(function(U){if(pathStarted(U.id)){var li=LESSONS.findIndex(function(L){return L.id===U.id});if(li>hi)hi=li}});
   return W.filter(function(w){return w[3]<=hi})}
 function openReview(){var ws=reviewWords();if(ws.length<4)return;
-  var tot=0,wt=ws.map(function(w){var x=Math.pow(2,5-bx(w));tot+=x;return x}),pick=[],used={};
-  for(var g=0;g<200&&pick.length<Math.min(8,ws.length);g++){var r=Math.random()*tot,j=0;for(;j<ws.length;j++){r-=wt[j];if(r<=0)break}j=Math.min(j,ws.length-1);if(!used[j]){used[j]=1;pick.push(ws[j])}}
+  var pick=SRS.session(ws,20);if(pick.length<4)pick=SRS.practice(ws,8);
   var items=vocQuiz(pick,pick.length,ws);
-  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripasso: le parole che sbagli tornano più spesso.",null,function(i,ok,it){if(it.w){state.box[it.w[0]]=ok?Math.min(5,bx(it.w)+1):1;save()}})],
+  runStage({title:"Ripasso del giorno",color:"pink",pages:[quizPage(items,"Ripasso: le parole che sbagli tornano più spesso.",null,SRSREV)],
     done:function(){P.done._rev=P.done._rev||{};tick();pSave();toast('<b>✓ Ripasso fatto</b> · '+goalMsg());drawPath();try{drawBoxes()}catch(e){}}})}
 
 /* ---------- scheda dell'unità ---------- */
