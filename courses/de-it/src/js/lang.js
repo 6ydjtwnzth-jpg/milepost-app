@@ -166,6 +166,6 @@ var NUM=[["0","null"],["1","eins"],["2","zwei"],["3","drei"],["4","vier"],["5","
 function gOf(g){var c=(g||"").charAt(0);return /[mfnp]/.test(c)?c:""}
 function art(w,g){return {m:"der ",f:"die ",n:"das ",p:"die "}[gOf(g)]||""}
 function wordHTML(r){var g=gOf(r[2]),a=art(r[0],r[2]),pl=plOf(r[2]);
-  return g?'<span class="'+({m:"m",f:"f",n:"nt",p:"f"}[g])+'"><span class="art">'+a+'</span>'+esc(r[0])+'</span>'+(pl?'<span class="pl"> · '+(pl==="-"?"senza plurale":"die "+esc(pl))+'</span>':''):esc(r[0])}
+  return g?'<span class="'+({m:"m",f:"f",n:"nt",p:"f"}[g])+'"><span class="art">'+a+'</span>'+esc(r[0])+'</span>'+(pl==="-"?'<span class="pl pl0"></span>':pl?'<span class="pl"> · die '+esc(pl)+'</span>':''):esc(r[0])}
 function gLabel(g){var x={m:"maschile",f:"femminile",n:"neutro",p:"plurale"}[gOf(g)]||"",pl=plOf(g);return x+(pl&&pl!=="-"?" · plurale: die "+pl:"")}
 Object.keys(VOC).forEach(function(id){(VOC[id]||[]).forEach(function(r){var pl=plOf(r[2]);if(pl&&pl!=="-"&&!PL_IDX[pl])PL_IDX[pl]="plurale di «"+r[0]+"» ("+r[1]+")"})});
