@@ -16,7 +16,7 @@ EX.l10=[
  {t:"say",zh:"Rispondi «Sì che ho tempo!» alla domanda «Hast du keine Zeit?»",it:"Doch, ich habe Zeit!"}
 ];
 VOC.l10=[
- ["aufstehen","alzarsi",""],["anrufen","telefonare",""],["einkaufen","fare la spesa",""],["fernsehen","guardare la tv",""],["anfangen","cominciare",""],["abfahren","partire (con un mezzo)",""],["mitkommen","venire con (qualcuno)",""],["ausgehen","uscire (la sera)",""],["aufräumen","mettere in ordine",""],["duschen","fare la doccia",""],["frühstücken","fare colazione",""],
+ ["aufstehen","alzarsi",""],["anrufen","telefonare",""],["einkaufen","fare la spesa",""],["fernsehen","guardare la tv",""],["anfangen","cominciare",""],["abfahren","partire (con un mezzo)",""],["mitkommen","venire con (qualcuno)",""],["ausgehen","uscire (la sera); spegnersi (la luce)",""],["aufräumen","mettere in ordine",""],["duschen","fare la doccia",""],["frühstücken","fare colazione",""],
  ["mittags","a mezzogiorno",""],["nachmittags","il pomeriggio",""],["nachts","di notte",""],["immer","sempre",""],["meistens","di solito, quasi sempre",""],["manchmal","a volte",""],["selten","raramente",""],["nie","mai",""],["erst","solo, non prima di",""],["früh","presto",""],["spät","tardi",""],["doch","sì (a una domanda negativa); però",""],
  ["Frühstück","colazione","n:Frühstücke"],["Mittagessen","pranzo","n:Mittagessen"],["Abendessen","cena","n:Abendessen"],["Film","film","m:Filme"],["mit","con",""],["Tagesablauf","giornata (le cose che si fanno)","m:Tagesabläufe"]
 ];
