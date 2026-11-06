@@ -18,7 +18,7 @@ EX.l5=[
 VOC.l5=[
  ["haben","avere",""],["Familie","famiglia","f:Familien"],["Eltern","genitori","p"],["Vater","padre","m:Väter"],["Mutter","madre","f:Mütter"],["Schwester","sorella","f:Schwestern"],["Geschwister","fratelli e sorelle","p"],["Kind","bambino, figlio","n:Kinder"],["Sohn","figlio","m:Söhne"],["Tochter","figlia","f:Töchter"],
  ["Mann","uomo; marito","m:Männer"],["Großvater","nonno","m:Großväter"],["Großmutter","nonna","f:Großmütter"],["Onkel","zio","m:Onkel"],["Tante","zia","f:Tanten"],["Freund","amico; ragazzo (fidanzato)","m:Freunde"],["Freundin","amica; ragazza (fidanzata)","f:Freundinnen"],["Hund","cane","m:Hunde"],["Katze","gatto","f:Katzen"],["Haus","casa","n:Häuser"],
- ["mein","mio",""],["dein","tuo",""],["seine","sua, suoi (di lui)",""],["ihre","sua, suoi (di lei); loro",""],["unser","nostro",""],["euer","vostro",""],["Ihr","Suo (cortesia)",""],["einen","un (accusativo maschile)",""],["keinen","nessun (accusativo maschile)",""],
+ ["mein","mio",""],["seine","sua, suoi (di lui)",""],["ihre","sua, suoi (di lei); loro",""],["unser","nostro",""],["euer","vostro",""],["Ihr","Suo (cortesia)",""],["einen","un (accusativo maschile)",""],["keinen","nessun (accusativo maschile)",""],
  ["wer","chi",""],["verheiratet","sposato",""],["ledig","celibe, nubile",""],["geschieden","divorziato",""],["Arzt","medico","m:Ärzte"],["lieben","amare",""]
 ];
 EX.l5=EX.l5.concat([

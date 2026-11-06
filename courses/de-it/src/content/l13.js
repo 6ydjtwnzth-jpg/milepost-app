@@ -16,8 +16,8 @@ EX.l13=[
  {t:"say",zh:"Di' che il medico dice che devi bere molta acqua",it:"Ich soll viel Wasser trinken."}
 ];
 VOC.l13=[
- ["wollen","volere",""],["müssen","dovere (necessità)",""],["dürfen","potere (avere il permesso)",""],["sollen","dovere (su richiesta di altri)",""],["man","si (impersonale)",""],["rauchen","fumare",""],["treffen","incontrare",""],["sich treffen","incontrarsi, vedersi",""],["einladen","invitare; offrire",""],
- ["Lust","voglia","f:-"],["Hast du Lust auf…?","hai voglia di…?",""],["Kino","cinema","n:Kinos"],["ins Kino","al cinema",""],["Idee","idea","f:Ideen"],["Gute Idee!","buona idea!",""],["Mal","volta","n:Male"],["Vielleicht ein anderes Mal.","magari un'altra volta",""],["vielleicht","forse",""],["natürlich","naturalmente, certo",""],["klar","chiaro; certo!",""],["okay","va bene",""],["vorher","prima",""],["heute Abend","stasera",""],["Termin","appuntamento","m:Termine"],["Party","festa","f:Partys"]
+ ["wollen","volere",""],["müssen","dovere (necessità)",""],["dürfen","potere (avere il permesso)",""],["sollen","dovere (su richiesta di altri)",""],["rauchen","fumare",""],["treffen","incontrare",""],["sich treffen","incontrarsi, vedersi",""],["einladen","invitare; offrire",""],
+ ["Lust","voglia","f:-"],["Hast du Lust auf…?","hai voglia di…?",""],["Kino","cinema","n:Kinos"],["ins Kino","al cinema",""],["Idee","idea","f:Ideen"],["Gute Idee!","buona idea!",""],["Mal","volta","n:Male"],["Vielleicht ein anderes Mal.","magari un'altra volta",""],["vielleicht","forse",""],["natürlich","naturalmente, certo",""],["klar","chiaro; certo!",""],["okay","va bene",""],["vorher","prima",""],["heute Abend","stasera",""],["Termin","appuntamento","m:Termine"],["Party","festa","f:Partys"],["bezahlen", "pagare", ""]
 ];
 EX.l13=EX.l13.concat([
  {t:"dict",au:"Hast du Lust auf ein Konzert?"},

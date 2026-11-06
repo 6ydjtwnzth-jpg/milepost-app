@@ -18,7 +18,7 @@ EX.l17=[
 VOC.l17=[
  ["war","ero, era (sein)",""],["hatte","avevo, aveva (haben)",""],["konnte","potevo, potè (können)",""],["musste","dovevo (müssen)",""],["wollte","volevo (wollen)",""],["durfte","potevo, avevo il permesso (dürfen)",""],["wenn","quando, ogni volta che; se",""],["früher","prima, una volta",""],["damals","allora, a quel tempo",""],["anders","diverso, in modo diverso",""],["Als Kind…","da bambino…",""],
  ["Oma","nonna","f:Omas"],["Opa","nonno","m:Opas"],["Foto","foto","n:Fotos"],["Garten","giardino","m:Gärten"],["Fernseher","televisore","m:Fernseher"],["Bayern","Baviera",""],["Geld","soldi, denaro","n:-"],["Kindheit","infanzia","f:-"],["Spielzeug","giocattolo","n:Spielzeuge"],["Nachbar","vicino di casa","m:Nachbarn"],
- ["helfen","aiutare",""],["aufbleiben","stare alzato",""],["umziehen","trasferirsi, traslocare",""],["geboren","nato",""],["schüchtern","timido",""],["andere","altro, altra",""]
+ ["helfen","aiutare",""],["aufbleiben","stare alzato",""],["umziehen","trasferirsi, traslocare",""],["schüchtern","timido",""],["andere","altro, altra",""]
 ];
 EX.l17=EX.l17.concat([
  {t:"dict",au:"Früher war alles anders."},

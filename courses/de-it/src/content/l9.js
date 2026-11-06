@@ -18,7 +18,7 @@ EX.l9=[
 VOC.l9=[
  ["was","che cosa",""],["wohin","dove (verso dove)",""],["warum","perché (domanda)",""],["wie viel","quanto",""],["fahren","andare (con un mezzo), guidare",""],["gehen","andare (a piedi)",""],["sprechen","parlare",""],["lesen","leggere",""],["sehen","vedere",""],["geben","dare",""],["schlafen","dormire",""],["verstehen","capire",""],["bedeuten","significare",""],["sagen","dire",""],["wiederholen","ripetere",""],
  ["Wie bitte?","come, scusi?",""],["langsam","lento, piano",""],["Kein Problem.","nessun problema",""],["auf Deutsch","in tedesco",""],["Englisch","inglese (la lingua)",""],["Sprache","lingua","f:Sprachen"],
- ["Roman","romanzo","m:Romane"],["Geschichte","storia","f:Geschichten"],["Zeitung","giornale","f:Zeitungen"],["Fahrrad","bicicletta","n:Fahrräder"],["Bus","autobus","m:Busse"],["Straße","strada, via","f:Straßen"],["Arbeit","lavoro","f:Arbeiten"],["Pizza","pizza","f:Pizzas"],["Problem","problema","n:Probleme"],["jeden Tag","ogni giorno",""],["Freiburg","Friburgo",""]
+ ["Roman","romanzo","m:Romane"],["Geschichte","storia","f:Geschichten"],["Zeitung","giornale","f:Zeitungen"],["Fahrrad","bicicletta","n:Fahrräder"],["Bus","autobus","m:Busse"],["Straße","strada, via","f:Straßen"],["Arbeit","lavoro","f:Arbeiten"],["Pizza","pizza","f:Pizzas"],["Problem","problema","n:Probleme"],["jeden Tag","ogni giorno",""],["Freiburg","Friburgo",""],["man", "si (impersonale)", ""]
 ];
 EX.l9=EX.l9.concat([
  {t:"dict",au:"Sprichst du Deutsch?"},

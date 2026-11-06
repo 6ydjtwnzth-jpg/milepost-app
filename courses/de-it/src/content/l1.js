@@ -17,7 +17,7 @@ EX.l1=[
 VOC.l1=[
  ["hallo","ciao, salve",""],["Guten Morgen","buongiorno (la mattina)",""],["Guten Tag","buongiorno",""],["Guten Abend","buonasera",""],["Gute Nacht","buonanotte",""],["tschüss","ciao (andando via)",""],["Auf Wiedersehen","arrivederci",""],["bis später","a dopo",""],["bis morgen","a domani",""],
  ["danke","grazie",""],["danke schön","grazie mille",""],["bitte","per favore; prego; ecco",""],["bitte schön","prego",""],["Entschuldigung","scusi, scusa",""],["ja","sì",""],["nein","no",""],["hier","qui, ecco",""],["schön","bello",""],["sehr","molto",""],["Schönen Tag noch!","buona giornata!",""],
- ["Kaffee","caffè","m:Kaffees"],["Tee","tè","m:Tees"],["Wasser","acqua","n:-"],["Bier","birra","n:Biere"],["Milch","latte","f:-"],["Buch","libro","n:Bücher"],["Nacht","notte","f:Nächte"],["Zeit","tempo","f:Zeiten"],["drei","tre",""]
+ ["Kaffee","caffè","m:Kaffees"],["Tee","tè","m:Tees"],["Wasser","acqua","n:-"],["Bier","birra","n:Biere"],["Milch","latte","f:-"],["Buch","libro","n:Bücher"],["Nacht","notte","f:Nächte"],["Zeit","tempo","f:Zeiten"],["drei","tre",""],["viel", "molto", ""]
 ];
 EX.l1=EX.l1.concat([
  {t:"type",q:"Completa: {Danke! —} ＿ {.}",a:["Bitte","Bitte schön"],full:"Danke! — Bitte."},

@@ -16,7 +16,7 @@ EX.l7=[
  {t:"say",zh:"Di' che il sabato non lavori",it:"Am Samstag arbeite ich nicht."}
 ];
 VOC.l7=[
- ["Was machst du beruflich?","che lavoro fai?",""],["Beruf","professione, lavoro","m:Berufe"],["arbeiten","lavorare",""],["machen","fare",""],["kochen","cucinare",""],["frei haben","essere libero (dal lavoro)",""],["viel","molto",""],["abends","la sera",""],["morgens","la mattina",""],["zu Hause","a casa",""],["nicht","non",""],["so","così",""],
+ ["Was machst du beruflich?","che lavoro fai?",""],["Beruf","professione, lavoro","m:Berufe"],["arbeiten","lavorare",""],["machen","fare",""],["kochen","cucinare",""],["frei haben","essere libero (dal lavoro)",""],["abends","la sera",""],["morgens","la mattina",""],["zu Hause","a casa",""],["nicht","non",""],["so","così",""],
  ["Lehrer","insegnante","m:Lehrer"],["Lehrerin","insegnante (donna)","f:Lehrerinnen"],["Koch","cuoco","m:Köche"],["Köchin","cuoca","f:Köchinnen"],["Ärztin","medico (donna)","f:Ärztinnen"],["Verkäufer","commesso","m:Verkäufer"],["Verkäuferin","commessa","f:Verkäuferinnen"],["Kellner","cameriere","m:Kellner"],["Kellnerin","cameriera","f:Kellnerinnen"],["Ingenieur","ingegnere","m:Ingenieure"],["Ingenieurin","ingegnere (donna)","f:Ingenieurinnen"],["Krankenpfleger","infermiere","m:Krankenpfleger"],["Krankenpflegerin","infermiera","f:Krankenpflegerinnen"],
  ["Krankenhaus","ospedale","n:Krankenhäuser"],["Büro","ufficio","n:Büros"],["Restaurant","ristorante","n:Restaurants"],["Schule","scuola","f:Schulen"],["Firma","ditta, azienda","f:Firmen"],["Hamburg","Amburgo",""],["Ende","fine","n:Enden"]
 ];
