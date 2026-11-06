@@ -17,11 +17,11 @@ EX.l16=[
  {t:"say",zh:"Chiedi a un amico dove è andato in vacanza e se gli è piaciuto",it:"Where did you go on holiday? Did you like it?"}
 ];
 VOC.l16=[
- ["went","andai, sono andato (go)",""],["had","ebbi, ho avuto (have)",""],["saw","vidi, ho visto (see)",""],["took","presi, ho preso (take)",""],["got","presi, sono arrivato (get)",""],["ate","mangiai, ho mangiato (eat)",""],["bought","comprai, ho comprato (buy)",""],["flew","volai, sono andato in aereo (fly)",""],["left","partii, sono partito (leave)",""],["came","venni, sono venuto (come)",""],
+ ["went","andai, sono andato (go)",""],["had","ebbi, ho avuto (have)",""],["saw","vidi, ho visto (see)",""],["took","presi, ho preso (take)",""],["got","presi, sono arrivato (get)",""],["ate","mangiai, ho mangiato (eat)",""],["bought","comprai, ho comprato (buy)",""],["flew","volai, sono andato in aereo (fly)",""],["came","venni, sono venuto (come)",""],
  ["did","aiutante del passato",""],["didn't","non (passato)",""],["eat","mangiare",""],["fly","volare, andare in aereo",""],["leave","partire, lasciare",""],["come","venire",""],["rent","noleggiare, affittare",""],["train","treno",""],["plane","aereo",""],["airport","aeroporto",""],["ticket","biglietto",""],
  ["photo","foto",""],["present","regalo",""],["amazing","incredibile, fantastico",""],["have a great time","divertirsi un sacco",""],["on holiday","in vacanza",""],["birthday","compleanno",""],
  ["January","gennaio",""],["February","febbraio",""],["March","marzo",""],["April","aprile",""],["May","maggio",""],["June","giugno",""],["July","luglio",""],["August","agosto",""],["September","settembre",""],["October","ottobre",""],["November","novembre",""],["December","dicembre",""],
- ["twenty-first","ventunesimo",""],["fourth","quarto (ordinale)",""],["fifth","quinto",""],["fourteenth","quattordicesimo",""]
+ ["twenty-first","ventunesimo",""],["fourth","quarto (ordinale)",""],["fifth","quinto",""],["fourteenth","quattordicesimo",""],["boat", "barca, nave", ""],["passport", "passaporto", ""]
 ];
 EX.l16=EX.l16.concat([
  {t:"dict",au:"We didn't rent a car."},

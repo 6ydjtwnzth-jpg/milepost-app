@@ -19,7 +19,7 @@ VOC.l10=[
  ["wake up","svegliarsi",""],["get up","alzarsi",""],["get","prendere, ottenere, arrivare",""],["have a shower","fare la doccia",""],["shower","doccia",""],["breakfast","colazione",""],["lunch","pranzo",""],["dinner","cena",""],["have breakfast","fare colazione",""],
  ["go to work","andare al lavoro",""],["get home","arrivare a casa",""],["go to bed","andare a letto",""],["cook dinner","preparare la cena",""],["watch TV","guardare la TV",""],["watch","guardare (TV, partite)",""],["go shopping","andare a fare spese",""],["walk","camminare, andare a piedi",""],
  ["always","sempre",""],["usually","di solito",""],["sometimes","a volte",""],["never","mai",""],["how often","quanto spesso",""],["once","una volta",""],["twice","due volte",""],["every","ogni",""],
- ["gym","palestra",""],["toast","pane tostato",""],["fast","veloce",""],["well","be'; bene",""],["night","notte",""],["drink","bere",""],["month","mese",""],["bike","bici",""],["by bike","in bici",""],["go out","uscire",""]
+ ["gym","palestra",""],["toast","pane tostato",""],["fast","veloce",""],["well","be'; bene",""],["night","notte",""],["drink","bere",""],["month","mese",""],["bike","bici",""],["by bike","in bici",""],["go out","uscire",""],["wash", "lavare, lavarsi", ""],["forget", "dimenticare", ""],["wardrobe", "armadio", ""],["change", "cambiare; cambiarsi", ""],["after", "dopo", ""]
 ];
 EX.l10=EX.l10.concat([
  {t:"dict",au:"How often do you go to the gym?"},

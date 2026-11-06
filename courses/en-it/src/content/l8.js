@@ -20,7 +20,7 @@ VOC.l8=[
  ["how much","quanto (costa)",""],["pound","sterlina",""],["pence","penny (centesimi di sterlina)",""],["each","l'uno, ciascuno",""],["pay","pagare",""],["by card","con la carta",""],["cash","contanti",""],["bill","conto",""],["receipt","scontrino, ricevuta",""],
  ["eat in","da consumare qui",""],["take away","da portar via",""],["of course","certo, naturalmente",""],["medium","medio",""],["large","grande",""],
  ["cappuccino","cappuccino",""],["espresso","caffè espresso",""],["latte","latte macchiato (caffè con molto latte)",""],["black coffee","caffè nero, senza latte",""],["milk","latte",""],["sugar","zucchero",""],["juice","succo",""],["orange juice","succo d'arancia",""],
- ["glass","bicchiere",""],["cup","tazza",""],["piece","pezzo, fetta",""],["cake","torta, dolce",""],["chocolate","cioccolato",""],["lemon","limone",""],["sandwich","panino, tramezzino",""],["cheese","formaggio",""],["with","con",""]
+ ["glass","bicchiere",""],["cup","tazza",""],["piece","pezzo, fetta",""],["cake","torta, dolce",""],["chocolate","cioccolato",""],["lemon","limone",""],["sandwich","panino, tramezzino",""],["cheese","formaggio",""],["with","con",""],["wine", "vino", ""],["beer", "birra", ""],["salt", "sale", ""],["price", "prezzo", ""],["cost", "costare", ""]
 ];
 EX.l8=EX.l8.concat([
  {t:"dict",au:"How much is a coffee?"},

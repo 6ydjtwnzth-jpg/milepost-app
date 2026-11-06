@@ -20,7 +20,7 @@ VOC.l19=[
  ["than","di (nei confronti)",""],["more","più",""],["most","il più",""],["less","meno",""],["as … as","tanto … quanto",""],["better","migliore, meglio",""],["best","il migliore, il meglio",""],["bad","cattivo, brutto",""],["worse","peggiore, peggio",""],["worst","il peggiore",""],
  ["cheap","economico",""],["expensive","caro, costoso",""],["beautiful","bello",""],["exciting","emozionante",""],["quiet","tranquillo, silenzioso",""],["noisy","rumoroso",""],["busy","affollato, impegnato",""],["easy","facile",""],["difficult","difficile",""],
  ["tall","alto (persone)",""],["short","basso, corto",""],["long","lungo",""],["high","alto (cose)",""],["dirty","sporco",""],["safe","sicuro",""],["dangerous","pericoloso",""],["rainy","piovoso",""],["free","gratis; libero",""],
- ["trip","viaggio, gita",""],["team","squadra",""],["player","giocatore",""],["that's true","è vero",""],["some people","alcune persone",""],["let's","facciamo, andiamo (proposta)",""],["yours","il tuo, il vostro",""],["think","pensare, credere",""],["Britain","Gran Bretagna",""]
+ ["trip","viaggio, gita",""],["team","squadra",""],["player","giocatore",""],["that's true","è vero",""],["some people","alcune persone",""],["let's","facciamo, andiamo (proposta)",""],["yours","il tuo, il vostro",""],["think","pensare, credere",""],["Britain","Gran Bretagna",""],["fat", "grasso", ""],["thin", "magro", ""],["ugly", "brutto", ""],["slow", "lento", ""],["same", "stesso", ""],["other", "altro", ""],["good", "buono, bravo", ""]
 ];
 EX.l19=EX.l19.concat([
  {t:"dict",au:"It's the most beautiful city in Britain."},

@@ -18,7 +18,7 @@ EX.l21=[
 VOC.l21=[
  ["be going to","avere intenzione di, stare per",""],["will","(ausiliare del futuro)",""],["won't","non (futuro, will not)",""],["I'll","io + will",""],["if","se",""],["as soon as","appena",""],["I think","secondo me, penso",""],
  ["future","futuro",""],["send","mandare",""],["meet","incontrare, vedersi",""],["worry","preoccuparsi",""],["don't worry","non preoccuparti",""],["heavy","pesante",""],["sky","cielo",""],["clouds","nuvole",""],
- ["this summer","quest'estate",""],["next week","la settimana prossima",""],["next year","l'anno prossimo",""],["soon","presto",""],["one day","un giorno",""],["you know","sai, sapete",""],["learn to","imparare a",""],["surf","fare surf",""],["Australia","Australia",""],["perhaps","forse",""],["fifteenth","quindicesimo",""],["might","potrebbe (forse)",""]
+ ["this summer","quest'estate",""],["next week","la settimana prossima",""],["next year","l'anno prossimo",""],["soon","presto",""],["one day","un giorno",""],["you know","sai, sapete",""],["learn to","imparare a",""],["surf","fare surf",""],["Australia","Australia",""],["perhaps","forse",""],["fifteenth","quindicesimo",""],["might","potrebbe (forse)",""],["maybe", "forse", ""],["suitcase", "valigia", ""]
 ];
 EX.l21=EX.l21.concat([
  {t:"dict",au:"If it rains, we'll stay at home."},

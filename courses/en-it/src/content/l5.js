@@ -20,7 +20,7 @@ VOC.l5=[
  ["son","figlio",""],["daughter","figlia",""],["children","figli; bambini",""],["husband","marito",""],["wife","moglie",""],["grandmother","nonna",""],["grandfather","nonno",""],["grandparents","nonni",""],
  ["uncle","zio",""],["aunt","zia",""],["cousin","cugino, cugina",""],["relatives","parenti",""],["boyfriend","ragazzo, fidanzato",""],["girlfriend","ragazza, fidanzata",""],["dog","cane",""],["cat","gatto",""],["car","macchina, auto",""],
  ["have got","avere (possesso, famiglia)",""],["his","suo (di lui)",""],["her","suo (di lei)",""],["its","suo (di una cosa)",""],["our","nostro",""],["their","loro (possessivo)",""],["who","chi",""],["or","o, oppure",""],
- ["very","molto",""],["young","giovane",""],["married","sposato",""],["single","single, non sposato",""],["love","amare, adorare",""]
+ ["very","molto",""],["young","giovane",""],["married","sposato",""],["single","single, non sposato",""],["love","amare, adorare",""],["boy", "ragazzo, bambino", ""],["girl", "ragazza, bambina", ""],["neighbour", "vicino di casa", ""],["hair", "capelli", ""],["nose", "naso", ""],["mouth", "bocca", ""]
 ];
 EX.l5=EX.l5.concat([
  {t:"dict",au:"Our parents are from Turin."},

@@ -19,7 +19,7 @@ VOC.l12=[
  ["now","adesso",""],["right now","proprio adesso",""],["at the moment","in questo momento",""],["look","guarda; guardare",""],["lucky","fortunato",""],["lucky you","beato te",""],["see","vedere",""],["sleep","dormire",""],["stay","stare, alloggiare",""],["want","volere",""],["need","avere bisogno di",""],
  ["weather","tempo (atmosferico)",""],["what's the weather like","che tempo fa",""],["sunny","soleggiato",""],["cloudy","nuvoloso",""],["windy","ventoso",""],["rain","piovere; pioggia",""],["snow","nevicare; neve",""],["cold","freddo",""],["hot","caldo (molto)",""],["warm","caldo (piacevole)",""],
  ["wear","indossare, portare",""],["clothes","vestiti",""],["coat","cappotto",""],["jacket","giacca",""],["jumper","maglione",""],["T-shirt","maglietta",""],["shirt","camicia",""],["trousers","pantaloni",""],["jeans","jeans",""],["shorts","pantaloncini",""],
- ["dress","vestito (da donna)",""],["skirt","gonna",""],["shoes","scarpe",""],["trainers","scarpe da ginnastica",""],["hat","cappello",""],["red","rosso",""],["black","nero",""],["white","bianco",""],["blue","blu",""]
+ ["dress","vestito (da donna)",""],["skirt","gonna",""],["shoes","scarpe",""],["trainers","scarpe da ginnastica",""],["hat","cappello",""],["red","rosso",""],["black","nero",""],["white","bianco",""],["blue","blu",""],["colour", "colore", ""],["green", "verde", ""],["yellow", "giallo", ""],["grey", "grigio", ""],["brown", "marrone", ""]
 ];
 EX.l12=EX.l12.concat([
  {t:"dict",au:"It's raining. Take an umbrella!"},

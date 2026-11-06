@@ -20,7 +20,7 @@ VOC.l2=[
  ["be","essere",""],["my","il mio, la mia",""],["your","il tuo, il vostro, il Suo",""],["name","nome",""],["what","che cosa, quale",""],["where","dove",""],["from","da, di (provenienza)",""],
  ["and","e",""],["too","anche (in fondo alla frase)",""],["me too","anch'io",""],["nice to meet you","piacere di conoscerti",""],["student","studente, studentessa",""],["spell","fare lo spelling",""],
  ["Italy","Italia",""],["Italian","italiano",""],["England","Inghilterra",""],["English","inglese",""],["the UK","il Regno Unito",""],["British","britannico",""],["the USA","gli Stati Uniti",""],["American","americano",""],
- ["Ireland","Irlanda",""],["Irish","irlandese",""],["Spain","Spagna",""],["Spanish","spagnolo",""],["France","Francia",""],["French","francese",""],["Germany","Germania",""],["German","tedesco",""],["nice","simpatico, bello, piacevole",""]
+ ["Ireland","Irlanda",""],["Irish","irlandese",""],["Spain","Spagna",""],["Spanish","spagnolo",""],["France","Francia",""],["French","francese",""],["Germany","Germania",""],["German","tedesco",""],["nice","simpatico, bello, piacevole",""],["country", "paese, nazione", ""],["world", "mondo", ""]
 ];
 EX.l2=EX.l2.concat([
  {t:"dict",au:"We're students."},

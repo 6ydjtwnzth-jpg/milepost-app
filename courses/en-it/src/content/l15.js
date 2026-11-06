@@ -19,7 +19,7 @@ EX.l15=[
 VOC.l15=[
  ["was","ero, fui, sono stato (I / he / she / it)",""],["were","eri, eravamo, erano (you / we / they)",""],["wasn't","non ero, non era",""],["weren't","non eravate, non erano",""],["yesterday","ieri",""],["last night","ieri sera",""],["last week","la settimana scorsa",""],["last","scorso, ultimo",""],["ago","fa",""],
  ["beach","spiaggia",""],["visit","visitare, andare a trovare",""],["clean","pulire",""],["move","trasferirsi, traslocare",""],["try","provare",""],["plan","programmare",""],["stop","fermare, smettere",""],["finish","finire",""],
- ["lovely","bello, carino",""],["that's nice","che carino, che bello",""],["boring","noioso",""],["interesting","interessante",""],["all weekend","tutto il fine settimana",""],["year","anno",""],["holiday","vacanza",""],["party","festa",""],["concert","concerto",""],["call","telefonare, chiamare",""]
+ ["lovely","bello, carino",""],["that's nice","che carino, che bello",""],["boring","noioso",""],["interesting","interessante",""],["all weekend","tutto il fine settimana",""],["year","anno",""],["holiday","vacanza",""],["party","festa",""],["concert","concerto",""],["call","telefonare, chiamare",""],["return", "tornare; restituire", ""],["invite", "invitare", ""],["celebrate", "festeggiare", ""],["climb", "salire, scalare", ""]
 ];
 EX.l15=EX.l15.concat([
  {t:"dict",au:"How was your weekend? — It was great!"},

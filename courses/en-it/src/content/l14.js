@@ -21,7 +21,7 @@ VOC.l14=[
  ["meat","carne",""],["fish","pesce",""],["chicken","pollo",""],["vegetables","verdure",""],["potato","patata",""],["tomato","pomodoro",""],["mushroom","fungo",""],["salad","insalata",""],["fruit","frutta",""],["biscuit","biscotto",""],
  ["bottle","bottiglia",""],["kilo","chilo",""],["half","mezzo, metà",""],["sparkling water","acqua frizzante",""],["still water","acqua naturale",""],["soup","minestra, zuppa",""],["dish","piatto (pietanza)",""],["vegetarian","vegetariano",""],
  ["menu","menù",""],["starter","antipasto",""],["main course","piatto principale",""],["dessert","dolce, dessert",""],["ready","pronto",""],["order","ordinare",""],["recommend","consigliare",""],["I'll have","prendo (ordinando)",""],["madam","signora",""],
- ["buy","comprare",""],["money","soldi",""],["information","informazioni",""],["advice","consigli",""],["drinks","bevande",""]
+ ["buy","comprare",""],["money","soldi",""],["information","informazioni",""],["advice","consigli",""],["drinks","bevande",""],["oil", "olio", ""],["problem", "problema", ""],["ice cream", "gelato", ""]
 ];
 EX.l14=EX.l14.concat([
  {t:"dict",au:"There isn't any bread. Can you buy some?"},

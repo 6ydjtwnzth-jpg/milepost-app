@@ -19,7 +19,7 @@ VOC.l3=[
  ["not","non",""],["how","come",""],["how old","quanti anni",""],["how are you","come stai, come sta",""],["fine","bene",""],["OK","bene, d'accordo",""],["great","fantastico, benissimo",""],["tired","stanco",""],["a bit","un po'",""],
  ["late","in ritardo, tardi",""],["years old","anni (di età)",""],["number","numero",""],["phone number","numero di telefono",""],["surname","cognome",""],["teacher","insegnante",""],["here","qui",""],["card","tessera, carta",""],["double","doppio",""],
  ["zero","zero",""],["oh","zero (nei numeri di telefono)",""],["one","uno",""],["two","due",""],["four","quattro",""],["five","cinque",""],["six","sei",""],["seven","sette",""],["eight","otto",""],["nine","nove",""],["ten","dieci",""],
- ["eleven","undici",""],["twelve","dodici",""],["thirteen","tredici",""],["fourteen","quattordici",""],["fifteen","quindici",""],["sixteen","sedici",""],["seventeen","diciassette",""],["eighteen","diciotto",""],["nineteen","diciannove",""],["twenty","venti",""]
+ ["eleven","undici",""],["twelve","dodici",""],["thirteen","tredici",""],["fourteen","quattordici",""],["fifteen","quindici",""],["sixteen","sedici",""],["seventeen","diciassette",""],["eighteen","diciotto",""],["nineteen","diciannove",""],["twenty","venti",""],["age", "età", ""],["address", "indirizzo", ""]
 ];
 EX.l3=EX.l3.concat([
  {t:"dict",au:"I'm not Spanish, I'm Italian."},

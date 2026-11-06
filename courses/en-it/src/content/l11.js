@@ -20,7 +20,7 @@ VOC.l11=[
  ["free time","tempo libero",""],["enjoy","godersi, piacere",""],["hate","odiare",""],["dance","ballare",""],["sing","cantare",""],["swim","nuotare",""],["run","correre",""],["ride a bike","andare in bici",""],["drive","guidare",""],
  ["play","giocare; suonare",""],["guitar","chitarra",""],["piano","pianoforte",""],["instrument","strumento",""],["football","calcio",""],["tennis","tennis",""],["basketball","pallacanestro",""],["sport","sport",""],["yoga","yoga",""],
  ["go swimming","andare a nuotare",""],["go running","andare a correre",""],["go skiing","andare a sciare",""],["park","parco",""],["sea","mare",""],["together","insieme",""],["what about you","e tu?",""],["great idea","ottima idea",""],
- ["very well","molto bene",""],["a little","un po'",""],["photography","fotografia",""],["painting","pittura",""],["game","gioco, partita",""],["practise","esercitarsi",""]
+ ["very well","molto bene",""],["a little","un po'",""],["photography","fotografia",""],["painting","pittura",""],["game","gioco, partita",""],["practise","esercitarsi",""],["theatre", "teatro", ""],["mountain", "montagna", ""],["win", "vincere", ""],["lose", "perdere", ""],["also", "anche", ""],["either", "neanche (in fondo a una frase negativa)", ""],["prefer", "preferire", ""]
 ];
 EX.l11=EX.l11.concat([
  {t:"dict",au:"We play football on Sundays."},

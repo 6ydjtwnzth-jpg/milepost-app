@@ -19,7 +19,7 @@ VOC.l13=[
  ["town","città (piccola), centro",""],["street","strada, via",""],["road","strada",""],["square","piazza",""],["bridge","ponte",""],["corner","angolo",""],["church","chiesa",""],["chemist's","farmacia",""],["post office","ufficio postale",""],["supermarket","supermercato",""],
  ["cash machine","bancomat",""],["car park","parcheggio",""],["underground","metropolitana",""],["next to","accanto a",""],["opposite","di fronte a (dall'altra parte)",""],["in front of","davanti a",""],["behind","dietro",""],["between","tra",""],
  ["left","sinistra",""],["right","destra",""],["on the left","a sinistra",""],["on the right","a destra",""],["straight on","dritto",""],["turn","girare",""],["cross","attraversare",""],["get to","arrivare a",""],
- ["far","lontano",""],["minute","minuto",""],["on foot","a piedi",""],["about","circa",""],["then","poi",""],["first","primo",""],["second","secondo",""],["third","terzo",""],["wait","aspettare",""],["push","spingere",""],["pull","tirare",""],["no problem","di niente, nessun problema",""],["café","bar, caffetteria",""],["gap","spazio, varco",""],["thank you very much","grazie mille",""]
+ ["far","lontano",""],["minute","minuto",""],["on foot","a piedi",""],["about","circa",""],["then","poi",""],["first","primo",""],["second","secondo",""],["third","terzo",""],["wait","aspettare",""],["push","spingere",""],["pull","tirare",""],["no problem","di niente, nessun problema",""],["café","bar, caffetteria",""],["gap","spazio, varco",""],["thank you very much","grazie mille",""],["follow", "seguire", ""],["down", "giù, in fondo a (go down the street)", ""],["up", "su (go up the street)", ""]
 ];
 EX.l13=EX.l13.concat([
  {t:"dict",au:"There's a café on the corner."},

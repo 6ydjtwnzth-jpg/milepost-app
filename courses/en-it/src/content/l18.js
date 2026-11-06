@@ -18,7 +18,7 @@ EX.l18=[
 VOC.l18=[
  ["happen","succedere",""],["what happened","che cosa è successo",""],["fall","cadere",""],["fall off","cadere da",""],["fell","caddi, sono caduto (fall)",""],["ran","corsi, è corso (run)",""],["ride","andare (in bici, a cavallo)",""],["ring","squillare, suonare",""],["rang","squillò (ring)",""],["arrive","arrivare",""],["break","rompere",""],["broken","rotto",""],
  ["while","mentre",""],["suddenly","all'improvviso",""],["after that","dopo, in seguito",""],["luckily","per fortuna",""],["unfortunately","purtroppo",""],["in the end","alla fine",""],["at the end of","alla fine di",""],["poor you","poverino, povero te",""],
- ["arm","braccio",""],["leg","gamba",""],["lights","luci",""],["taxi","taxi",""],["accident","incidente",""],["as a child","da bambino",""],["story","storia, racconto",""]
+ ["arm","braccio",""],["leg","gamba",""],["lights","luci",""],["taxi","taxi",""],["accident","incidente",""],["as a child","da bambino",""],["story","storia, racconto",""],["sun", "sole", ""],["wind", "vento", ""],["cloud", "nuvola", ""]
 ];
 EX.l18=EX.l18.concat([
  {t:"dict",au:"Luckily, my phone wasn't broken."},

@@ -18,7 +18,7 @@ EX.l17=[
 VOC.l17=[
  ["used to","ero solito (abitudine passata)",""],["couldn't","non sapevo, non potevo",""],["be born","nascere",""],["was born","sono nato, è nato",""],["when I was a child","da bambino",""],
  ["grandma","nonna",""],["grandpa","nonno",""],["life","vita",""],["different","diverso",""],["summer","estate",""],["winter","inverno",""],["spring","primavera",""],["autumn","autunno",""],
- ["farm","fattoria",""],["village","paese, villaggio",""],["countryside","campagna",""],["toy","giocattolo",""],["comics","fumetti",""],["until","fino a",""],["called","chiamato, che si chiama",""],["use","usare",""],["grow up","crescere",""],["primary school","scuola elementare",""],["teenager","adolescente",""],["remember","ricordare",""]
+ ["farm","fattoria",""],["village","paese, villaggio",""],["countryside","campagna",""],["toy","giocattolo",""],["comics","fumetti",""],["until","fino a",""],["called","chiamato, che si chiama",""],["use","usare",""],["grow up","crescere",""],["primary school","scuola elementare",""],["teenager","adolescente",""],["remember","ricordare",""],["forest", "bosco, foresta", ""],["lake", "lago", ""],["still", "ancora", ""],["quite", "piuttosto, abbastanza", ""]
 ];
 EX.l17=EX.l17.concat([
  {t:"dict",au:"Our house was small, but it had a big garden."},

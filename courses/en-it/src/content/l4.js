@@ -20,7 +20,7 @@ VOC.l4=[
  ["there is","c'è",""],["there are","ci sono",""],["any","alcuno, nessuno (domande e negazioni)",""],["a lot of","molti, un sacco di",""],["but","ma",""],["in","in, dentro",""],["friend","amico, amica",""],["welcome","benvenuto",""],
  ["flat","appartamento",""],["room","stanza, camera",""],["kitchen","cucina",""],["bed","letto",""],["chair","sedia",""],["table","tavolo",""],["window","finestra",""],["door","porta",""],["lift","ascensore",""],
  ["book","libro",""],["bag","borsa",""],["key","chiave",""],["phone","telefono",""],["computer","computer",""],["TV","TV, televisione",""],["umbrella","ombrello",""],["apple","mela",""],["banana","banana",""],["hour","ora",""],["university","università",""],
- ["big","grande",""],["small","piccolo",""],["new","nuovo",""],["man","uomo",""],["woman","donna",""],["child","bambino, bambina",""],["person","persona",""],["people","persone, gente",""],["city","città",""]
+ ["big","grande",""],["small","piccolo",""],["new","nuovo",""],["man","uomo",""],["woman","donna",""],["child","bambino, bambina",""],["person","persona",""],["people","persone, gente",""],["city","città",""],["bathroom", "bagno", ""],["bedroom", "camera da letto", ""]
 ];
 EX.l4=EX.l4.concat([
  {t:"dict",au:"Are those your books?"},

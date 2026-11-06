@@ -18,7 +18,7 @@ EX.l9=[
 VOC.l9=[
  ["when","quando",""],["why","perché (nelle domande)",""],["because","perché (nelle risposte)",""],["which","quale (tra pochi)",""],["what time","a che ora",""],["alone","da solo",""],["every day","ogni giorno, tutti i giorni",""],
  ["station","stazione",""],["music","musica",""],["bookshop","libreria (negozio)",""],["library","biblioteca",""],["read","leggere",""],["know","sapere, conoscere",""],["understand","capire",""],["mean","voler dire, significare",""],
- ["say","dire",""],["word","parola",""],["question","domanda",""],["answer","risposta; rispondere",""],["language","lingua",""],["learn","imparare",""],["slowly","piano, lentamente",""],["again","di nuovo, ancora",""],["take","prendere",""]
+ ["say","dire",""],["word","parola",""],["question","domanda",""],["answer","risposta; rispondere",""],["language","lingua",""],["learn","imparare",""],["slowly","piano, lentamente",""],["again","di nuovo, ancora",""],["take","prendere",""],["ask", "chiedere, domandare", ""],["explain", "spiegare", ""],["repeat", "ripetere", ""],["hear", "sentire, udire", ""],["put", "mettere", ""],["bring", "portare", ""]
 ];
 EX.l9=EX.l9.concat([
  {t:"dict",au:"Who do you live with?"},

@@ -19,7 +19,7 @@ VOC.l7=[
  ["work","lavorare",""],["live","abitare, vivere",""],["teach","insegnare",""],["study","studiare",""],["speak","parlare (una lingua)",""],["start","cominciare",""],["help","aiutare",""],["like","piacere (I like = mi piace)",""],
  ["do","fare",""],["what do you do","che lavoro fai",""],["don't","non (do not)",""],["doesn't","non (does not)",""],["job","lavoro, impiego",""],["really","davvero",""],["at night","di notte",""],["at home","a casa",""],["for","per",""],
  ["nurse","infermiere, infermiera",""],["doctor","medico",""],["engineer","ingegnere",""],["waiter","cameriere",""],["shop assistant","commesso, commessa",""],["cook","cuoco; cucinare",""],["driver","autista",""],["lawyer","avvocato",""],["manager","direttore, responsabile",""],
- ["office","ufficio",""],["hospital","ospedale",""],["school","scuola",""],["shop","negozio",""],["restaurant","ristorante",""],["bank","banca",""],["company","azienda, società",""],["factory","fabbrica",""],["engineering","ingegneria",""],["go","andare",""],["by bus","in autobus",""]
+ ["office","ufficio",""],["hospital","ospedale",""],["school","scuola",""],["shop","negozio",""],["restaurant","ristorante",""],["bank","banca",""],["company","azienda, società",""],["factory","fabbrica",""],["engineering","ingegneria",""],["go","andare",""],["by bus","in autobus",""],["boss", "capo", ""],["sell", "vendere", ""],["listen", "ascoltare (listen to)", ""],["give", "dare", ""]
 ];
 EX.l7=EX.l7.concat([
  {t:"dict",au:"I don't work on Saturdays."},

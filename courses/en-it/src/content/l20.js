@@ -19,7 +19,7 @@ EX.l20=[
 VOC.l20=[
  ["ever","mai (nelle domande)",""],["been","stato (be)",""],["gone","andato (go)",""],["seen","visto (see)",""],["eaten","mangiato (eat)",""],["done","fatto (do)",""],["written","scritto (write)",""],["flown","volato (fly)",""],
  ["since","da (punto di partenza)",""],["how long","da quanto tempo, quanto tempo",""],["just","appena",""],["already","già",""],["yet","ancora (non ancora); già (domande)",""],["not yet","non ancora",""],
- ["outside","fuori",""],["Europe","Europa",""],["book a flight","prenotare un volo",""],["flight","volo",""],["homework","compiti",""],["times","volte",""],["a long time","molto tempo",""],["write","scrivere",""],["horse","cavallo",""],["sushi","sushi",""],["abroad","all'estero",""],["experience","esperienza",""]
+ ["outside","fuori",""],["Europe","Europa",""],["book a flight","prenotare un volo",""],["flight","volo",""],["homework","compiti",""],["times","volte",""],["a long time","molto tempo",""],["write","scrivere",""],["horse","cavallo",""],["sushi","sushi",""],["abroad","all'estero",""],["experience","esperienza",""],["important", "importante", ""],["sad", "triste", ""],["funny", "divertente, buffo", ""],["empty", "vuoto", ""],["badly", "male", ""],["believe", "credere", ""],["seem", "sembrare", ""]
 ];
 EX.l20=EX.l20.concat([
  {t:"dict",au:"How long have you known Emma?"},
