@@ -5,10 +5,10 @@ const fs=require('fs'),vm=require('vm'),path=require('path');
 const cid=process.argv[2],SRC=path.join(__dirname,'..','courses',cid,'src');
 const ctx={EX:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(SRC,'drills.js'),'utf8'),ctx);
 const IT=['it-zh','fr-it','it-es','en-it','es-it','de-it'].includes(cid),ZH=cid==='zh-it'; /* IT: a language written in Latin letters */
-const PU=/^[。、，！？「」『』…：；“”（）.,!?;:«»"'-]+$/;
+const PU=/^[。、，！？「」『』…：；“”（）.,!?;:«»"'¿¡-]+$/;
 const surf=t=>t.replace(/\[[^\]]*\]/g,'');
 const toks=s=>String(s).trim().split(/\s+/).filter(t=>!PU.test(IT?t:surf(t)));
-const key=t=>IT?t.toLowerCase().replace(/[.,!?;:«»]/g,''):surf(t);
+const key=t=>IT?t.toLowerCase().replace(/[.,!?;:«»¿¡]/g,''):surf(t);
 let bad=0,n=0;const by={};
 function fail(id,i,msg){bad++;console.log(`✗ ${id} #${i}: ${msg}`)}
 function tones(s){/* Chinese: 不 and 一 before the next syllable */

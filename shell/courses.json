@@ -209,6 +209,55 @@
       "examNote": "Il Cambridge A2 Key si può fare quasi ogni mese, su carta o al computer: controlla le date nei centri d'esame autorizzati della tua città."
     },
     {
+      "id": "es-it",
+      "learn": "es",
+      "speak": "it",
+      "storageKey": "spagnolo-per-italiani-v1",
+      "titleField": "t",
+      "name": "Spagnolo",
+      "native": "Español",
+      "the": "lo spagnolo",
+      "color": "yellow",
+      "levelsLabel": "Da zero all'A2 · 23 lezioni",
+      "courseHours": 160,
+      "hidden": true,
+      "starts": [
+        {
+          "skip": 1,
+          "t": "Da zero",
+          "s": "Non ho mai studiato spagnolo"
+        },
+        {
+          "skip": 2,
+          "t": "So già le basi",
+          "s": "Saluti, presentarsi, numeri (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "Ho già un livello A1",
+          "s": "Capisco frasi semplici e so presentarmi"
+        }
+      ],
+      "exams": [
+        {
+          "id": "a2",
+          "name": "DELE A2",
+          "upto": "r3",
+          "hours": 160,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "DELE B1",
+          "upto": "r3",
+          "hours": 320,
+          "partial": true,
+          "dates": []
+        }
+      ],
+      "examNote": "Il DELE si tiene più volte all'anno (l'A2 di solito ad aprile, maggio, luglio, ottobre e novembre): controlla le date sul sito dell'Instituto Cervantes e nei centri d'esame della tua città."
+    },
+    {
       "id": "fr-it",
       "learn": "fr",
       "speak": "it",

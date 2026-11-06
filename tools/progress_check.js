@@ -24,7 +24,7 @@ const isNum=w=>/^[0-9一二三四五六七八九十百千万]+/.test(w);
 const isName=(raw)=>LAT?/^[A-ZÀ-Ý]/.test(raw):false;
 const surf=t=>t.replace(/\[[^\]]*\]/g,'');
 function words(s){s=String(s);
-  if(LAT)return s.toLowerCase().replace(/[’]/g,"'").split(/[^a-zàâäçèéêëîïôöùûüÿœæñáíóú']+/).map(w=>w.replace(/^'+|'+$/g,'')).filter(Boolean)
+  if(LAT)return s.toLowerCase().replace(/[’]/g,"'").split(/[^a-zàâäçèéêëîïôöùûüÿœæñáíóúß']+/).map(w=>w.replace(/^'+|'+$/g,'')).filter(Boolean)
     .flatMap(w=>{if(EN)return [w.replace(/'s$/,'')];const i=w.indexOf("'");return i>0&&i<w.length-1?[w.slice(0,i+1),w.slice(i+1)]:[w]});
   return s.trim().split(/\s+/).map(surf).filter(w=>w&&!/^[。、，！？「」『』…：；“”（）!?,.\-—〜・/]+$/.test(w))}
 function strs(x,out){if(x==null)return out;if(Array.isArray(x))x.forEach(y=>strs(y,out));else if(typeof x==='object')Object.values(x).forEach(y=>strs(y,out));else if(typeof x==='string')out.push(x);return out}
