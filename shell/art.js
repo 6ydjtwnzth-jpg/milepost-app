@@ -32,6 +32,33 @@ fr:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden=
   '<rect x="78" y="114" width="8" height="12"/><rect x="92" y="114" width="8" height="12"/><rect x="106" y="114" width="8" height="12"/><rect x="78" y="136" width="8" height="12"/><rect x="92" y="136" width="8" height="12"/><rect x="106" y="136" width="8" height="12"/>'+
   '<rect x="134" y="140" width="8" height="12"/><rect x="150" y="140" width="8" height="12"/></g>'+
   '<path d="M0 182 Q100 168 200 184 T346 180 V200 H0Z" fill="#ea4a2a"/></svg>',
+/* Inglese: Big Ben, autobus a due piani, sole */
+en:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#ea4a2a"/>'+
+  '<circle cx="70" cy="58" r="30" fill="#ffc532"/><circle cx="150" cy="30" r="3" fill="#ff9fb6"/><circle cx="320" cy="120" r="4" fill="#ff9fb6"/>'+
+  '<rect x="238" y="58" width="36" height="124" fill="#fff"/><path d="M234 58 H278 L266 30 H246Z" fill="#1a1720"/><path d="M251 30 L256 8 L261 30Z" fill="#1a1720"/>'+
+  '<circle cx="256" cy="80" r="12" fill="#ffc532"/><path d="M256 80 V71 M256 80 L262 84" stroke="#1a1720" stroke-width="3" stroke-linecap="round"/>'+
+  '<g fill="#ea4a2a" opacity=".55"><rect x="246" y="104" width="7" height="13"/><rect x="259" y="104" width="7" height="13"/><rect x="246" y="128" width="7" height="13"/><rect x="259" y="128" width="7" height="13"/><rect x="246" y="152" width="7" height="13"/><rect x="259" y="152" width="7" height="13"/></g>'+
+  '<rect x="44" y="104" width="150" height="70" rx="12" fill="#2b50d8"/><rect x="44" y="137" width="150" height="5" fill="#1a1720" opacity=".3"/>'+
+  '<g fill="#fff"><rect x="54" y="113" width="26" height="18" rx="4"/><rect x="86" y="113" width="26" height="18" rx="4"/><rect x="118" y="113" width="26" height="18" rx="4"/><rect x="150" y="113" width="34" height="18" rx="4"/><rect x="54" y="148" width="26" height="16" rx="4"/><rect x="86" y="148" width="26" height="16" rx="4"/><rect x="118" y="148" width="26" height="16" rx="4"/></g>'+
+  '<rect x="156" y="146" width="26" height="28" rx="3" fill="#1a1720"/><circle cx="76" cy="176" r="11" fill="#1a1720"/><circle cx="166" cy="176" r="11" fill="#1a1720"/>'+
+  '<path d="M0 184 Q100 172 200 186 T346 182 V200 H0Z" fill="#12965a"/></svg>',
+/* Spagnolo: case bianche andaluse, campanile, sole */
+es:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#ffc532"/>'+
+  '<circle cx="272" cy="56" r="34" fill="#ea4a2a"/><circle cx="196" cy="28" r="3" fill="#ff9fb6"/><circle cx="30" cy="60" r="4" fill="#fff"/>'+
+  '<rect x="40" y="58" width="34" height="124" fill="#fff"/><path d="M36 58 H78 L57 22Z" fill="#ea4a2a"/><rect x="50" y="72" width="14" height="22" rx="7" fill="#2b50d8"/><rect x="50" y="108" width="14" height="18" rx="7" fill="#2b50d8"/>'+
+  '<rect x="74" y="112" width="78" height="70" fill="#fff"/><path d="M70 112 H156 L146 98 H80Z" fill="#c23a1f"/><rect x="88" y="128" width="16" height="18" rx="3" fill="#2b50d8"/><rect x="120" y="128" width="16" height="18" rx="3" fill="#2b50d8"/><rect x="104" y="156" width="18" height="26" rx="9" fill="#1a1720"/>'+
+  '<rect x="152" y="128" width="96" height="54" fill="#fff"/><path d="M148 128 H252 L242 114 H158Z" fill="#c23a1f"/><rect x="166" y="142" width="16" height="16" rx="3" fill="#2b50d8"/><rect x="194" y="142" width="16" height="16" rx="3" fill="#2b50d8"/><rect x="222" y="142" width="16" height="16" rx="3" fill="#2b50d8"/>'+
+  '<g fill="#12965a"><circle cx="286" cy="150" r="20"/><rect x="283" y="160" width="6" height="22" fill="#1a1720"/><circle cx="318" cy="158" r="14"/><rect x="315" y="166" width="5" height="16" fill="#1a1720"/></g>'+
+  '<path d="M0 182 Q100 168 200 184 T346 180 V200 H0Z" fill="#ea4a2a"/></svg>',
+/* Tedesco: Porta di Brandeburgo, bretzel, sole */
+de:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#12965a"/>'+
+  '<circle cx="76" cy="54" r="30" fill="#ffc532"/><circle cx="160" cy="26" r="3" fill="#ff9fb6"/><circle cx="324" cy="40" r="4" fill="#ff9fb6"/>'+
+  '<rect x="150" y="70" width="166" height="20" fill="#fff"/><rect x="160" y="56" width="146" height="16" fill="#fff"/><rect x="214" y="40" width="38" height="18" rx="3" fill="#ffc532"/>'+
+  '<g fill="#fff"><rect x="156" y="90" width="14" height="92"/><rect x="182" y="90" width="14" height="92"/><rect x="208" y="90" width="14" height="92"/><rect x="244" y="90" width="14" height="92"/><rect x="270" y="90" width="14" height="92"/><rect x="296" y="90" width="14" height="92"/></g>'+
+  '<rect x="148" y="176" width="170" height="8" fill="#fff"/>'+
+  '<path d="M66 150 C40 150 32 118 52 108 C66 101 78 116 72 132 L60 160 M86 150 C112 150 120 118 100 108 C86 101 74 116 80 132 L92 160 M58 140 C68 150 84 150 94 140" fill="none" stroke="#c88b55" stroke-width="11" stroke-linecap="round"/>'+
+  '<g fill="#fff"><circle cx="54" cy="122" r="1.8"/><circle cx="98" cy="122" r="1.8"/><circle cx="76" cy="146" r="1.8"/></g>'+
+  '<path d="M0 182 Q100 168 200 184 T346 180 V200 H0Z" fill="#ea4a2a"/></svg>',
 /* Italia: colline, cipressi, Colosseo, sole */
 it:'<svg viewBox="0 0 346 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="346" height="200" fill="#12965a"/>'+
   '<circle cx="84" cy="60" r="34" fill="#ffc532"/><circle cx="150" cy="30" r="3" fill="#ff9fb6"/><circle cx="40" cy="128" r="4" fill="#ff9fb6"/>'+

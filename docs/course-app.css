@@ -316,6 +316,8 @@ html.mp-exam body{padding-bottom:0}
 .xopts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
 #mpexam .xo{display:flex;align-items:center;gap:12px;width:100%;min-height:54px;padding:10px 14px;border-radius:16px;background:var(--sheet);box-shadow:var(--shadow);border:2px solid transparent;text-align:left;font-size:17px;line-height:1.5}
 #mpexam .xo .n{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--muted);display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--muted)}
+#mpexam .xin{width:100%;min-height:54px;padding:10px 14px;border-radius:16px;background:var(--sheet);box-shadow:var(--shadow);border:2px solid var(--line,transparent);font:inherit;font-size:18px;color:inherit}
+#mpexam .xin:focus{outline:none;border-color:var(--blue)}
 #mpexam .xo.sel{border-color:var(--blue);background:var(--blue-soft)}
 #mpexam .xo.sel .n{background:var(--blue);border-color:var(--blue);color:#fff}
 .xfoot{display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));max-width:760px;margin:0 auto;width:100%;border-top:1px solid var(--line)}
