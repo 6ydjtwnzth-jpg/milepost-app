@@ -18,7 +18,7 @@ EX.l10=[
 VOC.l10=[
  ["levantarse","alzarsi",""],["ducharse","fare la doccia",""],["vestirse","vestirsi",""],["acostarse","andare a letto",""],["despertarse","svegliarsi",""],["volver","tornare",""],["dormir","dormire",""],["poder","potere",""],["preferir","preferire",""],["pedir","chiedere, ordinare",""],["jugar","giocare",""],
  ["desayunar","fare colazione",""],["cenar","cenare",""],["desayuno","colazione","m"],["comida","cibo; pranzo","f"],["normalmente","di solito",""],["a menudo","spesso",""],["a veces","a volte",""],["vez","volta","f"],["semana","settimana","f"],
- ["gimnasio","palestra","m"],["normal","normale",""],["qué tarde","così tardi",""],["niño","bambino","m"],["niños","bambini","mp"],["temprano","presto",""],["luego","poi, dopo",""],["después","dopo",""],["mediodía","mezzogiorno","m"],["medianoche","mezzanotte","f"]
+ ["gimnasio","palestra","m"],["normal","normale",""],["qué tarde","così tardi",""],["niño","bambino","m"],["niños","bambini","mp"],["temprano","presto",""],["luego","poi, dopo",""],["después","dopo",""],["mediodía","mezzogiorno","m"],["medianoche","mezzanotte","f"],["pensar", "pensare", ""],["cerrar", "chiudere", ""],["sentarse", "sedersi", ""],["lavarse", "lavarsi", ""],["noche", "notte, sera", "f"],["antes", "prima", ""]
 ];
 EX.l10=EX.l10.concat([
  {t:"dict",au:"Vuelvo a casa a las seis."},

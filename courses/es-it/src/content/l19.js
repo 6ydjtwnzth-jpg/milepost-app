@@ -19,7 +19,7 @@ VOC.l19=[
  ["regalar","regalare",""],["regalo","regalo","m"],["dar","dare",""],["prestar","prestare",""],["mandar","mandare, spedire",""],["preguntar","chiedere, domandare",""],["contestar","rispondere",""],["mensaje","messaggio","m"],["le","gli, le, Le",""],["les","a loro, gli",""],
  ["bolso","borsa","m"],["perfume","profumo","m"],["camiseta","maglietta","f"],["reloj","orologio","m"],["tarta","torta","f"],["mundo","mondo","m"],
  ["más… que","più… di",""],["menos… que","meno… di",""],["tan… como","tanto… quanto",""],["tanto como","quanto, tanto quanto",""],["mejor","migliore, meglio",""],["peor","peggiore, peggio",""],["mayor","più grande (età), maggiore",""],["menor","più piccolo (età), minore",""],["el mejor","il migliore",""],["buenísimo","buonissimo",""],["muchísimo","moltissimo",""],
- ["caro","caro",""],["barato","economico",""],["útil","utile",""],["malo","cattivo",""],["guapo","bello (persona)",""],["feo","brutto",""],["bajo","basso",""],["elegante","elegante",""],["moderno","moderno",""],["tranquilo","tranquillo",""],["ruidoso","rumoroso",""],["igual","uguale",""],["tener razón","avere ragione",""]
+ ["caro","caro",""],["barato","economico",""],["útil","utile",""],["malo","cattivo",""],["guapo","bello (persona)",""],["feo","brutto",""],["bajo","basso",""],["elegante","elegante",""],["moderno","moderno",""],["tranquilo","tranquillo",""],["ruidoso","rumoroso",""],["igual","uguale",""],["tener razón","avere ragione",""],["gordo", "grasso", ""],["delgado", "magro", ""],["antipático", "antipatico", ""],["rápido", "veloce", ""]
 ];
 EX.l19=EX.l19.concat([
  {t:"dict",au:"Es la ciudad más bonita de España."},

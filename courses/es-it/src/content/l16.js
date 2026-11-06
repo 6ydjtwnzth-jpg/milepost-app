@@ -19,7 +19,7 @@ VOC.l16=[
  ["vacaciones","vacanze","fp"],["de vacaciones","in vacanza",""],["viaje","viaggio","m"],["avión","aereo","m"],["catedral","cattedrale","f"],["alquilar","noleggiare, affittare",""],
  ["ayer","ieri",""],["anoche","ieri sera",""],["anteayer","l'altro ieri",""],["pasado","scorso",""],["el año pasado","l'anno scorso",""],["la semana pasada","la settimana scorsa",""],["hace","fa (hace dos años)",""],["verano","estate","m"],["precioso","bellissimo",""],["cumpleaños","compleanno","m"],["fantástico","fantastico",""],["todos los días","tutti i giorni",""],
  ["fui","andai, fui (ir, ser)",""],["fue","andò, fu",""],["estuve","stetti, sono stato (estar)",""],["tuve","ebbi (tener)",""],["hice","feci (hacer)",""],["vi","vidi (ver)",""],
- ["enero","gennaio","m"],["febrero","febbraio","m"],["marzo","marzo","m"],["abril","aprile","m"],["mayo","maggio","m"],["junio","giugno","m"],["julio","luglio","m"],["agosto","agosto","m"],["septiembre","settembre","m"],["octubre","ottobre","m"],["noviembre","novembre","m"],["diciembre","dicembre","m"]
+ ["enero","gennaio","m"],["febrero","febbraio","m"],["marzo","marzo","m"],["abril","aprile","m"],["mayo","maggio","m"],["junio","giugno","m"],["julio","luglio","m"],["agosto","agosto","m"],["septiembre","settembre","m"],["octubre","ottobre","m"],["noviembre","novembre","m"],["diciembre","dicembre","m"],["maleta", "valigia", "f"],["pasaporte", "passaporto", "m"],["barco", "nave, barca", "m"],["conducir", "guidare", ""],["lento", "lento", ""]
 ];
 EX.l16=EX.l16.concat([
  {t:"dict",au:"Hace dos años viví en Barcelona."},

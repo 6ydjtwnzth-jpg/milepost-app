@@ -18,7 +18,7 @@ VOC.l2=[
  ["yo","io",""],["tú","tu",""],["él","lui",""],["ella","lei",""],["usted","Lei (cortesia)",""],["nosotros","noi",""],["vosotros","voi",""],["ellos","loro (m.)",""],["ellas","loro (f.)",""],["ustedes","voi, Loro (cortesia, plurale)",""],
  ["ser","essere",""],["llamarse","chiamarsi",""],["y","e",""],["también","anche",""],["de","di, da",""],["cómo","come",""],["dónde","dove",""],["encantado","piacere (detto da un uomo)",""],["encantada","piacere (detto da una donna)",""],["mucho gusto","piacere",""],
  ["italiano","italiano",""],["español","spagnolo",""],["francés","francese",""],["alemán","tedesco",""],["inglés","inglese",""],["argentino","argentino",""],["mexicano","messicano",""],
- ["estudiante","studente (la estudiante = la studentessa)","m"],["nombre","nome","m"],["apellido","cognome","m"],["pero","ma",""],["perro","cane","m"],["escribir","scrivere",""]
+ ["estudiante","studente (la estudiante = la studentessa)","m"],["nombre","nome","m"],["apellido","cognome","m"],["pero","ma",""],["perro","cane","m"],["escribir","scrivere",""],["hombre", "uomo", "m"]
 ];
 EX.l2=EX.l2.concat([
  {t:"dict",au:"Somos estudiantes."},

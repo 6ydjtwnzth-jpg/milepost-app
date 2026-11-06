@@ -20,7 +20,7 @@ VOC.l6=[
  ["hora","ora","f"],["qué hora es","che ore sono",""],["y cuarto","e un quarto",""],["y media","e mezza",""],["menos cuarto","meno un quarto",""],["a qué hora","a che ora",""],["de la mañana","di mattina",""],["de la tarde","di pomeriggio, di sera",""],["de la noche","di sera, di notte",""],
  ["contento","contento",""],["aburrido","noioso; annoiato",""],["listo","intelligente; pronto",""],["limpio","pulito",""],["médico","medico","m"],["película","film","f"],["cine","cinema","m"],["cerca","vicino",""],["tarde","tardi; pomeriggio",""],["siempre","sempre",""],["oye","senti, ascolta",""],["hoy","oggi",""],["día","giorno","m"],
  ["lunes","lunedì","m"],["martes","martedì","m"],["miércoles","mercoledì","m"],["jueves","giovedì","m"],["viernes","venerdì","m"],["sábado","sabato","m"],["domingo","domenica","m"],["fin de semana","fine settimana","m"],["nos vemos","ci vediamo",""],
- ["treinta","trenta",""],["cuarenta","quaranta",""],["cincuenta","cinquanta",""],["sesenta","sessanta",""],["setenta","settanta",""],["ochenta","ottanta",""],["noventa","novanta",""],["cien","cento",""],["museo","museo","m"],["con","con",""],["cerrado","chiuso",""],["llegar","arrivare",""]
+ ["treinta","trenta",""],["cuarenta","quaranta",""],["cincuenta","cinquanta",""],["sesenta","sessanta",""],["setenta","settanta",""],["ochenta","ottanta",""],["noventa","novanta",""],["cien","cento",""],["museo","museo","m"],["con","con",""],["cerrado","chiuso",""],["llegar","arrivare",""],["mal", "male", ""],["poco", "poco", ""]
 ];
 EX.l6=EX.l6.concat([
  {t:"dict",au:"El museo está cerrado los lunes."},

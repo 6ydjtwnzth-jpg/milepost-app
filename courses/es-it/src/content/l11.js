@@ -18,7 +18,7 @@ EX.l11=[
 VOC.l11=[
  ["gustar","piacere",""],["encantar","piacere moltissimo",""],["tiempo libre","tempo libero","m"],["bailar","ballare",""],["cantar","cantare",""],["nadar","nuotare",""],["correr","correre",""],["viajar","viaggiare",""],["cocinar","cucinare",""],["leer","leggere",""],
  ["tocar","suonare (uno strumento)",""],["hacer deporte","fare sport",""],["deporte","sport","m"],["fútbol","calcio","m"],["tenis","tennis","m"],["piscina","piscina","f"],["guitarra","chitarra","f"],["piano","pianoforte","m"],["instrumento","strumento","m"],["concierto","concerto","m"],["música clásica","musica classica","f"],
- ["fiesta","festa","f"],["gato","gatto","m"],["tampoco","neanche",""],["a mí también","anche a me",""],["a mí tampoco","neanche a me",""],["mucho","molto",""],["vale","d'accordo, va bene",""],["buena idea","buona idea",""],["algún","qualche, qualcuno",""],["montar en bici","andare in bici",""],["yoga","yoga","m"],["saber","sapere",""],["sé","so (saber)",""],["no lo sé","non lo so",""]
+ ["fiesta","festa","f"],["gato","gatto","m"],["tampoco","neanche",""],["a mí también","anche a me",""],["a mí tampoco","neanche a me",""],["mucho","molto",""],["vale","d'accordo, va bene",""],["buena idea","buona idea",""],["algún","qualche, qualcuno",""],["montar en bici","andare in bici",""],["yoga","yoga","m"],["saber","sapere",""],["sé","so (saber)",""],["no lo sé","non lo so",""],["divertido", "divertente", ""],["interesante", "interessante", ""],["teatro", "teatro", "m"],["montaña", "montagna", "f"],["bastante", "abbastanza", ""],["demasiado", "troppo", ""]
 ];
 EX.l11=EX.l11.concat([
  {t:"dict",au:"A mi padre no le gusta el fútbol."},

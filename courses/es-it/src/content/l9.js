@@ -18,7 +18,7 @@ EX.l9=[
 VOC.l9=[
  ["qué","che cosa",""],["adónde","dove (verso dove)",""],["cuándo","quando",""],["cuánto","quanto",""],["por qué","perché (domanda)",""],["porque","perché (risposta)",""],["con quién","con chi",""],["conmigo","con me",""],["solo","da solo",""],["ahora","adesso",""],
  ["ir","andare",""],["hacer","fare",""],["salir","uscire, partire",""],["subir","salire",""],["venir","venire",""],["entender","capire",""],["significar","significare",""],["decir","dire",""],["despacio","piano, lentamente",""],["más","più",""],
- ["estación","stazione","f"],["música","musica","f"],["librería","libreria","f"],["biblioteca","biblioteca","f"],["palabra","parola","f"],["pregunta","domanda","f"],["respuesta","risposta","f"],["persona","persona","f"]
+ ["estación","stazione","f"],["música","musica","f"],["librería","libreria","f"],["biblioteca","biblioteca","f"],["palabra","parola","f"],["pregunta","domanda","f"],["respuesta","risposta","f"],["persona","persona","f"],["oír", "sentire, udire", ""],["traer", "portare (qui)", ""],["repetir", "ripetere", ""],["explicar", "spiegare", ""]
 ];
 EX.l9=EX.l9.concat([
  {t:"dict",au:"¿Con quién vives?"},

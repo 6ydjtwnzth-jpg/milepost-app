@@ -18,7 +18,7 @@ EX.l17=[
 VOC.l17=[
  ["nacer","nascere",""],["nací","sono nato, nacqui",""],["cuando","quando",""],["de pequeño","da piccolo",""],["soler","essere solito",""],["vida","vita","f"],["diferente","diverso",""],["feliz","felice",""],
  ["invierno","inverno","m"],["primavera","primavera","f"],["otoño","autunno","m"],["pueblo","paese, paesino","m"],["campo","campagna","m"],["vecino","vicino di casa","m"],["juguete","giocattolo","m"],["cómic","fumetto","m"],["fábrica","fabbrica","f"],["jardín","giardino","m"],["viejo","vecchio",""],
- ["ayudar","aiutare",""],["era","ero, era (ser)",""],["iba","andavo, andava (ir)",""],["veía","vedevo, vedeva (ver)",""],["recordar","ricordare",""],["crecer","crescere",""]
+ ["ayudar","aiutare",""],["era","ero, era (ser)",""],["iba","andavo, andava (ir)",""],["veía","vedevo, vedeva (ver)",""],["recordar","ricordare",""],["crecer","crescere",""],["triste", "triste", ""],["bosque", "bosco", "m"],["mismo", "stesso", ""]
 ];
 EX.l17=EX.l17.concat([
  {t:"dict",au:"Vivíamos en un pueblo pequeño."},

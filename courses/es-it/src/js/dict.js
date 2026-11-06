@@ -65,6 +65,7 @@ var DICT={
 "dejamos":"lasciamo; abbiamo lasciato (dejar)","extraño":"mi manca, sento la mancanza (extrañar); strano","tal":"tale; ¿qué tal? = come va?; tal vez = forse","ava":"italiano -ava: in spagnolo l'imperfecto è in -aba","guerra":"guerra","zapato":"scarpa",
 "tenga":"abbia (tener, Lei): ¡que tenga un buen día! = buona giornata!","suba":"salga (subir, Lei)","aquellos":"quelli (lontano)","aquello":"quello (neutro, lontano)","habláte":"forma sbagliata: si dice habláis","vente":"forma sbagliata per «venti»: si dice veinte",
 "partida":"partita (a carte, a scacchi); partenza","llegada":"arrivo; arrivata","salida":"uscita; partenza","ida":"andata (billete de ida y vuelta = biglietto di andata e ritorno)","vuelta":"ritorno; giro; resto (soldi)","vista":"vista; vista (ver)","cara":"cara; faccia, viso",
+"olvides":"(no olvides) non dimenticare (olvidar)",
 /* names */
 "Ana":"Anna (nome di donna)","Carlos":"Carlo (nome di uomo)","Carmen":"Carmen (nome di donna)","Diego":"Diego (nome di uomo)","Elena":"Elena (nome di donna)","Javier":"Javier (nome di uomo)","Juan":"Giovanni (nome di uomo)","Laura":"Laura (nome di donna)","Lucía":"Lucia (nome di donna)","Luca":"Luca (nome di uomo)",
 "Marco":"Marco (nome di uomo)","Marta":"Marta (nome di donna)","Pablo":"Paolo (nome di uomo)","Pedro":"Pietro (nome di uomo)","Sofía":"Sofia (nome di donna)","Yolanda":"Yolanda (nome di donna)","Álex":"Alex (nome)","Giulia":"Giulia (nome di donna)","García":"García (cognome molto comune)","Gómez":"Gómez (cognome)","López":"López (cognome)","Ruiz":"Ruiz (cognome)",

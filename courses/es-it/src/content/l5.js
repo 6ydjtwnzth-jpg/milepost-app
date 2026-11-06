@@ -19,7 +19,7 @@ VOC.l5=[
  ["familia","famiglia","f"],["padres","genitori","mp"],["padre","padre","m"],["madre","madre","f"],["mi","mio, mia",""],["su","suo, sua; loro",""],["nuestro","nostro",""],["vuestro","vostro",""],["quién","chi",""],
  ["hija","figlia","f"],["hijos","figli","mp"],["hermanos","fratelli","mp"],["abuelo","nonno","m"],["abuela","nonna","f"],["tío","zio","m"],["tía","zia","f"],["primo","cugino","m"],["prima","cugina","f"],["sobrino","nipote (di zii)","m"],["sobrina","nipote (di zii)","f"],["nieto","nipote (di nonni)","m"],["nieta","nipote (di nonni)","f"],
  ["marido","marito","m"],["mujer","donna; moglie","f"],["novio","fidanzato","m"],["novia","fidanzata","f"],["parientes","parenti","mp"],["chico","ragazzo","m"],["chica","ragazza","f"],["vivir","vivere, abitare",""],
- ["casado","sposato",""],["soltero","single, non sposato",""],["joven","giovane",""],["alto","alto",""],["simpático","simpatico",""],["pelo","capelli","m"],["ojos","occhi","mp"],["rubio","biondo",""],["moreno","bruno, scuro",""],["verde","verde",""]
+ ["casado","sposato",""],["soltero","single, non sposato",""],["joven","giovane",""],["alto","alto",""],["simpático","simpatico",""],["pelo","capelli","m"],["ojos","occhi","mp"],["rubio","biondo",""],["moreno","bruno, scuro",""],["verde","verde",""],["esposa", "moglie", "f"],["niña", "bambina", "f"]
 ];
 EX.l5=EX.l5.concat([
  {t:"dict",au:"Este es mi primo Diego."},

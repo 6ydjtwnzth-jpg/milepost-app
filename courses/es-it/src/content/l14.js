@@ -18,7 +18,7 @@ EX.l14=[
 VOC.l14=[
  ["mercado","mercato","m"],["kilo","chilo","m"],["medio","mezzo",""],["gramo","grammo","m"],["docena","dozzina","f"],["barra de pan","filone di pane","f"],["lata","lattina, scatoletta","f"],["paquete","pacchetto","m"],["litro","litro","m"],["un poco de","un po' di",""],["a cuánto está","quanto costa (al chilo)",""],["eso es todo","è tutto",""],["póngame","mi dia",""],
  ["pan","pane","m"],["fruta","frutta","f"],["manzana","mela","f"],["naranja","arancia","f"],["fresa","fragola","f"],["sandía","anguria","f"],["huevo","uovo","m"],["carne","carne","f"],["pescado","pesce (da mangiare)","m"],["pollo","pollo","m"],["patata","patata","f"],["ensalada","insalata","f"],["sopa","zuppa, minestra","f"],["gambas","gamberi","fp"],["galleta","biscotto","f"],
- ["maduro","maturo",""],["dulce","dolce",""],["bueno","buono",""],["curado","stagionato",""],["menú del día","menù del giorno","m"],["primer plato","primo piatto","m"],["segundo plato","secondo piatto","m"],["postre","dolce, dessert","m"],["bebida","bevanda","f"],["qué van a tomar","che cosa prendete",""],["comprar","comprare",""],["conocer","conoscere",""],["lo","lo (pronome)",""]
+ ["maduro","maturo",""],["dulce","dolce",""],["bueno","buono",""],["curado","stagionato",""],["menú del día","menù del giorno","m"],["primer plato","primo piatto","m"],["segundo plato","secondo piatto","m"],["postre","dolce, dessert","m"],["bebida","bevanda","f"],["qué van a tomar","che cosa prendete",""],["comprar","comprare",""],["conocer","conoscere",""],["lo","lo (pronome)",""],["arroz", "riso", "m"],["verdura", "verdura", "f"],["plátano", "banana", "m"]
 ];
 EX.l14=EX.l14.concat([
  {t:"dict",au:"Eso es todo, gracias."},

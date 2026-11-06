@@ -18,7 +18,7 @@ EX.l13=[
 VOC.l13=[
  ["tener que","dovere",""],["deber","dovere (più forte)",""],["quedar","darsi appuntamento, vedersi",""],["quedarse","restare",""],["quedamos","ci vediamo? (proposta)",""],["lo siento","mi dispiace",""],["genial","fantastico",""],["perfecto","perfetto",""],["qué pasa","che c'è, che succede",""],
  ["ir a","andare a, stare per (+ infinito)",""],["esta noche","stasera",""],["hasta el sábado","a sabato",""],["esperar","aspettare",""],["invitar","invitare",""],["cita","appuntamento","f"],["plan","programma, piano","m"],["libre","libero",""],["ocupado","occupato",""],
- ["haciendo","facendo (hacer)",""],["trabajando","lavorando",""],["comiendo","mangiando",""],["escribiendo","scrivendo",""],["leyendo","leggendo",""],["durmiendo","dormendo",""],["papá","papà","m"],["mamá","mamma","f"],["playa","spiaggia","f"],["llover","piovere",""],["ver","vedere",""]
+ ["haciendo","facendo (hacer)",""],["trabajando","lavorando",""],["comiendo","mangiando",""],["escribiendo","scrivendo",""],["leyendo","leggendo",""],["durmiendo","dormendo",""],["papá","papà","m"],["mamá","mamma","f"],["playa","spiaggia","f"],["llover","piovere",""],["ver","vedere",""],["entrar", "entrare", ""],["creer", "credere", ""],["parecer", "sembrare", ""],["¿qué te parece?", "che ne dici? che te ne pare?", ""]
 ];
 EX.l13=EX.l13.concat([
  {t:"dict",au:"¿Quedamos a las ocho en la plaza?"},

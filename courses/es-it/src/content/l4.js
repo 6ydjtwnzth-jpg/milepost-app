@@ -19,7 +19,7 @@ VOC.l4=[
  ["el","il, lo",""],["la","la",""],["los","i, gli",""],["las","le",""],["un","un, uno",""],["una","una",""],["hay","c'è, ci sono",""],["al lado de","accanto a",""],["arriba","sopra, al piano di sopra",""],["en","in, su",""],["muchos","molti",""],["mira","guarda",""],["bienvenida","benvenuta",""],
  ["casa","casa","f"],["cocina","cucina","f"],["salón","soggiorno, salotto","m"],["habitación","stanza, camera","f"],["baño","bagno","m"],["terraza","terrazza","f"],["cama","letto","f"],["mesa","tavolo","f"],["sofá","divano","m"],["puerta","porta","f"],["llave","chiave","f"],
  ["libro","libro","m"],["lápiz","matita","m"],["espejo","specchio","m"],["televisión","televisione","f"],["leche","latte","f"],["sal","sale","f"],["nariz","naso","f"],["flor","fiore","f"],["árbol","albero","m"],["problema","problema","m"],["coche","macchina, auto","m"],["mapa","mappa, cartina","m"],["ciudad","città","f"],["plaza","piazza","f"],
- ["grande","grande",""],["pequeño","piccolo",""],["bonito","bello, carino",""],["qué bonito","che bello",""]
+ ["grande","grande",""],["pequeño","piccolo",""],["bonito","bello, carino",""],["qué bonito","che bello",""],["silla", "sedia", "f"],["armario", "armadio", "m"],["ordenador", "computer", "m"]
 ];
 EX.l4=EX.l4.concat([
  {t:"dict",au:"¿Dónde está el baño?"},

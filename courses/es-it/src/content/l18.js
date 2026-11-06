@@ -19,7 +19,7 @@ VOC.l18=[
  ["pasar","succedere; passare",""],["¿qué te pasó?","che cosa ti è successo?",""],["de repente","all'improvviso",""],["de pronto","all'improvviso",""],["entonces","allora, a quel punto",""],["en ese momento","in quel momento",""],["mientras","mentre",""],["durante","durante",""],["al final","alla fine",""],["así que","quindi, così",""],
  ["pararse","fermarsi",""],["apagarse","spegnersi",""],["sonar","suonare, squillare",""],["caminar","camminare",""],["pasear","passeggiare",""],["perder","perdere",""],["encontrar","trovare",""],["olvidar","dimenticare",""],["caerse","cadere",""],
  ["túnel","galleria, tunnel","m"],["luz","luce","f"],["ducha","doccia","f"],["móvil","cellulare","m"],["parque","parco","m"],["aventura","avventura","f"],["miedo","paura","m"],["suerte","fortuna","f"],["nervioso","nervoso",""],
- ["el tiempo","il tempo (meteo)",""],["hace calor","fa caldo",""],["hace frío","fa freddo",""],["hace sol","c'è il sole",""],["hace viento","c'è vento",""],["está nublado","è nuvoloso",""],["nevar","nevicare",""],["lluvia","pioggia","f"],["allí","lì, là",""],["periódico","giornale","m"]
+ ["el tiempo","il tempo (meteo)",""],["hace calor","fa caldo",""],["hace frío","fa freddo",""],["hace sol","c'è il sole",""],["hace viento","c'è vento",""],["está nublado","è nuvoloso",""],["nevar","nevicare",""],["lluvia","pioggia","f"],["allí","lì, là",""],["periódico","giornale","m"],["frío", "freddo", "m"],["calor", "caldo", "m"],["nieve", "neve", "f"],["lleno", "pieno", ""],["vacío", "vuoto", ""],["último", "ultimo", ""]
 ];
 EX.l18=EX.l18.concat([
  {t:"dict",au:"Primero cenamos y luego fuimos a bailar."},

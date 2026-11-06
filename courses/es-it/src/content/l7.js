@@ -19,7 +19,7 @@ VOC.l7=[
  ["trabajar","lavorare",""],["hablar","parlare",""],["comer","mangiare",""],["enseñar","insegnare",""],["estudiar","studiare",""],["empezar","cominciare",""],["dedicarse","fare di lavoro, occuparsi di",""],["a qué te dedicas","che lavoro fai",""],["de noche","di notte",""],["nunca","mai",""],["nadie","nessuno",""],
  ["enfermero","infermiere","m"],["enfermera","infermiera","f"],["profesor","insegnante, professore","m"],["profesora","insegnante, professoressa","f"],["camarero","cameriere","m"],["camarera","cameriera","f"],["abogado","avvocato","m"],["abogada","avvocata","f"],["cocinero","cuoco","m"],["dependiente","commesso","m"],["conductor","autista","m"],
  ["oficina","ufficio","f"],["hospital","ospedale","m"],["colegio","scuola (elementare, media)","m"],["academia","scuola privata (di lingue…)","f"],["tienda","negozio","f"],["restaurante","ristorante","m"],["banco","banca; panchina","m"],["empresa","azienda","f"],["trabajo","lavoro","m"],
- ["cena","cena","f"],["ingeniería","ingegneria","f"],["me gusta","mi piace",""],["me encanta","lo adoro",""]
+ ["cena","cena","f"],["ingeniería","ingegneria","f"],["me gusta","mi piace",""],["me encanta","lo adoro",""],["mirar", "guardare", ""],["escuchar", "ascoltare", ""],["necesitar", "avere bisogno di", ""],["buscar", "cercare", ""],["vender", "vendere", ""],["usar", "usare", ""],["jefe", "capo", "m"]
 ];
 EX.l7=EX.l7.concat([
  {t:"dict",au:"No trabajo los sábados."},

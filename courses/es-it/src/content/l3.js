@@ -19,7 +19,7 @@ VOC.l3=[
  ["señora","signora","f"],["señor","signore","m"],["amigo","amico","m"],["amiga","amica","f"],["aquí","qui",""],["qué tal","come va",""],["estar","stare, essere",""],["bien","bene",""],["muy","molto",""],["regular","così così",""],["fatal","malissimo",""],["cansado","stanco",""],["cansada","stanca",""],["un poco","un po'",""],
  ["tener","avere",""],["año","anno","m"],["cuántos","quanti",""],["hermano","fratello","m"],["hermana","sorella","f"],["número","numero","m"],["teléfono","telefono","m"],["cuál","quale",""],
  ["cero","zero",""],["uno","uno",""],["dos","due",""],["tres","tre",""],["cuatro","quattro",""],["cinco","cinque",""],["seis","sei",""],["siete","sette",""],["ocho","otto",""],["nueve","nove",""],["diez","dieci",""],
- ["once","undici",""],["doce","dodici",""],["trece","tredici",""],["catorce","quattordici",""],["quince","quindici",""],["dieciséis","sedici",""],["diecisiete","diciassette",""],["dieciocho","diciotto",""],["diecinueve","diciannove",""],["veinte","venti",""],["tu","tuo, tua",""]
+ ["once","undici",""],["doce","dodici",""],["trece","tredici",""],["catorce","quattordici",""],["quince","quindici",""],["dieciséis","sedici",""],["diecisiete","diciassette",""],["dieciocho","diciotto",""],["diecinueve","diciannove",""],["veinte","venti",""],["tu","tuo, tua",""],["edad", "età", "f"]
 ];
 EX.l3=EX.l3.concat([
  {t:"dict",au:"Tengo diecinueve años."},

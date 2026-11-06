@@ -19,7 +19,7 @@ VOC.l22=[
  ["salud","salute","f"],["enfermo","malato",""],["¿qué le pasa?","che cos'ha? (Lei)",""],["doler","fare male",""],["me duele","mi fa male",""],["dolor","dolore","m"],["cuerpo","corpo","m"],["cabeza","testa","f"],["garganta","gola","f"],["estómago","stomaco","m"],["barriga","pancia","f"],["espalda","schiena","f"],["mano","mano","f"],["brazo","braccio","m"],["pierna","gamba","f"],["pie","piede","m"],["diente","dente","m"],
  ["fiebre","febbre","f"],["tos","tosse","f"],["gripe","influenza","f"],["resfriado","raffreddore; raffreddato",""],["constipado","raffreddato",""],["receta","ricetta (medica)","f"],["jarabe","sciroppo","m"],["pastilla","pastiglia","f"],["justificante","certificato, giustificazione","m"],["descansar","riposare",""],["beber","bere",""],
  ["desde hace","da (+ durata)",""],["en tu lugar","al posto tuo",""],["en su lugar","al suo posto",""],["deberías","dovresti (deber)",""],["podría","potrei, potrebbe (poder)",""],["me gustaría","mi piacerebbe, vorrei",""],["veces","volte","fp"],["al día","al giorno",""],
- ["enviar","spedire, inviare",""],["sello","francobollo","m"],["carta","lettera","f"],["ventana","finestra","f"]
+ ["enviar","spedire, inviare",""],["sello","francobollo","m"],["carta","lettera","f"],["ventana","finestra","f"],["boca", "bocca", "f"],["oreja", "orecchio", "f"],["sentirse", "sentirsi", ""],["caliente", "caldo (di cose)", ""]
 ];
 EX.l22=EX.l22.concat([
  {t:"dict",au:"¿Tiene algo para la tos?"},

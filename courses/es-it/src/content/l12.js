@@ -18,7 +18,7 @@ EX.l12=[
 VOC.l12=[
  ["calle","via, strada","f"],["esquina","angolo (della strada)","f"],["iglesia","chiesa","f"],["farmacia","farmacia","f"],["correos","ufficio postale","m"],["supermercado","supermercato","m"],["cajero","bancomat","m"],["parada","fermata","f"],["metro","metropolitana","m"],["autobús","autobus","m"],["tren","treno","m"],
  ["enfrente de","di fronte a",""],["delante de","davanti a",""],["detrás de","dietro",""],["entre","tra",""],["cerca de","vicino a",""],["lejos","lontano",""],["derecha","destra","f"],["izquierda","sinistra","f"],["todo recto","sempre dritto",""],["por aquí","qui vicino, da queste parti",""],["por dónde se va","da che parte si va",""],
- ["seguir","proseguire, seguire",""],["girar","girare",""],["tomar","prendere",""],["coger","prendere (in Spagna)",""],["cruzar","attraversare",""],["a pie","a piedi",""],["minuto","minuto","m"],["primero","primo",""],["segundo","secondo",""],["tercero","terzo",""],["puente","ponte","m"],["del","del, dello (de + el)",""]
+ ["seguir","proseguire, seguire",""],["girar","girare",""],["tomar","prendere",""],["coger","prendere (in Spagna)",""],["cruzar","attraversare",""],["a pie","a piedi",""],["minuto","minuto","m"],["primero","primo",""],["segundo","secondo",""],["tercero","terzo",""],["puente","ponte","m"],["del","del, dello (de + el)",""],["dirección", "indirizzo; direzione", "f"],["barrio", "quartiere", "m"],["aeropuerto", "aeroporto", "m"],["taxi", "taxi", "m"],["billete", "biglietto (di treno, autobus)", "m"],["bajar", "scendere", ""],["arriba", "sopra, su", ""],["abajo", "sotto, giù", ""],["fuera", "fuori", ""]
 ];
 EX.l12=EX.l12.concat([
  {t:"dict",au:"La farmacia está al lado del banco."},

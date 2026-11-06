@@ -19,7 +19,7 @@ VOC.l20=[
  ["este","questo",""],["ese","quello (vicino a te)",""],["aquel","quello (lontano)",""],["esto","questo (neutro)",""],["eso","quello (neutro), ciò",""],["ahí","lì (vicino a te)",""],["se lo","glielo",""],
  ["desear","desiderare",""],["talla","taglia","f"],["probarse","provarsi, provare (un vestito)",""],["probador","camerino","m"],["quedar bien","stare bene (un vestito)",""],["me queda pequeño","mi sta piccolo",""],["llevarse","prendere, portarsi via",""],["envolver","incartare",""],["rebajas","saldi","fp"],["rebajado","scontato",""],["efectivo","contanti","m"],["al fondo","in fondo",""],["llevar","portare, indossare",""],["ponerse","mettersi (un vestito)",""],
  ["ropa","vestiti, abbigliamento","f"],["chaqueta","giacca","f"],["abrigo","cappotto","m"],["jersey","maglione","m"],["camisa","camicia","f"],["pantalones","pantaloni","mp"],["vaqueros","jeans","mp"],["falda","gonna","f"],["vestido","vestito (da donna)","m"],["zapatos","scarpe","mp"],["zapatillas","scarpe da ginnastica","fp"],
- ["color","colore","m"],["rojo","rosso",""],["blanco","bianco",""],["negro","nero",""],["amarillo","giallo",""],["azul","blu, azzurro",""],["gris","grigio",""],["marrón","marrone",""],["rosa","rosa",""],["edificio","edificio, palazzo","m"],["para ti","per te",""]
+ ["color","colore","m"],["rojo","rosso",""],["blanco","bianco",""],["negro","nero",""],["amarillo","giallo",""],["azul","blu, azzurro",""],["gris","grigio",""],["marrón","marrone",""],["rosa","rosa",""],["edificio","edificio, palazzo","m"],["para ti","per te",""],["largo", "lungo", ""],["corto", "corto", ""]
 ];
 EX.l20=EX.l20.concat([
  {t:"dict",au:"Me quedan un poco grandes."},

@@ -19,7 +19,7 @@ VOC.l8=[
  ["poner","mettere; servire (al bar)",""],["qué le pongo","che cosa le porto",""],["me pone","mi dà, mi fa (al bar)",""],["quería","vorrei (cortese)",""],["querer","volere",""],["para mí","per me",""],["algo","qualcosa",""],["algo más","altro?",""],["nada más","nient'altro",""],["claro","certo",""],
  ["cortado","caffè macchiato","m"],["café solo","caffè nero","m"],["café con leche","caffellatte","m"],["descafeinado","decaffeinato","m"],["caña","birra piccola alla spina","f"],["cerveza","birra","f"],["botella","bottiglia","f"],["vaso","bicchiere","m"],["taza","tazza","f"],
  ["bocadillo","panino","m"],["tostada","fetta di pane tostato","f"],["tomate","pomodoro","m"],["aceite","olio","m"],["mantequilla","burro","f"],["burro","asino (falso amico!)","m"],["azúcar","zucchero","m"],["tapa","tapa, stuzzichino","f"],
- ["cuánto es","quanto le devo",""],["cuánto cuesta","quanto costa",""],["costar","costare",""],["euro","euro","m"],["céntimo","centesimo","m"],["cuenta","conto","f"],["pagar","pagare",""],["con tarjeta","con la carta",""],["en efectivo","in contanti",""],["propina","mancia","f"],["bar","bar","m"]
+ ["cuánto es","quanto le devo",""],["cuánto cuesta","quanto costa",""],["costar","costare",""],["euro","euro","m"],["céntimo","centesimo","m"],["cuenta","conto","f"],["pagar","pagare",""],["con tarjeta","con la carta",""],["en efectivo","in contanti",""],["propina","mancia","f"],["bar","bar","m"],["precio", "prezzo", "m"],["dinero", "soldi, denaro", "m"],["otro", "altro", ""]
 ];
 EX.l8=EX.l8.concat([
  {t:"dict",au:"¿Cuánto es?"},
