@@ -1,0 +1,42 @@
+{
+  "parts": [
+    {"title": "Parte prima · Primi passi", "level": "A1.1", "j": "Erste Schritte", "items": [
+      {"id": "l1", "t": "Suoni, lettere e saluti", "j": "Hallo!", "icon": "i-abc"},
+      {"id": "l2", "t": "Mi chiamo…: sein e i paesi", "j": "Ich heiße…", "icon": "i-tag"},
+      {"id": "l3", "t": "Du o Sie? Età e numeri", "j": "Du oder Sie?", "icon": "i-wave"},
+      {"id": "l4", "t": "Cose e persone: der, die, das", "j": "Die Dinge", "icon": "i-book"},
+      {"id": "l5", "t": "La mia famiglia: haben e i possessivi", "j": "Meine Familie", "icon": "i-family"},
+      {"id": "l6", "t": "Che ore sono? Orari e giorni", "j": "Wie spät ist es?", "icon": "i-sun"},
+      {"id": "l7", "t": "Che lavoro fai? Il presente", "j": "Was machst du beruflich?", "icon": "i-chat"},
+      {"id": "l8", "t": "Al caffè: ich möchte e l'accusativo", "j": "Im Café", "icon": "i-cup"},
+      {"id": "r1", "t": "Ripasso 1", "j": "Wiederholung 1", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte seconda · La vita di tutti i giorni", "level": "A1.2", "j": "Der Alltag", "items": [
+      {"id": "l9", "t": "Fare domande: i verbi forti", "j": "Fragen stellen", "icon": "i-q"},
+      {"id": "l10", "t": "La mia giornata: i verbi separabili", "j": "Mein Tag", "icon": "i-clock"},
+      {"id": "l11", "t": "Il tempo libero: gern e können", "j": "Freizeit", "icon": "i-ball"},
+      {"id": "l12", "t": "In città: es gibt, il dativo e le indicazioni", "j": "In der Stadt", "icon": "i-pin"},
+      {"id": "l13", "t": "Vieni anche tu? I verbi modali", "j": "Kommst du mit?", "icon": "i-phone"},
+      {"id": "l14", "t": "Al mercato e al ristorante: i pronomi", "j": "Einkaufen und essen", "icon": "i-fork"},
+      {"id": "r2", "t": "Ripasso 2", "j": "Wiederholung 2", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte terza · Raccontare", "level": "A2", "j": "Erzählen", "items": [
+      {"id": "l15", "t": "Il fine settimana: il Perfekt con haben", "j": "Am Wochenende", "icon": "i-ticket"},
+      {"id": "l16", "t": "In viaggio: il Perfekt con sein", "j": "Auf Reisen", "icon": "i-suitcase"},
+      {"id": "l17", "t": "Quando ero piccolo: war, hatte e als", "j": "Als ich klein war", "icon": "i-kite"},
+      {"id": "l18", "t": "Raccontare una storia: il Präteritum", "j": "Eine Geschichte", "icon": "i-scroll"},
+      {"id": "l19", "t": "Regali e confronti: il dativo e il comparativo", "j": "Geschenke und Vergleiche", "icon": "i-heart"},
+      {"id": "l20", "t": "Fare acquisti: gli aggettivi e dieser", "j": "Kleidung kaufen", "icon": "i-bag"},
+      {"id": "l21", "t": "Progetti: weil, dass, wenn e il futuro", "j": "Pläne", "icon": "i-umbrella"},
+      {"id": "l22", "t": "Salute e servizi: il Konjunktiv II e l'imperativo", "j": "Gesundheit", "icon": "i-cross"},
+      {"id": "l23", "t": "Giulia a Berlino: racconta la tua storia", "j": "Giulia in Berlin", "icon": "i-arch"},
+      {"id": "r3", "t": "Ripasso 3 e test A2", "j": "Wiederholung 3 und Test A2", "icon": "i-star", "kind": "review"}
+    ]},
+    {"title": "Appendici", "j": "Anhang", "items": [
+      {"id": "frasi", "t": "Frasario", "j": "Nützliche Sätze", "icon": "i-lemon", "kind": "app", "letter": "A"},
+      {"id": "flash", "t": "Flashcard: ripasso a intervalli", "j": "Karteikarten", "icon": "i-cards", "kind": "app", "letter": "B"},
+      {"id": "vocab", "t": "Vocabolario", "j": "Wortschatz", "icon": "i-book", "kind": "app", "letter": "C"},
+      {"id": "verbi", "t": "Coniugare i verbi", "j": "Konjugieren", "icon": "i-verb", "kind": "app", "letter": "D"}
+    ]}
+  ]
+}
