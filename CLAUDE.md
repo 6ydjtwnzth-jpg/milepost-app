@@ -24,13 +24,15 @@ ciò che manca si mostra come "In arrivo".
   - `i18n.js`: testi dell'interfaccia (`it`, `es`, `zh`). L'interfaccia parla sempre la lingua di chi studia.
 - `courses/<id>/`: sorgenti di ogni corso (contenuti, motore, `build.py`).
   - `courses/<id>/src/exam/*.json`: simulazioni d'esame nel formato reale (JLPT N5 per ja-it, HSK 1 per zh-it, CILS A2 per
-    it-zh e it-es, DELF A2 e B1 per fr-it). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
-    quante volte si ascolta ogni registrazione, etichette di parti e opzioni, immagini (`img`, `oi`, `pics`: icone dello
+    it-zh e it-es, DELF A2 e B1 per fr-it, Cambridge A2 Key e B1 Preliminary per en-it, DELE A2 e B1 per es-it,
+    Goethe-Zertifikat A2 e B1 per de-it). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
+    quante volte si ascolta ogni registrazione (anche per singola parte: `plays` nella parte, es. Goethe), etichette di parti e opzioni, immagini (`img`, `oi`, `pics`: icone dello
     sprite del corso), esercizi di scritto/orale non valutati (`practice`). Senza `scheme` valgono le regole del JLPT.
     Le opzioni non vengono mescolate dall'app: la risposta giusta va distribuita tra le posizioni già nel file.
     Nella revisione le trascrizioni non sono parole toccabili (come sul foglio d'esame).
     L'audio d'ascolto è in `docs/c/<id>/audio/exam/<esame>-<parte>-<n>.mp3` (voci Kokoro: F, M, narratore; ogni frase
-    verificata con il riconoscimento vocale). Punteggio stimato: 120 × giuste/totale (lingua+lettura), 60 × (ascolto).
+    verificata con il riconoscimento vocale; en/es/de: `exaudio3.py` nello scratchpad, una voce per persona, anche i codici
+    `MOD`/`KR`/`OZ` della discussione Goethe B1, con le etichette in `scheme.who`). Punteggio stimato: 120 × giuste/totale (lingua+lettura), 60 × (ascolto).
   - `courses/zh-it/`: cinese per italiani. Il cinese nei dati è scritto a parole con il pinyin tra parentesi quadre,
     una sillaba per carattere separata da trattini: `我[wǒ] 是[shì] 意大利人[Yì-dà-lì-rén] 。` (`src/js/zh.js` ne ricava rubino
     colorato per tono, pinyin e controllo delle risposte). Voce: quella cinese del dispositivo (sintesi vocale del browser,
@@ -49,6 +51,16 @@ ciò che manca si mostra come "In arrivo".
     `data-zh` lo spagnolo; nei testi misti l'italiano va tra graffe. Spiegazioni centrate sugli errori tipici di chi parla
     spagnolo (doppie, `essere`/`stare`, articoli con i possessivi, `gli`/`le`, falsi amici). Le frasi italiane riprendono
     quando possibile quelle di it-zh, così l'audio (Sara, Kokoro `if_sara`) si riusa: i file hanno lo stesso nome.
+  - `courses/en-it/`, `courses/es-it/`, `courses/de-it/`: inglese, spagnolo e tedesco per italiani, stesso motore di fr-it
+    (`data-it`/graffe = la lingua che si studia). Le regole della lingua stanno in `src/js/lang.js` (`LANG`, significati delle
+    forme, coniugatore `VERBS`/`cjForms`, articoli e generi); `app.js` e `path.js` sono comuni. Spiegazioni centrate sugli errori
+    di chi parla italiano (falsi amici, generi diversi, ordine delle parole). Inglese britannico, spagnolo di Spagna (con
+    `vosotros`; America Latina segnalata), tedesco standard di Germania. Tedesco: il campo genere delle liste parole porta anche
+    il plurale (`"m:Tische"`, `"n:-"` senza plurale, `"p"` solo plurale); il neutro ha la classe `nt` e il colore `--neut`;
+    verbi separabili, ausiliare `sein`, Präteritum e Konjunktiv II nel coniugatore. Voci: Kokoro `bf_emma` (riserva `bf_lily`),
+    `ef_dora`; Piper `de_DE-thorsten-high` (esame: anche `ramona`/`kerstin`). Audio generato e controllato con Whisper da
+    `tts.py <corso>` nello scratchpad; l'elenco delle frasi viene da `window.FRSAYS()`. Le griglie di scritto/orale per
+    lingua sono in `IGRID` (`shell/course-app.js`).
 - Racconti (scheda Cultura): `courses/<id>/src/reads.js` (`READS`: titolo, lezione consigliata `after`, frasi [testo, traduzione],
   parole nuove `gloss`, domande con risposta `a`). Solo fiabe tradizionali o testi nostri (niente opere protette).
   `node tools/reads_check.js <id>` elenca le parole non ancora viste nel corso fino a `after` e senza nota: deve restare vuoto.
@@ -68,7 +80,8 @@ ciò che manca si mostra come "In arrivo".
   percentuale di ricordo misurata dopo 7+ giorni. Dati in `<storageKey>-srs`. Ogni lezione dalla seconda comincia con la
   tappa «Parole di prima» (10 parole delle lezioni precedenti: prima quelle in scadenza, poi 1, 2, 4 e 8 lezioni indietro).
 - Vocabolario d'esame: le liste parole coprono il JLPT N5 (ja-it, ~92% della lista N5 di open-anki-jlpt-decks), l'HSK 2.0
-  livelli 1–2 (zh-it, 100%/99%) e le parole più frequenti utili (fr-it, it-zh, it-es). Verifica: `cover.js`/`freq.js` nello
+  livelli 1–2 (zh-it, 100%/99%), le parole più frequenti utili (fr-it, it-zh, it-es) e il lessico di base A1–A2 (en-it,
+  es-it, de-it: per il tedesco ~93% di una lista di base di 750 parole sul modello delle liste Goethe A1–A2). Verifica: `cover.js`/`freq.js` nello
   scratchpad di sviluppo; nuove parole vanno nella lezione del loro tema, mai più di ~45 per lezione.
 - Parole in contesto: `courses/<id>/src/wordex.js` (`EXW[parola come nella lista] = [frase, traduzione]`) dà una frase
   d'esempio a ogni parola che nessun dialogo o regola usa. La frase compare sotto la parola nella lista e, nei quiz di
@@ -77,7 +90,7 @@ ciò che manca si mostra come "In arrivo".
   italiane sono condivise da it-zh e it-es (stesso file audio).
 - zh-it: pinyin «che sparisce» (impostazione `tbpya`, attiva di default): nelle tappe delle lezioni le parole studiate da 3+
   lezioni non mostrano il pinyin. Gli esercizi sui toni usano 4 voci registrate (`audio/<hash>-v1..v4.mp3`, `speakVar`).
-- Esami con scritto/orale (fr-it, it-zh, it-es): sotto ogni prova c'è una griglia di autovalutazione con i criteri delle griglie
+- Esami con scritto/orale (fr-it, it-zh, it-es, en-it, es-it, de-it): sotto ogni prova c'è una griglia di autovalutazione con i criteri delle griglie
   ufficiali (`gridHTML` in `shell/course-app.js`, spunte in `<storageKey>-exgrid`).
 - ja-it: i kana sono distribuiti su l1–l7 (`KSTEP` in `src/js/app.js`: hiragana l1–l4, katakana l5–l7). Con il rōmaji su «auto»
   compare sotto ogni parola solo finché contiene kana non ancora insegnati nella lezione (`autoRo`). Si parte dal cortese
