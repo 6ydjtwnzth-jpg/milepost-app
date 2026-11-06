@@ -472,6 +472,19 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
    Every exam file carries its own rules in «scheme»: score groups with maximum and minimum, pass mark, language of the
    paper, how many times each recording plays, labels of parts and options. Files without one (JLPT N5) use the JLPT rules. */
 var HASEX=typeof EXAMS!=="undefined"&&EXAMS.length>0,EK=KEY+"-exam";
+/* writing and speaking criteria for the Italian interface: the same official criteria, with the traps of each language */
+function IGRID(o){var W=["Ho rispettato la consegna: tipo di testo, destinatario e lunghezza richiesta.","Ho trattato tutti i punti chiesti dalla traccia.","Ho aperto e chiuso con le formule adatte (saluti, firma)."],
+  O=["Ho parlato per il tempo richiesto, senza lunghe pause.","Ho risposto a tutte le richieste del compito."],
+  L={fr:[["Ho collegato le frasi con i connettivi (et, mais, parce que, puis, alors…).","Ho controllato i verbi: tempi, persone, passé composé con être o avoir.","Ho controllato genere, numero, accordi e ortografia."],
+         ["Ho scelto bene tra tu e vous.","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: vocali nasali, e finale muta, legami.","Frasi complete, con i verbi coniugati correttamente."]],
+     en:[["Ho collegato le frasi con i connettivi (and, but, because, so, then…).","Ho controllato i verbi: tempi (past simple o present perfect), la -s della terza persona, do / does / did.","Ho controllato il soggetto (sempre espresso), l'ordine delle parole e l'ortografia."],
+         ["Ho usato formule gentili (please, thank you, could you…?).","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: th, vocali lunghe e corte, nessuna vocale aggiunta in fondo.","Frasi complete, con i verbi coniugati correttamente."]],
+     es:[["Ho collegato le frasi con i connettivi (y, pero, porque, luego, por eso…).","Ho controllato i verbi: tempi (indefinido, imperfecto, perfecto), persone, ser o estar.","Ho controllato accordi, accenti scritti, ¿ ¡ e i falsi amici."],
+         ["Ho scelto bene tra tú e usted.","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: jota, r e rr, nessuna doppia, vocali pulite.","Frasi complete, con i verbi coniugati correttamente."]],
+     de:[["Ho collegato le frasi con i connettivi (und, aber, weil, dann, deshalb…).","Ho controllato i verbi: il verbo al secondo posto, in fondo dopo weil e dass, Perfekt con haben o sein.","Ho controllato articoli e casi (der, die, das; den, dem), le maiuscole dei nomi e l'ortografia."],
+         ["Ho scelto bene tra du e Sie.","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: ch, ü, ö, vocali lunghe e corte.","Frasi complete, con il verbo al posto giusto."]]},
+  x=L[C.learn]||[["Ho collegato le frasi con i connettivi.","Ho controllato i verbi: tempi e persone.","Ho controllato accordi e ortografia."],["Ho usato il registro giusto (formale o informale).","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara.","Frasi complete, con i verbi coniugati correttamente."]];
+  return o?O.concat(x[1]):W.concat(x[0])}
 var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n+" 个部分 · 限时 "+m+" 分钟"},train:"分部分练习",
   last:function(s,t,d){return "上次："+s+"/"+t+" · "+d},none:"做完第一次模拟考试后，这里会显示你每个部分的准备情况。",
   est:"按现在的水平，你大约能得",weak:function(s){return "最需要加强："+s+"。"},hist:"你的考试记录",
@@ -511,7 +524,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   all:"Tutte le domande",done:function(n,t){return n+" di "+t+" con risposta"},legA:"con risposta",legT:"da fare",qLabel:function(n,a){return "Domanda "+n+(a?", con risposta":"")},
   your:"La tua risposta",right:"Risposta giusta",empty:"nessuna risposta",script:"Trascrizione",soon:function(n){return "La simulazione "+n+" è in arrivo: intanto allenati con quella che c'è già."},
   secRes:function(c,t){return c+" giuste su "+t},practiceT:"Da allenare a parte: scritto e orale",
-  gridT:"Rileggi con la griglia",gridN:"Criteri ripresi dalle griglie ufficiali di valutazione: spunta quelli che hai rispettato, così sai che cosa migliorare.",gridS:function(n,m){return n+" su "+m+" criteri"},gridW:["Ho rispettato la consegna: tipo di testo, destinatario e lunghezza richiesta.", "Ho trattato tutti i punti chiesti dalla traccia.", "Ho aperto e chiuso con le formule adatte (saluti, firma).", "Ho collegato le frasi con i connettivi (et, mais, parce que, puis, alors…).", "Ho controllato i verbi: tempi, persone, passé composé con être o avoir.", "Ho controllato genere, numero, accordi e ortografia."],gridO:["Ho parlato per il tempo richiesto, senza lunghe pause.", "Ho risposto a tutte le richieste del compito.", "Ho scelto bene tra tu e vous.", "Nei dialoghi ho fatto almeno una domanda all'altra persona.", "Pronuncia chiara: vocali nasali, e finale muta, legami.", "Frasi complete, con i verbi coniugati correttamente."],gridB1:"Ho espresso la mia opinione e l'ho motivata con esempi.",
+  gridT:"Rileggi con la griglia",gridN:"Criteri ripresi dalle griglie ufficiali di valutazione: spunta quelli che hai rispettato, così sai che cosa migliorare.",gridS:function(n,m){return n+" su "+m+" criteri"},gridW:IGRID(0),gridO:IGRID(1),gridB1:"Ho espresso la mia opinione e l'ho motivata con esempi.",
   practiceN:"Queste prove le valuta un esaminatore, qui non hanno punteggio. Prova a scrivere o a parlare, poi guarda l'esempio.",model:"Esempio di risposta",
   estShort:function(s,t,p){return "Stima: "+s+"/"+t+" · soglia "+p}};
 function SCH(e){if(e&&e.scheme)return e.scheme;

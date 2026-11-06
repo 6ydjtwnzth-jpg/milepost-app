@@ -4577,10 +4577,10 @@ it:{locale:"it-IT",tabs:["Oggi","Corso","Esame","Cultura","Strumenti"],hi:["Buon
   noDate:"Data dell'esame non ancora scelta.",sections:"Per sezione",sectionsSoon:"La preparazione per sezione (vocabolario, grammatica, lettura, ascolto) arriva con le simulazioni d'esame.",
   sim:"Simulazione completa",simS:"Formato reale, a tempo",soon:"In arrivo",mastery:"Padronanza delle lezioni verificate",planT:"Il tuo piano",
   onTrack:"In linea col piano",ahead2:function(n){return "Avanti di "+n+(n===1?" giorno":" giorni")},behind:function(n){return "Indietro di "+n+(n===1?" giorno":" giorni")},practice:"Allenamento d'esame",
-  cult:"Cultura",cultLead:"Italia e "+({zh:"Cina",fr:"Francia"}[C.learn]||"Giappone")+" a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
+  cult:"Cultura",cultLead:"Italia e "+({zh:"Cina",fr:"Francia",en:"mondo anglofono",es:"mondo ispanico",de:"paesi di lingua tedesca"}[C.learn]||"Giappone")+" a confronto: abitudini, cibo, lavoro, feste. Ogni scheda ha parole da ascoltare e una domanda.",
   all:"Tutte",readCount:function(a,b){return a+" di "+b+" lette"},stories:"Racconti",storiesLead:"Letture brevi con audio: le parole nuove hanno il loro significato e la traduzione la apri solo quando ti serve.",afterL:function(n){return "dopo la lezione "+n},afterR:"dopo il ripasso",mins:function(m){return m+" min"},soonStories:"Altri racconti",soonT:"In arrivo",playAll:"Ascolta tutto",stopAll:"Stop",trAll:"Traduzione",trOne:"Traduci",newWords:function(n){return "Parole nuove · "+n},storyQ:"Hai capito?",storyDone:"Letto",storyDoneT:"Racconto letto",nextStory:"Prossimo racconto",backCult:"Torna a Cultura",storyListen:"Ascolta la frase",readMark:"Letta",fromLesson:function(n){return "Lezione "+n},
   tools:"Strumenti",toolList:C.learn==="zh"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["I tempi del verbo","Senza coniugazioni: 了, 过, 着…"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"],tratti:["Scrivere 1","I tratti e il loro ordine"],caratteri:["Scrivere 2","Com'è fatto un carattere"]}
-    :C.learn==="fr"?{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutti i tempi dei verbi"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]}
+    :/^(fr|en|es|de)$/.test(C.learn)?{flash:["Flashcard","Ripasso a intervalli"],verbi:[C.learn==="en"?"I verbi":"Coniugatore",C.learn==="en"?"Tempi e verbi irregolari":"Tutti i tempi dei verbi"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]}
     :{flash:["Flashcard","Ripasso a intervalli"],verbi:["Coniugatore","Tutte le forme dei verbi"],kana:["Kana","Hiragana e katakana con audio"],frasi:["Frasario","Frasi pronte"],vocab:["Vocabolario","Tutte le parole del corso"]},
   dailyRev:["Ripasso del giorno","Le parole che stai per dimenticare"],
   settings:"Impostazioni",readingT:"Lettura e voce",
@@ -4919,7 +4919,7 @@ function vTools(){
   var rw=reviewWords().length,cols=["red","blue","yellow","green","pink"],i=0;
   if(rw>=4)html+='<button class="mp-tool hc-pink" id="mprev"><span class="g">↻</span><b>'+h(S.dailyRev[0])+'</b><small>'+h(S.dailyRev[1])+'</small></button>';
   Object.keys(S.toolList).forEach(function(k){if(!document.getElementById(k))return;var L=S.toolList[k];
-    var g={flash:"⇄",verbi:C.learn==="it"?"essere":C.learn==="zh"?"了过":C.learn==="fr"?"être":"行く",kana:"あア",frasi:C.learn==="zh"?"“”":C.learn==="fr"?"« »":"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
+    var g={flash:"⇄",verbi:{it:"essere",zh:"了过",fr:"être",en:"be",es:"ser",de:"sein"}[C.learn]||"行く",kana:"あア",frasi:{zh:"“”",fr:"« »",en:"“ ”",es:"¿ ?",de:"„ “"}[C.learn]||"「」",vocab:"A–Z",tratti:"㇐㇑",caratteri:"亻木"}[k];
     html+='<a class="mp-tool hc-'+cols[i++%cols.length]+'" href="#/leggi/'+k+'"><span class="g"'+(/^(verbi|kana|tratti|caratteri)$/.test(k)?' lang="'+(ZH?"it":LL)+'"':'')+'>'+h(g)+'</span><b>'+h(L[0])+'</b><small>'+h(L[1])+'</small></a>'});
   html+='</div>';show(html);
   var rv=q("#mprev",view);if(rv)rv.onclick=function(){openReview()}}
@@ -5021,6 +5021,19 @@ function openSettings(){var th=themeNow(),hasV=typeof voiceList==="function";
    Every exam file carries its own rules in «scheme»: score groups with maximum and minimum, pass mark, language of the
    paper, how many times each recording plays, labels of parts and options. Files without one (JLPT N5) use the JLPT rules. */
 var HASEX=typeof EXAMS!=="undefined"&&EXAMS.length>0,EK=KEY+"-exam";
+/* writing and speaking criteria for the Italian interface: the same official criteria, with the traps of each language */
+function IGRID(o){var W=["Ho rispettato la consegna: tipo di testo, destinatario e lunghezza richiesta.","Ho trattato tutti i punti chiesti dalla traccia.","Ho aperto e chiuso con le formule adatte (saluti, firma)."],
+  O=["Ho parlato per il tempo richiesto, senza lunghe pause.","Ho risposto a tutte le richieste del compito."],
+  L={fr:[["Ho collegato le frasi con i connettivi (et, mais, parce que, puis, alors…).","Ho controllato i verbi: tempi, persone, passé composé con être o avoir.","Ho controllato genere, numero, accordi e ortografia."],
+         ["Ho scelto bene tra tu e vous.","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: vocali nasali, e finale muta, legami.","Frasi complete, con i verbi coniugati correttamente."]],
+     en:[["Ho collegato le frasi con i connettivi (and, but, because, so, then…).","Ho controllato i verbi: tempi (past simple o present perfect), la -s della terza persona, do / does / did.","Ho controllato il soggetto (sempre espresso), l'ordine delle parole e l'ortografia."],
+         ["Ho usato formule gentili (please, thank you, could you…?).","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: th, vocali lunghe e corte, nessuna vocale aggiunta in fondo.","Frasi complete, con i verbi coniugati correttamente."]],
+     es:[["Ho collegato le frasi con i connettivi (y, pero, porque, luego, por eso…).","Ho controllato i verbi: tempi (indefinido, imperfecto, perfecto), persone, ser o estar.","Ho controllato accordi, accenti scritti, ¿ ¡ e i falsi amici."],
+         ["Ho scelto bene tra tú e usted.","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: jota, r e rr, nessuna doppia, vocali pulite.","Frasi complete, con i verbi coniugati correttamente."]],
+     de:[["Ho collegato le frasi con i connettivi (und, aber, weil, dann, deshalb…).","Ho controllato i verbi: il verbo al secondo posto, in fondo dopo weil e dass, Perfekt con haben o sein.","Ho controllato articoli e casi (der, die, das; den, dem), le maiuscole dei nomi e l'ortografia."],
+         ["Ho scelto bene tra du e Sie.","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: ch, ü, ö, vocali lunghe e corte.","Frasi complete, con il verbo al posto giusto."]]},
+  x=L[C.learn]||[["Ho collegato le frasi con i connettivi.","Ho controllato i verbi: tempi e persone.","Ho controllato accordi e ortografia."],["Ho usato il registro giusto (formale o informale).","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara.","Frasi complete, con i verbi coniugati correttamente."]];
+  return o?O.concat(x[1]):W.concat(x[0])}
 var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n+" 个部分 · 限时 "+m+" 分钟"},train:"分部分练习",
   last:function(s,t,d){return "上次："+s+"/"+t+" · "+d},none:"做完第一次模拟考试后，这里会显示你每个部分的准备情况。",
   est:"按现在的水平，你大约能得",weak:function(s){return "最需要加强："+s+"。"},hist:"你的考试记录",
@@ -5060,7 +5073,7 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   all:"Tutte le domande",done:function(n,t){return n+" di "+t+" con risposta"},legA:"con risposta",legT:"da fare",qLabel:function(n,a){return "Domanda "+n+(a?", con risposta":"")},
   your:"La tua risposta",right:"Risposta giusta",empty:"nessuna risposta",script:"Trascrizione",soon:function(n){return "La simulazione "+n+" è in arrivo: intanto allenati con quella che c'è già."},
   secRes:function(c,t){return c+" giuste su "+t},practiceT:"Da allenare a parte: scritto e orale",
-  gridT:"Rileggi con la griglia",gridN:"Criteri ripresi dalle griglie ufficiali di valutazione: spunta quelli che hai rispettato, così sai che cosa migliorare.",gridS:function(n,m){return n+" su "+m+" criteri"},gridW:["Ho rispettato la consegna: tipo di testo, destinatario e lunghezza richiesta.", "Ho trattato tutti i punti chiesti dalla traccia.", "Ho aperto e chiuso con le formule adatte (saluti, firma).", "Ho collegato le frasi con i connettivi (et, mais, parce que, puis, alors…).", "Ho controllato i verbi: tempi, persone, passé composé con être o avoir.", "Ho controllato genere, numero, accordi e ortografia."],gridO:["Ho parlato per il tempo richiesto, senza lunghe pause.", "Ho risposto a tutte le richieste del compito.", "Ho scelto bene tra tu e vous.", "Nei dialoghi ho fatto almeno una domanda all'altra persona.", "Pronuncia chiara: vocali nasali, e finale muta, legami.", "Frasi complete, con i verbi coniugati correttamente."],gridB1:"Ho espresso la mia opinione e l'ho motivata con esempi.",
+  gridT:"Rileggi con la griglia",gridN:"Criteri ripresi dalle griglie ufficiali di valutazione: spunta quelli che hai rispettato, così sai che cosa migliorare.",gridS:function(n,m){return n+" su "+m+" criteri"},gridW:IGRID(0),gridO:IGRID(1),gridB1:"Ho espresso la mia opinione e l'ho motivata con esempi.",
   practiceN:"Queste prove le valuta un esaminatore, qui non hanno punteggio. Prova a scrivere o a parlare, poi guarda l'esempio.",model:"Esempio di risposta",
   estShort:function(s,t,p){return "Stima: "+s+"/"+t+" · soglia "+p}};
 function SCH(e){if(e&&e.scheme)return e.scheme;
@@ -5077,10 +5090,13 @@ function isListen(sec){return !!(sec&&(sec.listen||sec.score==="listen"))}
 function exStore(){var d=M.store.get(EK)||{};d.att=d.att||[];return d}
 function exById(id){return EXAMS.filter(function(e){return e.id===id})[0]}
 function flat(ex,secIds){var out=[];ex.sections.forEach(function(s,si){if(secIds.indexOf(s.id)<0)return;s.parts.forEach(function(p,pi){p.items.forEach(function(it,ii){out.push({s:si,p:pi,i:ii})})})});return out}
+/* an item is answered by choosing an option (it.a = index) or, in the open-cloze and gap-fill parts, by writing (it.ans = accepted answers) */
+function xnorm(t){return String(t).toLowerCase().replace(/[’]/g,"'").replace(/[.,!?;:]+$/,"").replace(/\s+/g," ").trim()}
+function xok(it,mine){if(it.ans)return typeof mine==="string"&&it.ans.some(function(x){return xnorm(x)===xnorm(mine)});return mine===it.a}
 function itemOf(ex,f){var s=ex.sections[f.s],p=s.parts[f.p];return {sec:s,part:p,it:p.items[f.i]}}
 /* score of one attempt: right answers per skill and per score group, each group scaled to its maximum */
 function score(att){var ex=exById(att.id),r={sk:{},g:{},total:null,pass:false};if(!ex)return r;var sc=SCH(ex);
-  att.f.forEach(function(f,k){var o=itemOf(ex,f),ok=att.a[k]===o.it.a,sk=o.part.skill,g=o.sec.score;
+  att.f.forEach(function(f,k){var o=itemOf(ex,f),ok=xok(o.it,att.a[k]),sk=o.part.skill,g=o.sec.score;
     r.sk[sk]=r.sk[sk]||[0,0];r.sk[sk][1]++;if(ok)r.sk[sk][0]++;r.g[g]=r.g[g]||[0,0];r.g[g][1]++;if(ok)r.g[g][0]++});
   var all=true,pass=true,tot=0;sc.groups.forEach(function(G){var v=r.g[G.id];if(!v){all=false;return}v[2]=Math.round(v[0]/v[1]*G.max);tot+=v[2];if(G.min!=null&&v[2]<G.min)pass=false});
   if(all){r.total=tot;r.pass=pass&&tot>=sc.pass}return r}
@@ -5119,7 +5135,7 @@ function examBlock(planEx){var d=exStore(),ex=curExam(planEx),sc=SCH(ex),rd=read
   return html}
 /* self-assessment for writing and speaking: criteria from the official marking grids, ticked by the learner */
 var GK=KEY+"-exgrid";function gridGet(){try{return JSON.parse(localStorage.getItem(GK)||"{}")}catch(e){return {}}}
-function gridHTML(ex,t,pi){if(!EXS.gridW)return "";var oral=/oral/i.test(t.kind||""),L=(oral?EXS.gridO:EXS.gridW).slice();if(/B1/.test(SCH(ex).name||""))L.push(EXS.gridB1);
+function gridHTML(ex,t,pi){if(!EXS.gridW)return "";var oral=/oral|speak|sprech/i.test(t.kind||""),L=(oral?EXS.gridO:EXS.gridW).slice();if(/B1/.test(SCH(ex).name||""))L.push(EXS.gridB1);
   var id=ex.id+"-"+pi,st=gridGet()[id]||[],n=L.filter(function(x,i){return st[i]}).length;
   return '<details class="mp-gl mp-grid" data-grid="'+h(id)+'"><summary>'+h(EXS.gridT)+' · <span class="mp-gn">'+h(EXS.gridS(n,L.length))+'</span></summary><p class="mp-gnote">'+h(EXS.gridN)+'</p>'+
     L.map(function(c,i){return '<label><input type="checkbox" data-i="'+i+'"'+(st[i]?' checked':'')+'><span>'+h(c)+'</span></label>'}).join("")+'</details>'}
@@ -5163,9 +5179,9 @@ function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part
   if(it.scene)html+='<div class="xscene"><span class="arr">➡</span><div><p lang="'+TL+'">'+h(it.scene)+'</p><small>'+h(it.sceneIt)+'</small></div></div>';
   if(isL){var name=XR.ex.id+"-"+p.n+"-"+(f.i+1),plays=sc.plays||1,pl=XR.played[XR.pos]||0,can=XR.mode!=="full"||pl<plays;
     html+='<div class="xaud"><button class="mp-cta" id="xplay"'+(can?'':' disabled')+'>'+(pl?h(can?(XR.mode!=="full"?EXS.replay:EXS.again):EXS.heard):"▶ "+h(EXS.listen))+'</button><small>'+h(EXS.plays(plays))+'</small></div>'}
-  html+='<div class="xq"><span class="xqn">'+(isL?(f.i+1):num)+'</span><div lang="'+TL+'">'+(it.q?xtx(it.q,sc):'')+'</div></div><div class="xopts'+(it.oi?' xoimg':'')+'">'+(it.oi||it.o).map(function(t,k){
+  html+='<div class="xq"><span class="xqn">'+(isL?(f.i+1):num)+'</span><div lang="'+TL+'">'+(it.q?xtx(it.q,sc):'')+'</div></div>'+(it.ans?'<div class="xopts"><input class="xin" type="text" lang="'+TL+'" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="'+h(EXS.your)+'" value="'+h(XR.a[XR.pos]||"")+'"></div>':'<div class="xopts'+(it.oi?' xoimg':'')+'">'+(it.oi||it.o).map(function(t,k){
     var inner=it.oi?xpic(t):(isL&&it.say?'':xtx(t,sc));
-    return '<button class="xo'+(XR.a[XR.pos]===k?' sel':'')+'" data-o="'+k+'">'+(optLab(sc,k,p)?'<span class="n">'+h(optLab(sc,k,p))+'</span>':'')+'<span lang="'+TL+'">'+inner+'</span></button>'}).join("")+'</div></div>'+
+    return '<button class="xo'+(XR.a[XR.pos]===k?' sel':'')+'" data-o="'+k+'">'+(optLab(sc,k,p)?'<span class="n">'+h(optLab(sc,k,p))+'</span>':'')+'<span lang="'+TL+'">'+inner+'</span></button>'}).join("")+'</div>')+'</div>'+
     '<div class="xfoot"><button class="mp-cta alt" id="xprev"'+(XR.pos===r[0]?' disabled':'')+'>'+h(EXS.prev)+'</button>'+
     (XR.pos===r[1]?'<button class="mp-cta" id="xend">'+h(EXS.finishSec)+'</button>':'<button class="mp-cta" id="xnext">'+h(EXS.next)+I.arrow+'</button>')+'</div>';
   var prevX=XR.navX||0;xel.innerHTML=html;q(".xbody",xel).scrollTop=0;window.scrollTo(0,0);
@@ -5174,6 +5190,7 @@ function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part
   q(".xtr",xel).onclick=function(){var x=q(".xitr",xel);x.hidden=!x.hidden};
   qa(".xnums .xn",xel).forEach(function(b){b.onclick=function(){XR.pos=+b.getAttribute("data-k");xQ()}});
   qa(".xo",xel).forEach(function(b){b.onclick=function(){XR.a[XR.pos]=+b.getAttribute("data-o");qa(".xo",xel).forEach(function(x){x.classList.toggle("sel",x===b)});var nb=q('.xn[data-k="'+XR.pos+'"]',xel);if(nb)nb.classList.add("ans");xCount()}});
+  var xin=q(".xin",xel);if(xin)xin.oninput=function(){var v=xin.value.trim();XR.a[XR.pos]=v?v:null;var nb=q('.xn[data-k="'+XR.pos+'"]',xel);if(nb)nb.classList.toggle("ans",!!v);xCount()};
   var pv=q("#xprev",xel);if(pv)pv.onclick=function(){XR.pos--;xQ()};
   var nx=q("#xnext",xel);if(nx)nx.onclick=function(){XR.pos++;xQ()};
   var en=q("#xend",xel);if(en)en.onclick=function(){if(XR.f.slice(r[0],r[1]+1).some(function(_,k){return XR.a[r[0]+k]==null})&&!confirm(EXS.finishQ))return;xEndSec()};
@@ -5236,17 +5253,17 @@ function vSimRes(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame
 function vSimRev(k){var d=exStore(),a=d.att[+k];if(!a){location.replace("#/esame");return}var e=exById(a.id);if(!e){location.replace("#/esame");return}
   var sc=SCH(e),TL=sc.lang||LL,who=sc.who||{N:"",F:"女: ",M:"男: "};
   var html=head(e.title,EXS.review,'<a class="mp-ib" href="#/simres/'+k+'" aria-label="'+h(EXS.back)+'">'+I.back+'</a>'),lastS=-1;
-  a.f.forEach(function(f,n){var o=itemOf(e,f),it=o.it,mine=a.a[n],ok=mine===it.a;
+  a.f.forEach(function(f,n){var o=itemOf(e,f),it=o.it,mine=a.a[n],ok=xok(it,mine);
     if(f.s!==lastS){lastS=f.s;html+='<h2 class="mp-h2" lang="'+TL+'">'+h(o.sec.jp)+'</h2>'}
-    var opt=function(i){var L=optLab(sc,i,o.part);L=L?L+". ":"";if(it.oi)return L+xpic(it.oi[i],"xpic sm");if(it.say)return L+xtx(it.say[i],sc);return L+xtx(it.o[i],sc)};
+    var opt=function(i){if(it.ans)return h(i);var L=optLab(sc,i,o.part);L=L?L+". ":"";if(it.oi)return L+xpic(it.oi[i],"xpic sm");if(it.say)return L+xtx(it.say[i],sc);return L+xtx(it.o[i],sc)};
     html+='<div class="mp-card mp-rv '+(ok?'ok':'no')+'"><div class="mp-k">'+h(o.part.label||((sc.part||"")+o.part.n))+(o.part.kind?' · '+h(o.part.kind):'')+'</div>'+
       (o.part.text&&f.i===0?'<div class="xtext" lang="'+TL+'">'+xtx(o.part.text,sc)+'</div>':'')+(o.part.pics&&f.i===0?'<div class="xpics">'+o.part.pics.map(function(id,j){return '<span>'+xpic(id)+'<b>'+optLab(sc,j)+'</b></span>'}).join("")+'</div>':'')+
       (it.text?'<div class="xtext" lang="'+TL+'">'+xtx(it.text,sc)+'</div>':'')+(it.img?'<div class="xpicq">'+xpic(it.img,"xpic")+'</div>':'')+
       (it.scene?'<p lang="'+TL+'">➡ '+h(it.scene)+'</p>':'')+(it.q?'<p class="rq" lang="'+TL+'">'+xtx(it.q,sc)+'</p>':'')+
-      (it.script?'<details class="rscript"><summary>'+h(EXS.script)+'</summary>'+it.script.map(function(l){return '<p><b>'+h(who[l[0]]||"")+'</b>'+((sc.lang==="it"||sc.lang==="fr")&&typeof itHTML==="function"?itHTML(l[1],true):jpHTML(l[1],true))+'</p>'}).join("")+
+      (it.script?'<details class="rscript"><summary>'+h(EXS.script)+'</summary>'+it.script.map(function(l){return '<p><b>'+h(who[l[0]]||"")+'</b>'+(/^(it|fr|en|es|de)$/.test(sc.lang)&&typeof itHTML==="function"?itHTML(l[1],true):jpHTML(l[1],true))+'</p>'}).join("")+
         (it.say?it.say.map(function(t,i){return '<p><b>'+h(optLab(sc,i))+'.</b> '+xtx(t,sc)+'</p>'}).join(""):'')+'<button class="mp-mini alt" data-au="'+e.id+'-'+o.part.n+'-'+(f.i+1)+'">▶ '+h(EXS.listen)+'</button></details>':'')+
       '<p class="ra"><span>'+h(EXS.your)+':</span> <b class="'+(ok?'ok':'no')+'" lang="'+TL+'">'+(mine==null?h(EXS.empty):opt(mine))+'</b></p>'+
-      (ok?'':'<p class="ra"><span>'+h(EXS.right)+':</span> <b class="ok" lang="'+TL+'">'+opt(it.a)+'</b></p>')+
+      (ok?'':'<p class="ra"><span>'+h(EXS.right)+':</span> <b class="ok" lang="'+TL+'">'+opt(it.ans?it.ans[0]:it.a)+'</b></p>')+
       (it.full?'<p class="ra" lang="'+TL+'">'+xtx(it.full,sc)+'</p>':'')+'<p class="re">'+h(it.e)+'</p></div>'});
   show(html);
   qa("[data-au]",view).forEach(function(b){b.onclick=function(){xstop();xau=new Audio("audio/exam/"+b.getAttribute("data-au")+".mp3");xau.play()}})}
@@ -5257,7 +5274,7 @@ if(/[?&]audit=1/.test(location.search))window.MPAUDIT=function(){
   Object.keys(EX).forEach(function(k){(EX[k]||[]).forEach(function(it){add([it.q,it.e,it.a?it.a[0]:null,it.ask,it.au,it.jp,it.zh,it.it,it.full,it.fix,it.s?String(it.s).replace("＿",it.o?it.o[0]:""):null,it.t==="rep"?it.o.map(function(o){return o[0]}):null,it.t==="gap"?it.o:null,it.t==="ord"?[it.w,it.x]:null])})});
   Object.keys(DLG).forEach(function(k){(DLG[k]||[]).forEach(function(r){add(r[1])})});
   if(typeof EXW!=="undefined")Object.keys(EXW).forEach(function(k){add(EXW[k][0])});
-  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,c.es,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
+  Object.keys(CULT).forEach(function(k){CULT[k].forEach(function(c){add([c.i,c.p,c.it,c.jp,c.cn,c.fr,c.es,c.x,(c.w||[]).map(function(w){return w[0]}),c.q?[c.q.q,c.q.e]:null])})});
   if(typeof W!=="undefined")W.forEach(function(w){add(w[0])});
   READ.forEach(function(r){add(r.intro);r.lines.forEach(function(l){add(l[0])});(r.gloss||[]).forEach(function(g){add(g[0])})});
   var render=ZH?function(t){return /[一-鿿]/.test(t)?linkCult(t,[]):itHTML(t)}:mixHTML;

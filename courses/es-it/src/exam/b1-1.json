@@ -1,0 +1,1170 @@
+{
+ "id": "b1-1",
+ "exam": "b1",
+ "title": "Prova 1",
+ "it": "Simulazione nel formato del DELE B1: comprensione di lettura e comprensione auditiva con punteggio stimato; espressione scritta e orale da esercitare con i modelli. Il corso arriva all'A2: per il B1 servono altre ore di studio.",
+ "scheme": {
+  "name": "DELE B1",
+  "total": 50,
+  "pass": 30,
+  "lang": "es",
+  "plays": 2,
+  "opts": "abc",
+  "part": "Tarea ",
+  "groups": [
+   {
+    "id": "lect",
+    "label": "Comprensión de lectura",
+    "max": 25,
+    "min": 15
+   },
+   {
+    "id": "aud",
+    "label": "Comprensión auditiva",
+    "max": 25,
+    "min": 15
+   }
+  ],
+  "skills": {
+   "reading": [
+    "Lettura",
+    "Comprensión de lectura"
+   ],
+   "listening": [
+    "Ascolto",
+    "Comprensión auditiva"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "Mujer: ",
+   "M": "Hombre: "
+  },
+  "passText": "Lettura e ascolto valgono 25 punti ciascuno, con le stesse tareas dell'esame vero. Al DELE B1 le quattro prove sono divise in due gruppi (lettura + scrittura, ascolto + orale) e in ogni gruppo servono almeno 30 punti su 50: qui la soglia è riportata in proporzione, 15 su 25 per prova.",
+  "notOfficial": "Simulazione nel formato del DELE B1, non un esame ufficiale: il punteggio è solo una stima. Il DELE vero comprende anche l'espressione scritta e orale, valutate da esaminatori.",
+  "note": "Come all'esame vero, istruzioni e domande sono in spagnolo. Se ti serve, premi «Traduzione» per vedere la consegna in italiano."
+ },
+ "sections": [
+  {
+   "id": "lect",
+   "jp": "Comprensión de lectura",
+   "it": "Lettura",
+   "min": 70,
+   "score": "lect",
+   "parts": [
+    {
+     "n": 1,
+     "label": "Tarea 1",
+     "skill": "reading",
+     "kind": "anuncios",
+     "opts": "ABCDEFGHIJ",
+     "inst": "Lea lo que buscan seis personas y los diez anuncios. Relacione a cada persona con un anuncio. Hay diez anuncios: seleccione solo seis.",
+     "itInst": "Leggi che cosa cercano sei persone e i dieci annunci: collega ogni persona a un annuncio. Gli annunci sono dieci, ne servono sei.",
+     "text": "A. Curso intensivo de surf en Cantabria. Una semana, todos los niveles, alojamiento en albergue incluido. Edad mínima: 16 años.\n\nB. Taller de fotografía digital en Madrid. Por las tardes, de lunes a jueves. Es necesario traer cámara propia.\n\nC. Campamento de inglés en Irlanda para niños de 8 a 12 años. Clases por la mañana y deporte por la tarde. Monitores españoles.\n\nD. Voluntariado en un parque natural de Galicia: limpieza de playas y cuidado de animales. Dos semanas. Comida y alojamiento gratis.\n\nE. Ruta en bicicleta por el Camino de Santiago. Diez días, grupo pequeño, guía y coche de apoyo para llevar el equipaje.\n\nF. Clases de cocina vegetariana por internet. Dos horas a la semana, desde tu casa, con recetas fáciles y baratas.\n\nG. Escuela de verano para mayores de 60 años: historia del arte, informática y baile. Por las mañanas, en el centro cultural del barrio.\n\nH. Curso de guitarra flamenca en Sevilla para principiantes. Grupos de cuatro alumnos. Instrumentos incluidos.\n\nI. Viaje en barco por las islas griegas para jóvenes de 18 a 30 años. Fiestas a bordo todas las noches.\n\nJ. Taller de teatro para adolescentes de 13 a 17 años. Al final del curso, espectáculo para las familias.",
+     "items": [
+      {
+       "q": "Marisa tiene 67 años, está jubilada y quiere aprender a usar el ordenador para hablar con sus nietos.",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+       ],
+       "a": 6,
+       "e": "G: scuola estiva per over 60, con informatica."
+      },
+      {
+       "q": "Jorge quiere ayudar a proteger la naturaleza y no tiene mucho dinero para las vacaciones.",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+       ],
+       "a": 3,
+       "e": "D: volontariato nella natura, vitto e alloggio gratis."
+      },
+      {
+       "q": "Los padres de Pablo, de 10 años, quieren que su hijo aprenda inglés este verano.",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+       ],
+       "a": 2,
+       "e": "C: campo d'inglese per bambini da 8 a 12 anni."
+      },
+      {
+       "q": "Nuria no puede salir de casa porque cuida a su madre, pero quiere aprender a cocinar sin carne.",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+       ],
+       "a": 5,
+       "e": "F: cucina vegetariana online, da casa."
+      },
+      {
+       "q": "Andrés siempre ha querido tocar un instrumento, pero nunca ha estudiado música.",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+       ],
+       "a": 7,
+       "e": "H: chitarra flamenca per principianti."
+      },
+      {
+       "q": "A Lorena le encanta el deporte y quiere hacer un viaje largo, pero no quiere llevar la maleta.",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+       ],
+       "a": 4,
+       "e": "E: dieci giorni in bici con un'auto per i bagagli."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Tarea 2",
+     "skill": "reading",
+     "kind": "texto largo",
+     "inst": "Lea el texto y conteste a las preguntas. Seleccione la respuesta correcta (a, b o c).",
+     "itInst": "Leggi il testo e rispondi alle domande: scegli la risposta giusta.",
+     "text": "Mi año sin móvil\n\nHace un año, la periodista Laura Ibáñez decidió hacer un experimento: vivir doce meses sin teléfono móvil. «Me di cuenta de que lo miraba más de cien veces al día, incluso durante las comidas con mi familia», explica.\n\nAl principio fue muy difícil. «Las primeras semanas me sentía nerviosa todo el tiempo. Pensaba que me estaba perdiendo algo importante.» Tuvo que volver a usar cosas que casi había olvidado: un despertador, un mapa de papel, una agenda. Para quedar con sus amigos, los llamaba desde el teléfono fijo de casa o les escribía correos electrónicos desde el ordenador.\n\n«Algunos amigos se cansaron, es verdad. Pero con los que se quedaron ahora tengo una relación más profunda: cuando nos vemos, hablamos de verdad.» También notó cambios en su salud: dormía mejor y leyó veinticuatro libros en un año, más que en los cinco años anteriores.\n\nHoy Laura ha vuelto a tener móvil, porque lo necesita para su trabajo, pero lo usa de otra manera: cuando está en casa lo deja en otra habitación y nunca lo lleva a la mesa. «No digo que el móvil sea malo», concluye. «Pero ahora sé que soy yo quien decide cuándo lo uso, y no al revés.»",
+     "items": [
+      {
+       "q": "Laura decidió vivir sin móvil porque…",
+       "o": [
+        "se le había roto.",
+        "lo usaba demasiado.",
+        "su familia se lo pidió."
+       ],
+       "a": 1,
+       "e": "«lo miraba más de cien veces al día»."
+      },
+      {
+       "q": "Al principio del experimento, Laura…",
+       "o": [
+        "estaba muy tranquila.",
+        "usaba el móvil de una amiga.",
+        "se sentía nerviosa."
+       ],
+       "a": 2,
+       "e": "«Las primeras semanas me sentía nerviosa»."
+      },
+      {
+       "q": "Para quedar con sus amigos, Laura…",
+       "o": [
+        "usaba el teléfono de casa o el correo electrónico.",
+        "les mandaba cartas.",
+        "iba a buscarlos a sus casas."
+       ],
+       "a": 0,
+       "e": "«los llamaba desde el teléfono fijo… o les escribía correos»."
+      },
+      {
+       "q": "Sobre sus amigos, Laura dice que…",
+       "o": [
+        "todos se cansaron de ella.",
+        "con algunos tiene ahora una relación mejor.",
+        "no los vio en todo el año."
+       ],
+       "a": 1,
+       "e": "«con los que se quedaron ahora tengo una relación más profunda»."
+      },
+      {
+       "q": "Durante el experimento, Laura…",
+       "o": [
+        "leyó mucho más que antes.",
+        "dormía peor.",
+        "dejó de trabajar."
+       ],
+       "a": 0,
+       "e": "24 libri in un anno, più che nei cinque anni prima."
+      },
+      {
+       "q": "Hoy Laura…",
+       "o": [
+        "ya no tiene móvil.",
+        "usa el móvil solo en la oficina.",
+        "usa el móvil con más control."
+       ],
+       "a": 2,
+       "e": "Lo lascia in un'altra stanza e non lo porta a tavola: decide lei."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Tarea 3",
+     "skill": "reading",
+     "kind": "tres textos",
+     "opts": "ABC",
+     "inst": "Lea los textos de tres personas que aprendieron un idioma de adultos y relacione las preguntas con los textos (A, B o C).",
+     "itInst": "Leggi i testi di tre persone che hanno imparato una lingua da adulte: a chi si riferisce ogni domanda?",
+     "text": "A  Óscar\nAprendí alemán a los 35 años, cuando mi empresa me mandó a Berlín. Los primeros meses fueron horribles: en las reuniones no entendía nada y tenía que pedir a mis compañeros que me lo explicaran todo en inglés. Fui a una academia tres tardes a la semana durante dos años. Hoy hablo alemán sin problemas, aunque todos notan que soy español.\n\nB  Pilar\nYo estudio italiano por puro placer, porque me encanta la ópera. Voy a clase dos noches a la semana en la escuela oficial de idiomas de mi ciudad. Lo mejor es el grupo: somos doce y ya somos amigos; los viernes salimos a cenar juntos. En junio quiero presentarme al examen oficial de nivel B1.\n\nC  Manuel\nMi mujer es de Shanghái y quería hablar con su familia en chino. No tengo tiempo para ir a clase, así que estudio con aplicaciones y vídeos en internet. Veinte minutos al día, todos los días, en el metro. Es una lengua muy difícil, pero ya puedo tener conversaciones sencillas con mis suegros.",
+     "items": [
+      {
+       "q": "¿Quién aprendió el idioma por motivos de trabajo?",
+       "o": [
+        "Óscar",
+        "Pilar",
+        "Manuel"
+       ],
+       "a": 0,
+       "e": "Óscar: «mi empresa me mandó a Berlín»."
+      },
+      {
+       "q": "¿Quién estudia sin profesor?",
+       "o": [
+        "Óscar",
+        "Pilar",
+        "Manuel"
+       ],
+       "a": 2,
+       "e": "Manuel: app e video, senza lezioni."
+      },
+      {
+       "q": "¿Quién dice que al principio no entendía nada?",
+       "o": [
+        "Óscar",
+        "Pilar",
+        "Manuel"
+       ],
+       "a": 0,
+       "e": "Óscar: «en las reuniones no entendía nada»."
+      },
+      {
+       "q": "¿Quién ha hecho amigos gracias a las clases?",
+       "o": [
+        "Óscar",
+        "Pilar",
+        "Manuel"
+       ],
+       "a": 1,
+       "e": "Pilar: «ya somos amigos»."
+      },
+      {
+       "q": "¿Quién estudia un poco todos los días?",
+       "o": [
+        "Óscar",
+        "Pilar",
+        "Manuel"
+       ],
+       "a": 2,
+       "e": "Manuel: «Veinte minutos al día, todos los días»."
+      },
+      {
+       "q": "¿Quién quiere hacer un examen oficial?",
+       "o": [
+        "Óscar",
+        "Pilar",
+        "Manuel"
+       ],
+       "a": 1,
+       "e": "Pilar: l'esame B1 a giugno."
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Tarea 4",
+     "skill": "reading",
+     "kind": "fragmentos",
+     "opts": "ABCDEFGH",
+     "inst": "Lea el texto, del que se han extraído seis fragmentos. Después, lea los ocho fragmentos (A-H) y decida en qué lugar del texto hay que colocar cada uno. Hay dos fragmentos que no tiene que elegir.",
+     "itInst": "Dal testo sono stati tolti sei pezzi: rimetti al posto giusto quelli della lista (A-H). Due pezzi non servono.",
+     "text": "Las bibliotecas del siglo XXI\n\nMuchas personas piensan que las bibliotecas ya no son necesarias en la era de internet. (19) ____ En los últimos años, muchas bibliotecas públicas españolas se han transformado en centros culturales donde se puede hacer mucho más que leer. (20) ____\n\nEn la biblioteca de mi barrio, por ejemplo, hay talleres de informática para mayores, clubes de lectura y clases de español para inmigrantes. (21) ____ Además, para muchos estudiantes la biblioteca es el único lugar tranquilo donde pueden estudiar, (22) ____.\n\nLos bibliotecarios también han cambiado su trabajo. (23) ____ Por eso, aunque el número de libros prestados ha bajado un poco, el número de visitantes no deja de crecer. (24) ____\n\nFragmentos:\nA. Sin embargo, la realidad es muy diferente.\nB. Todas estas actividades son gratuitas.\nC. Ahora ayudan a la gente a buscar información fiable en la red.\nD. Se pueden pedir prestadas películas, usar ordenadores o asistir a conferencias.\nE. sobre todo en época de exámenes, cuando muchas abren también por la noche\nF. Las bibliotecas, en resumen, están más vivas que nunca.\nG. Por eso han cerrado casi todas las bibliotecas pequeñas.\nH. Los libros electrónicos son más baratos que los de papel.",
+     "items": [
+      {
+       "q": "(19)",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "a": 0,
+       "e": "«Sin embargo»: il testo contraddice l'idea di chi pensa che non servano più."
+      },
+      {
+       "q": "(20)",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "a": 3,
+       "e": "Elenca che cosa si può fare oltre a leggere."
+      },
+      {
+       "q": "(21)",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "a": 1,
+       "e": "«Todas estas actividades» riprende laboratori, club e lezioni."
+      },
+      {
+       "q": "(22)",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "a": 4,
+       "e": "Continua la frase sugli studenti: minuscola e senza punto."
+      },
+      {
+       "q": "(23)",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "a": 2,
+       "e": "Come è cambiato il lavoro dei bibliotecari."
+      },
+      {
+       "q": "(24)",
+       "o": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "a": 5,
+       "e": "La conclusione: «en resumen»."
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Tarea 5",
+     "skill": "reading",
+     "kind": "gramática",
+     "inst": "Lea el texto y rellene los huecos con la opción correcta (a, b o c).",
+     "itInst": "Leggi il testo e scegli la parola giusta per ogni spazio.",
+     "text": "Querido Pablo:\n¿Qué tal todo por Londres? Yo estoy muy bien, aunque (25) ____ mucho trabajo últimamente. Te escribo porque el mes que viene voy (26) ____ ir a Londres por trabajo y me encantaría verte. Llego el día 14 y me quedo hasta el 18. ¿(27) ____ libre alguna de esas tardes? Si quieres, podemos ir a cenar a ese restaurante italiano (28) ____ me hablaste. Por cierto, ¿sigues jugando al fútbol los domingos? Yo lo dejé (29) ____ dos años: ¡ahora solo corro! Escríbeme cuando (30) ____ un momento.\nUn abrazo,\nAndrés",
+     "items": [
+      {
+       "q": "(25)",
+       "o": [
+        "tengo",
+        "estoy",
+        "hay"
+       ],
+       "a": 0,
+       "e": "«tener trabajo» = avere lavoro."
+      },
+      {
+       "q": "(26)",
+       "o": [
+        "de",
+        "a",
+        "por"
+       ],
+       "a": 1,
+       "e": "{ir a} + infinito: «voy a ir»."
+      },
+      {
+       "q": "(27)",
+       "o": [
+        "Serás",
+        "Tendrás",
+        "Estarás"
+       ],
+       "a": 2,
+       "e": "«estar libre» = essere libero (stato)."
+      },
+      {
+       "q": "(28)",
+       "o": [
+        "que",
+        "del que",
+        "donde"
+       ],
+       "a": 1,
+       "e": "«hablar de algo» → «el restaurante del que me hablaste»."
+      },
+      {
+       "q": "(29)",
+       "o": [
+        "hace",
+        "desde",
+        "por"
+       ],
+       "a": 0,
+       "e": "«due anni fa» = {hace dos años}."
+      },
+      {
+       "q": "(30)",
+       "o": [
+        "tienes",
+        "tendrás",
+        "tengas"
+       ],
+       "a": 2,
+       "e": "Dopo {cuando} riferito al futuro si usa il congiuntivo: {cuando tengas}."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aud",
+   "jp": "Comprensión auditiva",
+   "it": "Ascolto",
+   "min": 40,
+   "score": "aud",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Tarea 1",
+     "skill": "listening",
+     "kind": "mensajes y conversaciones",
+     "inst": "Va a escuchar seis mensajes y conversaciones breves. Cada audición se repite dos veces. Seleccione la respuesta correcta (a, b o c).",
+     "itInst": "Senti sei messaggi e brevi conversazioni, due volte. Scegli la risposta giusta.",
+     "items": [
+      {
+       "q": "¿Para qué llama Raquel?",
+       "o": [
+        "para cambiar el día de una cita",
+        "para cancelar una cita",
+        "para cambiar la hora de una cita"
+       ],
+       "a": 0,
+       "e": "Dal martedì al giovedì, alla stessa ora.",
+       "script": [
+        [
+         "F",
+         "Hola, soy Raquel, de la clínica dental Sonrisa. Le llamo para cambiar su cita del martes, porque la doctora no puede ese día. ¿Le va bien el jueves a la misma hora, a las cinco? Llámenos, por favor."
+        ]
+       ]
+      },
+      {
+       "q": "¿Dónde estaban las llaves?",
+       "o": [
+        "en la mesa",
+        "en el coche",
+        "en el abrigo"
+       ],
+       "a": 2,
+       "e": "«Ayer las dejaste en el bolsillo» del cappotto.",
+       "script": [
+        [
+         "M",
+         "¿Has visto mis llaves? No las encuentro por ningún lado."
+        ],
+        [
+         "F",
+         "¿No están en el abrigo? Ayer las dejaste en el bolsillo."
+        ],
+        [
+         "M",
+         "Ah, sí, aquí están. ¡Gracias!"
+        ]
+       ]
+      },
+      {
+       "q": "¿Por qué no compraron el piso del centro?",
+       "o": [
+        "porque era caro y no tenía ascensor",
+        "porque era pequeño",
+        "porque no tenía jardín"
+       ],
+       "a": 0,
+       "e": "«no tenía ascensor y era muy caro».",
+       "script": [
+        [
+         "F",
+         "Al final, ¿comprasteis el piso del centro?"
+        ],
+        [
+         "M",
+         "No. Era precioso, pero no tenía ascensor y era muy caro. Hemos comprado uno en las afueras, más grande y con jardín."
+        ]
+       ]
+      },
+      {
+       "q": "¿Qué grupo elige el hombre?",
+       "o": [
+        "martes y jueves",
+        "lunes y miércoles",
+        "todavía no lo sabe"
+       ],
+       "a": 1,
+       "e": "Sceglie quello delle sette: lunedì e mercoledì.",
+       "script": [
+        [
+         "M",
+         "Buenas tardes, quería información sobre los cursos de yoga."
+        ],
+        [
+         "F",
+         "Hay dos grupos: lunes y miércoles a las siete, o martes y jueves a las nueve de la noche. El precio es el mismo: cuarenta euros al mes."
+        ],
+        [
+         "M",
+         "Pues el de las siete, que a las nueve estoy muy cansado."
+        ]
+       ]
+      },
+      {
+       "q": "El hombre…",
+       "o": [
+        "irá seguro a la sierra.",
+        "no irá porque no le gusta la montaña.",
+        "quizás irá a la sierra."
+       ],
+       "a": 2,
+       "e": "Se finisce la relazione sabato, chiama: forse.",
+       "script": [
+        [
+         "F",
+         "¿Vienes con nosotros a la sierra el domingo?"
+        ],
+        [
+         "M",
+         "Me encantaría, pero tengo que terminar un informe para el lunes. Si lo acabo el sábado, os llamo."
+        ]
+       ]
+      },
+      {
+       "q": "¿Qué quiere hacer el hombre?",
+       "o": [
+        "cambiar el jersey",
+        "recuperar el dinero",
+        "comprar otro jersey igual"
+       ],
+       "a": 0,
+       "e": "Gli sta grande: vuole cambiarlo.",
+       "script": [
+        [
+         "M",
+         "Disculpe, este jersey me lo regalaron, pero me queda grande. ¿Lo puedo cambiar?"
+        ],
+        [
+         "F",
+         "Claro. ¿Tiene el tique?"
+        ],
+        [
+         "M",
+         "Sí, aquí está."
+        ],
+        [
+         "F",
+         "Pues puede elegir otra talla u otra prenda del mismo precio."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Tarea 2",
+     "skill": "listening",
+     "kind": "monólogo",
+     "inst": "Va a escuchar a Beatriz, una guía turística de Granada, que habla de su trabajo. La audición se repite dos veces. Seleccione la respuesta correcta (a, b o c).",
+     "itInst": "Senti Beatriz, una guida turistica di Granada, che parla del suo lavoro, due volte. Scegli la risposta giusta.",
+     "items": [
+      {
+       "q": "Beatriz empezó a trabajar como guía…",
+       "o": [
+        "después de un curso especial.",
+        "porque su familia tenía una agencia.",
+        "casi por casualidad."
+       ],
+       "a": 2,
+       "e": "Un'amica aveva bisogno d'aiuto un'estate e lei è rimasta.",
+       "script": [
+        [
+         "F",
+         "Me llamo Beatriz y soy guía turística en Granada desde hace quince años. Estudié Historia del Arte, pero empecé a trabajar como guía casi por casualidad: una amiga necesitaba ayuda un verano y me quedé."
+        ]
+       ]
+      },
+      {
+       "q": "¿Qué es lo que más le gusta de su trabajo?",
+       "o": [
+        "conocer a gente de todo el mundo",
+        "visitar la Alhambra cada día",
+        "hablar en público"
+       ],
+       "a": 0,
+       "e": "«Lo que más me gusta es conocer a gente de todo el mundo».",
+       "script": [
+        [
+         "F",
+         "Lo que más me gusta de mi trabajo es conocer a gente de todo el mundo. Cada día hablo en tres o cuatro idiomas: español, inglés, italiano y, a veces, francés."
+        ]
+       ]
+      },
+      {
+       "q": "Las entradas para la Alhambra…",
+       "o": [
+        "se compran en la puerta.",
+        "hay que comprarlas con mucha antelación.",
+        "son gratuitas para los grupos."
+       ],
+       "a": 1,
+       "e": "«a veces dos o tres meses antes».",
+       "script": [
+        [
+         "F",
+         "La Alhambra es, claro, el monumento que más visitamos. Hay que comprar las entradas con mucha antelación, a veces dos o tres meses antes, porque el número de visitantes cada día es limitado."
+        ]
+       ]
+      },
+      {
+       "q": "En verano, Beatriz…",
+       "o": [
+        "hace las visitas temprano o al atardecer.",
+        "no trabaja.",
+        "solo trabaja por la noche."
+       ],
+       "a": 0,
+       "e": "Alle otto del mattino o al tramonto, per il caldo.",
+       "script": [
+        [
+         "F",
+         "En verano hace muchísimo calor, así que organizo las visitas muy temprano, a las ocho de la mañana, o al atardecer."
+        ]
+       ]
+      },
+      {
+       "q": "¿Qué es lo más difícil para Beatriz?",
+       "o": [
+        "los idiomas",
+        "el calor",
+        "los grupos muy grandes"
+       ],
+       "a": 2,
+       "e": "Con cinquanta persone non tutti sentono.",
+       "script": [
+        [
+         "F",
+         "Lo más difícil son los grupos grandes, de cincuenta personas: es imposible que todos te oigan bien. Yo prefiero los grupos de diez o quince."
+        ]
+       ]
+      },
+      {
+       "q": "Beatriz aconseja a los turistas…",
+       "o": [
+        "visitar solo la Alhambra.",
+        "quedarse al menos tres días.",
+        "venir en invierno."
+       ],
+       "a": 1,
+       "e": "«quedaos al menos tres días».",
+       "script": [
+        [
+         "F",
+         "Mi consejo para los turistas: no vengáis solo a ver la Alhambra. Perdeos por el Albaicín, probad las tapas y quedaos al menos tres días."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Tarea 3",
+     "skill": "listening",
+     "kind": "noticias",
+     "inst": "Va a escuchar seis noticias de un programa de radio. Cada noticia se repite dos veces. Seleccione la respuesta correcta (a, b o c).",
+     "itInst": "Senti sei notizie di un programma radio, ognuna due volte. Scegli la risposta giusta.",
+     "items": [
+      {
+       "q": "¿Qué ha anunciado el Ayuntamiento de Valencia?",
+       "o": [
+        "Autobús gratis para los menores de 18 años.",
+        "Nuevas líneas de autobús.",
+        "Billetes de autobús más caros."
+       ],
+       "a": 0,
+       "e": "«será gratuito para los menores de dieciocho años».",
+       "script": [
+        [
+         "M",
+         "El Ayuntamiento de Valencia ha anunciado que, a partir de enero, el autobús será gratuito para los menores de dieciocho años."
+        ]
+       ]
+      },
+      {
+       "q": "Según el estudio…",
+       "o": [
+        "los españoles leen menos que antes.",
+        "solo los jóvenes leen.",
+        "los españoles leen más que hace diez años."
+       ],
+       "a": 2,
+       "e": "Cinque punti in più rispetto a dieci anni fa.",
+       "script": [
+        [
+         "F",
+         "Un estudio de la Universidad de Salamanca dice que los españoles leen cada vez más: el sesenta y cinco por ciento lee al menos un libro al año, cinco puntos más que hace diez años."
+        ]
+       ]
+      },
+      {
+       "q": "La feria del libro antiguo de Bilbao…",
+       "o": [
+        "cuesta cuarenta euros.",
+        "es gratuita.",
+        "es solo para libreros."
+       ],
+       "a": 1,
+       "e": "«La entrada es libre».",
+       "script": [
+        [
+         "M",
+         "Este fin de semana se celebra en Bilbao la feria del libro antiguo. Más de cuarenta librerías venden ejemplares raros. La entrada es libre."
+        ]
+       ]
+      },
+      {
+       "q": "¿Qué se recomienda?",
+       "o": [
+        "No viajar si no es necesario.",
+        "Viajar en tren.",
+        "Salir muy temprano."
+       ],
+       "a": 0,
+       "e": "«Se recomienda no viajar si no es necesario».",
+       "script": [
+        [
+         "F",
+         "Las lluvias de los últimos días han obligado a cerrar varias carreteras en el norte de Navarra. Se recomienda no viajar si no es necesario."
+        ]
+       ]
+      },
+      {
+       "q": "La selección española de baloncesto…",
+       "o": [
+        "perdió contra Francia.",
+        "ya ha ganado el campeonato.",
+        "jugará la final el domingo."
+       ],
+       "a": 2,
+       "e": "Ha vinto la semifinale e giocherà la finale.",
+       "script": [
+        [
+         "M",
+         "La selección española de baloncesto ganó ayer a Francia por ochenta y cinco a setenta y nueve y jugará la final el domingo."
+        ]
+       ]
+      },
+      {
+       "q": "El público podrá ver al pequeño panda…",
+       "o": [
+        "en primavera.",
+        "desde hoy.",
+        "solo los fines de semana."
+       ],
+       "a": 0,
+       "e": "«a partir de la primavera».",
+       "script": [
+        [
+         "F",
+         "Ha nacido en el zoo de Madrid un pequeño oso panda. La madre y el bebé están bien, y el público podrá verlos a partir de la primavera."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Tarea 4",
+     "skill": "listening",
+     "kind": "opiniones",
+     "opts": "ABCDEFGHI",
+     "inst": "Va a escuchar a seis personas que hablan del teletrabajo. Cada audición se repite dos veces. Relacione a cada persona con un enunciado (A-I). Hay nueve enunciados: seleccione solo seis.",
+     "itInst": "Senti sei persone che parlano del lavoro da casa, due volte. Collega ogni persona a una frase (A-I): ne servono sei su nove.",
+     "items": [
+      {
+       "q": "Persona 1",
+       "o": [
+        "Trabaja mejor en casa porque no hay ruido.",
+        "Echa de menos a sus compañeros.",
+        "Ahorra mucho tiempo en transporte.",
+        "Trabaja más horas que antes.",
+        "No puede trabajar en casa por su profesión.",
+        "Prefiere combinar casa y oficina.",
+        "Tiene problemas con los niños en casa.",
+        "Ha cambiado de ciudad gracias al teletrabajo.",
+        "Su empresa no le permite trabajar en casa."
+       ],
+       "a": 2,
+       "e": "Risparmia tre ore di viaggio al giorno.",
+       "script": [
+        [
+         "M",
+         "Antes tardaba una hora y media en llegar a la oficina, y otra hora y media en volver. Ahora esas tres horas son para mí: hago deporte y ceno con calma."
+        ]
+       ]
+      },
+      {
+       "q": "Persona 2",
+       "o": [
+        "Trabaja mejor en casa porque no hay ruido.",
+        "Echa de menos a sus compañeros.",
+        "Ahorra mucho tiempo en transporte.",
+        "Trabaja más horas que antes.",
+        "No puede trabajar en casa por su profesión.",
+        "Prefiere combinar casa y oficina.",
+        "Tiene problemas con los niños en casa.",
+        "Ha cambiado de ciudad gracias al teletrabajo.",
+        "Su empresa no le permite trabajar en casa."
+       ],
+       "a": 4,
+       "e": "Un'infermiera deve stare in ospedale.",
+       "script": [
+        [
+         "F",
+         "Soy enfermera. Mi trabajo es con los pacientes, en el hospital. Eso no se puede hacer desde el sofá."
+        ]
+       ]
+      },
+      {
+       "q": "Persona 3",
+       "o": [
+        "Trabaja mejor en casa porque no hay ruido.",
+        "Echa de menos a sus compañeros.",
+        "Ahorra mucho tiempo en transporte.",
+        "Trabaja más horas que antes.",
+        "No puede trabajar en casa por su profesión.",
+        "Prefiere combinar casa y oficina.",
+        "Tiene problemas con los niños en casa.",
+        "Ha cambiado de ciudad gracias al teletrabajo.",
+        "Su empresa no le permite trabajar en casa."
+       ],
+       "a": 1,
+       "e": "«Me faltan los cafés con los compañeros».",
+       "script": [
+        [
+         "M",
+         "Al principio me encantaba, pero ahora me siento un poco solo. Me faltan los cafés con los compañeros y las bromas de la oficina."
+        ]
+       ]
+      },
+      {
+       "q": "Persona 4",
+       "o": [
+        "Trabaja mejor en casa porque no hay ruido.",
+        "Echa de menos a sus compañeros.",
+        "Ahorra mucho tiempo en transporte.",
+        "Trabaja más horas que antes.",
+        "No puede trabajar en casa por su profesión.",
+        "Prefiere combinar casa y oficina.",
+        "Tiene problemas con los niños en casa.",
+        "Ha cambiado de ciudad gracias al teletrabajo.",
+        "Su empresa no le permite trabajar en casa."
+       ],
+       "a": 7,
+       "e": "Si è trasferita da Madrid alle Asturie.",
+       "script": [
+        [
+         "F",
+         "Con el teletrabajo nos fuimos de Madrid a un pueblo de Asturias. Ahora vivo cerca del mar y tengo una casa con jardín."
+        ]
+       ]
+      },
+      {
+       "q": "Persona 5",
+       "o": [
+        "Trabaja mejor en casa porque no hay ruido.",
+        "Echa de menos a sus compañeros.",
+        "Ahorra mucho tiempo en transporte.",
+        "Trabaja más horas que antes.",
+        "No puede trabajar en casa por su profesión.",
+        "Prefiere combinar casa y oficina.",
+        "Tiene problemas con los niños en casa.",
+        "Ha cambiado de ciudad gracias al teletrabajo.",
+        "Su empresa no le permite trabajar en casa."
+       ],
+       "a": 5,
+       "e": "Due giorni a casa e tre in ufficio.",
+       "script": [
+        [
+         "M",
+         "Lo ideal para mí son dos días en casa y tres en la oficina. Así tengo tranquilidad para concentrarme y también veo a mi equipo."
+        ]
+       ]
+      },
+      {
+       "q": "Persona 6",
+       "o": [
+        "Trabaja mejor en casa porque no hay ruido.",
+        "Echa de menos a sus compañeros.",
+        "Ahorra mucho tiempo en transporte.",
+        "Trabaja más horas que antes.",
+        "No puede trabajar en casa por su profesión.",
+        "Prefiere combinar casa y oficina.",
+        "Tiene problemas con los niños en casa.",
+        "Ha cambiado de ciudad gracias al teletrabajo.",
+        "Su empresa no le permite trabajar en casa."
+       ],
+       "a": 3,
+       "e": "Lavora fino alle dieci di sera.",
+       "script": [
+        [
+         "F",
+         "El problema es que nunca termino: como el ordenador está siempre en casa, sigo contestando correos hasta las diez de la noche."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Tarea 5",
+     "skill": "listening",
+     "kind": "conversación",
+     "opts": "ABC",
+     "inst": "Va a escuchar una conversación entre dos amigos, Elena y Nacho. La conversación se repite dos veces. Indique si los enunciados se refieren a Elena (A), a Nacho (B) o a ninguno de los dos (C).",
+     "itInst": "Senti una conversazione tra due amici, Elena e Nacho, due volte. Ogni frase si riferisce a Elena (A), a Nacho (B) o a nessuno dei due (C)?",
+     "items": [
+      {
+       "q": "Se ha cambiado de casa hace poco.",
+       "o": [
+        "Elena",
+        "Nacho",
+        "ninguno de los dos"
+       ],
+       "a": 1,
+       "e": "Nacho ha appena traslocato.",
+       "script": [
+        [
+         "F",
+         "Nacho, ¿qué tal la mudanza?"
+        ],
+        [
+         "M",
+         "Agotadora. Llevamos dos semanas con cajas por todas partes. Pero el piso nuevo es mucho más luminoso."
+        ]
+       ]
+      },
+      {
+       "q": "No quiere volver a mudarse.",
+       "o": [
+        "Elena",
+        "Nacho",
+        "ninguno de los dos"
+       ],
+       "a": 0,
+       "e": "Elena: «juré no hacerlo nunca más».",
+       "script": [
+        [
+         "F",
+         "Yo me mudé el año pasado y juré no hacerlo nunca más."
+        ]
+       ]
+      },
+      {
+       "q": "Vive en un edificio sin ascensor.",
+       "o": [
+        "Elena",
+        "Nacho",
+        "ninguno de los dos"
+       ],
+       "a": 0,
+       "e": "Elena: «Mi edificio no tiene ascensor».",
+       "script": [
+        [
+         "M",
+         "Lo peor fue subir el sofá: no cabía en el ascensor y vivimos en un sexto."
+        ],
+        [
+         "F",
+         "¡Qué horror! Mi edificio no tiene ascensor, pero por suerte vivo en un primero."
+        ]
+       ]
+      },
+      {
+       "q": "Organiza una fiesta.",
+       "o": [
+        "Elena",
+        "Nacho",
+        "ninguno de los dos"
+       ],
+       "a": 1,
+       "e": "Nacho invita alla festa per la casa nuova.",
+       "script": [
+        [
+         "M",
+         "Por cierto, el sábado hacemos una fiesta para estrenar la casa. ¿Vienes?"
+        ],
+        [
+         "F",
+         "Claro. ¿Llevo algo?"
+        ],
+        [
+         "M",
+         "No, nada, ya lo tenemos todo."
+        ]
+       ]
+      },
+      {
+       "q": "Ha hablado con Marga.",
+       "o": [
+        "Elena",
+        "Nacho",
+        "ninguno de los dos"
+       ],
+       "a": 2,
+       "e": "Nacho l'ha chiamata, ma lei non ha risposto.",
+       "script": [
+        [
+         "F",
+         "¿Va a ir Marga?"
+        ],
+        [
+         "M",
+         "No lo sé. La llamé ayer, pero no me contestó."
+        ]
+       ]
+      },
+      {
+       "q": "Está aprendiendo a hacer dulces.",
+       "o": [
+        "Elena",
+        "Nacho",
+        "ninguno de los dos"
+       ],
+       "a": 0,
+       "e": "Elena fa un corso di pasticceria.",
+       "script": [
+        [
+         "F",
+         "Bueno, yo llevaré un postre: estoy haciendo un curso de repostería."
+        ],
+        [
+         "M",
+         "¡Genial!"
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Expresión escrita · Tarea 1",
+   "time": "25 min",
+   "task": "Ha recibido un correo de su amigo Diego, que quiere hacer un curso de italiano de un mes en Italia y le pide consejo. Escríbale un correo para: saludarlo; recomendarle una ciudad y explicar por qué; aconsejarle dónde vivir; darle algún consejo práctico; despedirse. Número de palabras: entre 100 y 120.",
+   "tr": "Il tuo amico Diego vuole fare un corso d'italiano di un mese in Italia e ti chiede consiglio. Rispondigli: salutalo, consigliagli una città e spiega perché, dove vivere, un consiglio pratico, saluta. Da 100 a 120 parole.",
+   "model": "¡Hola, Diego! ¡Qué buena idea lo del curso! Yo te recomiendo Bolonia: no es tan turística como Florencia o Roma, la vida es más barata y está llena de estudiantes, así que te será fácil conocer gente. Además, se come de maravilla. Para vivir, lo mejor es alquilar una habitación en un piso compartido con estudiantes italianos: así practicarás todos los días. Las escuelas también ofrecen familias, pero son más caras. Un consejo: no pidas un «cappuccino» después de comer, ¡los camareros se ríen! Y si tienes tiempo, visita Rávena, que está muy cerca. Escríbeme cuando sepas las fechas y te paso los contactos de mis amigos de allí. Un abrazo, Marco"
+  },
+  {
+   "kind": "Expresión escrita · Tarea 2",
+   "time": "35 min",
+   "task": "Elija una de las dos opciones. Opción 1: Escriba un texto para un blog sobre una persona que ha sido importante en su vida: quién es, cómo la conoció, cómo es y por qué es importante para usted. Opción 2: Lea esta noticia: «Cada vez más españoles trabajan desde casa». Escriba un comentario: ¿qué ventajas e inconvenientes tiene el teletrabajo? ¿Le gustaría trabajar así? Número de palabras: entre 130 y 150.",
+   "tr": "Scegli una delle due opzioni. 1: un testo per un blog su una persona importante nella tua vita. 2: un commento alla notizia «Sempre più spagnoli lavorano da casa»: vantaggi, svantaggi e la tua opinione. Da 130 a 150 parole.",
+   "model": "La persona más importante de mi vida, aparte de mis padres, es mi abuela Rina. Cuando yo era pequeño, mis padres trabajaban todo el día, así que pasaba las tardes en su casa. Ella me enseñó a cocinar, a jugar a las cartas y, sobre todo, a escuchar a los demás. Mi abuela nació en un pueblo de las montañas y no pudo estudiar, porque a los doce años empezó a trabajar en el campo. Sin embargo, es la persona más curiosa que conozco: a los setenta años aprendió a usar el ordenador para hablar conmigo cuando me fui a estudiar a Madrid. Ahora tiene noventa años y todavía me llama cada domingo para preguntarme si como bien. Creo que de ella he aprendido que nunca es tarde para aprender algo nuevo."
+  },
+  {
+   "kind": "Expresión oral · Tarea 1",
+   "time": "2-3 min",
+   "task": "Presentación de un tema: hable de un viaje que le gustaría hacer. Adónde le gustaría ir y por qué, con quién, cuándo, qué le gustaría hacer allí y qué necesita para hacerlo.",
+   "tr": "Presentazione: parla di un viaggio che ti piacerebbe fare: dove e perché, con chi, quando, che cosa faresti lì, che cosa ti serve per farlo.",
+   "model": "Me gustaría mucho hacer un viaje a México. Siempre me ha interesado su historia y su comida, y además tengo una amiga que vive en Oaxaca. Me gustaría ir con mi pareja durante un mes, en noviembre, para ver el Día de Muertos, que es una fiesta muy especial. Allí me gustaría visitar las ruinas mayas, aprender a cocinar algunos platos típicos y, por supuesto, practicar mi español. Para hacerlo necesito ahorrar bastante dinero, porque el billete de avión es caro, y pedir vacaciones largas en el trabajo, algo que no es fácil."
+  },
+  {
+   "kind": "Expresión oral · Tarea 2",
+   "time": "3-4 min",
+   "task": "Conversación con el examinador sobre el tema de la Tarea 1: ¿Cuál es el mejor viaje que ha hecho? ¿Prefiere viajar solo o acompañado? ¿Qué es lo más importante para usted cuando viaja?",
+   "tr": "Conversazione con l'esaminatore sul tema del compito 1: il viaggio più bello che hai fatto, se preferisci viaggiare da solo o in compagnia, che cosa è più importante per te quando viaggi.",
+   "model": "El mejor viaje que he hecho fue a Portugal, hace tres años. Fuimos en coche desde Lisboa hasta Oporto y paramos en pueblos pequeños de la costa. Prefiero viajar acompañado, porque me gusta compartir las experiencias, aunque a veces es difícil ponerse de acuerdo. Para mí lo más importante es conocer a la gente del lugar y probar la comida típica: no me interesan mucho los hoteles de lujo."
+  },
+  {
+   "kind": "Expresión oral · Tarea 3",
+   "time": "2-3 min",
+   "task": "Describa la fotografía: varias personas esperan en el andén de una estación de tren; algunas miran el móvil, una pareja habla y un señor lee el periódico. ¿Dónde están? ¿Qué hacen? ¿Qué cree que ha pasado? ¿Adónde van?",
+   "tr": "Descrivi la fotografia: alcune persone aspettano sul binario di una stazione; alcune guardano il cellulare, una coppia parla e un signore legge il giornale. Dove sono, che cosa fanno, che cosa credi che sia successo, dove vanno?",
+   "model": "En la foto hay varias personas en el andén de una estación. Parece por la mañana, porque hay mucha luz y algunos llevan ropa de oficina. Creo que el tren llega con retraso, porque la gente parece cansada de esperar: dos chicos miran el móvil, una pareja joven habla y se ríe, y un señor mayor lee el periódico sentado en un banco. Quizás van a trabajar a otra ciudad, o la pareja se va de vacaciones, porque llevan una maleta grande."
+  },
+  {
+   "kind": "Expresión oral · Tarea 4",
+   "time": "2-3 min",
+   "task": "Situación simulada: usted ha comprado un billete de tren para el viernes, pero tiene que viajar el jueves. Hable con el empleado de la estación (el examinador): explique el problema, pregunte si puede cambiar el billete, cuánto cuesta y qué horarios hay.",
+   "tr": "Situazione simulata: hai comprato un biglietto del treno per venerdì ma devi partire giovedì. Parla con l'impiegato della stazione: spiega il problema, chiedi se puoi cambiare il biglietto, quanto costa e quali orari ci sono.",
+   "model": "Buenos días. Mire, tengo un billete para Valencia para el viernes a las diez, pero por un problema de trabajo tengo que viajar el jueves. ¿Sería posible cambiarlo? — ¿Hay que pagar algo por el cambio? — Vale. ¿Y qué trenes hay el jueves por la mañana? — Prefiero el de las nueve y media, si hay plazas. — Perfecto. ¿Me lo puede cambiar, por favor? ¿Puedo pagar con tarjeta? Muchas gracias por su ayuda."
+  }
+ ]
+}
