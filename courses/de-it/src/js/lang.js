@@ -23,7 +23,8 @@ function formMeaning(k){var c,lo=k.toLowerCase();
   var END=[["sten","superlativo"],["ste","superlativo"],["er","forma"],["es","forma"],["en","forma"],["em","forma"],["e","forma"]];
   for(var j=0;j<END.length;j++){var e=END[j][0];if(lo.length>e.length+2&&lo.slice(-e.length)===e){var b=lo.slice(0,-e.length);
     if(e==="er"||e==="sten"||e==="ste"){var u=b.replace(/ä(?=[^aeiouäöü]*$)/,"a").replace(/ö(?=[^aeiouäöü]*$)/,"o").replace(/ü(?=[^aeiouäöü]*$)/,"u");
-      if((c=f(b,e==="er"?"comparativo":"superlativo"))||(c=f(u,e==="er"?"comparativo":"superlativo")))return c}
+      if(e==="er"){if(u!==b&&(c=f(u,"comparativo")))return c;if((c=f(b,"forma declinata o comparativo")))return c}
+      else if((c=f(b,"superlativo"))||(c=f(u,"superlativo")))return c}
     if((c=f(b,"forma declinata")))return c}}
   if(/s$/.test(k)&&k.length>3&&(c=f(k.slice(0,-1),"genitivo")))return c;
   return ""}
@@ -146,7 +147,8 @@ function cjForms(v,t){if(t==="pr")return prForms(v);if(t==="pt")return ptForms(v
 function cjSay(v,t,i,f){var p=f.p,r=v.k==="pro"?RF[i]:"";if(!r)return PS[i]+" "+p;var w=p.split(" ");w.splice(1,0,r);return PS[i]+" "+w.join(" ")}
 var CONJ_IDX={};
 VERBS.forEach(function(v){var z=v.z;
-  ["pr","pt","k2"].forEach(function(t){cjForms(v,t).forEach(function(f,i){var k=f.p.split(" ")[0].toLowerCase();if(f.p.indexOf(" ")>0&&!v.sep)return;if(!CONJ_IDX[k])CONJ_IDX[k]=z+" ("+v.i+") · "+PZ[i]+" · "+TN[t]})});
+  ["pr","pt","k2"].forEach(function(t){cjForms(v,t).forEach(function(f,i){var k=f.p.split(" ")[0].toLowerCase();if(f.p.indexOf(" ")>0&&!v.sep)return;var pre=z+" ("+v.i+") · ",suf=" · "+TN[t],cur=CONJ_IDX[k];if(!cur)CONJ_IDX[k]=pre+PZ[i]+suf;
+    else if(cur.indexOf(pre)===0&&cur.slice(-suf.length)===suf&&cur.indexOf(PZ[i])<0)CONJ_IDX[k]=cur.slice(0,-suf.length)+", "+PZ[i]+suf})});
   var inf=v.i.replace(/^sich /,"");if(!DICT[inf]&&!CONJ_IDX[inf])CONJ_IDX[inf]=z+" (infinito)";
   if(!CONJ_IDX[ppOf(v)])CONJ_IDX[ppOf(v)]="participio di «"+v.i+"» ("+z+")"});
 /* plurals given in the word lists (gender field «m:Tische») */
