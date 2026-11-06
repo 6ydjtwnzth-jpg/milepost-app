@@ -1,0 +1,13 @@
+  <p>Le flashcard contengono solo le parole delle lezioni che hai già fatto (puoi cambiare l'intervallo qui sotto). Ogni parola torna quando stai per dimenticarla: se rispondi giusto torna sempre più tardi; se sbagli torna presto. L'obiettivo: tutte nella scatola 5.</p>
+  <p><b>Ascolta</b>: la carta è vuota, senti solo la voce e dici il significato. <b>Parla</b>: vedi l'italiano e dici la parola in spagnolo con l'articolo. <b>Leggi</b>: vedi lo spagnolo e dici il significato.</p>
+  <div class="seg" role="group" aria-label="Modalità delle flashcard">
+    <button class="btn" data-fcm="ear" aria-pressed="true">Ascolta</button>
+    <button class="btn" data-fcm="say" aria-pressed="false">Parla</button>
+    <button class="btn" data-fcm="read" aria-pressed="false">Leggi</button>
+  </div>
+  <div class="fc-range"><label for="fcrange">Parole</label><select id="fcrange"></select></div>
+  <div class="fc">
+    <div class="fc-card" id="fccard"></div>
+    <div class="boxes" id="fcboxes"></div>
+    <div class="confirm" id="fcreset"></div>
+  </div>

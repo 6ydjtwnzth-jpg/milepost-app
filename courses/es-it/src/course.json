@@ -1,0 +1,42 @@
+{
+  "parts": [
+    {"title": "Parte prima · Primi passi", "level": "A1.1", "j": "Primeros pasos", "items": [
+      {"id": "l1", "t": "Suoni, lettere e saluti", "j": "¡Hola!", "icon": "i-abc"},
+      {"id": "l2", "t": "Mi chiamo…: ser e nazionalità", "j": "Me llamo…", "icon": "i-tag"},
+      {"id": "l3", "t": "Tú o usted? Età e numeri", "j": "¿Tú o usted?", "icon": "i-wave"},
+      {"id": "l4", "t": "Cose e persone: articoli e hay", "j": "Las cosas", "icon": "i-book"},
+      {"id": "l5", "t": "La mia famiglia: tener e possessivi", "j": "Mi familia", "icon": "i-family"},
+      {"id": "l6", "t": "Come stai? Estar, ore e numeri", "j": "¿Qué tal?", "icon": "i-sun"},
+      {"id": "l7", "t": "Che lavoro fai? Il presente regolare", "j": "¿A qué te dedicas?", "icon": "i-chat"},
+      {"id": "l8", "t": "Al bar: ¿me pone…? e i prezzi", "j": "En el bar", "icon": "i-cup"},
+      {"id": "r1", "t": "Ripasso 1", "j": "Repaso 1", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte seconda · La vita di tutti i giorni", "level": "A1.2", "j": "La vida diaria", "items": [
+      {"id": "l9", "t": "Fare domande: le parole interrogative e i verbi irregolari", "j": "Hacer preguntas", "icon": "i-q"},
+      {"id": "l10", "t": "La mia giornata: verbi riflessivi e dittonghi", "j": "Mi día", "icon": "i-clock"},
+      {"id": "l11", "t": "Il tempo libero: gustar", "j": "El tiempo libre", "icon": "i-ball"},
+      {"id": "l12", "t": "In città: hay, está e indicazioni", "j": "En la ciudad", "icon": "i-pin"},
+      {"id": "l13", "t": "Vuoi venire? Querer, poder, tener que", "j": "¿Quieres venir?", "icon": "i-phone"},
+      {"id": "l14", "t": "Al mercato e al ristorante: lo, la, los, las", "j": "En el mercado", "icon": "i-fork"},
+      {"id": "r2", "t": "Ripasso 2", "j": "Repaso 2", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte terza · Raccontare", "level": "A2", "j": "Contar", "items": [
+      {"id": "l15", "t": "Il fine settimana: il pretérito perfecto", "j": "El fin de semana", "icon": "i-ticket"},
+      {"id": "l16", "t": "In viaggio: il pretérito indefinido", "j": "De viaje", "icon": "i-suitcase"},
+      {"id": "l17", "t": "Quando ero piccola: l'imperfecto", "j": "Cuando era pequeña", "icon": "i-kite"},
+      {"id": "l18", "t": "Raccontare una storia: i due passati", "j": "Contar una historia", "icon": "i-scroll"},
+      {"id": "l19", "t": "Gusti e confronti: más que, mejor, le e les", "j": "Gustos y comparaciones", "icon": "i-heart"},
+      {"id": "l20", "t": "Fare acquisti: este, ese e i pronomi", "j": "De compras", "icon": "i-bag"},
+      {"id": "l21", "t": "Progetti: il futuro e si", "j": "Planes", "icon": "i-umbrella"},
+      {"id": "l22", "t": "Salute e servizi: il condizionale e me duele", "j": "Salud y servicios", "icon": "i-cross"},
+      {"id": "l23", "t": "Giulia a Madrid: racconta la tua storia", "j": "Giulia en Madrid", "icon": "i-arch"},
+      {"id": "r3", "t": "Ripasso 3 e test A2", "j": "Repaso 3 y prueba A2", "icon": "i-star", "kind": "review"}
+    ]},
+    {"title": "Appendici", "j": "Apéndices", "items": [
+      {"id": "frasi", "t": "Frasario", "j": "Frases útiles", "icon": "i-lemon", "kind": "app", "letter": "A"},
+      {"id": "flash", "t": "Flashcard: ripasso a intervalli", "j": "Tarjetas", "icon": "i-cards", "kind": "app", "letter": "B"},
+      {"id": "vocab", "t": "Vocabolario", "j": "Vocabulario", "icon": "i-book", "kind": "app", "letter": "C"},
+      {"id": "verbi", "t": "Coniugare i verbi", "j": "Conjugar", "icon": "i-verb", "kind": "app", "letter": "D"}
+    ]}
+  ]
+}
