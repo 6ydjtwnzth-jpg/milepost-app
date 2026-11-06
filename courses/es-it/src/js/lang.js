@@ -6,7 +6,7 @@ var LANG={code:"es",name:"spagnolo",Name:"Spagnolo",tts:"es-ES",ttsBest:/^es[-_]
   acc:["á","é","í","ó","ú","ñ","ü","¿","¡"],nearMsg:"Attenzione agli accenti.",caseMatters:false,genders:true,dlg:"Diálogo",hello:"¡Hola!",
   groups:["irr","ar","er","ir","pro"],streak:"días seguidos",cmp:["Spagna","España"],
   stepn:{rec:["Parole di prima","Palabras de antes","i-loop"],dlg:["Dialogo","Diálogo","i-ear"],voc:["Parole","Vocabulario","i-cards"],rule:["Grammatica","Gramática","i-bulb"],rev:["Ripasso","Repaso","i-loop"],snd:["Pronuncia","Pronunciación","i-wave"],cult:["Cultura","Cultura","i-moka"],test:["Verifica","Prueba","i-check"]},
-  cjNote:function(v,t){if(t==="pf")return " Ausiliare: haber (sempre); participio: "+ppOf(v)+".";if(t==="pr"&&v.st)return " Cambia la vocale della radice ("+v.st+") con yo, tú, él ed ellos; nosotros e vosotros restano regolari.";if(t==="ge")return " Gerundio: "+gerOf(v)+".";return ""}};
+  cjNote:function(v,t){if(t==="pf")return " Ausiliare: haber (sempre); participio: "+ppOf(v)+".";if(t==="pr"&&v.st)return " Cambia la vocale della radice ("+v.st+") con yo, tú, él ed ellos; nosotros e vosotros restano regolari.";if(t==="ge"&&v.nog)return " Con «"+v.i+"» estar + gerundio non si usa (o quasi mai): si dice "+prForms(v)[0].p+", non estoy "+gerOf(v)+".";if(t==="ge")return " Gerundio: "+gerOf(v)+".";return ""}};
 
 /* ---------- meanings of tapped words ---------- */
 function norm(w){return w.toLowerCase().replace(/[’]/g,"'")}
@@ -33,7 +33,8 @@ function formMeaning(k){var c,m;
   return ""}
 
 /* ---------- verbs ----------
-   g: ar / er / ir; st: stem change in the present (e>ie, o>ue, u>ue, e>i); pr/in/fu: irregular forms or stems. */
+   g: ar / er / ir; st: stem change in the present (e>ie, o>ue, u>ue, e>i); pr/in/fu: irregular forms or stems;
+   nog: no estar + gerundio (estar, saber, querer…: «estoy sabiendo» is not Spanish). */
 var PZ=["yo","tú","él / ella / usted","nosotros / nosotras","vosotros / vosotras","ellos / ellas / ustedes"],PS=["yo","tú","él","nosotros","vosotros","ellos"],RF=["me","te","se","nos","os","se"];
 var PIT=["io","tu","lui / lei / Lei","noi","voi","loro / Loro"];
 var GRP={irr:"I verbi irregolari più usati",ar:"Verbi in -ar",er:"Verbi in -er",ir:"Verbi in -ir",pro:"Verbi riflessivi"};
@@ -50,16 +51,16 @@ var END={pr:{ar:["o","as","a","amos","áis","an"],er:["o","es","e","emos","éis"
   im:{ar:["aba","abas","aba","ábamos","abais","aban"],er:["ía","ías","ía","íamos","íais","ían"],ir:["ía","ías","ía","íamos","íais","ían"]}};
 var FUT=["é","ás","á","emos","éis","án"],CON=["ía","ías","ía","íamos","íais","ían"],HAB=["he","has","ha","hemos","habéis","han"],EST=["estoy","estás","está","estamos","estáis","están"];
 var VERBS=[
- {i:"ser",z:"essere",g:"er",k:"irr",pr:["soy","eres","es","somos","sois","son"],in:["fui","fuiste","fue","fuimos","fuisteis","fueron"],im:["era","eras","era","éramos","erais","eran"],pp:"sido",ger:"siendo"},
- {i:"estar",z:"essere, stare (stati, luoghi)",g:"ar",k:"irr",pr:["estoy","estás","está","estamos","estáis","están"],in:["estuve","estuviste","estuvo","estuvimos","estuvisteis","estuvieron"]},
+ {i:"ser",nog:1,z:"essere",g:"er",k:"irr",pr:["soy","eres","es","somos","sois","son"],in:["fui","fuiste","fue","fuimos","fuisteis","fueron"],im:["era","eras","era","éramos","erais","eran"],pp:"sido",ger:"siendo"},
+ {i:"estar",nog:1,z:"essere, stare (stati, luoghi)",g:"ar",k:"irr",pr:["estoy","estás","está","estamos","estáis","están"],in:["estuve","estuviste","estuvo","estuvimos","estuvisteis","estuvieron"]},
  {i:"ir",z:"andare",g:"ir",k:"irr",pr:["voy","vas","va","vamos","vais","van"],in:["fui","fuiste","fue","fuimos","fuisteis","fueron"],im:["iba","ibas","iba","íbamos","ibais","iban"],ger:"yendo"},
  {i:"tener",z:"avere",g:"er",k:"irr",pr:["tengo","tienes","tiene","tenemos","tenéis","tienen"],in:["tuve","tuviste","tuvo","tuvimos","tuvisteis","tuvieron"],fu:"tendr"},
  {i:"hacer",z:"fare",g:"er",k:"irr",pr:["hago","haces","hace","hacemos","hacéis","hacen"],in:["hice","hiciste","hizo","hicimos","hicisteis","hicieron"],fu:"har",pp:"hecho"},
- {i:"poder",z:"potere",g:"er",k:"irr",st:"o → ue",pr:["puedo","puedes","puede","podemos","podéis","pueden"],in:["pude","pudiste","pudo","pudimos","pudisteis","pudieron"],fu:"podr",ger:"pudiendo"},
- {i:"querer",z:"volere; voler bene",g:"er",k:"irr",st:"e → ie",pr:["quiero","quieres","quiere","queremos","queréis","quieren"],in:["quise","quisiste","quiso","quisimos","quisisteis","quisieron"],fu:"querr"},
+ {i:"poder",nog:1,z:"potere",g:"er",k:"irr",st:"o → ue",pr:["puedo","puedes","puede","podemos","podéis","pueden"],in:["pude","pudiste","pudo","pudimos","pudisteis","pudieron"],fu:"podr",ger:"pudiendo"},
+ {i:"querer",nog:1,z:"volere; voler bene",g:"er",k:"irr",st:"e → ie",pr:["quiero","quieres","quiere","queremos","queréis","quieren"],in:["quise","quisiste","quiso","quisimos","quisisteis","quisieron"],fu:"querr"},
  {i:"decir",z:"dire",g:"ir",k:"irr",pr:["digo","dices","dice","decimos","decís","dicen"],in:["dije","dijiste","dijo","dijimos","dijisteis","dijeron"],fu:"dir",pp:"dicho",ger:"diciendo"},
  {i:"venir",z:"venire",g:"ir",k:"irr",pr:["vengo","vienes","viene","venimos","venís","vienen"],in:["vine","viniste","vino","vinimos","vinisteis","vinieron"],fu:"vendr",ger:"viniendo"},
- {i:"saber",z:"sapere",g:"er",k:"irr",pr:["sé","sabes","sabe","sabemos","sabéis","saben"],in:["supe","supiste","supo","supimos","supisteis","supieron"],fu:"sabr"},
+ {i:"saber",nog:1,z:"sapere",g:"er",k:"irr",pr:["sé","sabes","sabe","sabemos","sabéis","saben"],in:["supe","supiste","supo","supimos","supisteis","supieron"],fu:"sabr"},
  {i:"poner",z:"mettere",g:"er",k:"irr",pr:["pongo","pones","pone","ponemos","ponéis","ponen"],in:["puse","pusiste","puso","pusimos","pusisteis","pusieron"],fu:"pondr",pp:"puesto"},
  {i:"salir",z:"uscire, partire",g:"ir",k:"irr",pr:["salgo","sales","sale","salimos","salís","salen"],fu:"saldr"},
  {i:"ver",z:"vedere",g:"er",k:"irr",pr:["veo","ves","ve","vemos","veis","ven"],in:["vi","viste","vio","vimos","visteis","vieron"],im:["veía","veías","veía","veíamos","veíais","veían"],pp:"visto"},
@@ -73,7 +74,7 @@ var VERBS=[
  {i:"jugar",z:"giocare",g:"ar",st:"u → ue",in1:"jugué"},
  {i:"empezar",z:"cominciare",g:"ar",st:"e → ie",in1:"empecé"},
  {i:"volver",z:"tornare",g:"er",st:"o → ue",pp:"vuelto"},
- {i:"preferir",z:"preferire",g:"ir",st:"e → ie",in3:"prefir",ger:"prefiriendo"},
+ {i:"preferir",nog:1,z:"preferire",g:"ir",st:"e → ie",in3:"prefir",ger:"prefiriendo"},
  {i:"pensar",z:"pensare",g:"ar",st:"e → ie"},
  {i:"entender",z:"capire",g:"er",st:"e → ie"},
  {i:"cerrar",z:"chiudere",g:"ar",st:"e → ie"},
@@ -83,7 +84,7 @@ var VERBS=[
  {i:"mirar",z:"guardare",g:"ar"},{i:"tomar",z:"prendere (cibo, bevande, mezzi)",g:"ar"},{i:"cenar",z:"cenare",g:"ar"},{i:"desayunar",z:"fare colazione",g:"ar"},{i:"viajar",z:"viaggiare",g:"ar"},
  {i:"visitar",z:"visitare",g:"ar"},{i:"cocinar",z:"cucinare",g:"ar"},{i:"bailar",z:"ballare",g:"ar"},{i:"cantar",z:"cantare",g:"ar"},{i:"nadar",z:"nuotare",g:"ar"},
  {i:"llegar",z:"arrivare",g:"ar",in1:"llegué"},{i:"pagar",z:"pagare",g:"ar",in1:"pagué"},{i:"buscar",z:"cercare",g:"ar",in1:"busqué"},{i:"tocar",z:"suonare (uno strumento); toccare",g:"ar",in1:"toqué"},
- {i:"llevar",z:"portare (via); indossare",g:"ar"},{i:"necesitar",z:"avere bisogno di",g:"ar"},{i:"ayudar",z:"aiutare",g:"ar"},{i:"terminar",z:"finire",g:"ar"},{i:"preguntar",z:"domandare",g:"ar"},
+ {i:"llevar",z:"portare (via); indossare",g:"ar"},{i:"necesitar",nog:1,z:"avere bisogno di",g:"ar"},{i:"ayudar",z:"aiutare",g:"ar"},{i:"terminar",z:"finire",g:"ar"},{i:"preguntar",z:"domandare",g:"ar"},
  {i:"contestar",z:"rispondere",g:"ar"},{i:"esperar",z:"aspettare; sperare",g:"ar"},{i:"llamar",z:"chiamare, telefonare",g:"ar"},{i:"alquilar",z:"affittare, noleggiare",g:"ar"},{i:"quedar",z:"vedersi, darsi appuntamento; restare",g:"ar"},
  {i:"comer",z:"mangiare",g:"er"},{i:"beber",z:"bere",g:"er"},{i:"aprender",z:"imparare",g:"er"},{i:"comprender",z:"capire",g:"er"},{i:"correr",z:"correre",g:"er"},{i:"vender",z:"vendere",g:"er"},
  {i:"vivir",z:"vivere, abitare",g:"ir"},{i:"escribir",z:"scrivere",g:"ir",pp:"escrito"},{i:"abrir",z:"aprire",g:"ir",pp:"abierto"},{i:"subir",z:"salire",g:"ir"},{i:"recibir",z:"ricevere",g:"ir"},{i:"decidir",z:"decidere",g:"ir"},
@@ -108,7 +109,7 @@ function fuForms(v,ends){var s=futStem(v);return (ends||FUT).map(function(x){ret
 function ppOf(v){return v.pp||vstem(v)+(v.g==="ar"?"ado":"ido")}
 function gerOf(v){return v.ger||vstem(v)+(v.g==="ar"?"ando":"iendo")}
 function cjForms(v,t){if(t==="pr")return prForms(v);if(t==="in")return inForms(v);if(t==="im")return imForms(v);if(t==="fu")return fuForms(v);if(t==="co")return fuForms(v,CON);
-  if(t==="ge"){var g=gerOf(v);return EST.map(function(a){return F('<span class="cj-aux">'+a+'</span> <b class="end">'+esc(g)+'</b>',a+" "+g)})}
+  if(t==="ge"){if(v.nog)return [];var g=gerOf(v);return EST.map(function(a){return F('<span class="cj-aux">'+a+'</span> <b class="end">'+esc(g)+'</b>',a+" "+g)})}
   var pp=ppOf(v);return HAB.map(function(a){return F('<span class="cj-aux">'+a+'</span> <b class="end">'+esc(pp)+'</b>',a+" "+pp)})}
 /* pronoun + form; reflexive verbs put me / te / se… in front: yo me levanto, yo me he levantado, yo me estoy levantando */
 function withPron(i,v,f){return PS[i]+" "+(v.k==="pro"?RF[i]+" ":"")+f}

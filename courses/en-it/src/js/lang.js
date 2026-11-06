@@ -6,7 +6,7 @@ var LANG={code:"en",name:"inglese",Name:"Inglese",tts:"en-GB",ttsBest:/^en[-_]gb
   acc:[],nearMsg:"Attenzione all'ortografia.",caseMatters:false,genders:false,dlg:"Dialogue",hello:"Hello!",
   groups:["irr","reg"],streak:"days in a row",cmp:["Regno Unito","United Kingdom"],
   stepn:{rec:["Parole di prima","Words from before","i-loop"],dlg:["Dialogo","Dialogue","i-ear"],voc:["Parole","Vocabulary","i-cards"],rule:["Grammatica","Grammar","i-bulb"],rev:["Ripasso","Review","i-loop"],snd:["Pronuncia","Pronunciation","i-wave"],cult:["Cultura","Culture","i-moka"],test:["Verifica","Check","i-check"]},
-  cjNote:function(v,t){if(t==="ps"||t==="pp"){return " Paradigma: "+v.i+" – "+psOf(v)+" – "+ppOf(v)+"."}if(t==="pr")return " Alla 3ª persona singolare si aggiunge -s: "+s3(v)+".";return ""}};
+  cjNote:function(v,t){if(t==="ps"||t==="pp"){return " Paradigma: "+v.i+" – "+psOf(v)+" – "+ppOf(v)+"."}if(t==="pr")return " Alla 3ª persona singolare si aggiunge -s: "+s3(v)+".";if(t==="pg"&&v.stv)return " «"+v.i+"» è un verbo di stato: di solito non si usa al present continuous. Si dice I "+(v.i==="be"?"am":v.i)+", non I am "+ingOf(v)+".";return ""}};
 
 /* ---------- meanings of tapped words ----------
    Exact form first (names, «I»), then lower case, then the verb forms of the conjugator. */
@@ -43,7 +43,7 @@ function formMeaning(k){var b;
 
 /* ---------- verbs ----------
    Regular verbs need only the infinitive; irregular ones give ps (past simple) and pp (past participle).
-   dbl: the final consonant doubles (stop → stopped, stopping). */
+   dbl: the final consonant doubles (stop → stopped, stopping); stv: stative verb, no present continuous (I know, not I am knowing). */
 var PZ=["I","you","he / she / it","we","you","they"],PS=["I","you","he","we","you","they"];
 var PIT=["io","tu","lui / lei","noi","voi","loro"];
 var GRP={irr:"Verbi irregolari",reg:"Verbi regolari"};
@@ -55,7 +55,7 @@ var TIP={pr:"Present simple: abitudini, fatti sempre veri, orari. Con he / she /
   fu:"Will: previsioni, decisioni prese sul momento, promesse. Per i progetti già decisi si usa going to.",
   co:"Would: desideri e richieste gentili (I would like = I'd like), ipotesi."};
 var VERBS=[
- {i:"be",z:"essere",k:"irr",pr:["am","are","is","are","are","are"],ps:"was",pp:"been"},
+ {i:"be",stv:1,z:"essere",k:"irr",pr:["am","are","is","are","are","are"],ps:"was",pp:"been"},
  {i:"have",z:"avere",k:"irr",s3:"has",ps:"had",pp:"had"},
  {i:"do",z:"fare",k:"irr",s3:"does",ps:"did",pp:"done"},
  {i:"go",z:"andare",k:"irr",s3:"goes",ps:"went",pp:"gone"},
@@ -66,7 +66,7 @@ var VERBS=[
  {i:"come",z:"venire",k:"irr",ps:"came",pp:"come"},
  {i:"take",z:"prendere",k:"irr",ps:"took",pp:"taken"},
  {i:"give",z:"dare",k:"irr",ps:"gave",pp:"given"},
- {i:"know",z:"sapere, conoscere",k:"irr",ps:"knew",pp:"known"},
+ {i:"know",stv:1,z:"sapere, conoscere",k:"irr",ps:"knew",pp:"known"},
  {i:"think",z:"pensare",k:"irr",ps:"thought",pp:"thought"},
  {i:"eat",z:"mangiare",k:"irr",ps:"ate",pp:"eaten"},
  {i:"drink",z:"bere",k:"irr",ps:"drank",pp:"drunk"},
@@ -99,10 +99,10 @@ var VERBS=[
  {i:"fall",z:"cadere",k:"irr",ps:"fell",pp:"fallen"},
  {i:"break",z:"rompere",k:"irr",ps:"broke",pp:"broken"},
  {i:"forget",z:"dimenticare",k:"irr",ps:"forgot",pp:"forgotten",dbl:1},
- {i:"understand",z:"capire",k:"irr",ps:"understood",pp:"understood"},
+ {i:"understand",stv:1,z:"capire",k:"irr",ps:"understood",pp:"understood"},
  {i:"teach",z:"insegnare",k:"irr",ps:"taught",pp:"taught"},
  {i:"sell",z:"vendere",k:"irr",ps:"sold",pp:"sold"},
- {i:"hear",z:"sentire, udire",k:"irr",ps:"heard",pp:"heard"},
+ {i:"hear",stv:1,z:"sentire, udire",k:"irr",ps:"heard",pp:"heard"},
  {i:"become",z:"diventare",k:"irr",ps:"became",pp:"become"},
  {i:"grow",z:"crescere, coltivare",k:"irr",ps:"grew",pp:"grown"},
  {i:"keep",z:"tenere, continuare a",k:"irr",ps:"kept",pp:"kept"},
@@ -111,15 +111,15 @@ var VERBS=[
  {i:"sing",z:"cantare",k:"irr",ps:"sang",pp:"sung"},
  {i:"cut",z:"tagliare",k:"irr",ps:"cut",pp:"cut",dbl:1},
  {i:"hurt",z:"fare male",k:"irr",ps:"hurt",pp:"hurt"},
- {i:"work",z:"lavorare; funzionare"},{i:"live",z:"vivere, abitare"},{i:"like",z:"piacere (I like = mi piace)"},{i:"love",z:"amare, adorare"},
+ {i:"work",z:"lavorare; funzionare"},{i:"live",z:"vivere, abitare"},{i:"like",stv:1,z:"piacere (I like = mi piace)"},{i:"love",stv:1,z:"amare, adorare"},
  {i:"play",z:"giocare; suonare"},{i:"watch",z:"guardare (la TV, una partita)"},{i:"listen",z:"ascoltare"},{i:"study",z:"studiare"},
- {i:"want",z:"volere"},{i:"need",z:"avere bisogno di"},{i:"help",z:"aiutare"},{i:"start",z:"cominciare"},{i:"finish",z:"finire"},
+ {i:"want",stv:1,z:"volere"},{i:"need",stv:1,z:"avere bisogno di"},{i:"help",z:"aiutare"},{i:"start",z:"cominciare"},{i:"finish",z:"finire"},
  {i:"open",z:"aprire"},{i:"close",z:"chiudere"},{i:"cook",z:"cucinare"},{i:"clean",z:"pulire"},{i:"wash",z:"lavare"},
  {i:"walk",z:"camminare, andare a piedi"},{i:"travel",z:"viaggiare",dblUK:1},{i:"visit",z:"visitare, andare a trovare"},{i:"stay",z:"stare, restare, alloggiare"},
  {i:"arrive",z:"arrivare"},{i:"call",z:"chiamare, telefonare"},{i:"ask",z:"chiedere, domandare"},{i:"answer",z:"rispondere"},
  {i:"try",z:"provare"},{i:"carry",z:"portare (in mano)"},{i:"stop",z:"fermare, smettere",dbl:1},{i:"plan",z:"programmare",dbl:1},
  {i:"look",z:"guardare; sembrare"},{i:"wait",z:"aspettare"},{i:"use",z:"usare"},{i:"move",z:"muovere; traslocare"},
- {i:"dance",z:"ballare"},{i:"change",z:"cambiare"},{i:"rain",z:"piovere"},{i:"enjoy",z:"godersi, divertirsi"},{i:"hope",z:"sperare"},{i:"remember",z:"ricordare"}
+ {i:"dance",z:"ballare"},{i:"change",z:"cambiare"},{i:"rain",z:"piovere"},{i:"enjoy",z:"godersi, divertirsi"},{i:"hope",z:"sperare"},{i:"remember",stv:1,z:"ricordare"}
 ];
 function s3(v){if(v.s3)return v.s3;var b=v.i;if(/(s|x|z|ch|sh|o)$/.test(b))return b+"es";if(/[^aeiou]y$/.test(b))return b.slice(0,-1)+"ies";return b+"s"}
 function edOf(b,v){if(/e$/.test(b))return b+"d";if(/[^aeiou]y$/.test(b))return b.slice(0,-1)+"ied";if(v.dbl||v.dblUK)return b+b.slice(-1)+"ed";return b+"ed"}
@@ -133,7 +133,7 @@ function hl(b,x){var n=0;while(n<b.length&&n<x.length&&b[n]===x[n])n++;return n=
 function cjForms(v,t){var b=v.i;
   if(t==="pr"){if(v.pr)return v.pr.map(function(x){return F('<b class="end">'+esc(x)+'</b>',x)});
     return [0,1,2,3,4,5].map(function(i){return i===2?F(hl(b,s3(v)),s3(v)):F(esc(b),b)})}
-  if(t==="pg"){var g=ingOf(v);return BE.map(function(a){return F('<span class="cj-aux">'+a+'</span> '+hl(b,g),a+" "+g)})}
+  if(t==="pg"){if(v.stv)return [];var g=ingOf(v);return BE.map(function(a){return F('<span class="cj-aux">'+a+'</span> '+hl(b,g),a+" "+g)})}
   if(t==="ps"){if(b==="be")return ["was","were","was","were","were","were"].map(function(x){return F('<b class="end">'+x+'</b>',x)});var p=psOf(v);return PZ.map(function(){return F(hl(b,p),p)})}
   if(t==="pp"){var q=ppOf(v);return HV.map(function(a){return F('<span class="cj-aux">'+a+'</span> '+hl(b,q),a+" "+q)})}
   var aux=t==="fu"?"will":"would";return PZ.map(function(){return F('<span class="cj-aux">'+aux+'</span> '+esc(b),aux+" "+b)})}

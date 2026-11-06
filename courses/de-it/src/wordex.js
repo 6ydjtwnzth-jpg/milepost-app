@@ -495,7 +495,7 @@ WX([
 ["Auskunft", "Fragen Sie an der Auskunft.", "Chieda all'ufficio informazioni."],
 ["Stadtplan", "Haben Sie einen Stadtplan von Berlin?", "Ha una pianta di Berlino?"],
 ["Praxis", "Die Praxis ist am Montag geschlossen.", "Lo studio medico il lunedì è chiuso."],
-["Gruß", "Mit freundlichem Gruß, Giulia Rossi", "Cordiali saluti, Giulia Rossi"],
+["Gruß", "Einen schönen Gruß an deine Mutter!", "Tanti saluti a tua madre!"],
 ["beide", "Wir haben beide am Samstag Zeit.", "Sabato abbiamo tempo tutti e due."],
 ["freuen", "Ich freue mich auf die Ferien.", "Non vedo l'ora che arrivino le vacanze."],
 ["fühlen", "Wie fühlst du dich heute?", "Come ti senti oggi?"],
