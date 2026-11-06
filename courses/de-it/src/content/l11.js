@@ -18,7 +18,21 @@ EX.l11=[
 VOC.l11=[
  ["Freizeit","tempo libero","f:-"],["lieber","preferibilmente, preferisco",""],["am liebsten","più di tutto",""],["mögen","piacere, amare (con un nome)",""],["können","sapere (fare), potere",""],["spielen","giocare; suonare (uno strumento)",""],["tanzen","ballare",""],["schwimmen","nuotare",""],["hören","sentire, ascoltare",""],["singen","cantare",""],["reisen","viaggiare",""],["zeigen","mostrare",""],
  ["Fußball","calcio","m:-"],["Tennis","tennis","n:-"],["Yoga","yoga","n:-"],["Sport","sport","m:-"],["Gitarre","chitarra","f:Gitarren"],["Klavier","pianoforte","n:Klaviere"],["Konzert","concerto","n:Konzerte"],["Jazz","jazz","m:-"],["Hobby","hobby","n:Hobbys"],["Zentrum","centro","n:Zentren"],["Schwimmbad","piscina","n:Schwimmbäder"],
- ["überhaupt nicht","per niente",""],["schade","peccato",""],["leider","purtroppo",""],["als","di, che (nei confronti); quando (una volta, nel passato)",""],["Ja, gern!","sì, volentieri!",""],["gelb","giallo",""],["klingeln","suonare (il campanello)",""]
+ ["überhaupt nicht","per niente",""],["schade","peccato",""],["leider","purtroppo",""],["als","di, che (nei confronti); quando (una volta, nel passato)",""],["Ja, gern!","sì, volentieri!",""],["gelb","giallo",""],["klingeln","suonare (il campanello)",""],
+ ["Spiel", "gioco; partita", "n:Spiele"],
+ ["Spaß", "divertimento", "m:-"],
+ ["Lied", "canzone", "n:Lieder"],
+ ["Theater", "teatro", "n:Theater"],
+ ["Natur", "natura", "f:-"],
+ ["Ausflug", "gita", "m:Ausflüge"],
+ ["Radio", "radio", "n:Radios"],
+ ["schnell", "veloce, in fretta", ""],
+ ["interessant", "interessante", ""],
+ ["feiern", "festeggiare", ""],
+ ["Fest", "festa", "n:Feste"],
+ ["Gruppe", "gruppo", "f:Gruppen"],
+ ["Verein", "associazione, club", "m:Vereine"],
+ ["Einladung", "invito", "f:Einladungen"]
 ];
 EX.l11=EX.l11.concat([
  {t:"dict",au:"Ich höre lieber Jazz als Pop."},

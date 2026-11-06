@@ -12,5 +12,33 @@ EX.l23=[
  {t:"say",zh:"Racconta in tre frasi: dove abitavi da piccolo, che cosa fai oggi, che cosa ti piacerebbe fare",it:"Als ich klein war, habe ich in Rom gewohnt. Heute arbeite ich in Mailand. Eines Tages würde ich gern in Deutschland leben."}
 ];
 VOC.l23=[
- ["Reisebüro","agenzia di viaggi","n:Reisebüros"],["Anfang","inizio","m:Anfänge"],["am Anfang","all'inizio",""],["schwer","difficile; pesante",""],["leicht","facile; leggero",""],["niemand","nessuno",""],["beenden","finire, terminare",""],["eröffnen","aprire (un'attività)",""],["eigen","proprio",""],["wunderbar","meraviglioso",""],["laut","rumoroso; forte (suono)",""],["fehlen","mancare",""],["wieder","di nuovo",""],["zweimal","due volte",""],["Fluss","fiume","m:Flüsse"],["Park","parco","m:Parks"],["Turin","Torino",""]
+ ["Reisebüro","agenzia di viaggi","n:Reisebüros"],["Anfang","inizio","m:Anfänge"],["am Anfang","all'inizio",""],["schwer","difficile; pesante",""],["leicht","facile; leggero",""],["niemand","nessuno",""],["beenden","finire, terminare",""],["eröffnen","aprire (un'attività)",""],["eigen","proprio",""],["wunderbar","meraviglioso",""],["laut","rumoroso; forte (suono)",""],["fehlen","mancare",""],["wieder","di nuovo",""],["zweimal","due volte",""],["Fluss","fiume","m:Flüsse"],["Park","parco","m:Parks"],["Turin","Torino",""],
+ ["Miete", "affitto", "f:Mieten"],
+ ["mieten", "prendere in affitto", ""],
+ ["Kühlschrank", "frigorifero", "m:Kühlschränke"],
+ ["Raum", "stanza, locale", "m:Räume"],
+ ["Aufzug", "ascensore", "m:Aufzüge"],
+ ["Erdgeschoss", "piano terra", "n:Erdgeschosse"],
+ ["Doppelzimmer", "camera doppia", "n:Doppelzimmer"],
+ ["Gast", "ospite", "m:Gäste"],
+ ["Fahrkarte", "biglietto (treno, autobus)", "f:Fahrkarten"],
+ ["Bahnsteig", "binario, marciapiede (in stazione)", "m:Bahnsteige"],
+ ["Bahn", "treno, ferrovia", "f:Bahnen"],
+ ["Toilette", "bagno, toilette", "f:Toiletten"],
+ ["sitzen", "stare seduto", ""],
+ ["liegen", "stare disteso; trovarsi", ""],
+ ["hängen", "appendere; essere appeso", ""],
+ ["legen", "mettere (disteso), posare", ""],
+ ["stellen", "mettere (in piedi)", ""],
+ ["ruhig", "tranquillo, calmo", ""],
+ ["ohne", "senza", ""],
+ ["überall", "dappertutto", ""],
+ ["vorbei", "passato, finito; davanti", ""],
+ ["vorstellen", "presentare; sich vorstellen = presentarsi", ""],
+ ["vorne", "davanti", ""],
+ ["wenig", "poco", ""],
+ ["voll", "pieno", ""],
+ ["wechseln", "cambiare", ""],
+ ["Ort", "luogo, località", "m:Orte"],
+ ["besichtigen", "visitare (luoghi)", ""]
 ];

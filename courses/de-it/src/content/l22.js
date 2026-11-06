@@ -18,7 +18,13 @@ EX.l22=[
 VOC.l22=[
  ["Was fehlt Ihnen?","che cos'ha?",""],["wehtun","fare male",""],["Mir tut … weh.","mi fa male…",""],["Seit wann?","da quando?",""],["seit","da (+ tempo)",""],["gegen","contro",""],["dreimal","tre volte",""],["Gute Besserung!","buona guarigione!",""],["würde","(ich würde…) -rei: condizionale",""],["hätte","avrei (haben)",""],["wäre","sarei (sein)",""],["könnte","potrei (können)",""],["sollte","dovrei (sollen)",""],["An deiner Stelle…","al posto tuo…",""],["sich ausruhen","riposarsi",""],["erkältet","raffreddato",""],
  ["Gesundheit","salute","f:-"],["Körper","corpo","m:Körper"],["Kopf","testa","m:Köpfe"],["Hals","gola; collo","m:Hälse"],["Bauch","pancia","m:Bäuche"],["Rücken","schiena","m:Rücken"],["Arm","braccio","m:Arme"],["Bein","gamba","n:Beine"],["Fuß","piede","m:Füße"],["Hand","mano","f:Hände"],["Zahn","dente","m:Zähne"],["Auge","occhio","n:Augen"],
- ["Schmerz","dolore","m:Schmerzen"],["Kopfschmerzen","mal di testa","p"],["Fieber","febbre","n:-"],["Husten","tosse","m:-"],["Schnupfen","raffreddore","m:-"],["Grippe","influenza","f:Grippen"],["Rezept","ricetta","n:Rezepte"],["Tablette","pastiglia","f:Tabletten"],["Medikament","medicina, farmaco","n:Medikamente"],["Krankschreibung","certificato di malattia","f:Krankschreibungen"],["Doktor","dottore","m:Doktoren"],["leben", "vivere", ""]
+ ["Schmerz","dolore","m:Schmerzen"],["Kopfschmerzen","mal di testa","p"],["Fieber","febbre","n:-"],["Husten","tosse","m:-"],["Schnupfen","raffreddore","m:-"],["Grippe","influenza","f:Grippen"],["Rezept","ricetta","n:Rezepte"],["Tablette","pastiglia","f:Tabletten"],["Medikament","medicina, farmaco","n:Medikamente"],["Krankschreibung","certificato di malattia","f:Krankschreibungen"],["Doktor","dottore","m:Doktoren"],["leben", "vivere", ""],
+ ["Mund", "bocca", "m:Münder"],
+ ["Nase", "naso", "f:Nasen"],
+ ["Ohr", "orecchio", "n:Ohren"],
+ ["Gesicht", "viso, faccia", "n:Gesichter"],
+ ["gesund", "sano; che fa bene", ""],
+ ["tun", "fare", ""]
 ];
 EX.l22=EX.l22.concat([
  {t:"dict",au:"Könnten Sie mir etwas gegen das Fieber geben?"},

@@ -18,7 +18,20 @@ EX.l15=[
 VOC.l15=[
  ["gestern","ieri",""],["vorgestern","l'altro ieri",""],["gestern Abend","ieri sera",""],["letzte Woche","la settimana scorsa",""],["letztes Jahr","l'anno scorso",""],["lange","a lungo",""],["lachen","ridere",""],["besuchen","visitare, andare a trovare",""],["erzählen","raccontare",""],["telefonieren","telefonare",""],["spannend","emozionante, avvincente",""],["Wie war…?","com'era…? com'è andato…?",""],
  ["gemacht","fatto (machen)",""],["gekocht","cucinato (kochen)",""],["gekauft","comprato (kaufen)",""],["gearbeitet","lavorato (arbeiten)",""],["gesehen","visto (sehen)",""],["geschlafen","dormito (schlafen)",""],["gegessen","mangiato (essen)",""],["getrunken","bevuto (trinken)",""],["geschrieben","scritto (schreiben)",""],["gelesen","letto (lesen)",""],["gesprochen","parlato (sprechen)",""],["genommen","preso (nehmen)",""],["eingekauft","fatto la spesa (einkaufen)",""],["aufgeräumt","messo in ordine (aufräumen)",""],["angerufen","telefonato (anrufen)",""],["besucht","visitato (besuchen)",""],["verstanden","capito (verstehen)",""],
- ["Großeltern","nonni","p"],["Brief","lettera","m:Briefe"],["E-Mail","e-mail","f:E-Mails"]
+ ["Großeltern","nonni","p"],["Brief","lettera","m:Briefe"],["E-Mail","e-mail","f:E-Mails"],
+ ["bestellen", "ordinare", ""],
+ ["bekommen", "ricevere, ottenere", ""],
+ ["schicken", "mandare, spedire", ""],
+ ["Paket", "pacco", "n:Pakete"],
+ ["Briefmarke", "francobollo", "f:Briefmarken"],
+ ["Nachricht", "messaggio; notizia", "f:Nachrichten"],
+ ["verlieren", "perdere", ""],
+ ["reparieren", "riparare", ""],
+ ["benutzen", "usare", ""],
+ ["Ferien", "vacanze", "p"],
+ ["schon", "già", ""],
+ ["buchen", "prenotare", ""],
+ ["Koffer", "valigia", "m:Koffer"]
 ];
 EX.l15=EX.l15.concat([
  {t:"dict",au:"Am Sonntag habe ich die Wohnung aufgeräumt."},

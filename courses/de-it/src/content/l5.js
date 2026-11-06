@@ -19,7 +19,18 @@ VOC.l5=[
  ["haben","avere",""],["Familie","famiglia","f:Familien"],["Eltern","genitori","p"],["Vater","padre","m:Väter"],["Mutter","madre","f:Mütter"],["Schwester","sorella","f:Schwestern"],["Geschwister","fratelli e sorelle","p"],["Kind","bambino, figlio","n:Kinder"],["Sohn","figlio","m:Söhne"],["Tochter","figlia","f:Töchter"],
  ["Mann","uomo; marito","m:Männer"],["Großvater","nonno","m:Großväter"],["Großmutter","nonna","f:Großmütter"],["Onkel","zio","m:Onkel"],["Tante","zia","f:Tanten"],["Freund","amico; ragazzo (fidanzato)","m:Freunde"],["Freundin","amica; ragazza (fidanzata)","f:Freundinnen"],["Hund","cane","m:Hunde"],["Katze","gatto","f:Katzen"],["Haus","casa","n:Häuser"],
  ["mein","mio",""],["seine","sua, suoi (di lui)",""],["ihre","sua, suoi (di lei); loro",""],["unser","nostro",""],["euer","vostro",""],["Ihr","Suo (cortesia)",""],["einen","un (accusativo maschile)",""],["keinen","nessun (accusativo maschile)",""],
- ["wer","chi",""],["verheiratet","sposato",""],["ledig","celibe, nubile",""],["geschieden","divorziato",""],["Arzt","medico","m:Ärzte"],["lieben","amare",""]
+ ["wer","chi",""],["verheiratet","sposato",""],["ledig","celibe, nubile",""],["geschieden","divorziato",""],["Arzt","medico","m:Ärzte"],["lieben","amare",""],
+ ["Ehemann", "marito", "m:Ehemänner"],
+ ["Ehefrau", "moglie", "f:Ehefrauen"],
+ ["Verwandte", "parenti", "p"],
+ ["Junge", "ragazzo, bambino (maschio)", "m:Jungen"],
+ ["Mensch", "persona, essere umano", "m:Menschen"],
+ ["Leute", "gente, persone", "p"],
+ ["Person", "persona", "f:Personen"],
+ ["Tier", "animale", "n:Tiere"],
+ ["Vogel", "uccello", "m:Vögel"],
+ ["Haar", "capelli", "n:Haare"],
+ ["lieb", "caro, affettuoso", ""]
 ];
 EX.l5=EX.l5.concat([
  {t:"dict",au:"Meine Eltern wohnen in Neapel."},

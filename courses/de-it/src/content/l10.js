@@ -18,7 +18,23 @@ EX.l10=[
 VOC.l10=[
  ["aufstehen","alzarsi",""],["anrufen","telefonare",""],["einkaufen","fare la spesa",""],["fernsehen","guardare la tv",""],["anfangen","cominciare",""],["abfahren","partire (con un mezzo)",""],["mitkommen","venire con (qualcuno)",""],["ausgehen","uscire (la sera); spegnersi (la luce)",""],["aufräumen","mettere in ordine",""],["duschen","fare la doccia",""],["frühstücken","fare colazione",""],
  ["mittags","a mezzogiorno",""],["nachmittags","il pomeriggio",""],["nachts","di notte",""],["immer","sempre",""],["meistens","di solito, quasi sempre",""],["manchmal","a volte",""],["selten","raramente",""],["nie","mai",""],["erst","solo, non prima di",""],["früh","presto",""],["spät","tardi",""],["doch","sì (a una domanda negativa); però",""],
- ["Frühstück","colazione","n:Frühstücke"],["Mittagessen","pranzo","n:Mittagessen"],["Abendessen","cena","n:Abendessen"],["Film","film","m:Filme"],["mit","con",""],["Tagesablauf","giornata (le cose che si fanno)","m:Tagesabläufe"]
+ ["Frühstück","colazione","n:Frühstücke"],["Mittagessen","pranzo","n:Mittagessen"],["Abendessen","cena","n:Abendessen"],["Film","film","m:Filme"],["mit","con",""],["Tagesablauf","giornata (le cose che si fanno)","m:Tagesabläufe"],
+ ["einsteigen", "salire (su un mezzo)", ""],
+ ["aussteigen", "scendere (da un mezzo)", ""],
+ ["mitbringen", "portare (con sé)", ""],
+ ["mitnehmen", "prendere con sé, portare via", ""],
+ ["abholen", "andare a prendere", ""],
+ ["aufhören", "smettere, finire", ""],
+ ["Nachmittag", "pomeriggio", "m:Nachmittage"],
+ ["waschen", "lavare", ""],
+ ["putzen", "pulire", ""],
+ ["Dusche", "doccia", "f:Duschen"],
+ ["öffnen", "aprire", ""],
+ ["schließen", "chiudere", ""],
+ ["warten", "aspettare", ""],
+ ["holen", "andare a prendere", ""],
+ ["zurück", "indietro; di ritorno", ""],
+ ["enden", "finire, terminare", ""]
 ];
 EX.l10=EX.l10.concat([
  {t:"dict",au:"Abends sehe ich fern."},

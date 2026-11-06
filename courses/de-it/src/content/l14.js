@@ -19,7 +19,12 @@ VOC.l14=[
  ["mich","mi, me",""],["dich","ti, te",""],["ihn","lo, lui (accusativo)",""],["uns","ci, noi",""],["euch","vi, voi",""],["Was darf es sein?","che cosa desidera?",""],["probieren","assaggiare, provare",""],["kosten","costare",""],["Wie viel kostet…?","quanto costa…?",""],["lecker","buonissimo, gustoso",""],["schmecken","avere un buon sapore, piacere (cibo)",""],["empfehlen","consigliare",""],["brauchen","avere bisogno di",""],["kennen","conoscere",""],
  ["Markt","mercato","m:Märkte"],["Tomate","pomodoro","f:Tomaten"],["Erdbeere","fragola","f:Erdbeeren"],["Kartoffel","patata","f:Kartoffeln"],["Brot","pane","n:Brote"],["Wurst","salsiccia, salume","f:Würste"],["Fleisch","carne","n:-"],["Fisch","pesce","m:Fische"],["Ei","uovo","n:Eier"],["Obst","frutta","n:-"],["Gemüse","verdura","n:-"],["Salat","insalata","m:Salate"],["Schnitzel","cotoletta","n:Schnitzel"],
  ["Kilo","chilo","n:Kilo"],["Pfund","mezzo chilo","n:Pfund"],["Gramm","grammo","n:Gramm"],["pro","per, a (pro hundert Gramm = all'etto)",""],["Liter","litro","m:Liter"],["Flasche","bottiglia","f:Flaschen"],["Packung","pacco, confezione","f:Packungen"],["Dose","lattina, scatoletta","f:Dosen"],["Schale","vaschetta","f:Schalen"],
- ["Speisekarte","menù, carta","f:Speisekarten"],["Vorspeise","antipasto","f:Vorspeisen"],["Hauptgericht","piatto principale","n:Hauptgerichte"],["Nachtisch","dolce, dessert","m:Nachtische"]
+ ["Speisekarte","menù, carta","f:Speisekarten"],["Vorspeise","antipasto","f:Vorspeisen"],["Hauptgericht","piatto principale","n:Hauptgerichte"],["Nachtisch","dolce, dessert","m:Nachtische"],
+ ["Gabel", "forchetta", "f:Gabeln"],
+ ["Messer", "coltello", "n:Messer"],
+ ["Teller", "piatto", "m:Teller"],
+ ["Reis", "riso", "m:-"],
+ ["Suppe", "zuppa, minestra", "f:Suppen"]
 ];
 EX.l14=EX.l14.concat([
  {t:"dict",au:"Die Speisekarte, bitte."},

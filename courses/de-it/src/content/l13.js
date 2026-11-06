@@ -17,7 +17,27 @@ EX.l13=[
 ];
 VOC.l13=[
  ["wollen","volere",""],["müssen","dovere (necessità)",""],["dürfen","potere (avere il permesso)",""],["sollen","dovere (su richiesta di altri)",""],["rauchen","fumare",""],["treffen","incontrare",""],["sich treffen","incontrarsi, vedersi",""],["einladen","invitare; offrire",""],
- ["Lust","voglia","f:-"],["Hast du Lust auf…?","hai voglia di…?",""],["Kino","cinema","n:Kinos"],["ins Kino","al cinema",""],["Idee","idea","f:Ideen"],["Gute Idee!","buona idea!",""],["Mal","volta","n:Male"],["Vielleicht ein anderes Mal.","magari un'altra volta",""],["vielleicht","forse",""],["natürlich","naturalmente, certo",""],["klar","chiaro; certo!",""],["okay","va bene",""],["vorher","prima",""],["heute Abend","stasera",""],["Termin","appuntamento","m:Termine"],["Party","festa","f:Partys"],["bezahlen", "pagare", ""]
+ ["Lust","voglia","f:-"],["Hast du Lust auf…?","hai voglia di…?",""],["Kino","cinema","n:Kinos"],["ins Kino","al cinema",""],["Idee","idea","f:Ideen"],["Gute Idee!","buona idea!",""],["Mal","volta","n:Male"],["Vielleicht ein anderes Mal.","magari un'altra volta",""],["vielleicht","forse",""],["natürlich","naturalmente, certo",""],["klar","chiaro; certo!",""],["okay","va bene",""],["vorher","prima",""],["heute Abend","stasera",""],["Termin","appuntamento","m:Termine"],["Party","festa","f:Partys"],["bezahlen", "pagare", ""],
+ ["erlauben", "permettere", ""],
+ ["verboten", "vietato", ""],
+ ["parken", "parcheggiare", ""],
+ ["Ausweis", "documento, tessera", "m:Ausweise"],
+ ["Pass", "passaporto", "m:Pässe"],
+ ["Formular", "modulo", "n:Formulare"],
+ ["unterschreiben", "firmare", ""],
+ ["anmelden", "iscrivere; registrare", ""],
+ ["Anmeldung", "iscrizione; accettazione", "f:Anmeldungen"],
+ ["pünktlich", "puntuale", ""],
+ ["planen", "progettare, organizzare", ""],
+ ["Hilfe", "aiuto", "f:-"],
+ ["rufen", "chiamare", ""],
+ ["Konto", "conto (in banca)", "n:Konten"],
+ ["sicher", "sicuro; certamente", ""],
+ ["Fehler", "errore", "m:Fehler"],
+ ["Prüfung", "esame", "f:Prüfungen"],
+ ["Schlüssel", "chiave", "m:Schlüssel"],
+ ["Eingang", "ingresso", "m:Eingänge"],
+ ["Ausgang", "uscita", "m:Ausgänge"]
 ];
 EX.l13=EX.l13.concat([
  {t:"dict",au:"Hast du Lust auf ein Konzert?"},

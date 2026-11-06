@@ -18,4 +18,4 @@ EX.r2=[
  {t:"dict",au:"Ich komme nie vor ein Uhr nach Hause."},
  {t:"say",zh:"Racconta che cosa fai la sera, con un verbo separabile",it:"Abends sehe ich fern oder ich rufe meine Freunde an."}
 ];
-VOC.r2=[["Hafen","porto","m:Häfen"],["nach Hause","a casa (moto)",""],["regnen","piovere",""],["deshalb","per questo",""],["Kollege","collega","m:Kollegen"],["frei","libero",""]];
+VOC.r2=[["Hafen","porto","m:Häfen"],["nach Hause","a casa (moto)",""],["regnen","piovere",""],["deshalb","per questo",""],["Kollege","collega","m:Kollegen"],["frei","libero",""],["Lebensmittel", "generi alimentari", "p"],["Eintritt", "ingresso (biglietto)", "m:Eintritte"],["geöffnet", "aperto", ""],["halten", "fermarsi; tenere", ""],["entschuldigen", "scusare; Entschuldigen Sie! = mi scusi!", ""],["Erwachsene", "adulti", "p"],["Autobahn", "autostrada", "f:Autobahnen"]];

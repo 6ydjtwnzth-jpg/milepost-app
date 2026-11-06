@@ -17,7 +17,14 @@ EX.l12=[
 ];
 VOC.l12=[
  ["es gibt","c'è, ci sono (+ accusativo)",""],["in der Nähe","qui vicino",""],["weit","lontano",""],["nur","solo",""],["zu Fuß","a piedi",""],["geradeaus","dritto",""],["erste","primo",""],["zweite","secondo",""],["dritte","terzo",""],["neben","accanto a",""],["hinter","dietro",""],["zwischen","tra",""],["gegenüber von","di fronte a",""],["an","a, presso (+ luogo)",""],["im","nel (in + dem)",""],["zum","al (zu + dem)",""],["zur","alla (zu + der)",""],["dem","al, allo (dativo)",""],["dort","lì",""],["danach","dopo, poi",""],["am besten","meglio di tutti; la cosa migliore è…",""],["Vielen Dank!","grazie mille!",""],["Gern geschehen!","prego, di niente!",""],["Wie komme ich zum…?","come arrivo al…?",""],
- ["Apotheke","farmacia","f:Apotheken"],["Post","posta, ufficio postale","f:-"],["Bahnhof","stazione","m:Bahnhöfe"],["Haltestelle","fermata","f:Haltestellen"],["Geldautomat","bancomat","m:Geldautomaten"],["Rathaus","municipio","n:Rathäuser"],["Marktplatz","piazza del mercato","m:Marktplätze"],["Ecke","angolo","f:Ecken"],["Ampel","semaforo","f:Ampeln"],["U-Bahn","metropolitana","f:U-Bahnen"],["Kirche","chiesa","f:Kirchen"],["Museum","museo","n:Museen"],["Stadt","città","f:Städte"],["Dorf","paese, villaggio","n:Dörfer"]
+ ["Apotheke","farmacia","f:Apotheken"],["Post","posta, ufficio postale","f:-"],["Bahnhof","stazione","m:Bahnhöfe"],["Haltestelle","fermata","f:Haltestellen"],["Geldautomat","bancomat","m:Geldautomaten"],["Rathaus","municipio","n:Rathäuser"],["Marktplatz","piazza del mercato","m:Marktplätze"],["Ecke","angolo","f:Ecken"],["Ampel","semaforo","f:Ampeln"],["U-Bahn","metropolitana","f:U-Bahnen"],["Kirche","chiesa","f:Kirchen"],["Museum","museo","n:Museen"],["Stadt","città","f:Städte"],["Dorf","paese, villaggio","n:Dörfer"],
+ ["bei", "da, presso", ""],
+ ["Platz", "piazza; posto", "m:Plätze"],
+ ["Taxi", "taxi", "n:Taxis"],
+ ["über", "sopra; attraverso; su (un argomento)", ""],
+ ["Straßenbahn", "tram", "f:Straßenbahnen"],
+ ["Weg", "strada, percorso", "m:Wege"],
+ ["durch", "attraverso", ""]
 ];
 EX.l12=EX.l12.concat([
  {t:"dict",au:"Die Haltestelle ist an der Ecke."},

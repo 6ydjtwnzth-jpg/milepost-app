@@ -20,7 +20,13 @@ VOC.l2=[
  ["sein","essere",""],["heißen","chiamarsi",""],["kommen","venire",""],["wohnen","abitare",""],["lernen","imparare, studiare",""],["studieren","studiare (all'università)",""],
  ["wie","come",""],["woher","da dove",""],["wo","dove",""],["und","e",""],["aber","ma",""],["auch","anche",""],["jetzt","adesso",""],["aus","da (provenienza)",""],["in","in, a",""],["super","fantastico",""],["willkommen","benvenuto",""],
  ["Italien","Italia",""],["Deutschland","Germania",""],["Österreich","Austria",""],["Schweiz","Svizzera","f:-"],["Spanien","Spagna",""],["Frankreich","Francia",""],
- ["Italiener","italiano (uomo)","m:Italiener"],["Italienerin","italiana (donna)","f:Italienerinnen"],["Italienisch","italiano (la lingua)",""],["Deutsch","tedesco (la lingua)",""],["Student","studente","m:Studenten"],["Studentin","studentessa","f:Studentinnen"],["Musik","musica","f:-"]
+ ["Italiener","italiano (uomo)","m:Italiener"],["Italienerin","italiana (donna)","f:Italienerinnen"],["Italienisch","italiano (la lingua)",""],["Deutsch","tedesco (la lingua)",""],["Student","studente","m:Studenten"],["Studentin","studentessa","f:Studentinnen"],["Musik","musica","f:-"],
+ ["Name", "nome", "m:Namen"],
+ ["Vorname", "nome (di battesimo)", "m:Vornamen"],
+ ["Land", "paese, nazione; campagna", "n:Länder"],
+ ["Ausland", "estero", "n:-"],
+ ["Ausländer", "straniero", "m:Ausländer"],
+ ["fremd", "forestiero, straniero; sconosciuto", ""]
 ];
 EX.l2=EX.l2.concat([
  {t:"dict",au:"Wir sind in Berlin."},

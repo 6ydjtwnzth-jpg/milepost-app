@@ -18,7 +18,14 @@ EX.l8=[
 VOC.l8=[
  ["möchten","vorrei (volere, cortese)",""],["ich möchte","vorrei",""],["ich hätte gern","vorrei (molto gentile)",""],["nehmen","prendere",""],["trinken","bere",""],["essen","mangiare",""],["zahlen","pagare",""],["Zahlen, bitte!","il conto, per favore!",""],["zusammen","insieme",""],["getrennt","separato",""],["Das macht…","sono… (il totale)",""],["Stimmt so.","va bene così, tenga il resto",""],["Sonst noch etwas?","altro?",""],["Das ist alles.","è tutto",""],["gern","volentieri; con un verbo: mi piace (ich lese gern)",""],["für","per",""],["welcher","quale",""],["den","il (accusativo maschile)",""],
  ["Café","caffè (locale), bar","n:Cafés"],["Cappuccino","cappuccino","m:Cappuccinos"],["Kuchen","torta, dolce","m:Kuchen"],["Stück","pezzo; fetta","n:Stücke"],["Apfel","mela","m:Äpfel"],["Apfelkuchen","torta di mele","m:Apfelkuchen"],["Käse","formaggio","m:-"],["Käsekuchen","torta al formaggio","m:Käsekuchen"],["Saft","succo","m:Säfte"],["Apfelsaft","succo di mela","m:Apfelsäfte"],["Cola","Coca-Cola","f:Colas"],["Brötchen","panino","n:Brötchen"],["Zucker","zucchero","m:-"],["Glas","bicchiere","n:Gläser"],["Tasse","tazza","f:Tassen"],
- ["Euro","euro","m:Euro"],["Cent","centesimo","m:Cent"],["Rechnung","conto, fattura","f:Rechnungen"],["Trinkgeld","mancia","n:Trinkgelder"],["oder", "o, oppure", ""]
+ ["Euro","euro","m:Euro"],["Cent","centesimo","m:Cent"],["Rechnung","conto, fattura","f:Rechnungen"],["Trinkgeld","mancia","n:Trinkgelder"],["oder", "o, oppure", ""],
+ ["Durst", "sete", "m:-"],
+ ["Hunger", "fame", "m:-"],
+ ["Butter", "burro", "f:-"],
+ ["Schokolade", "cioccolato, cioccolata", "f:Schokoladen"],
+ ["Getränk", "bevanda", "n:Getränke"],
+ ["Wein", "vino", "m:Weine"],
+ ["kaufen", "comprare", ""]
 ];
 EX.l8=EX.l8.concat([
  {t:"dict",au:"Ich möchte einen Tee und eine Cola."},

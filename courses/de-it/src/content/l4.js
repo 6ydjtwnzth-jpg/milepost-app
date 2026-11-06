@@ -19,7 +19,14 @@ VOC.l4=[
  ["Wohnung","appartamento","f:Wohnungen"],["Zimmer","stanza","n:Zimmer"],["Wohnzimmer","soggiorno","n:Wohnzimmer"],["Schlafzimmer","camera da letto","n:Schlafzimmer"],["Küche","cucina","f:Küchen"],["Bad","bagno","n:Bäder"],["Balkon","balcone","m:Balkone"],["Tür","porta","f:Türen"],["Fenster","finestra","n:Fenster"],
  ["Tisch","tavolo","m:Tische"],["Stuhl","sedia","m:Stühle"],["Bett","letto","n:Betten"],["Sofa","divano","n:Sofas"],["Lampe","lampada","f:Lampen"],["Schrank","armadio","m:Schränke"],["Löffel","cucchiaio","m:Löffel"],["Auto","macchina, auto","n:Autos"],["Mädchen","ragazza, bambina","n:Mädchen"],["Sonne","sole","f:Sonnen"],["Mond","luna","m:Monde"],
  ["der","il (maschile)",""],["die","la (femminile); i, le (plurale)",""],["das","il (neutro); questo",""],["ein","un, uno",""],["eine","una",""],["kein","nessuno, non… un",""],["keine","nessuna; nessuno (plurale)",""],
- ["Das ist…","questo è…",""],["groß","grande",""],["klein","piccolo",""],["hell","luminoso, chiaro",""],["dunkel","buio, scuro",""],["neu","nuovo",""],["da","lì; ecco",""],["links","a sinistra",""],["rechts","a destra",""],["Komm rein!","entra!",""],["oh","oh!",""]
+ ["Das ist…","questo è…",""],["groß","grande",""],["klein","piccolo",""],["hell","luminoso, chiaro",""],["dunkel","buio, scuro",""],["neu","nuovo",""],["da","lì; ecco",""],["links","a sinistra",""],["rechts","a destra",""],["Komm rein!","entra!",""],["oh","oh!",""],
+ ["Bild", "quadro, immagine", "n:Bilder"],
+ ["Telefon", "telefono", "n:Telefone"],
+ ["Handy", "cellulare", "n:Handys"],
+ ["Computer", "computer", "m:Computer"],
+ ["Papier", "carta", "n:-"],
+ ["Kugelschreiber", "penna (a sfera)", "m:Kugelschreiber"],
+ ["Bleistift", "matita", "m:Bleistifte"]
 ];
 EX.l4=EX.l4.concat([
  {t:"dict",au:"Die Zimmer sind groß."},

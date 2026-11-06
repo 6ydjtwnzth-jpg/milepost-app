@@ -18,4 +18,4 @@ EX.r1=[
  {t:"dict",au:"Wir sind oft müde, aber sehr glücklich."},
  {t:"say",zh:"Presentati in tre frasi: nome e città, età, lavoro",it:"Ich heiße Anna und ich komme aus Florenz. Ich bin achtundzwanzig. Ich bin Verkäuferin."}
 ];
-VOC.r1=[["oft","spesso",""],["glücklich","felice",""],["denn","perché, infatti",""],["Graz","Graz (città austriaca)",""],["München","Monaco di Baviera",""]];
+VOC.r1=[["oft","spesso",""],["glücklich","felice",""],["denn","perché, infatti",""],["Graz","Graz (città austriaca)",""],["München","Monaco di Baviera",""],["Pause", "pausa", "f:Pausen"],["alle", "tutti", ""],["jeder", "ogni; ognuno", ""],["ganz", "del tutto, proprio; intero", ""],["reden", "parlare, chiacchierare", ""],["endlich", "finalmente", ""]];

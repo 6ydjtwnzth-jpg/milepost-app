@@ -18,7 +18,23 @@ EX.l17=[
 VOC.l17=[
  ["war","ero, era (sein)",""],["hatte","avevo, aveva (haben)",""],["konnte","potevo, potè (können)",""],["musste","dovevo (müssen)",""],["wollte","volevo (wollen)",""],["durfte","potevo, avevo il permesso (dürfen)",""],["wenn","quando, ogni volta che; se",""],["früher","prima, una volta",""],["damals","allora, a quel tempo",""],["anders","diverso, in modo diverso",""],["Als Kind…","da bambino…",""],
  ["Oma","nonna","f:Omas"],["Opa","nonno","m:Opas"],["Foto","foto","n:Fotos"],["Garten","giardino","m:Gärten"],["Fernseher","televisore","m:Fernseher"],["Bayern","Baviera",""],["Geld","soldi, denaro","n:-"],["Kindheit","infanzia","f:-"],["Spielzeug","giocattolo","n:Spielzeuge"],["Nachbar","vicino di casa","m:Nachbarn"],
- ["helfen","aiutare",""],["aufbleiben","stare alzato",""],["umziehen","trasferirsi, traslocare",""],["schüchtern","timido",""],["andere","altro, altra",""]
+ ["helfen","aiutare",""],["aufbleiben","stare alzato",""],["umziehen","trasferirsi, traslocare",""],["schüchtern","timido",""],["andere","altro, altra",""],
+ ["Baum", "albero", "m:Bäume"],
+ ["Angst", "paura", "f:Ängste"],
+ ["allein", "da solo", ""],
+ ["Keller", "cantina", "m:Keller"],
+ ["Luft", "aria", "f:-"],
+ ["Pflanze", "pianta", "f:Pflanzen"],
+ ["nichts", "niente, nulla", ""],
+ ["oben", "sopra, di sopra", ""],
+ ["unten", "sotto, di sotto", ""],
+ ["Mitte", "centro, metà", "f:-"],
+ ["Schiff", "nave", "n:Schiffe"],
+ ["Wagen", "auto, macchina; vagone", "m:Wagen"],
+ ["Feuer", "fuoco", "n:Feuer"],
+ ["Ordnung", "ordine", "f:-"],
+ ["Weihnachten", "Natale", "n:-"],
+ ["Hochzeit", "matrimonio, nozze", "f:Hochzeiten"],["Unfall", "incidente", "m:Unfälle"],["gewinnen", "vincere", ""],["Jugendliche", "ragazzi, adolescenti", "p"]
 ];
 EX.l17=EX.l17.concat([
  {t:"dict",au:"Früher war alles anders."},

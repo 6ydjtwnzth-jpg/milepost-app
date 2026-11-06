@@ -18,7 +18,16 @@ EX.l20=[
 VOC.l20=[
  ["dieser","questo",""],["suchen","cercare",""],["anprobieren","provare (un vestito)",""],["stehen","stare bene (a qualcuno); stare in piedi",""],["Größe","taglia; grandezza","f:Größen"],["Kann ich Ihnen helfen?","posso aiutarla?",""],["dort hinten","là in fondo",""],["wirklich","davvero",""],["Umkleidekabine","camerino","f:Umkleidekabinen"],["Kasse","cassa","f:Kassen"],["Kleidung","vestiti, abbigliamento","f:-"],
  ["Jacke","giacca","f:Jacken"],["Mantel","cappotto","m:Mäntel"],["Pullover","maglione","m:Pullover"],["Hemd","camicia","n:Hemden"],["T-Shirt","maglietta","n:T-Shirts"],["Hose","pantaloni","f:Hosen"],["Jeans","jeans","f:Jeans"],["Rock","gonna","m:Röcke"],["Kleid","vestito (da donna)","n:Kleider"],["Schuh","scarpa","m:Schuhe"],["Mütze","berretto","f:Mützen"],
- ["Farbe","colore","f:Farben"],["rot","rosso",""],["blau","blu, azzurro",""],["grün","verde",""],["schwarz","nero",""],["weiß","bianco",""],["grau","grigio",""],["braun","marrone",""],["lang","lungo",""],["kurz","corto",""]
+ ["Farbe","colore","f:Farben"],["rot","rosso",""],["blau","blu, azzurro",""],["grün","verde",""],["schwarz","nero",""],["weiß","bianco",""],["grau","grigio",""],["braun","marrone",""],["lang","lungo",""],["kurz","corto",""],
+ ["Mode", "moda", "f:Moden"],
+ ["Bluse", "camicetta", "f:Blusen"],
+ ["Socke", "calzino", "f:Socken"],
+ ["orange", "arancione", ""],
+ ["tragen", "portare (vestiti, occhiali); portare (un peso)", ""],
+ ["Preis", "prezzo", "m:Preise"],
+ ["Angebot", "offerta", "n:Angebote"],
+ ["Brille", "occhiali", "f:Brillen"],
+ ["aussehen", "sembrare, avere l'aspetto", ""]
 ];
 EX.l20=EX.l20.concat([
  {t:"dict",au:"Die Hose ist zu klein."},

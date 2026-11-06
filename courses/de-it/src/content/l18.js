@@ -19,7 +19,11 @@ VOC.l18=[
  ["plötzlich","all'improvviso",""],["zuerst","prima, per prima cosa",""],["später","più tardi",""],["am Ende","alla fine",""],["schließlich","alla fine, infine",""],["in diesem Moment","in quel momento",""],["während","mentre; durante",""],["Es war einmal…","c'era una volta…",""],["eines Tages","un giorno",""],["fast","quasi",""],["dabei","intanto, nel farlo",""],["kennenlernen","conoscere (una persona per la prima volta)",""],["stehen bleiben","fermarsi",""],["spazieren gehen","passeggiare",""],
  ["ging","andò (gehen)",""],["kam","venne, arrivò (kommen)",""],["sah","vide (sehen)",""],["sagte","disse (sagen)",""],["fragte","chiese (fragen)",""],["fuhr","andò (fahren)",""],["stand","stava (stehen)",""],
  ["Wetter","tempo (meteo)","n:-"],["Es regnet.","piove",""],["Es schneit.","nevica",""],["Die Sonne scheint.","c'è il sole",""],["warm","caldo",""],["heiß","molto caldo",""],["windig","ventoso",""],["bewölkt","nuvoloso",""],["Mir ist kalt.","ho freddo",""],["Regen","pioggia","m:-"],["Schnee","neve","m:-"],
- ["Tunnel","galleria, tunnel","m:Tunnel"],["Station","stazione (della metro)","f:Stationen"],["Abenteuer","avventura","n:Abenteuer"],["Licht","luce","n:Lichter"],["Wald","bosco","m:Wälder"],["nervös","nervoso",""],["nett","gentile, simpatico",""],["zumachen", "chiudere", ""],["aufmachen", "aprire", ""]
+ ["Tunnel","galleria, tunnel","m:Tunnel"],["Station","stazione (della metro)","f:Stationen"],["Abenteuer","avventura","n:Abenteuer"],["Licht","luce","n:Lichter"],["Wald","bosco","m:Wälder"],["nervös","nervoso",""],["nett","gentile, simpatico",""],["zumachen", "chiudere", ""],["aufmachen", "aprire", ""],
+ ["Wind", "vento", "m:Winde"],
+ ["Wolke", "nuvola", "f:Wolken"],
+ ["Himmel", "cielo", "m:Himmel"],
+ ["Grad", "grado (di temperatura)", "m:Grad"]
 ];
 EX.l18=EX.l18.concat([
  {t:"dict",au:"Die Sonne scheint, aber es ist kalt."},

@@ -19,7 +19,16 @@ VOC.l19=[
  ["schenken","regalare",""],["Geschenk","regalo","n:Geschenke"],["gefallen","piacere (all'aspetto)",""],["gehören","appartenere, essere di",""],["passen","andare bene, stare bene",""],["erklären","spiegare",""],["mir","a me, mi",""],["dir","a te, ti",""],["ihm","a lui, gli",""],["ihnen","a loro",""],["Ihnen","a Lei, Le",""],
  ["so… wie","tanto… quanto",""],["genauso","altrettanto, uguale",""],["besser","migliore, meglio",""],["mehr","più",""],["am meisten","più di tutti",""],["beste","il migliore, la migliore",""],["älter","più vecchio, più grande (età)",""],["jünger","più giovane",""],["größer","più grande; più alto",""],
  ["teuer","caro",""],["billig","economico",""],["praktisch","pratico",""],["jung","giovane",""],["hoch","alto",""],["stimmt","è vero, giusto",""],["Schau mal!","guarda!",""],["nächste Woche","la settimana prossima",""],
- ["Tasche","borsa","f:Taschen"],["Karte","biglietto; cartolina","f:Karten"],["Blume","fiore","f:Blumen"],["Parfüm","profumo","n:Parfüms"],["Welt","mondo","f:Welten"],["Salz","sale","n:-"],["schreiben", "scrivere", ""],["finden", "trovare; ritenere (ich finde = secondo me)", ""]
+ ["Tasche","borsa","f:Taschen"],["Karte","biglietto; cartolina","f:Karten"],["Blume","fiore","f:Blumen"],["Parfüm","profumo","n:Parfüms"],["Welt","mondo","f:Welten"],["Salz","sale","n:-"],["schreiben", "scrivere", ""],["finden", "trovare; ritenere (ich finde = secondo me)", ""],
+ ["gratulieren", "fare gli auguri, congratularsi", ""],
+ ["wünschen", "augurare, desiderare", ""],
+ ["bringen", "portare", ""],
+ ["dick", "grasso; spesso", ""],
+ ["hässlich", "brutto", ""],
+ ["modern", "moderno", ""],
+ ["sauber", "pulito", ""],
+ ["leise", "piano, a bassa voce; silenzioso", ""],
+ ["süß", "dolce", ""]
 ];
 EX.l19=EX.l19.concat([
  {t:"dict",au:"Mein Bruder ist älter als ich."},

@@ -17,7 +17,25 @@ EX.l21=[
 ];
 VOC.l21=[
  ["werden","diventare; ausiliare del futuro",""],["weil","perché (risposta)",""],["dass","che (congiunzione)",""],["glauben","credere",""],["verbessern","migliorare",""],["vermissen","sentire la mancanza di",""],["Ich werde dich vermissen!","mi mancherai!",""],["gerade","proprio; in questo momento",""],["länger","più a lungo",""],["nächstes Jahr","l'anno prossimo",""],["nächsten Monat","il mese prossimo",""],["in zwei Jahren","tra due anni",""],["bald","presto, tra poco",""],["Bis bald!","a presto!",""],["Plan","progetto, piano","m:Pläne"],["Zukunft","futuro","f:-"],
- ["Studium","studi (universitari)","n:Studien"],["Universität","università","f:Universitäten"],["Ausland","estero","n:-"],["im Ausland","all'estero",""],["Stelle","posto (di lavoro)","f:Stellen"],["Hotel","albergo","n:Hotels"],["Monat","mese","m:Monate"],["Visum","visto","n:Visa"],["heiraten","sposarsi",""],["krank","malato",""],["Innsbruck","Innsbruck",""]
+ ["Studium","studi (universitari)","n:Studien"],["Universität","università","f:Universitäten"],["im Ausland","all'estero",""],["Stelle","posto (di lavoro)","f:Stellen"],["Hotel","albergo","n:Hotels"],["Monat","mese","m:Monate"],["Visum","visto","n:Visa"],["heiraten","sposarsi",""],["krank","malato",""],["Innsbruck","Innsbruck",""],
+ ["Norden", "nord", "m:-"],
+ ["Süden", "sud", "m:-"],
+ ["Osten", "est", "m:-"],
+ ["Westen", "ovest", "m:-"],
+ ["nass", "bagnato", ""],
+ ["trocken", "asciutto, secco", ""],
+ ["Meinung", "opinione", "f:Meinungen"],
+ ["meinen", "pensare, intendere", ""],
+ ["denken", "pensare", ""],
+ ["versuchen", "provare, cercare di", ""],
+ ["wichtig", "importante", ""],
+ ["normal", "normale", ""],
+ ["eigentlich", "in realtà, veramente", ""],
+ ["genau", "esatto, preciso", ""],
+ ["gleich", "subito, tra poco; uguale", ""],
+ ["selbst", "da sé, (io) stesso", ""],
+ ["wahr", "vero", ""],
+ ["interessieren", "interessare; sich interessieren für = interessarsi di", ""]
 ];
 EX.l21=EX.l21.concat([
  {t:"dict",au:"In zwei Jahren will ich in Deutschland wohnen."},

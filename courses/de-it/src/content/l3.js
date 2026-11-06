@@ -17,7 +17,10 @@ EX.l3=[
 ];
 VOC.l3=[
  ["Sie","Lei (cortesia); loro (cortesia)",""],["Frau","signora; donna; moglie","f:Frauen"],["Herr","signore","m:Herren"],["Wie geht's?","come va?",""],["Wie geht es Ihnen?","come sta?",""],["Wie geht es dir?","come stai?",""],["gut","bene; buono",""],["sehr gut","benissimo",""],["es geht","così così",""],["nicht so gut","non tanto bene",""],["schlecht","male; cattivo",""],["müde","stanco",""],["ein bisschen","un po'",""],["alt","vecchio",""],["Wie alt bist du?","quanti anni hai?",""],["Jahr","anno","n:Jahre"],["Bruder","fratello","m:Brüder"],["toll","bello, fantastico",""],["Nummer","numero","f:Nummern"],
- ["null","zero",""],["eins","uno",""],["zwei","due",""],["vier","quattro",""],["fünf","cinque",""],["sechs","sei",""],["sieben","sette",""],["acht","otto",""],["neun","nove",""],["zehn","dieci",""],["elf","undici",""],["zwölf","dodici",""],["dreizehn","tredici",""],["sechzehn","sedici",""],["siebzehn","diciassette",""],["neunzehn","diciannove",""],["zwanzig","venti",""],["einundzwanzig","ventuno",""],["dreißig","trenta",""],["vierzig","quaranta",""],["fünfzig","cinquanta",""],["hundert","cento",""],["dein", "tuo", ""]
+ ["null","zero",""],["eins","uno",""],["zwei","due",""],["vier","quattro",""],["fünf","cinque",""],["sechs","sei",""],["sieben","sette",""],["acht","otto",""],["neun","nove",""],["zehn","dieci",""],["elf","undici",""],["zwölf","dodici",""],["dreizehn","tredici",""],["sechzehn","sedici",""],["siebzehn","diciassette",""],["neunzehn","diciannove",""],["zwanzig","venti",""],["einundzwanzig","ventuno",""],["dreißig","trenta",""],["vierzig","quaranta",""],["fünfzig","cinquanta",""],["hundert","cento",""],["dein", "tuo", ""],
+ ["Alter", "età", "n:-"],
+ ["Adresse", "indirizzo", "f:Adressen"],
+ ["Postleitzahl", "codice postale (CAP)", "f:Postleitzahlen"]
 ];
 EX.l3=EX.l3.concat([
  {t:"dict",au:"Ich bin neunzehn."},
