@@ -160,6 +160,55 @@
       "examNote": "CILS、PLIDA 每年有多次考试，请在考点确认日期。"
     },
     {
+      "id": "en-it",
+      "learn": "en",
+      "speak": "it",
+      "storageKey": "inglese-per-italiani-v1",
+      "titleField": "t",
+      "name": "Inglese",
+      "native": "English",
+      "the": "l'inglese",
+      "color": "red",
+      "levelsLabel": "Da zero all'A2 · 23 lezioni",
+      "courseHours": 180,
+      "hidden": true,
+      "starts": [
+        {
+          "skip": 1,
+          "t": "Da zero",
+          "s": "Non ho mai studiato inglese"
+        },
+        {
+          "skip": 2,
+          "t": "So già le basi",
+          "s": "Saluti, presentarsi, numeri (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "Ho già un livello A1",
+          "s": "Ricordo l'inglese della scuola"
+        }
+      ],
+      "exams": [
+        {
+          "id": "a2",
+          "name": "Cambridge A2 Key",
+          "upto": "r3",
+          "hours": 180,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "Cambridge B1 Preliminary",
+          "upto": "r3",
+          "hours": 380,
+          "partial": true,
+          "dates": []
+        }
+      ],
+      "examNote": "Il Cambridge A2 Key si può fare quasi ogni mese, su carta o al computer: controlla le date nei centri d'esame autorizzati della tua città."
+    },
+    {
       "id": "fr-it",
       "learn": "fr",
       "speak": "it",

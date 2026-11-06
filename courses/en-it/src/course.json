@@ -1,0 +1,42 @@
+{
+  "parts": [
+    {"title": "Parte prima · Primi passi", "level": "A1.1", "j": "First steps", "items": [
+      {"id": "l1", "t": "Suoni, lettere e saluti", "j": "Hello!", "icon": "i-abc"},
+      {"id": "l2", "t": "Mi chiamo…: be e nazionalità", "j": "I'm Marco", "icon": "i-tag"},
+      {"id": "l3", "t": "Domande con be, età e numeri", "j": "Are you Italian?", "icon": "i-q"},
+      {"id": "l4", "t": "Cose e persone: a, an, plurali e there is", "j": "Things", "icon": "i-book"},
+      {"id": "l5", "t": "La mia famiglia: have got e possessivi", "j": "My family", "icon": "i-family"},
+      {"id": "l6", "t": "Che ore sono? Numeri, ore e giorni", "j": "What time is it?", "icon": "i-clock"},
+      {"id": "l7", "t": "Che lavoro fai? Il present simple", "j": "What do you do?", "icon": "i-chat"},
+      {"id": "l8", "t": "Al bar: Can I have…? e i prezzi", "j": "At the café", "icon": "i-cup"},
+      {"id": "r1", "t": "Ripasso 1", "j": "Review 1", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte seconda · La vita di tutti i giorni", "level": "A1.2", "j": "Everyday life", "items": [
+      {"id": "l9", "t": "Fare domande: do, does e le parole wh-", "j": "Asking questions", "icon": "i-sun"},
+      {"id": "l10", "t": "La mia giornata: abitudini e avverbi di frequenza", "j": "My day", "icon": "i-ticket"},
+      {"id": "l11", "t": "Il tempo libero: like + -ing e can", "j": "Free time", "icon": "i-ball"},
+      {"id": "l12", "t": "Proprio adesso: il present continuous", "j": "Right now", "icon": "i-umbrella"},
+      {"id": "l13", "t": "In città: preposizioni e indicazioni", "j": "In town", "icon": "i-pin"},
+      {"id": "l14", "t": "Al ristorante e al supermercato: some, any, much, many", "j": "Food and shopping", "icon": "i-fork"},
+      {"id": "r2", "t": "Ripasso 2", "j": "Review 2", "icon": "i-loop", "kind": "review"}
+    ]},
+    {"title": "Parte terza · Raccontare", "level": "A2", "j": "Telling stories", "items": [
+      {"id": "l15", "t": "Il fine settimana: was, were e il past simple regolare", "j": "The weekend", "icon": "i-phone"},
+      {"id": "l16", "t": "In viaggio: verbi irregolari e did", "j": "Travelling", "icon": "i-suitcase"},
+      {"id": "l17", "t": "Quando ero piccolo: used to e could", "j": "When I was a child", "icon": "i-kite"},
+      {"id": "l18", "t": "Raccontare una storia: il past continuous", "j": "Telling a story", "icon": "i-scroll"},
+      {"id": "l19", "t": "Confronti: comparativi e superlativi", "j": "Comparing things", "icon": "i-heart"},
+      {"id": "l20", "t": "Esperienze: il present perfect", "j": "Have you ever…?", "icon": "i-bag"},
+      {"id": "l21", "t": "Progetti: going to, will e if", "j": "Plans", "icon": "i-lemon"},
+      {"id": "l22", "t": "Salute e consigli: should, have to, must", "j": "Health and advice", "icon": "i-cross"},
+      {"id": "l23", "t": "Giulia a Londra: who, which, where", "j": "Giulia in London", "icon": "i-arch"},
+      {"id": "r3", "t": "Ripasso 3 e test A2", "j": "Review 3 and A2 test", "icon": "i-star", "kind": "review"}
+    ]},
+    {"title": "Appendici", "j": "Appendix", "items": [
+      {"id": "frasi", "t": "Frasario", "j": "Useful phrases", "icon": "i-lemon", "kind": "app", "letter": "A"},
+      {"id": "flash", "t": "Flashcard: ripasso a intervalli", "j": "Flashcards", "icon": "i-cards", "kind": "app", "letter": "B"},
+      {"id": "vocab", "t": "Vocabolario", "j": "Vocabulary", "icon": "i-book", "kind": "app", "letter": "C"},
+      {"id": "verbi", "t": "I verbi: tempi e irregolari", "j": "Verbs", "icon": "i-verb", "kind": "app", "letter": "D"}
+    ]}
+  ]
+}
