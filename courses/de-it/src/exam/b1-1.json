@@ -1,0 +1,1066 @@
+{
+ "id": "b1-1",
+ "exam": "b1",
+ "title": "Prova 1",
+ "it": "Simulazione nel formato del Goethe-Zertifikat B1: Lesen e Hören con punteggio stimato; Schreiben e Sprechen da esercitare con i modelli.",
+ "scheme": {
+  "name": "Goethe-Zertifikat B1",
+  "total": 200,
+  "pass": 120,
+  "lang": "de",
+  "plays": 2,
+  "opts": "abc",
+  "part": "Teil ",
+  "groups": [
+   {
+    "id": "lect",
+    "label": "Lesen",
+    "max": 100,
+    "min": 60
+   },
+   {
+    "id": "aud",
+    "label": "Hören",
+    "max": 100,
+    "min": 60
+   }
+  ],
+  "skills": {
+   "reading": [
+    "Lettura",
+    "Lesen"
+   ],
+   "listening": [
+    "Ascolto",
+    "Hören"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "Frau: ",
+   "M": "Mann: ",
+   "MOD": "Moderatorin: ",
+   "KR": "Herr Krämer: ",
+   "OZ": "Frau Özdemir: "
+  },
+  "passText": "Lesen e Hören hanno 30 domande ciascuno, come all'esame vero, e il punteggio è riportato su 100. Il Goethe-Zertifikat B1 è modulare: ogni modulo (Lesen, Hören, Schreiben, Sprechen) si supera con almeno 60 punti su 100, e i moduli si possono sostenere anche separatamente.",
+  "notOfficial": "Simulazione nel formato del Goethe-Zertifikat B1, non un esame ufficiale: il punteggio è solo una stima. L'esame vero comprende anche Schreiben e Sprechen, valutati da esaminatori.",
+  "note": "Come all'esame vero, istruzioni e domande sono in tedesco. Nell'ascolto le parti 2 e 3 si sentono una volta sola, le parti 1 e 4 due volte. Se ti serve, premi «Traduci» per vedere la consegna in italiano."
+ },
+ "sections": [
+  {
+   "id": "lect",
+   "jp": "Lesen",
+   "it": "Lettura",
+   "min": 65,
+   "score": "lect",
+   "parts": [
+    {
+     "n": 1,
+     "label": "Teil 1",
+     "skill": "reading",
+     "kind": "Blog",
+     "opts": "",
+     "inst": "Lesen Sie den Text und die Aufgaben 1 bis 6. Wählen Sie: Sind die Aussagen richtig oder falsch?",
+     "itInst": "Leggi il blog e le frasi 1-6: sono giuste (Richtig) o sbagliate (Falsch)?",
+     "text": "Hallo zusammen!\n\nJetzt bin ich schon seit fast einem Jahr in Wien – die Zeit ist so schnell vergangen! Viele von euch haben gefragt, wie es mir hier geht. Deshalb schreibe ich heute endlich wieder einen Beitrag.\n\nAls ich im Oktober angekommen bin, habe ich zuerst bei einer Freundin meiner Mutter gewohnt. Das war praktisch, aber ich wollte unabhängig sein. Nach sechs Wochen habe ich ein Zimmer in einer WG im 7. Bezirk gefunden. Meine Mitbewohner sind ein Student aus Graz und eine Grafikerin aus Hamburg. Wir kochen oft zusammen, und am Wochenende gehen wir manchmal auf den Naschmarkt.\n\nMit der Sprache hatte ich am Anfang mehr Probleme, als ich gedacht hatte. Ich hatte in Italien drei Jahre Deutsch gelernt, aber in Wien spricht man ganz anders! Statt „Tüte“ sagt man hier „Sackerl“, und Tomaten heißen „Paradeiser“. Inzwischen verstehe ich fast alles und benutze selbst ein paar Wiener Wörter.\n\nMein Praktikum in einem Architekturbüro ist leider im August zu Ende. Mein Chef hat mir aber angeboten, nach meinem Studium wiederzukommen. Darüber freue ich mich sehr! Vorher muss ich in Mailand noch meine Abschlussarbeit schreiben.\n\nBis bald, eure Chiara",
+     "items": [
+      {
+       "q": "Chiara hat am Anfang bei einer Bekannten gewohnt.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "Ha abitato da un'amica di sua madre: una conoscente."
+      },
+      {
+       "q": "Chiara wohnt jetzt allein in einer kleinen Wohnung.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "Abita in una WG con due coinquilini."
+      },
+      {
+       "q": "Chiara und ihre Mitbewohner verbringen oft Zeit zusammen.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "«Wir kochen oft zusammen» e nel fine settimana vanno al Naschmarkt."
+      },
+      {
+       "q": "Chiara hatte vor ihrer Zeit in Wien nie Deutsch gelernt.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "Aveva studiato tedesco per tre anni in Italia."
+      },
+      {
+       "q": "In Wien benutzt man für manche Dinge andere Wörter als in Deutschland.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "«Sackerl» invece di «Tüte», «Paradeiser» invece di «Tomaten»."
+      },
+      {
+       "q": "Chiara wird nach dem Praktikum sofort im Architekturbüro weiterarbeiten.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "Potrà tornare dopo la laurea; prima deve scrivere la tesi a Milano."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Teil 2",
+     "skill": "reading",
+     "kind": "Zeitungstexte",
+     "inst": "Lesen Sie die Texte aus der Presse und die Aufgaben 7 bis 12. Wählen Sie bei jeder Aufgabe die richtige Lösung a, b oder c.",
+     "itInst": "Leggi i due articoli e le domande 7-12: scegli la risposta giusta (a, b o c).",
+     "text": "Freiburg: Bohrmaschine statt Buch\n\nEine Bohrmaschine braucht man durchschnittlich nur wenige Minuten im Jahr – trotzdem hat fast jeder Haushalt eine. Das findet Jonas Weber (31) unsinnig. Zusammen mit drei Freunden hat er deshalb im vergangenen Frühjahr im Freiburger Stadtteil Vauban eine „Bibliothek der Dinge“ eröffnet. Dort kann man nicht Bücher, sondern Gegenstände ausleihen: Werkzeug, Zelte, eine Nähmaschine, Spiele und sogar einen Beamer.\n\nDas Prinzip ist einfach: Wer mitmachen will, zahlt zehn Euro im Jahr und kann dann bis zu drei Dinge gleichzeitig für maximal zwei Wochen ausleihen. Viele Gegenstände sind Geschenke von Nachbarn, die sie selbst nicht mehr benutzen. Geöffnet ist zweimal pro Woche, am Dienstag- und am Freitagabend; alle Mitarbeiter arbeiten ehrenamtlich.\n\nInzwischen hat die Bibliothek über 400 Mitglieder. „Am Anfang dachten wir, dass vor allem junge Leute kommen“, erzählt Weber. „Aber viele unserer Mitglieder sind Familien und Rentner.“ Das Projekt war so erfolgreich, dass die Stadt jetzt größere Räume zur Verfügung stellt.\n\n* * *\n\nLernen ohne Hausaufgaben?\n\nAn der Gesamtschule Kassel-Nord gibt es seit zwei Jahren keine Hausaufgaben mehr – zumindest nicht im klassischen Sinn. Stattdessen haben die Schülerinnen und Schüler jeden Tag eine zusätzliche „Lernzeit“ in der Schule. In dieser Stunde arbeiten sie selbstständig an ihren Aufgaben, und Lehrkräfte helfen, wenn es Fragen gibt.\n\n„Früher gab es zu Hause oft Streit“, erzählt Schulleiterin Sabine Hoffmann. „Manche Eltern konnten ihren Kindern helfen, andere nicht, weil sie arbeiten mussten oder selbst unsicher waren. Das war ungerecht.“ Mit der Lernzeit haben alle Kinder die gleichen Chancen.\n\nDie ersten Ergebnisse sind positiv: Die Noten sind nicht schlechter geworden, und die Schüler sagen, dass sie nachmittags mehr Zeit für Sport und Freunde haben. Kritik kommt von einigen Eltern: Sie wissen jetzt weniger darüber, was ihre Kinder in der Schule lernen. Die Schule plant deshalb einen monatlichen Elternabend.",
+     "items": [
+      {
+       "q": "In dem ersten Text geht es um …",
+       "o": [
+        "eine neue Buchhandlung.",
+        "ein Geschäft für gebrauchtes Werkzeug.",
+        "einen Ort, an dem man Gegenstände leihen kann."
+       ],
+       "a": 2,
+       "e": "Una «biblioteca delle cose»: si prendono in prestito oggetti."
+      },
+      {
+       "q": "Die Gegenstände in der Bibliothek …",
+       "o": [
+        "kommen zum Teil von Leuten aus der Nachbarschaft.",
+        "hat die Stadt gekauft.",
+        "kann man dort auch kaufen."
+       ],
+       "a": 0,
+       "e": "«Viele Gegenstände sind Geschenke von Nachbarn»."
+      },
+      {
+       "q": "Die Mitglieder der Bibliothek …",
+       "o": [
+        "sind vor allem Studenten.",
+        "sind ganz unterschiedlich.",
+        "müssen in Vauban wohnen."
+       ],
+       "a": 1,
+       "e": "Non solo giovani: anche famiglie e pensionati."
+      },
+      {
+       "q": "An der Schule in Kassel …",
+       "o": [
+        "gibt es mehr Unterricht am Nachmittag.",
+        "müssen die Schüler mehr lernen als früher.",
+        "machen die Schüler ihre Aufgaben in der Schule."
+       ],
+       "a": 2,
+       "e": "Al posto dei compiti c'è un'ora di «Lernzeit» a scuola."
+      },
+      {
+       "q": "Die Schulleiterin findet, dass die Hausaufgaben früher …",
+       "o": [
+        "nicht für alle Kinder fair waren.",
+        "den Eltern Spaß gemacht haben.",
+        "sehr wichtig für gute Noten waren."
+       ],
+       "a": 0,
+       "e": "«Das war ungerecht»: non tutti i genitori potevano aiutare."
+      },
+      {
+       "q": "Einige Eltern kritisieren, dass …",
+       "o": [
+        "die Noten schlechter geworden sind.",
+        "sie weniger über den Unterricht wissen.",
+        "ihre Kinder zu viel Sport machen."
+       ],
+       "a": 1,
+       "e": "«Sie wissen jetzt weniger darüber, was ihre Kinder in der Schule lernen»."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Teil 3",
+     "skill": "reading",
+     "kind": "Anzeigen",
+     "opts": "abcdefghij0",
+     "inst": "Lesen Sie die Situationen 13 bis 19 und die Anzeigen a bis j. Wählen Sie: Welche Anzeige passt zu welcher Situation? Sie können jede Anzeige nur einmal verwenden. Für eine Situation gibt es keine passende Anzeige. Markieren Sie in diesem Fall 0.",
+     "itInst": "Leggi le situazioni 13-19 e gli annunci a-j: quale annuncio va bene per ogni situazione? Ogni annuncio si usa una volta sola; per una situazione non c'è nessun annuncio: in quel caso scegli 0.",
+     "text": "a  Kochschule Kräuterküche: Italienische Pasta-Kurse für Anfänger. Dienstags von 18 bis 21 Uhr, sechs Abende.\n\nb  Vegetarisch und lecker! Wochenendkurs an der Volkshochschule: Samstag und Sonntag, 10–15 Uhr. Gemüsegerichte aus aller Welt. Anmeldung online.\n\nc  FC Grün-Weiß: Fußball für Mädchen und Jungen von 8 bis 12 Jahren. Training montags und mittwochs von 16 bis 17.30 Uhr auf dem Sportplatz an der Schillerschule.\n\nd  Fitnessstudio Power: Neueröffnung! Jetzt Mitglied werden – der erste Monat ist gratis. Ab 18 Jahren.\n\ne  Verschenken statt wegwerfen! Auf unserer Internetseite geben Sie kostenlos Anzeigen für Möbel, Kleidung und Spielsachen auf. Der neue Besitzer holt die Sachen bei Ihnen ab. www.zuverschenken-bonn.de\n\nf  Deutsch für den Beruf (B1–B2): Abendkurs montags und donnerstags, 18.30–20.45 Uhr. Bewerbungen schreiben, telefonieren, Gespräche im Büro. Sprachschule Lingua.\n\ng  Wandergruppe 60plus: Jeden Mittwoch eine Tour von 10 bis 15 Kilometern in der Umgebung. Neue Mitglieder sind herzlich willkommen! Treffpunkt: Hauptbahnhof, 9 Uhr.\n\nh  Gärtnerei Blum sucht Aushilfen für samstags (8–14 Uhr): Arbeit im Garten und an unserem Stand auf dem Wochenmarkt. Auch für Schüler und Studenten.\n\ni  Ferienwohnungen in den Alpen: ruhige Lage, tolle Aussicht, ideal für Familien. Ab 80 € pro Nacht.\n\nj  Umzugsfirma Schnell: Wir bringen Ihre Möbel sicher in jede Stadt in Europa. Kostenloses Angebot unter 0228 445 210.",
+     "items": [
+      {
+       "q": "Marta möchte am Wochenende lernen, wie man vegetarische Gerichte kocht.",
+       "o": [
+        "Kochschule Kräuterküche",
+        "Vegetarischer Wochenendkurs",
+        "FC Grün-Weiß",
+        "Fitnessstudio Power",
+        "Verschenken statt wegwerfen",
+        "Deutsch für den Beruf",
+        "Wandergruppe 60plus",
+        "Gärtnerei Blum",
+        "Ferienwohnungen in den Alpen",
+        "Umzugsfirma Schnell",
+        "keine Anzeige"
+       ],
+       "a": 1,
+       "e": "Corso del fine settimana di cucina vegetariana: b (il corso a è di pasta, il martedì sera)."
+      },
+      {
+       "q": "Herr Yilmaz sucht für seinen Sohn (10) einen Sportverein, der nachmittags trainiert.",
+       "o": [
+        "Kochschule Kräuterküche",
+        "Vegetarischer Wochenendkurs",
+        "FC Grün-Weiß",
+        "Fitnessstudio Power",
+        "Verschenken statt wegwerfen",
+        "Deutsch für den Beruf",
+        "Wandergruppe 60plus",
+        "Gärtnerei Blum",
+        "Ferienwohnungen in den Alpen",
+        "Umzugsfirma Schnell",
+        "keine Anzeige"
+       ],
+       "a": 2,
+       "e": "Calcio per bambini dagli 8 ai 12 anni, il pomeriggio: c (la palestra è dai 18 anni)."
+      },
+      {
+       "q": "Sabine und Kai ziehen ins Ausland und möchten ihre alten Möbel verschenken.",
+       "o": [
+        "Kochschule Kräuterküche",
+        "Vegetarischer Wochenendkurs",
+        "FC Grün-Weiß",
+        "Fitnessstudio Power",
+        "Verschenken statt wegwerfen",
+        "Deutsch für den Beruf",
+        "Wandergruppe 60plus",
+        "Gärtnerei Blum",
+        "Ferienwohnungen in den Alpen",
+        "Umzugsfirma Schnell",
+        "keine Anzeige"
+       ],
+       "a": 4,
+       "e": "Annunci gratuiti per regalare mobili: e (la ditta j trasporta i mobili, non li regala)."
+      },
+      {
+       "q": "Paolo möchte abends Deutsch lernen, weil er eine bessere Stelle sucht.",
+       "o": [
+        "Kochschule Kräuterküche",
+        "Vegetarischer Wochenendkurs",
+        "FC Grün-Weiß",
+        "Fitnessstudio Power",
+        "Verschenken statt wegwerfen",
+        "Deutsch für den Beruf",
+        "Wandergruppe 60plus",
+        "Gärtnerei Blum",
+        "Ferienwohnungen in den Alpen",
+        "Umzugsfirma Schnell",
+        "keine Anzeige"
+       ],
+       "a": 5,
+       "e": "Tedesco per il lavoro, la sera: f."
+      },
+      {
+       "q": "Frau Becker (72) möchte gern mit anderen Menschen in der Natur unterwegs sein.",
+       "o": [
+        "Kochschule Kräuterküche",
+        "Vegetarischer Wochenendkurs",
+        "FC Grün-Weiß",
+        "Fitnessstudio Power",
+        "Verschenken statt wegwerfen",
+        "Deutsch für den Beruf",
+        "Wandergruppe 60plus",
+        "Gärtnerei Blum",
+        "Ferienwohnungen in den Alpen",
+        "Umzugsfirma Schnell",
+        "keine Anzeige"
+       ],
+       "a": 6,
+       "e": "Gruppo escursionistico 60plus: g."
+      },
+      {
+       "q": "Leon (17) sucht einen Job am Wochenende, am liebsten draußen.",
+       "o": [
+        "Kochschule Kräuterküche",
+        "Vegetarischer Wochenendkurs",
+        "FC Grün-Weiß",
+        "Fitnessstudio Power",
+        "Verschenken statt wegwerfen",
+        "Deutsch für den Beruf",
+        "Wandergruppe 60plus",
+        "Gärtnerei Blum",
+        "Ferienwohnungen in den Alpen",
+        "Umzugsfirma Schnell",
+        "keine Anzeige"
+       ],
+       "a": 7,
+       "e": "Lavoro il sabato in giardino e al mercato, anche per studenti: h."
+      },
+      {
+       "q": "Familie Roth möchte im Sommer ein Ferienhaus am Meer mieten.",
+       "o": [
+        "Kochschule Kräuterküche",
+        "Vegetarischer Wochenendkurs",
+        "FC Grün-Weiß",
+        "Fitnessstudio Power",
+        "Verschenken statt wegwerfen",
+        "Deutsch für den Beruf",
+        "Wandergruppe 60plus",
+        "Gärtnerei Blum",
+        "Ferienwohnungen in den Alpen",
+        "Umzugsfirma Schnell",
+        "keine Anzeige"
+       ],
+       "a": 10,
+       "e": "Ci sono solo appartamenti in montagna (i), non al mare: 0."
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Teil 4",
+     "skill": "reading",
+     "kind": "Meinungen",
+     "opts": "",
+     "inst": "Lesen Sie die Texte 20 bis 26. Wählen Sie: Ist die Person für ein Handyverbot an Schulen?",
+     "itInst": "Leggi i commenti 20-26 a un articolo sui cellulari a scuola: la persona è favorevole al divieto (Ja) o no (Nein)?",
+     "items": [
+      {
+       "q": "Ist die Person für ein Handyverbot an Schulen?",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 1,
+       "e": "«Ein komplettes Verbot finde ich übertrieben»: contraria.",
+       "text": "Laura, 16\nIch verstehe, dass Lehrer genervt sind, wenn Schüler im Unterricht chatten. Aber in der Pause möchte ich mit meinen Freunden Musik hören oder Fotos zeigen. Ein komplettes Verbot finde ich übertrieben."
+      },
+      {
+       "q": "Ist die Person für ein Handyverbot an Schulen?",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 0,
+       "e": "«Ich bin klar dafür»: favorevole.",
+       "text": "Markus, 45\nMeine Tochter sitzt jeden Abend stundenlang am Handy. Wenigstens in der Schule sollte sie sich ohne das Gerät konzentrieren und mit anderen Kindern spielen. Ich bin klar dafür, dass Handys dort verboten werden."
+      },
+      {
+       "q": "Ist die Person für ein Handyverbot an Schulen?",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 0,
+       "e": "Lo raccomanda: favorevole.",
+       "text": "Dr. Anja Keller, Lehrerin\nBei uns gilt seit einem Jahr: Die Handys bleiben im Schrank. Seitdem reden die Schüler in den Pausen wieder miteinander, und es gibt weniger Streit. Ich kann das nur empfehlen."
+      },
+      {
+       "q": "Ist die Person für ein Handyverbot an Schulen?",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 1,
+       "e": "«Statt sie zu verbieten…»: contrario.",
+       "text": "Tim, 17\nWir lernen in der Schule, wie man Informationen im Internet findet. Dafür brauchen wir unsere Handys. Statt sie zu verbieten, sollte man den Schülern beibringen, wie man sie richtig benutzt."
+      },
+      {
+       "q": "Ist die Person für ein Handyverbot an Schulen?",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 1,
+       "e": "Spento in classe sì, vietato del tutto no: contraria.",
+       "text": "Elena, 39\nMein Sohn fährt jeden Tag eine Stunde mit dem Bus zur Schule. Ich möchte, dass er mich anrufen kann, wenn etwas passiert. Im Unterricht muss das Handy natürlich aus sein, aber ganz verbieten? Nein."
+      },
+      {
+       "q": "Ist die Person für ein Handyverbot an Schulen?",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 0,
+       "e": "È contento del divieto: favorevole.",
+       "text": "Jonas, 15\nEhrlich gesagt bin ich froh, dass Handys bei uns in der Schule tabu sind. Vorher habe ich ständig auf Nachrichten gewartet und konnte mich gar nicht konzentrieren. Jetzt sind meine Noten besser."
+      },
+      {
+       "q": "Ist die Person für ein Handyverbot an Schulen?",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 0,
+       "e": "«halte ich für sinnvoll»: favorevole.",
+       "text": "Peter Braun, Schulpsychologe\nViele Kinder fühlen sich unter Druck, immer online zu sein. Klare Regeln helfen ihnen. Ein Verbot während des ganzen Schultags halte ich deshalb für sinnvoll."
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Teil 5",
+     "skill": "reading",
+     "kind": "Regeln",
+     "inst": "Lesen Sie die Aufgaben 27 bis 30 und den Text dazu. Wählen Sie bei jeder Aufgabe die richtige Lösung a, b oder c.",
+     "itInst": "Leggi il regolamento della biblioteca e le domande 27-30: scegli la risposta giusta.",
+     "text": "Benutzungsordnung der Stadtbibliothek\n\n1. Ausweis: Für die Ausleihe brauchen Sie einen Bibliotheksausweis. Den Ausweis bekommen Sie an der Information, wenn Sie Ihren Personalausweis zeigen. Jugendliche unter 18 Jahren brauchen die Unterschrift eines Elternteils. Der Ausweis kostet für Erwachsene 15 € im Jahr; für Schüler, Studenten und Rentner ist er kostenlos.\n\n2. Leihfrist: Bücher können Sie vier Wochen ausleihen, DVDs und Zeitschriften eine Woche. Sie können die Leihfrist bis zu zweimal online verlängern, wenn kein anderer Leser das Medium reserviert hat.\n\n3. Rückgabe: Bringen Sie die Medien während der Öffnungszeiten an die Information zurück. Außerhalb der Öffnungszeiten können Sie Bücher in den Rückgabekasten am Eingang werfen. Für Medien, die Sie zu spät zurückgeben, zahlen Sie pro Tag und Medium 0,50 €.\n\n4. Verhalten: In den Lesesälen bitten wir um Ruhe. Telefonieren ist nur im Eingangsbereich erlaubt. Essen ist in der ganzen Bibliothek nicht gestattet; Getränke in geschlossenen Flaschen sind erlaubt.",
+     "items": [
+      {
+       "q": "Wer muss für den Ausweis bezahlen?",
+       "o": [
+        "alle Leser",
+        "Erwachsene, die nicht studieren und noch nicht in Rente sind",
+        "nur Jugendliche unter 18 Jahren"
+       ],
+       "a": 1,
+       "e": "Gratis per scolari, studenti e pensionati; gli altri adulti pagano 15 € all'anno."
+      },
+      {
+       "q": "Eine DVD …",
+       "o": [
+        "kann man vier Wochen behalten.",
+        "kann man nicht verlängern.",
+        "muss man nach einer Woche zurückgeben oder verlängern."
+       ],
+       "a": 2,
+       "e": "DVD e riviste: una settimana, prorogabile online."
+      },
+      {
+       "q": "Wenn die Bibliothek geschlossen ist, …",
+       "o": [
+        "kann man Bücher trotzdem zurückgeben.",
+        "muss man 0,50 € bezahlen.",
+        "kann man Bücher online zurückgeben."
+       ],
+       "a": 0,
+       "e": "C'è la cassetta per la restituzione all'ingresso."
+      },
+      {
+       "q": "In der Bibliothek darf man …",
+       "o": [
+        "im Lesesaal telefonieren.",
+        "eine geschlossene Flasche Wasser dabeihaben.",
+        "ein Brötchen essen."
+       ],
+       "a": 1,
+       "e": "Mangiare è vietato; le bevande in bottiglie chiuse sono permesse."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aud",
+   "jp": "Hören",
+   "it": "Ascolto",
+   "min": 40,
+   "score": "aud",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Teil 1",
+     "skill": "listening",
+     "kind": "Kurze Texte",
+     "inst": "Sie hören fünf kurze Texte. Sie hören jeden Text zweimal. Zu jedem Text lösen Sie zwei Aufgaben. Wählen Sie bei jeder Aufgabe die richtige Lösung.",
+     "itInst": "Senti cinque brevi testi, ognuno due volte. Per ogni testo ci sono due domande: prima vero/falso, poi a, b o c.",
+     "items": [
+      {
+       "q": "Auf der A9 gibt es einen Stau wegen Bauarbeiten.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "La coda è dovuta a un incidente (Unfall).",
+       "script": [
+        [
+         "M",
+         "Hier ist Radio Bayern drei mit dem Verkehr. Auf der A neun Richtung München gibt es zwischen Ingolstadt-Nord und Ingolstadt-Süd nach einem Unfall fünf Kilometer Stau. Fahren Sie, wenn möglich, schon in Ingolstadt-Nord ab. In der Münchner Innenstadt ist die Leopoldstraße wegen einer Demonstration bis etwa sechzehn Uhr gesperrt. Die U-Bahn fährt normal."
+        ]
+       ]
+      },
+      {
+       "q": "Die Leopoldstraße …",
+       "o": [
+        "ist den ganzen Tag gesperrt.",
+        "ist bis zum Nachmittag gesperrt.",
+        "ist wieder frei."
+       ],
+       "a": 1,
+       "e": "Chiusa «bis etwa sechzehn Uhr».",
+       "script": [
+        [
+         "M",
+         "Hier ist Radio Bayern drei mit dem Verkehr. Auf der A neun Richtung München gibt es zwischen Ingolstadt-Nord und Ingolstadt-Süd nach einem Unfall fünf Kilometer Stau. Fahren Sie, wenn möglich, schon in Ingolstadt-Nord ab. In der Münchner Innenstadt ist die Leopoldstraße wegen einer Demonstration bis etwa sechzehn Uhr gesperrt. Die U-Bahn fährt normal."
+        ]
+       ]
+      },
+      {
+       "q": "Das Auto von Frau Kraus ist repariert.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "«Ihr Auto ist fertig»: freni riparati.",
+       "script": [
+        [
+         "M",
+         "Guten Tag, Frau Kraus, hier spricht Herr Lehmann von der Autowerkstatt Lehmann. Ihr Auto ist fertig. Wir haben die Bremsen repariert und auch gleich die Winterreifen montiert, wie Sie es gewünscht haben. Die Rechnung beträgt vierhundertzwanzig Euro. Sie können das Auto heute bis achtzehn Uhr oder morgen ab halb acht abholen. Am Samstag haben wir geschlossen."
+        ]
+       ]
+      },
+      {
+       "q": "Wann kann Frau Kraus das Auto nicht abholen?",
+       "o": [
+        "heute Nachmittag",
+        "morgen früh",
+        "am Samstag"
+       ],
+       "a": 2,
+       "e": "«Am Samstag haben wir geschlossen».",
+       "script": [
+        [
+         "M",
+         "Guten Tag, Frau Kraus, hier spricht Herr Lehmann von der Autowerkstatt Lehmann. Ihr Auto ist fertig. Wir haben die Bremsen repariert und auch gleich die Winterreifen montiert, wie Sie es gewünscht haben. Die Rechnung beträgt vierhundertzwanzig Euro. Sie können das Auto heute bis achtzehn Uhr oder morgen ab halb acht abholen. Am Samstag haben wir geschlossen."
+        ]
+       ]
+      },
+      {
+       "q": "Der Flug nach Rom fällt aus.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "Il volo non è cancellato: ha 45 minuti di ritardo.",
+       "script": [
+        [
+         "F",
+         "Liebe Fluggäste, wir bitten um Ihre Aufmerksamkeit. Der Flug nach Rom, planmäßiger Abflug elf Uhr zwanzig, hat wegen eines technischen Problems etwa fünfundvierzig Minuten Verspätung. Das Boarding beginnt deshalb erst um zwölf Uhr. Außerdem hat sich das Gate geändert: Der Flug startet jetzt von Gate B vierzehn statt von Gate A zweiundzwanzig. Wir bitten um Ihr Verständnis."
+        ]
+       ]
+      },
+      {
+       "q": "Die Fluggäste sollen …",
+       "o": [
+        "zu einem anderen Gate gehen.",
+        "am Schalter warten.",
+        "einen neuen Flug buchen."
+       ],
+       "a": 0,
+       "e": "Il gate è cambiato: B14 invece di A22.",
+       "script": [
+        [
+         "F",
+         "Liebe Fluggäste, wir bitten um Ihre Aufmerksamkeit. Der Flug nach Rom, planmäßiger Abflug elf Uhr zwanzig, hat wegen eines technischen Problems etwa fünfundvierzig Minuten Verspätung. Das Boarding beginnt deshalb erst um zwölf Uhr. Außerdem hat sich das Gate geändert: Der Flug startet jetzt von Gate B vierzehn statt von Gate A zweiundzwanzig. Wir bitten um Ihr Verständnis."
+        ]
+       ]
+      },
+      {
+       "q": "Für das Sommerfest muss man Eintritt bezahlen.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "«Der Eintritt ist frei».",
+       "script": [
+        [
+         "F",
+         "Und hier noch ein Tipp fürs Wochenende: Am Samstag und Sonntag findet im Stadtpark das große Sommerfest statt. Es gibt Musik von über zwanzig Bands, Essen aus vielen Ländern und ein Programm für Kinder. Der Eintritt ist frei. Wer mit dem Auto kommt, findet allerdings kaum Parkplätze. Nehmen Sie lieber die Straßenbahn: Die Linie vier fährt direkt bis vor den Eingang."
+        ]
+       ]
+      },
+      {
+       "q": "Wie soll man am besten zum Fest kommen?",
+       "o": [
+        "mit dem Auto",
+        "mit dem Fahrrad",
+        "mit der Straßenbahn"
+       ],
+       "a": 2,
+       "e": "«Nehmen Sie lieber die Straßenbahn»: non ci sono parcheggi.",
+       "script": [
+        [
+         "F",
+         "Und hier noch ein Tipp fürs Wochenende: Am Samstag und Sonntag findet im Stadtpark das große Sommerfest statt. Es gibt Musik von über zwanzig Bands, Essen aus vielen Ländern und ein Programm für Kinder. Der Eintritt ist frei. Wer mit dem Auto kommt, findet allerdings kaum Parkplätze. Nehmen Sie lieber die Straßenbahn: Die Linie vier fährt direkt bis vor den Eingang."
+        ]
+       ]
+      },
+      {
+       "q": "Katrin fährt aus beruflichen Gründen nach Frankfurt.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "Va a una riunione della sua ditta.",
+       "script": [
+        [
+         "F",
+         "Hallo Nina, hier ist Katrin. Du, ich habe ein Problem: Ich muss morgen früh nach Frankfurt, meine Firma hat dort ein wichtiges Meeting. Kannst du vielleicht meine Katze füttern? Ich komme erst am Donnerstagabend zurück. Den Schlüssel gebe ich dir heute Abend, ich bin ab acht zu Hause. Ruf mich bitte zurück, ja? Danke dir!"
+        ]
+       ]
+      },
+      {
+       "q": "Was soll Nina machen?",
+       "o": [
+        "Katrin zum Bahnhof bringen",
+        "sich um Katrins Katze kümmern",
+        "Katrins Schlüssel suchen"
+       ],
+       "a": 1,
+       "e": "«Kannst du vielleicht meine Katze füttern?»",
+       "script": [
+        [
+         "F",
+         "Hallo Nina, hier ist Katrin. Du, ich habe ein Problem: Ich muss morgen früh nach Frankfurt, meine Firma hat dort ein wichtiges Meeting. Kannst du vielleicht meine Katze füttern? Ich komme erst am Donnerstagabend zurück. Den Schlüssel gebe ich dir heute Abend, ich bin ab acht zu Hause. Ruf mich bitte zurück, ja? Danke dir!"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Teil 2",
+     "skill": "listening",
+     "kind": "Führung",
+     "plays": 1,
+     "inst": "Sie hören einen Text. Sie hören den Text einmal. Dazu lösen Sie fünf Aufgaben. Wählen Sie bei jeder Aufgabe die richtige Lösung a, b oder c. Sie nehmen an einer Stadtführung durch die Hamburger Speicherstadt teil.",
+     "itInst": "Senti la guida di una visita alla Speicherstadt di Amburgo, una volta sola. Scegli la risposta giusta.",
+     "items": [
+      {
+       "q": "Die Führung dauert …",
+       "o": [
+        "eine Stunde.",
+        "neunzig Minuten.",
+        "zwei Stunden."
+       ],
+       "a": 1,
+       "e": "«in den nächsten anderthalb Stunden»: novanta minuti.",
+       "script": [
+        [
+         "M",
+         "Herzlich willkommen zu unserer Führung durch die Speicherstadt! Mein Name ist Henrik, und ich begleite Sie in den nächsten anderthalb Stunden. Die Speicherstadt wurde ab achtzehnhundertdreiundachtzig gebaut und ist heute der größte Lagerhauskomplex der Welt. Seit zweitausendfünfzehn gehört sie zum Welterbe der UNESCO."
+        ]
+       ]
+      },
+      {
+       "q": "Was findet man heute in den Gebäuden?",
+       "o": [
+        "Büros, Museen und Restaurants",
+        "vor allem Lager für Kaffee",
+        "Wohnungen für Studenten"
+       ],
+       "a": 0,
+       "e": "«Heute gibt es hier keine Lager mehr, sondern Büros, Museen und Restaurants».",
+       "script": [
+        [
+         "M",
+         "In diesen Gebäuden hat man früher Waren wie Kaffee, Tee und Gewürze gelagert. Die Schiffe konnten direkt bis an die Häuser fahren. Heute gibt es hier keine Lager mehr, sondern Büros, Museen und Restaurants."
+        ]
+       ]
+      },
+      {
+       "q": "Im Miniatur Wunderland …",
+       "o": [
+        "muss man an der Kasse Karten kaufen.",
+        "darf man nicht fotografieren.",
+        "ist es am Wochenende sehr voll."
+       ],
+       "a": 2,
+       "e": "«dort ist es am Wochenende sehr voll»; i biglietti li ha già la guida.",
+       "script": [
+        [
+         "M",
+         "Gleich besuchen wir das Miniatur Wunderland, die größte Modelleisenbahn der Welt. Bitte bleiben Sie zusammen, denn dort ist es am Wochenende sehr voll. Die Eintrittskarten habe ich schon, Sie müssen also nicht an der Kasse warten."
+        ]
+       ]
+      },
+      {
+       "q": "In der Pause …",
+       "o": [
+        "können die Teilnehmer in ein Café gehen.",
+        "essen alle zusammen im Restaurant.",
+        "fährt die Gruppe mit dem Schiff."
+       ],
+       "a": 0,
+       "e": "«Hier gegenüber gibt es ein kleines Café».",
+       "script": [
+        [
+         "M",
+         "Nach dem Besuch machen wir eine Pause von zwanzig Minuten. Hier gegenüber gibt es ein kleines Café mit sehr gutem Kuchen. Die Toiletten finden Sie im Erdgeschoss des Museums."
+        ]
+       ]
+      },
+      {
+       "q": "Die Bootsfahrt …",
+       "o": [
+        "kostet extra.",
+        "findet bei Regen nicht statt.",
+        "ist im Preis inbegriffen."
+       ],
+       "a": 2,
+       "e": "«Die Fahrt ist im Preis enthalten»; se piove ci sono le coperte.",
+       "script": [
+        [
+         "M",
+         "Zum Schluss fahren wir mit einer kleinen Barkasse durch die Kanäle. Die Fahrt ist im Preis enthalten. Bei Regen bekommen Sie an Bord eine Decke, also keine Sorge! Wir treffen uns um fünfzehn Uhr wieder hier an der Brücke."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Teil 3",
+     "skill": "listening",
+     "kind": "Gespräch",
+     "plays": 1,
+     "opts": "",
+     "inst": "Sie hören ein Gespräch. Sie hören das Gespräch einmal. Dazu lösen Sie sieben Aufgaben. Wählen Sie: Sind die Aussagen richtig oder falsch? Sie sitzen im Zug und hören, wie sich zwei Bekannte unterhalten.",
+     "itInst": "In treno senti due conoscenti che parlano, una volta sola. Le frasi sono giuste (Richtig) o sbagliate (Falsch)?",
+     "items": [
+      {
+       "q": "Julia hat vor kurzem eine neue Stelle angefangen.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "Lavora da tre settimane in un giornale.",
+       "script": [
+        [
+         "M",
+         "Julia! Was machst du denn hier im Zug?"
+        ],
+        [
+         "F",
+         "Hallo Sven! Ich fahre jetzt jeden Tag nach Leipzig. Ich habe seit drei Wochen eine neue Stelle bei einer Zeitung."
+        ]
+       ]
+      },
+      {
+       "q": "Julia ist mit ihrer Familie nach Leipzig gezogen.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "Non si sono trasferiti: il marito lavora a Halle.",
+       "script": [
+        [
+         "M",
+         "Und ihr seid nicht nach Leipzig umgezogen?"
+        ],
+        [
+         "F",
+         "Nein, mein Mann arbeitet hier in Halle, und die Kinder wollten die Schule nicht wechseln. Mit dem Zug sind es ja nur fünfundzwanzig Minuten."
+        ]
+       ]
+      },
+      {
+       "q": "Julia findet die Fahrt mit dem Zug anstrengend.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "Le piace fare la pendolare: è il suo tempo.",
+       "script": [
+        [
+         "M",
+         "Ist das nicht anstrengend, jeden Tag zu pendeln?"
+        ],
+        [
+         "F",
+         "Ehrlich gesagt gefällt mir das sogar. Im Zug lese ich die Zeitung oder höre Podcasts. Das ist meine Zeit nur für mich."
+        ]
+       ]
+      },
+      {
+       "q": "Sven arbeitet weniger als früher.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "Da gennaio lavora quattro giorni alla settimana.",
+       "script": [
+        [
+         "F",
+         "Und du? Arbeitest du immer noch bei der Bank?"
+        ],
+        [
+         "M",
+         "Ja, aber seit Januar nur noch vier Tage pro Woche. Am Freitag bin ich immer zu Hause."
+        ]
+       ]
+      },
+      {
+       "q": "Sven verdient jetzt mehr Geld.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 1,
+       "e": "Guadagna di meno, ma ha più tempo per la figlia.",
+       "script": [
+        [
+         "F",
+         "Und, bist du zufrieden?"
+        ],
+        [
+         "M",
+         "Sehr! Natürlich verdiene ich jetzt weniger, aber ich habe mehr Zeit für meine Tochter. Das ist mir wichtiger."
+        ]
+       ]
+      },
+      {
+       "q": "Julia und Sven möchten sich am Wochenende treffen.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "Si vedono sabato pomeriggio per un caffè.",
+       "script": [
+        [
+         "F",
+         "Wollen wir uns am Samstag mal wieder zum Kaffee treffen? Mit den Kindern?"
+        ],
+        [
+         "M",
+         "Gern! Am Samstagnachmittag haben wir Zeit."
+        ]
+       ]
+      },
+      {
+       "q": "Sven soll Julia eine Nachricht schicken.",
+       "o": [
+        "Richtig",
+        "Falsch"
+       ],
+       "a": 0,
+       "e": "«Schick mir einfach eine Nachricht».",
+       "script": [
+        [
+         "F",
+         "Super. Schick mir einfach eine Nachricht, wann es euch passt. Meine Nummer hast du noch, oder?"
+        ],
+        [
+         "M",
+         "Ja, klar. Ich schreibe dir heute Abend."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Teil 4",
+     "skill": "listening",
+     "kind": "Diskussion",
+     "opts": "abc",
+     "inst": "Sie hören eine Diskussion. Sie hören die Diskussion zweimal. Dazu lösen Sie acht Aufgaben. Ordnen Sie die Aussagen zu: Wer sagt was? Die Moderatorin der Radiosendung „Thema am Abend“ diskutiert mit Herrn Krämer und Frau Özdemir über das Thema „Homeoffice“.",
+     "itInst": "Senti una discussione alla radio sul lavoro da casa, due volte. Chi dice ogni frase: la moderatrice, Herr Krämer o Frau Özdemir?",
+     "items": [
+      {
+       "q": "Viele Menschen arbeiten seit einigen Jahren öfter zu Hause.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 0,
+       "e": "Lo dice la moderatrice nell'introduzione.",
+       "script": [
+        [
+         "MOD",
+         "Guten Abend und willkommen zu „Thema am Abend“. Seit ein paar Jahren arbeiten viele Menschen in Deutschland regelmäßig zu Hause. Darüber sprechen wir heute mit Herrn Krämer, Chef einer Softwarefirma in Köln, und mit Frau Özdemir, die als Übersetzerin fast nur im Homeoffice arbeitet."
+        ]
+       ]
+      },
+      {
+       "q": "Im Homeoffice spart man viel Zeit.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 2,
+       "e": "Frau Özdemir non passa più un'ora al giorno in coda.",
+       "script": [
+        [
+         "MOD",
+         "Frau Özdemir, was gefällt Ihnen am Homeoffice?"
+        ],
+        [
+         "OZ",
+         "Vor allem, dass ich nicht mehr jeden Tag eine Stunde im Stau stehe. Diese Zeit habe ich jetzt für meine Kinder oder für Sport."
+        ]
+       ]
+      },
+      {
+       "q": "Die Mitarbeiter sollen mindestens zwei Tage pro Woche ins Büro kommen.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 1,
+       "e": "È la regola di Herr Krämer nella sua ditta.",
+       "script": [
+        [
+         "KR",
+         "Bei uns dürfen die Mitarbeiter zu Hause arbeiten, aber an mindestens zwei Tagen pro Woche möchte ich alle im Büro sehen. Sonst kennen sich die Kollegen bald gar nicht mehr."
+        ]
+       ]
+      },
+      {
+       "q": "Manchmal fehlt der Kontakt zu den Kollegen.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 2,
+       "e": "Frau Özdemir: «Manchmal fühle ich mich ein bisschen allein».",
+       "script": [
+        [
+         "OZ",
+         "Das stimmt schon. Manchmal fühle ich mich ein bisschen allein. Eine Kaffeepause mit Kollegen kann kein Videoanruf ersetzen."
+        ]
+       ]
+      },
+      {
+       "q": "Neue Mitarbeiter lernen im Büro schneller.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 1,
+       "e": "Herr Krämer: chi è nuovo impara prima se può chiedere al collega accanto.",
+       "script": [
+        [
+         "KR",
+         "Gerade für neue Mitarbeiter ist das Büro wichtig. Sie lernen viel schneller, wenn sie einfach kurz am Schreibtisch nebenan fragen können."
+        ]
+       ]
+      },
+      {
+       "q": "Es ist schwierig, Arbeit und Freizeit zu trennen.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 2,
+       "e": "Frau Özdemir controlla le mail anche alle dieci di sera.",
+       "script": [
+        [
+         "OZ",
+         "Das Schwierigste für mich ist, abends aufzuhören. Der Computer steht ja im Wohnzimmer, und ich schaue auch um zehn Uhr noch schnell in meine E-Mails."
+        ]
+       ]
+      },
+      {
+       "q": "Man spricht zu selten über die Kosten der Arbeit zu Hause.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 0,
+       "e": "La moderatrice: «Ein Punkt, über den man selten spricht, sind die Kosten».",
+       "script": [
+        [
+         "MOD",
+         "Ein Punkt, über den man selten spricht, sind die Kosten: Strom, Heizung, ein guter Stuhl. Wer bezahlt das eigentlich?"
+        ]
+       ]
+      },
+      {
+       "q": "Die Firma bezahlt einen Teil der Ausstattung.",
+       "o": [
+        "Moderatorin",
+        "Herr Krämer",
+        "Frau Özdemir"
+       ],
+       "a": 1,
+       "e": "Herr Krämer: computer, schermo e 300 euro per la sedia.",
+       "script": [
+        [
+         "KR",
+         "Bei uns bekommt jeder Mitarbeiter einen Laptop und einen Bildschirm, und für einen Bürostuhl zahlen wir einmalig dreihundert Euro dazu."
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Schreiben · Aufgabe 1",
+   "time": "20 min",
+   "task": "Sie haben vor einer Woche Ihren Geburtstag gefeiert. Ihre Freundin Anja konnte nicht kommen. Schreiben Sie Anja eine E-Mail. Beschreiben Sie: Wie war die Feier? Begründen Sie: Was hat Ihnen besonders gefallen? Machen Sie einen Vorschlag für ein Treffen. Schreiben Sie eine E-Mail (circa 80 Wörter). Schreiben Sie etwas zu allen drei Punkten. Achten Sie auf den Textaufbau (Anrede, Einleitung, Reihenfolge der Inhaltspunkte, Schluss).",
+   "tr": "Una settimana fa hai festeggiato il compleanno, ma la tua amica Anja non è potuta venire. Scrivile una mail di circa 80 parole: com'è stata la festa, che cosa ti è piaciuto di più e perché, una proposta per vedervi. Cura la struttura: saluto, introduzione, i tre punti in ordine, chiusura.",
+   "model": "Liebe Anja,\nschade, dass du letzten Samstag nicht da warst! Die Feier war wirklich schön. Wir waren ungefähr zwanzig Leute im Garten meiner Eltern, und das Wetter war zum Glück perfekt. Am besten hat mir gefallen, dass meine Freunde eine Überraschung vorbereitet hatten: Sie haben ein Lied für mich geschrieben und gesungen! Ich musste so lachen. Hast du nächste Woche Zeit? Wir könnten am Freitagabend zusammen essen gehen, dann zeige ich dir die Fotos.\nLiebe Grüße\nLuca"
+  },
+  {
+   "kind": "Schreiben · Aufgabe 2",
+   "time": "25 min",
+   "task": "Sie haben im Fernsehen eine Diskussionssendung zum Thema „Handyverbot an Schulen“ gesehen. Im Online-Gästebuch der Sendung finden Sie folgende Meinung: „Handys gehören nicht in die Schule. Die Kinder sollen lernen und in der Pause miteinander sprechen. – Karin, 52“ Schreiben Sie nun Ihre Meinung (circa 80 Wörter).",
+   "tr": "Hai visto in tv una discussione sul divieto dei cellulari a scuola. Nel forum della trasmissione Karin, 52 anni, scrive che i cellulari non c'entrano con la scuola: i ragazzi devono imparare e parlare tra loro durante l'intervallo. Scrivi la tua opinione (circa 80 parole).",
+   "model": "Ich verstehe Karin, aber ich sehe das ein bisschen anders. Natürlich ist es nicht gut, wenn Schüler im Unterricht chatten oder spielen. Deshalb sollten Handys während der Stunden ausgeschaltet sein. Ein komplettes Verbot finde ich aber übertrieben. Viele Kinder fahren weit zur Schule und müssen ihre Eltern erreichen können. Außerdem kann man mit dem Handy auch lernen, zum Beispiel mit Wörterbuch-Apps. Meiner Meinung nach ist es wichtiger, dass die Schule den Kindern zeigt, wie man das Handy vernünftig benutzt."
+  },
+  {
+   "kind": "Schreiben · Aufgabe 3",
+   "time": "15 min",
+   "task": "Ihr Kursleiter, Herr Hoffmann, hat Sie und die anderen Teilnehmer zu einem Treffen am Donnerstagabend eingeladen. Sie können aber nicht kommen. Schreiben Sie an Herrn Hoffmann. Entschuldigen Sie sich höflich und berichten Sie, warum Sie nicht kommen können. Schreiben Sie eine E-Mail (circa 40 Wörter). Vergessen Sie nicht die Anrede und den Gruß am Schluss.",
+   "tr": "Il tuo insegnante, il signor Hoffmann, ha invitato i partecipanti al corso a un incontro giovedì sera, ma non puoi andare. Scrivigli una mail formale di circa 40 parole: scusati con gentilezza e spiega perché non puoi venire. Non dimenticare saluto iniziale e finale.",
+   "model": "Sehr geehrter Herr Hoffmann,\nvielen Dank für die Einladung zum Treffen am Donnerstag. Leider kann ich nicht kommen, weil ich an diesem Abend länger arbeiten muss. Das tut mir sehr leid. Ich wünsche Ihnen allen einen schönen Abend.\nMit freundlichen Grüßen\nGiulia Rossi"
+  },
+  {
+   "kind": "Sprechen · Teil 1",
+   "time": "3 min",
+   "task": "Gemeinsam etwas planen. Ihre Kollegin Frau Schmitt geht nach dreißig Jahren in Rente. Sie möchten zusammen mit Ihrer Partnerin oder Ihrem Partner eine kleine Abschiedsfeier organisieren. Sprechen Sie über die Punkte, machen Sie Vorschläge und reagieren Sie auf die Vorschläge Ihres Gesprächspartners: Wann feiern? · Wo feiern? · Geschenk? · Essen und Getränke? · Wer macht was?",
+   "tr": "Pianificare insieme. La collega signora Schmitt va in pensione dopo trent'anni: organizzate con il tuo compagno d'esame una piccola festa d'addio. Parlate di quando, dove, regalo, cibo e bevande, chi fa che cosa; fai proposte e reagisci alle sue.",
+   "model": "Wann sollen wir feiern? Ich schlage den letzten Freitag vor ihrem Abschied vor, nach der Arbeit. – Gute Idee. Und wo? Im Büro ist es ein bisschen langweilig. – Das stimmt. Wie wäre es mit dem Restaurant gegenüber? Die haben einen Raum für Gruppen. – Ich glaube, das ist zu teuer. Wir könnten lieber in der Kantine feiern und das Essen selbst mitbringen. – Einverstanden. Was schenken wir ihr? Sie reist sehr gern. – Dann sammeln wir Geld für einen Reisegutschein. – Prima. Ich kümmere mich um das Geschenk, und du schreibst die Einladung an die Kollegen, okay? – Abgemacht!"
+  },
+  {
+   "kind": "Sprechen · Teil 2",
+   "time": "3-4 min",
+   "task": "Ein Thema präsentieren. Thema: Sollen Kinder ein eigenes Handy haben? Stellen Sie Ihr Thema vor: Erklären Sie den Inhalt und die Struktur Ihrer Präsentation · Berichten Sie von Ihrer Situation oder einem Erlebnis · Berichten Sie von der Situation in Ihrem Heimatland · Nennen Sie Vor- und Nachteile und sagen Sie Ihre Meinung · Beenden Sie Ihre Präsentation und bedanken Sie sich.",
+   "tr": "Presentare un tema: i bambini devono avere un cellulare tutto loro? Presenta struttura e contenuto, racconta la tua esperienza, la situazione in Italia, vantaggi e svantaggi con la tua opinione, poi chiudi e ringrazia.",
+   "model": "Ich möchte heute über das Thema „Sollen Kinder ein eigenes Handy haben?“ sprechen. Zuerst erzähle ich von meiner Erfahrung, dann von der Situation in Italien, und am Ende nenne ich Vor- und Nachteile und meine Meinung. Mein Neffe ist neun Jahre alt und hat seit Weihnachten ein Handy. Er benutzt es vor allem für Spiele. In Italien bekommen viele Kinder schon mit zehn oder elf Jahren ein Smartphone, oft wenn sie in die Mittelschule kommen. Ein Vorteil ist, dass die Eltern ihre Kinder immer erreichen können. Ein Nachteil ist, dass viele Kinder zu viel Zeit am Bildschirm verbringen und weniger draußen spielen. Ich finde, ein einfaches Handy zum Telefonieren ist für Kinder in Ordnung, ein Smartphone aber erst ab etwa zwölf Jahren. Vielen Dank fürs Zuhören!"
+  },
+  {
+   "kind": "Sprechen · Teil 3",
+   "time": "2 min",
+   "task": "Über ein Thema sprechen. Nach Ihrer Präsentation stellt Ihnen Ihr Partner oder die Prüferin eine Frage, zum Beispiel: „Ab welchem Alter sollten Kinder Ihrer Meinung nach soziale Netzwerke benutzen?“ Antworten Sie. Hören Sie dann die Präsentation Ihres Partners, geben Sie eine kurze Rückmeldung und stellen Sie eine Frage.",
+   "tr": "Parlare di un tema. Dopo la presentazione ti fanno una domanda (per esempio: da che età i bambini dovrebbero usare i social?). Rispondi; poi ascolta la presentazione del compagno, commentala brevemente e fagli una domanda.",
+   "model": "Das ist eine gute Frage. Ich denke, soziale Netzwerke sind für Kinder unter vierzehn Jahren nicht geeignet, weil sie die Gefahren noch nicht gut einschätzen können. – Vielen Dank für deine Präsentation, das war sehr interessant. Besonders gut fand ich das Beispiel mit deiner Tochter. Ich habe noch eine Frage: Wie viele Stunden pro Tag darf deine Tochter das Handy benutzen?"
+  }
+ ]
+}

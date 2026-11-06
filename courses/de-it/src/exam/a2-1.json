@@ -1,0 +1,834 @@
+{
+ "id": "a2-1",
+ "exam": "a2",
+ "title": "Prova 1",
+ "it": "Simulazione nel formato del Goethe-Zertifikat A2: lettura e ascolto con punteggio stimato; scrittura e orale da esercitare con i modelli.",
+ "scheme": {
+  "name": "Goethe-Zertifikat A2",
+  "total": 50,
+  "pass": 30,
+  "lang": "de",
+  "plays": 2,
+  "opts": "abc",
+  "part": "Teil ",
+  "groups": [
+   {
+    "id": "lect",
+    "label": "Lesen",
+    "max": 25,
+    "min": 15
+   },
+   {
+    "id": "aud",
+    "label": "Hören",
+    "max": 25,
+    "min": 15
+   }
+  ],
+  "skills": {
+   "reading": [
+    "Lettura",
+    "Lesen"
+   ],
+   "listening": [
+    "Ascolto",
+    "Hören"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "Frau: ",
+   "M": "Mann: "
+  },
+  "passText": "Lettura e ascolto valgono 25 punti ciascuno, con le stesse parti dell'esame vero (20 domande per prova). Al Goethe-Zertifikat A2 i quattro moduli (Lesen, Hören, Schreiben, Sprechen) valgono 25 punti ciascuno e l'esame si supera con almeno 60 punti su 100: qui la soglia è il 60% di ogni prova, 15 su 25.",
+  "notOfficial": "Simulazione nel formato del Goethe-Zertifikat A2, non un esame ufficiale: il punteggio è solo una stima. L'esame vero comprende anche Schreiben e Sprechen, valutati da esaminatori.",
+  "note": "Come all'esame vero, istruzioni e domande sono in tedesco. Nella parte 2 dell'ascolto, come al Goethe, il testo si sente una volta sola. Se ti serve, premi «Traduci» per vedere la consegna in italiano."
+ },
+ "sections": [
+  {
+   "id": "lect",
+   "jp": "Lesen",
+   "it": "Lettura",
+   "min": 30,
+   "score": "lect",
+   "parts": [
+    {
+     "n": 1,
+     "label": "Teil 1",
+     "skill": "reading",
+     "kind": "Zeitungstext",
+     "inst": "Lesen Sie den Text und die Aufgaben 1 bis 5. Wählen Sie bei jeder Aufgabe die richtige Lösung a, b oder c.",
+     "itInst": "Leggi l'articolo di giornale e le domande 1-5: scegli la risposta giusta (a, b o c).",
+     "text": "Leipzig: Zusammen kochen, zusammen essen\n\nJeden Mittwochabend ist die Küche im Stadtteilzentrum Lindenau voll. Zwanzig Menschen schneiden Gemüse, kochen Suppe und backen Kuchen. Die meisten kennen sich erst seit ein paar Wochen. „Kochen verbindet“, sagt Petra Lang (58). Sie hat die Kochgruppe vor zwei Jahren gegründet.\n\nDie Idee hatte sie nach dem Tod ihres Mannes. „Ich habe allein gewohnt und abends oft nur ein Brot gegessen. Für eine Person kochen macht keinen Spaß.“ Deshalb hat sie einen Zettel in den Supermarkt gehängt. Am ersten Abend kamen fünf Personen, heute sind es jede Woche zwischen fünfzehn und zwanzig.\n\nDie Teilnehmer sind zwischen 19 und 85 Jahre alt. Studenten kochen neben Rentnern, und viele kommen aus anderen Ländern. „So lerne ich Deutsch und neue Rezepte“, sagt Amir (24) aus Syrien. Alle bezahlen drei Euro für die Lebensmittel. Um neun Uhr essen alle zusammen an einem großen Tisch.\n\nIm Sommer möchte die Gruppe ein Fest im Park organisieren – mit Essen aus zehn Ländern.",
+     "items": [
+      {
+       "q": "Die Kochgruppe trifft sich …",
+       "o": [
+        "jeden Tag.",
+        "einmal pro Woche.",
+        "zweimal im Monat."
+       ],
+       "a": 1,
+       "e": "«Jeden Mittwochabend»: una volta alla settimana."
+      },
+      {
+       "q": "Petra Lang hat die Gruppe gegründet, weil …",
+       "o": [
+        "sie nicht gern allein gegessen hat.",
+        "sie Köchin von Beruf ist.",
+        "ihr Mann gern gekocht hat."
+       ],
+       "a": 0,
+       "e": "«Für eine Person kochen macht keinen Spaß»: non le piaceva mangiare da sola."
+      },
+      {
+       "q": "Am ersten Abend …",
+       "o": [
+        "waren zwanzig Leute da.",
+        "ist niemand gekommen.",
+        "kamen fünf Personen."
+       ],
+       "a": 2,
+       "e": "«Am ersten Abend kamen fünf Personen»."
+      },
+      {
+       "q": "Die Teilnehmer …",
+       "o": [
+        "sind alle Rentner.",
+        "sind sehr verschieden.",
+        "kommen alle aus Leipzig."
+       ],
+       "a": 1,
+       "e": "Hanno dai 19 agli 85 anni e molti vengono da altri paesi."
+      },
+      {
+       "q": "Die Teilnehmer bezahlen …",
+       "o": [
+        "einen kleinen Betrag für die Lebensmittel.",
+        "nichts.",
+        "ein Essen im Restaurant."
+       ],
+       "a": 0,
+       "e": "«Alle bezahlen drei Euro für die Lebensmittel»."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Teil 2",
+     "skill": "reading",
+     "kind": "Informationstafel",
+     "inst": "Sie sind im Kaufhaus. Lesen Sie die Aufgaben 6 bis 10 und die Informationstafel. In welchen Stock gehen Sie? Wählen Sie die richtige Lösung a, b oder c.",
+     "itInst": "Sei in un grande magazzino. Leggi le situazioni 6-10 e il cartello: a che piano vai? Scegli a, b o c.",
+     "text": "KAUFHAUS MERKUR\n\n4. Stock: Restaurant mit Dachterrasse · Kundentoiletten · Kundenservice · Fundbüro\n3. Stock: Möbel · Lampen · Teppiche · Betten und Bettwäsche\n2. Stock: Damenmode · Herrenmode · Kindermode · Sportbekleidung\n1. Stock: Haushaltswaren · Geschirr · Küchengeräte · Elektro · Handys und Computer\nErdgeschoss: Parfümerie · Schmuck · Uhren · Zeitschriften · Schreibwaren\nUntergeschoss: Lebensmittel · Getränke",
+     "items": [
+      {
+       "q": "Sie möchten einen Kaffee trinken und etwas essen.",
+       "o": [
+        "Erdgeschoss",
+        "4. Stock",
+        "anderer Stock"
+       ],
+       "a": 1,
+       "e": "Il ristorante con la terrazza è al 4° piano; nel piano interrato (Untergeschoss) si comprano bevande, non si beve un caffè."
+      },
+      {
+       "q": "Sie brauchen ein neues Ladegerät für Ihr Handy.",
+       "o": [
+        "1. Stock",
+        "Erdgeschoss",
+        "anderer Stock"
+       ],
+       "a": 0,
+       "e": "«Elektro · Handys und Computer»: 1° piano."
+      },
+      {
+       "q": "Sie suchen ein Geschenk: eine Uhr für Ihren Vater.",
+       "o": [
+        "2. Stock",
+        "3. Stock",
+        "anderer Stock"
+       ],
+       "a": 2,
+       "e": "Gli orologi (Uhren) sono al piano terra: «anderer Stock»."
+      },
+      {
+       "q": "Sie haben gestern Ihren Regenschirm im Kaufhaus vergessen.",
+       "o": [
+        "4. Stock",
+        "Untergeschoss",
+        "anderer Stock"
+       ],
+       "a": 0,
+       "e": "Gli oggetti smarriti (Fundbüro) sono al 4° piano."
+      },
+      {
+       "q": "Ihre Tochter braucht eine Jacke für die Schule.",
+       "o": [
+        "1. Stock",
+        "3. Stock",
+        "anderer Stock"
+       ],
+       "a": 2,
+       "e": "L'abbigliamento per bambini (Kindermode) è al 2° piano: «anderer Stock»."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Teil 3",
+     "skill": "reading",
+     "kind": "E-Mail",
+     "inst": "Lesen Sie die E-Mail und die Aufgaben 11 bis 15. Wählen Sie bei jeder Aufgabe die richtige Lösung a, b oder c.",
+     "itInst": "Leggi la mail e le domande 11-15: scegli la risposta giusta (a, b o c).",
+     "text": "Liebe Martina,\n\nvielen Dank für deine Einladung zur Hochzeit! Natürlich komme ich gern, ich freue mich schon sehr. Leider kann Thomas nicht mitkommen: Er muss an diesem Wochenende arbeiten, weil ein Kollege im Urlaub ist.\n\nIch komme mit dem Zug und bin am Freitagabend um 20 Uhr in Hamburg. Kannst du mich vom Bahnhof abholen? Wenn nicht, ist das kein Problem, dann nehme ich ein Taxi. Ein Hotelzimmer habe ich schon reserviert, es ist ganz in der Nähe von eurer Wohnung.\n\nHast du einen Wunsch für ein Geschenk? Ich möchte euch gern etwas für die neue Küche schenken, aber ich weiß nicht, was ihr schon habt. Schreib mir bitte!\n\nAm Sonntag fahre ich erst am Nachmittag zurück. Vielleicht können wir am Vormittag zusammen frühstücken?\n\nLiebe Grüße\nSandra",
+     "items": [
+      {
+       "q": "Sandra kommt zur Hochzeit …",
+       "o": [
+        "mit Thomas.",
+        "allein.",
+        "mit einem Kollegen."
+       ],
+       "a": 1,
+       "e": "Thomas non può venire: Sandra viene da sola."
+      },
+      {
+       "q": "Thomas kann nicht kommen, weil er …",
+       "o": [
+        "krank ist.",
+        "im Urlaub ist.",
+        "arbeiten muss."
+       ],
+       "a": 2,
+       "e": "«Er muss an diesem Wochenende arbeiten»; in ferie è il collega."
+      },
+      {
+       "q": "Sandra fragt Martina, ob sie …",
+       "o": [
+        "sie am Bahnhof abholen kann.",
+        "ein Taxi bestellen kann.",
+        "bei ihr schlafen kann."
+       ],
+       "a": 0,
+       "e": "«Kannst du mich vom Bahnhof abholen?»; l'albergo l'ha già prenotato."
+      },
+      {
+       "q": "Sandra möchte dem Paar …",
+       "o": [
+        "ein Hotelzimmer schenken.",
+        "etwas für die Küche schenken.",
+        "Geld schenken."
+       ],
+       "a": 1,
+       "e": "«etwas für die neue Küche schenken»."
+      },
+      {
+       "q": "Was möchte Sandra am Sonntag machen?",
+       "o": [
+        "mit Martina frühstücken",
+        "am Vormittag zurückfahren",
+        "eine Stadtführung machen"
+       ],
+       "a": 0,
+       "e": "«Vielleicht können wir am Vormittag zusammen frühstücken?»; riparte nel pomeriggio."
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Teil 4",
+     "skill": "reading",
+     "kind": "Anzeigen",
+     "opts": "abcdefx",
+     "inst": "Lesen Sie die Aufgaben 16 bis 20 und die Anzeigen a bis f. Welche Anzeige passt zu welcher Person? Für eine Aufgabe gibt es keine passende Anzeige. Markieren Sie dann x.",
+     "itInst": "Leggi le situazioni 16-20 e gli annunci a-f: quale annuncio va bene per ogni persona? Per una persona non c'è nessun annuncio: in quel caso scegli x.",
+     "text": "a  Gitarrenunterricht für Anfänger und Fortgeschrittene. Kinder und Erwachsene. Unterricht bei Ihnen zu Hause. Tel. 0176 2345 9810\n\nb  Fahrradladen Speiche: Verkauf, Reparatur und Verleih. Fahrräder für einen Tag schon ab 12 €. Mo–Sa 9–19 Uhr, Bahnhofstraße 4\n\nc  Kleines Zimmer in WG frei, 15 m², ab 1. März, 380 € warm. Nur für Studentinnen. Mail an: wg-lindenstrasse@mail.de\n\nd  Babysitterin gesucht! Für unsere zwei Kinder (4 und 7), zweimal pro Woche am Nachmittag. Familie Kaya, Tel. 0151 8876 2201\n\ne  Tandempartner gesucht: Ich bin Paul, 30, und lerne Italienisch. Treffen wir uns einmal pro Woche im Café und sprechen eine Stunde Deutsch und eine Stunde Italienisch? paul.tandem@web.de\n\nf  Umzug? Wir helfen! Transporter mit Fahrer, auch am Wochenende. Kleine Umzüge in der Stadt schon ab 99 €. Tel. 0341 556 780",
+     "items": [
+      {
+       "q": "Francesca kommt aus Rom und möchte ihr Deutsch verbessern. Sie kann gut Italienisch erklären.",
+       "o": [
+        "Gitarrenunterricht",
+        "Fahrradladen",
+        "Zimmer in WG",
+        "Babysitterin gesucht",
+        "Tandempartner",
+        "Umzugshilfe",
+        "keine Anzeige"
+       ],
+       "a": 4,
+       "e": "Paul impara l'italiano e cerca un tandem: e."
+      },
+      {
+       "q": "Herr Becker möchte am Samstag mit seinen Gästen eine Radtour machen. Seine Gäste haben keine Fahrräder.",
+       "o": [
+        "Gitarrenunterricht",
+        "Fahrradladen",
+        "Zimmer in WG",
+        "Babysitterin gesucht",
+        "Tandempartner",
+        "Umzugshilfe",
+        "keine Anzeige"
+       ],
+       "a": 1,
+       "e": "Il negozio di biciclette le noleggia (Verleih), anche il sabato: b."
+      },
+      {
+       "q": "Lisa (19) beginnt im März ihr Studium und sucht ein Zimmer.",
+       "o": [
+        "Gitarrenunterricht",
+        "Fahrradladen",
+        "Zimmer in WG",
+        "Babysitterin gesucht",
+        "Tandempartner",
+        "Umzugshilfe",
+        "keine Anzeige"
+       ],
+       "a": 2,
+       "e": "Stanza libera dal 1° marzo, solo per studentesse: c."
+      },
+      {
+       "q": "Familie Schmidt zieht in eine größere Wohnung und hat kein Auto.",
+       "o": [
+        "Gitarrenunterricht",
+        "Fahrradladen",
+        "Zimmer in WG",
+        "Babysitterin gesucht",
+        "Tandempartner",
+        "Umzugshilfe",
+        "keine Anzeige"
+       ],
+       "a": 5,
+       "e": "Furgone con autista per piccoli traslochi: f."
+      },
+      {
+       "q": "Jan möchte Klavier spielen lernen.",
+       "o": [
+        "Gitarrenunterricht",
+        "Fahrradladen",
+        "Zimmer in WG",
+        "Babysitterin gesucht",
+        "Tandempartner",
+        "Umzugshilfe",
+        "keine Anzeige"
+       ],
+       "a": 6,
+       "e": "C'è solo un corso di chitarra, non di pianoforte: x."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aud",
+   "jp": "Hören",
+   "it": "Ascolto",
+   "min": 30,
+   "score": "aud",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Teil 1",
+     "skill": "listening",
+     "kind": "Ansagen",
+     "inst": "Sie hören fünf kurze Texte. Sie hören jeden Text zweimal. Wählen Sie für die Aufgaben 1 bis 5 die richtige Lösung a, b oder c.",
+     "itInst": "Senti cinque brevi testi (annunci, messaggi), ognuno due volte. Scegli la risposta giusta.",
+     "items": [
+      {
+       "q": "Von welchem Gleis fährt der Zug nach Dresden heute ab?",
+       "o": [
+        "Gleis 3",
+        "Gleis 5",
+        "Gleis 8"
+       ],
+       "a": 2,
+       "e": "«fährt heute nicht von Gleis drei, sondern von Gleis acht».",
+       "script": [
+        [
+         "F",
+         "Achtung, eine Gleisänderung: Der Regionalexpress nach Dresden, Abfahrt vierzehn Uhr zwölf, fährt heute nicht von Gleis drei, sondern von Gleis acht. Ich wiederhole: Der Zug nach Dresden fährt heute von Gleis acht."
+        ]
+       ]
+      },
+      {
+       "q": "Wann soll Frau Neumann in die Praxis kommen?",
+       "o": [
+        "am Dienstag um 10.30 Uhr",
+        "am Montag um 9 Uhr",
+        "am Dienstag um 9 Uhr"
+       ],
+       "a": 0,
+       "e": "«Können Sie am Dienstag um halb elf kommen?»",
+       "script": [
+        [
+         "F",
+         "Guten Tag, Frau Neumann, hier ist die Praxis Doktor Albers. Leider müssen wir Ihren Termin am Montag um neun Uhr absagen, der Doktor ist krank. Können Sie am Dienstag um halb elf kommen? Bitte rufen Sie uns kurz zurück. Vielen Dank!"
+        ]
+       ]
+      },
+      {
+       "q": "Wie wird das Wetter am Sonntag?",
+       "o": [
+        "Es regnet.",
+        "Es schneit.",
+        "Es ist sonnig."
+       ],
+       "a": 2,
+       "e": "Sabato piove, domenica «Die Sonne scheint».",
+       "script": [
+        [
+         "M",
+         "Und nun das Wetter fürs Wochenende: Am Samstag regnet es im ganzen Land, die Temperaturen liegen bei zwölf Grad. Am Sonntag wird es freundlicher: Die Sonne scheint, und es wird bis zu achtzehn Grad warm."
+        ]
+       ]
+      },
+      {
+       "q": "Bis wann kostet der Cappuccino heute weniger?",
+       "o": [
+        "bis 10 Uhr",
+        "bis 12 Uhr",
+        "bis 14 Uhr"
+       ],
+       "a": 1,
+       "e": "«jeden Cappuccino bis zwölf Uhr zum halben Preis».",
+       "script": [
+        [
+         "F",
+         "Liebe Kundinnen und Kunden, heute in unserer Obstabteilung: Äpfel aus der Region, das Kilo nur ein Euro neunundneunzig. Und an unserer Kaffeebar im Erdgeschoss bekommen Sie heute jeden Cappuccino bis zwölf Uhr zum halben Preis."
+        ]
+       ]
+      },
+      {
+       "q": "Wo treffen sich Lukas und Tim?",
+       "o": [
+        "vor dem Kino",
+        "im Café",
+        "an der Bushaltestelle"
+       ],
+       "a": 1,
+       "e": "«Ich warte ab sieben im Café Central».",
+       "script": [
+        [
+         "M",
+         "Hallo Tim, hier ist Lukas. Du, der Film beginnt erst um acht, nicht um halb acht. Wollen wir vorher noch etwas trinken? Ich warte ab sieben im Café Central, gegenüber vom Kino. Bis dann!"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Teil 2",
+     "skill": "listening",
+     "kind": "Gespräch",
+     "plays": 1,
+     "opts": "abcdefghi",
+     "inst": "Sie hören ein Gespräch. Sie hören den Text einmal. Was macht Sarah an welchem Tag? Wählen Sie für die Aufgaben 6 bis 10 ein passendes Bild aus a bis i. Wählen Sie jeden Buchstaben nur einmal.",
+     "itInst": "Senti una conversazione una volta sola. Che cosa fa Sarah ogni giorno? Per ogni giorno scegli un'attività (a-i); ogni lettera va usata una volta sola.",
+     "items": [
+      {
+       "q": "Montag",
+       "o": [
+        "schwimmen",
+        "ins Kino gehen",
+        "die Oma besuchen",
+        "zum Zahnarzt gehen",
+        "Fußball spielen",
+        "länger arbeiten",
+        "einkaufen",
+        "eine Party",
+        "Sprachkurs"
+       ],
+       "a": 0,
+       "e": "Il lunedì va a nuotare dopo il lavoro.",
+       "script": [
+        [
+         "M",
+         "Sarah, wann hast du nächste Woche Zeit? Ich möchte mit dir ins Kino gehen."
+        ],
+        [
+         "F",
+         "Hm, mal sehen. Am Montag gehe ich nach der Arbeit schwimmen, wie jede Woche."
+        ]
+       ]
+      },
+      {
+       "q": "Dienstag",
+       "o": [
+        "schwimmen",
+        "ins Kino gehen",
+        "die Oma besuchen",
+        "zum Zahnarzt gehen",
+        "Fußball spielen",
+        "länger arbeiten",
+        "einkaufen",
+        "eine Party",
+        "Sprachkurs"
+       ],
+       "a": 3,
+       "e": "Martedì alle cinque ha un appuntamento dal dentista.",
+       "script": [
+        [
+         "M",
+         "Und am Dienstag?"
+        ],
+        [
+         "F",
+         "Dienstag geht leider auch nicht. Da habe ich um fünf einen Termin beim Zahnarzt."
+        ]
+       ]
+      },
+      {
+       "q": "Mittwoch",
+       "o": [
+        "schwimmen",
+        "ins Kino gehen",
+        "die Oma besuchen",
+        "zum Zahnarzt gehen",
+        "Fußball spielen",
+        "länger arbeiten",
+        "einkaufen",
+        "eine Party",
+        "Sprachkurs"
+       ],
+       "a": 2,
+       "e": "Mercoledì va dalla nonna, che compie gli anni.",
+       "script": [
+        [
+         "M",
+         "Mittwoch vielleicht?"
+        ],
+        [
+         "F",
+         "Am Mittwoch besuche ich meine Oma. Sie hat Geburtstag."
+        ]
+       ]
+      },
+      {
+       "q": "Donnerstag",
+       "o": [
+        "schwimmen",
+        "ins Kino gehen",
+        "die Oma besuchen",
+        "zum Zahnarzt gehen",
+        "Fußball spielen",
+        "länger arbeiten",
+        "einkaufen",
+        "eine Party",
+        "Sprachkurs"
+       ],
+       "a": 8,
+       "e": "Giovedì ha il corso di spagnolo.",
+       "script": [
+        [
+         "M",
+         "Und Donnerstag?"
+        ],
+        [
+         "F",
+         "Donnerstagabend habe ich meinen Spanischkurs. Den möchte ich nicht verpassen."
+        ]
+       ]
+      },
+      {
+       "q": "Freitag",
+       "o": [
+        "schwimmen",
+        "ins Kino gehen",
+        "die Oma besuchen",
+        "zum Zahnarzt gehen",
+        "Fußball spielen",
+        "länger arbeiten",
+        "einkaufen",
+        "eine Party",
+        "Sprachkurs"
+       ],
+       "a": 6,
+       "e": "Venerdì deve fare la spesa per gli ospiti di sabato; al cinema vanno sabato.",
+       "script": [
+        [
+         "M",
+         "Dann bleibt nur noch Freitag."
+        ],
+        [
+         "F",
+         "Am Freitag muss ich einkaufen. Am Samstag kommen Gäste zum Essen. Aber am Samstagnachmittag habe ich Zeit! Gehen wir dann ins Kino?"
+        ],
+        [
+         "M",
+         "Gute Idee!"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Teil 3",
+     "skill": "listening",
+     "kind": "Kurze Gespräche",
+     "inst": "Sie hören fünf kurze Gespräche. Sie hören jeden Text zweimal. Wählen Sie für die Aufgaben 11 bis 15 die richtige Lösung a, b oder c.",
+     "itInst": "Senti cinque brevi conversazioni, ognuna due volte. Scegli la risposta giusta.",
+     "items": [
+      {
+       "q": "Was hat die Frau gekauft?",
+       "o": [
+        "eine Hose",
+        "einen Rock",
+        "eine Bluse"
+       ],
+       "a": 1,
+       "e": "«Ich habe einen Rock gekauft»; i pantaloni erano cari, la camicetta non c'era nella sua taglia.",
+       "script": [
+        [
+         "M",
+         "Na, was hast du gekauft? Eine neue Hose?"
+        ],
+        [
+         "F",
+         "Nein, die Hosen waren alle zu teuer. Ich habe einen Rock gekauft. Eine Bluse wollte ich auch, aber es gab meine Größe nicht."
+        ]
+       ]
+      },
+      {
+       "q": "Wie fährt der Mann jetzt meistens zur Arbeit?",
+       "o": [
+        "mit dem Fahrrad",
+        "mit dem Auto",
+        "mit dem Bus"
+       ],
+       "a": 0,
+       "e": "«seit einem Monat fahre ich mit dem Fahrrad»; l'autobus solo quando piove.",
+       "script": [
+        [
+         "F",
+         "Fährst du immer noch mit dem Auto zur Arbeit?"
+        ],
+        [
+         "M",
+         "Nein, seit einem Monat fahre ich mit dem Fahrrad. Bei Regen nehme ich den Bus, aber das ist selten."
+        ]
+       ]
+      },
+      {
+       "q": "Wann beginnt der Kurs für den Mann?",
+       "o": [
+        "am 3. Mai",
+        "am 13. Mai",
+        "am 30. Mai"
+       ],
+       "a": 1,
+       "e": "Il corso del 3 è pieno: il prossimo comincia il 13.",
+       "script": [
+        [
+         "M",
+         "Guten Tag, ich möchte mich für den Yogakurs am dritten Mai anmelden."
+        ],
+        [
+         "F",
+         "Tut mir leid, der Kurs am dritten Mai ist schon voll. Der nächste Kurs beginnt am dreizehnten Mai. Ist das in Ordnung?"
+        ],
+        [
+         "M",
+         "Ja, kein Problem."
+        ]
+       ]
+      },
+      {
+       "q": "Was isst der Mann?",
+       "o": [
+        "Fisch",
+        "Salat",
+        "Schnitzel"
+       ],
+       "a": 2,
+       "e": "«Ich nehme das Schnitzel mit Pommes»; il pesce l'ha mangiato ieri.",
+       "script": [
+        [
+         "F",
+         "Haben Sie schon gewählt?"
+        ],
+        [
+         "M",
+         "Ich hätte gern den Fisch … ach nein, den hatte ich gestern schon. Ich nehme das Schnitzel mit Pommes, bitte."
+        ],
+        [
+         "F",
+         "Gern. Und zu trinken?"
+        ]
+       ]
+      },
+      {
+       "q": "Wo ist die Brille?",
+       "o": [
+        "im Auto",
+        "auf dem Tisch",
+        "in der Tasche"
+       ],
+       "a": 0,
+       "e": "«Sie ist noch im Auto».",
+       "script": [
+        [
+         "M",
+         "Hast du meine Brille gesehen? Auf dem Tisch ist sie nicht."
+        ],
+        [
+         "F",
+         "Hast du in deiner Tasche geschaut?"
+        ],
+        [
+         "M",
+         "Ja, da ist sie auch nicht … Ach, ich weiß! Sie ist noch im Auto."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Teil 4",
+     "skill": "listening",
+     "kind": "Interview",
+     "opts": "",
+     "inst": "Sie hören ein Interview. Sie hören den Text zweimal. Wählen Sie für die Aufgaben 16 bis 20 Ja oder Nein.",
+     "itInst": "Senti un'intervista due volte. Per ogni frase scegli Ja (sì, è vero) o Nein (no).",
+     "items": [
+      {
+       "q": "Frau Schulz fährt seit zehn Jahren Bus.",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 1,
+       "e": "Guida l'autobus da otto anni, non da dieci.",
+       "script": [
+        [
+         "M",
+         "Frau Schulz, Sie sind Busfahrerin in Hamburg. Seit wann machen Sie diesen Beruf?"
+        ],
+        [
+         "F",
+         "Seit acht Jahren. Vorher habe ich zehn Jahre in einem Büro gearbeitet."
+        ]
+       ]
+      },
+      {
+       "q": "Früher hat sie in einem Büro gearbeitet.",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 0,
+       "e": "«Vorher habe ich zehn Jahre in einem Büro gearbeitet».",
+       "script": [
+        [
+         "M",
+         "Warum haben Sie den Beruf gewechselt?"
+        ],
+        [
+         "F",
+         "Im Büro habe ich den ganzen Tag am Computer gesessen. Das war mir zu langweilig. Ich wollte mit Menschen arbeiten und nicht immer am Schreibtisch sitzen."
+        ]
+       ]
+      },
+      {
+       "q": "Sie arbeitet nur am Vormittag.",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 1,
+       "e": "A volte comincia alle cinque, a volte lavora fino a mezzanotte.",
+       "script": [
+        [
+         "M",
+         "Wie sind Ihre Arbeitszeiten?"
+        ],
+        [
+         "F",
+         "Das ist jede Woche anders. Manchmal fange ich um fünf Uhr morgens an, manchmal arbeite ich bis Mitternacht. Das ist nicht immer leicht für meine Familie."
+        ]
+       ]
+      },
+      {
+       "q": "Die meisten Fahrgäste sind freundlich.",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 0,
+       "e": "«Die meisten Fahrgäste sind sehr nett».",
+       "script": [
+        [
+         "M",
+         "Und die Fahrgäste? Sind sie freundlich?"
+        ],
+        [
+         "F",
+         "Die meisten Fahrgäste sind sehr nett. Viele sagen „Guten Morgen“ oder „Danke“. Nur wenn der Bus Verspätung hat, sind manche Leute nervös."
+        ]
+       ]
+      },
+      {
+       "q": "Sie möchte in Zukunft einen anderen Beruf lernen.",
+       "o": [
+        "Ja",
+        "Nein"
+       ],
+       "a": 1,
+       "e": "Vuole fare questo lavoro fino alla pensione.",
+       "script": [
+        [
+         "M",
+         "Möchten Sie diesen Beruf immer machen?"
+        ],
+        [
+         "F",
+         "Ja, auf jeden Fall! Ich möchte bis zur Rente Bus fahren. Ich kenne meine Stadt jetzt sehr gut, und ich liebe meine Arbeit."
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Schreiben · Teil 1",
+   "time": "10 min",
+   "task": "Sie sind im Zug und kommen zu spät zu einem Treffen mit Ihrem Freund Jonas. Schreiben Sie Jonas eine SMS. Entschuldigen Sie sich. Schreiben Sie, warum Sie später kommen. Machen Sie einen Vorschlag, wo Sie sich treffen. Schreiben Sie 20–30 Wörter.",
+   "tr": "Sei in treno e arrivi tardi a un appuntamento con il tuo amico Jonas. Scrivigli un SMS: scusati, spiega perché arrivi più tardi, proponi dove vedervi. Da 20 a 30 parole.",
+   "model": "Hallo Jonas, es tut mir leid: Mein Zug hat vierzig Minuten Verspätung. Ich bin erst um halb acht da. Treffen wir uns direkt im Restaurant? Bis später! Marco"
+  },
+  {
+   "kind": "Schreiben · Teil 2",
+   "time": "20 min",
+   "task": "Ihre Kursleiterin, Frau Wolf, hat Sie zum Kursfest am Freitag eingeladen. Sie können aber nicht kommen. Schreiben Sie Frau Wolf eine E-Mail. Bedanken Sie sich für die Einladung. Schreiben Sie, warum Sie nicht kommen können. Fragen Sie, ob sie Ihnen die Hausaufgaben schicken kann. Schreiben Sie 30–40 Wörter. Schreiben Sie auch eine Anrede und einen Gruß.",
+   "tr": "La tua insegnante, la signora Wolf, ti ha invitato alla festa del corso di venerdì, ma non puoi andare. Scrivile una mail: ringraziala, spiega perché non puoi venire, chiedi se ti può mandare i compiti. Da 30 a 40 parole, con saluto iniziale e finale (registro formale, Sie).",
+   "model": "Liebe Frau Wolf,\nvielen Dank für Ihre Einladung zum Kursfest. Leider kann ich am Freitag nicht kommen, weil meine Eltern aus Italien zu Besuch sind. Können Sie mir bitte die Hausaufgaben per E-Mail schicken?\nViele Grüße\nGiulia Rossi"
+  },
+  {
+   "kind": "Sprechen · Teil 1",
+   "time": "3-4 min",
+   "task": "Fragen zur Person. Sie bekommen vier Karten mit einem Thema: Geburtstag? · Wohnort? · Beruf? · Lieblingsessen? Stellen Sie Ihrer Partnerin oder Ihrem Partner zu jeder Karte eine Frage und antworten Sie dann auf ihre oder seine Fragen.",
+   "tr": "Domande sulla persona. Hai quattro carte con un tema (compleanno, dove abiti, lavoro, piatto preferito): fai una domanda per ogni carta al tuo compagno d'esame e rispondi alle sue.",
+   "model": "Wann hast du Geburtstag? – Am zwölften März. – Wo wohnst du? – In Mailand, im Zentrum. – Was bist du von Beruf? – Ich bin Krankenpfleger und arbeite in einem Krankenhaus. – Was isst du am liebsten? – Pizza natürlich! Aber Schnitzel esse ich auch sehr gern."
+  },
+  {
+   "kind": "Sprechen · Teil 2",
+   "time": "3-4 min",
+   "task": "Erzählen Sie über Ihr Leben. Thema der Karte: Was machen Sie am Wochenende? Auf der Karte stehen vier Stichwörter: Sport? · Freunde? · Familie? · Haushalt? Sprechen Sie über alle vier Punkte. Danach stellt Ihnen die Prüferin eine Frage.",
+   "tr": "Racconta della tua vita. Tema: che cosa fai nel fine settimana? Parla dei quattro punti della carta: sport, amici, famiglia, faccende di casa. Poi l'esaminatrice ti fa una domanda.",
+   "model": "Am Wochenende schlafe ich zuerst lange, weil ich in der Woche früh aufstehen muss. Am Samstagvormittag mache ich den Haushalt und kaufe ein. Nachmittags gehe ich oft joggen, im Sommer auch schwimmen. Am Abend treffe ich meine Freunde: Wir gehen essen oder ins Kino. Am Sonntag besuche ich meine Eltern. Meine Mutter kocht immer etwas Gutes, und wir essen alle zusammen. Das gefällt mir sehr."
+  },
+  {
+   "kind": "Sprechen · Teil 3",
+   "time": "3-4 min",
+   "task": "Gemeinsam etwas planen. Ein Freund ist im Krankenhaus. Sie möchten ihn am Samstag zusammen besuchen. Sie haben beide einen Terminkalender für Samstag mit einigen Terminen. Finden Sie eine Zeit, in der Sie beide frei sind. Besuchszeit im Krankenhaus: 14 bis 19 Uhr.",
+   "tr": "Pianificare insieme. Un amico è in ospedale e volete andarlo a trovare insieme sabato. Ognuno ha la sua agenda con degli impegni: trovate un orario in cui siete liberi tutti e due. Orario di visita: dalle 14 alle 19.",
+   "model": "Wann hast du am Samstag Zeit? – Um zwei Uhr habe ich leider einen Termin beim Friseur. Geht es um drei? – Nein, um drei spiele ich Tennis, bis halb fünf. Und um fünf? – Um fünf ist gut, da habe ich Zeit. – Super! Sollen wir ihm etwas mitbringen? – Vielleicht ein Buch oder Obst? – Gute Idee, ich kaufe Obst. Treffen wir uns um Viertel vor fünf vor dem Krankenhaus? – Ja, gern. Bis Samstag!"
+  }
+ ]
+}
