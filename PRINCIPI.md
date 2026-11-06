@@ -31,6 +31,22 @@ Se una proposta ne viola uno, si scarta.
   della grammatica.
 - Accessibile: contrasto, tema chiaro e scuro, target di tocco ≥ 44 px, `prefers-reduced-motion`.
 
+## Identità visiva (uniforme, con personalità)
+
+Tutto ciò che porta il nome Milepost (app, presentazioni, video, social, documenti per i partner) ha la stessa
+grafica dell'app. La grafica deve essere **uniforme** e deve avere **personalità**: chi vede una slide o un post deve
+riconoscere Milepost senza leggere il nome.
+
+- Colori: solo quelli dei token di `shell/app.css` (carta `#fff6f1`, inchiostro `#1a1720`, rosso `#ea4a2a`,
+  blu `#2b50d8`, giallo `#ffc532`, verde `#12965a`, rosa `#ff9fb6`, e le versioni scure del tema scuro). Colori pieni,
+  mai sfumature generiche o palette prese da modelli.
+- Caratteri: Bricolage Grotesque per titoli e numeri, Noto Sans per il testo (copre anche hindi, cinese, giapponese).
+- Forme e componenti ricorrenti, sempre uguali e sempre allo stesso posto: l'etichetta a pillola sopra il titolo,
+  le schede bianche con angoli morbidi e ombra leggera, i quadrati colorati con i numeri delle tappe, i cerchi
+  decorativi giallo e rosa, il logo (la pietra miliare sulla strada gialla) con il numero di pagina in fondo.
+- Una sola grafica per documento: niente pagine "diverse" o stili presi in prestito. Una novità di stile entra
+  prima nell'app, poi in tutto il resto.
+
 ## Credibilità (prima di dire "ti prepara all'esame")
 
 - Contenuti rivisti da insegnanti qualificati, con nome visibile.

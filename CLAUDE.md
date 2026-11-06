@@ -9,7 +9,7 @@ Leggi `PRINCIPI.md` prima di ogni modifica. In breve:
 2. Spiegato per chi studia (errori tipici della sua lingua madre, niente corsi generici tradotti).
 3. Costa una frazione di una scuola.
 4. Paghi una volta, resta tuo.
-Design: bello e mai invadente (niente vite, cuori, lucchetti, ansia da streak). La cultura ha una scheda tutta sua: è un punto di forza, va sempre curata e messa in evidenza. Non promettere funzioni che non esistono ancora:
+Design: bello e mai invadente (niente vite, cuori, lucchetti, ansia da streak). Identità visiva uniforme e con personalità in tutto ciò che porta il nome Milepost (app, presentazioni, video, social): stessi colori, caratteri e componenti dell'app (vedi «Identità visiva» in `PRINCIPI.md`). La cultura ha una scheda tutta sua: è un punto di forza, va sempre curata e messa in evidenza. Non promettere funzioni che non esistono ancora:
 ciò che manca si mostra come "In arrivo".
 
 ## Struttura
