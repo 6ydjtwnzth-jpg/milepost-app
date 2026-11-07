@@ -553,23 +553,23 @@
        "script": [
         [
          "F",
-         "Liebe Fluggäste, wir bitten um Ihre Aufmerksamkeit. Der Flug nach Rom, planmäßiger Abflug elf Uhr zwanzig, hat wegen eines technischen Problems etwa fünfundvierzig Minuten Verspätung. Das Boarding beginnt deshalb erst um zwölf Uhr. Außerdem hat sich das Gate geändert: Der Flug startet jetzt von Gate B vierzehn statt von Gate A zweiundzwanzig. Wir bitten um Ihr Verständnis."
+         "Liebe Fluggäste, wir bitten um Ihre Aufmerksamkeit. Der Flug nach Rom, planmäßiger Abflug elf Uhr zwanzig, hat wegen eines technischen Problems etwa fünfundvierzig Minuten Verspätung. Das Boarding beginnt deshalb erst um zwölf Uhr. Außerdem hat sich der Flugsteig geändert: Der Flug startet jetzt von Flugsteig B vierzehn statt von Flugsteig A zweiundzwanzig. Wir bitten um Ihr Verständnis."
         ]
        ]
       },
       {
        "q": "Die Fluggäste sollen …",
        "o": [
-        "zu einem anderen Gate gehen.",
+        "zu einem anderen Flugsteig gehen.",
         "am Schalter warten.",
         "einen neuen Flug buchen."
        ],
        "a": 0,
-       "e": "Il gate è cambiato: B14 invece di A22.",
+       "e": "Il gate (Flugsteig) è cambiato: B14 invece di A22.",
        "script": [
         [
          "F",
-         "Liebe Fluggäste, wir bitten um Ihre Aufmerksamkeit. Der Flug nach Rom, planmäßiger Abflug elf Uhr zwanzig, hat wegen eines technischen Problems etwa fünfundvierzig Minuten Verspätung. Das Boarding beginnt deshalb erst um zwölf Uhr. Außerdem hat sich das Gate geändert: Der Flug startet jetzt von Gate B vierzehn statt von Gate A zweiundzwanzig. Wir bitten um Ihr Verständnis."
+         "Liebe Fluggäste, wir bitten um Ihre Aufmerksamkeit. Der Flug nach Rom, planmäßiger Abflug elf Uhr zwanzig, hat wegen eines technischen Problems etwa fünfundvierzig Minuten Verspätung. Das Boarding beginnt deshalb erst um zwölf Uhr. Außerdem hat sich der Flugsteig geändert: Der Flug startet jetzt von Flugsteig B vierzehn statt von Flugsteig A zweiundzwanzig. Wir bitten um Ihr Verständnis."
         ]
        ]
       },
