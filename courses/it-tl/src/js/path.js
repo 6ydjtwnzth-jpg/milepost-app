@@ -86,7 +86,7 @@ function cultHTML(c){
   return '<article class="cc">'+(c.s?'<svg class="cc-art" viewBox="0 0 320 180" role="img" aria-label="'+esc(c.t)+'"><use href="#sc-'+c.s+'"/></svg>':'')+
     '<div class="cc-body"><h3>'+esc(c.t)+'</h3><p class="cc-it"><span class="it-l" lang="it">'+itHTML(c.i)+'</span><button class="say sm" data-say="'+esc(c.i)+'" aria-label="Pakinggan">'+SPK+'</button></p>'+
     c.p.map(function(x){return '<p>'+linkCult(x,c.w)+'</p>'}).join("")+
-    (c.it?'<div class="cc-cmp"><div class="cc-i"><b>Italia</b><p>'+linkCult(c.it,c.w)+'</p></div><div class="cc-c"><b>Pilipinas</b><p>'+linkCult(c.es,c.w)+'</p></div></div>':'')+
+    (c.it?'<div class="cc-cmp"><div class="cc-i"><b>Italya</b><p>'+linkCult(c.it,c.w)+'</p></div><div class="cc-c"><b>Pilipinas</b><p>'+linkCult(c.es,c.w)+'</p></div></div>':'')+
     ((c.w||[]).length?'<div class="cc-w">'+c.w.map(function(w){return '<button class="chip" type="button" data-say="'+esc(w[0])+'"><span lang="it">'+esc(w[0])+'</span><small>'+esc(w[1])+'</small></button>'}).join("")+'</div>':'')+
     '</div></article>'}
 
