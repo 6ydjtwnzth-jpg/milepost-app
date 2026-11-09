@@ -21,10 +21,10 @@ ciò che manca si mostra come "In arrivo".
   - `plan.js`: catalogo, progressi e piano onesto, condivisi da ingresso e corsi.
   - `courses.json`: metadati dei corsi (esami, ore tipiche, livelli di partenza). Le unità vengono da `courses/<id>/src/course.json`.
     `"hidden": true` nasconde dall'elenco un corso ancora in lavorazione (le sue pagine esistono, ma non si può scegliere).
-  - `i18n.js`: testi dell'interfaccia (`it`, `es`, `zh`). L'interfaccia parla sempre la lingua di chi studia.
+  - `i18n.js`: testi dell'interfaccia (`it`, `es`, `zh`, `hi`, `tl`). L'interfaccia parla sempre la lingua di chi studia.
 - `courses/<id>/`: sorgenti di ogni corso (contenuti, motore, `build.py`).
   - `courses/<id>/src/exam/*.json`: simulazioni d'esame nel formato reale (JLPT N5 per ja-it, HSK 1 per zh-it, CILS A2 per
-    it-zh e it-es, DELF A2 e B1 per fr-it, Cambridge A2 Key e B1 Preliminary per en-it, DELE A2 e B1 per es-it,
+    it-zh, it-es, it-hi e it-tl, Marlins (per gente di mare) più Cambridge A2 Key e B1 Preliminary per en-hi ed en-tl, DELF A2 e B1 per fr-it, Cambridge A2 Key e B1 Preliminary per en-it, DELE A2 e B1 per es-it,
     Goethe-Zertifikat A2 e B1 per de-it). Ogni file porta le sue regole in `scheme`: gruppi di punteggio con massimo e minimo, soglia, lingua del foglio,
     quante volte si ascolta ogni registrazione (anche per singola parte: `plays` nella parte, es. Goethe), etichette di parti e opzioni, immagini (`img`, `oi`, `pics`: icone dello
     sprite del corso), esercizi di scritto/orale non valutati (`practice`). Senza `scheme` valgono le regole del JLPT.
@@ -61,6 +61,17 @@ ciò che manca si mostra come "In arrivo".
     `ef_dora`; Piper `de_DE-thorsten-high` (esame: anche `ramona`/`kerstin`). Audio generato e controllato con Whisper da
     `tts.py <corso>` nello scratchpad; l'elenco delle frasi viene da `window.FRSAYS()`. Le griglie di scritto/orale per
     lingua sono in `IGRID` (`shell/course-app.js`).
+- Corsi per la gente di mare (`it-hi`, `it-tl`, `en-hi`, `en-tl`): italiano e inglese per chi parla hindi o filippino
+  (tagalog), livello A1–A2 generale più la vita a bordo (navi da crociera e da carico: cabine, turni, sicurezza, porto,
+  contratto, salute). Stessi motori di it-es (italiano) ed en-it (inglese), con interfaccia in hindi o filippino.
+  I contenuti si scrivono una volta sola, trilingui, nello scratchpad di sviluppo (`newc/board_it/`, `newc/board_en/`:
+  ogni testo per chi studia è `{hi, tl}`) e i generatori `newc/gen_*.py` scrivono i file dei due corsi. Spiegazioni centrate
+  sugli errori di chi parla hindi (articoli, `v`/`w`, «Myself Ravi», `prepone`) o filippino (`he`/`she`, `p`/`f`, `b`/`v`,
+  «CR»). Appendice «Frasi» con il frasario di bordo (per l'inglese anche le SMCP dell'IMO). Esame inglese: simulazione nel
+  formato del Marlins Test for Seafarers (85 domande: ascolto 25, ore e numeri 5, suoni 9, grammatica 30, lessico 15,
+  lettura 1; nessuna soglia ufficiale, la fissa la compagnia: qui 60% indicativo) più le prove Cambridge di en-it con le
+  spiegazioni tradotte. Voci: Kokoro `if_sara`/`im_nicola` (italiano, file condivisi con it-zh e it-es), `bf_emma`,
+  `bm_george`, `bf_lily` (inglese, file condivisi con en-it). I testi in hindi e filippino vanno riletti da un madrelingua.
 - Racconti (scheda Cultura): `courses/<id>/src/reads.js` (`READS`: titolo, lezione consigliata `after`, frasi [testo, traduzione],
   parole nuove `gloss`, domande con risposta `a`). Solo fiabe tradizionali o testi nostri (niente opere protette).
   `node tools/reads_check.js <id>` elenca le parole non ancora viste nel corso fino a `after` e senza nota: deve restare vuoto.
@@ -90,7 +101,7 @@ ciò che manca si mostra come "In arrivo".
   italiane sono condivise da it-zh e it-es (stesso file audio).
 - zh-it: pinyin «che sparisce» (impostazione `tbpya`, attiva di default): nelle tappe delle lezioni le parole studiate da 3+
   lezioni non mostrano il pinyin. Gli esercizi sui toni usano 4 voci registrate (`audio/<hash>-v1..v4.mp3`, `speakVar`).
-- Esami con scritto/orale (fr-it, it-zh, it-es, en-it, es-it, de-it): sotto ogni prova c'è una griglia di autovalutazione con i criteri delle griglie
+- Esami con scritto/orale (fr-it, it-zh, it-es, en-it, es-it, de-it, it-hi, it-tl, en-hi, en-tl): sotto ogni prova c'è una griglia di autovalutazione con i criteri delle griglie
   ufficiali (`gridHTML` in `shell/course-app.js`, spunte in `<storageKey>-exgrid`).
 - ja-it: i kana sono distribuiti su l1–l7 (`KSTEP` in `src/js/app.js`: hiragana l1–l4, katakana l5–l7). Con il rōmaji su «auto»
   compare sotto ogni parola solo finché contiene kana non ancora insegnati nella lezione (`autoRo`). Si parte dal cortese
