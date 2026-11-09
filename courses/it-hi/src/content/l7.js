@@ -1,2 +1,50 @@
-EX.l7=[];
-VOC.l7=[];
+DLG.l7=[["A","Ciao, sono Giulia. Lavoro come animatrice. Tu che lavoro fai?","हाय, मैं जूलिया हूँ। मैं एनिमेटर का काम करती हूँ। तुम क्या काम करती हो?"],["B","Piacere! Sono cameriera. Lavoro al ristorante.","मिलकर ख़ुशी हुई! मैं वेट्रेस हूँ। रेस्टोरेंट में काम करती हूँ।"],["A","Quante ore lavori al giorno?","तुम दिन में कितने घंटे काम करती हो?"],["B","Lavoro dieci ore. Servo la colazione e la cena.","दस घंटे काम करती हूँ। नाश्ता और रात का खाना परोसती हूँ।"],["A","E Ravi? Anche lui è cameriere?","और रवि? क्या वह भी वेटर है?"],["B","No, lui pulisce le cabine. È cameriere di cabina.","नहीं, वह केबिन साफ़ करता है। वह केबिन स्टीवर्ड है।"],["A","Io invece organizzo i giochi e la sera canto.","और मैं खेल आयोजित करती हूँ, और शाम को गाती हूँ।"],["B","Che bello! Parli inglese con i passeggeri?","कितना अच्छा! क्या तुम यात्रियों से अंग्रेज़ी बोलती हो?"],["A","Sì, parlo inglese e spagnolo. E tu?","हाँ, मैं अंग्रेज़ी और स्पेनिश बोलती हूँ। और तुम?"],["B","Io parlo tagalog, inglese e un po' di italiano!","मैं तागालोग, अंग्रेज़ी और थोड़ी इतालवी बोलती हूँ!"],["A","Brava!","शाबाश!"]];
+EX.l7=[
+ {q:"{tu} + {lavorare}:",o:["{lavori}", "{lavora}", "{lavoro}"],e:"{tu} → {-i}।"},
+ {q:"{loro} + {prendere}:",o:["{prendono}", "{prendano}", "{prendeno}"],e:"{-ere}: {loro prendono}।"},
+ {q:"{io} + {pulire}:",o:["{pulisco}", "{pulo}", "{pulire}"],e:"{pulire} में {-isc-}: {pulisco}।"},
+ {q:"कौन-सा वाक्य सही है? («रवि केबिन साफ़ करता है»)",o:["{Ravi pulisce le cabine.}", "{Ravi le cabine pulisce.}", "{Pulisce le cabine Ravi lui.}"],e:"क्रम: कर्ता + क्रिया + कर्म।"},
+ {q:"यात्री से पूछें «आप क्या काम करते हैं?»:",o:["{Che lavoro fa?}", "{Che lavoro fai?}", "{Che lavoro fanno?}"],e:"{Lei} → {fa}।"},
+ {q:"{noi} + {fare}:",o:["{facciamo}", "{fariamo}", "{fanno}"],e:"{noi facciamo}."},
+ {q:"जॉय वेट्रेस है: {Joy è} ＿",o:["{cameriera}", "{cameriere}", "{camerieri}"],e:"महिला: {cameriera}।"},
+ {q:"सुनें: पाओलो क्या काम करता है?",au:"Paolo fa il cuoco.",o:["रसोइया", "नाविक", "नर्स"],e:"{cuoco} = रसोइया।"},
+ {t:"type",q:"पूरा करें: {Noi} ＿ {italiano a bordo.} ({parlare})",a:["parliamo"],full:"Noi parliamo italiano a bordo."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं नाश्ता परोसती हूँ।»",a:["Servo la colazione."],w:["Servo", "la", "colazione."]},
+ {t:"ord",q:"क्रम में लगाएँ: «जूलिया शाम को गाती है।»",a:["Giulia canta la sera."],w:["Giulia", "canta", "la", "sera."]},
+ {t:"dict",au:"Lavoro dieci ore al giorno."},
+ {t:"say",zh:"अपना काम बताइए: «मैं केबिन स्टीवर्ड हूँ। मैं केबिन साफ़ करता हूँ।»",it:"Sono cameriere di cabina. Pulisco le cabine."}
+];
+VOC.l7=[
+ ["lavoro","काम, नौकरी","m"],
+ ["lavorare","काम करना",""],
+ ["parlare","बोलना",""],
+ ["cantare","गाना",""],
+ ["organizzare","आयोजित करना",""],
+ ["prendere","लेना",""],
+ ["servire","परोसना; सेवा करना",""],
+ ["pulire","साफ़ करना",""],
+ ["capire","समझना",""],
+ ["finire","ख़त्म करना",""],
+ ["fare","करना, बनाना",""],
+ ["cameriere","वेटर; स्टीवर्ड","m"],
+ ["cameriera","वेट्रेस","f"],
+ ["cuoco","रसोइया","m"],
+ ["marinaio","नाविक, सीमैन","m"],
+ ["ufficiale","ऑफ़िसर","m"],
+ ["infermiere","नर्स (पुरुष)","m"],
+ ["infermiera","नर्स (महिला)","f"],
+ ["animatrice","एनिमेटर (महिला)","f"],
+ ["animatore","एनिमेटर (पुरुष)","m"],
+ ["ristorante","रेस्टोरेंट","m"],
+ ["colazione","नाश्ता","f"],
+ ["cena","रात का खाना","f"],
+ ["ora","घंटा; अब","f"],
+ ["al giorno","प्रतिदिन, दिन में",""],
+ ["sera","शाम","f"],
+ ["gioco","खेल","m"],
+ ["invece","जबकि, इसके बजाय",""],
+ ["inglese","अंग्रेज़ी",""],
+ ["spagnolo","स्पेनिश",""],
+ ["come","की तरह, के रूप में",""],
+ ["brava","शाबाश (महिला से)",""]
+];

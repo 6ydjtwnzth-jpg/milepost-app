@@ -1,2 +1,49 @@
-EX.l5=[];
-VOC.l5=[];
+DLG.l5=[["A","Ravi, questa è la tua famiglia?","रवि, क्या यह तुम्हारा परिवार है?"],["B","Sì! Questo è mio padre e questa è mia madre.","हाँ! ये मेरे पिताजी हैं और ये मेरी माँ।"],["A","E lei chi è?","और यह कौन है?"],["B","È mia sorella, Priya. Ha ventidue anni.","यह मेरी बहन प्रिया है। वह बाईस साल की है।"],["A","Che bella famiglia! Hai anche un fratello?","कितना सुंदर परिवार! क्या तुम्हारा भाई भी है?"],["B","Sì, ho un fratello. Lui è a Kochi. E tu, hai figli?","हाँ, मेरा एक भाई है। वह कोच्चि में है। और तुम्हारे बच्चे हैं?"],["A","Sì, ho un figlio. Si chiama Miguel e ha sei anni.","हाँ, मेरा एक बेटा है। उसका नाम मिगेल है और वह छह साल का है।"],["B","È con tuo marito?","क्या वह तुम्हारे पति के साथ है?"],["A","No, è con i miei genitori, a Cebu.","नहीं, वह मेरे माता-पिता के साथ है, सेबू में।"],["B","Quanti anni hai, Joy?","जॉय, तुम्हारी उम्र क्या है?"],["A","Ho trentadue anni. E tu?","मैं बत्तीस साल की हूँ। और तुम?"],["B","Io ho ventinove anni.","मैं उनतीस साल का हूँ।"]];
+EX.l5=[
+ {q:"«मैं उनतीस साल का हूँ»:",o:["{Ho ventinove anni.}", "{Sono ventinove anni.}", "{Ho ventinove.}"],e:"उम्र के लिए {avere}।"},
+ {q:"{noi} + {avere}:",o:["{abbiamo}", "{avete}", "{hanno}"],e:"{noi abbiamo}, {voi avete}, {loro hanno}."},
+ {q:"«मेरी माँ»:",o:["{mia madre}", "{la mia madre}", "{mio madre}"],e:"परिवार का एक व्यक्ति: बिना आर्टिकल, और {madre} स्त्रीलिंग है।"},
+ {q:"«मेरे माता-पिता»:",o:["{i miei genitori}", "{miei genitori}", "{le mie genitori}"],e:"बहुवचन में आर्टिकल रहता है: {i miei genitori}।"},
+ {q:"«जॉय का बेटा» = {Joy e} ＿ {figlio}",o:["{suo}", "{sua}", "{sue}"],e:"{figlio} पुल्लिंग है, इसलिए {suo}, भले ही जॉय महिला है।"},
+ {q:"सुनें: कौन-सी संख्या?",au:"trentadue",o:["32", "23", "42"],e:"{trentadue} = 32."},
+ {q:"सुनें: कौन-सी संख्या?",au:"settantotto",o:["78", "68", "87"],e:"{settanta} + {otto} = {settantotto}."},
+ {q:"{hanno} का उच्चारण:",o:["«आन्नो»", "«हान्नो»", "«हानो»"],e:"{h} चुप रहता है, {nn} दोहरा।"},
+ {t:"type",q:"पूरा करें: {Joy} ＿ {un figlio.} (के पास है)",a:["ha"],full:"Joy ha un figlio."},
+ {t:"ord",q:"क्रम में लगाएँ: «मेरी बहन बाईस साल की है।»",a:["Mia sorella ha ventidue anni."],w:["Mia", "sorella", "ha", "ventidue", "anni."]},
+ {t:"dict",au:"Ho un fratello e una sorella."},
+ {t:"say",zh:"अपनी उम्र बताइए: «मैं तीस साल का/की हूँ।»",it:"Ho trent'anni."}
+];
+VOC.l5=[
+ ["famiglia","परिवार","f"],
+ ["padre","पिता","m"],
+ ["madre","माँ","f"],
+ ["fratello","भाई","m"],
+ ["sorella","बहन","f"],
+ ["genitori","माता-पिता","m"],
+ ["figlio","बेटा; बच्चा","m"],
+ ["figlia","बेटी","f"],
+ ["figli","बच्चे (बेटे-बेटियाँ)","m"],
+ ["marito","पति","m"],
+ ["moglie","पत्नी","f"],
+ ["nonno","दादा, नाना","m"],
+ ["nonna","दादी, नानी","f"],
+ ["foto","फ़ोटो","f"],
+ ["chi","कौन",""],
+ ["avere","के पास होना",""],
+ ["anno","साल","m"],
+ ["quanti anni hai?","तुम्हारी उम्र क्या है?",""],
+ ["mio","मेरा",""],
+ ["tuo","तुम्हारा",""],
+ ["suo","उसका; आपका",""],
+ ["con","के साथ",""],
+ ["che bello","कितना सुंदर",""],
+ ["ventuno","इक्कीस",""],
+ ["trenta","तीस",""],
+ ["quaranta","चालीस",""],
+ ["cinquanta","पचास",""],
+ ["sessanta","साठ",""],
+ ["settanta","सत्तर",""],
+ ["ottanta","अस्सी",""],
+ ["novanta","नब्बे",""],
+ ["cento","सौ",""]
+];

@@ -1,2 +1,49 @@
-EX.l5=[];
-VOC.l5=[];
+DLG.l5=[["A","Ravi, questa è la tua famiglia?","Ravi, ito ba ang pamilya mo?"],["B","Sì! Questo è mio padre e questa è mia madre.","Oo! Ito ang tatay ko at ito ang nanay ko."],["A","E lei chi è?","At sino siya?"],["B","È mia sorella, Priya. Ha ventidue anni.","Kapatid kong babae, si Priya. Dalawampu't dalawang taon siya."],["A","Che bella famiglia! Hai anche un fratello?","Ang ganda ng pamilya! May kapatid ka bang lalaki?"],["B","Sì, ho un fratello. Lui è a Kochi. E tu, hai figli?","Oo, may kapatid akong lalaki. Nasa Kochi siya. At ikaw, may anak ka ba?"],["A","Sì, ho un figlio. Si chiama Miguel e ha sei anni.","Oo, may anak akong lalaki. Miguel ang pangalan niya at anim na taon siya."],["B","È con tuo marito?","Kasama ba niya ang asawa mo?"],["A","No, è con i miei genitori, a Cebu.","Hindi, kasama niya ang mga magulang ko, sa Cebu."],["B","Quanti anni hai, Joy?","Ilang taon ka na, Joy?"],["A","Ho trentadue anni. E tu?","Tatlumpu't dalawang taon ako. Ikaw?"],["B","Io ho ventinove anni.","Dalawampu't siyam na taon ako."]];
+EX.l5=[
+ {q:"«Dalawampu't siyam na taon ako»:",o:["{Ho ventinove anni.}", "{Sono ventinove anni.}", "{Ho ventinove.}"],e:"Sa edad: {avere}."},
+ {q:"{noi} + {avere}:",o:["{abbiamo}", "{avete}", "{hanno}"],e:"{noi abbiamo}, {voi avete}, {loro hanno}."},
+ {q:"«ang nanay ko»:",o:["{mia madre}", "{la mia madre}", "{mio madre}"],e:"Isang kapamilya: walang artikulo, at pambabae ang {madre}."},
+ {q:"«ang mga magulang ko»:",o:["{i miei genitori}", "{miei genitori}", "{le mie genitori}"],e:"Sa maramihan, may artikulo: {i miei genitori}."},
+ {q:"«ang anak ni Joy» = {Joy e} ＿ {figlio}",o:["{suo}", "{sua}", "{sue}"],e:"Panlalaki ang {figlio}, kaya {suo}, kahit babae si Joy."},
+ {q:"Makinig: anong numero?",au:"trentadue",o:["32", "23", "42"],e:"{trentadue} = 32."},
+ {q:"Makinig: anong numero?",au:"settantotto",o:["78", "68", "87"],e:"{settanta} + {otto} = {settantotto}."},
+ {q:"Ang bigkas ng {hanno}:",o:["«anno»", "«hanno»", "«hano»"],e:"Tahimik ang {h}; doble ang {nn}."},
+ {t:"type",q:"Kumpletuhin: {Joy} ＿ {un figlio.} (mayroon)",a:["ha"],full:"Joy ha un figlio."},
+ {t:"ord",q:"Ayusin: «Dalawampu't dalawang taon ang kapatid kong babae.»",a:["Mia sorella ha ventidue anni."],w:["Mia", "sorella", "ha", "ventidue", "anni."]},
+ {t:"dict",au:"Ho un fratello e una sorella."},
+ {t:"say",zh:"Sabihin ang edad mo: «Tatlumpung taon ako.»",it:"Ho trent'anni."}
+];
+VOC.l5=[
+ ["famiglia","pamilya","f"],
+ ["padre","ama, tatay","m"],
+ ["madre","ina, nanay","f"],
+ ["fratello","kapatid na lalaki","m"],
+ ["sorella","kapatid na babae","f"],
+ ["genitori","mga magulang","m"],
+ ["figlio","anak na lalaki","m"],
+ ["figlia","anak na babae","f"],
+ ["figli","mga anak","m"],
+ ["marito","asawang lalaki","m"],
+ ["moglie","asawang babae","f"],
+ ["nonno","lolo","m"],
+ ["nonna","lola","f"],
+ ["foto","litrato","f"],
+ ["chi","sino",""],
+ ["avere","magkaroon",""],
+ ["anno","taon","m"],
+ ["quanti anni hai?","ilang taon ka na?",""],
+ ["mio","ko, akin",""],
+ ["tuo","mo, iyo",""],
+ ["suo","niya; ninyo",""],
+ ["con","kasama, may",""],
+ ["che bello","ang ganda",""],
+ ["ventuno","dalawampu't isa",""],
+ ["trenta","tatlumpu",""],
+ ["quaranta","apatnapu",""],
+ ["cinquanta","limampu",""],
+ ["sessanta","animnapu",""],
+ ["settanta","pitumpu",""],
+ ["ottanta","walumpu",""],
+ ["novanta","siyamnapu",""],
+ ["cento","isandaan",""]
+];

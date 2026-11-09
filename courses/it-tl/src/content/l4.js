@@ -1,2 +1,49 @@
-EX.l4=[];
-VOC.l4=[];
+DLG.l4=[["A","Ravi, scusi, c'è un asciugacapelli in cabina?","Ravi, paumanhin, may hair dryer ba sa kabina?"],["B","Sì, signora, c'è. È in bagno.","Opo, ginang, mayroon. Nasa banyo po."],["A","E gli asciugamani?","At ang mga tuwalya?"],["B","Ecco gli asciugamani: uno grande e uno piccolo.","Heto po ang mga tuwalya: isang malaki at isang maliit."],["A","Grazie. E questa è la cassaforte?","Salamat. At ito ba ang safe?"],["B","Sì. E questo è il telecomando.","Opo. At ito po ang remote."],["A","C'è anche un frigorifero?","May ref din ba?"],["B","Sì, c'è un piccolo frigorifero. Ci sono due bottiglie d'acqua.","Opo, may maliit na ref. May dalawang bote ng tubig."],["A","Perfetto, grazie!","Perpekto, salamat!"],["B","Prego, signora. Buona serata!","Walang anuman po, ginang. Magandang gabi po!"]];
+EX.l4=[
+ {q:"Piliin ang artikulo: ＿ {specchio}",o:["{lo specchio}", "{il specchio}", "{la specchio}"],e:"Bago ang {s}+katinig: {lo}."},
+ {q:"Maramihan ng {la coperta}:",o:["{le coperte}", "{la copertas}", "{le coperta}"],e:"{-a} → {-e}, at {la} → {le}."},
+ {q:"«May dalawang kama»:",o:["{Ci sono due letti.}", "{C'è due letti.}", "{Sono due letto.}"],e:"Maramihan: {ci sono}."},
+ {q:"Piliin ang artikulo: ＿ {armadio}",o:["{l'armadio}", "{il armadio}", "{lo armadio}"],e:"Bago ang patinig: {l'}."},
+ {q:"Maramihan ng {lo specchio}:",o:["{gli specchi}", "{i specchi}", "{le specchie}"],e:"{lo} → {gli}."},
+ {q:"Alin ang tama?",o:["{Ecco gli asciugamani.}", "{Ecco asciugamani.}", "{Ecco il asciugamani.}"],e:"Kailangan ng artikulo: {gli asciugamani}."},
+ {q:"Di-tiyak na artikulo + {amica}:",o:["{un'amica}", "{uno amica}", "{un amica}"],e:"Pambabae + patinig: {un'}."},
+ {q:"Makinig: anong salita ang naririnig mo?",au:"asciugamano",o:["{asciugamano}", "{ascugamano}", "{asiugamano}"],e:"{sci} = «sy»."},
+ {t:"type",q:"Kumpletuhin: ＿ {due bottiglie d'acqua.} (may)",a:["Ci sono"],full:"Ci sono due bottiglie d'acqua."},
+ {t:"ord",q:"Ayusin: «May salamin sa banyo.»",a:["C'è uno specchio in bagno."],w:["C'è", "uno", "specchio", "in", "bagno."]},
+ {t:"dict",au:"C'è un piccolo frigorifero."},
+ {t:"say",zh:"Ipakita sa pasahero ang mga tuwalya: «Heto po ang mga tuwalya.»",it:"Ecco gli asciugamani."}
+];
+VOC.l4=[
+ ["cabina","kabina","f"],
+ ["letto","kama","m"],
+ ["armadio","aparador","m"],
+ ["doccia","shower, dutsa","f"],
+ ["specchio","salamin","m"],
+ ["asciugamano","tuwalya","m"],
+ ["asciugacapelli","hair dryer","m"],
+ ["cassaforte","safe, kaha de yero","f"],
+ ["frigorifero","ref, repridyereytor","m"],
+ ["bottiglia","bote","f"],
+ ["acqua","tubig","f"],
+ ["oblò","bilog na bintana ng barko","m"],
+ ["porta","pinto","f"],
+ ["sedia","upuan","f"],
+ ["scrivania","mesa (sulatan)","f"],
+ ["chiave","susi","f"],
+ ["cuscino","unan","m"],
+ ["coperta","kumot","f"],
+ ["telecomando","remote","m"],
+ ["lampada","lampara","f"],
+ ["amica","kaibigang babae","f"],
+ ["collega","kasamahan sa trabaho",""],
+ ["c'è","may (isa)",""],
+ ["ci sono","may (marami)",""],
+ ["ecco","heto, narito",""],
+ ["questo","ito (panlalaki)",""],
+ ["questa","ito (pambabae)",""],
+ ["grande","malaki",""],
+ ["piccolo","maliit",""],
+ ["anche","din, rin",""],
+ ["perfetto","perpekto",""],
+ ["buona serata","magandang gabi",""]
+];

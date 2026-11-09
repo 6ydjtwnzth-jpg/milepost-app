@@ -1,2 +1,51 @@
-EX.l6=[];
-VOC.l6=[];
+DLG.l6=[["A","Ciao Ravi! Come stai?","हाय रवि! कैसे हो?"],["B","Non sto bene. Ho il mal di mare.","मेरी तबीयत ठीक नहीं है। मुझे समुद्री बीमारी (सी-सिकनेस) है।"],["A","Oh, mi dispiace! Oggi il mare è mosso.","ओह, बहुत अफ़सोस हुआ! आज समुद्र में लहरें तेज़ हैं।"],["B","Sì, e ho anche sonno. E tu come stai?","हाँ, और मुझे नींद भी आ रही है। और तुम कैसी हो?"],["A","Io sto bene, grazie. Ma ho fame!","मैं ठीक हूँ, धन्यवाद। पर मुझे भूख लगी है!"],["B","Io non ho fame. Ho solo sete.","मुझे भूख नहीं है। बस प्यास लगी है।"],["A","Ecco un tè caldo e una mela.","ये लो गरम चाय और एक सेब।"],["B","Grazie, Joy. Sei molto gentile.","धन्यवाद, जॉय। तुम बहुत अच्छी हो।"],["A","Figurati! Sei di turno oggi?","कोई बात नहीं! आज तुम्हारी ड्यूटी है?"],["B","Sì, purtroppo. Sono un po' stanco.","हाँ, दुर्भाग्य से। मैं थोड़ा थका हुआ हूँ।"]];
+EX.l6=[
+ {q:"«मुझे भूख लगी है»:",o:["{Ho fame.}", "{Sono fame.}", "{Sto fame.}"],e:"भूख के लिए {avere}।"},
+ {q:"यात्री से पूछें «आप कैसी हैं?»:",o:["{Come sta?}", "{Come stai?}", "{Come è?}"],e:"{Lei} के साथ {sta}।"},
+ {q:"{loro} + {stare}:",o:["{stanno}", "{stano}", "{stai}"],e:"{loro stanno}, दोहरे {nn} के साथ।"},
+ {q:"«मेरी तबीयत ठीक नहीं है»:",o:["{Non sto bene.}", "{Sto non bene.}", "{No sto bene.}"],e:"{non} क्रिया से ठीक पहले।"},
+ {q:"जॉय थकी हुई है: {Joy è} ＿",o:["{stanca}", "{stanco}", "{stanchi}"],e:"महिला: {-a}।"},
+ {q:"यात्री को सी-सिकनेस है। आप कहते हैं:",o:["{Mi dispiace!}", "{Figurati!}", "{Buona serata!}"],e:"{Mi dispiace} = «अफ़सोस है»।"},
+ {q:"सुनें: रवि को क्या चाहिए?",au:"Ho sete.",o:["पानी", "खाना", "कंबल"],e:"{ho sete} = प्यास लगी है।"},
+ {q:"सुनें: कौन-सा शब्द?",au:"freddo",o:["{freddo}", "{fredo}", "{fretto}"],e:"दोहरा {dd}।"},
+ {t:"type",q:"पूरा करें: {Io} ＿ {bene, grazie.} ({stare})",a:["sto"],full:"Io sto bene, grazie."},
+ {t:"ord",q:"क्रम में लगाएँ: «रवि को भूख नहीं है।»",a:["Ravi non ha fame."],w:["Ravi", "non", "ha", "fame."]},
+ {t:"dict",au:"Ho il mal di mare."},
+ {t:"say",zh:"किसी साथी से कहें: «मैं थोड़ा थका हुआ हूँ।» (पुरुष)",it:"Sono un po' stanco."}
+];
+VOC.l6=[
+ ["stare","होना, रहना (हाल)",""],
+ ["come stai?","कैसे हो?",""],
+ ["bene","अच्छा, ठीक",""],
+ ["male","बुरा, ख़राब",""],
+ ["benissimo","बहुत बढ़िया",""],
+ ["così così","ठीक-ठाक",""],
+ ["non","नहीं (क्रिया से पहले)",""],
+ ["fame","भूख","f"],
+ ["sete","प्यास","f"],
+ ["sonno","नींद","m"],
+ ["freddo","ठंड; ठंडा","m"],
+ ["caldo","गर्मी; गरम","m"],
+ ["paura","डर","f"],
+ ["mal di mare","सी-सिकनेस, समुद्री बीमारी","m"],
+ ["mal di testa","सिरदर्द","m"],
+ ["mare","समुद्र","m"],
+ ["mosso","(समुद्र) लहरों वाला",""],
+ ["oggi","आज",""],
+ ["stanco","थका हुआ",""],
+ ["contento","ख़ुश",""],
+ ["malato","बीमार",""],
+ ["nervoso","घबराया हुआ, बेचैन",""],
+ ["gentile","दयालु, अच्छा (स्वभाव)",""],
+ ["molto","बहुत",""],
+ ["un po'","थोड़ा",""],
+ ["solo","सिर्फ़; अकेला",""],
+ ["ma","पर, लेकिन",""],
+ ["purtroppo","दुर्भाग्य से",""],
+ ["mi dispiace","अफ़सोस है, माफ़ कीजिए",""],
+ ["figurati","कोई बात नहीं",""],
+ ["coraggio","हिम्मत","m"],
+ ["di turno","ड्यूटी पर",""],
+ ["tè","चाय","m"],
+ ["mela","सेब","f"]
+];

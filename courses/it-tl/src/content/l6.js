@@ -1,2 +1,51 @@
-EX.l6=[];
-VOC.l6=[];
+DLG.l6=[["A","Ciao Ravi! Come stai?","Hi, Ravi! Kumusta ka?"],["B","Non sto bene. Ho il mal di mare.","Hindi maganda ang pakiramdam ko. Nahihilo ako sa dagat."],["A","Oh, mi dispiace! Oggi il mare è mosso.","Ay, pasensya na! Maalon ang dagat ngayon."],["B","Sì, e ho anche sonno. E tu come stai?","Oo, at inaantok din ako. Ikaw, kumusta ka?"],["A","Io sto bene, grazie. Ma ho fame!","Mabuti ako, salamat. Pero gutom ako!"],["B","Io non ho fame. Ho solo sete.","Hindi ako gutom. Nauuhaw lang ako."],["A","Ecco un tè caldo e una mela.","Heto ang mainit na tsaa at isang mansanas."],["B","Grazie, Joy. Sei molto gentile.","Salamat, Joy. Napakabait mo."],["A","Figurati! Sei di turno oggi?","Wala iyon! Naka-duty ka ba ngayon?"],["B","Sì, purtroppo. Sono un po' stanco.","Oo, sa kasamaang-palad. Medyo pagod ako."]];
+EX.l6=[
+ {q:"«Gutom ako»:",o:["{Ho fame.}", "{Sono fame.}", "{Sto fame.}"],e:"Sa gutom: {avere}."},
+ {q:"Tanungin ang pasahero: «Kumusta po kayo?»:",o:["{Come sta?}", "{Come stai?}", "{Come è?}"],e:"Sa {Lei}: {sta}."},
+ {q:"{loro} + {stare}:",o:["{stanno}", "{stano}", "{stai}"],e:"{loro stanno}, may dobleng {nn}."},
+ {q:"«Hindi maganda ang pakiramdam ko»:",o:["{Non sto bene.}", "{Sto non bene.}", "{No sto bene.}"],e:"{non} bago ang pandiwa."},
+ {q:"Pagod si Joy: {Joy è} ＿",o:["{stanca}", "{stanco}", "{stanchi}"],e:"Babae: {-a}."},
+ {q:"Nahihilo sa dagat ang pasahero. Sasabihin mo:",o:["{Mi dispiace!}", "{Figurati!}", "{Buona serata!}"],e:"{Mi dispiace} = «Pasensya na, nalulungkot ako para sa inyo»."},
+ {q:"Makinig: ano ang kailangan ni Ravi?",au:"Ho sete.",o:["tubig", "pagkain", "kumot"],e:"{ho sete} = nauuhaw ako."},
+ {q:"Makinig: anong salita?",au:"freddo",o:["{freddo}", "{fredo}", "{fretto}"],e:"Dobleng {dd}."},
+ {t:"type",q:"Kumpletuhin: {Io} ＿ {bene, grazie.} ({stare})",a:["sto"],full:"Io sto bene, grazie."},
+ {t:"ord",q:"Ayusin: «Hindi gutom si Ravi.»",a:["Ravi non ha fame."],w:["Ravi", "non", "ha", "fame."]},
+ {t:"dict",au:"Ho il mal di mare."},
+ {t:"say",zh:"Sabihin sa kasamahan: «Medyo pagod ako.» (lalaki)",it:"Sono un po' stanco."}
+];
+VOC.l6=[
+ ["stare","manatili; (lagay)",""],
+ ["come stai?","kumusta ka?",""],
+ ["bene","mabuti",""],
+ ["male","masama",""],
+ ["benissimo","napakabuti",""],
+ ["così così","medyo lang",""],
+ ["non","hindi (bago ang pandiwa)",""],
+ ["fame","gutom","f"],
+ ["sete","uhaw","f"],
+ ["sonno","antok","m"],
+ ["freddo","lamig; malamig","m"],
+ ["caldo","init; mainit","m"],
+ ["paura","takot","f"],
+ ["mal di mare","hilo sa dagat","m"],
+ ["mal di testa","sakit ng ulo","m"],
+ ["mare","dagat","m"],
+ ["mosso","maalon",""],
+ ["oggi","ngayon",""],
+ ["stanco","pagod",""],
+ ["contento","masaya",""],
+ ["malato","may sakit",""],
+ ["nervoso","kinakabahan, nerbiyoso",""],
+ ["gentile","mabait",""],
+ ["molto","napaka-, marami",""],
+ ["un po'","medyo, kaunti",""],
+ ["solo","lang; mag-isa",""],
+ ["ma","pero",""],
+ ["purtroppo","sa kasamaang-palad",""],
+ ["mi dispiace","pasensya na, nalulungkot ako",""],
+ ["figurati","wala iyon",""],
+ ["coraggio","lakas ng loob","m"],
+ ["di turno","naka-duty",""],
+ ["tè","tsaa","m"],
+ ["mela","mansanas","f"]
+];

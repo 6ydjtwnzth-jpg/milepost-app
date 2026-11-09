@@ -1,2 +1,50 @@
-EX.l7=[];
-VOC.l7=[];
+DLG.l7=[["A","Ciao, sono Giulia. Lavoro come animatrice. Tu che lavoro fai?","Hi, ako si Giulia. Animator ako. Ikaw, ano ang trabaho mo?"],["B","Piacere! Sono cameriera. Lavoro al ristorante.","Ikinagagalak kitang makilala! Waitress ako. Sa restawran ako nagtatrabaho."],["A","Quante ore lavori al giorno?","Ilang oras ka nagtatrabaho bawat araw?"],["B","Lavoro dieci ore. Servo la colazione e la cena.","Sampung oras. Naghahain ako ng almusal at hapunan."],["A","E Ravi? Anche lui è cameriere?","At si Ravi? Waiter din ba siya?"],["B","No, lui pulisce le cabine. È cameriere di cabina.","Hindi, naglilinis siya ng mga kabina. Cabin steward siya."],["A","Io invece organizzo i giochi e la sera canto.","Ako naman, nag-oorganisa ng mga laro, at kumakanta ako sa gabi."],["B","Che bello! Parli inglese con i passeggeri?","Ang ganda! Nag-i-Ingles ka ba sa mga pasahero?"],["A","Sì, parlo inglese e spagnolo. E tu?","Oo, nagsasalita ako ng Ingles at Espanyol. Ikaw?"],["B","Io parlo tagalog, inglese e un po' di italiano!","Nagsasalita ako ng Tagalog, Ingles at kaunting Italyano!"],["A","Brava!","Galing!"]];
+EX.l7=[
+ {q:"{tu} + {lavorare}:",o:["{lavori}", "{lavora}", "{lavoro}"],e:"{tu} → {-i}."},
+ {q:"{loro} + {prendere}:",o:["{prendono}", "{prendano}", "{prendeno}"],e:"{-ere}: {loro prendono}."},
+ {q:"{io} + {pulire}:",o:["{pulisco}", "{pulo}", "{pulire}"],e:"May {-isc-} ang {pulire}: {pulisco}."},
+ {q:"Alin ang tama? («Naglilinis si Ravi ng mga kabina»)",o:["{Ravi pulisce le cabine.}", "{Ravi le cabine pulisce.}", "{Pulisce le cabine Ravi lui.}"],e:"Ayos: simuno + pandiwa + layon."},
+ {q:"Tanungin ang pasahero: «Ano po ang trabaho ninyo?»:",o:["{Che lavoro fa?}", "{Che lavoro fai?}", "{Che lavoro fanno?}"],e:"{Lei} → {fa}."},
+ {q:"{noi} + {fare}:",o:["{facciamo}", "{fariamo}", "{fanno}"],e:"{noi facciamo}."},
+ {q:"Waitress si Joy: {Joy è} ＿",o:["{cameriera}", "{cameriere}", "{camerieri}"],e:"Babae: {cameriera}."},
+ {q:"Makinig: ano ang trabaho ni Paolo?",au:"Paolo fa il cuoco.",o:["kusinero", "marino", "nars"],e:"{cuoco} = kusinero."},
+ {t:"type",q:"Kumpletuhin: {Noi} ＿ {italiano a bordo.} ({parlare})",a:["parliamo"],full:"Noi parliamo italiano a bordo."},
+ {t:"ord",q:"Ayusin: «Naghahain ako ng almusal.»",a:["Servo la colazione."],w:["Servo", "la", "colazione."]},
+ {t:"ord",q:"Ayusin: «Kumakanta si Giulia sa gabi.»",a:["Giulia canta la sera."],w:["Giulia", "canta", "la", "sera."]},
+ {t:"dict",au:"Lavoro dieci ore al giorno."},
+ {t:"say",zh:"Sabihin ang trabaho mo: «Cabin steward ako. Naglilinis ako ng mga kabina.»",it:"Sono cameriere di cabina. Pulisco le cabine."}
+];
+VOC.l7=[
+ ["lavoro","trabaho","m"],
+ ["lavorare","magtrabaho",""],
+ ["parlare","magsalita",""],
+ ["cantare","kumanta",""],
+ ["organizzare","mag-organisa",""],
+ ["prendere","kumuha",""],
+ ["servire","maghain; maglingkod",""],
+ ["pulire","maglinis",""],
+ ["capire","umintindi",""],
+ ["finire","tapusin",""],
+ ["fare","gumawa",""],
+ ["cameriere","waiter","m"],
+ ["cameriera","waitress","f"],
+ ["cuoco","kusinero","m"],
+ ["marinaio","marino","m"],
+ ["ufficiale","opisyal","m"],
+ ["infermiere","nars (lalaki)","m"],
+ ["infermiera","nars (babae)","f"],
+ ["animatrice","animator (babae)","f"],
+ ["animatore","animator (lalaki)","m"],
+ ["ristorante","restawran","m"],
+ ["colazione","almusal","f"],
+ ["cena","hapunan","f"],
+ ["ora","oras; ngayon","f"],
+ ["al giorno","bawat araw",""],
+ ["sera","gabi","f"],
+ ["gioco","laro","m"],
+ ["invece","naman, sa halip",""],
+ ["inglese","Ingles",""],
+ ["spagnolo","Espanyol",""],
+ ["come","bilang",""],
+ ["brava","galing (sa babae)",""]
+];

@@ -1,2 +1,49 @@
-EX.l4=[];
-VOC.l4=[];
+DLG.l4=[["A","Ravi, scusi, c'è un asciugacapelli in cabina?","रवि, माफ़ कीजिए, क्या केबिन में हेयर ड्रायर है?"],["B","Sì, signora, c'è. È in bagno.","जी हाँ, मैडम, है। बाथरूम में है।"],["A","E gli asciugamani?","और तौलिए?"],["B","Ecco gli asciugamani: uno grande e uno piccolo.","ये रहे तौलिए: एक बड़ा और एक छोटा।"],["A","Grazie. E questa è la cassaforte?","धन्यवाद। और क्या यह तिजोरी है?"],["B","Sì. E questo è il telecomando.","जी हाँ। और यह रिमोट है।"],["A","C'è anche un frigorifero?","क्या फ़्रिज भी है?"],["B","Sì, c'è un piccolo frigorifero. Ci sono due bottiglie d'acqua.","जी हाँ, एक छोटा फ़्रिज है। उसमें पानी की दो बोतलें हैं।"],["A","Perfetto, grazie!","बढ़िया, धन्यवाद!"],["B","Prego, signora. Buona serata!","कोई बात नहीं, मैडम। आपकी शाम अच्छी हो!"]];
+EX.l4=[
+ {q:"आर्टिकल चुनें: ＿ {specchio}",o:["{lo specchio}", "{il specchio}", "{la specchio}"],e:"{s}+व्यंजन से पहले {lo}।"},
+ {q:"{la coperta} का बहुवचन:",o:["{le coperte}", "{la copertas}", "{le coperta}"],e:"{-a} → {-e}, और {la} → {le}।"},
+ {q:"«दो बिस्तर हैं»:",o:["{Ci sono due letti.}", "{C'è due letti.}", "{Sono due letto.}"],e:"बहुवचन: {ci sono}।"},
+ {q:"आर्टिकल चुनें: ＿ {armadio}",o:["{l'armadio}", "{il armadio}", "{lo armadio}"],e:"स्वर से पहले {l'}।"},
+ {q:"{lo specchio} का बहुवचन:",o:["{gli specchi}", "{i specchi}", "{le specchie}"],e:"{lo} → {gli}।"},
+ {q:"कौन-सा वाक्य सही है?",o:["{Ecco gli asciugamani.}", "{Ecco asciugamani.}", "{Ecco il asciugamani.}"],e:"संज्ञा के आगे आर्टिकल चाहिए: {gli asciugamani}।"},
+ {q:"«कोई एक» + {amica}:",o:["{un'amica}", "{uno amica}", "{un amica}"],e:"स्त्रीलिंग + स्वर: {un'}।"},
+ {q:"सुनें: आप कौन-सा शब्द सुनते हैं?",au:"asciugamano",o:["{asciugamano}", "{ascugamano}", "{asiugamano}"],e:"{sci} = «श»।"},
+ {t:"type",q:"पूरा करें: ＿ {due bottiglie d'acqua.} (हैं)",a:["Ci sono"],full:"Ci sono due bottiglie d'acqua."},
+ {t:"ord",q:"क्रम में लगाएँ: «बाथरूम में एक शीशा है।»",a:["C'è uno specchio in bagno."],w:["C'è", "uno", "specchio", "in", "bagno."]},
+ {t:"dict",au:"C'è un piccolo frigorifero."},
+ {t:"say",zh:"यात्री को तौलिए दिखाइए: «ये रहे तौलिए।»",it:"Ecco gli asciugamani."}
+];
+VOC.l4=[
+ ["cabina","केबिन","f"],
+ ["letto","बिस्तर","m"],
+ ["armadio","अलमारी","m"],
+ ["doccia","शावर","f"],
+ ["specchio","शीशा, आईना","m"],
+ ["asciugamano","तौलिया","m"],
+ ["asciugacapelli","हेयर ड्रायर","m"],
+ ["cassaforte","तिजोरी (सेफ़)","f"],
+ ["frigorifero","फ़्रिज","m"],
+ ["bottiglia","बोतल","f"],
+ ["acqua","पानी","f"],
+ ["oblò","जहाज़ की गोल खिड़की","m"],
+ ["porta","दरवाज़ा","f"],
+ ["sedia","कुर्सी","f"],
+ ["scrivania","मेज़ (लिखने की)","f"],
+ ["chiave","चाबी","f"],
+ ["cuscino","तकिया","m"],
+ ["coperta","कंबल","f"],
+ ["telecomando","रिमोट","m"],
+ ["lampada","लैंप","f"],
+ ["amica","सहेली, दोस्त (महिला)","f"],
+ ["collega","सहकर्मी",""],
+ ["c'è","है (एक चीज़)",""],
+ ["ci sono","हैं (कई चीज़ें)",""],
+ ["ecco","ये रहा, यह लीजिए",""],
+ ["questo","यह (पुल्लिंग)",""],
+ ["questa","यह (स्त्रीलिंग)",""],
+ ["grande","बड़ा",""],
+ ["piccolo","छोटा",""],
+ ["anche","भी",""],
+ ["perfetto","बढ़िया, एकदम ठीक",""],
+ ["buona serata","आपकी शाम अच्छी हो",""]
+];
