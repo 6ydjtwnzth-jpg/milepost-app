@@ -4,7 +4,7 @@
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const cid=process.argv[2],SRC=path.join(__dirname,'..','courses',cid,'src');
 const ctx={EX:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(SRC,'drills.js'),'utf8'),ctx);
-const IT=['it-zh','fr-it','it-es','en-it','es-it','de-it'].includes(cid),ZH=cid==='zh-it'; /* IT: a language written in Latin letters */
+const IT=['it-zh','fr-it','it-es','en-it','es-it','de-it','it-hi','it-tl','en-hi','en-tl'].includes(cid),ZH=cid==='zh-it'; /* IT: a language written in Latin letters */
 const PU=/^[。、，！？「」『』…：；“”（）.,!?;:«»"'¿¡-]+$/;
 const surf=t=>t.replace(/\[[^\]]*\]/g,'');
 const toks=s=>String(s).trim().split(/\s+/).filter(t=>!PU.test(IT?t:surf(t)));
