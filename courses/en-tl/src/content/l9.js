@@ -1,1 +1,44 @@
-EX.l9=[];VOC.l9=[];
+DLG.l9=[["A","Excuse me, bosun. Where do we have lunch?","Excuse me, bosun. Saan tayo nagtatanghalian?"],["B","In the crew mess, on deck two.","Sa crew mess, sa deck dos."],["A","When does lunch start?","Kailan nagsisimula ang tanghalian?"],["B","At eleven thirty. Why? Are you hungry?","Alas-onse y medya. Bakit? Gutom ka na?"],["A","Yes! And who is the chief officer?","Oo! At sino ang chief officer?"],["B","Mr Harris. He's British.","Si Mr Harris. British siya."],["A","Does he speak fast?","Mabilis ba siyang magsalita?"],["B","Yes, he does! How many languages do you speak?","Oo! Ilang wika ang alam mo?"],["A","Two: English and Tagalog. Do you speak Tagalog?","Dalawa: Ingles at Tagalog. Nagsasalita ka ba ng Tagalog?"],["B","No, I don't. But I know «Salamat»!","Hindi. Pero alam ko ang «Salamat»!"]];
+EX.l9=[
+ {q:"«Saan ka nagtatrabaho?»",o:["{Where do you work?}", "{Where you work?}", "{Where are you work?}"],e:"Pananong + {do} + simuno + pandiwa."},
+ {q:"«Sa deck ba siya (babae) nagtatrabaho?»",o:["{Does she work on deck?}", "{Does she works on deck?}", "{Do she work on deck?}"],e:"{she} → {does} + payak na pandiwa."},
+ {q:"{Do you speak Tagalog?} — {No,} ＿",o:["{I don't.}", "{I'm not.}", "{I doesn't.}"],e:"{Do…?} → {I don't}."},
+ {q:"Magtanong tungkol sa kapitan:",o:["{Who is the captain?}", "{Who does the captain?}", "{Who the captain is?}"],e:"Walang {do} kasama ng {be}."},
+ {q:"«Ilang wika?»",o:["{How many languages?}", "{How much languages?}", "{What many languages?}"],e:"Nabibilang: {how many}."},
+ {q:"Magandang sagot sa {Why are you tired?}:",o:["{Because I work twelve hours.}", "{At eleven thirty.}", "{On deck two.}"],e:"{why} → {because}."},
+ {q:"Makinig: saan ang tanghalian?",au:"In the crew mess, on deck two.",o:["sa crew mess, deck dos", "sa deck diyes", "sa bar"],e:"{on deck two}."},
+ {q:"Makinig: kailan nagsisimula ang tanghalian?",au:"At eleven thirty.",o:["11:30", "11:13", "12:30"],e:"{eleven thirty} = 11:30."},
+ {t:"type",q:"Kumpletuhin: ＿ {Ravi speak Hindi? — Yes, he does.}",a:["Does"],full:"Does Ravi speak Hindi? — Yes, he does."},
+ {t:"ord",q:"Ayusin: «Kailan nagsisimula ang tanghalian?»",a:["When does lunch start?"],w:["When", "does", "lunch", "start?"]},
+ {t:"dict",au:"How many languages do you speak?"},
+ {t:"say",zh:"Tanungin ang bagong kasamahan: «Taga-saan ka?» at «Saan ka nagtatrabaho?»",it:"Where are you from? Where do you work?"}
+];
+VOC.l9=[
+ ["question","tanong",""],
+ ["what","ano",""],
+ ["when","kailan",""],
+ ["why","bakit",""],
+ ["because","dahil, kasi",""],
+ ["how","paano",""],
+ ["how many","ilan",""],
+ ["which","alin",""],
+ ["do","pantulong na pandiwa (tanong/negatibo)",""],
+ ["does","pantulong (he/she)",""],
+ ["speak","magsalita",""],
+ ["language","wika",""],
+ ["fast","mabilis",""],
+ ["slowly","dahan-dahan",""],
+ ["hungry","gutom",""],
+ ["thirsty","uhaw",""],
+ ["lunch","tanghalian",""],
+ ["cadet","kadete",""],
+ ["chief officer","chief officer",""],
+ ["crew mess","crew mess",""],
+ ["live","tumira",""],
+ ["English","Ingles",""],
+ ["Tagalog","Tagalog",""],
+ ["Hindi","Hindi",""],
+ ["understand","umintindi",""],
+ ["I don't understand","hindi ko naiintindihan",""],
+ ["repeat","ulitin",""]
+];

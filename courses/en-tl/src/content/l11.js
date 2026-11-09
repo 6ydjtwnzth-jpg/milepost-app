@@ -1,1 +1,44 @@
-EX.l11=[];VOC.l11=[];
+DLG.l11=[["A","What do you like doing in your free time, Ravi?","Ravi, ano ang gusto mong gawin sa libreng oras mo?"],["B","I love playing cricket. Can you play cricket?","Gustong-gusto kong maglaro ng cricket. Marunong ka bang mag-cricket?"],["A","No, I can't! But I can play basketball.","Hindi! Pero marunong akong mag-basketball."],["B","And you, Tom? Do you like singing?","Ikaw, Tom? Gusto mo bang kumanta?"],["A","He loves it! He can sing very well.","Gustong-gusto niya! Napakagaling niyang kumanta."],["B","Great! Tonight there is karaoke in the crew bar.","Ayos! May karaoke mamayang gabi sa crew bar."],["A","I hate dancing, but I like listening to music.","Ayaw kong sumayaw, pero gusto kong makinig ng musika."],["B","Me too. I can't dance at all!","Ako rin. Hindi talaga ako marunong sumayaw!"]];
+EX.l11=[
+ {q:"«Gusto kong kumanta.»",o:["{I like singing.}", "{I like sing.}", "{I am like singing.}"],e:"{like} + {-ing}."},
+ {q:"«Marunong siyang (babae) lumangoy.»",o:["{She can swim.}", "{She can swims.}", "{She cans swim.}"],e:"{can} + payak, walang {-s}."},
+ {q:"«Marunong ka bang sumayaw?»",o:["{Can you dance?}", "{Do you can dance?}", "{You can dance?}"],e:"Nauuna ang {Can}."},
+ {q:"{swim} + {-ing}:",o:["{swimming}", "{swiming}", "{swimeing}"],e:"Dobleng katinig: {swimming}."},
+ {q:"{dance} + {-ing}:",o:["{dancing}", "{danceing}", "{dancting}"],e:"Nawawala ang {e}."},
+ {q:"«Ayaw na ayaw kong sumayaw.»",o:["{I hate dancing.}", "{I love dancing.}", "{I can dance.}"],e:"{hate} = ayaw na ayaw."},
+ {q:"Makinig: ano ang gusto ni Ravi?",au:"I love playing cricket.",o:["mag-cricket", "kumanta", "sumayaw"],e:"{playing cricket}."},
+ {q:"Makinig: ano ang kayang laruin ni Joy?",au:"No, I can't! But I can play basketball.",o:["basketball", "cricket", "football"],e:"{basketball}."},
+ {t:"type",q:"Kumpletuhin: {I enjoy} ＿ {to music.} ({listen})",a:["listening"],full:"I enjoy listening to music."},
+ {t:"ord",q:"Ayusin: «Hindi talaga ako marunong sumayaw.»",a:["I can't dance at all."],w:["I", "can't", "dance", "at", "all."]},
+ {t:"dict",au:"I like listening to music."},
+ {t:"say",zh:"Sabihin: «Gusto kong manood ng pelikula, pero hindi ako marunong sumayaw.»",it:"I like watching films, but I can't dance."}
+];
+VOC.l11=[
+ ["free time","libreng oras",""],
+ ["like","magustuhan",""],
+ ["love","gustong-gusto; mahalin",""],
+ ["hate","ayaw na ayaw",""],
+ ["enjoy","masiyahan",""],
+ ["don't mind","ayos lang",""],
+ ["can","kaya, marunong",""],
+ ["can't","hindi kaya",""],
+ ["play","maglaro",""],
+ ["sing","kumanta",""],
+ ["dance","sumayaw",""],
+ ["swim","lumangoy",""],
+ ["read","magbasa",""],
+ ["listen to","makinig",""],
+ ["music","musika",""],
+ ["watch films","manood ng pelikula",""],
+ ["cricket","cricket",""],
+ ["basketball","basketball",""],
+ ["football","football",""],
+ ["karaoke","karaoke",""],
+ ["party","party",""],
+ ["tonight","mamayang gabi",""],
+ ["great","ayos, magaling",""],
+ ["very well","napakahusay",""],
+ ["at all","talaga, kahit kaunti",""],
+ ["me too","ako rin",""],
+ ["seafarer","marino, seafarer",""]
+];

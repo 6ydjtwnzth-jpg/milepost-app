@@ -1,1 +1,40 @@
-EX.l12=[];VOC.l12=[];
+DLG.l12=[["A","Hi Ravi, it's Joy. What are you doing?","Hi Ravi, si Joy ito. Ano ang ginagawa mo?"],["B","I'm cleaning cabin two zero four seven. Why?","Nililinis ko ang kabina two zero four seven. Bakit?"],["A","Look out of the window! The ship is arriving in Barcelona.","Tumingin ka sa bintana! Dumarating na ang barko sa Barcelona."],["B","Oh, yes! The sun is shining and the passengers are taking photos.","Ay, oo! Maaraw at kumukuha ng litrato ang mga pasahero."],["A","Mark and Tom are working on deck. They are preparing the ropes.","Nagtatrabaho sa deck sina Mark at Tom. Inihahanda nila ang mga lubid."],["B","And you? Are you working now?","At ikaw? Nagtatrabaho ka ba ngayon?"],["A","No, I'm not. I'm having a break. I want a coffee… Do you want one?","Hindi. Nagbe-break ako. Gusto ko ng kape… Gusto mo rin?"],["B","Yes, please! I finish at eleven.","Oo, sige! Matatapos ako nang alas-onse."]];
+EX.l12=[
+ {q:"«Nagtatrabaho ako ngayon.»",o:["{I'm working now.}", "{I working now.}", "{I work now always.}"],e:"{be} + {-ing}."},
+ {q:"«Ano ang ginagawa nila?»",o:["{What are they doing?}", "{What they are doing?}", "{What do they doing?}"],e:"Tanong: nauuna ang {are}."},
+ {q:"«Gusto ko ng kape.»",o:["{I want a coffee.}", "{I am wanting a coffee.}", "{I wanting a coffee.}"],e:"{want}: walang {-ing}."},
+ {q:"Nakagawian: «Araw-araw akong naglilinis ng kabina.»",o:["{I clean cabins every day.}", "{I'm cleaning cabins every day.}", "{I cleaning cabins every day.}"],e:"Nakagawian: {present simple}."},
+ {q:"{The ship} ＿ {in Barcelona now.}",o:["{is arriving}", "{arriving}", "{are arriving}"],e:"{the ship} → {is} + {-ing}."},
+ {q:"«Kilala ko ang kapitan.»",o:["{I know the captain.}", "{I'm knowing the captain.}", "{I knowing the captain.}"],e:"{know}: walang {-ing}."},
+ {q:"Makinig: ano ang ginagawa ni Ravi?",au:"I'm cleaning cabin two zero four seven.",o:["naglilinis ng kabina", "kumakain", "natutulog"],e:"{I'm cleaning}."},
+ {q:"Makinig: ano ang inihahanda nina Mark at Tom?",au:"They are preparing the ropes.",o:["mga lubid", "pagkain", "mga kabina"],e:"{the ropes}."},
+ {t:"type",q:"Kumpletuhin: {Joy} ＿ {a break.} (ngayon, {have})",a:["is having", "'s having"],full:"Joy is having a break."},
+ {t:"ord",q:"Ayusin: «Umaalis na ang barko sa daungan.»",a:["The ship is leaving port."],w:["The", "ship", "is", "leaving", "port."]},
+ {t:"dict",au:"What are you doing?"},
+ {t:"say",zh:"Sabihin sa telepono ang ginagawa mo ngayon: «Naghahain ako ng almusal ngayon.»",it:"I'm serving breakfast right now."}
+];
+VOC.l12=[
+ ["now","ngayon",""],
+ ["right now","ngayon mismo",""],
+ ["at the moment","sa ngayon",""],
+ ["look","tumingin",""],
+ ["listen","makinig",""],
+ ["arrive","dumating",""],
+ ["leave","umalis",""],
+ ["port","daungan; kaliwang bahagi ng barko",""],
+ ["shine","sumikat, kuminang",""],
+ ["sun","araw (sa langit)",""],
+ ["rain","umulan; ulan",""],
+ ["take photos","kumuha ng litrato",""],
+ ["prepare","maghanda",""],
+ ["rope","lubid",""],
+ ["break","break, pahinga",""],
+ ["want","gusto",""],
+ ["need","kailangan",""],
+ ["one moment, please","sandali lang po",""],
+ ["hold on","sandali lang (sa telepono)",""],
+ ["phone","telepono",""],
+ ["out of","palabas ng",""],
+ ["more","higit pa",""],
+ ["photo","litrato",""]
+];

@@ -1,1 +1,40 @@
-EX.l12=[];VOC.l12=[];
+DLG.l12=[["A","Hi Ravi, it's Joy. What are you doing?","हाय रवि, जॉय बोल रही हूँ। तुम क्या कर रहे हो?"],["B","I'm cleaning cabin two zero four seven. Why?","मैं केबिन दो शून्य चार सात साफ़ कर रहा हूँ। क्यों?"],["A","Look out of the window! The ship is arriving in Barcelona.","खिड़की से बाहर देखो! जहाज़ बार्सिलोना पहुँच रहा है।"],["B","Oh, yes! The sun is shining and the passengers are taking photos.","अरे हाँ! धूप निकल रही है और यात्री फ़ोटो खींच रहे हैं।"],["A","Mark and Tom are working on deck. They are preparing the ropes.","मार्क और टॉम डेक पर काम कर रहे हैं। वे रस्सियाँ तैयार कर रहे हैं।"],["B","And you? Are you working now?","और तुम? क्या तुम अभी काम कर रही हो?"],["A","No, I'm not. I'm having a break. I want a coffee… Do you want one?","नहीं। मैं ब्रेक पर हूँ। मुझे एक कॉफ़ी चाहिए… तुम्हें भी चाहिए?"],["B","Yes, please! I finish at eleven.","हाँ, कृपया! मैं ग्यारह बजे ख़त्म करता हूँ।"]];
+EX.l12=[
+ {q:"«मैं अभी काम कर रहा हूँ।»",o:["{I'm working now.}", "{I working now.}", "{I work now always.}"],e:"{be} + {-ing}।"},
+ {q:"«वे क्या कर रहे हैं?»",o:["{What are they doing?}", "{What they are doing?}", "{What do they doing?}"],e:"सवाल: {are} कर्ता से पहले।"},
+ {q:"«मुझे एक कॉफ़ी चाहिए।»",o:["{I want a coffee.}", "{I am wanting a coffee.}", "{I wanting a coffee.}"],e:"{want}: {-ing} नहीं।"},
+ {q:"आदत: «मैं हर दिन केबिन साफ़ करता हूँ।»",o:["{I clean cabins every day.}", "{I'm cleaning cabins every day.}", "{I cleaning cabins every day.}"],e:"आदत: {present simple}।"},
+ {q:"{The ship} ＿ {in Barcelona now.}",o:["{is arriving}", "{arriving}", "{are arriving}"],e:"{the ship} → {is} + {-ing}."},
+ {q:"«मैं कप्तान को जानता हूँ।»",o:["{I know the captain.}", "{I'm knowing the captain.}", "{I knowing the captain.}"],e:"{know}: {-ing} नहीं।"},
+ {q:"सुनें: रवि क्या कर रहा है?",au:"I'm cleaning cabin two zero four seven.",o:["केबिन साफ़ कर रहा है", "खाना खा रहा है", "सो रहा है"],e:"{I'm cleaning}."},
+ {q:"सुनें: मार्क और टॉम क्या तैयार कर रहे हैं?",au:"They are preparing the ropes.",o:["रस्सियाँ", "खाना", "केबिन"],e:"{the ropes}."},
+ {t:"type",q:"पूरा करें: {Joy} ＿ {a break.} (अभी, {have})",a:["is having", "'s having"],full:"Joy is having a break."},
+ {t:"ord",q:"क्रम में लगाएँ: «जहाज़ बंदरगाह छोड़ रहा है।»",a:["The ship is leaving port."],w:["The", "ship", "is", "leaving", "port."]},
+ {t:"dict",au:"What are you doing?"},
+ {t:"say",zh:"फ़ोन पर बताइए कि आप अभी क्या कर रहे हैं: «मैं अभी नाश्ता परोस रही हूँ।»",it:"I'm serving breakfast right now."}
+];
+VOC.l12=[
+ ["now","अभी",""],
+ ["right now","अभी इसी पल",""],
+ ["at the moment","इस समय",""],
+ ["look","देखना",""],
+ ["listen","सुनना",""],
+ ["arrive","पहुँचना",""],
+ ["leave","छोड़ना, रवाना होना",""],
+ ["port","बंदरगाह; जहाज़ का बायाँ हिस्सा",""],
+ ["shine","चमकना",""],
+ ["sun","सूरज",""],
+ ["rain","बारिश होना; बारिश",""],
+ ["take photos","फ़ोटो खींचना",""],
+ ["prepare","तैयार करना",""],
+ ["rope","रस्सी",""],
+ ["break","ब्रेक, विश्राम",""],
+ ["want","चाहना",""],
+ ["need","ज़रूरत होना",""],
+ ["one moment, please","एक मिनट, कृपया",""],
+ ["hold on","रुकिए (फ़ोन पर)",""],
+ ["phone","फ़ोन",""],
+ ["out of","से बाहर",""],
+ ["more","और, ज़्यादा",""],
+ ["photo","फ़ोटो",""]
+];

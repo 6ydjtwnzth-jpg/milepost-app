@@ -1,1 +1,46 @@
-EX.l10=[];VOC.l10=[];
+DLG.l10=[["A","Ravi, what time do you get up?","Ravi, anong oras ka gumigising?"],["B","I usually get up at five. I have a shower and I get dressed.","Karaniwan, gumigising ako nang alas-singko. Naliligo ako at nagbibihis."],["A","Do you have breakfast?","Nag-aalmusal ka ba?"],["B","Yes, I always have breakfast in the mess: tea and toast.","Oo, lagi akong nag-aalmusal sa mess: tsaa at tinapay."],["A","What do you do in the afternoon?","Ano ang ginagawa mo sa hapon?"],["B","I sometimes go to the gym. I'm never bored!","Paminsan-minsan, pumupunta ako sa gym. Hindi ako nabobore!"],["A","How often do you call your family?","Gaano kadalas mong tinatawagan ang pamilya mo?"],["B","Every day, after dinner. Then I go to bed at ten.","Araw-araw, pagkatapos ng hapunan. Saka ako natutulog nang alas-diyes."],["A","Thank you, Ravi. A very busy day!","Salamat, Ravi. Napaka-abalang araw!"]];
+EX.l10=[
+ {q:"«Lagi akong nag-aalmusal.»",o:["{I always have breakfast.}", "{I have always breakfast.}", "{Always I have breakfast.}"],e:"{always} bago ang pandiwa."},
+ {q:"«Karaniwang pagod siya (babae).»",o:["{She is usually tired.}", "{She usually is tired.}", "{Usually she tired.}"],e:"Pagkatapos ng {be}."},
+ {q:"«Hindi ako kailanman naninigarilyo.»",o:["{I never smoke.}", "{I don't never smoke.}", "{I smoke never.}"],e:"May «hindi» na ang {never}."},
+ {q:"«maligo»:",o:["{have a shower}", "{do a shower}", "{make a shower}"],e:"{have a shower}."},
+ {q:"«Gaano kadalas?»",o:["{How often?}", "{How many times often?}", "{When often?}"],e:"{How often…?}"},
+ {q:"{He usually} ＿ {up at five.}",o:["{gets}", "{get}", "{getting}"],e:"{he} → {-s}."},
+ {q:"Makinig: anong oras gumigising si Ravi?",au:"I usually get up at five.",o:["5:00", "6:00", "4:00"],e:"{at five}."},
+ {q:"Makinig: ano ang almusal ni Ravi?",au:"I always have breakfast in the mess: tea and toast.",o:["tsaa at tinapay", "kape at itlog", "juice"],e:"{tea and toast}."},
+ {t:"type",q:"Kumpletuhin: {I go to the gym} ＿ {a week.} («dalawang beses»)",a:["twice"],full:"I go to the gym twice a week."},
+ {t:"ord",q:"Ayusin: «Paminsan-minsan, pumupunta ako sa gym.»",a:["I sometimes go to the gym."],w:["I", "sometimes", "go", "to", "the", "gym."]},
+ {t:"dict",au:"Then I go to bed at ten."},
+ {t:"say",zh:"Ikuwento ang umaga mo: «Gumigising ako nang alas-singko y medya at naliligo.»",it:"I get up at half past five and I have a shower."}
+];
+VOC.l10=[
+ ["get up","bumangon",""],
+ ["wake up","gumising",""],
+ ["have a shower","maligo",""],
+ ["get dressed","magbihis",""],
+ ["have breakfast","mag-almusal",""],
+ ["go to bed","matulog",""],
+ ["have a rest","magpahinga",""],
+ ["always","lagi",""],
+ ["usually","karaniwan",""],
+ ["often","madalas",""],
+ ["sometimes","paminsan-minsan",""],
+ ["never","hindi kailanman",""],
+ ["how often","gaano kadalas",""],
+ ["once","isang beses",""],
+ ["twice","dalawang beses",""],
+ ["a week","sa isang linggo",""],
+ ["a month","sa isang buwan",""],
+ ["gym","gym",""],
+ ["bored","nabobore",""],
+ ["busy","abala",""],
+ ["call","tumawag",""],
+ ["after","pagkatapos",""],
+ ["before","bago",""],
+ ["late","huli, gabi na",""],
+ ["early","maaga",""],
+ ["toast","tinapay na tinusta",""],
+ ["smoke","manigarilyo",""],
+ ["day","araw",""],
+ ["newsletter","newsletter",""]
+];

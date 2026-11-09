@@ -1,1 +1,44 @@
-EX.l9=[];VOC.l9=[];
+DLG.l9=[["A","Excuse me, bosun. Where do we have lunch?","माफ़ कीजिए, बोसन। हम दोपहर का खाना कहाँ खाते हैं?"],["B","In the crew mess, on deck two.","क्रू मेस में, डेक दो पर।"],["A","When does lunch start?","दोपहर का खाना कब शुरू होता है?"],["B","At eleven thirty. Why? Are you hungry?","साढ़े ग्यारह बजे। क्यों? भूख लगी है?"],["A","Yes! And who is the chief officer?","हाँ! और चीफ़ ऑफ़िसर कौन हैं?"],["B","Mr Harris. He's British.","मिस्टर हैरिस। वह ब्रिटिश हैं।"],["A","Does he speak fast?","क्या वह तेज़ बोलते हैं?"],["B","Yes, he does! How many languages do you speak?","हाँ! तुम कितनी भाषाएँ बोलते हो?"],["A","Two: English and Tagalog. Do you speak Tagalog?","दो: अंग्रेज़ी और तागालोग। क्या आप तागालोग बोलते हैं?"],["B","No, I don't. But I know «Salamat»!","नहीं। पर मुझे «सलामत» पता है!"]];
+EX.l9=[
+ {q:"«तुम कहाँ काम करते हो?»",o:["{Where do you work?}", "{Where you work?}", "{Where are you work?}"],e:"सवाल-शब्द + {do} + कर्ता + क्रिया।"},
+ {q:"«क्या वह (महिला) डेक पर काम करती है?»",o:["{Does she work on deck?}", "{Does she works on deck?}", "{Do she work on deck?}"],e:"{she} → {does} + मूल क्रिया।"},
+ {q:"{Do you speak Tagalog?} — {No,} ＿",o:["{I don't.}", "{I'm not.}", "{I doesn't.}"],e:"{Do…?} → {I don't}।"},
+ {q:"कप्तान के बारे में पूछें:",o:["{Who is the captain?}", "{Who does the captain?}", "{Who the captain is?}"],e:"{be} के साथ {do} नहीं।"},
+ {q:"«कितनी भाषाएँ?»",o:["{How many languages?}", "{How much languages?}", "{What many languages?}"],e:"गिनी जा सकने वाली चीज़ें: {how many}।"},
+ {q:"{Why are you tired?} का अच्छा जवाब:",o:["{Because I work twelve hours.}", "{At eleven thirty.}", "{On deck two.}"],e:"{why} → {because}।"},
+ {q:"सुनें: दोपहर का खाना कहाँ?",au:"In the crew mess, on deck two.",o:["डेक दो पर, क्रू मेस में", "डेक दस पर", "बार में"],e:"{on deck two}."},
+ {q:"सुनें: खाना कब शुरू होता है?",au:"At eleven thirty.",o:["11:30", "11:13", "12:30"],e:"{eleven thirty} = 11:30."},
+ {t:"type",q:"पूरा करें: ＿ {Ravi speak Hindi? — Yes, he does.}",a:["Does"],full:"Does Ravi speak Hindi? — Yes, he does."},
+ {t:"ord",q:"क्रम में लगाएँ: «खाना कब शुरू होता है?»",a:["When does lunch start?"],w:["When", "does", "lunch", "start?"]},
+ {t:"dict",au:"How many languages do you speak?"},
+ {t:"say",zh:"एक नए साथी से पूछें: «तुम कहाँ से हो?» और «तुम कहाँ काम करते हो?»",it:"Where are you from? Where do you work?"}
+];
+VOC.l9=[
+ ["question","सवाल",""],
+ ["what","क्या",""],
+ ["when","कब",""],
+ ["why","क्यों",""],
+ ["because","क्योंकि",""],
+ ["how","कैसे",""],
+ ["how many","कितने",""],
+ ["which","कौन-सा",""],
+ ["do","सहायक क्रिया (सवाल/नकार)",""],
+ ["does","सहायक क्रिया (he/she)",""],
+ ["speak","बोलना",""],
+ ["language","भाषा",""],
+ ["fast","तेज़",""],
+ ["slowly","धीरे",""],
+ ["hungry","भूखा",""],
+ ["thirsty","प्यासा",""],
+ ["lunch","दोपहर का खाना",""],
+ ["cadet","कैडेट (प्रशिक्षु)",""],
+ ["chief officer","चीफ़ ऑफ़िसर",""],
+ ["crew mess","क्रू मेस",""],
+ ["live","रहना",""],
+ ["English","अंग्रेज़ी",""],
+ ["Tagalog","तागालोग",""],
+ ["Hindi","हिंदी",""],
+ ["understand","समझना",""],
+ ["I don't understand","मुझे समझ नहीं आया",""],
+ ["repeat","दोहराना",""]
+];

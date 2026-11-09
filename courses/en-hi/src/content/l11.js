@@ -1,1 +1,44 @@
-EX.l11=[];VOC.l11=[];
+DLG.l11=[["A","What do you like doing in your free time, Ravi?","रवि, ख़ाली समय में तुम्हें क्या करना पसंद है?"],["B","I love playing cricket. Can you play cricket?","मुझे क्रिकेट खेलना बहुत पसंद है। क्या तुम क्रिकेट खेल सकती हो?"],["A","No, I can't! But I can play basketball.","नहीं! पर मैं बास्केटबॉल खेल सकती हूँ।"],["B","And you, Tom? Do you like singing?","और तुम, टॉम? क्या तुम्हें गाना पसंद है?"],["A","He loves it! He can sing very well.","उसे बहुत पसंद है! वह बहुत अच्छा गा सकता है।"],["B","Great! Tonight there is karaoke in the crew bar.","बढ़िया! आज रात क्रू बार में कराओके है।"],["A","I hate dancing, but I like listening to music.","मुझे नाचना बिल्कुल पसंद नहीं, पर संगीत सुनना पसंद है।"],["B","Me too. I can't dance at all!","मुझे भी। मैं बिल्कुल नहीं नाच सकता!"]];
+EX.l11=[
+ {q:"«मुझे गाना पसंद है।»",o:["{I like singing.}", "{I like sing.}", "{I am like singing.}"],e:"{like} + {-ing}।"},
+ {q:"«वह (महिला) तैर सकती है।»",o:["{She can swim.}", "{She can swims.}", "{She cans swim.}"],e:"{can} + मूल क्रिया, बिना {-s}।"},
+ {q:"«क्या तुम नाच सकते हो?»",o:["{Can you dance?}", "{Do you can dance?}", "{You can dance?}"],e:"{Can} पहले।"},
+ {q:"{swim} + {-ing}:",o:["{swimming}", "{swiming}", "{swimeing}"],e:"व्यंजन दोहरा: {swimming}।"},
+ {q:"{dance} + {-ing}:",o:["{dancing}", "{danceing}", "{dancting}"],e:"{e} गिरता है।"},
+ {q:"«मुझे नाचना बिल्कुल पसंद नहीं।»",o:["{I hate dancing.}", "{I love dancing.}", "{I can dance.}"],e:"{hate} = बिल्कुल पसंद नहीं।"},
+ {q:"सुनें: रवि को क्या पसंद है?",au:"I love playing cricket.",o:["क्रिकेट खेलना", "गाना", "नाचना"],e:"{playing cricket}."},
+ {q:"सुनें: जॉय क्या खेल सकती है?",au:"No, I can't! But I can play basketball.",o:["बास्केटबॉल", "क्रिकेट", "फ़ुटबॉल"],e:"{basketball}."},
+ {t:"type",q:"पूरा करें: {I enjoy} ＿ {to music.} ({listen})",a:["listening"],full:"I enjoy listening to music."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं बिल्कुल नहीं नाच सकता।»",a:["I can't dance at all."],w:["I", "can't", "dance", "at", "all."]},
+ {t:"dict",au:"I like listening to music."},
+ {t:"say",zh:"बताइए: «मुझे फ़िल्में देखना पसंद है, पर मैं नाच नहीं सकता।»",it:"I like watching films, but I can't dance."}
+];
+VOC.l11=[
+ ["free time","ख़ाली समय",""],
+ ["like","पसंद करना",""],
+ ["love","बहुत पसंद करना; प्यार करना",""],
+ ["hate","बिल्कुल पसंद न करना",""],
+ ["enjoy","आनंद लेना",""],
+ ["don't mind","दिक़्क़त न होना",""],
+ ["can","सकना",""],
+ ["can't","नहीं सकना",""],
+ ["play","खेलना",""],
+ ["sing","गाना",""],
+ ["dance","नाचना",""],
+ ["swim","तैरना",""],
+ ["read","पढ़ना",""],
+ ["listen to","सुनना",""],
+ ["music","संगीत",""],
+ ["watch films","फ़िल्में देखना",""],
+ ["cricket","क्रिकेट",""],
+ ["basketball","बास्केटबॉल",""],
+ ["football","फ़ुटबॉल",""],
+ ["karaoke","कराओके",""],
+ ["party","पार्टी",""],
+ ["tonight","आज रात",""],
+ ["great","बढ़िया",""],
+ ["very well","बहुत अच्छी तरह",""],
+ ["at all","बिल्कुल",""],
+ ["me too","मुझे भी; मैं भी",""],
+ ["seafarer","नाविक",""]
+];

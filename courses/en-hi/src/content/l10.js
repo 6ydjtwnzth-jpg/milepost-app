@@ -1,1 +1,46 @@
-EX.l10=[];VOC.l10=[];
+DLG.l10=[["A","Ravi, what time do you get up?","रवि, तुम कितने बजे उठते हो?"],["B","I usually get up at five. I have a shower and I get dressed.","मैं आम तौर पर पाँच बजे उठता हूँ। नहाता हूँ और कपड़े पहनता हूँ।"],["A","Do you have breakfast?","क्या तुम नाश्ता करते हो?"],["B","Yes, I always have breakfast in the mess: tea and toast.","हाँ, मैं हमेशा मेस में नाश्ता करता हूँ: चाय और टोस्ट।"],["A","What do you do in the afternoon?","दोपहर को तुम क्या करते हो?"],["B","I sometimes go to the gym. I'm never bored!","कभी-कभी मैं जिम जाता हूँ। मैं कभी बोर नहीं होता!"],["A","How often do you call your family?","तुम अपने परिवार को कितनी बार फ़ोन करते हो?"],["B","Every day, after dinner. Then I go to bed at ten.","हर दिन, रात के खाने के बाद। फिर मैं दस बजे सो जाता हूँ।"],["A","Thank you, Ravi. A very busy day!","धन्यवाद, रवि। बहुत व्यस्त दिन!"]];
+EX.l10=[
+ {q:"«मैं हमेशा नाश्ता करता हूँ।»",o:["{I always have breakfast.}", "{I have always breakfast.}", "{Always I have breakfast.}"],e:"{always} क्रिया से पहले।"},
+ {q:"«वह (महिला) आम तौर पर थकी होती है।»",o:["{She is usually tired.}", "{She usually is tired.}", "{Usually she tired.}"],e:"{be} के बाद।"},
+ {q:"«मैं कभी सिगरेट नहीं पीता।»",o:["{I never smoke.}", "{I don't never smoke.}", "{I smoke never.}"],e:"{never} में «नहीं» है।"},
+ {q:"«नहाना»:",o:["{have a shower}", "{do a shower}", "{make a shower}"],e:"{have a shower}."},
+ {q:"«कितनी बार?»",o:["{How often?}", "{How many times often?}", "{When often?}"],e:"{How often…?}"},
+ {q:"{He usually} ＿ {up at five.}",o:["{gets}", "{get}", "{getting}"],e:"{he} → {-s}।"},
+ {q:"सुनें: रवि कितने बजे उठता है?",au:"I usually get up at five.",o:["5:00", "6:00", "4:00"],e:"{at five}."},
+ {q:"सुनें: रवि नाश्ते में क्या लेता है?",au:"I always have breakfast in the mess: tea and toast.",o:["चाय और टोस्ट", "कॉफ़ी और अंडे", "जूस"],e:"{tea and toast}."},
+ {t:"type",q:"पूरा करें: {I go to the gym} ＿ {a week.} («दो बार»)",a:["twice"],full:"I go to the gym twice a week."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं कभी-कभी जिम जाता हूँ।»",a:["I sometimes go to the gym."],w:["I", "sometimes", "go", "to", "the", "gym."]},
+ {t:"dict",au:"Then I go to bed at ten."},
+ {t:"say",zh:"अपनी सुबह बताइए: «मैं साढ़े पाँच बजे उठता/उठती हूँ और नहाता/नहाती हूँ।»",it:"I get up at half past five and I have a shower."}
+];
+VOC.l10=[
+ ["get up","उठना",""],
+ ["wake up","जागना",""],
+ ["have a shower","नहाना",""],
+ ["get dressed","कपड़े पहनना",""],
+ ["have breakfast","नाश्ता करना",""],
+ ["go to bed","सोने जाना",""],
+ ["have a rest","आराम करना",""],
+ ["always","हमेशा",""],
+ ["usually","आम तौर पर",""],
+ ["often","अक्सर",""],
+ ["sometimes","कभी-कभी",""],
+ ["never","कभी नहीं",""],
+ ["how often","कितनी बार",""],
+ ["once","एक बार",""],
+ ["twice","दो बार",""],
+ ["a week","हफ़्ते में",""],
+ ["a month","महीने में",""],
+ ["gym","जिम",""],
+ ["bored","बोर",""],
+ ["busy","व्यस्त",""],
+ ["call","फ़ोन करना",""],
+ ["after","के बाद",""],
+ ["before","से पहले",""],
+ ["late","देर से",""],
+ ["early","जल्दी",""],
+ ["toast","टोस्ट",""],
+ ["smoke","धूम्रपान करना",""],
+ ["day","दिन",""],
+ ["newsletter","समाचार-पत्रिका",""]
+];
