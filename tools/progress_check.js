@@ -12,13 +12,13 @@ const run=f=>{if(fs.existsSync(f))vm.runInContext(fs.readFileSync(f,'utf8').repl
 const course=JSON.parse(fs.readFileSync(path.join(SRC,'course.json'),'utf8'));
 const order=[];course.parts.forEach(p=>p.items.forEach(i=>{if((i.kind||'lesson')!=='app')order.push(i.id)}));
 order.forEach(id=>run(path.join(SRC,'content',id+'.js')));run(path.join(SRC,'culture.js'));
-const LAT=['it-zh','fr-it','it-es','en-it','es-it','de-it'].includes(cid),EN=cid==='en-it',JA=cid==='ja-it',ZH=cid==='zh-it';
+const LAT=['it-zh','fr-it','it-es','en-it','es-it','de-it','it-hi','it-tl','en-hi','en-tl'].includes(cid),EN=/^en-/.test(cid),JA=cid==='ja-it',ZH=cid==='zh-it';
 const ATTR=JA?'data-jp':ZH?'data-zh':'data-it';
 /* grammar words are taught by the rules, not by the word lists; names and numbers are not vocabulary to learn */
 const GRAM={'ja-it':'は が を に で へ と も の か ね よ な から まで より や だ です ます でした ません じゃ ありません です か い く て た ない','zh-it':'的 了 吗 呢 吧 是 不 也 都 很 和 在 有 没 个 这 那','it-zh':'il lo la l\' i gli le un uno una un\' di a da in con su per tra fra e o ma che non è sono sei siamo siete ho hai ha abbiamo avete hanno del della dei delle al alla ai alle nel nella sul sulla mi ti si ci vi',
  'it-es':'il lo la l\' i gli le un uno una un\' di a da in con su per tra fra e o ma che non è sono sei siamo siete ho hai ha abbiamo avete hanno del della dei delle al alla ai alle nel nella sul sulla mi ti si ci vi',
  'en-it':"the a an and or but in on at to of for from with is am are was were be i you he she it we they me him us them my your his her its our their this that these those not no do does did don't doesn't didn't i'm you're he's she's it's we're they're isn't aren't wasn't weren't i've you've we've they've i'll i'd can can't there here what's that's",
- 'fr-it':'le la l\' les un une des de du d\' à au aux en et ou mais que qu\' ne pas je j\' tu il elle on nous vous ils elles me m\' te t\' se s\' est suis es sont ce c\' y'}[cid]||'';
+ 'fr-it':'le la l\' les un une des de du d\' à au aux en et ou mais que qu\' ne pas je j\' tu il elle on nous vous ils elles me m\' te t\' se s\' est suis es sont ce c\' y'}[({'it-hi':'it-es','it-tl':'it-es','en-hi':'en-it','en-tl':'en-it'})[cid]||cid]||'';
 const GW=new Set(GRAM.split(' '));
 const isNum=w=>/^[0-9一二三四五六七八九十百千万]+/.test(w);
 const isName=(raw)=>LAT?/^[A-ZÀ-Ý]/.test(raw):false;

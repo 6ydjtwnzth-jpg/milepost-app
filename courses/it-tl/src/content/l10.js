@@ -15,7 +15,6 @@ EX.l10=[
 ];
 VOC.l10=[
  ["turno","shift","m"],
- ["ora","oras","f"],
  ["che ore sono?","anong oras na?",""],
  ["a che ora?","anong oras?",""],
  ["mezzogiorno","tanghali","m"],
@@ -24,7 +23,6 @@ VOC.l10=[
  ["un quarto","labinlimang minuto","m"],
  ["meno","kulang; bago mag-",""],
  ["cominciare","magsimula",""],
- ["finire","tapusin",""],
  ["aprire","buksan",""],
  ["svegliarsi","gumising",""],
  ["alzarsi","bumangon",""],
@@ -37,7 +35,6 @@ VOC.l10=[
  ["allora","kung gayon, e di",""],
  ["libero","libre, malaya",""],
  ["adesso","ngayon",""],
- ["buonanotte","magandang gabi (pamamaalam)",""],
  ["lunedì","Lunes","m"],
  ["martedì","Martes","m"],
  ["mercoledì","Miyerkoles","m"],

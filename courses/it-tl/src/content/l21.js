@@ -1,2 +1,40 @@
-EX.l21=[];
-VOC.l21=[];
+DLG.l21=[["A","Ravi, quando finisce il tuo contratto?","Ravi, kailan matatapos ang kontrata mo?"],["B","Tra due mesi, il quindici novembre. Tornerò a Kochi!","Sa loob ng dalawang buwan, sa ika-15 ng Nobyembre. Uuwi ako sa Kochi!"],["A","Che bello! Cosa farai a casa?","Ang saya! Ano ang gagawin mo sa bahay?"],["B","Prima starò con la mia famiglia. Mia sorella si sposa a dicembre.","Una, makakasama ko ang pamilya ko. Ikakasal ang kapatid ko sa Disyembre."],["A","Poi tornerai a bordo?","Babalik ka ba sa barko pagkatapos?"],["B","Se l'agenzia mi offre un nuovo contratto, sì. Vorrei diventare capo cameriere.","Kung bibigyan ako ng ahensiya ng bagong kontrata, oo. Gusto kong maging head waiter."],["A","Sarai bravissimo! Io ho ancora sei mesi.","Magiging magaling ka! Ako, may anim na buwan pa."],["B","E dopo?","At pagkatapos?"],["A","Se avrò abbastanza soldi, aprirò un piccolo ristorante a Cebu.","Kung may sapat akong pera, magbubukas ako ng maliit na restawran sa Cebu."],["B","Allora un giorno verrò a mangiare da te!","E di balang araw, kakain ako sa restawran mo!"],["A","Certo! Ti preparerò il pollo adobo.","Siyempre! Ipagluluto kita ng adobong manok."]];
+EX.l21=[
+ {q:"{io} + {tornare} ({futuro}):",o:["{tornerò}", "{tornarò}", "{tornero}"],e:"{-are} → {-erò}, may tuldik."},
+ {q:"{essere} ({futuro}), {tu}:",o:["{sarai}", "{esserai}", "{sei}"],e:"{essere} → {sarò, sarai, sarà…}"},
+ {q:"{noi} + {andare} ({futuro}):",o:["{andremo}", "{anderemo}", "{andiamo}"],e:"{andare} → {andrò, andremo}."},
+ {q:"«sa loob ng dalawang buwan»:",o:["{tra due mesi}", "{due mesi fa}", "{due mesi scorsi}"],e:"Hinaharap: {tra}."},
+ {q:"«Kung may pera ako, magbubukas ako ng restawran.»",o:["{Se avrò i soldi, aprirò un ristorante.}", "{Se avrò i soldi, allora poi aprivo un ristorante.}", "{Se ho avuto i soldi, apro un ristorante.}"],e:"{se} + hinaharap, saka hinaharap."},
+ {q:"{venire} ({futuro}), {io}:",o:["{verrò}", "{venirò}", "{venerò}"],e:"{venire} → {verrò}."},
+ {q:"«sa susunod na taon»:",o:["{l'anno prossimo}", "{l'anno scorso}", "{un anno fa}"],e:"{prossimo} = susunod."},
+ {q:"Makinig: kailan matatapos ang kontrata ni Ravi?",au:"Tra due mesi, il quindici novembre.",o:["15 Nobyembre", "5 Nobyembre", "15 Disyembre"],e:"{il quindici novembre}."},
+ {q:"Makinig: ano ang gustong buksan ni Joy?",au:"Se avrò abbastanza soldi, aprirò un piccolo ristorante a Cebu.",o:["isang restawran", "isang tindahan", "isang bar"],e:"{un piccolo ristorante}."},
+ {t:"type",q:"Kumpletuhin: {Domani la nave} ＿ {alle sei.} ({partire}, hinaharap)",a:["partirà"],full:"Domani la nave partirà alle sei."},
+ {t:"ord",q:"Ayusin: «Kung uulan bukas, mananatili ako sa kabina.»",a:["Se domani piove, resto in cabina."],w:["Se", "domani", "piove,", "resto", "in", "cabina."]},
+ {t:"dict",au:"Tra due mesi tornerò a casa."},
+ {t:"say",zh:"Sabihin: «Sa susunod na taon, pupunta ako sa Italya.»",it:"L'anno prossimo andrò in Italia."}
+];
+VOC.l21=[
+ ["fine","katapusan","f"],
+ ["tra","sa loob ng; sa pagitan",""],
+ ["prossimo","susunod",""],
+ ["dopodomani","sa makalawa",""],
+ ["un giorno","balang araw",""],
+ ["sposarsi","magpakasal",""],
+ ["agenzia","ahensiya","f"],
+ ["offrire","mag-alok",""],
+ ["diventare","maging",""],
+ ["capo cameriere","head waiter","m"],
+ ["abbastanza","sapat",""],
+ ["soldi","pera","m"],
+ ["accettare","tanggapin",""],
+ ["bisogno","pangangailangan","m"],
+ ["avere bisogno","kailanganin",""],
+ ["se","kung",""],
+ ["futuro","hinaharap","m"],
+ ["piano","plano; dahan-dahan","m"],
+ ["ci vediamo","magkita tayo",""],
+ ["Italia","Italya","f"],
+ ["risparmiare","mag-ipon",""],
+ ["mandare","magpadala",""]
+];

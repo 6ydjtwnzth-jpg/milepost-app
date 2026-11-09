@@ -18,7 +18,6 @@ VOC.l9=[
  ["che cosa","ano",""],
  ["quando","kailan",""],
  ["quale","alin",""],
- ["perché","bakit; kasi",""],
  ["quanto","magkano, gaano",""],
  ["mensa","mess, kainan","f"],
  ["ponte","deck; tulay","m"],
@@ -33,15 +32,11 @@ VOC.l9=[
  ["capo","boss, pinuno","m"],
  ["servizio","serbisyo","m"],
  ["dopo","pagkatapos",""],
- ["mangiare","kumain",""],
  ["studiare","mag-aral",""],
  ["arrivare","dumating",""],
  ["severo","mahigpit",""],
  ["così","ganito, napaka-",""],
  ["ogni","bawat, tuwing",""],
- ["stasera","ngayong gabi",""],
- ["nuovo","bago",""],
  ["tempo","oras; panahon","m"],
- ["comandante","kapitan","m"],
  ["equipaggio","crew, tripulante","m"]
 ];

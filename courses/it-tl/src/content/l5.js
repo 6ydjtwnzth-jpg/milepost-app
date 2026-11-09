@@ -25,7 +25,6 @@ VOC.l5=[
  ["figli","mga anak","m"],
  ["marito","asawang lalaki","m"],
  ["moglie","asawang babae","f"],
- ["nonno","lolo","m"],
  ["nonna","lola","f"],
  ["foto","litrato","f"],
  ["chi","sino",""],

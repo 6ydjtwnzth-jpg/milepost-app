@@ -1,2 +1,42 @@
-EX.l20=[];
-VOC.l20=[];
+DLG.l20=[["A","Buongiorno! Posso aiutarLa?","नमस्ते! क्या मैं आपकी मदद कर सकती हूँ?"],["B","Sì, grazie. Sto cercando una giacca per l'inverno.","हाँ, धन्यवाद। मैं सर्दी के लिए एक जैकेट ढूँढ रही हूँ।"],["A","Che taglia porta?","आप कौन-सा साइज़ पहनती हैं?"],["B","La S, credo. Mi piace questa giacca verde. Posso provarla?","S, मुझे लगता है। मुझे यह हरी जैकेट पसंद है। क्या मैं इसे पहनकर देख सकती हूँ?"],["A","Certo, il camerino è lì, a destra.","ज़रूर, ट्रायल रूम वहाँ है, दाईं तरफ़।"],["B","È un po' piccola. Avete la M?","थोड़ी छोटी है। क्या आपके पास M है?"],["A","Sì, eccola.","हाँ, यह लीजिए।"],["B","Questa va bene! Quanto costa?","यह ठीक है! कितने की है?"],["A","Ottanta euro, ma oggi c'è lo sconto del venti per cento.","अस्सी यूरो, पर आज बीस प्रतिशत की छूट है।"],["B","Perfetto, la prendo!","बढ़िया, मैं इसे लेती हूँ!"],["A","Paga con la carta o in contanti?","कार्ड से देंगी या नक़द?"],["B","In contanti. Ecco a Lei.","नक़द। यह लीजिए।"]];
+EX.l20=[
+ {q:"{La giacca?} — «मैं इसे लेती हूँ।»",o:["{La prendo.}", "{Prendo la.}", "{Lo prendo.}"],e:"{giacca} स्त्रीलिंग: {la}, क्रिया से पहले।"},
+ {q:"{I regali?} — «मैंने उन्हें पहले ही ख़रीद लिया।»",o:["{Li ho già comprati.}", "{Gli ho già comprato.}", "{Le ho già comprate.}"],e:"पुल्लिंग बहुवचन: {li} … {comprati}।"},
+ {q:"«क्या मैं इसे (जूता, {scarpa}) पहनकर देख सकती हूँ?»",o:["{Posso provarla?}", "{Posso la provare?}", "{Posso provarlo?}"],e:"{scarpa} स्त्रीलिंग; मूल क्रिया के साथ जुड़ता है।"},
+ {q:"«मैं काम कर रहा हूँ (अभी)»:",o:["{Sto lavorando.}", "{Sono lavorando.}", "{Sto lavorare.}"],e:"{stare} + {-ando}।"},
+ {q:"{fare} → «कर रहे हो»:",o:["{stai facendo}", "{stai fando}", "{stai fatto}"],e:"{fare} → {facendo}."},
+ {q:"{Dov'è il passaporto?} — «यह रहा!»",o:["{Eccolo!}", "{Eccola!}", "{Ecco lo!}"],e:"{ecco} + {lo} = {eccolo}।"},
+ {q:"{lo sconto} क्या है?",o:["छूट", "रसीद", "साइज़"],e:"{sconto} = छूट।"},
+ {q:"सुनें: जैकेट का दाम कितना है (छूट से पहले)?",au:"Ottanta euro, ma oggi c'è lo sconto del venti per cento.",o:["80 €", "20 €", "60 €"],e:"{ottanta} = 80."},
+ {t:"type",q:"पूरा करें: {Le scarpe? Non} ＿ {compro.} («उन्हें»)",a:["le"],full:"Le scarpe? Non le compro."},
+ {t:"type",q:"पूरा करें: {Ravi sta} ＿ ({dormire})",a:["dormendo"],full:"Ravi sta dormendo."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं सर्दी के लिए एक जैकेट ढूँढ रही हूँ।»",a:["Sto cercando una giacca per l'inverno."],w:["Sto", "cercando", "una", "giacca", "per", "l'inverno."]},
+ {t:"dict",au:"Paga con la carta o in contanti?"},
+ {t:"say",zh:"दुकान में: «मैं इसे लेता/लेती हूँ!» (जैकेट)",it:"La prendo!"}
+];
+VOC.l20=[
+ ["spesa","ख़रीदारी; ख़र्च","f"],
+ ["cercare","ढूँढना",""],
+ ["giacca","जैकेट","f"],
+ ["taglia","साइज़ (कपड़े)","f"],
+ ["provare","पहनकर देखना; कोशिश करना",""],
+ ["camerino","ट्रायल रूम","m"],
+ ["lì","वहाँ",""],
+ ["credere","मानना, सोचना",""],
+ ["sconto","छूट","m"],
+ ["per cento","प्रतिशत",""],
+ ["contanti","नक़द","m"],
+ ["scontrino","रसीद","m"],
+ ["scarpa","जूता","f"],
+ ["pantaloni","पैंट","m"],
+ ["camicia","कमीज़","f"],
+ ["vestito","कपड़ा; ड्रेस","m"],
+ ["biglietto","टिकट","m"],
+ ["lo","उसे (पुल्लिंग चीज़)",""],
+ ["la","उसे (स्त्रीलिंग चीज़); आर्टिकल",""],
+ ["li","उन्हें (पुल्लिंग)",""],
+ ["eccolo","यह रहा",""],
+ ["mi sta bene","मुझ पर अच्छा लगता है",""],
+ ["stretto","तंग",""],
+ ["largo","ढीला, चौड़ा",""]
+];

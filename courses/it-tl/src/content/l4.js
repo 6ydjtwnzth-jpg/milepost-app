@@ -14,7 +14,6 @@ EX.l4=[
  {t:"say",zh:"Ipakita sa pasahero ang mga tuwalya: «Heto po ang mga tuwalya.»",it:"Ecco gli asciugamani."}
 ];
 VOC.l4=[
- ["cabina","kabina","f"],
  ["letto","kama","m"],
  ["armadio","aparador","m"],
  ["doccia","shower, dutsa","f"],
@@ -29,21 +28,17 @@ VOC.l4=[
  ["porta","pinto","f"],
  ["sedia","upuan","f"],
  ["scrivania","mesa (sulatan)","f"],
- ["chiave","susi","f"],
  ["cuscino","unan","m"],
  ["coperta","kumot","f"],
  ["telecomando","remote","m"],
  ["lampada","lampara","f"],
  ["amica","kaibigang babae","f"],
- ["collega","kasamahan sa trabaho",""],
  ["c'è","may (isa)",""],
  ["ci sono","may (marami)",""],
- ["ecco","heto, narito",""],
  ["questo","ito (panlalaki)",""],
  ["questa","ito (pambabae)",""],
  ["grande","malaki",""],
  ["piccolo","maliit",""],
- ["anche","din, rin",""],
  ["perfetto","perpekto",""],
  ["buona serata","magandang gabi",""]
 ];

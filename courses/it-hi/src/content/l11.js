@@ -14,6 +14,7 @@ EX.l11=[
  {t:"say",zh:"बताइए: «मुझे संगीत सुनना पसंद है।»",it:"Mi piace ascoltare la musica."}
 ];
 VOC.l11=[
+ ["dormire","सोना",""],
  ["tempo libero","ख़ाली समय","m"],
  ["piacere","पसंद आना",""],
  ["mi piace","मुझे पसंद है",""],
@@ -33,7 +34,6 @@ VOC.l11=[
  ["cucinare","खाना बनाना",""],
  ["telefonare","फ़ोन करना",""],
  ["videochiamata","वीडियो कॉल","f"],
- ["casa","घर","f"],
  ["bere","पीना",""],
  ["escursione","सैर, भ्रमण","f"],
  ["amare","प्यार करना; बहुत पसंद करना",""],

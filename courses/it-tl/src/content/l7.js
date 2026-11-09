@@ -15,7 +15,7 @@ EX.l7=[
  {t:"say",zh:"Sabihin ang trabaho mo: «Cabin steward ako. Naglilinis ako ng mga kabina.»",it:"Sono cameriere di cabina. Pulisco le cabine."}
 ];
 VOC.l7=[
- ["lavoro","trabaho","m"],
+ ["stasera","ngayong gabi",""],
  ["lavorare","magtrabaho",""],
  ["parlare","magsalita",""],
  ["cantare","kumanta",""],
@@ -26,8 +26,6 @@ VOC.l7=[
  ["capire","umintindi",""],
  ["finire","tapusin",""],
  ["fare","gumawa",""],
- ["cameriere","waiter","m"],
- ["cameriera","waitress","f"],
  ["cuoco","kusinero","m"],
  ["marinaio","marino","m"],
  ["ufficiale","opisyal","m"],
@@ -37,13 +35,11 @@ VOC.l7=[
  ["animatore","animator (lalaki)","m"],
  ["ristorante","restawran","m"],
  ["colazione","almusal","f"],
- ["cena","hapunan","f"],
  ["ora","oras; ngayon","f"],
  ["al giorno","bawat araw",""],
  ["sera","gabi","f"],
  ["gioco","laro","m"],
  ["invece","naman, sa halip",""],
- ["inglese","Ingles",""],
  ["spagnolo","Espanyol",""],
  ["come","bilang",""],
  ["brava","galing (sa babae)",""]

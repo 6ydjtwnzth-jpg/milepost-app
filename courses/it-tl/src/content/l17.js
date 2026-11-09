@@ -1,2 +1,41 @@
-EX.l17=[];
-VOC.l17=[];
+DLG.l17=[["A","Joy, com'era Cebu quando eri piccola?","Joy, ano ang itsura ng Cebu noong bata ka?"],["B","Era più tranquilla. Abitavamo vicino al mare, in una casa piccola.","Mas tahimik noon. Nakatira kami malapit sa dagat, sa isang maliit na bahay."],["A","Anch'io! Mio padre era pescatore e usciva in barca ogni mattina.","Ako rin! Mangingisda ang tatay ko at lumalabas siya sakay ng bangka tuwing umaga."],["B","E tu cosa facevi?","At ano ang ginagawa mo?"],["A","Andavo a scuola e il pomeriggio nuotavo con i miei amici.","Pumapasok ako sa paaralan, at sa hapon lumalangoy ako kasama ang mga kaibigan ko."],["B","Io invece ero timida e leggevo sempre. Mia nonna mi raccontava storie.","Ako naman, mahiyain ako at laging nagbabasa. Kinukuwentuhan ako ng lola ko."],["A","Sognavi già di lavorare su una nave?","Pinapangarap mo na ba noon ang magtrabaho sa barko?"],["B","No! Volevo fare l'insegnante. E tu?","Hindi! Gusto kong maging guro. Ikaw?"],["A","Io sì: guardavo le navi nel porto e volevo vedere il mondo.","Ako, oo: tinitingnan ko ang mga barko sa daungan at gusto kong makita ang mundo."]];
+EX.l17=[
+ {q:"«Noong bata ako (lalaki)…»",o:["{Quando ero piccolo…}", "{Quando sono stato piccolo…}", "{Quando era piccolo io…}"],e:"Paglalarawan at edad: {ero}."},
+ {q:"{noi} + {abitare} ({imperfetto}):",o:["{abitavamo}", "{abitiamo}", "{abbiamo abitato}"],e:"{abita-v-amo}."},
+ {q:"{essere} ({imperfetto}), {loro}:",o:["{erano}", "{essevano}", "{sono stati}"],e:"{ero, eri, era, eravamo, eravate, erano}."},
+ {q:"Nakagawian: «Tuwing tag-init, pumupunta kami sa lolo at lola.»",o:["{Ogni estate andavamo dai nonni.}", "{Ogni estate siamo andati dai nonni.}", "{Ogni estate andiamo dai nonni.}"],e:"Nakagawian → {imperfetto}."},
+ {q:"«May hardin doon»:",o:["{C'era un giardino.}", "{C'erano un giardino.}", "{Era un giardino c'è.}"],e:"Isa: {c'era}."},
+ {q:"{fare} ({imperfetto}), {tu}:",o:["{facevi}", "{favi}", "{fatto}"],e:"{fare} → {facevo, facevi…}"},
+ {q:"Makinig: ano ang trabaho ng tatay ni Ravi?",au:"Mio padre era pescatore e usciva in barca ogni mattina.",o:["mangingisda", "guro", "kusinero"],e:"{pescatore} = mangingisda."},
+ {q:"Makinig: ano ang gustong maging ni Joy?",au:"Volevo fare l'insegnante.",o:["guro", "nars", "waitress"],e:"{l'insegnante} = guro."},
+ {t:"type",q:"Kumpletuhin: {Da bambino} ＿ {sempre in spiaggia.} ({giocare}, «ako»)",a:["giocavo"],full:"Da bambino giocavo sempre in spiaggia."},
+ {t:"type",q:"Kumpletuhin: {Mia nonna} ＿ {benissimo.} ({cucinare})",a:["cucinava"],full:"Mia nonna cucinava benissimo."},
+ {t:"ord",q:"Ayusin: «Nakatira kami malapit sa dagat.»",a:["Abitavamo vicino al mare."],w:["Abitavamo", "vicino", "al", "mare."]},
+ {t:"dict",au:"Quando ero piccola, leggevo sempre."},
+ {t:"say",zh:"Sabihin: «Noong bata ako, lumalangoy ako araw-araw.»",it:"Quando ero piccolo, nuotavo ogni giorno."}
+];
+VOC.l17=[
+ ["da bambino","noong bata",""],
+ ["bambino","bata","m"],
+ ["tranquillo","tahimik",""],
+ ["abitare","tumira",""],
+ ["pescatore","mangingisda","m"],
+ ["barca","bangka","f"],
+ ["scuola","paaralan","f"],
+ ["amico","kaibigan","m"],
+ ["timido","mahiyain",""],
+ ["raccontare","magkuwento",""],
+ ["storia","kuwento; kasaysayan","f"],
+ ["sognare","mangarap",""],
+ ["già","na, noon pa",""],
+ ["insegnante","guro",""],
+ ["mondo","mundo","m"],
+ ["viaggiare","maglakbay",""],
+ ["di solito","karaniwan",""],
+ ["estate","tag-init","f"],
+ ["inverno","taglamig","m"],
+ ["nonni","lolo at lola","m"],
+ ["giardino","hardin","m"],
+ ["stella","bituin","f"],
+ ["villaggio","nayon","m"]
+];

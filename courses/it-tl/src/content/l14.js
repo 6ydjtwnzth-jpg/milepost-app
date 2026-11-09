@@ -14,6 +14,7 @@ EX.l14=[
  {t:"say",zh:"Tanungin ang pasahero: «Ano po ang kukunin ninyo?»",it:"Cosa prende?"}
 ];
 VOC.l14=[
+ ["più","mas; pa",""],
  ["cucina","kusina; lutuin","f"],
  ["menù","menu","m"],
  ["piatto","plato; putahe","m"],

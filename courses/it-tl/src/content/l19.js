@@ -1,2 +1,43 @@
-EX.l19=[];
-VOC.l19=[];
+DLG.l19=[["A","Joy, cosa regali a Miguel?","Joy, ano ang ireregalo mo kay Miguel?"],["B","Gli piace il calcio, quindi gli compro una maglietta.","Gusto niya ang football, kaya bibilhan ko siya ng t-shirt."],["A","Questa blu è più bella di quella rossa.","Mas maganda itong asul kaysa sa pula."],["B","Sì, ma è anche più cara! E tu, cosa compri a tua sorella?","Oo, pero mas mahal din! Ikaw, ano ang bibilhin mo para sa kapatid mo?"],["A","Le piacciono i profumi italiani. Le regalo questo.","Gusto niya ang mga pabangong Italyano. Ireregalo ko ito sa kanya."],["B","Mmm, è buonissimo! Quanto costa?","Hmm, napakabango! Magkano?"],["A","Quaranta euro. A bordo i profumi costano meno che in città.","Apatnapung euro. Mas mura ang pabango sa barko kaysa sa lungsod."],["B","Davvero? Allora prendo un profumo anche per mia madre.","Talaga? E di bibili rin ako ng pabango para sa nanay ko."],["A","Tua madre è fortunata: sei la figlia più generosa del mondo!","Suwerte ang nanay mo: ikaw ang pinakamapagbigay na anak sa mundo!"]];
+EX.l19=[
+ {q:"«Bibigyan ko siya (si Miguel) ng t-shirt»:",o:["{Gli regalo una maglietta.}", "{Le regalo una maglietta.}", "{Lo regalo una maglietta.}"],e:"Lalaki → {gli}."},
+ {q:"«Gusto niya (ng kapatid na babae) ang mga pabango»:",o:["{Le piacciono i profumi.}", "{Gli piacciono i profumi.}", "{Lei piace i profumi.}"],e:"Babae → {le}; maramihan → {piacciono}."},
+ {q:"Sa pasahero: «Dadalhan ko po ba kayo ng kape?»",o:["{Le porto un caffè?}", "{Ti porto un caffè?}", "{Gli porto un caffè?}"],e:"{Lei} → {Le}."},
+ {q:"«Mas malaki ang Genova kaysa sa Palma.»",o:["{Genova è più grande di Palma.}", "{Genova è più grande che Palma.}", "{Genova è grande di Palma.}"],e:"Bago ang pangalan: {di}."},
+ {q:"«Mas mura sa barko kaysa sa lungsod.»",o:["{Costa meno a bordo che in città.}", "{Costa meno a bordo di in città.}", "{Costa più poco a bordo in città.}"],e:"Sa pagitan ng dalawang lugar: {che}."},
+ {q:"Paghahambing ng {buono} («mas mabuti»):",o:["{migliore}", "{più buono di}", "{buonissimo più}"],e:"{buono} → {migliore}."},
+ {q:"«dalawang pulang t-shirt»:",o:["{due magliette rosse}", "{due rosse magliette}", "{due magliette rosso}"],e:"Pagkatapos ng pangngalan ang kulay at sumasang-ayon."},
+ {q:"Makinig: magkano ang pabango?",au:"Quaranta euro. A bordo i profumi costano meno che in città.",o:["40 €", "14 €", "44 €"],e:"{quaranta} = 40."},
+ {t:"type",q:"Kumpletuhin: {A mia madre?} ＿ {telefono domani.} («sa kanya»)",a:["Le"],full:"A mia madre? Le telefono domani."},
+ {t:"type",q:"Kumpletuhin: {Ravi è} ＿ {alto di Mark.} («mas»)",a:["più"],full:"Ravi è più alto di Mark."},
+ {t:"ord",q:"Ayusin: «Gusto niya ang football.» (lalaki)",a:["Gli piace il calcio."],w:["Gli", "piace", "il", "calcio."]},
+ {t:"dict",au:"Questa maglietta è più bella di quella."},
+ {t:"say",zh:"Sabihin: «Tinatawagan ko ang nanay ko tuwing Linggo.» ({le})",it:"Le telefono ogni domenica."}
+];
+VOC.l19=[
+ ["gusto","lasa; gusto","m"],
+ ["confronto","paghahambing","m"],
+ ["regalare","magregalo",""],
+ ["gli","sa kanya (lalaki); sa kanila",""],
+ ["le","sa kanya (babae)",""],
+ ["quindi","kaya",""],
+ ["maglietta","t-shirt","f"],
+ ["quello","iyon",""],
+ ["caro","mahal",""],
+ ["economico","mura",""],
+ ["profumo","pabango","m"],
+ ["buonissimo","napakasarap, napakabango",""],
+ ["fortunato","suwerte",""],
+ ["generoso","mapagbigay",""],
+ ["migliore","mas mabuti",""],
+ ["peggiore","mas masama",""],
+ ["dare","magbigay",""],
+ ["bravo","magaling",""],
+ ["rosso","pula",""],
+ ["blu","asul",""],
+ ["verde","berde",""],
+ ["giallo","dilaw",""],
+ ["bianco","puti",""],
+ ["nero","itim",""],
+ ["negozio di bordo","tindahan sa barko","m"]
+];

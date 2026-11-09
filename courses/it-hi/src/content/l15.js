@@ -1,2 +1,47 @@
-EX.l15=[];
-VOC.l15=[];
+DLG.l15=[["A","Ciao Ravi! Ieri hai avuto il giorno libero, vero? Cosa hai fatto?","हाय रवि! कल तुम्हारी छुट्टी थी ना? तुमने क्या किया?"],["B","Ho visitato Barcellona con Mark. Abbiamo camminato tutto il giorno!","मैंने मार्क के साथ बार्सिलोना घूमा। हम पूरे दिन चले!"],["A","Che bello! Avete visto la Sagrada Família?","कितना अच्छा! क्या तुमने सग्रादा फ़मीलिया देखा?"],["B","Sì, e ho fatto tante foto. Poi abbiamo mangiato la paella.","हाँ, और मैंने बहुत सारी फ़ोटो खींचीं। फिर हमने पाएया खाया।"],["A","E hai comprato qualcosa?","और तुमने कुछ ख़रीदा?"],["B","Ho comprato un regalo per mia madre: una borsa.","मैंने अपनी माँ के लिए एक तोहफ़ा ख़रीदा: एक बैग।"],["A","Bravo! Io invece non ho dormito molto: ho lavorato fino a mezzanotte.","शाबाश! मैं तो ठीक से सोई नहीं: आधी रात तक काम किया।"],["B","Povera Joy! Hai mangiato almeno?","बेचारी जॉय! कम से कम कुछ खाया?"],["A","Sì, Paolo ha preparato la pasta per tutti.","हाँ, पाओलो ने सबके लिए पास्ता बनाया।"]];
+EX.l15=[
+ {q:"«मैंने खाया»:",o:["{Ho mangiato.}", "{Io mangiato.}", "{Sono mangiato.}"],e:"{avere} + {mangiato}।"},
+ {q:"{fare} का बीता रूप:",o:["{fatto}", "{fato}", "{fareto}"],e:"{fare} → {fatto}."},
+ {q:"{vedere} का बीता रूप:",o:["{visto}", "{veduto}", "{vedito}"],e:"{vedere} → {visto}."},
+ {q:"«हमने एक फ़िल्म देखी»:",o:["{Abbiamo visto un film.}", "{Abbiamo vedere un film.}", "{Siamo visto un film.}"],e:"{abbiamo} + {visto}।"},
+ {q:"«दो दिन पहले»:",o:["{due giorni fa}", "{fa due giorni}", "{due giorni scorsi}"],e:"{fa} संख्या के बाद।"},
+ {q:"«मैं सोया नहीं»:",o:["{Non ho dormito.}", "{Ho non dormito.}", "{Ho dormito non.}"],e:"{non} + {ho} + {dormito}।"},
+ {q:"{prendere} का बीता रूप:",o:["{preso}", "{prenduto}", "{prendito}"],e:"{prendere} → {preso}."},
+ {q:"सुनें: रवि ने क्या ख़रीदा?",au:"Ho comprato un regalo per mia madre: una borsa.",o:["एक बैग", "एक किताब", "एक फ़ोन"],e:"{una borsa} = एक बैग।"},
+ {t:"type",q:"पूरा करें: {Ieri io} ＿ {la paella.} ({mangiare})",a:["ho mangiato"],full:"Ieri io ho mangiato la paella."},
+ {t:"type",q:"पूरा करें: {Paolo} ＿ {la pasta.} ({preparare})",a:["ha preparato"],full:"Paolo ha preparato la pasta."},
+ {t:"ord",q:"क्रम में लगाएँ: «कल शाम हमने एक फ़िल्म देखी।»",a:["Ieri sera abbiamo visto un film."],w:["Ieri", "sera", "abbiamo", "visto", "un", "film."]},
+ {t:"dict",au:"Ho fatto tante foto."},
+ {t:"say",zh:"बताइए: «कल मैंने दस घंटे काम किया।»",it:"Ieri ho lavorato dieci ore."}
+];
+VOC.l15=[
+ ["pasta","पास्ता","f"],
+ ["giorno libero","छुट्टी का दिन","m"],
+ ["ieri","कल (बीता हुआ)",""],
+ ["l'altro ieri","परसों (बीता)",""],
+ ["stamattina","आज सुबह",""],
+ ["fa","पहले (समय)",""],
+ ["scorso","पिछला",""],
+ ["settimana","हफ़्ता","f"],
+ ["mese","महीना","m"],
+ ["visitare","घूमना, देखने जाना",""],
+ ["camminare","पैदल चलना",""],
+ ["vedere","देखना",""],
+ ["comprare","ख़रीदना",""],
+ ["regalo","तोहफ़ा","m"],
+ ["borsa","बैग, थैला","f"],
+ ["tanto","बहुत",""],
+ ["fino a","तक",""],
+ ["almeno","कम से कम",""],
+ ["preparare","तैयार करना, बनाना",""],
+ ["povero","बेचारा; ग़रीब",""],
+ ["ricevere","पाना, मिलना",""],
+ ["messaggio","संदेश, मैसेज","m"],
+ ["scrivere","लिखना",""],
+ ["dire","कहना",""],
+ ["chiudere","बंद करना",""],
+ ["mettere","रखना",""],
+ ["corso","कोर्स","m"],
+ ["tutto il giorno","पूरा दिन",""],
+ ["per","के लिए",""]
+];

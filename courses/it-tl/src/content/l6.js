@@ -16,11 +16,9 @@ EX.l6=[
 VOC.l6=[
  ["stare","manatili; (lagay)",""],
  ["come stai?","kumusta ka?",""],
- ["bene","mabuti",""],
  ["male","masama",""],
  ["benissimo","napakabuti",""],
  ["così così","medyo lang",""],
- ["non","hindi (bago ang pandiwa)",""],
  ["fame","gutom","f"],
  ["sete","uhaw","f"],
  ["sonno","antok","m"],

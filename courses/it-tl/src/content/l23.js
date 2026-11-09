@@ -1,2 +1,42 @@
-EX.l23=[];
-VOC.l23=[];
+DLG.l23=[["A","Buongiorno, Ravi. Si accomodi. Mi parli un po' di Lei.","Magandang umaga, Ravi. Maupo po kayo. Magkuwento kayo nang kaunti tungkol sa sarili ninyo."],["B","Mi chiamo Ravi Nair, ho ventinove anni e sono di Kochi, in India.","Ako si Ravi Nair, dalawampu't siyam na taon, taga-Kochi, sa India."],["A","Da quanto tempo lavora sulle navi?","Gaano na po kayo katagal nagtatrabaho sa mga barko?"],["B","Lavoro sulle navi da cinque anni. Prima lavoravo in un albergo a Kochi.","Limang taon na akong nagtatrabaho sa mga barko. Dati, nagtatrabaho ako sa isang hotel sa Kochi."],["A","Perché ha scelto questo lavoro?","Bakit po ninyo pinili ang trabahong ito?"],["B","Perché da piccolo guardavo le navi nel porto e sognavo di viaggiare.","Dahil noong bata ako, tinitingnan ko ang mga barko sa daungan at pinapangarap kong maglakbay."],["A","Quali lingue parla?","Anong mga wika po ang alam ninyo?"],["B","Parlo malayalam, hindi e inglese. E studio italiano da un anno.","Malayalam, Hindi at Ingles. At isang taon na akong nag-aaral ng Italyano."],["A","Lo parla molto bene! Cosa Le piace di più del Suo lavoro?","Napakagaling po ninyong mag-Italyano! Ano ang pinakagusto ninyo sa trabaho ninyo?"],["B","Le persone che incontro ogni giorno. Ogni passeggero ha una storia.","Ang mga taong nakikilala ko araw-araw. May kuwento ang bawat pasahero."],["A","E tra cinque anni, dove si vede?","At pagkalipas ng limang taon, nasaan na po kayo?"],["B","Mi piacerebbe diventare maître, e un giorno aprire un ristorante con un'amica.","Gusto kong maging maître, at balang araw, magbukas ng restawran kasama ang isang kaibigan."],["A","Ottimo. Le faremo sapere presto.","Napakahusay. Ipapaalam namin sa inyo agad."],["B","Grazie mille. È stato un piacere.","Maraming salamat po. Ikinagagalak ko."]];
+EX.l23=[
+ {q:"«Limang taon na akong nagtatrabaho rito.»",o:["{Lavoro qui da cinque anni.}", "{Ho lavorato qui da cinque anni.}", "{Lavoro qui cinque anni fa.}"],e:"Nagpapatuloy → {da} + kasalukuyan."},
+ {q:"«Kumuha ako ng kurso tatlong taon na ang nakalipas.»",o:["{Ho fatto il corso tre anni fa.}", "{Faccio il corso da tre anni.}", "{Ho fatto il corso da tre anni fa.}"],e:"Tapos na → {fa}."},
+ {q:"«Ang mga taong nakikilala ko»:",o:["{le persone che incontro}", "{le persone incontro}", "{le persone chi incontro}"],e:"Pang-ugnay: {che}."},
+ {q:"Sa interview: «Gaano na katagal…?»",o:["{Da quanto tempo…?}", "{Quanto tempo fa…?}", "{Per quanto…?}"],e:"{Da quanto tempo lavora qui?}"},
+ {q:"Nakagawian noong bata: «Tinitingnan ko ang mga barko.»",o:["{Guardavo le navi.}", "{Ho guardato le navi.}", "{Guarderò le navi.}"],e:"Nakagawian → {imperfetto}."},
+ {q:"Pangarap: «Gusto kong magbukas ng restawran.»",o:["{Mi piacerebbe aprire un ristorante.}", "{Mi è piaciuto aprire un ristorante.}", "{Mi piaceva aprire un ristorante.}"],e:"Hangarin → {condizionale}."},
+ {q:"«Mahirap, pero marami akong natutunan.» Ang «pero»:",o:["{però}", "{quindi}", "{prima}"],e:"{però} = pero; {quindi} = kaya."},
+ {q:"Makinig: gaano na katagal nagtatrabaho si Ravi sa mga barko?",au:"Lavoro sulle navi da cinque anni.",o:["5 taon na", "1 taon na", "9 taon na"],e:"{da cinque anni}."},
+ {q:"Makinig: saan nagtatrabaho si Ravi dati?",au:"Prima lavoravo in un albergo a Kochi.",o:["sa isang hotel", "sa isang restawran", "sa isang paaralan"],e:"{albergo} = hotel."},
+ {t:"type",q:"Kumpletuhin: {Studio italiano} ＿ {un anno.} («… na»)",a:["da"],full:"Studio italiano da un anno."},
+ {t:"ord",q:"Ayusin: «Nasa Cebu ang restawrang gusto kong buksan.»",a:["Il ristorante che voglio aprire sarà a Cebu."],w:["Il", "ristorante", "che", "voglio", "aprire", "sarà", "a", "Cebu."]},
+ {t:"dict",au:"Ogni passeggero ha una storia."},
+ {t:"say",zh:"Ipakilala ang sarili: «Dalawang taon na akong nagtatrabaho sa mga barko.»",it:"Lavoro sulle navi da due anni."}
+];
+VOC.l23=[
+ ["nostro","atin, amin",""],
+ ["colloquio","interview","m"],
+ ["accomodarsi","maupo",""],
+ ["da quanto tempo","gaano na katagal",""],
+ ["da","mula; sa (bahay ni)",""],
+ ["albergo","hotel","m"],
+ ["scegliere","pumili",""],
+ ["lingua","wika; dila","f"],
+ ["persona","tao","f"],
+ ["incontrare","makilala, makatagpo",""],
+ ["che","na; ano",""],
+ ["maître","maître, tagapamahala ng restawran","m"],
+ ["ottimo","napakahusay",""],
+ ["far sapere","ipaalam",""],
+ ["esperienza","karanasan","f"],
+ ["punto di forza","kalakasan","m"],
+ ["però","pero",""],
+ ["trovare","makahanap",""],
+ ["imparare","matuto",""],
+ ["difficile","mahirap",""],
+ ["facile","madali",""],
+ ["all'inizio","sa simula",""],
+ ["vivere","manirahan, mabuhay",""],
+ ["in futuro","sa hinaharap",""]
+];

@@ -1,2 +1,41 @@
-EX.l17=[];
-VOC.l17=[];
+DLG.l17=[["A","Joy, com'era Cebu quando eri piccola?","जॉय, जब तुम छोटी थीं तब सेबू कैसा था?"],["B","Era più tranquilla. Abitavamo vicino al mare, in una casa piccola.","ज़्यादा शांत था। हम समुद्र के पास, एक छोटे घर में रहते थे।"],["A","Anch'io! Mio padre era pescatore e usciva in barca ogni mattina.","मैं भी! मेरे पिताजी मछुआरे थे और हर सुबह नाव लेकर निकलते थे।"],["B","E tu cosa facevi?","और तुम क्या करते थे?"],["A","Andavo a scuola e il pomeriggio nuotavo con i miei amici.","मैं स्कूल जाता था और दोपहर को दोस्तों के साथ तैरता था।"],["B","Io invece ero timida e leggevo sempre. Mia nonna mi raccontava storie.","और मैं शर्मीली थी और हमेशा पढ़ती रहती थी। मेरी दादी मुझे कहानियाँ सुनाती थीं।"],["A","Sognavi già di lavorare su una nave?","क्या तब भी तुम जहाज़ पर काम करने का सपना देखती थीं?"],["B","No! Volevo fare l'insegnante. E tu?","नहीं! मैं टीचर बनना चाहती थी। और तुम?"],["A","Io sì: guardavo le navi nel porto e volevo vedere il mondo.","मैं हाँ: मैं बंदरगाह में जहाज़ देखता था और दुनिया देखना चाहता था।"]];
+EX.l17=[
+ {q:"«जब मैं छोटा था…»",o:["{Quando ero piccolo…}", "{Quando sono stato piccolo…}", "{Quando era piccolo io…}"],e:"वर्णन और उम्र: {ero}।"},
+ {q:"{noi} + {abitare} ({imperfetto}):",o:["{abitavamo}", "{abitiamo}", "{abbiamo abitato}"],e:"{abita-v-amo}."},
+ {q:"{essere} ({imperfetto}), {loro}:",o:["{erano}", "{essevano}", "{sono stati}"],e:"{ero, eri, era, eravamo, eravate, erano}."},
+ {q:"आदत: «हर गर्मी हम दादा-दादी के पास जाते थे।»",o:["{Ogni estate andavamo dai nonni.}", "{Ogni estate siamo andati dai nonni.}", "{Ogni estate andiamo dai nonni.}"],e:"आदत → {imperfetto}।"},
+ {q:"«वहाँ एक बग़ीचा था»:",o:["{C'era un giardino.}", "{C'erano un giardino.}", "{Era un giardino c'è.}"],e:"एक चीज़: {c'era}।"},
+ {q:"{fare} ({imperfetto}), {tu}:",o:["{facevi}", "{favi}", "{fatto}"],e:"{fare} → {facevo, facevi…}"},
+ {q:"सुनें: रवि के पिताजी क्या करते थे?",au:"Mio padre era pescatore e usciva in barca ogni mattina.",o:["मछुआरे थे", "टीचर थे", "रसोइया थे"],e:"{pescatore} = मछुआरा।"},
+ {q:"सुनें: जॉय क्या बनना चाहती थी?",au:"Volevo fare l'insegnante.",o:["टीचर", "नर्स", "वेट्रेस"],e:"{l'insegnante} = टीचर।"},
+ {t:"type",q:"पूरा करें: {Da bambino} ＿ {sempre in spiaggia.} ({giocare}, «मैं»)",a:["giocavo"],full:"Da bambino giocavo sempre in spiaggia."},
+ {t:"type",q:"पूरा करें: {Mia nonna} ＿ {benissimo.} ({cucinare})",a:["cucinava"],full:"Mia nonna cucinava benissimo."},
+ {t:"ord",q:"क्रम में लगाएँ: «हम समुद्र के पास रहते थे।»",a:["Abitavamo vicino al mare."],w:["Abitavamo", "vicino", "al", "mare."]},
+ {t:"dict",au:"Quando ero piccola, leggevo sempre."},
+ {t:"say",zh:"बताइए: «जब मैं छोटा/छोटी था/थी, मैं हर दिन तैरता/तैरती था/थी।»",it:"Quando ero piccolo, nuotavo ogni giorno."}
+];
+VOC.l17=[
+ ["da bambino","बचपन में",""],
+ ["bambino","बच्चा","m"],
+ ["tranquillo","शांत",""],
+ ["abitare","रहना (कहीं)",""],
+ ["pescatore","मछुआरा","m"],
+ ["barca","नाव","f"],
+ ["scuola","स्कूल","f"],
+ ["amico","दोस्त","m"],
+ ["timido","शर्मीला",""],
+ ["raccontare","सुनाना, बताना",""],
+ ["storia","कहानी; इतिहास","f"],
+ ["sognare","सपना देखना",""],
+ ["già","पहले से; पहले ही",""],
+ ["insegnante","टीचर",""],
+ ["mondo","दुनिया","m"],
+ ["viaggiare","यात्रा करना",""],
+ ["di solito","आम तौर पर",""],
+ ["estate","गर्मी (मौसम)","f"],
+ ["inverno","सर्दी (मौसम)","m"],
+ ["nonni","दादा-दादी","m"],
+ ["giardino","बग़ीचा","m"],
+ ["stella","तारा","f"],
+ ["villaggio","गाँव","m"]
+];

@@ -1,2 +1,43 @@
-EX.l19=[];
-VOC.l19=[];
+DLG.l19=[["A","Joy, cosa regali a Miguel?","जॉय, तुम मिगेल को क्या तोहफ़ा दोगी?"],["B","Gli piace il calcio, quindi gli compro una maglietta.","उसे फ़ुटबॉल पसंद है, तो मैं उसके लिए एक टी-शर्ट ख़रीदूँगी।"],["A","Questa blu è più bella di quella rossa.","यह नीली वाली उस लाल वाली से ज़्यादा सुंदर है।"],["B","Sì, ma è anche più cara! E tu, cosa compri a tua sorella?","हाँ, पर ज़्यादा महँगी भी है! और तुम अपनी बहन के लिए क्या ख़रीदोगे?"],["A","Le piacciono i profumi italiani. Le regalo questo.","उसे इतालवी परफ़्यूम पसंद हैं। मैं उसे यह दूँगा।"],["B","Mmm, è buonissimo! Quanto costa?","म्म, बहुत अच्छी ख़ुशबू है! कितने का है?"],["A","Quaranta euro. A bordo i profumi costano meno che in città.","चालीस यूरो। जहाज़ पर परफ़्यूम शहर से सस्ते हैं।"],["B","Davvero? Allora prendo un profumo anche per mia madre.","सच में? तो मैं अपनी माँ के लिए भी एक परफ़्यूम लेती हूँ।"],["A","Tua madre è fortunata: sei la figlia più generosa del mondo!","तुम्हारी माँ ख़ुशक़िस्मत हैं: तुम दुनिया की सबसे दरियादिल बेटी हो!"]];
+EX.l19=[
+ {q:"«मैं उसे (मिगेल को) टी-शर्ट देती हूँ»:",o:["{Gli regalo una maglietta.}", "{Le regalo una maglietta.}", "{Lo regalo una maglietta.}"],e:"पुरुष → {gli}।"},
+ {q:"«उसे (बहन को) परफ़्यूम पसंद हैं»:",o:["{Le piacciono i profumi.}", "{Gli piacciono i profumi.}", "{Lei piace i profumi.}"],e:"महिला → {le}; बहुवचन → {piacciono}।"},
+ {q:"यात्री से: «क्या मैं आपके लिए कॉफ़ी लाऊँ?»",o:["{Le porto un caffè?}", "{Ti porto un caffè?}", "{Gli porto un caffè?}"],e:"{Lei} → {Le}।"},
+ {q:"«जेनोवा पाल्मा से बड़ा है।»",o:["{Genova è più grande di Palma.}", "{Genova è più grande che Palma.}", "{Genova è grande di Palma.}"],e:"नाम से पहले {di}।"},
+ {q:"«जहाज़ पर शहर से सस्ता है।»",o:["{Costa meno a bordo che in città.}", "{Costa meno a bordo di in città.}", "{Costa più poco a bordo in città.}"],e:"दो जगहों के बीच {che}।"},
+ {q:"{buono} की तुलना («ज़्यादा अच्छा»):",o:["{migliore}", "{più buono di}", "{buonissimo più}"],e:"{buono} → {migliore}."},
+ {q:"«दो लाल टी-शर्ट»:",o:["{due magliette rosse}", "{due rosse magliette}", "{due magliette rosso}"],e:"रंग संज्ञा के बाद, और उसके साथ बदलता है।"},
+ {q:"सुनें: परफ़्यूम कितने का है?",au:"Quaranta euro. A bordo i profumi costano meno che in città.",o:["40 €", "14 €", "44 €"],e:"{quaranta} = 40."},
+ {t:"type",q:"पूरा करें: {A mia madre?} ＿ {telefono domani.} («उसे»)",a:["Le"],full:"A mia madre? Le telefono domani."},
+ {t:"type",q:"पूरा करें: {Ravi è} ＿ {alto di Mark.} («ज़्यादा»)",a:["più"],full:"Ravi è più alto di Mark."},
+ {t:"ord",q:"क्रम में लगाएँ: «उसे फ़ुटबॉल पसंद है।» (पुरुष)",a:["Gli piace il calcio."],w:["Gli", "piace", "il", "calcio."]},
+ {t:"dict",au:"Questa maglietta è più bella di quella."},
+ {t:"say",zh:"बताइए: «मैं अपनी माँ को हर रविवार फ़ोन करता/करती हूँ।» ({le})",it:"Le telefono ogni domenica."}
+];
+VOC.l19=[
+ ["gusto","स्वाद; पसंद","m"],
+ ["confronto","तुलना","m"],
+ ["regalare","तोहफ़ा देना",""],
+ ["gli","उसे (पुरुष); उन्हें",""],
+ ["le","उसे (महिला)",""],
+ ["quindi","इसलिए",""],
+ ["maglietta","टी-शर्ट","f"],
+ ["quello","वह (दूर वाला)",""],
+ ["caro","महँगा; प्यारा",""],
+ ["economico","सस्ता",""],
+ ["profumo","परफ़्यूम; ख़ुशबू","m"],
+ ["buonissimo","बहुत अच्छा",""],
+ ["fortunato","ख़ुशक़िस्मत",""],
+ ["generoso","दरियादिल",""],
+ ["migliore","बेहतर",""],
+ ["peggiore","बदतर",""],
+ ["dare","देना",""],
+ ["bravo","अच्छा, कुशल",""],
+ ["rosso","लाल",""],
+ ["blu","नीला",""],
+ ["verde","हरा",""],
+ ["giallo","पीला",""],
+ ["bianco","सफ़ेद",""],
+ ["nero","काला",""],
+ ["negozio di bordo","जहाज़ की दुकान","m"]
+];

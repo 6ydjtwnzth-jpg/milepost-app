@@ -1,2 +1,47 @@
-EX.l15=[];
-VOC.l15=[];
+DLG.l15=[["A","Ciao Ravi! Ieri hai avuto il giorno libero, vero? Cosa hai fatto?","Hi, Ravi! Day off mo kahapon, di ba? Ano ang ginawa mo?"],["B","Ho visitato Barcellona con Mark. Abbiamo camminato tutto il giorno!","Namasyal ako sa Barcelona kasama si Mark. Naglakad kami buong araw!"],["A","Che bello! Avete visto la Sagrada Família?","Ang ganda! Nakita ba ninyo ang Sagrada Família?"],["B","Sì, e ho fatto tante foto. Poi abbiamo mangiato la paella.","Oo, at marami akong kinuhang litrato. Tapos kumain kami ng paella."],["A","E hai comprato qualcosa?","At may binili ka ba?"],["B","Ho comprato un regalo per mia madre: una borsa.","Bumili ako ng regalo para sa nanay ko: isang bag."],["A","Bravo! Io invece non ho dormito molto: ho lavorato fino a mezzanotte.","Galing! Ako naman, hindi masyadong nakatulog: nagtrabaho ako hanggang hatinggabi."],["B","Povera Joy! Hai mangiato almeno?","Kawawang Joy! Kumain ka man lang ba?"],["A","Sì, Paolo ha preparato la pasta per tutti.","Oo, nagluto si Paolo ng pasta para sa lahat."]];
+EX.l15=[
+ {q:"«Kumain ako»:",o:["{Ho mangiato.}", "{Io mangiato.}", "{Sono mangiato.}"],e:"{avere} + {mangiato}."},
+ {q:"Participle ng {fare}:",o:["{fatto}", "{fato}", "{fareto}"],e:"{fare} → {fatto}."},
+ {q:"Participle ng {vedere}:",o:["{visto}", "{veduto}", "{vedito}"],e:"{vedere} → {visto}."},
+ {q:"«Nanood kami ng pelikula»:",o:["{Abbiamo visto un film.}", "{Abbiamo vedere un film.}", "{Siamo visto un film.}"],e:"{abbiamo} + {visto}."},
+ {q:"«dalawang araw na ang nakalipas»:",o:["{due giorni fa}", "{fa due giorni}", "{due giorni scorsi}"],e:"{fa} pagkatapos ng panahon."},
+ {q:"«Hindi ako nakatulog»:",o:["{Non ho dormito.}", "{Ho non dormito.}", "{Ho dormito non.}"],e:"{non} + {ho} + {dormito}."},
+ {q:"Participle ng {prendere}:",o:["{preso}", "{prenduto}", "{prendito}"],e:"{prendere} → {preso}."},
+ {q:"Makinig: ano ang binili ni Ravi?",au:"Ho comprato un regalo per mia madre: una borsa.",o:["isang bag", "isang libro", "isang telepono"],e:"{una borsa} = isang bag."},
+ {t:"type",q:"Kumpletuhin: {Ieri io} ＿ {la paella.} ({mangiare})",a:["ho mangiato"],full:"Ieri io ho mangiato la paella."},
+ {t:"type",q:"Kumpletuhin: {Paolo} ＿ {la pasta.} ({preparare})",a:["ha preparato"],full:"Paolo ha preparato la pasta."},
+ {t:"ord",q:"Ayusin: «Nanood kami ng pelikula kagabi.»",a:["Ieri sera abbiamo visto un film."],w:["Ieri", "sera", "abbiamo", "visto", "un", "film."]},
+ {t:"dict",au:"Ho fatto tante foto."},
+ {t:"say",zh:"Sabihin: «Kahapon, nagtrabaho ako nang sampung oras.»",it:"Ieri ho lavorato dieci ore."}
+];
+VOC.l15=[
+ ["pasta","pasta","f"],
+ ["giorno libero","day off","m"],
+ ["ieri","kahapon",""],
+ ["l'altro ieri","noong isang araw",""],
+ ["stamattina","kaninang umaga",""],
+ ["fa","na ang nakalipas",""],
+ ["scorso","nakaraan",""],
+ ["settimana","linggo","f"],
+ ["mese","buwan","m"],
+ ["visitare","bumisita, mamasyal",""],
+ ["camminare","maglakad",""],
+ ["vedere","makita",""],
+ ["comprare","bumili",""],
+ ["regalo","regalo","m"],
+ ["borsa","bag","f"],
+ ["tanto","marami",""],
+ ["fino a","hanggang",""],
+ ["almeno","man lang",""],
+ ["preparare","maghanda, magluto",""],
+ ["povero","kawawa; mahirap",""],
+ ["ricevere","tumanggap",""],
+ ["messaggio","mensahe","m"],
+ ["scrivere","sumulat",""],
+ ["dire","sabihin",""],
+ ["chiudere","isara",""],
+ ["mettere","ilagay",""],
+ ["corso","kurso","m"],
+ ["tutto il giorno","buong araw",""],
+ ["per","para sa",""]
+];

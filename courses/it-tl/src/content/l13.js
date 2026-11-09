@@ -14,6 +14,7 @@ EX.l13=[
  {t:"say",zh:"Tanungin ang pasahero: «Puwede ko po ba kayong tulungan?»",it:"Posso aiutarLa?"}
 ];
 VOC.l13=[
+ ["fumatore","naninigarilyo","m"],
  ["regola","tuntunin","f"],
  ["dovere","kailangan",""],
  ["potere","puwede, maaari",""],
@@ -43,7 +44,6 @@ VOC.l13=[
  ["aiutare","tumulong",""],
  ["indossare","isuot",""],
  ["capito","naintindihan",""],
- ["tutto","lahat",""],
  ["calma","kalmado","f"],
  ["seguire","sumunod",""]
 ];

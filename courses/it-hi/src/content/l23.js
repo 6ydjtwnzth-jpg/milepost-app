@@ -1,2 +1,42 @@
-EX.l23=[];
-VOC.l23=[];
+DLG.l23=[["A","Buongiorno, Ravi. Si accomodi. Mi parli un po' di Lei.","नमस्ते, रवि। बैठिए। मुझे अपने बारे में थोड़ा बताइए।"],["B","Mi chiamo Ravi Nair, ho ventinove anni e sono di Kochi, in India.","मेरा नाम रवि नायर है, मैं उनतीस साल का हूँ और भारत के कोच्चि से हूँ।"],["A","Da quanto tempo lavora sulle navi?","आप कितने समय से जहाज़ों पर काम कर रहे हैं?"],["B","Lavoro sulle navi da cinque anni. Prima lavoravo in un albergo a Kochi.","मैं पाँच साल से जहाज़ों पर काम कर रहा हूँ। पहले मैं कोच्चि के एक होटल में काम करता था।"],["A","Perché ha scelto questo lavoro?","आपने यह काम क्यों चुना?"],["B","Perché da piccolo guardavo le navi nel porto e sognavo di viaggiare.","क्योंकि बचपन में मैं बंदरगाह में जहाज़ देखता था और यात्रा करने का सपना देखता था।"],["A","Quali lingue parla?","आप कौन-सी भाषाएँ बोलते हैं?"],["B","Parlo malayalam, hindi e inglese. E studio italiano da un anno.","मैं मलयालम, हिंदी और अंग्रेज़ी बोलता हूँ। और एक साल से इतालवी पढ़ रहा हूँ।"],["A","Lo parla molto bene! Cosa Le piace di più del Suo lavoro?","आप बहुत अच्छी बोलते हैं! आपको अपने काम में सबसे ज़्यादा क्या पसंद है?"],["B","Le persone che incontro ogni giorno. Ogni passeggero ha una storia.","वे लोग जिनसे मैं हर दिन मिलता हूँ। हर यात्री की एक कहानी होती है।"],["A","E tra cinque anni, dove si vede?","और पाँच साल बाद आप ख़ुद को कहाँ देखते हैं?"],["B","Mi piacerebbe diventare maître, e un giorno aprire un ristorante con un'amica.","मैं मैत्र (रेस्टोरेंट प्रबंधक) बनना चाहूँगा, और एक दिन एक दोस्त के साथ रेस्टोरेंट खोलना।"],["A","Ottimo. Le faremo sapere presto.","बहुत बढ़िया। हम आपको जल्दी बताएँगे।"],["B","Grazie mille. È stato un piacere.","बहुत-बहुत धन्यवाद। आपसे मिलकर अच्छा लगा।"]];
+EX.l23=[
+ {q:"«मैं पाँच साल से यहाँ काम कर रहा हूँ।»",o:["{Lavoro qui da cinque anni.}", "{Ho lavorato qui da cinque anni.}", "{Lavoro qui cinque anni fa.}"],e:"अब भी चल रहा है → {da} + वर्तमान।"},
+ {q:"«मैंने तीन साल पहले कोर्स किया।»",o:["{Ho fatto il corso tre anni fa.}", "{Faccio il corso da tre anni.}", "{Ho fatto il corso da tre anni fa.}"],e:"ख़त्म हुआ काम → {fa}।"},
+ {q:"«वे लोग जिनसे मैं मिलता हूँ»:",o:["{le persone che incontro}", "{le persone incontro}", "{le persone chi incontro}"],e:"जोड़ने के लिए {che}।"},
+ {q:"इंटरव्यू में «कितने समय से…?»",o:["{Da quanto tempo…?}", "{Quanto tempo fa…?}", "{Per quanto…?}"],e:"{Da quanto tempo lavora qui?}"},
+ {q:"बचपन की आदत: «मैं जहाज़ देखता था।»",o:["{Guardavo le navi.}", "{Ho guardato le navi.}", "{Guarderò le navi.}"],e:"आदत → {imperfetto}।"},
+ {q:"सपना: «मैं रेस्टोरेंट खोलना चाहूँगा।»",o:["{Mi piacerebbe aprire un ristorante.}", "{Mi è piaciuto aprire un ristorante.}", "{Mi piaceva aprire un ristorante.}"],e:"इच्छा → {condizionale}।"},
+ {q:"«मुश्किल था, लेकिन मैंने बहुत सीखा।» में «लेकिन»:",o:["{però}", "{quindi}", "{prima}"],e:"{però} = लेकिन; {quindi} = इसलिए।"},
+ {q:"सुनें: रवि कितने समय से जहाज़ों पर काम कर रहा है?",au:"Lavoro sulle navi da cinque anni.",o:["5 साल से", "1 साल से", "9 साल से"],e:"{da cinque anni}."},
+ {q:"सुनें: पहले रवि कहाँ काम करता था?",au:"Prima lavoravo in un albergo a Kochi.",o:["एक होटल में", "एक रेस्टोरेंट में", "एक स्कूल में"],e:"{albergo} = होटल।"},
+ {t:"type",q:"पूरा करें: {Studio italiano} ＿ {un anno.} («से»)",a:["da"],full:"Studio italiano da un anno."},
+ {t:"ord",q:"क्रम में लगाएँ: «जो रेस्टोरेंट मैं खोलना चाहती हूँ वह सेबू में होगा।»",a:["Il ristorante che voglio aprire sarà a Cebu."],w:["Il", "ristorante", "che", "voglio", "aprire", "sarà", "a", "Cebu."]},
+ {t:"dict",au:"Ogni passeggero ha una storia."},
+ {t:"say",zh:"अपना परिचय दीजिए: «मैं दो साल से जहाज़ों पर काम कर रहा/रही हूँ।»",it:"Lavoro sulle navi da due anni."}
+];
+VOC.l23=[
+ ["nostro","हमारा",""],
+ ["colloquio","इंटरव्यू","m"],
+ ["accomodarsi","बैठना (विनम्र)",""],
+ ["da quanto tempo","कितने समय से",""],
+ ["da","से; के यहाँ",""],
+ ["albergo","होटल","m"],
+ ["scegliere","चुनना",""],
+ ["lingua","भाषा; जीभ","f"],
+ ["persona","व्यक्ति","f"],
+ ["incontrare","मिलना",""],
+ ["che","जो; कि; क्या",""],
+ ["maître","मैत्र, रेस्टोरेंट प्रबंधक","m"],
+ ["ottimo","बहुत बढ़िया",""],
+ ["far sapere","बताना, सूचित करना",""],
+ ["esperienza","अनुभव","f"],
+ ["punto di forza","ख़ूबी","m"],
+ ["però","लेकिन",""],
+ ["trovare","पाना, ढूँढ लेना",""],
+ ["imparare","सीखना",""],
+ ["difficile","मुश्किल",""],
+ ["facile","आसान",""],
+ ["all'inizio","शुरू में",""],
+ ["vivere","रहना, जीना",""],
+ ["in futuro","भविष्य में",""]
+];

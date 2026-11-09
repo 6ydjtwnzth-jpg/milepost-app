@@ -1,2 +1,42 @@
-EX.l20=[];
-VOC.l20=[];
+DLG.l20=[["A","Buongiorno! Posso aiutarLa?","Magandang umaga po! Puwede ko po ba kayong tulungan?"],["B","Sì, grazie. Sto cercando una giacca per l'inverno.","Oo, salamat. Naghahanap ako ng jacket para sa taglamig."],["A","Che taglia porta?","Anong size po kayo?"],["B","La S, credo. Mi piace questa giacca verde. Posso provarla?","S, sa tingin ko. Gusto ko itong berdeng jacket. Puwede ko bang isukat?"],["A","Certo, il camerino è lì, a destra.","Siyempre po, nandoon ang fitting room, sa kanan."],["B","È un po' piccola. Avete la M?","Medyo maliit. May M po ba kayo?"],["A","Sì, eccola.","Opo, heto po."],["B","Questa va bene! Quanto costa?","Ayos ito! Magkano?"],["A","Ottanta euro, ma oggi c'è lo sconto del venti per cento.","Walumpung euro, pero may dalawampung porsiyentong diskuwento ngayon."],["B","Perfetto, la prendo!","Perpekto, kukunin ko!"],["A","Paga con la carta o in contanti?","Card po o cash?"],["B","In contanti. Ecco a Lei.","Cash. Heto po."]];
+EX.l20=[
+ {q:"{La giacca?} — «Kukunin ko.»",o:["{La prendo.}", "{Prendo la.}", "{Lo prendo.}"],e:"Pambabae ang {giacca}: {la}, bago ang pandiwa."},
+ {q:"{I regali?} — «Nabili ko na.»",o:["{Li ho già comprati.}", "{Gli ho già comprato.}", "{Le ho già comprate.}"],e:"Panlalaking maramihan: {li} … {comprati}."},
+ {q:"«Puwede ko bang isukat ito ({scarpa})?»",o:["{Posso provarla?}", "{Posso la provare?}", "{Posso provarlo?}"],e:"Pambabae ang {scarpa}; idinidikit sa pawatas."},
+ {q:"«Nagtatrabaho ako (ngayon mismo)»:",o:["{Sto lavorando.}", "{Sono lavorando.}", "{Sto lavorare.}"],e:"{stare} + {-ando}."},
+ {q:"{fare} → «ginagawa mo»:",o:["{stai facendo}", "{stai fando}", "{stai fatto}"],e:"{fare} → {facendo}."},
+ {q:"{Dov'è il passaporto?} — «Heto!»",o:["{Eccolo!}", "{Eccola!}", "{Ecco lo!}"],e:"{ecco} + {lo} = {eccolo}."},
+ {q:"Ano ang {lo sconto}?",o:["diskuwento", "resibo", "size"],e:"{sconto} = diskuwento."},
+ {q:"Makinig: magkano ang jacket (bago ang diskuwento)?",au:"Ottanta euro, ma oggi c'è lo sconto del venti per cento.",o:["80 €", "20 €", "60 €"],e:"{ottanta} = 80."},
+ {t:"type",q:"Kumpletuhin: {Le scarpe? Non} ＿ {compro.} («ang mga iyon»)",a:["le"],full:"Le scarpe? Non le compro."},
+ {t:"type",q:"Kumpletuhin: {Ravi sta} ＿ ({dormire})",a:["dormendo"],full:"Ravi sta dormendo."},
+ {t:"ord",q:"Ayusin: «Naghahanap ako ng jacket para sa taglamig.»",a:["Sto cercando una giacca per l'inverno."],w:["Sto", "cercando", "una", "giacca", "per", "l'inverno."]},
+ {t:"dict",au:"Paga con la carta o in contanti?"},
+ {t:"say",zh:"Sa tindahan: «Kukunin ko!» (jacket)",it:"La prendo!"}
+];
+VOC.l20=[
+ ["spesa","pamimili; gastos","f"],
+ ["cercare","maghanap",""],
+ ["giacca","jacket","f"],
+ ["taglia","size (damit)","f"],
+ ["provare","isukat; subukan",""],
+ ["camerino","fitting room","m"],
+ ["lì","doon",""],
+ ["credere","maniwala, akala",""],
+ ["sconto","diskuwento","m"],
+ ["per cento","porsiyento",""],
+ ["contanti","cash","m"],
+ ["scontrino","resibo","m"],
+ ["scarpa","sapatos","f"],
+ ["pantaloni","pantalon","m"],
+ ["camicia","polo, kamiseta","f"],
+ ["vestito","damit, bestida","m"],
+ ["biglietto","tiket","m"],
+ ["lo","ito (panlalaki)",""],
+ ["la","ito (pambabae); artikulo",""],
+ ["li","ang mga iyon (panlalaki)",""],
+ ["eccolo","heto (panlalaki)",""],
+ ["mi sta bene","bagay sa akin",""],
+ ["stretto","masikip",""],
+ ["largo","maluwag",""]
+];

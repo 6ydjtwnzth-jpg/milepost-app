@@ -1,2 +1,40 @@
-EX.l21=[];
-VOC.l21=[];
+DLG.l21=[["A","Ravi, quando finisce il tuo contratto?","रवि, तुम्हारा कॉन्ट्रैक्ट कब ख़त्म होगा?"],["B","Tra due mesi, il quindici novembre. Tornerò a Kochi!","दो महीने में, पंद्रह नवंबर को। मैं कोच्चि लौटूँगा!"],["A","Che bello! Cosa farai a casa?","कितना अच्छा! घर पर क्या करोगे?"],["B","Prima starò con la mia famiglia. Mia sorella si sposa a dicembre.","पहले मैं अपने परिवार के साथ रहूँगा। मेरी बहन की दिसंबर में शादी है।"],["A","Poi tornerai a bordo?","फिर जहाज़ पर लौटोगे?"],["B","Se l'agenzia mi offre un nuovo contratto, sì. Vorrei diventare capo cameriere.","अगर एजेंसी मुझे नया कॉन्ट्रैक्ट देगी, तो हाँ। मैं हेड वेटर बनना चाहूँगा।"],["A","Sarai bravissimo! Io ho ancora sei mesi.","तुम बहुत अच्छे बनोगे! मेरे अभी छह महीने बाक़ी हैं।"],["B","E dopo?","और उसके बाद?"],["A","Se avrò abbastanza soldi, aprirò un piccolo ristorante a Cebu.","अगर मेरे पास काफ़ी पैसे होंगे, तो मैं सेबू में एक छोटा रेस्टोरेंट खोलूँगी।"],["B","Allora un giorno verrò a mangiare da te!","तो एक दिन मैं तुम्हारे यहाँ खाने आऊँगा!"],["A","Certo! Ti preparerò il pollo adobo.","ज़रूर! मैं तुम्हारे लिए चिकन अडोबो बनाऊँगी।"]];
+EX.l21=[
+ {q:"{io} + {tornare} ({futuro}):",o:["{tornerò}", "{tornarò}", "{tornero}"],e:"{-are} → {-erò}, निशान के साथ।"},
+ {q:"{essere} ({futuro}), {tu}:",o:["{sarai}", "{esserai}", "{sei}"],e:"{essere} → {sarò, sarai, sarà…}"},
+ {q:"{noi} + {andare} ({futuro}):",o:["{andremo}", "{anderemo}", "{andiamo}"],e:"{andare} → {andrò, andremo}."},
+ {q:"«दो महीने में» (भविष्य):",o:["{tra due mesi}", "{due mesi fa}", "{due mesi scorsi}"],e:"भविष्य: {tra}।"},
+ {q:"«अगर मेरे पास पैसे होंगे, तो मैं रेस्टोरेंट खोलूँगी।»",o:["{Se avrò i soldi, aprirò un ristorante.}", "{Se avrò i soldi, allora poi aprivo un ristorante.}", "{Se ho avuto i soldi, apro un ristorante.}"],e:"{se} + भविष्य, फिर भविष्य।"},
+ {q:"{venire} ({futuro}), {io}:",o:["{verrò}", "{venirò}", "{venerò}"],e:"{venire} → {verrò}."},
+ {q:"«अगले साल»:",o:["{l'anno prossimo}", "{l'anno scorso}", "{un anno fa}"],e:"{prossimo} = अगला।"},
+ {q:"सुनें: रवि का कॉन्ट्रैक्ट कब ख़त्म होगा?",au:"Tra due mesi, il quindici novembre.",o:["15 नवंबर", "5 नवंबर", "15 दिसंबर"],e:"{il quindici novembre}."},
+ {q:"सुनें: जॉय क्या खोलना चाहती है?",au:"Se avrò abbastanza soldi, aprirò un piccolo ristorante a Cebu.",o:["एक रेस्टोरेंट", "एक दुकान", "एक बार"],e:"{un piccolo ristorante}."},
+ {t:"type",q:"पूरा करें: {Domani la nave} ＿ {alle sei.} ({partire}, भविष्य)",a:["partirà"],full:"Domani la nave partirà alle sei."},
+ {t:"ord",q:"क्रम में लगाएँ: «अगर कल बारिश होगी, तो मैं केबिन में रहूँगा।»",a:["Se domani piove, resto in cabina."],w:["Se", "domani", "piove,", "resto", "in", "cabina."]},
+ {t:"dict",au:"Tra due mesi tornerò a casa."},
+ {t:"say",zh:"बताइए: «अगले साल मैं इटली जाऊँगा/जाऊँगी।»",it:"L'anno prossimo andrò in Italia."}
+];
+VOC.l21=[
+ ["fine","अंत","f"],
+ ["tra","… में (बाद); के बीच",""],
+ ["prossimo","अगला",""],
+ ["dopodomani","परसों (आने वाला)",""],
+ ["un giorno","एक दिन, कभी",""],
+ ["sposarsi","शादी करना",""],
+ ["agenzia","एजेंसी","f"],
+ ["offrire","पेश करना, देना",""],
+ ["diventare","बनना",""],
+ ["capo cameriere","हेड वेटर","m"],
+ ["abbastanza","काफ़ी",""],
+ ["soldi","पैसे","m"],
+ ["accettare","स्वीकार करना, मानना",""],
+ ["bisogno","ज़रूरत","m"],
+ ["avere bisogno","ज़रूरत होना",""],
+ ["se","अगर",""],
+ ["futuro","भविष्य","m"],
+ ["piano","योजना; धीरे","m"],
+ ["ci vediamo","फिर मिलेंगे",""],
+ ["Italia","इटली","f"],
+ ["risparmiare","बचत करना",""],
+ ["mandare","भेजना",""]
+];

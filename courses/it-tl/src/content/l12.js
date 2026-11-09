@@ -40,7 +40,6 @@ VOC.l12=[
  ["autobus","bus","m"],
  ["uscita","labasan","f"],
  ["posta","koreo","f"],
- ["telefono","telepono","m"],
  ["primo","una",""],
  ["secondo","ikalawa",""],
  ["terzo","ikatlo",""],

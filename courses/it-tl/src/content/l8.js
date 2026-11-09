@@ -15,9 +15,7 @@ EX.l8=[
 ];
 VOC.l8=[
  ["bar","bar, kapihan","m"],
- ["nave","barko","f"],
  ["vorrei","gusto ko sana",""],
- ["per favore","pakiusap, paki-",""],
  ["desiderare","naisin",""],
  ["subito","agad, ngayon din",""],
  ["qualcosa","isang bagay, anuman",""],
@@ -34,11 +32,9 @@ VOC.l8=[
  ["ecco a Lei","heto po",""],
  ["buon appetito","masarap na kain",""],
  ["altro","iba pa",""],
- ["caffè","kape (espresso)","m"],
  ["cappuccino","cappuccino","m"],
  ["cornetto","croissant","m"],
  ["panino","sandwich","m"],
- ["gelato","sorbetes, gelato","m"],
  ["succo","juice","m"],
  ["birra","serbesa","f"],
  ["vino","alak","m"],

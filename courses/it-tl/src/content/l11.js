@@ -14,6 +14,7 @@ EX.l11=[
  {t:"say",zh:"Sabihin: «Gusto kong makinig ng musika.»",it:"Mi piace ascoltare la musica."}
 ];
 VOC.l11=[
+ ["dormire","matulog",""],
  ["tempo libero","libreng oras","m"],
  ["piacere","magustuhan",""],
  ["mi piace","gusto ko",""],
@@ -33,7 +34,6 @@ VOC.l11=[
  ["cucinare","magluto",""],
  ["telefonare","tumawag",""],
  ["videochiamata","video call","f"],
- ["casa","bahay","f"],
  ["bere","uminom",""],
  ["escursione","iskursiyon, pasyal","f"],
  ["amare","mahalin; mahilig",""],

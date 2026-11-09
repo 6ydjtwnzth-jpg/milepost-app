@@ -712,9 +712,9 @@ setTimeout(hide,Math.max(4000,min))})();
   </div>
   <div class="stats">
     <div class="t-red"><b>23</b><span>पाठ + 3 दोहराव</span></div>
-    <div class="t-blue"><b>14</b><span>संवाद</span></div>
-    <div class="t-green"><b>201</b><span>अभ्यास</span></div>
-    <div class="t-yellow"><b>445</b><span>शब्द</span></div>
+    <div class="t-blue"><b>23</b><span>संवाद</span></div>
+    <div class="t-green"><b>335</b><span>अभ्यास</span></div>
+    <div class="t-yellow"><b>659</b><span>शब्द</span></div>
   </div>
   <div class="legend"><span>संज्ञाओं के रंग:</span><b class="m" lang="it"><span lang="hi">पुल्लिंग</span> il libro</b><b class="f" lang="it"><span lang="hi">स्त्रीलिंग</span> la casa</b><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">हरा</b> = इतालवी: सुनने और अर्थ देखने के लिए छुएँ</span></div>
   <p class="note" id="ttsnote">पूरा वाक्य सुनने के लिए ▶ दबाएँ; हर <b style="color:var(--it)">हरा</b> शब्द छुआ जा सकता है: आप उसे सुनते हैं और उसका अर्थ देखते हैं। ऊपर आप अनुवाद छिपा सकते हैं (कान के अभ्यास के लिए) और आवाज़ धीमी कर सकते हैं। आवाज़ इतालवी है, महिला की, कंप्यूटर से बनी (Sara)।</p>
@@ -1469,6 +1469,7 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="exs">
       <div data-it="Perché sei stanco? — Perché lavoro molto." data-zh="तुम थके हुए क्यों हो? — क्योंकि मैं बहुत काम करता हूँ।"></div>
       <div data-it="Perché non mangi? — Perché ho il mal di mare." data-zh="तुम खा क्यों नहीं रहे? — क्योंकि मुझे सी-सिकनेस है।"></div>
+      <div data-it="Studio italiano perché lavoro su una nave italiana." data-zh="मैं इतालवी पढ़ता हूँ क्योंकि मैं एक इतालवी जहाज़ पर काम करता हूँ।"></div>
     </div>
   </div>
 
@@ -1943,61 +1944,681 @@ setTimeout(hide,Math.max(4000,min))})();
 <section class="lesson t-blue" id="l15" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 15</span><span class="itk" lang="it">Lezione 15</span></div>
   <h2>छुट्टी का दिन: avere के साथ passato prossimo<small lang="it">Il giorno libero</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-ticket"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">कल जहाज़ बार्सिलोना में था और रवि का छुट्टी का दिन था। आज वह जॉय को बताता है कि उसने क्या-क्या किया। इस पाठ में आप सीखेंगे बीते हुए काम बताना: <i class="it">passato prossimo</i> (<i class="it">ho mangiato</i>, <i class="it">ho visto</i>), और समय के शब्द <i class="it">ieri</i>, <i class="it">fa</i>, <i class="it">scorso</i>।</p>
+  <div class="dialog" data-dlg="l15"></div>
+
+  <details class="scopri"><summary><span class="sq">रवि कहता है <i class="it">Ho visitato Barcellona</i> और <i class="it">Ho comprato un regalo</i>। हिंदी में «मैंने घूमा», «मैंने ख़रीदा»। इतालवी में बीता हुआ काम कितने शब्दों से बनता है?</span></summary>
+    <div><p>दो: <i class="it">avere</i> (<i class="it">ho</i>, <i class="it">hai</i>, <i class="it">ha</i>…) + क्रिया का बीता रूप (<i class="it">visitato</i>, <i class="it">comprato</i>)। यह हिंदी के «मैंने ख़रीदा है» जैसा है: सहायक क्रिया + मुख्य क्रिया का रूप। रोज़ की बातचीत में बीते काम के लिए यही सबसे आम काल है।</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">passato prossimo</i>: <i class="it">avere</i> + बीता रूप</h3>
+    <div class="tw"><table>
+      <tr><th>क्रिया</th><th>बीता रूप</th><th>उदाहरण</th></tr>
+      <tr><td class="itc">-are → -ato</td><td class="itc">mangiato</td><td class="itc">ho mangiato</td></tr>
+      <tr><td class="itc">-ere → -uto</td><td class="itc">ricevuto</td><td class="itc">hai ricevuto</td></tr>
+      <tr><td class="itc">-ire → -ito</td><td class="itc">dormito</td><td class="itc">ha dormito</td></tr>
+    </table></div>
+    <p><i class="it">avere</i> बदलता है, बीता रूप वही रहता है: <i class="it">ho lavorato</i>, <i class="it">abbiamo lavorato</i>, <i class="it">hanno lavorato</i>। <i class="it">non</i> <i class="it">avere</i> से पहले: <i class="it">Non ho dormito</i>।</p>
+    <div class="exs">
+      <div data-it="Ieri ho lavorato dieci ore." data-zh="कल मैंने दस घंटे काम किया।"></div>
+      <div data-it="Hai ricevuto il messaggio di Joy?" data-zh="क्या तुम्हें जॉय का मैसेज मिला?"></div>
+      <div data-it="I passeggeri hanno dormito bene." data-zh="यात्री अच्छे से सोए।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>अनियमित बीते रूप</h3>
+    <div class="tw"><table>
+      <tr><th>क्रिया</th><th>बीता रूप</th></tr>
+      <tr><td class="itc">fare</td><td class="itc">fatto</td></tr>
+      <tr><td class="itc">vedere</td><td class="itc">visto</td></tr>
+      <tr><td class="itc">prendere</td><td class="itc">preso</td></tr>
+      <tr><td class="itc">bere</td><td class="itc">bevuto</td></tr>
+      <tr><td class="itc">leggere</td><td class="itc">letto</td></tr>
+      <tr><td class="itc">scrivere</td><td class="itc">scritto</td></tr>
+      <tr><td class="itc">dire</td><td class="itc">detto</td></tr>
+      <tr><td class="itc">aprire</td><td class="itc">aperto</td></tr>
+      <tr><td class="itc">chiudere</td><td class="itc">chiuso</td></tr>
+      <tr><td class="itc">mettere</td><td class="itc">messo</td></tr>
+    </table></div>
+    <p>ये बहुत आम हैं: इन्हें एक-एक करके याद करें, शिफ़्ट के बाद की बातचीत में रोज़ काम आएँगे।</p>
+    <div class="exs">
+      <div data-it="Ho fatto tante foto." data-zh="मैंने बहुत सारी फ़ोटो खींचीं।"></div>
+      <div data-it="Abbiamo visto un film ieri sera." data-zh="कल शाम हमने एक फ़िल्म देखी।"></div>
+      <div data-it="Hai chiuso la cabina? — Sì, ho preso la chiave." data-zh="केबिन बंद किया? — हाँ, चाबी ले ली।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>कब? <i class="it">ieri</i>, <i class="it">fa</i>, <i class="it">scorso</i></h3>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">ieri / ieri sera</td><td>कल (बीता) / कल शाम</td></tr>
+      <tr><td class="itc">l'altro ieri</td><td>परसों (बीता)</td></tr>
+      <tr><td class="itc">stamattina</td><td>आज सुबह</td></tr>
+      <tr><td class="itc">due giorni fa</td><td>दो दिन पहले</td></tr>
+      <tr><td class="itc">la settimana scorsa</td><td>पिछले हफ़्ते</td></tr>
+      <tr><td class="itc">il mese scorso</td><td>पिछले महीने</td></tr>
+    </table></div>
+    <p>ध्यान दें: हिंदी में «कल» बीता और आने वाला दोनों है; इतालवी में <i class="it">ieri</i> (बीता) और <i class="it">domani</i> (आने वाला) अलग हैं। <i class="it">fa</i> = «पहले», संख्या के बाद: <i class="it">un anno fa</i>।</p>
+    <div class="exs">
+      <div data-it="Due giorni fa abbiamo visitato Marsiglia." data-zh="दो दिन पहले हमने मार्सेय घूमा।"></div>
+      <div data-it="La settimana scorsa ho finito il corso di sicurezza." data-zh="पिछले हफ़्ते मैंने सुरक्षा कोर्स पूरा किया।"></div>
+      <div data-it="Stamattina ho bevuto solo un caffè." data-zh="आज सुबह मैंने सिर्फ़ एक कॉफ़ी पी।"></div>
+    </div>
+  </div>
+
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong><i class="it">avere</i> भूल जाना (<i class="it">Io mangiato</i> ✗ → <i class="it">Ho mangiato</i>); «कल» के लिए हमेशा <i class="it">domani</i> (<i class="it">Domani ho lavorato</i> ✗ → <i class="it">Ieri ho lavorato</i>); अनियमित रूप को नियमित बनाना (<i class="it">ho fato</i> या <i class="it">ho veduto</i> ✗ → <i class="it">ho fatto</i>, <i class="it">ho visto</i>); <i class="it">fatto</i> में एक <i class="it">t</i>।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l15"></div>
+  <div class="drill" data-set="l15"></div>
+  <ul class="cando" data-cando="l15">
+    <li>मुझे बताना आता है कि मैंने छुट्टी के दिन क्या किया।</li>
+    <li>मुझे <i class="it">avere</i> के साथ <i class="it">passato prossimo</i> बनाना आता है।</li>
+    <li>मुझे सबसे आम अनियमित रूप आते हैं: <i class="it">fatto</i>, <i class="it">visto</i>, <i class="it">preso</i>…</li>
+    <li>मुझे <i class="it">ieri</i>, <i class="it">fa</i>, <i class="it">scorso</i> से समय बताना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-yellow" id="l16" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 16</span><span class="itk" lang="it">Lezione 16</span></div>
   <h2>एक बंदरगाह से दूसरे तक: essere के साथ passato prossimo, तारीख़ें, मौसम<small lang="it">Di porto in porto</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-umbrella"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">जहाज़ हर दिन नए बंदरगाह पर रुकता है। मिसेज़ बियांकी पाल्मा की सैर से लौटती हैं और रवि उनसे पूछता है कि दिन कैसा रहा। इस पाठ में आप सीखेंगे <i class="it">essere</i> के साथ <i class="it">passato prossimo</i> (<i class="it">sono andata</i>, <i class="it">siamo partiti</i>), तारीख़ें और महीने, और मौसम।</p>
+  <div class="dialog" data-dlg="l16"></div>
+
+  <details class="scopri"><summary><span class="sq">मिसेज़ बियांकी कहती हैं <i class="it">sono andata</i>, <i class="it">ho</i> नहीं। और <i class="it">andata</i>, <i class="it">andato</i> नहीं। हिंदी में भी «मैं गई» (महिला), «मैं गया» (पुरुष)। क्या आपको समानता दिखती है?</span></summary>
+    <div><p>बिल्कुल हिंदी जैसा! हिंदी में «मैंने खाया» (ने, क्रिया कर्ता से नहीं बदलती) पर «मैं गई» (कर्ता के लिंग से बदलती है)। इतालवी में: <i class="it">ho mangiato</i> (<i class="it">avere</i>, नहीं बदलता) पर <i class="it">sono andata</i> (<i class="it">essere</i>, कर्ता के लिंग-वचन से बदलता है)। आना-जाना और रहना जैसी क्रियाएँ <i class="it">essere</i> लेती हैं।</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">essere</i> + बीता रूप (लिंग-वचन के साथ)</h3>
+    <div class="tw"><table>
+      <tr><th></th><th>पुरुष</th><th>महिला</th></tr>
+      <tr><td class="itc">io</td><td class="itc">sono andato</td><td class="itc">sono andata</td></tr>
+      <tr><td class="itc">tu</td><td class="itc">sei andato</td><td class="itc">sei andata</td></tr>
+      <tr><td class="itc">lui / lei</td><td class="itc">è andato</td><td class="itc">è andata</td></tr>
+      <tr><td class="itc">noi</td><td class="itc">siamo andati</td><td class="itc">siamo andate</td></tr>
+      <tr><td class="itc">voi</td><td class="itc">siete andati</td><td class="itc">siete andate</td></tr>
+      <tr><td class="itc">loro</td><td class="itc">sono andati</td><td class="itc">sono andate</td></tr>
+    </table></div>
+    <p><i class="it">essere</i> वाली मुख्य क्रियाएँ: <i class="it">andare</i>, <i class="it">venire</i>, <i class="it">arrivare</i>, <i class="it">partire</i>, <i class="it">tornare</i>, <i class="it">uscire</i>, <i class="it">entrare</i>, <i class="it">salire</i>, <i class="it">scendere</i>, <i class="it">restare</i>/<i class="it">rimanere</i>, <i class="it">stare</i>, <i class="it">essere</i>, <i class="it">nascere</i>, और सभी स्वयंवाचक (<i class="it">mi sono svegliato</i>)। मिला-जुला समूह (पुरुष + महिला): <i class="it">-i</i>।</p>
+    <div class="exs">
+      <div data-it="Joy è uscita con Giulia." data-zh="जॉय जूलिया के साथ बाहर गई।"></div>
+      <div data-it="Ravi e Mark sono tornati alle sei." data-zh="रवि और मार्क छह बजे लौटे।"></div>
+      <div data-it="Stamattina mi sono svegliata presto." data-zh="आज सुबह मैं जल्दी उठी।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>तारीख़ें और महीने</h3>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">gennaio, febbraio, marzo</td><td>जनवरी, फ़रवरी, मार्च</td></tr>
+      <tr><td class="itc">aprile, maggio, giugno</td><td>अप्रैल, मई, जून</td></tr>
+      <tr><td class="itc">luglio, agosto, settembre</td><td>जुलाई, अगस्त, सितंबर</td></tr>
+      <tr><td class="itc">ottobre, novembre, dicembre</td><td>अक्टूबर, नवंबर, दिसंबर</td></tr>
+    </table></div>
+    <p>तारीख़: <i class="it">il</i> + संख्या + महीना: <i class="it">il quindici maggio</i>। पहली तारीख़: <i class="it">il primo maggio</i>। साल: <i class="it">nel 2024</i>। महीने छोटे अक्षर से लिखे जाते हैं। पूछना: <i class="it">Quanti ne abbiamo oggi?</i> या <i class="it">Che giorno è oggi?</i></p>
+    <div class="exs">
+      <div data-it="Oggi è il dodici luglio." data-zh="आज बारह जुलाई है।"></div>
+      <div data-it="Sono nato il primo marzo." data-zh="मेरा जन्म एक मार्च को हुआ।"></div>
+      <div data-it="Il contratto finisce il trenta settembre." data-zh="कॉन्ट्रैक्ट तीस सितंबर को ख़त्म होता है।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>मौसम: <i class="it">Che tempo fa?</i></h3>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">fa caldo / fa freddo</td><td>गर्मी है / ठंड है</td></tr>
+      <tr><td class="itc">c'è il sole</td><td>धूप है</td></tr>
+      <tr><td class="itc">piove / la pioggia</td><td>बारिश हो रही है / बारिश</td></tr>
+      <tr><td class="itc">c'è vento</td><td>हवा चल रही है</td></tr>
+      <tr><td class="itc">è nuvoloso</td><td>बादल हैं</td></tr>
+      <tr><td class="itc">il mare è calmo / mosso</td><td>समुद्र शांत / लहरों वाला है</td></tr>
+    </table></div>
+    <p>बीते समय में: <i class="it">ha fatto caldo</i>, <i class="it">ha piovuto</i>। तापमान: <i class="it">trenta gradi</i>।</p>
+    <div class="exs">
+      <div data-it="Oggi fa bel tempo e il mare è calmo." data-zh="आज मौसम अच्छा है और समुद्र शांत है।"></div>
+      <div data-it="Ieri a Napoli ha piovuto tutto il giorno." data-zh="कल नेपल्स में पूरे दिन बारिश हुई।"></div>
+      <div data-it="Stanotte c&#x27;è molto vento: attenzione sul ponte!" data-zh="आज रात बहुत हवा है: डेक पर सावधान!"></div>
+    </div>
+  </div>
+
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong>चलने-आने वाली क्रिया के साथ <i class="it">avere</i> (<i class="it">ho andato</i> ✗ → <i class="it">sono andato</i>); <i class="it">essere</i> के साथ लिंग न मिलाना (जॉय: <i class="it">è andato</i> ✗ → <i class="it">è andata</i>); मौसम के लिए <i class="it">è caldo</i> ✗ → <i class="it">fa caldo</i>; महीने बड़े अक्षर से।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l16"></div>
+  <div class="drill" data-set="l16"></div>
+  <ul class="cando" data-cando="l16">
+    <li>मुझे बताना आता है कि मैं कहाँ गया/गई, कब निकला/निकली और कब लौटा/लौटी।</li>
+    <li>मुझे पता है कि कौन-सी क्रियाएँ <i class="it">essere</i> लेती हैं, और लिंग-वचन मिलाना आता है।</li>
+    <li>मुझे तारीख़ें और महीने आते हैं।</li>
+    <li>मुझे मौसम और समुद्र की हालत बताना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-green" id="l17" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 17</span><span class="itk" lang="it">Lezione 17</span></div>
   <h2>जब मैं छोटा था: imperfetto<small lang="it">Quando ero piccolo</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-kite"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">रात की शिफ़्ट के बाद, डेक पर तारे देखते हुए, रवि और जॉय अपने बचपन की बात करते हैं: कोच्चि और सेबू, दोनों समुद्र के किनारे। इस पाठ में आप सीखेंगे <i class="it">imperfetto</i>: बीते समय की आदतें और वर्णन (<i class="it">quando ero piccolo</i>, <i class="it">nuotavo</i>, <i class="it">c'era</i>)।</p>
+  <div class="dialog" data-dlg="l17"></div>
+
+  <details class="scopri"><summary><span class="sq">रवि कहता है <i class="it">Nuotavo con i miei amici</i> («मैं दोस्तों के साथ तैरता था»)। पिछले पाठ के <i class="it">ho nuotato</i> («मैं तैरा») से क्या फ़र्क़ है?</span></summary>
+    <div><p>हिंदी में भी यही फ़र्क़ है: «मैं तैरा» (एक बार, ख़त्म हुआ काम) = <i class="it">ho nuotato</i>; «मैं तैरता था» (आदत, बार-बार) = <i class="it">nuotavo</i>। <i class="it">imperfetto</i> आदतों, वर्णन (कैसा था, कैसे लोग थे) और उम्र के लिए है: <i class="it">Quando ero piccolo…</i></p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">imperfetto</i>: रूप</h3>
+    <div class="tw"><table>
+      <tr><th></th><th><i class="it">-are</i></th><th><i class="it">-ere</i></th><th><i class="it">-ire</i></th></tr>
+      <tr><td class="itc">io</td><td class="itc">nuotavo</td><td class="itc">leggevo</td><td class="itc">dormivo</td></tr>
+      <tr><td class="itc">tu</td><td class="itc">nuotavi</td><td class="itc">leggevi</td><td class="itc">dormivi</td></tr>
+      <tr><td class="itc">lui, lei</td><td class="itc">nuotava</td><td class="itc">leggeva</td><td class="itc">dormiva</td></tr>
+      <tr><td class="itc">noi</td><td class="itc">nuotavamo</td><td class="itc">leggevamo</td><td class="itc">dormivamo</td></tr>
+      <tr><td class="itc">voi</td><td class="itc">nuotavate</td><td class="itc">leggevate</td><td class="itc">dormivate</td></tr>
+      <tr><td class="itc">loro</td><td class="itc">nuotavano</td><td class="itc">leggevano</td><td class="itc">dormivano</td></tr>
+    </table></div>
+    <p>लगभग सब नियमित है: <i class="it">-v-</i> + <i class="it">-o</i>, <i class="it">-i</i>, <i class="it">-a</i>, <i class="it">-amo</i>, <i class="it">-ate</i>, <i class="it">-ano</i>। <i class="it">essere</i> अनियमित है: <i class="it">ero</i>, <i class="it">eri</i>, <i class="it">era</i>, <i class="it">eravamo</i>, <i class="it">eravate</i>, <i class="it">erano</i>। <i class="it">fare</i> → <i class="it">facevo</i>, <i class="it">bere</i> → <i class="it">bevevo</i>, <i class="it">dire</i> → <i class="it">dicevo</i>।</p>
+    <div class="exs">
+      <div data-it="Quando ero piccolo, abitavo a Kochi." data-zh="जब मैं छोटा था, मैं कोच्चि में रहता था।"></div>
+      <div data-it="Mia nonna cucinava benissimo." data-zh="मेरी दादी बहुत अच्छा खाना बनाती थीं।"></div>
+      <div data-it="Da bambini, giocavamo sempre in spiaggia." data-zh="बचपन में हम हमेशा समुद्र-तट पर खेलते थे।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>कब <i class="it">imperfetto</i>?</h3>
+    <ul class="plain">
+      <li>आदतें: <i class="it">Ogni estate andavamo dai nonni.</i> («हर गर्मी हम दादा-दादी के पास जाते थे।»)</li>
+      <li>वर्णन: <i class="it">La casa era piccola e c'era un giardino.</i> («घर छोटा था और एक बग़ीचा था।»)</li>
+      <li>उम्र, भावनाएँ, इच्छाएँ: <i class="it">Avevo dieci anni. Ero timido. Volevo viaggiare.</i></li>
+    </ul>
+    <p>संकेत देने वाले शब्द: <i class="it">da piccolo</i>/<i class="it">da bambino</i> (बचपन में), <i class="it">di solito</i> (आम तौर पर), <i class="it">ogni giorno</i>, <i class="it">sempre</i>, <i class="it">spesso</i>।</p>
+    <div class="exs">
+      <div data-it="Di solito mi svegliavo alle sei." data-zh="आम तौर पर मैं छह बजे उठता था।"></div>
+      <div data-it="Avevo quindici anni quando ho visto il mare di notte." data-zh="मैं पंद्रह साल का था जब मैंने रात में समुद्र देखा।"></div>
+      <div data-it="C&#x27;erano tante barche nel porto." data-zh="बंदरगाह में बहुत सारी नावें थीं।"></div>
+    </div>
+  </div>
+
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong>आदत के लिए <i class="it">passato prossimo</i> (<i class="it">Da piccolo ho nuotato ogni giorno</i> ✗ → <i class="it">nuotavo</i>); <i class="it">essere</i> के अनियमित रूप (<i class="it">esseva</i> ✗ → <i class="it">era</i>); <i class="it">c'era</i> (एक) और <i class="it">c'erano</i> (कई) को मिलाना; हिंदी «था» को हर जगह <i class="it">era</i> बनाना (<i class="it">Io era</i> ✗ → <i class="it">Io ero</i>)।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l17"></div>
+  <div class="drill" data-set="l17"></div>
+  <ul class="cando" data-cando="l17">
+    <li>मुझे अपने बचपन और पुरानी आदतों के बारे में बताना आता है।</li>
+    <li>मुझे <i class="it">imperfetto</i> के रूप आते हैं, <i class="it">essere</i> समेत।</li>
+    <li>मुझे बीते समय में जगहें और लोग बताना आता है।</li>
+    <li>मुझे <i class="it">imperfetto</i> और <i class="it">passato prossimo</i> में फ़र्क़ समझ आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-pink" id="l18" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 18</span><span class="itk" lang="it">Lezione 18</span></div>
   <h2>तूफ़ान की एक रात: दोनों भूतकाल<small lang="it">Una notte di tempesta</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-scroll"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">मार्क पूछता है कि क्या रवि ने कभी समुद्र में तूफ़ान देखा है। रवि पिछले साल की एक रात की कहानी सुनाता है। इस पाठ में आप सीखेंगे दोनों भूतकाल एक साथ: पृष्ठभूमि के लिए <i class="it">imperfetto</i> (<i class="it">pioveva</i>, <i class="it">dormivo</i>) और घटनाओं के लिए <i class="it">passato prossimo</i> (<i class="it">è suonato l'allarme</i>), साथ में <i class="it">mentre</i> और <i class="it">all'improvviso</i>।</p>
+  <div class="dialog" data-dlg="l18"></div>
+
+  <details class="scopri"><summary><span class="sq">रवि कहता है <i class="it">Io dormivo quando è suonato l'allarme</i>। एक वाक्य में दो भूतकाल! कौन-सा काम चल रहा था, और कौन-सा अचानक हुआ?</span></summary>
+    <div><p><i class="it">dormivo</i> = «सो रहा था» (चल रही स्थिति, पृष्ठभूमि) → <i class="it">imperfetto</i>। <i class="it">è suonato</i> = «बजा» (एक घटना, जो बीच में हुई) → <i class="it">passato prossimo</i>। हिंदी में भी: «मैं सो रहा था जब अलार्म बजा»।</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3>पृष्ठभूमि बनाम घटना</h3>
+    <div class="tw"><table>
+      <tr><th><i class="it">imperfetto</i>: पृष्ठभूमि</th><th><i class="it">passato prossimo</i>: घटना</th></tr>
+      <tr><td class="itc">Era notte.</td><td class="itc">È suonato l'allarme.</td></tr>
+      <tr><td class="itc">Pioveva forte.</td><td class="itc">Mi sono alzato.</td></tr>
+      <tr><td class="itc">Le onde erano alte.</td><td class="itc">Ho preso il giubbotto.</td></tr>
+      <tr><td class="itc">Avevo paura.</td><td class="itc">Sono andato al punto di raccolta.</td></tr>
+    </table></div>
+    <p>कहानी में: पहले <i class="it">imperfetto</i> से दृश्य बनाइए (समय, मौसम, लोग क्या कर रहे थे, भावनाएँ), फिर <i class="it">passato prossimo</i> से घटनाएँ एक-एक करके।</p>
+    <div class="exs">
+      <div data-it="Mentre lavoravo, è arrivato il comandante." data-zh="जब मैं काम कर रहा था, कप्तान आ गए।"></div>
+      <div data-it="Joy leggeva quando Ravi ha telefonato." data-zh="जॉय पढ़ रही थी जब रवि ने फ़ोन किया।"></div>
+      <div data-it="Era tardi e faceva freddo, ma siamo usciti sul ponte." data-zh="देर हो गई थी और ठंड थी, पर हम डेक पर निकल गए।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>कहानी के जोड़ने वाले शब्द</h3>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">mentre</td><td>जबकि, जब … रहा था</td></tr>
+      <tr><td class="itc">all'improvviso</td><td>अचानक</td></tr>
+      <tr><td class="itc">quando</td><td>जब</td></tr>
+      <tr><td class="itc">prima / poi / alla fine</td><td>पहले / फिर / आख़िर में</td></tr>
+      <tr><td class="itc">per fortuna</td><td>शुक्र है, ख़ुशक़िस्मती से</td></tr>
+      <tr><td class="itc">una volta</td><td>एक बार</td></tr>
+    </table></div>
+    <p><i class="it">mentre</i> के बाद आम तौर पर <i class="it">imperfetto</i> (<i class="it">mentre aspettavamo</i>)। <i class="it">all'improvviso</i> के बाद <i class="it">passato prossimo</i> (<i class="it">all'improvviso è arrivata un'onda</i>)। <i class="it">Hai mai…?</i> = «क्या तुमने कभी …?»</p>
+    <div class="exs">
+      <div data-it="All&#x27;improvviso è arrivata un&#x27;onda enorme." data-zh="अचानक एक बहुत बड़ी लहर आई।"></div>
+      <div data-it="Prima ho chiuso la porta, poi ho chiamato Joy." data-zh="पहले मैंने दरवाज़ा बंद किया, फिर जॉय को बुलाया।"></div>
+      <div data-it="Hai mai visto le balene? — Sì, una volta." data-zh="क्या तुमने कभी व्हेल देखी हैं? — हाँ, एक बार।"></div>
+    </div>
+  </div>
+
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong>हर बीती बात <i class="it">passato prossimo</i> में (<i class="it">Era notte</i> की जगह <i class="it">È stata notte</i> ✗); हर बात <i class="it">imperfetto</i> में (<i class="it">All'improvviso suonava l'allarme</i> ✗ → <i class="it">è suonato</i>); <i class="it">essere</i> वाली क्रियाओं में लिंग भूलना (जॉय: <i class="it">è andato</i> ✗ → <i class="it">è andata</i>)।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l18"></div>
+  <div class="drill" data-set="l18"></div>
+  <ul class="cando" data-cando="l18">
+    <li>मुझे बीती हुई घटना कहानी की तरह सुनाना आता है।</li>
+    <li>मुझे पता है कि पृष्ठभूमि के लिए <i class="it">imperfetto</i> और घटनाओं के लिए <i class="it">passato prossimo</i> चाहिए।</li>
+    <li>मुझे <i class="it">mentre</i>, <i class="it">all'improvviso</i>, <i class="it">prima</i>, <i class="it">poi</i> से कहानी जोड़ना आता है।</li>
+    <li>मुझे जहाज़ पर किसी आपात स्थिति के बारे में बताना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-red" id="l19" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 19</span><span class="itk" lang="it">Lezione 19</span></div>
   <h2>पसंद और तुलना: gli, le, più, meno<small lang="it">Gusti e confronti</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-heart"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">जहाज़ की दुकान में रवि और जॉय घर के लिए तोहफ़े चुनते हैं: रवि की बहन के लिए और जॉय के बेटे के लिए। इस पाठ में आप सीखेंगे <i class="it">gli</i> («उसे», पुरुष) और <i class="it">le</i> («उसे», महिला), और तुलना करना: <i class="it">più… di</i>, <i class="it">meno… di</i>, <i class="it">il più bello</i>।</p>
+  <div class="dialog" data-dlg="l19"></div>
+
+  <details class="scopri"><summary><span class="sq">जॉय अपने बेटे के लिए कहती है <i class="it">gli compro</i>, और रवि अपनी बहन के लिए <i class="it">le regalo</i>। हिंदी में दोनों के लिए «उसे / उसके लिए»। इतालवी में फ़र्क़ क्यों है?</span></summary>
+    <div><p>इतालवी में «उसे» के दो रूप हैं: <i class="it">gli</i> = उसे (पुरुष, यानी <i class="it">a lui</i>), <i class="it">le</i> = उसे (महिला, यानी <i class="it">a lei</i>)। ये क्रिया से पहले आते हैं। हिंदी बोलने वालों के लिए यह नई बात है: पहले सोचिए कि व्यक्ति पुरुष है या महिला।</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3>«किसी को»: <i class="it">mi</i>, <i class="it">ti</i>, <i class="it">gli</i>, <i class="it">le</i>…</h3>
+    <div class="tw"><table>
+      <tr><th>छोटा रूप</th><th>पूरा रूप</th><th>अर्थ</th></tr>
+      <tr><td class="itc">mi</td><td class="itc">a me</td><td>मुझे</td></tr>
+      <tr><td class="itc">ti</td><td class="itc">a te</td><td>तुम्हें</td></tr>
+      <tr><td class="itc">gli</td><td class="itc">a lui</td><td>उसे (पुरुष)</td></tr>
+      <tr><td class="itc">le</td><td class="itc">a lei</td><td>उसे (महिला)</td></tr>
+      <tr><td class="itc">Le</td><td class="itc">a Lei</td><td>आपको</td></tr>
+      <tr><td class="itc">ci</td><td class="itc">a noi</td><td>हमें</td></tr>
+      <tr><td class="itc">vi</td><td class="itc">a voi</td><td>तुम सबको</td></tr>
+      <tr><td class="itc">gli</td><td class="itc">a loro</td><td>उन्हें</td></tr>
+    </table></div>
+    <p><i class="it">piacere</i>, <i class="it">regalare</i>, <i class="it">dare</i>, <i class="it">telefonare</i>, <i class="it">scrivere</i>, <i class="it">dire</i> जैसी क्रियाओं के साथ: <i class="it">Gli telefono stasera</i>। <i class="it">piacere</i> के साथ भी: <i class="it">Gli piace il calcio</i> = «उसे फ़ुटबॉल पसंद है»।</p>
+    <div class="exs">
+      <div data-it="A Miguel piace il calcio: gli compro una maglietta." data-zh="मिगेल को फ़ुटबॉल पसंद है: मैं उसके लिए टी-शर्ट ख़रीदती हूँ।"></div>
+      <div data-it="Mia sorella? Le scrivo ogni sera." data-zh="मेरी बहन? मैं उसे हर शाम लिखता हूँ।"></div>
+      <div data-it="Signora, Le porto un caffè?" data-zh="मैडम, क्या मैं आपके लिए कॉफ़ी लाऊँ?"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>तुलना: <i class="it">più</i>, <i class="it">meno</i>, <i class="it">come</i></h3>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">più … di</td><td>… से ज़्यादा</td></tr>
+      <tr><td class="itc">meno … di</td><td>… से कम</td></tr>
+      <tr><td class="itc">(così) … come</td><td>… जितना</td></tr>
+      <tr><td class="itc">il più … / la più …</td><td>सबसे …</td></tr>
+      <tr><td class="itc">-issimo</td><td>बहुत ही …</td></tr>
+    </table></div>
+    <p>हिंदी में «उससे सुंदर» (बिना «ज़्यादा» के भी); इतालवी में <i class="it">più</i> ज़रूरी है: <i class="it">più bella di quella</i>। संज्ञा या नाम से पहले <i class="it">di</i> (+ आर्टिकल): <i class="it">più alto di Ravi</i>, <i class="it">più grande della mia</i>। दो क्रियाओं या जगहों के बीच <i class="it">che</i>: <i class="it">costa meno a bordo che in città</i>। अनियमित: <i class="it">buono</i> → <i class="it">migliore</i>, <i class="it">cattivo</i> → <i class="it">peggiore</i>।</p>
+    <div class="exs">
+      <div data-it="Genova è più grande di Palma." data-zh="जेनोवा पाल्मा से बड़ा है।"></div>
+      <div data-it="Il caffè italiano è più forte del caffè filippino." data-zh="इतालवी कॉफ़ी फ़िलिपीनी कॉफ़ी से ज़्यादा कड़क है।"></div>
+      <div data-it="Joy è la cameriera più brava del ristorante." data-zh="जॉय रेस्टोरेंट की सबसे अच्छी वेट्रेस है।"></div>
+    </div>
+  </div>
+
+
+  <h3>रंग</h3>
+  <div class="tw"><table>
+    <tr><th>इतालवी</th><th>अर्थ</th></tr>
+    <tr><td class="itc">rosso / rossa</td><td>लाल</td></tr>
+    <tr><td class="itc">blu</td><td>नीला (नहीं बदलता)</td></tr>
+    <tr><td class="itc">verde</td><td>हरा</td></tr>
+    <tr><td class="itc">giallo / gialla</td><td>पीला</td></tr>
+    <tr><td class="itc">bianco / bianca</td><td>सफ़ेद</td></tr>
+    <tr><td class="itc">nero / nera</td><td>काला</td></tr>
+  </table></div>
+  <p>रंग आम तौर पर संज्ञा के बाद आते हैं और उसके साथ बदलते हैं: <i class="it">una maglietta rossa</i>, <i class="it">due magliette rosse</i>।</p>
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong>पुरुष और महिला दोनों के लिए <i class="it">gli</i> (<i class="it">A mia sorella gli piace</i> ✗ → <i class="it">le piace</i>); «से» के लिए <i class="it">che</i> हर जगह (<i class="it">più alto che Ravi</i> ✗ → <i class="it">più alto di Ravi</i>); <i class="it">più</i> भूल जाना (<i class="it">è bella di quella</i> ✗); <i class="it">più buono</i> की जगह <i class="it">migliore</i>।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l19"></div>
+  <div class="drill" data-set="l19"></div>
+  <ul class="cando" data-cando="l19">
+    <li>मुझे <i class="it">gli</i> और <i class="it">le</i> से बताना आता है कि मैं किसे क्या देता/देती हूँ।</li>
+    <li>मुझे दो चीज़ों, जगहों या लोगों की तुलना करना आता है।</li>
+    <li>मुझे रंग और दाम के साथ चीज़ें बताना आता है।</li>
+    <li>मुझे जहाज़ की दुकान में यात्री की मदद करना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-blue" id="l20" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 20</span><span class="itk" lang="it">Lezione 20</span></div>
   <h2>बंदरगाह में ख़रीदारी: lo, la, li और stare + gerundio<small lang="it">Spese in porto</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-bag"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">नेपल्स में ठंड है और जॉय सर्दी के लिए एक जैकेट ख़रीदने दुकान जाती है। इस पाठ में आप सीखेंगे <i class="it">lo</i>, <i class="it">la</i>, <i class="it">li</i>, <i class="it">le</i> («उसे, उन्हें» चीज़ों के लिए), दुकान में बातचीत, और अभी चल रहा काम: <i class="it">sto cercando</i> («मैं ढूँढ रही हूँ»)।</p>
+  <div class="dialog" data-dlg="l20"></div>
+
+  <details class="scopri"><summary><span class="sq">जॉय कहती है <i class="it">Posso provarla?</i> और <i class="it">La prendo!</i>। <i class="it">la</i> यहाँ किसकी जगह आया है? और वह क्रिया से पहले है या बाद में?</span></summary>
+    <div><p><i class="it">la</i> = <i class="it">la giacca</i> («उसे», स्त्रीलिंग चीज़)। हिंदी की तरह, यह आम तौर पर क्रिया से पहले आता है: <i class="it">La prendo</i> = «इसे लेती हूँ»। सिर्फ़ मूल क्रिया (<i class="it">provare</i>) के साथ यह क्रिया के आख़िर में जुड़ जाता है: <i class="it">provarla</i>।</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">lo</i>, <i class="it">la</i>, <i class="it">li</i>, <i class="it">le</i>: चीज़ या व्यक्ति की जगह</h3>
+    <div class="tw"><table>
+      <tr><th></th><th>एकवचन</th><th>बहुवचन</th></tr>
+      <tr><td>पुल्लिंग</td><td class="itc">lo</td><td class="itc">li</td></tr>
+      <tr><td>स्त्रीलिंग</td><td class="itc">la</td><td class="itc">le</td></tr>
+    </table></div>
+    <p><i class="it">Il profumo? Lo compro.</i> <i class="it">Le scarpe? Le provo.</i> <i class="it">non</i> इनसे भी पहले: <i class="it">Non lo prendo</i>। मूल क्रिया के बाद जुड़ता है: <i class="it">Posso provarlo?</i> <i class="it">ecco</i> के साथ भी: <i class="it">eccolo</i>, <i class="it">eccola</i>। ध्यान दें: «उसे (किसी को) देना» = <i class="it">gli</i>/<i class="it">le</i> (पिछला पाठ), «उसे (चीज़) लेना» = <i class="it">lo</i>/<i class="it">la</i>।</p>
+    <div class="exs">
+      <div data-it="Il passaporto? Lo porto sempre con me." data-zh="पासपोर्ट? मैं उसे हमेशा साथ रखता हूँ।"></div>
+      <div data-it="Queste scarpe sono belle: le provo." data-zh="ये जूते सुंदर हैं: मैं इन्हें पहनकर देखती हूँ।"></div>
+      <div data-it="Dove sono le chiavi? — Eccole!" data-zh="चाबियाँ कहाँ हैं? — ये रहीं!"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">passato prossimo</i> के साथ: <i class="it">l'ho comprata</i></h3>
+    <p><i class="it">lo</i>/<i class="it">la</i> + <i class="it">ho</i> = <i class="it">l'ho</i>। बीता रूप चीज़ के लिंग-वचन से बदलता है: <i class="it">La giacca? L'ho comprata a Napoli.</i> <i class="it">I regali? Li ho già comprati.</i></p>
+    <div class="exs">
+      <div data-it="La giacca? L&#x27;ho comprata a Napoli." data-zh="जैकेट? मैंने इसे नेपल्स में ख़रीदा।"></div>
+      <div data-it="I biglietti? Li ho già presi." data-zh="टिकट? मैंने पहले ही ले लिए।"></div>
+      <div data-it="Il film? Non l&#x27;ho visto." data-zh="फ़िल्म? मैंने नहीं देखी।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>अभी चल रहा काम: <i class="it">stare</i> + <i class="it">-ando</i>/<i class="it">-endo</i></h3>
+    <div class="tw"><table>
+      <tr><th>क्रिया</th><th>रूप</th><th>उदाहरण</th></tr>
+      <tr><td class="itc">-are</td><td class="itc">-ando</td><td class="itc">sto cercando</td></tr>
+      <tr><td class="itc">-ere</td><td class="itc">-endo</td><td class="itc">stai leggendo</td></tr>
+      <tr><td class="itc">-ire</td><td class="itc">-endo</td><td class="itc">sta dormendo</td></tr>
+      <tr><td class="itc">fare</td><td class="itc">facendo</td><td class="itc">stiamo facendo</td></tr>
+    </table></div>
+    <p>हिंदी के «कर रहा हूँ» जैसा: <i class="it">Sto lavorando</i> = «मैं काम कर रहा हूँ»। सिर्फ़ इसी पल के लिए; आदत के लिए सामान्य वर्तमान: <i class="it">Lavoro al ristorante</i>।</p>
+    <div class="exs">
+      <div data-it="Non posso parlare: sto lavorando." data-zh="मैं बात नहीं कर सकता: काम कर रहा हूँ।"></div>
+      <div data-it="Joy sta provando una giacca." data-zh="जॉय एक जैकेट पहनकर देख रही है।"></div>
+      <div data-it="Cosa state facendo? — Stiamo mangiando." data-zh="तुम लोग क्या कर रहे हो? — हम खा रहे हैं।"></div>
+    </div>
+  </div>
+
+
+  <h3>दुकान में</h3>
+  <div class="tw"><table>
+    <tr><th>इतालवी</th><th>अर्थ</th></tr>
+    <tr><td class="itc">la taglia / il numero</td><td>कपड़ों का साइज़ / जूतों का नंबर</td></tr>
+    <tr><td class="itc">il camerino</td><td>ट्रायल रूम</td></tr>
+    <tr><td class="itc">lo sconto</td><td>छूट</td></tr>
+    <tr><td class="itc">in contanti / con la carta</td><td>नक़द / कार्ड से</td></tr>
+    <tr><td class="itc">lo scontrino</td><td>रसीद</td></tr>
+    <tr><td class="itc">Mi sta bene?</td><td>क्या यह मुझ पर अच्छा लग रहा है?</td></tr>
+  </table></div>
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong><i class="it">lo</i>/<i class="it">la</i> को क्रिया के बाद अलग रखना (<i class="it">Prendo la</i> ✗ → <i class="it">La prendo</i>); चीज़ के लिए <i class="it">gli</i>/<i class="it">le</i> (<i class="it">Gli compro</i> = «उसके लिए ख़रीदता हूँ», <i class="it">Lo compro</i> = «उसे ख़रीदता हूँ»); आदत के लिए <i class="it">stare</i> + <i class="it">-ando</i> (<i class="it">Sto lavorando al ristorante da due anni</i> ✗ → <i class="it">Lavoro</i>)।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l20"></div>
+  <div class="drill" data-set="l20"></div>
+  <ul class="cando" data-cando="l20">
+    <li>मुझे दुकान में कपड़े ढूँढना, पहनकर देखना और ख़रीदना आता है।</li>
+    <li>मुझे <i class="it">lo</i>, <i class="it">la</i>, <i class="it">li</i>, <i class="it">le</i> से चीज़ों को दोहराए बिना बात करना आता है।</li>
+    <li>मुझे <i class="it">stare</i> + <i class="it">-ando</i> से बताना आता है कि अभी क्या कर रहा/रही हूँ।</li>
+    <li>मुझे साइज़, छूट और भुगतान के बारे में पूछना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-yellow" id="l21" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 21</span><span class="itk" lang="it">Lezione 21</span></div>
   <h2>कॉन्ट्रैक्ट का अंत: futuro और se<small lang="it">Fine contratto</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-suitcase"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">रवि का कॉन्ट्रैक्ट दो महीने में ख़त्म होगा। वह और जॉय घर लौटने और भविष्य की योजनाओं के बारे में बात करते हैं। इस पाठ में आप सीखेंगे भविष्य काल (<i class="it">futuro</i>: <i class="it">tornerò</i>, <i class="it">sarò</i>, <i class="it">andrò</i>), <i class="it">se</i> से शर्त वाले वाक्य, और <i class="it">tra due mesi</i> जैसे समय के शब्द।</p>
+  <div class="dialog" data-dlg="l21"></div>
+
+  <details class="scopri"><summary><span class="sq">रवि कहता है <i class="it">Tornerò a Kochi</i> («मैं कोच्चि लौटूँगा»)। हिंदी में «लौटूँगा / लौटूँगी» लिंग से बदलता है। क्या इतालवी <i class="it">tornerò</i> भी बदलता है?</span></summary>
+    <div><p>नहीं! <i class="it">tornerò</i> पुरुष और महिला दोनों के लिए एक ही है। भविष्य काल क्रिया के अंत से बनता है: <i class="it">-ò</i>, <i class="it">-ai</i>, <i class="it">-à</i>, <i class="it">-emo</i>, <i class="it">-ete</i>, <i class="it">-anno</i>। आख़िरी <i class="it">ò</i> पर ज़ोर और निशान ज़रूरी है।</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3>भविष्य काल: <i class="it">futuro</i></h3>
+    <div class="tw"><table>
+      <tr><th></th><th><i class="it">tornare</i></th><th><i class="it">prendere</i></th><th><i class="it">partire</i></th></tr>
+      <tr><td class="itc">io</td><td class="itc">tornerò</td><td class="itc">prenderò</td><td class="itc">partirò</td></tr>
+      <tr><td class="itc">tu</td><td class="itc">tornerai</td><td class="itc">prenderai</td><td class="itc">partirai</td></tr>
+      <tr><td class="itc">lui, lei</td><td class="itc">tornerà</td><td class="itc">prenderà</td><td class="itc">partirà</td></tr>
+      <tr><td class="itc">noi</td><td class="itc">torneremo</td><td class="itc">prenderemo</td><td class="itc">partiremo</td></tr>
+      <tr><td class="itc">voi</td><td class="itc">tornerete</td><td class="itc">prenderete</td><td class="itc">partirete</td></tr>
+      <tr><td class="itc">loro</td><td class="itc">torneranno</td><td class="itc">prenderanno</td><td class="itc">partiranno</td></tr>
+    </table></div>
+    <p><i class="it">-are</i> क्रियाओं में <i class="it">a</i> → <i class="it">e</i>: <i class="it">tornare</i> → <i class="it">tornerò</i>। अनियमित (आम): <i class="it">essere</i> → <i class="it">sarò</i>, <i class="it">avere</i> → <i class="it">avrò</i>, <i class="it">fare</i> → <i class="it">farò</i>, <i class="it">andare</i> → <i class="it">andrò</i>, <i class="it">venire</i> → <i class="it">verrò</i>, <i class="it">potere</i> → <i class="it">potrò</i>, <i class="it">dovere</i> → <i class="it">dovrò</i>, <i class="it">vedere</i> → <i class="it">vedrò</i>, <i class="it">stare</i> → <i class="it">starò</i>।</p>
+    <div class="exs">
+      <div data-it="Il mese prossimo andrò a Roma." data-zh="अगले महीने मैं रोम जाऊँगा/जाऊँगी।"></div>
+      <div data-it="Domani la nave partirà alle sei." data-zh="कल जहाज़ छह बजे रवाना होगा।"></div>
+      <div data-it="Quando sarò a casa, vedrò i miei amici." data-zh="जब मैं घर पर रहूँगा, अपने दोस्तों से मिलूँगा।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>शर्त: <i class="it">se</i> («अगर»)</h3>
+    <p>संभव शर्त के लिए: <i class="it">se</i> + वर्तमान या भविष्य, फिर भविष्य: <i class="it">Se avrò i soldi, aprirò un ristorante</i>। बोलचाल में वर्तमान भी चलता है: <i class="it">Se piove, resto in cabina</i>। हिंदी के «तो» के लिए कोई शब्द नहीं चाहिए।</p>
+    <div class="exs">
+      <div data-it="Se domani fa bel tempo, andremo in spiaggia." data-zh="अगर कल मौसम अच्छा होगा, तो हम समुद्र-तट जाएँगे।"></div>
+      <div data-it="Se l&#x27;agenzia mi chiama, accetto subito." data-zh="अगर एजेंसी मुझे बुलाती है, तो मैं तुरंत मान जाऊँगा।"></div>
+      <div data-it="Se hai bisogno, chiamami!" data-zh="अगर ज़रूरत हो, तो मुझे फ़ोन करना!"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>भविष्य के समय-शब्द</h3>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">domani / dopodomani</td><td>कल (आने वाला) / परसों</td></tr>
+      <tr><td class="itc">tra due mesi</td><td>दो महीने में</td></tr>
+      <tr><td class="itc">la settimana prossima</td><td>अगले हफ़्ते</td></tr>
+      <tr><td class="itc">l'anno prossimo</td><td>अगले साल</td></tr>
+      <tr><td class="itc">un giorno</td><td>एक दिन, कभी</td></tr>
+      <tr><td class="itc">presto</td><td>जल्दी ही</td></tr>
+    </table></div>
+    <p><i class="it">tra</i> = «… में (बाद)»: <i class="it">tra un'ora</i>; <i class="it">fa</i> = «… पहले» (पाठ 15)। <i class="it">prossimo</i> = «अगला», <i class="it">scorso</i> = «पिछला»।</p>
+    <div class="exs">
+      <div data-it="Tra un&#x27;ora arriviamo a Genova." data-zh="एक घंटे में हम जेनोवा पहुँचेंगे।"></div>
+      <div data-it="L&#x27;anno prossimo farò un corso di inglese." data-zh="अगले साल मैं अंग्रेज़ी का कोर्स करूँगी।"></div>
+      <div data-it="Ci vediamo presto!" data-zh="जल्दी मिलेंगे!"></div>
+    </div>
+  </div>
+
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong><i class="it">fa</i> और <i class="it">tra</i> को मिलाना (<i class="it">due mesi fa</i> = पहले, <i class="it">tra due mesi</i> = बाद में); <i class="it">-are</i> में <i class="it">a</i> रखना (<i class="it">tornarò</i> ✗ → <i class="it">tornerò</i>); आख़िरी <i class="it">ò</i> पर निशान भूलना (<i class="it">tornero</i> ✗)।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l21"></div>
+  <div class="drill" data-set="l21"></div>
+  <ul class="cando" data-cando="l21">
+    <li>मुझे अपनी योजनाएँ भविष्य काल में बताना आता है।</li>
+    <li>मुझे <i class="it">futuro</i> के नियमित और आम अनियमित रूप आते हैं।</li>
+    <li>मुझे <i class="it">se</i> से संभव शर्त बताना आता है।</li>
+    <li>मुझे <i class="it">tra</i>, <i class="it">prossimo</i>, <i class="it">presto</i> से भविष्य का समय बताना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-green" id="l22" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 22</span><span class="itk" lang="it">Lezione 22</span></div>
   <h2>सेहत और सुरक्षा: condizionale<small lang="it">Salute e sicurezza</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-cross"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">भारी डिब्बे उठाने के बाद मार्क की पीठ में दर्द है और वह जहाज़ के अस्पताल में डॉक्टर के पास जाता है। इस पाठ में आप सीखेंगे शरीर के अंग, दर्द और लक्षण बताना (<i class="it">mi fa male</i>), और <i class="it">condizionale</i>: विनम्र अनुरोध और सलाह (<i class="it">potrebbe</i>, <i class="it">dovrebbe</i>, <i class="it">mi piacerebbe</i>)।</p>
+  <div class="dialog" data-dlg="l22"></div>
+
+  <details class="scopri"><summary><span class="sq">मार्क कहता है <i class="it">Mi fa male la schiena</i> («मेरी पीठ में दर्द है»), और डॉक्टर कहती हैं <i class="it">Dovrebbe riposare</i> («आपको आराम करना चाहिए»)। <i class="it">dovrebbe</i> <i class="it">deve</i> से कैसे अलग है?</span></summary>
+    <div><p><i class="it">deve</i> = «करना ही है» (आदेश, नियम); <i class="it">dovrebbe</i> = «करना चाहिए» (सलाह, नरम)। यह <i class="it">condizionale</i> है: विनम्रता, सलाह और इच्छा के लिए। आप इसे पहले से जानते हैं: <i class="it">vorrei</i>!</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3>दर्द और लक्षण: <i class="it">mi fa male</i></h3>
+    <p><i class="it">piacere</i> की तरह: एक अंग → <i class="it">mi fa male la testa</i>; कई अंग → <i class="it">mi fanno male i piedi</i>। या <i class="it">ho mal di</i> + अंग: <i class="it">ho mal di testa</i>, <i class="it">ho mal di denti</i>, <i class="it">ho mal di stomaco</i>।</p>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">la testa</td><td>सिर</td></tr>
+      <tr><td class="itc">la schiena</td><td>पीठ</td></tr>
+      <tr><td class="itc">il braccio → le braccia</td><td>बाँह → बाँहें</td></tr>
+      <tr><td class="itc">la mano → le mani</td><td>हाथ → हाथ</td></tr>
+      <tr><td class="itc">la gamba</td><td>टाँग</td></tr>
+      <tr><td class="itc">il piede</td><td>पैर</td></tr>
+      <tr><td class="itc">lo stomaco</td><td>पेट</td></tr>
+      <tr><td class="itc">la gola</td><td>गला</td></tr>
+      <tr><td class="itc">gli occhi</td><td>आँखें</td></tr>
+      <tr><td class="itc">i denti</td><td>दाँत</td></tr>
+    </table></div>
+    <div class="exs">
+      <div data-it="Mi fa male la gola e ho la tosse." data-zh="मेरे गले में दर्द है और खाँसी है।"></div>
+      <div data-it="Mi fanno male le gambe dopo il turno." data-zh="शिफ़्ट के बाद मेरी टाँगों में दर्द होता है।"></div>
+      <div data-it="Ho la febbre e mi gira la testa." data-zh="मुझे बुख़ार है और सिर घूम रहा है।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">condizionale</i>: «होगा, चाहिए, सकेंगे»</h3>
+    <div class="tw"><table>
+      <tr><th></th><th><i class="it">dovere</i></th><th><i class="it">potere</i></th><th><i class="it">parlare</i></th></tr>
+      <tr><td class="itc">io</td><td class="itc">dovrei</td><td class="itc">potrei</td><td class="itc">parlerei</td></tr>
+      <tr><td class="itc">tu</td><td class="itc">dovresti</td><td class="itc">potresti</td><td class="itc">parleresti</td></tr>
+      <tr><td class="itc">lui, lei, Lei</td><td class="itc">dovrebbe</td><td class="itc">potrebbe</td><td class="itc">parlerebbe</td></tr>
+      <tr><td class="itc">noi</td><td class="itc">dovremmo</td><td class="itc">potremmo</td><td class="itc">parleremmo</td></tr>
+      <tr><td class="itc">voi</td><td class="itc">dovreste</td><td class="itc">potreste</td><td class="itc">parlereste</td></tr>
+      <tr><td class="itc">loro</td><td class="itc">dovrebbero</td><td class="itc">potrebbero</td><td class="itc">parlerebbero</td></tr>
+    </table></div>
+    <p>भविष्य वाला ही आधार (<i class="it">parler-</i>, <i class="it">dovr-</i>, <i class="it">sar-</i>, <i class="it">vorr-</i>) + <i class="it">-ei</i>, <i class="it">-esti</i>, <i class="it">-ebbe</i>, <i class="it">-emmo</i>, <i class="it">-este</i>, <i class="it">-ebbero</i>। उपयोग: विनम्र अनुरोध (<i class="it">Potrebbe ripetere?</i>), सलाह (<i class="it">Dovresti riposare</i>), इच्छा (<i class="it">Mi piacerebbe visitare Roma</i>)।</p>
+    <div class="exs">
+      <div data-it="Potrebbe ripetere, per favore?" data-zh="क्या आप दोहरा सकते हैं, कृपया?"></div>
+      <div data-it="Dovresti bere più acqua." data-zh="तुम्हें ज़्यादा पानी पीना चाहिए।"></div>
+      <div data-it="Mi piacerebbe vedere Venezia." data-zh="मुझे वेनिस देखना अच्छा लगेगा।"></div>
+    </div>
+  </div>
+
+
+  <h3>चोट और आपात स्थिति</h3>
+  <ul class="plain">
+    <li><i class="it">Mi sono tagliato/tagliata.</i> — मुझे कट लग गया।</li>
+    <li><i class="it">Sono caduto/caduta.</i> — मैं गिर गया/गई।</li>
+    <li><i class="it">Mi sono bruciato/bruciata.</i> — मैं जल गया/गई।</li>
+    <li><i class="it">Chiamate il medico!</i> — डॉक्टर को बुलाओ!</li>
+    <li><i class="it">È allergico a qualche medicina?</i> — क्या आपको किसी दवा से एलर्जी है?</li>
+  </ul>
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong>कई अंगों के साथ <i class="it">fa</i> (<i class="it">Mi fa male i piedi</i> ✗ → <i class="it">Mi fanno male</i>); सलाह के लिए <i class="it">devi</i> (बहुत सख़्त; बेहतर <i class="it">dovresti</i>); <i class="it">braccio</i> का बहुवचन <i class="it">bracci</i> ✗ → <i class="it">le braccia</i>।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l22"></div>
+  <div class="drill" data-set="l22"></div>
+  <ul class="cando" data-cando="l22">
+    <li>मुझे डॉक्टर को बताना आता है कि कहाँ दर्द है और क्या लक्षण हैं।</li>
+    <li>मुझे शरीर के मुख्य अंगों के नाम आते हैं।</li>
+    <li>मुझे <i class="it">condizionale</i> से विनम्र अनुरोध करना और सलाह देना आता है।</li>
+    <li>मुझे जहाज़ पर चोट या दुर्घटना बताना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-pink" id="l23" data-kind="lesson">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>पाठ 23</span><span class="itk" lang="it">Lezione 23</span></div>
   <h2>रवि और जॉय: अपनी कहानी सुनाइए<small lang="it">Ravi e Joy a Genova</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-ship"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">जेनोवा में, कंपनी के दफ़्तर में, रवि का हेड वेटर बनने के लिए इंटरव्यू है। उसे अपनी कहानी सुनानी है: अतीत, वर्तमान और भविष्य। यह पाठ पूरे कोर्स को जोड़ता है। नई बातें: <i class="it">da</i> + वर्तमान (<i class="it">lavoro qui da cinque anni</i>), <i class="it">che</i> («जो»), और कहानी जोड़ने वाले शब्द।</p>
+  <div class="dialog" data-dlg="l23"></div>
+
+  <details class="scopri"><summary><span class="sq">रवि कहता है <i class="it">Lavoro sulle navi da cinque anni</i>, वर्तमान काल में! हिंदी में भी: «मैं पाँच साल से काम कर रहा हूँ»। <i class="it">da</i> यहाँ किसके बराबर है?</span></summary>
+    <div><p><i class="it">da</i> = «से» (समय): जो काम पहले शुरू हुआ और अब भी चल रहा है, उसके लिए इतालवी वर्तमान काल लेती है, बिल्कुल हिंदी की तरह। <i class="it">Studio italiano da un anno</i> = «एक साल से इतालवी पढ़ रहा हूँ»। ध्यान दें: <i class="it">da</i> ≠ <i class="it">fa</i>।</p></div></details>
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">da</i> + वर्तमान: «… से»</h3>
+    <div class="tw"><table>
+      <tr><th>इतालवी</th><th>अर्थ</th></tr>
+      <tr><td class="itc">Lavoro qui da cinque anni.</td><td>मैं यहाँ पाँच साल से काम कर रहा हूँ।</td></tr>
+      <tr><td class="itc">Ho lavorato qui cinque anni fa.</td><td>मैंने पाँच साल पहले यहाँ काम किया।</td></tr>
+      <tr><td class="itc">Da quanto tempo…?</td><td>कितने समय से…?</td></tr>
+      <tr><td class="itc">da lunedì / da marzo</td><td>सोमवार से / मार्च से</td></tr>
+    </table></div>
+    <p>काम अब भी चल रहा है → <i class="it">da</i> + वर्तमान। काम ख़त्म हो गया → <i class="it">fa</i> + <i class="it">passato prossimo</i>।</p>
+    <div class="exs">
+      <div data-it="Joy vive in Italia da due anni." data-zh="जॉय दो साल से इटली में रह रही है।"></div>
+      <div data-it="Da quanto tempo studi italiano? — Da sei mesi." data-zh="तुम कितने समय से इतालवी पढ़ रहे हो? — छह महीने से।"></div>
+      <div data-it="Siamo in mare da tre giorni." data-zh="हम तीन दिन से समुद्र में हैं।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3><i class="it">che</i>: «जो, जिसे»</h3>
+    <p><i class="it">che</i> दो वाक्यों को जोड़ता है और किसी व्यक्ति या चीज़ की जगह लेता है: <i class="it">Le persone che incontro</i> («वे लोग जिनसे मैं मिलता हूँ»)। हिंदी «जो… वह» की तरह, पर <i class="it">che</i> संज्ञा के तुरंत बाद आता है और कभी नहीं बदलता।</p>
+    <div class="exs">
+      <div data-it="Il ristorante che voglio aprire sarà a Cebu." data-zh="जो रेस्टोरेंट मैं खोलना चाहती हूँ वह सेबू में होगा।"></div>
+      <div data-it="Paolo è il cuoco che fa la pizza più buona." data-zh="पाओलो वह रसोइया है जो सबसे अच्छा पिज़्ज़ा बनाता है।"></div>
+      <div data-it="La nave che vedi è la nostra." data-zh="जो जहाज़ तुम देख रहे हो वह हमारा है।"></div>
+    </div>
+  </div>
+
+  <div class="rule" data-seal="नियम">
+    <h3>अपनी कहानी सुनाना: सभी काल एक साथ</h3>
+    <div class="tw"><table>
+      <tr><th>काल</th><th>किसलिए</th><th>उदाहरण</th></tr>
+      <tr><td><i class="it">imperfetto</i></td><td>बचपन, आदतें</td><td class="itc">Da piccolo guardavo le navi.</td></tr>
+      <tr><td><i class="it">passato prossimo</i></td><td>घटनाएँ</td><td class="itc">Nel 2020 sono partito.</td></tr>
+      <tr><td>वर्तमान + <i class="it">da</i></td><td>अब तक</td><td class="itc">Lavoro qui da cinque anni.</td></tr>
+      <tr><td><i class="it">futuro</i> / <i class="it">condizionale</i></td><td>योजनाएँ, सपने</td><td class="itc">Mi piacerebbe aprire un ristorante.</td></tr>
+    </table></div>
+    <p>जोड़ने वाले शब्द: <i class="it">prima</i> (पहले), <i class="it">poi</i>/<i class="it">dopo</i> (फिर), <i class="it">quindi</i> (इसलिए), <i class="it">però</i> (लेकिन), <i class="it">alla fine</i> (आख़िर में), <i class="it">oggi</i> (आज), <i class="it">in futuro</i> (भविष्य में)।</p>
+    <div class="exs">
+      <div data-it="Nel 2020 ho trovato lavoro su una nave, quindi sono partito per l&#x27;Italia." data-zh="2020 में मुझे एक जहाज़ पर काम मिला, इसलिए मैं इटली के लिए निकला।"></div>
+      <div data-it="All&#x27;inizio era difficile, però ho imparato molto." data-zh="शुरू में मुश्किल था, लेकिन मैंने बहुत कुछ सीखा।"></div>
+      <div data-it="In futuro vorrei lavorare in Italia." data-zh="भविष्य में मैं इटली में काम करना चाहूँगा।"></div>
+    </div>
+  </div>
+
+
+  <h3>इंटरव्यू में</h3>
+  <ul class="plain">
+    <li><i class="it">Si accomodi.</i> — बैठिए।</li>
+    <li><i class="it">Mi parli di Lei.</i> — अपने बारे में बताइए।</li>
+    <li><i class="it">Che esperienza ha?</i> — आपको क्या अनुभव है?</li>
+    <li><i class="it">Quali sono i Suoi punti di forza?</i> — आपकी ख़ूबियाँ क्या हैं?</li>
+    <li><i class="it">Le faremo sapere.</i> — हम आपको बताएँगे।</li>
+  </ul>
+  <div class="warn"><strong>हिंदी बोलने वालों की आम ग़लतियाँ</strong><i class="it">da</i> के साथ <i class="it">passato prossimo</i> (<i class="it">Ho lavorato qui da cinque anni</i> ✗ → <i class="it">Lavoro qui da cinque anni</i>); <i class="it">da</i> और <i class="it">fa</i> को मिलाना; <i class="it">che</i> को छोड़ देना (<i class="it">Le persone incontro</i> ✗ → <i class="it">Le persone che incontro</i>); इंटरव्यू में <i class="it">tu</i> (हमेशा <i class="it">Lei</i>)।</div>
+
+  <div class="words-head"><h3>पाठ के शब्द</h3><span>सुनने के लिए ▶ दबाएँ</span></div>
+  <div class="words" data-voc="l23"></div>
+  <div class="drill" data-set="l23"></div>
+  <ul class="cando" data-cando="l23">
+    <li>मुझे अपनी कहानी अतीत, वर्तमान और भविष्य में सुनाना आता है।</li>
+    <li>मुझे <i class="it">da</i> + वर्तमान से बताना आता है कि मैं कितने समय से कुछ कर रहा/रही हूँ।</li>
+    <li>मुझे <i class="it">che</i> से दो वाक्य जोड़ना आता है।</li>
+    <li>मुझे जहाज़ की नौकरी के इंटरव्यू में सवालों के जवाब देना आता है।</li>
+  </ul>
 
 </section>
 <section class="lesson t-red" id="r3" data-kind="review">
   <header class="lhead"><div class="lh-text"><div class="kicker"><span>दोहराव 3</span><span class="itk" lang="it">Ripasso 3 e test A2</span></div>
   <h2>दोहराव 3 और A2 जाँच</h2></div><svg class="lic" aria-hidden="true"><use href="#i-star"/></svg></header>
-<p class="lead">…</p>
+  <p class="lead">आपने पूरा कोर्स कर लिया! इस आख़िरी दोहराव में तीसरे हिस्से के सारे काल एक साथ आते हैं। आख़िर के अभ्यास A2 स्तर की एक छोटी जाँच हैं: अगर आप ज़्यादातर सही करते हैं, तो आप CILS A2 की तैयारी (परीक्षा टैब) के लिए तैयार हैं।</p>
+
+  <h3>आप जानते हैं</h3>
+  <div class="summary-grid">
+    <div><b><i class="it">passato prossimo</i></b><span><i class="it">Ho visitato Barcellona. Sono andata a Palma. L'ho comprata a Napoli.</i></span></div>
+    <div><b><i class="it">imperfetto</i></b><span><i class="it">Quando ero piccolo, nuotavo ogni giorno.</i></span></div>
+    <div><b>दोनों भूतकाल</b><span><i class="it">Dormivo quando è suonato l'allarme.</i></span></div>
+    <div><b><i class="it">gli</i>, <i class="it">le</i>, <i class="it">lo</i>, <i class="it">la</i></b><span><i class="it">Gli regalo una maglietta. La prendo!</i></span></div>
+    <div><b>तुलना</b><span><i class="it">più grande di Palma, meno caro che in città, il migliore</i></span></div>
+    <div><b><i class="it">futuro</i> और <i class="it">se</i></b><span><i class="it">Se avrò i soldi, aprirò un ristorante.</i></span></div>
+    <div><b><i class="it">condizionale</i></b><span><i class="it">Potrebbe ripetere? Dovresti riposare. Mi piacerebbe…</i></span></div>
+    <div><b><i class="it">da</i> + वर्तमान, <i class="it">che</i></b><span><i class="it">Lavoro qui da cinque anni. Le persone che incontro.</i></span></div>
+  </div>
+
+  <h3>सुनिए: जॉय की कहानी</h3>
+  <p>पहले अनुवाद छिपाकर सुनिए, फिर पढ़ते हुए दोहराइए। हर वाक्य में कौन-सा काल है?</p>
+  <div class="exs">
+    <div data-it="Quando ero piccola, abitavo a Cebu vicino al mare." data-zh="जब मैं छोटी थी, मैं सेबू में समुद्र के पास रहती थी।"></div>
+    <div data-it="Mia nonna mi raccontava storie e cucinava benissimo." data-zh="मेरी दादी मुझे कहानियाँ सुनाती थीं और बहुत अच्छा खाना बनाती थीं।"></div>
+    <div data-it="Sei anni fa sono partita per lavorare sulle navi." data-zh="छह साल पहले मैं जहाज़ों पर काम करने के लिए निकली।"></div>
+    <div data-it="All&#x27;inizio era difficile, però ho imparato molto." data-zh="शुरू में मुश्किल था, लेकिन मैंने बहुत कुछ सीखा।"></div>
+    <div data-it="Oggi lavoro al ristorante dell&#x27;Aurora e studio italiano da un anno." data-zh="आज मैं औरोरा के रेस्टोरेंट में काम करती हूँ और एक साल से इतालवी पढ़ रही हूँ।"></div>
+    <div data-it="Tra qualche anno tornerò a Cebu e aprirò un piccolo ristorante." data-zh="कुछ सालों में मैं सेबू लौटूँगी और एक छोटा रेस्टोरेंट खोलूँगी।"></div>
+    <div data-it="Mi piacerebbe chiamarlo «Da Nonna»." data-zh="मैं उसका नाम «दा नोन्ना» (दादी के यहाँ) रखना चाहूँगी।"></div>
+  </div>
+
+  <div class="task">
+    <h3>काम: आपकी कहानी</h3>
+    <p>8–10 वाक्यों में अपनी कहानी लिखिए: बचपन (<i class="it">imperfetto</i>), कोई ज़रूरी घटना (<i class="it">passato prossimo</i>), आज का काम (<i class="it">da</i> + वर्तमान), और भविष्य की योजना या सपना (<i class="it">futuro</i>, <i class="it">condizionale</i>)। फिर उसे किसी साथी को सुनाइए।</p>
+    <details class="model"><summary><span class="sq">एक नमूना देखें</span></summary>
+      <div class="exs">
+        <div data-it="Quando ero piccolo, guardavo le navi nel porto di Kochi." data-zh="जब मैं छोटा था, मैं कोच्चि के बंदरगाह में जहाज़ देखता था।"></div>
+        <div data-it="Mio padre era pescatore e io andavo con lui in barca." data-zh="मेरे पिताजी मछुआरे थे और मैं उनके साथ नाव में जाता था।"></div>
+        <div data-it="Cinque anni fa ho trovato lavoro su una nave italiana." data-zh="पाँच साल पहले मुझे एक इतालवी जहाज़ पर काम मिला।"></div>
+        <div data-it="Lavoro come cameriere di cabina da cinque anni." data-zh="मैं पाँच साल से केबिन स्टीवर्ड का काम कर रहा हूँ।"></div>
+        <div data-it="Il prossimo anno farò un corso per diventare maître." data-zh="अगले साल मैं मैत्र बनने के लिए एक कोर्स करूँगा।"></div>
+        <div data-it="Un giorno mi piacerebbe vivere in Italia." data-zh="एक दिन मैं इटली में रहना चाहूँगा।"></div>
+      </div>
+    </details>
+  </div>
+  <div class="drill" data-set="r3"></div>
+  <ul class="cando" data-cando="r3">
+    <li>मुझे 8–10 वाक्यों में अपनी कहानी सुनाना आता है, सभी काल इस्तेमाल करते हुए।</li>
+    <li>मुझे किसी साथी की कहानी समझ आती है।</li>
+    <li>मैं CILS A2 की तैयारी शुरू करने के लिए तैयार हूँ।</li>
+    <li>मुझे जहाज़ पर और बंदरगाह में ज़्यादातर रोज़ की स्थितियों में इतालवी आती है।</li>
+  </ul>
 
 </section>
 <div class="partttl">परिशिष्ट</div>
@@ -2295,7 +2916,6 @@ EX.l4=[
  {t:"say",zh:"यात्री को तौलिए दिखाइए: «ये रहे तौलिए।»",it:"Ecco gli asciugamani."}
 ];
 VOC.l4=[
- ["cabina","केबिन","f"],
  ["letto","बिस्तर","m"],
  ["armadio","अलमारी","m"],
  ["doccia","शावर","f"],
@@ -2310,21 +2930,17 @@ VOC.l4=[
  ["porta","दरवाज़ा","f"],
  ["sedia","कुर्सी","f"],
  ["scrivania","मेज़ (लिखने की)","f"],
- ["chiave","चाबी","f"],
  ["cuscino","तकिया","m"],
  ["coperta","कंबल","f"],
  ["telecomando","रिमोट","m"],
  ["lampada","लैंप","f"],
  ["amica","सहेली, दोस्त (महिला)","f"],
- ["collega","सहकर्मी",""],
  ["c'è","है (एक चीज़)",""],
  ["ci sono","हैं (कई चीज़ें)",""],
- ["ecco","ये रहा, यह लीजिए",""],
  ["questo","यह (पुल्लिंग)",""],
  ["questa","यह (स्त्रीलिंग)",""],
  ["grande","बड़ा",""],
  ["piccolo","छोटा",""],
- ["anche","भी",""],
  ["perfetto","बढ़िया, एकदम ठीक",""],
  ["buona serata","आपकी शाम अच्छी हो",""]
 ];
@@ -2357,7 +2973,6 @@ VOC.l5=[
  ["figli","बच्चे (बेटे-बेटियाँ)","m"],
  ["marito","पति","m"],
  ["moglie","पत्नी","f"],
- ["nonno","दादा, नाना","m"],
  ["nonna","दादी, नानी","f"],
  ["foto","फ़ोटो","f"],
  ["chi","कौन",""],
@@ -2399,11 +3014,9 @@ EX.l6=[
 VOC.l6=[
  ["stare","होना, रहना (हाल)",""],
  ["come stai?","कैसे हो?",""],
- ["bene","अच्छा, ठीक",""],
  ["male","बुरा, ख़राब",""],
  ["benissimo","बहुत बढ़िया",""],
  ["così così","ठीक-ठाक",""],
- ["non","नहीं (क्रिया से पहले)",""],
  ["fame","भूख","f"],
  ["sete","प्यास","f"],
  ["sonno","नींद","m"],
@@ -2451,7 +3064,7 @@ EX.l7=[
  {t:"say",zh:"अपना काम बताइए: «मैं केबिन स्टीवर्ड हूँ। मैं केबिन साफ़ करता हूँ।»",it:"Sono cameriere di cabina. Pulisco le cabine."}
 ];
 VOC.l7=[
- ["lavoro","काम, नौकरी","m"],
+ ["stasera","आज शाम",""],
  ["lavorare","काम करना",""],
  ["parlare","बोलना",""],
  ["cantare","गाना",""],
@@ -2462,8 +3075,6 @@ VOC.l7=[
  ["capire","समझना",""],
  ["finire","ख़त्म करना",""],
  ["fare","करना, बनाना",""],
- ["cameriere","वेटर; स्टीवर्ड","m"],
- ["cameriera","वेट्रेस","f"],
  ["cuoco","रसोइया","m"],
  ["marinaio","नाविक, सीमैन","m"],
  ["ufficiale","ऑफ़िसर","m"],
@@ -2473,13 +3084,11 @@ VOC.l7=[
  ["animatore","एनिमेटर (पुरुष)","m"],
  ["ristorante","रेस्टोरेंट","m"],
  ["colazione","नाश्ता","f"],
- ["cena","रात का खाना","f"],
  ["ora","घंटा; अब","f"],
  ["al giorno","प्रतिदिन, दिन में",""],
  ["sera","शाम","f"],
  ["gioco","खेल","m"],
  ["invece","जबकि, इसके बजाय",""],
- ["inglese","अंग्रेज़ी",""],
  ["spagnolo","स्पेनिश",""],
  ["come","की तरह, के रूप में",""],
  ["brava","शाबाश (महिला से)",""]
@@ -2503,9 +3112,7 @@ EX.l8=[
 ];
 VOC.l8=[
  ["bar","बार, कैफ़े","m"],
- ["nave","जहाज़","f"],
  ["vorrei","मुझे चाहिए (विनम्र)",""],
- ["per favore","कृपया",""],
  ["desiderare","चाहना",""],
  ["subito","तुरंत, अभी",""],
  ["qualcosa","कुछ",""],
@@ -2522,11 +3129,9 @@ VOC.l8=[
  ["ecco a Lei","यह लीजिए",""],
  ["buon appetito","खाने का आनंद लीजिए",""],
  ["altro","और कुछ; दूसरा",""],
- ["caffè","कॉफ़ी (एस्प्रेसो)","m"],
  ["cappuccino","कैपुचीनो","m"],
  ["cornetto","क्रोसाँ","m"],
  ["panino","सैंडविच","m"],
- ["gelato","आइसक्रीम","m"],
  ["succo","जूस","m"],
  ["birra","बीयर","f"],
  ["vino","वाइन","m"],
@@ -2584,7 +3189,6 @@ VOC.l9=[
  ["che cosa","क्या",""],
  ["quando","कब",""],
  ["quale","कौन-सा",""],
- ["perché","क्यों; क्योंकि",""],
  ["quanto","कितना",""],
  ["mensa","क्रू मेस, भोजनालय","f"],
  ["ponte","डेक; पुल","m"],
@@ -2599,16 +3203,12 @@ VOC.l9=[
  ["capo","बॉस, प्रमुख","m"],
  ["servizio","सर्विस, सेवा","m"],
  ["dopo","बाद में; के बाद",""],
- ["mangiare","खाना",""],
  ["studiare","पढ़ना, पढ़ाई करना",""],
  ["arrivare","पहुँचना",""],
  ["severo","सख़्त",""],
  ["così","इतना; ऐसे",""],
  ["ogni","हर",""],
- ["stasera","आज शाम",""],
- ["nuovo","नया",""],
  ["tempo","समय; मौसम","m"],
- ["comandante","कप्तान","m"],
  ["equipaggio","क्रू, जहाज़ के कर्मचारी","m"]
 ];
 
@@ -2630,7 +3230,6 @@ EX.l10=[
 ];
 VOC.l10=[
  ["turno","शिफ़्ट, पारी","m"],
- ["ora","घंटा; समय","f"],
  ["che ore sono?","कितने बजे हैं?",""],
  ["a che ora?","कितने बजे?",""],
  ["mezzogiorno","दोपहर 12 बजे","m"],
@@ -2639,7 +3238,6 @@ VOC.l10=[
  ["un quarto","सवा; पौना (15 मिनट)","m"],
  ["meno","कम; (समय) … में",""],
  ["cominciare","शुरू करना/होना",""],
- ["finire","ख़त्म करना",""],
  ["aprire","खोलना",""],
  ["svegliarsi","जागना",""],
  ["alzarsi","उठना (बिस्तर से)",""],
@@ -2652,7 +3250,6 @@ VOC.l10=[
  ["allora","तो, फिर",""],
  ["libero","ख़ाली, आज़ाद",""],
  ["adesso","अभी",""],
- ["buonanotte","शुभ रात्रि",""],
  ["lunedì","सोमवार","m"],
  ["martedì","मंगलवार","m"],
  ["mercoledì","बुधवार","m"],
@@ -2683,6 +3280,7 @@ EX.l11=[
  {t:"say",zh:"बताइए: «मुझे संगीत सुनना पसंद है।»",it:"Mi piace ascoltare la musica."}
 ];
 VOC.l11=[
+ ["dormire","सोना",""],
  ["tempo libero","ख़ाली समय","m"],
  ["piacere","पसंद आना",""],
  ["mi piace","मुझे पसंद है",""],
@@ -2702,7 +3300,6 @@ VOC.l11=[
  ["cucinare","खाना बनाना",""],
  ["telefonare","फ़ोन करना",""],
  ["videochiamata","वीडियो कॉल","f"],
- ["casa","घर","f"],
  ["bere","पीना",""],
  ["escursione","सैर, भ्रमण","f"],
  ["amare","प्यार करना; बहुत पसंद करना",""],
@@ -2758,7 +3355,6 @@ VOC.l12=[
  ["autobus","बस","m"],
  ["uscita","निकास","f"],
  ["posta","डाकघर; डाक","f"],
- ["telefono","फ़ोन","m"],
  ["primo","पहला",""],
  ["secondo","दूसरा",""],
  ["terzo","तीसरा",""],
@@ -2783,6 +3379,7 @@ EX.l13=[
  {t:"say",zh:"यात्री से पूछें: «क्या मैं आपकी मदद कर सकता हूँ?»",it:"Posso aiutarLa?"}
 ];
 VOC.l13=[
+ ["fumatore","धूम्रपान करने वाला","m"],
  ["regola","नियम","f"],
  ["dovere","ज़रूर करना; करना पड़ना",""],
  ["potere","सकना",""],
@@ -2812,7 +3409,6 @@ VOC.l13=[
  ["aiutare","मदद करना",""],
  ["indossare","पहनना",""],
  ["capito","समझ गया",""],
- ["tutto","सब कुछ",""],
  ["calma","शांति","f"],
  ["seguire","पीछे चलना",""]
 ];
@@ -2834,6 +3430,7 @@ EX.l14=[
  {t:"say",zh:"यात्री से पूछें: «आप क्या लेंगे?»",it:"Cosa prende?"}
 ];
 VOC.l14=[
+ ["più","ज़्यादा; और",""],
  ["cucina","रसोई; व्यंजन","f"],
  ["menù","मेन्यू","m"],
  ["piatto","प्लेट; डिश","m"],
@@ -2893,44 +3490,446 @@ VOC.r2=[
 ];
 
 /* ---- l15 ---- */
-EX.l15=[];
-VOC.l15=[];
+DLG.l15=[["A","Ciao Ravi! Ieri hai avuto il giorno libero, vero? Cosa hai fatto?","हाय रवि! कल तुम्हारी छुट्टी थी ना? तुमने क्या किया?"],["B","Ho visitato Barcellona con Mark. Abbiamo camminato tutto il giorno!","मैंने मार्क के साथ बार्सिलोना घूमा। हम पूरे दिन चले!"],["A","Che bello! Avete visto la Sagrada Família?","कितना अच्छा! क्या तुमने सग्रादा फ़मीलिया देखा?"],["B","Sì, e ho fatto tante foto. Poi abbiamo mangiato la paella.","हाँ, और मैंने बहुत सारी फ़ोटो खींचीं। फिर हमने पाएया खाया।"],["A","E hai comprato qualcosa?","और तुमने कुछ ख़रीदा?"],["B","Ho comprato un regalo per mia madre: una borsa.","मैंने अपनी माँ के लिए एक तोहफ़ा ख़रीदा: एक बैग।"],["A","Bravo! Io invece non ho dormito molto: ho lavorato fino a mezzanotte.","शाबाश! मैं तो ठीक से सोई नहीं: आधी रात तक काम किया।"],["B","Povera Joy! Hai mangiato almeno?","बेचारी जॉय! कम से कम कुछ खाया?"],["A","Sì, Paolo ha preparato la pasta per tutti.","हाँ, पाओलो ने सबके लिए पास्ता बनाया।"]];
+EX.l15=[
+ {q:"«मैंने खाया»:",o:["{Ho mangiato.}", "{Io mangiato.}", "{Sono mangiato.}"],e:"{avere} + {mangiato}।"},
+ {q:"{fare} का बीता रूप:",o:["{fatto}", "{fato}", "{fareto}"],e:"{fare} → {fatto}."},
+ {q:"{vedere} का बीता रूप:",o:["{visto}", "{veduto}", "{vedito}"],e:"{vedere} → {visto}."},
+ {q:"«हमने एक फ़िल्म देखी»:",o:["{Abbiamo visto un film.}", "{Abbiamo vedere un film.}", "{Siamo visto un film.}"],e:"{abbiamo} + {visto}।"},
+ {q:"«दो दिन पहले»:",o:["{due giorni fa}", "{fa due giorni}", "{due giorni scorsi}"],e:"{fa} संख्या के बाद।"},
+ {q:"«मैं सोया नहीं»:",o:["{Non ho dormito.}", "{Ho non dormito.}", "{Ho dormito non.}"],e:"{non} + {ho} + {dormito}।"},
+ {q:"{prendere} का बीता रूप:",o:["{preso}", "{prenduto}", "{prendito}"],e:"{prendere} → {preso}."},
+ {q:"सुनें: रवि ने क्या ख़रीदा?",au:"Ho comprato un regalo per mia madre: una borsa.",o:["एक बैग", "एक किताब", "एक फ़ोन"],e:"{una borsa} = एक बैग।"},
+ {t:"type",q:"पूरा करें: {Ieri io} ＿ {la paella.} ({mangiare})",a:["ho mangiato"],full:"Ieri io ho mangiato la paella."},
+ {t:"type",q:"पूरा करें: {Paolo} ＿ {la pasta.} ({preparare})",a:["ha preparato"],full:"Paolo ha preparato la pasta."},
+ {t:"ord",q:"क्रम में लगाएँ: «कल शाम हमने एक फ़िल्म देखी।»",a:["Ieri sera abbiamo visto un film."],w:["Ieri", "sera", "abbiamo", "visto", "un", "film."]},
+ {t:"dict",au:"Ho fatto tante foto."},
+ {t:"say",zh:"बताइए: «कल मैंने दस घंटे काम किया।»",it:"Ieri ho lavorato dieci ore."}
+];
+VOC.l15=[
+ ["pasta","पास्ता","f"],
+ ["giorno libero","छुट्टी का दिन","m"],
+ ["ieri","कल (बीता हुआ)",""],
+ ["l'altro ieri","परसों (बीता)",""],
+ ["stamattina","आज सुबह",""],
+ ["fa","पहले (समय)",""],
+ ["scorso","पिछला",""],
+ ["settimana","हफ़्ता","f"],
+ ["mese","महीना","m"],
+ ["visitare","घूमना, देखने जाना",""],
+ ["camminare","पैदल चलना",""],
+ ["vedere","देखना",""],
+ ["comprare","ख़रीदना",""],
+ ["regalo","तोहफ़ा","m"],
+ ["borsa","बैग, थैला","f"],
+ ["tanto","बहुत",""],
+ ["fino a","तक",""],
+ ["almeno","कम से कम",""],
+ ["preparare","तैयार करना, बनाना",""],
+ ["povero","बेचारा; ग़रीब",""],
+ ["ricevere","पाना, मिलना",""],
+ ["messaggio","संदेश, मैसेज","m"],
+ ["scrivere","लिखना",""],
+ ["dire","कहना",""],
+ ["chiudere","बंद करना",""],
+ ["mettere","रखना",""],
+ ["corso","कोर्स","m"],
+ ["tutto il giorno","पूरा दिन",""],
+ ["per","के लिए",""]
+];
 
 /* ---- l16 ---- */
-EX.l16=[];
-VOC.l16=[];
+DLG.l16=[["A","Buonasera, signora! È andata all'escursione oggi?","शुभ संध्या, मैडम! क्या आप आज सैर पर गई थीं?"],["B","Sì, sono andata a Palma con mio marito. Siamo partiti alle nove.","हाँ, मैं अपने पति के साथ पाल्मा गई। हम नौ बजे निकले।"],["A","E com'è stato?","और कैसा रहा?"],["B","Bellissimo! Siamo saliti al castello e poi siamo stati in spiaggia.","बहुत सुंदर! हम क़िले तक चढ़े और फिर समुद्र-तट पर रहे।"],["A","Che tempo ha fatto?","मौसम कैसा था?"],["B","Ha fatto molto caldo: trenta gradi!","बहुत गर्मी थी: तीस डिग्री!"],["A","E quando siete tornati?","और आप कब लौटे?"],["B","Siamo tornati alle sei. Mio marito è rimasto in cabina: è stanco.","हम छह बजे लौटे। मेरे पति केबिन में ही रहे: वे थके हुए हैं।"],["A","Domani arriviamo a Napoli, ma le previsioni dicono che piove.","कल हम नेपल्स पहुँचेंगे, पर मौसम का पूर्वानुमान कहता है कि बारिश होगी।"],["B","Peccato! Ma Napoli è bella anche con la pioggia.","अफ़सोस! पर नेपल्स बारिश में भी सुंदर है।"]];
+EX.l16=[
+ {q:"जॉय: «मैं पाल्मा गई।»",o:["{Sono andata a Palma.}", "{Ho andata a Palma.}", "{Sono andato a Palma.}"],e:"{essere} + {andata} (महिला)।"},
+ {q:"«रवि और मार्क लौटे।»",o:["{Ravi e Mark sono tornati.}", "{Ravi e Mark hanno tornato.}", "{Ravi e Mark sono tornato.}"],e:"बहुवचन पुरुष: {-i}।"},
+ {q:"कौन-सी क्रिया {avere} लेती है?",o:["{mangiare}", "{partire}", "{arrivare}"],e:"{mangiare}: {ho mangiato}। बाक़ी {essere}।"},
+ {q:"«आज बहुत गर्मी है»:",o:["{Oggi fa molto caldo.}", "{Oggi è molto caldo.}", "{Oggi ha molto caldo.}"],e:"मौसम: {fa caldo}।"},
+ {q:"«15 मई»:",o:["{il quindici maggio}", "{quindici di maggio}", "{il maggio quindici}"],e:"{il} + संख्या + महीना।"},
+ {q:"«आज सुबह मैं (महिला) जल्दी उठी»:",o:["{Mi sono svegliata presto.}", "{Mi ho svegliata presto.}", "{Ho svegliato presto.}"],e:"स्वयंवाचक → {essere}।"},
+ {q:"सुनें: पाल्मा में मौसम कैसा था?",au:"Ha fatto molto caldo: trenta gradi!",o:["बहुत गर्मी", "बारिश", "ठंड"],e:"{ha fatto molto caldo}."},
+ {q:"सुनें: कौन-सा महीना?",au:"Il contratto finisce il trenta settembre.",o:["सितंबर", "दिसंबर", "नवंबर"],e:"{settembre}."},
+ {t:"type",q:"पूरा करें: {Joy} ＿ {con Giulia.} ({uscire})",a:["è uscita"],full:"Joy è uscita con Giulia."},
+ {t:"ord",q:"क्रम में लगाएँ: «हम नौ बजे निकले।»",a:["Siamo partiti alle nove."],w:["Siamo", "partiti", "alle", "nove."]},
+ {t:"dict",au:"Ieri ha piovuto tutto il giorno."},
+ {t:"say",zh:"बताइए: «कल मैं शहर गया/गई।»",it:"Ieri sono andato in città."}
+];
+VOC.l16=[
+ ["partire","निकलना, रवाना होना",""],
+ ["tornare","लौटना",""],
+ ["uscire","बाहर जाना",""],
+ ["venire","आना",""],
+ ["salire","चढ़ना",""],
+ ["scendere","उतरना",""],
+ ["rimanere","रहना, रुकना",""],
+ ["restare","रुकना",""],
+ ["nascere","जन्म लेना",""],
+ ["castello","क़िला","m"],
+ ["spiaggia","समुद्र-तट","f"],
+ ["che tempo fa?","मौसम कैसा है?",""],
+ ["sole","सूरज, धूप","m"],
+ ["piovere","बारिश होना",""],
+ ["pioggia","बारिश","f"],
+ ["vento","हवा","m"],
+ ["nuvoloso","बादलों वाला",""],
+ ["calmo","शांत",""],
+ ["grado","डिग्री","m"],
+ ["previsioni","मौसम का पूर्वानुमान","f"],
+ ["peccato","अफ़सोस","m"],
+ ["bellissimo","बहुत सुंदर",""],
+ ["contratto","कॉन्ट्रैक्ट, अनुबंध","m"],
+ ["gennaio","जनवरी","m"],
+ ["febbraio","फ़रवरी","m"],
+ ["marzo","मार्च","m"],
+ ["aprile","अप्रैल","m"],
+ ["maggio","मई","m"],
+ ["giugno","जून","m"],
+ ["luglio","जुलाई","m"],
+ ["agosto","अगस्त","m"],
+ ["settembre","सितंबर","m"],
+ ["ottobre","अक्टूबर","m"],
+ ["novembre","नवंबर","m"],
+ ["dicembre","दिसंबर","m"],
+ ["attenzione","सावधान; ध्यान","f"]
+];
 
 /* ---- l17 ---- */
-EX.l17=[];
-VOC.l17=[];
+DLG.l17=[["A","Joy, com'era Cebu quando eri piccola?","जॉय, जब तुम छोटी थीं तब सेबू कैसा था?"],["B","Era più tranquilla. Abitavamo vicino al mare, in una casa piccola.","ज़्यादा शांत था। हम समुद्र के पास, एक छोटे घर में रहते थे।"],["A","Anch'io! Mio padre era pescatore e usciva in barca ogni mattina.","मैं भी! मेरे पिताजी मछुआरे थे और हर सुबह नाव लेकर निकलते थे।"],["B","E tu cosa facevi?","और तुम क्या करते थे?"],["A","Andavo a scuola e il pomeriggio nuotavo con i miei amici.","मैं स्कूल जाता था और दोपहर को दोस्तों के साथ तैरता था।"],["B","Io invece ero timida e leggevo sempre. Mia nonna mi raccontava storie.","और मैं शर्मीली थी और हमेशा पढ़ती रहती थी। मेरी दादी मुझे कहानियाँ सुनाती थीं।"],["A","Sognavi già di lavorare su una nave?","क्या तब भी तुम जहाज़ पर काम करने का सपना देखती थीं?"],["B","No! Volevo fare l'insegnante. E tu?","नहीं! मैं टीचर बनना चाहती थी। और तुम?"],["A","Io sì: guardavo le navi nel porto e volevo vedere il mondo.","मैं हाँ: मैं बंदरगाह में जहाज़ देखता था और दुनिया देखना चाहता था।"]];
+EX.l17=[
+ {q:"«जब मैं छोटा था…»",o:["{Quando ero piccolo…}", "{Quando sono stato piccolo…}", "{Quando era piccolo io…}"],e:"वर्णन और उम्र: {ero}।"},
+ {q:"{noi} + {abitare} ({imperfetto}):",o:["{abitavamo}", "{abitiamo}", "{abbiamo abitato}"],e:"{abita-v-amo}."},
+ {q:"{essere} ({imperfetto}), {loro}:",o:["{erano}", "{essevano}", "{sono stati}"],e:"{ero, eri, era, eravamo, eravate, erano}."},
+ {q:"आदत: «हर गर्मी हम दादा-दादी के पास जाते थे।»",o:["{Ogni estate andavamo dai nonni.}", "{Ogni estate siamo andati dai nonni.}", "{Ogni estate andiamo dai nonni.}"],e:"आदत → {imperfetto}।"},
+ {q:"«वहाँ एक बग़ीचा था»:",o:["{C'era un giardino.}", "{C'erano un giardino.}", "{Era un giardino c'è.}"],e:"एक चीज़: {c'era}।"},
+ {q:"{fare} ({imperfetto}), {tu}:",o:["{facevi}", "{favi}", "{fatto}"],e:"{fare} → {facevo, facevi…}"},
+ {q:"सुनें: रवि के पिताजी क्या करते थे?",au:"Mio padre era pescatore e usciva in barca ogni mattina.",o:["मछुआरे थे", "टीचर थे", "रसोइया थे"],e:"{pescatore} = मछुआरा।"},
+ {q:"सुनें: जॉय क्या बनना चाहती थी?",au:"Volevo fare l'insegnante.",o:["टीचर", "नर्स", "वेट्रेस"],e:"{l'insegnante} = टीचर।"},
+ {t:"type",q:"पूरा करें: {Da bambino} ＿ {sempre in spiaggia.} ({giocare}, «मैं»)",a:["giocavo"],full:"Da bambino giocavo sempre in spiaggia."},
+ {t:"type",q:"पूरा करें: {Mia nonna} ＿ {benissimo.} ({cucinare})",a:["cucinava"],full:"Mia nonna cucinava benissimo."},
+ {t:"ord",q:"क्रम में लगाएँ: «हम समुद्र के पास रहते थे।»",a:["Abitavamo vicino al mare."],w:["Abitavamo", "vicino", "al", "mare."]},
+ {t:"dict",au:"Quando ero piccola, leggevo sempre."},
+ {t:"say",zh:"बताइए: «जब मैं छोटा/छोटी था/थी, मैं हर दिन तैरता/तैरती था/थी।»",it:"Quando ero piccolo, nuotavo ogni giorno."}
+];
+VOC.l17=[
+ ["da bambino","बचपन में",""],
+ ["bambino","बच्चा","m"],
+ ["tranquillo","शांत",""],
+ ["abitare","रहना (कहीं)",""],
+ ["pescatore","मछुआरा","m"],
+ ["barca","नाव","f"],
+ ["scuola","स्कूल","f"],
+ ["amico","दोस्त","m"],
+ ["timido","शर्मीला",""],
+ ["raccontare","सुनाना, बताना",""],
+ ["storia","कहानी; इतिहास","f"],
+ ["sognare","सपना देखना",""],
+ ["già","पहले से; पहले ही",""],
+ ["insegnante","टीचर",""],
+ ["mondo","दुनिया","m"],
+ ["viaggiare","यात्रा करना",""],
+ ["di solito","आम तौर पर",""],
+ ["estate","गर्मी (मौसम)","f"],
+ ["inverno","सर्दी (मौसम)","m"],
+ ["nonni","दादा-दादी","m"],
+ ["giardino","बग़ीचा","m"],
+ ["stella","तारा","f"],
+ ["villaggio","गाँव","m"]
+];
 
 /* ---- l18 ---- */
-EX.l18=[];
-VOC.l18=[];
+DLG.l18=[["A","Ravi, hai mai visto una tempesta in mare?","रवि, क्या तुमने कभी समुद्र में तूफ़ान देखा है?"],["B","Sì, una volta, l'anno scorso. Eravamo vicino alla Sicilia.","हाँ, एक बार, पिछले साल। हम सिसिली के पास थे।"],["A","Cosa è successo?","क्या हुआ था?"],["B","Era notte e pioveva forte. Io dormivo quando è suonato l'allarme.","रात थी और तेज़ बारिश हो रही थी। मैं सो रहा था जब अलार्म बजा।"],["A","E tu cosa hai fatto?","और तुमने क्या किया?"],["B","Mi sono alzato, ho preso il giubbotto e sono andato al punto di raccolta.","मैं उठा, लाइफ़ जैकेट ली और मस्टर स्टेशन गया।"],["A","Avevi paura?","क्या तुम्हें डर लग रहा था?"],["B","Un po'. Le onde erano altissime e la nave si muoveva molto.","थोड़ा। लहरें बहुत ऊँची थीं और जहाज़ बहुत हिल रहा था।"],["A","E i passeggeri?","और यात्री?"],["B","Mentre aspettavamo, abbiamo aiutato i passeggeri. All'improvviso il vento si è calmato.","जब हम इंतज़ार कर रहे थे, हमने यात्रियों की मदद की। अचानक हवा शांत हो गई।"],["A","Per fortuna!","शुक्र है!"],["B","Sì. Alle quattro siamo tornati in cabina. Nessuno si è fatto male.","हाँ। चार बजे हम केबिन लौट आए। किसी को चोट नहीं लगी।"]];
+EX.l18=[
+ {q:"«मैं सो रहा था जब अलार्म बजा।»",o:["{Dormivo quando è suonato l'allarme.}", "{Ho dormito quando suonava l'allarme.}", "{Dormivo quando suonava l'allarme.}"],e:"चलता काम: {dormivo}; घटना: {è suonato}।"},
+ {q:"पृष्ठभूमि: «तेज़ बारिश हो रही थी।»",o:["{Pioveva forte.}", "{Ha piovuto forte.}", "{Piove forte.}"],e:"मौसम (पृष्ठभूमि) → {imperfetto}।"},
+ {q:"«अचानक हवा शांत हो गई।»",o:["{All'improvviso il vento si è calmato.}", "{All'improvviso il vento si calmava.}", "{All'improvviso il vento ha calmato.}"],e:"अचानक घटना → {passato prossimo}।"},
+ {q:"«जब हम इंतज़ार कर रहे थे…»",o:["{Mentre aspettavamo…}", "{Mentre abbiamo aspettato…}", "{Quando aspettiamo…}"],e:"{mentre} + {imperfetto}।"},
+ {q:"«क्या तुमने कभी तूफ़ान देखा है?»",o:["{Hai mai visto una tempesta?}", "{Vedevi mai una tempesta?}", "{Hai visto mai tempesta?}"],e:"{Hai mai…?} + बीता रूप।"},
+ {q:"«मुझे डर लग रहा था»:",o:["{Avevo paura.}", "{Ho avuto paura sempre.}", "{Ero paura.}"],e:"भावना → {imperfetto}, {avere paura}।"},
+ {q:"सुनें: अलार्म बजा तब रवि क्या कर रहा था?",au:"Io dormivo quando è suonato l'allarme.",o:["सो रहा था", "काम कर रहा था", "खा रहा था"],e:"{dormivo}."},
+ {q:"सुनें: लहरें कैसी थीं?",au:"Le onde erano altissime.",o:["बहुत ऊँची", "छोटी", "शांत"],e:"{altissime} = बहुत ऊँची।"},
+ {t:"type",q:"पूरा करें: {Joy} ＿ {quando Ravi ha telefonato.} ({leggere})",a:["leggeva"],full:"Joy leggeva quando Ravi ha telefonato."},
+ {t:"type",q:"पूरा करें: {All'improvviso} ＿ {il comandante.} ({arrivare})",a:["è arrivato"],full:"All'improvviso è arrivato il comandante."},
+ {t:"ord",q:"क्रम में लगाएँ: «रात थी और तेज़ बारिश हो रही थी।»",a:["Era notte e pioveva forte."],w:["Era", "notte", "e", "pioveva", "forte."]},
+ {t:"dict",au:"Nessuno si è fatto male."},
+ {t:"say",zh:"बताइए: «मैं काम कर रहा था जब कप्तान आए।»",it:"Lavoravo quando è arrivato il comandante."}
+];
+VOC.l18=[
+ ["hai mai…?","क्या तुमने कभी…?",""],
+ ["una volta","एक बार",""],
+ ["succedere","होना, घटना",""],
+ ["forte","तेज़; मज़बूत",""],
+ ["onda","लहर","f"],
+ ["alto","ऊँचा; लंबा",""],
+ ["altissimo","बहुत ऊँचा",""],
+ ["muoversi","हिलना",""],
+ ["aspettare","इंतज़ार करना",""],
+ ["mentre","जबकि, जब",""],
+ ["all'improvviso","अचानक",""],
+ ["calmarsi","शांत होना",""],
+ ["per fortuna","शुक्र है",""],
+ ["nessuno","कोई नहीं",""],
+ ["farsi male","चोट लगना",""],
+ ["prima","पहले",""],
+ ["alla fine","आख़िर में",""],
+ ["chiamare","बुलाना; फ़ोन करना",""],
+ ["enorme","बहुत बड़ा",""],
+ ["balena","व्हेल","f"],
+ ["anno scorso","पिछला साल","m"]
+];
 
 /* ---- l19 ---- */
-EX.l19=[];
-VOC.l19=[];
+DLG.l19=[["A","Joy, cosa regali a Miguel?","जॉय, तुम मिगेल को क्या तोहफ़ा दोगी?"],["B","Gli piace il calcio, quindi gli compro una maglietta.","उसे फ़ुटबॉल पसंद है, तो मैं उसके लिए एक टी-शर्ट ख़रीदूँगी।"],["A","Questa blu è più bella di quella rossa.","यह नीली वाली उस लाल वाली से ज़्यादा सुंदर है।"],["B","Sì, ma è anche più cara! E tu, cosa compri a tua sorella?","हाँ, पर ज़्यादा महँगी भी है! और तुम अपनी बहन के लिए क्या ख़रीदोगे?"],["A","Le piacciono i profumi italiani. Le regalo questo.","उसे इतालवी परफ़्यूम पसंद हैं। मैं उसे यह दूँगा।"],["B","Mmm, è buonissimo! Quanto costa?","म्म, बहुत अच्छी ख़ुशबू है! कितने का है?"],["A","Quaranta euro. A bordo i profumi costano meno che in città.","चालीस यूरो। जहाज़ पर परफ़्यूम शहर से सस्ते हैं।"],["B","Davvero? Allora prendo un profumo anche per mia madre.","सच में? तो मैं अपनी माँ के लिए भी एक परफ़्यूम लेती हूँ।"],["A","Tua madre è fortunata: sei la figlia più generosa del mondo!","तुम्हारी माँ ख़ुशक़िस्मत हैं: तुम दुनिया की सबसे दरियादिल बेटी हो!"]];
+EX.l19=[
+ {q:"«मैं उसे (मिगेल को) टी-शर्ट देती हूँ»:",o:["{Gli regalo una maglietta.}", "{Le regalo una maglietta.}", "{Lo regalo una maglietta.}"],e:"पुरुष → {gli}।"},
+ {q:"«उसे (बहन को) परफ़्यूम पसंद हैं»:",o:["{Le piacciono i profumi.}", "{Gli piacciono i profumi.}", "{Lei piace i profumi.}"],e:"महिला → {le}; बहुवचन → {piacciono}।"},
+ {q:"यात्री से: «क्या मैं आपके लिए कॉफ़ी लाऊँ?»",o:["{Le porto un caffè?}", "{Ti porto un caffè?}", "{Gli porto un caffè?}"],e:"{Lei} → {Le}।"},
+ {q:"«जेनोवा पाल्मा से बड़ा है।»",o:["{Genova è più grande di Palma.}", "{Genova è più grande che Palma.}", "{Genova è grande di Palma.}"],e:"नाम से पहले {di}।"},
+ {q:"«जहाज़ पर शहर से सस्ता है।»",o:["{Costa meno a bordo che in città.}", "{Costa meno a bordo di in città.}", "{Costa più poco a bordo in città.}"],e:"दो जगहों के बीच {che}।"},
+ {q:"{buono} की तुलना («ज़्यादा अच्छा»):",o:["{migliore}", "{più buono di}", "{buonissimo più}"],e:"{buono} → {migliore}."},
+ {q:"«दो लाल टी-शर्ट»:",o:["{due magliette rosse}", "{due rosse magliette}", "{due magliette rosso}"],e:"रंग संज्ञा के बाद, और उसके साथ बदलता है।"},
+ {q:"सुनें: परफ़्यूम कितने का है?",au:"Quaranta euro. A bordo i profumi costano meno che in città.",o:["40 €", "14 €", "44 €"],e:"{quaranta} = 40."},
+ {t:"type",q:"पूरा करें: {A mia madre?} ＿ {telefono domani.} («उसे»)",a:["Le"],full:"A mia madre? Le telefono domani."},
+ {t:"type",q:"पूरा करें: {Ravi è} ＿ {alto di Mark.} («ज़्यादा»)",a:["più"],full:"Ravi è più alto di Mark."},
+ {t:"ord",q:"क्रम में लगाएँ: «उसे फ़ुटबॉल पसंद है।» (पुरुष)",a:["Gli piace il calcio."],w:["Gli", "piace", "il", "calcio."]},
+ {t:"dict",au:"Questa maglietta è più bella di quella."},
+ {t:"say",zh:"बताइए: «मैं अपनी माँ को हर रविवार फ़ोन करता/करती हूँ।» ({le})",it:"Le telefono ogni domenica."}
+];
+VOC.l19=[
+ ["gusto","स्वाद; पसंद","m"],
+ ["confronto","तुलना","m"],
+ ["regalare","तोहफ़ा देना",""],
+ ["gli","उसे (पुरुष); उन्हें",""],
+ ["le","उसे (महिला)",""],
+ ["quindi","इसलिए",""],
+ ["maglietta","टी-शर्ट","f"],
+ ["quello","वह (दूर वाला)",""],
+ ["caro","महँगा; प्यारा",""],
+ ["economico","सस्ता",""],
+ ["profumo","परफ़्यूम; ख़ुशबू","m"],
+ ["buonissimo","बहुत अच्छा",""],
+ ["fortunato","ख़ुशक़िस्मत",""],
+ ["generoso","दरियादिल",""],
+ ["migliore","बेहतर",""],
+ ["peggiore","बदतर",""],
+ ["dare","देना",""],
+ ["bravo","अच्छा, कुशल",""],
+ ["rosso","लाल",""],
+ ["blu","नीला",""],
+ ["verde","हरा",""],
+ ["giallo","पीला",""],
+ ["bianco","सफ़ेद",""],
+ ["nero","काला",""],
+ ["negozio di bordo","जहाज़ की दुकान","m"]
+];
 
 /* ---- l20 ---- */
-EX.l20=[];
-VOC.l20=[];
+DLG.l20=[["A","Buongiorno! Posso aiutarLa?","नमस्ते! क्या मैं आपकी मदद कर सकती हूँ?"],["B","Sì, grazie. Sto cercando una giacca per l'inverno.","हाँ, धन्यवाद। मैं सर्दी के लिए एक जैकेट ढूँढ रही हूँ।"],["A","Che taglia porta?","आप कौन-सा साइज़ पहनती हैं?"],["B","La S, credo. Mi piace questa giacca verde. Posso provarla?","S, मुझे लगता है। मुझे यह हरी जैकेट पसंद है। क्या मैं इसे पहनकर देख सकती हूँ?"],["A","Certo, il camerino è lì, a destra.","ज़रूर, ट्रायल रूम वहाँ है, दाईं तरफ़।"],["B","È un po' piccola. Avete la M?","थोड़ी छोटी है। क्या आपके पास M है?"],["A","Sì, eccola.","हाँ, यह लीजिए।"],["B","Questa va bene! Quanto costa?","यह ठीक है! कितने की है?"],["A","Ottanta euro, ma oggi c'è lo sconto del venti per cento.","अस्सी यूरो, पर आज बीस प्रतिशत की छूट है।"],["B","Perfetto, la prendo!","बढ़िया, मैं इसे लेती हूँ!"],["A","Paga con la carta o in contanti?","कार्ड से देंगी या नक़द?"],["B","In contanti. Ecco a Lei.","नक़द। यह लीजिए।"]];
+EX.l20=[
+ {q:"{La giacca?} — «मैं इसे लेती हूँ।»",o:["{La prendo.}", "{Prendo la.}", "{Lo prendo.}"],e:"{giacca} स्त्रीलिंग: {la}, क्रिया से पहले।"},
+ {q:"{I regali?} — «मैंने उन्हें पहले ही ख़रीद लिया।»",o:["{Li ho già comprati.}", "{Gli ho già comprato.}", "{Le ho già comprate.}"],e:"पुल्लिंग बहुवचन: {li} … {comprati}।"},
+ {q:"«क्या मैं इसे (जूता, {scarpa}) पहनकर देख सकती हूँ?»",o:["{Posso provarla?}", "{Posso la provare?}", "{Posso provarlo?}"],e:"{scarpa} स्त्रीलिंग; मूल क्रिया के साथ जुड़ता है।"},
+ {q:"«मैं काम कर रहा हूँ (अभी)»:",o:["{Sto lavorando.}", "{Sono lavorando.}", "{Sto lavorare.}"],e:"{stare} + {-ando}।"},
+ {q:"{fare} → «कर रहे हो»:",o:["{stai facendo}", "{stai fando}", "{stai fatto}"],e:"{fare} → {facendo}."},
+ {q:"{Dov'è il passaporto?} — «यह रहा!»",o:["{Eccolo!}", "{Eccola!}", "{Ecco lo!}"],e:"{ecco} + {lo} = {eccolo}।"},
+ {q:"{lo sconto} क्या है?",o:["छूट", "रसीद", "साइज़"],e:"{sconto} = छूट।"},
+ {q:"सुनें: जैकेट का दाम कितना है (छूट से पहले)?",au:"Ottanta euro, ma oggi c'è lo sconto del venti per cento.",o:["80 €", "20 €", "60 €"],e:"{ottanta} = 80."},
+ {t:"type",q:"पूरा करें: {Le scarpe? Non} ＿ {compro.} («उन्हें»)",a:["le"],full:"Le scarpe? Non le compro."},
+ {t:"type",q:"पूरा करें: {Ravi sta} ＿ ({dormire})",a:["dormendo"],full:"Ravi sta dormendo."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं सर्दी के लिए एक जैकेट ढूँढ रही हूँ।»",a:["Sto cercando una giacca per l'inverno."],w:["Sto", "cercando", "una", "giacca", "per", "l'inverno."]},
+ {t:"dict",au:"Paga con la carta o in contanti?"},
+ {t:"say",zh:"दुकान में: «मैं इसे लेता/लेती हूँ!» (जैकेट)",it:"La prendo!"}
+];
+VOC.l20=[
+ ["spesa","ख़रीदारी; ख़र्च","f"],
+ ["cercare","ढूँढना",""],
+ ["giacca","जैकेट","f"],
+ ["taglia","साइज़ (कपड़े)","f"],
+ ["provare","पहनकर देखना; कोशिश करना",""],
+ ["camerino","ट्रायल रूम","m"],
+ ["lì","वहाँ",""],
+ ["credere","मानना, सोचना",""],
+ ["sconto","छूट","m"],
+ ["per cento","प्रतिशत",""],
+ ["contanti","नक़द","m"],
+ ["scontrino","रसीद","m"],
+ ["scarpa","जूता","f"],
+ ["pantaloni","पैंट","m"],
+ ["camicia","कमीज़","f"],
+ ["vestito","कपड़ा; ड्रेस","m"],
+ ["biglietto","टिकट","m"],
+ ["lo","उसे (पुल्लिंग चीज़)",""],
+ ["la","उसे (स्त्रीलिंग चीज़); आर्टिकल",""],
+ ["li","उन्हें (पुल्लिंग)",""],
+ ["eccolo","यह रहा",""],
+ ["mi sta bene","मुझ पर अच्छा लगता है",""],
+ ["stretto","तंग",""],
+ ["largo","ढीला, चौड़ा",""]
+];
 
 /* ---- l21 ---- */
-EX.l21=[];
-VOC.l21=[];
+DLG.l21=[["A","Ravi, quando finisce il tuo contratto?","रवि, तुम्हारा कॉन्ट्रैक्ट कब ख़त्म होगा?"],["B","Tra due mesi, il quindici novembre. Tornerò a Kochi!","दो महीने में, पंद्रह नवंबर को। मैं कोच्चि लौटूँगा!"],["A","Che bello! Cosa farai a casa?","कितना अच्छा! घर पर क्या करोगे?"],["B","Prima starò con la mia famiglia. Mia sorella si sposa a dicembre.","पहले मैं अपने परिवार के साथ रहूँगा। मेरी बहन की दिसंबर में शादी है।"],["A","Poi tornerai a bordo?","फिर जहाज़ पर लौटोगे?"],["B","Se l'agenzia mi offre un nuovo contratto, sì. Vorrei diventare capo cameriere.","अगर एजेंसी मुझे नया कॉन्ट्रैक्ट देगी, तो हाँ। मैं हेड वेटर बनना चाहूँगा।"],["A","Sarai bravissimo! Io ho ancora sei mesi.","तुम बहुत अच्छे बनोगे! मेरे अभी छह महीने बाक़ी हैं।"],["B","E dopo?","और उसके बाद?"],["A","Se avrò abbastanza soldi, aprirò un piccolo ristorante a Cebu.","अगर मेरे पास काफ़ी पैसे होंगे, तो मैं सेबू में एक छोटा रेस्टोरेंट खोलूँगी।"],["B","Allora un giorno verrò a mangiare da te!","तो एक दिन मैं तुम्हारे यहाँ खाने आऊँगा!"],["A","Certo! Ti preparerò il pollo adobo.","ज़रूर! मैं तुम्हारे लिए चिकन अडोबो बनाऊँगी।"]];
+EX.l21=[
+ {q:"{io} + {tornare} ({futuro}):",o:["{tornerò}", "{tornarò}", "{tornero}"],e:"{-are} → {-erò}, निशान के साथ।"},
+ {q:"{essere} ({futuro}), {tu}:",o:["{sarai}", "{esserai}", "{sei}"],e:"{essere} → {sarò, sarai, sarà…}"},
+ {q:"{noi} + {andare} ({futuro}):",o:["{andremo}", "{anderemo}", "{andiamo}"],e:"{andare} → {andrò, andremo}."},
+ {q:"«दो महीने में» (भविष्य):",o:["{tra due mesi}", "{due mesi fa}", "{due mesi scorsi}"],e:"भविष्य: {tra}।"},
+ {q:"«अगर मेरे पास पैसे होंगे, तो मैं रेस्टोरेंट खोलूँगी।»",o:["{Se avrò i soldi, aprirò un ristorante.}", "{Se avrò i soldi, allora poi aprivo un ristorante.}", "{Se ho avuto i soldi, apro un ristorante.}"],e:"{se} + भविष्य, फिर भविष्य।"},
+ {q:"{venire} ({futuro}), {io}:",o:["{verrò}", "{venirò}", "{venerò}"],e:"{venire} → {verrò}."},
+ {q:"«अगले साल»:",o:["{l'anno prossimo}", "{l'anno scorso}", "{un anno fa}"],e:"{prossimo} = अगला।"},
+ {q:"सुनें: रवि का कॉन्ट्रैक्ट कब ख़त्म होगा?",au:"Tra due mesi, il quindici novembre.",o:["15 नवंबर", "5 नवंबर", "15 दिसंबर"],e:"{il quindici novembre}."},
+ {q:"सुनें: जॉय क्या खोलना चाहती है?",au:"Se avrò abbastanza soldi, aprirò un piccolo ristorante a Cebu.",o:["एक रेस्टोरेंट", "एक दुकान", "एक बार"],e:"{un piccolo ristorante}."},
+ {t:"type",q:"पूरा करें: {Domani la nave} ＿ {alle sei.} ({partire}, भविष्य)",a:["partirà"],full:"Domani la nave partirà alle sei."},
+ {t:"ord",q:"क्रम में लगाएँ: «अगर कल बारिश होगी, तो मैं केबिन में रहूँगा।»",a:["Se domani piove, resto in cabina."],w:["Se", "domani", "piove,", "resto", "in", "cabina."]},
+ {t:"dict",au:"Tra due mesi tornerò a casa."},
+ {t:"say",zh:"बताइए: «अगले साल मैं इटली जाऊँगा/जाऊँगी।»",it:"L'anno prossimo andrò in Italia."}
+];
+VOC.l21=[
+ ["fine","अंत","f"],
+ ["tra","… में (बाद); के बीच",""],
+ ["prossimo","अगला",""],
+ ["dopodomani","परसों (आने वाला)",""],
+ ["un giorno","एक दिन, कभी",""],
+ ["sposarsi","शादी करना",""],
+ ["agenzia","एजेंसी","f"],
+ ["offrire","पेश करना, देना",""],
+ ["diventare","बनना",""],
+ ["capo cameriere","हेड वेटर","m"],
+ ["abbastanza","काफ़ी",""],
+ ["soldi","पैसे","m"],
+ ["accettare","स्वीकार करना, मानना",""],
+ ["bisogno","ज़रूरत","m"],
+ ["avere bisogno","ज़रूरत होना",""],
+ ["se","अगर",""],
+ ["futuro","भविष्य","m"],
+ ["piano","योजना; धीरे","m"],
+ ["ci vediamo","फिर मिलेंगे",""],
+ ["Italia","इटली","f"],
+ ["risparmiare","बचत करना",""],
+ ["mandare","भेजना",""]
+];
 
 /* ---- l22 ---- */
-EX.l22=[];
-VOC.l22=[];
+DLG.l22=[["A","Buongiorno, Mark. Cosa succede?","नमस्ते, मार्क। क्या हुआ?"],["B","Mi fa male la schiena. Ieri ho sollevato delle casse pesanti.","मेरी पीठ में दर्द है। कल मैंने कुछ भारी डिब्बे उठाए।"],["A","Da quando ha dolore?","दर्द कब से है?"],["B","Da ieri sera. E stanotte non ho dormito.","कल शाम से। और कल रात मैं सो नहीं पाया।"],["A","Ha anche la febbre?","क्या बुख़ार भी है?"],["B","No, ma mi gira un po' la testa.","नहीं, पर थोड़ा सिर घूम रहा है।"],["A","Vediamo… Non è grave. Dovrebbe riposare due giorni.","देखते हैं… गंभीर नहीं है। आपको दो दिन आराम करना चाहिए।"],["B","Due giorni? Ma il mio capo…","दो दिन? पर मेरे बॉस…"],["A","Parlerò io con il suo capo. Prenda queste compresse due volte al giorno, dopo i pasti.","मैं आपके बॉस से बात करूँगी। ये गोलियाँ दिन में दो बार लीजिए, खाने के बाद।"],["B","Potrebbe scrivere le istruzioni, per favore?","क्या आप निर्देश लिख देंगी, कृपया?"],["A","Certo. E la prossima volta dovrebbe chiedere aiuto a un collega.","ज़रूर। और अगली बार आपको किसी साथी से मदद माँगनी चाहिए।"],["B","Ha ragione. Grazie, dottoressa.","आप सही कह रही हैं। धन्यवाद, डॉक्टर।"]];
+EX.l22=[
+ {q:"«मेरे सिर में दर्द है»:",o:["{Mi fa male la testa.}", "{Mi fanno male la testa.}", "{Io male testa.}"],e:"एक अंग → {fa}।"},
+ {q:"«मेरे पैरों में दर्द है»:",o:["{Mi fanno male i piedi.}", "{Mi fa male i piedi.}", "{Ho male i piedi.}"],e:"कई अंग → {fanno}।"},
+ {q:"सलाह: «तुम्हें आराम करना चाहिए।»",o:["{Dovresti riposare.}", "{Devi riposato.}", "{Dovrai riposa.}"],e:"सलाह → {condizionale}।"},
+ {q:"विनम्र: «क्या आप दोहरा सकते हैं?»",o:["{Potrebbe ripetere?}", "{Può ripetuto?}", "{Potrà ripetere?}"],e:"{potrebbe} = विनम्र।"},
+ {q:"{io} + {essere} ({condizionale}):",o:["{sarei}", "{esserei}", "{sarò}"],e:"{sarò} ({futuro}) → {sarei} ({condizionale})."},
+ {q:"{braccio} का बहुवचन:",o:["{le braccia}", "{i bracci}", "{le braccie}"],e:"अनियमित: {le braccia}।"},
+ {q:"«मुझे बुख़ार है»:",o:["{Ho la febbre.}", "{Sono febbre.}", "{Mi fa febbre.}"],e:"{avere} + {la febbre}।"},
+ {q:"सुनें: गोलियाँ कितनी बार लेनी हैं?",au:"Prenda queste compresse due volte al giorno, dopo i pasti.",o:["दिन में दो बार", "दिन में एक बार", "दिन में तीन बार"],e:"{due volte al giorno}."},
+ {q:"सुनें: मार्क को कहाँ दर्द है?",au:"Mi fa male la schiena.",o:["पीठ में", "पेट में", "सिर में"],e:"{la schiena}."},
+ {t:"type",q:"पूरा करें: {Mi} ＿ {visitare Roma.} ({piacere}, {condizionale})",a:["piacerebbe"],full:"Mi piacerebbe visitare Roma."},
+ {t:"ord",q:"क्रम में लगाएँ: «तुम्हें ज़्यादा पानी पीना चाहिए।»",a:["Dovresti bere più acqua."],w:["Dovresti", "bere", "più", "acqua."]},
+ {t:"dict",au:"Mi fa male la gola e ho la tosse."},
+ {t:"say",zh:"डॉक्टर से कहें: «मेरे पेट में दर्द है।»",it:"Ho mal di stomaco."}
+];
+VOC.l22=[
+ ["salute","सेहत","f"],
+ ["medico","डॉक्टर","m"],
+ ["dottoressa","डॉक्टर (महिला)","f"],
+ ["mi fa male","मुझे दर्द है",""],
+ ["dolore","दर्द","m"],
+ ["schiena","पीठ","f"],
+ ["testa","सिर","f"],
+ ["braccio","बाँह","m"],
+ ["mano","हाथ","f"],
+ ["gamba","टाँग","f"],
+ ["piede","पैर","m"],
+ ["stomaco","पेट","m"],
+ ["gola","गला","f"],
+ ["occhio","आँख","m"],
+ ["dente","दाँत","m"],
+ ["febbre","बुख़ार","f"],
+ ["tosse","खाँसी","f"],
+ ["raffreddore","ज़ुकाम","m"],
+ ["grave","गंभीर",""],
+ ["compressa","गोली (दवा)","f"],
+ ["medicina","दवा","f"],
+ ["pasto","भोजन (एक बार का)","m"],
+ ["volta","बार","f"],
+ ["istruzioni","निर्देश","f"],
+ ["chiedere","पूछना; माँगना",""],
+ ["aiuto","मदद","m"],
+ ["ragione","सही होना (avere ragione)","f"],
+ ["sollevare","उठाना",""],
+ ["cassa","डिब्बा, बक्सा","f"],
+ ["pesante","भारी",""],
+ ["tagliarsi","कट जाना",""],
+ ["cadere","गिरना",""],
+ ["ripetere","दोहराना",""],
+ ["meglio","बेहतर",""]
+];
 
 /* ---- l23 ---- */
-EX.l23=[];
-VOC.l23=[];
+DLG.l23=[["A","Buongiorno, Ravi. Si accomodi. Mi parli un po' di Lei.","नमस्ते, रवि। बैठिए। मुझे अपने बारे में थोड़ा बताइए।"],["B","Mi chiamo Ravi Nair, ho ventinove anni e sono di Kochi, in India.","मेरा नाम रवि नायर है, मैं उनतीस साल का हूँ और भारत के कोच्चि से हूँ।"],["A","Da quanto tempo lavora sulle navi?","आप कितने समय से जहाज़ों पर काम कर रहे हैं?"],["B","Lavoro sulle navi da cinque anni. Prima lavoravo in un albergo a Kochi.","मैं पाँच साल से जहाज़ों पर काम कर रहा हूँ। पहले मैं कोच्चि के एक होटल में काम करता था।"],["A","Perché ha scelto questo lavoro?","आपने यह काम क्यों चुना?"],["B","Perché da piccolo guardavo le navi nel porto e sognavo di viaggiare.","क्योंकि बचपन में मैं बंदरगाह में जहाज़ देखता था और यात्रा करने का सपना देखता था।"],["A","Quali lingue parla?","आप कौन-सी भाषाएँ बोलते हैं?"],["B","Parlo malayalam, hindi e inglese. E studio italiano da un anno.","मैं मलयालम, हिंदी और अंग्रेज़ी बोलता हूँ। और एक साल से इतालवी पढ़ रहा हूँ।"],["A","Lo parla molto bene! Cosa Le piace di più del Suo lavoro?","आप बहुत अच्छी बोलते हैं! आपको अपने काम में सबसे ज़्यादा क्या पसंद है?"],["B","Le persone che incontro ogni giorno. Ogni passeggero ha una storia.","वे लोग जिनसे मैं हर दिन मिलता हूँ। हर यात्री की एक कहानी होती है।"],["A","E tra cinque anni, dove si vede?","और पाँच साल बाद आप ख़ुद को कहाँ देखते हैं?"],["B","Mi piacerebbe diventare maître, e un giorno aprire un ristorante con un'amica.","मैं मैत्र (रेस्टोरेंट प्रबंधक) बनना चाहूँगा, और एक दिन एक दोस्त के साथ रेस्टोरेंट खोलना।"],["A","Ottimo. Le faremo sapere presto.","बहुत बढ़िया। हम आपको जल्दी बताएँगे।"],["B","Grazie mille. È stato un piacere.","बहुत-बहुत धन्यवाद। आपसे मिलकर अच्छा लगा।"]];
+EX.l23=[
+ {q:"«मैं पाँच साल से यहाँ काम कर रहा हूँ।»",o:["{Lavoro qui da cinque anni.}", "{Ho lavorato qui da cinque anni.}", "{Lavoro qui cinque anni fa.}"],e:"अब भी चल रहा है → {da} + वर्तमान।"},
+ {q:"«मैंने तीन साल पहले कोर्स किया।»",o:["{Ho fatto il corso tre anni fa.}", "{Faccio il corso da tre anni.}", "{Ho fatto il corso da tre anni fa.}"],e:"ख़त्म हुआ काम → {fa}।"},
+ {q:"«वे लोग जिनसे मैं मिलता हूँ»:",o:["{le persone che incontro}", "{le persone incontro}", "{le persone chi incontro}"],e:"जोड़ने के लिए {che}।"},
+ {q:"इंटरव्यू में «कितने समय से…?»",o:["{Da quanto tempo…?}", "{Quanto tempo fa…?}", "{Per quanto…?}"],e:"{Da quanto tempo lavora qui?}"},
+ {q:"बचपन की आदत: «मैं जहाज़ देखता था।»",o:["{Guardavo le navi.}", "{Ho guardato le navi.}", "{Guarderò le navi.}"],e:"आदत → {imperfetto}।"},
+ {q:"सपना: «मैं रेस्टोरेंट खोलना चाहूँगा।»",o:["{Mi piacerebbe aprire un ristorante.}", "{Mi è piaciuto aprire un ristorante.}", "{Mi piaceva aprire un ristorante.}"],e:"इच्छा → {condizionale}।"},
+ {q:"«मुश्किल था, लेकिन मैंने बहुत सीखा।» में «लेकिन»:",o:["{però}", "{quindi}", "{prima}"],e:"{però} = लेकिन; {quindi} = इसलिए।"},
+ {q:"सुनें: रवि कितने समय से जहाज़ों पर काम कर रहा है?",au:"Lavoro sulle navi da cinque anni.",o:["5 साल से", "1 साल से", "9 साल से"],e:"{da cinque anni}."},
+ {q:"सुनें: पहले रवि कहाँ काम करता था?",au:"Prima lavoravo in un albergo a Kochi.",o:["एक होटल में", "एक रेस्टोरेंट में", "एक स्कूल में"],e:"{albergo} = होटल।"},
+ {t:"type",q:"पूरा करें: {Studio italiano} ＿ {un anno.} («से»)",a:["da"],full:"Studio italiano da un anno."},
+ {t:"ord",q:"क्रम में लगाएँ: «जो रेस्टोरेंट मैं खोलना चाहती हूँ वह सेबू में होगा।»",a:["Il ristorante che voglio aprire sarà a Cebu."],w:["Il", "ristorante", "che", "voglio", "aprire", "sarà", "a", "Cebu."]},
+ {t:"dict",au:"Ogni passeggero ha una storia."},
+ {t:"say",zh:"अपना परिचय दीजिए: «मैं दो साल से जहाज़ों पर काम कर रहा/रही हूँ।»",it:"Lavoro sulle navi da due anni."}
+];
+VOC.l23=[
+ ["nostro","हमारा",""],
+ ["colloquio","इंटरव्यू","m"],
+ ["accomodarsi","बैठना (विनम्र)",""],
+ ["da quanto tempo","कितने समय से",""],
+ ["da","से; के यहाँ",""],
+ ["albergo","होटल","m"],
+ ["scegliere","चुनना",""],
+ ["lingua","भाषा; जीभ","f"],
+ ["persona","व्यक्ति","f"],
+ ["incontrare","मिलना",""],
+ ["che","जो; कि; क्या",""],
+ ["maître","मैत्र, रेस्टोरेंट प्रबंधक","m"],
+ ["ottimo","बहुत बढ़िया",""],
+ ["far sapere","बताना, सूचित करना",""],
+ ["esperienza","अनुभव","f"],
+ ["punto di forza","ख़ूबी","m"],
+ ["però","लेकिन",""],
+ ["trovare","पाना, ढूँढ लेना",""],
+ ["imparare","सीखना",""],
+ ["difficile","मुश्किल",""],
+ ["facile","आसान",""],
+ ["all'inizio","शुरू में",""],
+ ["vivere","रहना, जीना",""],
+ ["in futuro","भविष्य में",""]
+];
 
 /* ---- r3 ---- */
-EX.r3=[];
-VOC.r3=[];
+EX.r3=[
+ {q:"सुनें: बचपन में जॉय कहाँ रहती थी?",au:"Quando ero piccola, abitavo a Cebu vicino al mare.",o:["सेबू में, समुद्र के पास", "मनीला में", "जेनोवा में"],e:"{a Cebu vicino al mare}."},
+ {q:"सुनें: जॉय कब जहाज़ों पर काम करने निकली?",au:"Sei anni fa sono partita per lavorare sulle navi.",o:["छह साल पहले", "एक साल पहले", "दो साल पहले"],e:"{sei anni fa}."},
+ {q:"सुनें: जॉय रेस्टोरेंट का नाम क्या रखना चाहती है?",au:"Mi piacerebbe chiamarlo «Da Nonna».",o:["{Da Nonna}", "{Da Joy}", "{Cebu}"],e:"«{Da Nonna}»."},
+ {q:"«कल मैं (महिला) शहर गई।»",o:["{Ieri sono andata in città.}", "{Ieri ho andato in città.}", "{Ieri andavo in città.}"],e:"{essere} + {andata}।"},
+ {q:"«जब मैं छोटा था, मैं हर दिन तैरता था।»",o:["{Quando ero piccolo, nuotavo ogni giorno.}", "{Quando sono stato piccolo, ho nuotato ogni giorno.}", "{Quando ero piccolo, ho nuotato ogni giorno.}"],e:"आदत → {imperfetto}।"},
+ {q:"«मैं पढ़ रहा था जब जॉय आई।»",o:["{Leggevo quando è arrivata Joy.}", "{Ho letto quando arrivava Joy.}", "{Leggevo quando arrivava Joy.}"],e:"पृष्ठभूमि + घटना।"},
+ {q:"{A mia sorella?} — «मैं उसे फ़ोन करता हूँ।»",o:["{Le telefono.}", "{Gli telefono.}", "{La telefono.}"],e:"«उसे (महिला)» → {le}।"},
+ {q:"{Il biglietto?} — «मैंने उसे पहले ही ले लिया।»",o:["{L'ho già preso.}", "{Gli ho già preso.}", "{L'ho già presa.}"],e:"{lo} + {ho} = {l'ho}; पुल्लिंग: {preso}।"},
+ {q:"«जहाज़ पर शहर से सस्ता है।»",o:["{A bordo costa meno che in città.}", "{A bordo costa meno di in città.}", "{A bordo costa più poco in città.}"],e:"दो जगहें → {che}।"},
+ {q:"«अगर कल बारिश होगी, तो हम केबिन में रहेंगे।»",o:["{Se domani pioverà, resteremo in cabina.}", "{Se domani pioveva, restiamo in cabina.}", "{Se domani ha piovuto, resteremo in cabina.}"],e:"{se} + भविष्य, फिर भविष्य।"},
+ {q:"विनम्र: «क्या आप धीरे बोल सकते हैं?»",o:["{Potrebbe parlare piano?}", "{Puoi parlare piano?}", "{Potrà parlare piano?}"],e:"{Lei} + {condizionale}।"},
+ {q:"«मैं एक साल से इतालवी पढ़ रहा हूँ।»",o:["{Studio italiano da un anno.}", "{Ho studiato italiano da un anno.}", "{Studio italiano un anno fa.}"],e:"{da} + वर्तमान।"},
+ {q:"«मेरे पैरों में दर्द है।»",o:["{Mi fanno male i piedi.}", "{Mi fa male i piedi.}", "{Ho male ai piedi i.}"],e:"कई अंग → {fanno}।"},
+ {t:"type",q:"पूरा करें: {Ieri} ＿ {la Sagrada Família.} ({vedere}, «मैंने»)",a:["ho visto"],full:"Ieri ho visto la Sagrada Família."},
+ {t:"type",q:"पूरा करें: {L'anno prossimo} ＿ {in Italia.} ({andare}, «मैं»)",a:["andrò"],full:"L'anno prossimo andrò in Italia."},
+ {t:"ord",q:"क्रम में लगाएँ: «शुरू में मुश्किल था, लेकिन मैंने बहुत कुछ सीखा।»",a:["All'inizio era difficile, però ho imparato molto."],w:["All'inizio", "era", "difficile,", "però", "ho", "imparato", "molto."]},
+ {t:"dict",au:"Sei anni fa sono partita per lavorare sulle navi."},
+ {t:"say",zh:"बताइए: «जब मैं छोटा/छोटी था/थी, मैं समुद्र के पास रहता/रहती था/थी।»",it:"Quando ero piccolo, abitavo vicino al mare."}
+];
+VOC.r3=[
+
+];
 
 /* ---- frasi ---- */
 var FRASI=[];
