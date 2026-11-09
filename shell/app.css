@@ -8,7 +8,7 @@
   --deco1:#ffc532; --deco2:#ff9fb6; --deco-o:.33;
   --r:28px; --r-sm:20px; --r-xs:14px;
   --shadow:0 1px 0 rgba(26,23,32,.04),0 16px 30px -22px rgba(26,23,32,.45);
-  --f-disp:"Bricolage Grotesque","Noto Sans SC","Noto Sans JP",system-ui,sans-serif;
+  --f-disp:"Bricolage Grotesque","Noto Sans Devanagari","Noto Sans SC","Noto Sans JP",system-ui,sans-serif;
   --f-body:"Noto Sans JP","Noto Sans SC","Hiragino Sans","PingFang SC",system-ui,-apple-system,sans-serif;
   --gut:20px; --tap:48px;
   color-scheme:light;
@@ -36,6 +36,7 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;
   -webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh;overflow-x:hidden}
+:lang(hi) body,html[lang="hi"] body{--f-body:"Noto Sans Devanagari","Nirmala UI","Kohinoor Devanagari",system-ui,sans-serif;line-height:1.6}
 :lang(zh) body,html[lang="zh-CN"] body{--f-body:"Noto Sans SC","PingFang SC","Hiragino Sans GB",system-ui,sans-serif}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:12px}
@@ -200,3 +201,5 @@ h2.sec{font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-
 .acct{margin-top:14px;padding:18px;border-radius:var(--r-sm);background:var(--card);box-shadow:var(--shadow)}
 #cont{margin-top:16px}
 a.chip{text-decoration:none;color:inherit}
+/* Devanagari joins its letters: letter-spacing breaks the conjuncts */
+html[lang="hi"] *,:lang(hi){letter-spacing:0!important}

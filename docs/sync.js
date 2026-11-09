@@ -118,13 +118,27 @@ var STR={it:{ttl:"Account",lead:"Con un account i progressi restano al sicuro e 
   eEmail:"Revisa la dirección de email.",eCode:"Código no válido o caducado: inténtalo de nuevo o pide uno nuevo.",eNet:"Sin conexión: inténtalo cuando estés en línea.",
   eMany:"Demasiadas solicitudes: espera unos minutos y vuelve a intentarlo.",eSync:"No se ha podido guardar: lo intento más tarde.",
   priv:"Solo guardamos tu email y tu progreso, en servidores en Europa. Sin publicidad, sin seguimiento.",have:"¿Ya tienes cuenta? Entra"},
+ hi:{ttl:"खाता",lead:"खाते के साथ आपकी प्रगति सुरक्षित रहती है और आपको हर डिवाइस पर मिलती है।",email:"आपका ईमेल",send:"कोड पाएँ",sending:"भेजा जा रहा है…",
+  sent:function(e){return "हमने "+e+" पर लिखा है: 6 अंकों का कोड डालें।"},code:"6 अंकों का कोड",enter:"प्रवेश करें",entering:"जाँच हो रही है…",change:"ईमेल बदलें",
+  as:"इस खाते से जुड़े हैं:",saved:function(t){return "प्रगति सहेजी गई: "+t+"।"},never:"प्रगति अभी सहेजी नहीं गई।",busy:"सहेजा जा रहा है…",
+  now:"अभी सहेजें",out:"बाहर निकलें",del:"खाता हटाएँ",delQ:"खाता और ऑनलाइन सहेजी गई प्रगति हटा दें? इस डिवाइस पर प्रगति बनी रहेगी।",
+  eEmail:"ईमेल पता जाँचें।",eCode:"कोड ग़लत है या उसकी अवधि ख़त्म हो गई है: फिर से कोशिश करें या नया कोड माँगें।",eNet:"इंटरनेट नहीं है: ऑनलाइन होने पर फिर से कोशिश करें।",
+  eMany:"बहुत ज़्यादा अनुरोध: कुछ मिनट रुककर फिर से कोशिश करें।",eSync:"सहेजा नहीं जा सका: बाद में फिर से कोशिश होगी।",
+  priv:"हम सिर्फ़ आपका ईमेल और आपकी प्रगति सहेजते हैं, यूरोप के सर्वरों पर। कोई विज्ञापन नहीं, कोई ट्रैकिंग नहीं।",have:"पहले से खाता है? प्रवेश करें"},
+ tl:{ttl:"Account",lead:"Sa isang account, ligtas ang progreso mo at makikita mo ito sa bawat device.",email:"Ang email mo",send:"Kunin ang code",sending:"Ipinapadala…",
+  sent:function(e){return "Sumulat kami sa "+e+": ilagay ang 6 na digit na code."},code:"6 na digit na code",enter:"Pumasok",entering:"Sinusuri…",change:"Palitan ang email",
+  as:"Naka-log in bilang",saved:function(t){return "Na-save ang progreso "+t+"."},never:"Hindi pa na-save ang progreso.",busy:"Sine-save…",
+  now:"I-save ngayon",out:"Mag-log out",del:"Burahin ang account",delQ:"Burahin ang account at ang progresong naka-save online? Mananatili ito sa device na ito.",
+  eEmail:"Suriin ang email address.",eCode:"Mali o expired na ang code: subukan muli o humingi ng bago.",eNet:"Walang koneksyon: subukan muli kapag online ka na.",
+  eMany:"Masyadong maraming kahilingan: maghintay ng ilang minuto at subukan muli.",eSync:"Hindi na-save: susubukan muli mamaya.",
+  priv:"Ang email at progreso mo lang ang sine-save namin, sa mga server sa Europa. Walang patalastas, walang tracking.",have:"May account ka na? Pumasok"},
  zh:{ttl:"账户",lead:"有了账户，学习进度会安全保存，在每台设备上都能继续。",email:"你的邮箱",send:"获取验证码",sending:"发送中…",
   sent:function(e){return "我们已发邮件到 "+e+"，请输入 6 位验证码。"},code:"6 位验证码",enter:"登录",entering:"验证中…",change:"更换邮箱",
   as:"已登录：",saved:function(t){return "进度已保存（"+t+"）。"},never:"进度还没有保存。",busy:"正在保存…",
   now:"立即保存",out:"退出",del:"删除账户",delQ:"删除账户和在线保存的进度吗？这台设备上的进度会保留。",
   eEmail:"请检查邮箱地址。",eCode:"验证码无效或已过期，请重试或重新获取。",eNet:"没有网络，请联网后再试。",eMany:"请求太多，请过几分钟再试。",eSync:"暂时无法保存，稍后会再试。",
   priv:"我们只保存你的邮箱和学习进度，服务器在欧洲。没有广告，没有追踪。",have:"已有账户？登录"}};
-function ago(t,lang){var s=Math.round((t-now())/1000),f;try{f=new Intl.RelativeTimeFormat({zh:"zh-CN",es:"es"}[lang]||"it",{numeric:"auto"})}catch(e){f=null}
+function ago(t,lang){var s=Math.round((t-now())/1000),f;try{f=new Intl.RelativeTimeFormat({zh:"zh-CN",es:"es",hi:"hi",tl:"fil"}[lang]||"it",{numeric:"auto"})}catch(e){f=null}
   var a=Math.abs(s);if(!f)return new Date(t).toLocaleString();if(a<45)return f.format(0,"second");if(a<3600)return f.format(Math.round(s/60),"minute");if(a<86400)return f.format(Math.round(s/3600),"hour");return f.format(Math.round(s/86400),"day")}
 function errText(e,S){if(!e)return "";if(!navigator.onLine||e.name==="TypeError")return S.eNet;if(e.status===429)return S.eMany;
   if(/otp|token|expired|invalid/i.test(e.code||e.message||"")&&e.status!==422)return S.eCode;if(e.status===422||/email/i.test(e.message))return S.eEmail;return e.message}

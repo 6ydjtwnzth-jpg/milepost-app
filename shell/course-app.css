@@ -491,3 +491,5 @@ html.mp .tip{z-index:900}
 .wd .wdx-s{font-size:14.5px;line-height:1.55;flex:1 1 100%}
 .wd .wdx-t{font-size:12.5px;color:var(--muted);line-height:1.35;flex:1 1 0}
 .wd .wdx .say{position:static;grid-row:auto}
+/* Devanagari joins its letters: letter-spacing breaks the conjuncts */
+html[lang="hi"] *,:lang(hi){letter-spacing:0!important}
