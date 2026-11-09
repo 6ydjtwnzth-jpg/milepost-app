@@ -23,7 +23,7 @@ VOC.l19=[
  ["the best","pinakamahusay",""],
  ["the worst","pinakamasama",""],
  ["the most","pinaka-",""],
- ["as … as","kasing-",""],
+ ["as good as","kasing-galing",""],
  ["easy","madali",""],
  ["hard","mahirap",""],
  ["comfortable","komportable",""],

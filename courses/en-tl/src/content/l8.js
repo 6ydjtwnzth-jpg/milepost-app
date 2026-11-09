@@ -15,9 +15,9 @@ EX.l8=[
 ];
 VOC.l8=[
  ["I'd like","gusto ko sana",""],
- ["can I have…?","puwede ba akong humingi ng…?",""],
+ ["can I have","puwede ba akong humingi ng…?",""],
  ["could","puwede (magalang)",""],
- ["would you like…?","gusto po ba ninyo ng…?",""],
+ ["would you like","gusto po ba ninyo ng…?",""],
  ["what can I get you?","ano po ang gusto ninyo?",""],
  ["how much","magkano",""],
  ["anything else?","may iba pa ba?",""],

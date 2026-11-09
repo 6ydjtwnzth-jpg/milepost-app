@@ -47,5 +47,5 @@ VOC.l5=[
  ["with","kasama",""],
  ["not yet","hindi pa",""],
  ["December","Disyembre",""],
- ["what about…?","paano naman ang…?",""]
+ ["what about","paano naman ang…?",""]
 ];
