@@ -89,7 +89,7 @@
         "Alle 7:15."
        ],
        "a": 0,
-       "e": "{le sette e mezza} = 7:30; {ponte cinque} डेक है।"
+       "e": "«le sette e mezza» = 7:30; «ponte cinque» डेक है।"
       },
       {
        "script": [
@@ -109,7 +109,7 @@
         "In mensa."
        ],
        "a": 1,
-       "e": "पहले {lavanderia}, फिर {palestra}।"
+       "e": "पहले «lavanderia», फिर «palestra»।"
       },
       {
        "script": [
@@ -129,7 +129,7 @@
         "6,50 €."
        ],
        "a": 2,
-       "e": "{sei euro e cinquanta} = 6,50 €।"
+       "e": "«sei euro e cinquanta» = 6,50 €।"
       },
       {
        "script": [
@@ -153,7 +153,7 @@
         "Al ponte otto."
        ],
        "a": 0,
-       "e": "{al ponte quattro, vicino al teatro}।"
+       "e": "«al ponte quattro, vicino al teatro»।"
       },
       {
        "script": [
@@ -173,13 +173,13 @@
         "Era in porto."
        ],
        "a": 1,
-       "e": "{avevo mal di testa} = सिर में दर्द था।"
+       "e": "«avevo mal di testa» = सिर में दर्द था।"
       },
       {
        "script": [
         [
          "M",
-         "Quando finisce il tuo contratto?"
+         "Quando termina il tuo contratto?"
         ],
         [
          "F",
@@ -193,7 +193,7 @@
         "Tornerà a casa."
        ],
        "a": 2,
-       "e": "{torno a Cebu} = घर लौटेगी।"
+       "e": "«torno a Cebu» = घर लौटेगी।"
       }
      ]
     },
@@ -219,7 +219,7 @@
         "Scendere dalla nave."
        ],
        "a": 1,
-       "e": "{esercitazione di sicurezza} = सुरक्षा ड्रिल।"
+       "e": "«esercitazione di sicurezza» = सुरक्षा ड्रिल।"
       },
       {
        "script": [
@@ -235,7 +235,7 @@
         "Non gli piace il film."
        ],
        "a": 0,
-       "e": "{devo lavorare in cucina} = रसोई में काम करना है।"
+       "e": "«devo lavorare in cucina» = रसोई में काम करना है।"
       },
       {
        "script": [
@@ -251,7 +251,7 @@
         "Alle 17:30."
        ],
        "a": 2,
-       "e": "{entro le diciassette e trenta} = 17:30 तक।"
+       "e": "«entro le diciassette e trenta» = 17:30 तक।"
       },
       {
        "script": [
@@ -267,7 +267,7 @@
         "dalle 12 alle 16."
        ],
        "a": 0,
-       "e": "{dalle sedici alle diciotto} = 16 से 18 बजे।"
+       "e": "«dalle sedici alle diciotto» = 16 से 18 बजे।"
       }
      ]
     }
@@ -297,7 +297,7 @@
         "Da ventinove anni."
        ],
        "a": 1,
-       "e": "{lavoro sulle navi da cinque anni}।"
+       "e": "«lavoro sulle navi da cinque anni»।"
       },
       {
        "q": "Che cosa fa Ravi sulla nave?",
@@ -307,7 +307,7 @@
         "Pulisce le cabine."
        ],
        "a": 2,
-       "e": "{cameriere di cabina}: {pulisco venti cabine}।"
+       "e": "«cameriere di cabina»: «pulisco venti cabine»।"
       },
       {
        "q": "A che ora comincia a lavorare?",
@@ -317,7 +317,7 @@
         "Alle venti."
        ],
        "a": 0,
-       "e": "{comincio a lavorare alle sei}।"
+       "e": "«comincio a lavorare alle sei»।"
       },
       {
        "q": "Che cosa gli piace del suo lavoro?",
@@ -327,7 +327,7 @@
         "Pulire i letti."
        ],
        "a": 1,
-       "e": "{mi piace parlare con le persone}।"
+       "e": "«mi piace parlare con le persone»।"
       },
       {
        "q": "Come studia l'italiano?",
@@ -337,7 +337,7 @@
         "Con un'app."
        ],
        "a": 2,
-       "e": "{studio l'italiano con un'app}।"
+       "e": "«studio l'italiano con un'app»।"
       },
       {
        "q": "Perché a novembre tornerà a casa?",
@@ -347,7 +347,7 @@
         "Perché la madre è malata."
        ],
        "a": 0,
-       "e": "{per il matrimonio di mia sorella}।"
+       "e": "«per il matrimonio di mia sorella»।"
       }
      ]
     },
@@ -368,7 +368,7 @@
         "la cena comincia alle 21."
        ],
        "a": 1,
-       "e": "{cena internazionale} = ख़ास अंतरराष्ट्रीय खाना।"
+       "e": "«cena internazionale» = ख़ास अंतरराष्ट्रीय खाना।"
       },
       {
        "text": "AVVISO — Da lunedì la palestra dell'equipaggio è chiusa per lavori. Potete usare la palestra dei passeggeri dalle 22:00 alle 6:00.",
@@ -379,7 +379,7 @@
         "la piscina dei passeggeri."
        ],
        "a": 0,
-       "e": "{dalle 22:00 alle 6:00} = रात में।"
+       "e": "«dalle 22:00 alle 6:00» = रात में।"
       },
       {
        "text": "VIETATO FUMARE nelle cabine e nei corridoi. Si può fumare solo nella zona fumatori al ponte 9.",
@@ -390,7 +390,7 @@
         "Al ponte 9."
        ],
        "a": 2,
-       "e": "{solo nella zona fumatori al ponte 9}।"
+       "e": "«solo nella zona fumatori al ponte 9»।"
       },
       {
        "text": "Cerco collega per scambio turno sabato 12: io lavoro la mattina, tu il pomeriggio? Scrivetemi! — Joy, cabina 2047",
@@ -401,7 +401,7 @@
         "Cambiare cabina."
        ],
        "a": 1,
-       "e": "{scambio turno} = शिफ़्ट बदलना।"
+       "e": "«scambio turno» = शिफ़्ट बदलना।"
       },
       {
        "text": "ESCURSIONE A POMPEI — Partenza dal porto alle 9:00, ritorno alle 15:00. Prezzo: 59 €. Bambini sotto i 12 anni: gratis.",
@@ -412,7 +412,7 @@
         "12 €."
        ],
        "a": 0,
-       "e": "{gratis} = मुफ़्त।"
+       "e": "«gratis» = मुफ़्त।"
       }
      ]
     }
@@ -442,7 +442,7 @@
         "da"
        ],
        "a": 2,
-       "e": "जो अब भी चल रहा है: {da} (… से)।"
+       "e": "जो अब भी चल रहा है: «da» (… से)।"
       },
       {
        "q": "(2)",
@@ -452,7 +452,7 @@
         "è"
        ],
        "a": 0,
-       "e": "{andare} → {essere}: {sono andata}।"
+       "e": "«andare» → «essere»: «sono andata»।"
       },
       {
        "q": "(3)",
@@ -462,7 +462,7 @@
         "uno"
        ],
        "a": 1,
-       "e": "{chiesa} स्त्रीलिंग: {una}।"
+       "e": "«chiesa» स्त्रीलिंग: «una»।"
       },
       {
        "q": "(4)",
@@ -472,7 +472,7 @@
         "molto"
        ],
        "a": 2,
-       "e": "{fa molto caldo}: {molto} नहीं बदलता।"
+       "e": "«fa molto caldo»: «molto» नहीं बदलता।"
       },
       {
        "q": "(5)",
@@ -482,7 +482,7 @@
         "cominci"
        ],
        "a": 0,
-       "e": "«मैं»: {comincio}।"
+       "e": "«मैं»: «comincio»।"
       },
       {
        "q": "(6)",
@@ -492,7 +492,7 @@
         "Vi"
        ],
        "a": 1,
-       "e": "{Ci sentiamo} = फिर बात करेंगे।"
+       "e": "«Ci sentiamo» = फिर बात करेंगे।"
       }
      ]
     },
@@ -512,7 +512,7 @@
         "di"
        ],
        "a": 0,
-       "e": "शहर के साथ {a}।"
+       "e": "शहर के साथ «a»।"
       },
       {
        "q": "Signora, ＿＿ posso aiutare?",
@@ -522,7 +522,7 @@
         "gli"
        ],
        "a": 1,
-       "e": "यात्री से {Lei}: {La posso aiutare}।"
+       "e": "यात्री से «Lei»: «La posso aiutare»।"
       },
       {
        "q": "Quando ero piccolo, ＿＿ sempre in spiaggia.",
@@ -532,7 +532,7 @@
         "giocavo"
        ],
        "a": 2,
-       "e": "आदत: {imperfetto}।"
+       "e": "आदत: «imperfetto»।"
       },
       {
        "q": "Mi ＿＿ molto i film italiani.",
@@ -542,7 +542,7 @@
         "piaccio"
        ],
        "a": 0,
-       "e": "बहुवचन: {piacciono}।"
+       "e": "बहुवचन: «piacciono»।"
       },
       {
        "q": "Il passaporto? ＿＿ ho lasciato in cabina.",
@@ -552,7 +552,7 @@
         "Gli"
        ],
        "a": 1,
-       "e": "{lo} + {ho} = {l'ho}।"
+       "e": "«lo» + «ho» = «l'ho»।"
       },
       {
        "q": "Se domani fa bel tempo, ＿＿ a Pompei.",
@@ -562,7 +562,7 @@
         "andremo"
        ],
        "a": 2,
-       "e": "{se} + … → भविष्य: {andremo}।"
+       "e": "«se» + … → भविष्य: «andremo»।"
       }
      ]
     }

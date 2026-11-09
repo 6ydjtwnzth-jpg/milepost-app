@@ -1,0 +1,1298 @@
+{
+ "id": "marlins-1",
+ "exam": "marlins",
+ "title": "Test 1",
+ "it": "Marlins टेस्ट के प्रारूप में अभ्यास, जहाज़ की स्थितियों के साथ: सुनना, समय और संख्याएँ, उच्चारण, व्याकरण, शब्द और पढ़ना (85 सवाल)।",
+ "scheme": {
+  "name": "Marlins English Test",
+  "total": 85,
+  "pass": 51,
+  "lang": "en",
+  "plays": 2,
+  "opts": "ABC",
+  "part": "Part ",
+  "groups": [
+   {
+    "id": "listen",
+    "label": "Listening",
+    "max": 39
+   },
+   {
+    "id": "lang",
+    "label": "Language",
+    "max": 46
+   }
+  ],
+  "skills": {
+   "listening": [
+    "सुनना",
+    "Listening"
+   ],
+   "grammar": [
+    "व्याकरण और शब्द",
+    "Grammar and vocabulary"
+   ],
+   "reading": [
+    "पढ़ना",
+    "Reading"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "F: ",
+   "M": "M: "
+  },
+  "passText": "85 सवाल, Marlins Test for Seafarers जैसे हिस्सों के साथ: सुनना (25), समय और संख्याएँ (5), उच्चारण (9), व्याकरण (30), शब्द (15), पढ़ना (1)। Marlins में कोई आधिकारिक पास अंक नहीं है: नतीजा प्रतिशत में आता है और न्यूनतम अंक कंपनी या एजेंसी तय करती है (कई कंपनियाँ रेटिंग्स से लगभग 60-70% माँगती हैं, अफ़सरों से ज़्यादा)। यहाँ अनुमानित सीमा 60% (85 में से 51) है।",
+  "notOfficial": "यह Marlins टेस्ट के प्रारूप में अभ्यास है, आधिकारिक टेस्ट नहीं: अंक सिर्फ़ अनुमान हैं। असली टेस्ट Marlins के अधिकृत केंद्र या आपकी कंपनी के ज़रिए होता है; बोलने की परीक्षा (Test of Spoken English) अलग होती है।",
+  "note": "असली टेस्ट की तरह, सवाल अंग्रेज़ी में हैं और समय की कोई सीमा नहीं (लगभग 60 मिनट सुझाए जाते हैं)। ज़रूरत हो तो निर्देश हिंदी में देखने के लिए «अनुवाद» दबाएँ।"
+ },
+ "sections": [
+  {
+   "id": "listen",
+   "jp": "Listening",
+   "it": "सुनना",
+   "min": 25,
+   "score": "listen",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Part 1",
+     "skill": "listening",
+     "kind": "short conversations",
+     "inst": "Listen to the conversations on board and choose the correct answer.",
+     "itInst": "जहाज़ पर बातचीत सुनिए और सही जवाब चुनिए।",
+     "items": [
+      {
+       "script": [
+        [
+         "M",
+         "Bosun, where do you want these ropes?"
+        ],
+        [
+         "F",
+         "Put them in the forward store, next to the paint."
+        ]
+       ],
+       "q": "Where must he put the ropes?",
+       "o": [
+        "In the forward store.",
+        "Next to the galley.",
+        "On the bridge."
+       ],
+       "a": 0,
+       "e": "«in the forward store» = आगे वाले स्टोर में।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Are you on duty tonight?"
+        ],
+        [
+         "M",
+         "No, I'm off tonight. I'm on the morning watch, from four to eight."
+        ]
+       ],
+       "q": "When is his watch?",
+       "o": [
+        "He has no watch.",
+        "From 4 to 8 in the morning.",
+        "From 8 to 12 tonight."
+       ],
+       "a": 1,
+       "e": "«the morning watch, from four to eight» = सुबह 4 से 8 की वॉच।"
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Excuse me, where is muster station B?"
+        ],
+        [
+         "F",
+         "On deck five, near the starboard lifeboats."
+        ]
+       ],
+       "q": "Where is muster station B?",
+       "o": [
+        "On deck 5, port side.",
+        "On deck 9.",
+        "On deck 5, starboard side."
+       ],
+       "a": 2,
+       "e": "«near the starboard lifeboats» = स्टारबोर्ड (दाईं) तरफ़।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "What's wrong, Ravi?"
+        ],
+        [
+         "M",
+         "I cut my hand in the galley. It's bleeding a lot."
+        ]
+       ],
+       "q": "What's the problem?",
+       "o": [
+        "He cut his hand.",
+        "He burned his hand.",
+        "He feels sick."
+       ],
+       "a": 0,
+       "e": "«I cut my hand» = मेरा हाथ कट गया।"
+      },
+      {
+       "script": [
+        [
+         "M",
+         "How long is your contract?"
+        ],
+        [
+         "F",
+         "Nine months. I started in March, so I finish in December."
+        ]
+       ],
+       "q": "When does her contract finish?",
+       "o": [
+        "In September.",
+        "In December.",
+        "In March."
+       ],
+       "a": 1,
+       "e": "मार्च से नौ महीने: «I finish in December»।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Can I go ashore this afternoon?"
+        ],
+        [
+         "M",
+         "Yes, but you must be back on board by six. We sail at seven."
+        ]
+       ],
+       "q": "What time must she be back on board?",
+       "o": [
+        "At 7.",
+        "At 5.",
+        "At 6."
+       ],
+       "a": 2,
+       "e": "«back on board by six»; जहाज़ सात बजे चलेगा।"
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Chief, the starboard engine is making a strange noise."
+        ],
+        [
+         "F",
+         "OK, stop it and check the oil level."
+        ]
+       ],
+       "q": "What must he check?",
+       "o": [
+        "The oil level.",
+        "The water level.",
+        "The fuel tank."
+       ],
+       "a": 0,
+       "e": "«check the oil level» = तेल का स्तर जाँचना।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Did you clean the cabins on deck seven?"
+        ],
+        [
+         "M",
+         "Not yet. I've finished deck six. I'm going to deck seven now."
+        ]
+       ],
+       "q": "Which deck has he finished?",
+       "o": [
+        "Decks 6 and 7.",
+        "Deck 6.",
+        "Deck 7."
+       ],
+       "a": 1,
+       "e": "«I've finished deck six» — डेक 7 अभी नहीं।"
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Would you like tea or coffee?"
+        ],
+        [
+         "F",
+         "Coffee, please. No sugar, but a little milk."
+        ]
+       ],
+       "q": "How does she want her coffee?",
+       "o": [
+        "With sugar and no milk.",
+        "Black, with sugar.",
+        "With milk and no sugar."
+       ],
+       "a": 2,
+       "e": "«No sugar, but a little milk» = चीनी नहीं, थोड़ा दूध।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "The passenger in cabin three-twelve has lost her key card."
+        ],
+        [
+         "M",
+         "OK, tell her to go to reception. They'll give her a new one."
+        ]
+       ],
+       "q": "Where must the passenger go?",
+       "o": [
+        "To reception.",
+        "To her cabin.",
+        "To the restaurant."
+       ],
+       "a": 0,
+       "e": "«tell her to go to reception» = उसे रिसेप्शन जाने को कहो।"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Part 2",
+     "skill": "listening",
+     "kind": "announcements",
+     "inst": "Listen to the announcements and choose the correct answer.",
+     "itInst": "घोषणाएँ सुनिए और सही जवाब चुनिए।",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "Attention all crew. There will be a fire drill at fifteen hundred today. All crew must go to their muster stations with their lifejackets."
+        ]
+       ],
+       "q": "What will happen at 15:00?",
+       "o": [
+        "A crew meeting.",
+        "A fire drill.",
+        "A lifeboat inspection."
+       ],
+       "a": 1,
+       "e": "«a fire drill at fifteen hundred» = 15:00 बजे फ़ायर ड्रिल।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "This is the captain speaking. We expect to arrive in Singapore at zero six hundred tomorrow. Shore leave will start at ten."
+        ]
+       ],
+       "q": "When does shore leave start?",
+       "o": [
+        "At 06:00.",
+        "At 12:00.",
+        "At 10:00."
+       ],
+       "a": 2,
+       "e": "जहाज़ 06:00 पहुँचेगा, पर «shore leave will start at ten»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Galley announcement: lunch today will be served thirty minutes late, at twelve thirty, because of the cargo operations."
+        ]
+       ],
+       "q": "Why is lunch late today?",
+       "o": [
+        "Because of the cargo operations.",
+        "Because the cook is ill.",
+        "Because of the bad weather."
+       ],
+       "a": 0,
+       "e": "«because of the cargo operations» = माल चढ़ाने-उतारने के काम की वजह से।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Attention please. The weather is getting worse. All loose equipment on deck must be secured before eighteen hundred."
+        ]
+       ],
+       "q": "What must the crew do before 18:00?",
+       "o": [
+        "Close the galley.",
+        "Secure the equipment on deck.",
+        "Go to the lifeboats."
+       ],
+       "a": 1,
+       "e": "«loose equipment… must be secured» = ढीला सामान बाँधना है।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Crew notice: the laundry on deck two is closed today for repairs. Please use the laundry on deck four."
+        ]
+       ],
+       "q": "Which laundry can the crew use today?",
+       "o": [
+        "The one on deck 2.",
+        "None of them.",
+        "The one on deck 4."
+       ],
+       "a": 2,
+       "e": "डेक 2 वाली बंद है: «use the laundry on deck four»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Safety reminder: when you work aloft or over the side, you must wear a safety harness and tell the officer of the watch."
+        ]
+       ],
+       "q": "What must you do before you work aloft?",
+       "o": [
+        "Tell the officer of the watch.",
+        "Ask the cook.",
+        "Take off your helmet."
+       ],
+       "a": 0,
+       "e": "«wear a safety harness and tell the officer of the watch»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Medical notice: the ship's doctor is available in the hospital every day from nine to eleven in the morning."
+        ]
+       ],
+       "q": "When is the doctor available?",
+       "o": [
+        "All day.",
+        "From 9 to 11 in the morning.",
+        "From 9 to 11 in the evening."
+       ],
+       "a": 1,
+       "e": "«from nine to eleven in the morning» = सुबह 9 से 11।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Attention all passengers. For your safety, please do not smoke on your balcony. Smoking is permitted only in the smoking area on deck eleven."
+        ]
+       ],
+       "q": "Where can passengers smoke?",
+       "o": [
+        "On their balconies.",
+        "In their cabins.",
+        "On deck 11."
+       ],
+       "a": 2,
+       "e": "«only in the smoking area on deck eleven» = सिर्फ़ डेक 11 पर।"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Part 3",
+     "skill": "listening",
+     "kind": "radio and phone messages",
+     "inst": "Listen to the radio and phone messages and choose the correct answer.",
+     "itInst": "रेडियो और फ़ोन संदेश सुनिए और सही जवाब चुनिए।",
+     "items": [
+      {
+       "script": [
+        [
+         "M",
+         "Bridge, this is the engine room. We have a small leak in the cooling water pipe. We need two hours to repair it."
+        ]
+       ],
+       "q": "How long does the repair need?",
+       "o": [
+        "Two hours.",
+        "Two minutes.",
+        "Twenty minutes."
+       ],
+       "a": 0,
+       "e": "«We need two hours to repair it» = ठीक करने में दो घंटे।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Hello Ramesh, it's Anna from the agency. Your flight to Rotterdam is on Friday at nine fifty in the morning. Please be at the airport two hours before."
+        ]
+       ],
+       "q": "When is the flight?",
+       "o": [
+        "On Sunday at 9:50.",
+        "On Friday at 9:50.",
+        "On Friday at 9:15."
+       ],
+       "a": 1,
+       "e": "«on Friday at nine fifty» = शुक्रवार 9:50।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Ocean Star, this is Port Control. Your pilot will board at the pilot station at fourteen hundred. Keep a speed of six knots."
+        ]
+       ],
+       "q": "What speed must the ship keep?",
+       "o": [
+        "16 knots.",
+        "60 knots.",
+        "6 knots."
+       ],
+       "a": 2,
+       "e": "«a speed of six knots» = छह नॉट की रफ़्तार।"
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Joy, this is the chief steward. Please take clean towels to cabins two-oh-five and two-oh-seven, and then come to the office."
+        ]
+       ],
+       "q": "What must Joy do first?",
+       "o": [
+        "Take towels to two cabins.",
+        "Go to the office.",
+        "Clean cabin 205."
+       ],
+       "a": 0,
+       "e": "पहले तौलिये, «and then come to the office»।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Hi Mark, it's Liza. I can't come to the gym tonight. I'm on watch from eight to twelve. Let's go tomorrow after lunch."
+        ]
+       ],
+       "q": "Why can't Liza go to the gym tonight?",
+       "o": [
+        "She is in port.",
+        "She is on watch.",
+        "She is ill."
+       ],
+       "a": 1,
+       "e": "«I'm on watch from eight to twelve» = 8 से 12 मेरी वॉच है।"
+      },
+      {
+       "script": [
+        [
+         "M",
+         "All stations, this is the chief officer. Loading will stop at midnight. We will continue at six in the morning."
+        ]
+       ],
+       "q": "When will loading continue?",
+       "o": [
+        "At midnight.",
+        "At 6 in the evening.",
+        "At 6 in the morning."
+       ],
+       "a": 2,
+       "e": "आधी रात को रुकेगा, «continue at six in the morning»।"
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Pedro, the captain wants to see you in his office after your watch. Bring your passport and your seaman's book."
+        ]
+       ],
+       "q": "What must Pedro bring?",
+       "o": [
+        "His passport and seaman's book.",
+        "His contract.",
+        "His helmet and gloves."
+       ],
+       "a": 0,
+       "e": "«Bring your passport and your seaman's book»।"
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Part 4",
+     "skill": "listening",
+     "kind": "time and numbers",
+     "inst": "Listen and choose the time or number you hear.",
+     "itInst": "सुनिए और जो समय या संख्या सुनाई दे, वह चुनिए।",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "The ship will arrive at fourteen thirty."
+        ]
+       ],
+       "q": "What time will the ship arrive?",
+       "o": [
+        "4:30",
+        "14:30",
+        "14:13"
+       ],
+       "a": 1,
+       "e": "«fourteen thirty» = 14:30 (24 घंटे की घड़ी)।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Your cabin number is four-one-six."
+        ]
+       ],
+       "q": "What is the cabin number?",
+       "o": [
+        "460",
+        "406",
+        "416"
+       ],
+       "a": 2,
+       "e": "«four-one-six»: अंक एक-एक करके।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "The temperature in the engine room is forty-two degrees."
+        ]
+       ],
+       "q": "What is the temperature in the engine room?",
+       "o": [
+        "42 °C",
+        "24 °C",
+        "52 °C"
+       ],
+       "a": 0,
+       "e": "«forty-two» = 42।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Our position is thirty-five degrees fifteen minutes north."
+        ]
+       ],
+       "q": "What is the ship's position?",
+       "o": [
+        "35° 50' N",
+        "35° 15' N",
+        "53° 15' N"
+       ],
+       "a": 1,
+       "e": "«thirty-five degrees fifteen minutes north»; fifteen (15) और fifty (50) में फ़र्क़ सुनिए।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "The cargo weighs eighteen thousand tonnes."
+        ]
+       ],
+       "q": "How heavy is the cargo?",
+       "o": [
+        "80,000 tonnes",
+        "8,000 tonnes",
+        "18,000 tonnes"
+       ],
+       "a": 2,
+       "e": "«eighteen» (18) में ज़ोर आख़िर में है, «eighty» (80) में शुरू में।"
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Part 5",
+     "skill": "listening",
+     "kind": "different sounds",
+     "inst": "Listen to the sentence and choose the word you hear.",
+     "itInst": "वाक्य सुनिए और जो शब्द सुनाई दे, वह चुनिए।",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "Look at that ship."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "ship",
+        "sheep",
+        "chip"
+       ],
+       "a": 0,
+       "e": "«ship» में छोटी «इ», «sheep» में लंबी «ई»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Pull the rope, please."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "full",
+        "pull",
+        "pool"
+       ],
+       "a": 1,
+       "e": "«pull» में छोटा «उ», «pool» में लंबा «ऊ»; «full» «फ़» से।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Close the vent."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "bent",
+        "went",
+        "vent"
+       ],
+       "a": 2,
+       "e": "«v» में ऊपर के दाँत निचले होंठ को छूते हैं; «w» में होंठ गोल।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "We need a new fan."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "fan",
+        "pan",
+        "van"
+       ],
+       "a": 0,
+       "e": "«f» हवा के साथ, «p» होंठ बंद करके।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Wash the deck."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "duck",
+        "deck",
+        "dock"
+       ],
+       "a": 1,
+       "e": "«deck» «ए», «dock» «ऑ», «duck» «अ»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "The port is open."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "pot",
+        "part",
+        "port"
+       ],
+       "a": 2,
+       "e": "«port» में लंबा «ऑ»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Ring the bell."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "bell",
+        "bill",
+        "ball"
+       ],
+       "a": 0,
+       "e": "«bell» «ए», «bill» «इ», «ball» «ऑ»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Hold the line."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "loan",
+        "line",
+        "lane"
+       ],
+       "a": 1,
+       "e": "«line» «आइ», «lane» «एइ», «loan» «ओउ»।"
+      },
+      {
+       "script": [
+        [
+         "N",
+         "This rope is very thin."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "tin",
+        "sin",
+        "thin"
+       ],
+       "a": 2,
+       "e": "«th»: जीभ दाँतों के बीच, «त» नहीं।"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lang",
+   "jp": "Grammar, vocabulary and reading",
+   "it": "व्याकरण, शब्द और पढ़ना",
+   "min": 35,
+   "score": "lang",
+   "parts": [
+    {
+     "n": 6,
+     "label": "Part 6",
+     "skill": "grammar",
+     "kind": "grammar",
+     "inst": "Choose the correct word or words to complete the sentence.",
+     "itInst": "वाक्य पूरा करने के लिए सही शब्द चुनिए।",
+     "items": [
+      {
+       "q": "I ＿＿ from Manila.",
+       "o": [
+        "are",
+        "am",
+        "is"
+       ],
+       "a": 1,
+       "e": "«I» के साथ «am»।"
+      },
+      {
+       "q": "There ＿＿ twenty crew members on board.",
+       "o": [
+        "is",
+        "has",
+        "are"
+       ],
+       "a": 2,
+       "e": "बहुवचन: «there are»।"
+      },
+      {
+       "q": "She ＿＿ in the galley every morning.",
+       "o": [
+        "works",
+        "work",
+        "working"
+       ],
+       "a": 0,
+       "e": "«she» + हर रोज़ = «works» (-s)।"
+      },
+      {
+       "q": "＿＿ you speak English?",
+       "o": [
+        "Are",
+        "Do",
+        "Does"
+       ],
+       "a": 1,
+       "e": "«you» के सवाल में «Do»।"
+      },
+      {
+       "q": "He ＿＿ like fish.",
+       "o": [
+        "don't",
+        "isn't",
+        "doesn't"
+       ],
+       "a": 2,
+       "e": "«he» + «doesn't» + क्रिया।"
+      },
+      {
+       "q": "Look! The pilot ＿＿ on board now.",
+       "o": [
+        "is coming",
+        "comes",
+        "come"
+       ],
+       "a": 0,
+       "e": "«now» = अभी हो रहा है: «is coming»।"
+      },
+      {
+       "q": "We ＿＿ in Singapore last week.",
+       "o": [
+        "are",
+        "were",
+        "was"
+       ],
+       "a": 1,
+       "e": "«we» + बीता समय = «were»।"
+      },
+      {
+       "q": "I ＿＿ the engine room yesterday.",
+       "o": [
+        "clean",
+        "cleaning",
+        "cleaned"
+       ],
+       "a": 2,
+       "e": "«yesterday» → past: «cleaned»।"
+      },
+      {
+       "q": "Did you ＿＿ the alarm?",
+       "o": [
+        "hear",
+        "heard",
+        "hearing"
+       ],
+       "a": 0,
+       "e": "«Did» के बाद मूल रूप: «hear»।"
+      },
+      {
+       "q": "The ship ＿＿ to Genoa tomorrow.",
+       "o": [
+        "was sailing",
+        "will sail",
+        "sailed"
+       ],
+       "a": 1,
+       "e": "«tomorrow» → भविष्य: «will sail»।"
+      },
+      {
+       "q": "I have worked on ships ＿＿ 2019.",
+       "o": [
+        "for",
+        "from",
+        "since"
+       ],
+       "a": 2,
+       "e": "शुरू होने का साल: «since» 2019।"
+      },
+      {
+       "q": "She has been a cook ＿＿ ten years.",
+       "o": [
+        "for",
+        "since",
+        "during"
+       ],
+       "a": 0,
+       "e": "समय की लंबाई: «for» ten years।"
+      },
+      {
+       "q": "＿＿ you ever been to Japan?",
+       "o": [
+        "Are",
+        "Have",
+        "Did"
+       ],
+       "a": 1,
+       "e": "«ever» + «been» → «Have you ever been»।"
+      },
+      {
+       "q": "You ＿＿ wear a helmet on deck.",
+       "o": [
+        "musts",
+        "must to",
+        "must"
+       ],
+       "a": 2,
+       "e": "«must» + क्रिया, बिना «to» और बिना -s।"
+      },
+      {
+       "q": "You ＿＿ smoke in the engine room.",
+       "o": [
+        "mustn't",
+        "don't must",
+        "not must"
+       ],
+       "a": 0,
+       "e": "मनाही: «mustn't»।"
+      },
+      {
+       "q": "The cargo hold is ＿＿ than the store.",
+       "o": [
+        "biggest",
+        "bigger",
+        "more big"
+       ],
+       "a": 1,
+       "e": "छोटा विशेषण + «than»: «bigger»।"
+      },
+      {
+       "q": "This is the ＿＿ ship in the fleet.",
+       "o": [
+        "older",
+        "most old",
+        "oldest"
+       ],
+       "a": 2,
+       "e": "«the» … सबसे: «the oldest»।"
+      },
+      {
+       "q": "The fire alarm rang ＿＿ I was sleeping.",
+       "o": [
+        "while",
+        "during",
+        "for"
+       ],
+       "a": 0,
+       "e": "«while» + वाक्य; «during» + संज्ञा।"
+      },
+      {
+       "q": "If the weather is bad, we ＿＿ stay in port.",
+       "o": [
+        "did",
+        "will",
+        "would"
+       ],
+       "a": 1,
+       "e": "«If» + present → «will»।"
+      },
+      {
+       "q": "The lifejackets are ＿＿ the bed.",
+       "o": [
+        "at",
+        "among",
+        "under"
+       ],
+       "a": 2,
+       "e": "«under the bed» = बिस्तर के नीचे।"
+      },
+      {
+       "q": "The meeting is ＿＿ Monday.",
+       "o": [
+        "on",
+        "in",
+        "at"
+       ],
+       "a": 0,
+       "e": "दिनों के साथ «on»।"
+      },
+      {
+       "q": "I was born ＿＿ 1995.",
+       "o": [
+        "at",
+        "in",
+        "on"
+       ],
+       "a": 1,
+       "e": "सालों के साथ «in»।"
+      },
+      {
+       "q": "Can you give ＿＿ the key, please?",
+       "o": [
+        "I",
+        "my",
+        "me"
+       ],
+       "a": 2,
+       "e": "क्रिया के बाद «me»।"
+      },
+      {
+       "q": "This is ＿＿ cabin. It belongs to Pedro.",
+       "o": [
+        "his",
+        "him",
+        "he"
+       ],
+       "a": 0,
+       "e": "किसका? → «his»।"
+      },
+      {
+       "q": "How ＿＿ crew members are there?",
+       "o": [
+        "long",
+        "many",
+        "much"
+       ],
+       "a": 1,
+       "e": "गिने जा सकने वाले: «How many»।"
+      },
+      {
+       "q": "How ＿＿ fresh water do we have?",
+       "o": [
+        "many",
+        "lot",
+        "much"
+       ],
+       "a": 2,
+       "e": "«water» गिना नहीं जाता: «How much»।"
+      },
+      {
+       "q": "The engines ＿＿ checked every day.",
+       "o": [
+        "are",
+        "is",
+        "have"
+       ],
+       "a": 0,
+       "e": "Passive, बहुवचन: «are checked»।"
+      },
+      {
+       "q": "The ship was built ＿＿ Korea.",
+       "o": [
+        "by",
+        "in",
+        "at"
+       ],
+       "a": 1,
+       "e": "देश के साथ «in»।"
+      },
+      {
+       "q": "I'm tired ＿＿ I worked all night.",
+       "o": [
+        "so",
+        "but",
+        "because"
+       ],
+       "a": 2,
+       "e": "कारण: «because»।"
+      },
+      {
+       "q": "He asked me ＿＿ the door.",
+       "o": [
+        "to close",
+        "close",
+        "closing"
+       ],
+       "a": 0,
+       "e": "«ask someone to» + क्रिया।"
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "label": "Part 7",
+     "skill": "grammar",
+     "kind": "vocabulary",
+     "inst": "Choose the correct word.",
+     "itInst": "सही शब्द चुनिए।",
+     "items": [
+      {
+       "q": "The front part of a ship is the ＿＿.",
+       "o": [
+        "deck",
+        "bow",
+        "stern"
+       ],
+       "a": 1,
+       "e": "«bow» = आगे का हिस्सा; «stern» = पीछे का।"
+      },
+      {
+       "q": "The back part of a ship is the ＿＿.",
+       "o": [
+        "bow",
+        "bridge",
+        "stern"
+       ],
+       "a": 2,
+       "e": "«stern» = जहाज़ का पिछला हिस्सा।"
+      },
+      {
+       "q": "When you look forward, the right side of the ship is ＿＿.",
+       "o": [
+        "starboard",
+        "port",
+        "aft"
+       ],
+       "a": 0,
+       "e": "«starboard» = दायाँ, «port» = बायाँ।"
+      },
+      {
+       "q": "The ship's kitchen is the ＿＿.",
+       "o": [
+        "hold",
+        "galley",
+        "mess room"
+       ],
+       "a": 1,
+       "e": "«galley» = जहाज़ की रसोई।"
+      },
+      {
+       "q": "The crew eat in the ＿＿.",
+       "o": [
+        "galley",
+        "hold",
+        "mess room"
+       ],
+       "a": 2,
+       "e": "«mess room» = खाने का कमरा।"
+      },
+      {
+       "q": "The ship is steered from the ＿＿.",
+       "o": [
+        "bridge",
+        "engine room",
+        "hold"
+       ],
+       "a": 0,
+       "e": "«bridge» = ब्रिज, जहाँ से जहाज़ चलाया जाता है।"
+      },
+      {
+       "q": "The cargo is carried in the ＿＿.",
+       "o": [
+        "bridge",
+        "hold",
+        "galley"
+       ],
+       "a": 1,
+       "e": "«hold» = माल रखने की जगह।"
+      },
+      {
+       "q": "A ship's speed is measured in ＿＿.",
+       "o": [
+        "kilometres",
+        "litres",
+        "knots"
+       ],
+       "a": 2,
+       "e": "«knot» = समुद्री मील प्रति घंटा।"
+      },
+      {
+       "q": "You wear a ＿＿ to protect your head.",
+       "o": [
+        "helmet",
+        "harness",
+        "glove"
+       ],
+       "a": 0,
+       "e": "«helmet» = सिर के लिए; «harness» = ऊँचाई पर काम के लिए।"
+      },
+      {
+       "q": "When the general alarm sounds, everyone goes to the ＿＿.",
+       "o": [
+        "gym",
+        "muster station",
+        "laundry"
+       ],
+       "a": 1,
+       "e": "«muster station» = इकट्ठा होने की जगह।"
+      },
+      {
+       "q": "A heavy metal object that keeps the ship in one place is an ＿＿.",
+       "o": [
+        "rope",
+        "crane",
+        "anchor"
+       ],
+       "a": 2,
+       "e": "«anchor» = लंगर।"
+      },
+      {
+       "q": "The officer in command of the ship is the ＿＿.",
+       "o": [
+        "captain",
+        "bosun",
+        "steward"
+       ],
+       "a": 0,
+       "e": "«captain» = कप्तान; «bosun» डेक के कर्मचारियों का मुखिया है।"
+      },
+      {
+       "q": "A machine that lifts cargo is a ＿＿.",
+       "o": [
+        "valve",
+        "crane",
+        "pump"
+       ],
+       "a": 1,
+       "e": "«crane» = क्रेन; «pump» पानी या तेल खींचता है।"
+      },
+      {
+       "q": "The person who guides the ship into port is the ＿＿.",
+       "o": [
+        "cadet",
+        "cook",
+        "pilot"
+       ],
+       "a": 2,
+       "e": "«pilot» = पायलट, जो जहाज़ को बंदरगाह में लाता है।"
+      },
+      {
+       "q": "The port side is the ＿＿ side of the ship.",
+       "o": [
+        "left",
+        "right",
+        "back"
+       ],
+       "a": 0,
+       "e": "«port side» = आगे देखते हुए बायाँ।"
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "label": "Part 8",
+     "skill": "reading",
+     "kind": "reading",
+     "inst": "Read the notice and choose the correct answer.",
+     "itInst": "सूचना पढ़िए और सही जवाब चुनिए।",
+     "text": "CREW NOTICE\nCrew change in Rotterdam\n\nThe ship will arrive in Rotterdam on Tuesday morning. Eight crew members will sign off and eight new crew members will join. Crew members who are signing off must clean their cabins and give their keys to the chief steward before ten o'clock. The agent will take them to the airport by bus at eleven thirty. Please do not forget your passport, your seaman's book and your medical certificate. New crew members will have a safety familiarisation with the second officer at two o'clock in the afternoon.",
+     "items": [
+      {
+       "q": "What must crew members who are signing off do before 10:00?",
+       "o": [
+        "Take the bus to the airport.",
+        "Clean their cabins and return their keys.",
+        "Meet the second officer."
+       ],
+       "a": 1,
+       "e": "«must clean their cabins and give their keys to the chief steward before ten o'clock»।"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Speaking · Interview",
+   "time": "3-4 min",
+   "task": "Introduce yourself: your name, where you are from, your rank and your job on board, your last ship and your experience at sea.",
+   "tr": "बोलना: अपना परिचय दीजिए: नाम, कहाँ से हैं, रैंक और जहाज़ पर काम, आपका पिछला जहाज़ और समुद्र का अनुभव।",
+   "model": "Good morning. My name is Ravi Kumar and I'm from Kochi, in India. I'm an able seaman. I've worked at sea for six years, on container ships and tankers. My last ship was the Ocean Star: I worked there for nine months. My job is to keep watch on the bridge, do maintenance on deck and help with mooring."
+  },
+  {
+   "kind": "Speaking · Procedure",
+   "time": "2-3 min",
+   "task": "Explain what you do when you hear the general alarm: where you go, what you take with you and what you do at the muster station.",
+   "tr": "बोलना: जनरल अलार्म सुनकर आप क्या करते हैं: कहाँ जाते हैं, क्या साथ लेते हैं और मस्टर स्टेशन पर क्या करते हैं।",
+   "model": "When I hear the general alarm, I stop my work and go to my cabin to take my lifejacket, a warm jacket and my helmet. Then I go to muster station B on deck five. I wait for the officer, I answer when he calls my name and I follow his instructions. My duty is to help the passengers put on their lifejackets."
+  },
+  {
+   "kind": "Writing · Report",
+   "time": "10 min",
+   "task": "Write a short report to the chief officer: this morning you found a small oil leak near the windlass. Say when and where you found it, what you did and what is needed. Write 40 words or more.",
+   "tr": "लिखना: चीफ़ ऑफ़िसर के लिए छोटी रिपोर्ट लिखिए: आज सुबह आपको विंडलास के पास तेल का छोटा रिसाव मिला। कब और कहाँ मिला, आपने क्या किया और क्या चाहिए। कम से कम 40 शब्द।",
+   "model": "To the Chief Officer. This morning at 08:30 I found a small oil leak near the windlass on the forecastle. I cleaned the oil with rags and put a drip tray under the pipe. I think the hydraulic pipe needs a new seal. Please send the fitter to check it. Juan Reyes, AB"
+  }
+ ]
+}

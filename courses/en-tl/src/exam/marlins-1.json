@@ -1,0 +1,1298 @@
+{
+ "id": "marlins-1",
+ "exam": "marlins",
+ "title": "Test 1",
+ "it": "Pagsasanay sa format ng Marlins test, may mga sitwasyon sa barko: pakikinig, oras at numero, pagbigkas, gramatika, bokabularyo at pagbasa (85 tanong).",
+ "scheme": {
+  "name": "Marlins English Test",
+  "total": 85,
+  "pass": 51,
+  "lang": "en",
+  "plays": 2,
+  "opts": "ABC",
+  "part": "Part ",
+  "groups": [
+   {
+    "id": "listen",
+    "label": "Listening",
+    "max": 39
+   },
+   {
+    "id": "lang",
+    "label": "Language",
+    "max": 46
+   }
+  ],
+  "skills": {
+   "listening": [
+    "Pakikinig",
+    "Listening"
+   ],
+   "grammar": [
+    "Gramatika at bokabularyo",
+    "Grammar and vocabulary"
+   ],
+   "reading": [
+    "Pagbasa",
+    "Reading"
+   ]
+  },
+  "who": {
+   "N": "",
+   "F": "F: ",
+   "M": "M: "
+  },
+  "passText": "85 tanong, may parehong mga bahagi ng Marlins Test for Seafarers: pakikinig (25), oras at numero (5), pagbigkas (9), gramatika (30), bokabularyo (15), pagbasa (1). Walang opisyal na pasadong marka ang Marlins: porsiyento ang resulta at ang kompanya o ahensiya ang nagtatakda ng pinakamababa (maraming kompanya ang humihingi ng mga 60-70% sa ratings, mas mataas sa mga opisyal). Dito, ang tantiyang hangganan ay 60% (51 sa 85).",
+  "notOfficial": "Ito ay pagsasanay sa format ng Marlins test, hindi opisyal na pagsusulit: tantiya lang ang marka. Ang tunay na test ay sa awtorisadong center ng Marlins o sa kompanya mo; hiwalay ang pagsusulit sa pagsasalita (Test of Spoken English).",
+  "note": "Gaya ng tunay na test, nasa Ingles ang mga tanong at walang limitasyon sa oras (mga 60 minuto ang mungkahi). Kung kailangan, pindutin ang «Isalin» para makita ang tagubilin sa Filipino."
+ },
+ "sections": [
+  {
+   "id": "listen",
+   "jp": "Listening",
+   "it": "Pakikinig",
+   "min": 25,
+   "score": "listen",
+   "listen": true,
+   "parts": [
+    {
+     "n": 1,
+     "label": "Part 1",
+     "skill": "listening",
+     "kind": "short conversations",
+     "inst": "Listen to the conversations on board and choose the correct answer.",
+     "itInst": "Pakinggan ang mga usapan sa barko at piliin ang tamang sagot.",
+     "items": [
+      {
+       "script": [
+        [
+         "M",
+         "Bosun, where do you want these ropes?"
+        ],
+        [
+         "F",
+         "Put them in the forward store, next to the paint."
+        ]
+       ],
+       "q": "Where must he put the ropes?",
+       "o": [
+        "In the forward store.",
+        "Next to the galley.",
+        "On the bridge."
+       ],
+       "a": 0,
+       "e": "«in the forward store» = sa store sa unahan."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Are you on duty tonight?"
+        ],
+        [
+         "M",
+         "No, I'm off tonight. I'm on the morning watch, from four to eight."
+        ]
+       ],
+       "q": "When is his watch?",
+       "o": [
+        "He has no watch.",
+        "From 4 to 8 in the morning.",
+        "From 8 to 12 tonight."
+       ],
+       "a": 1,
+       "e": "«the morning watch, from four to eight» = relyebo mula 4 hanggang 8 ng umaga."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Excuse me, where is muster station B?"
+        ],
+        [
+         "F",
+         "On deck five, near the starboard lifeboats."
+        ]
+       ],
+       "q": "Where is muster station B?",
+       "o": [
+        "On deck 5, port side.",
+        "On deck 9.",
+        "On deck 5, starboard side."
+       ],
+       "a": 2,
+       "e": "«near the starboard lifeboats» = sa starboard (kanan)."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "What's wrong, Ravi?"
+        ],
+        [
+         "M",
+         "I cut my hand in the galley. It's bleeding a lot."
+        ]
+       ],
+       "q": "What's the problem?",
+       "o": [
+        "He cut his hand.",
+        "He burned his hand.",
+        "He feels sick."
+       ],
+       "a": 0,
+       "e": "«I cut my hand» = nahiwa ang kamay ko."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "How long is your contract?"
+        ],
+        [
+         "F",
+         "Nine months. I started in March, so I finish in December."
+        ]
+       ],
+       "q": "When does her contract finish?",
+       "o": [
+        "In September.",
+        "In December.",
+        "In March."
+       ],
+       "a": 1,
+       "e": "Siyam na buwan mula Marso: «I finish in December»."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Can I go ashore this afternoon?"
+        ],
+        [
+         "M",
+         "Yes, but you must be back on board by six. We sail at seven."
+        ]
+       ],
+       "q": "What time must she be back on board?",
+       "o": [
+        "At 7.",
+        "At 5.",
+        "At 6."
+       ],
+       "a": 2,
+       "e": "«back on board by six»; alas-siyete aalis ang barko."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Chief, the starboard engine is making a strange noise."
+        ],
+        [
+         "F",
+         "OK, stop it and check the oil level."
+        ]
+       ],
+       "q": "What must he check?",
+       "o": [
+        "The oil level.",
+        "The water level.",
+        "The fuel tank."
+       ],
+       "a": 0,
+       "e": "«check the oil level» = tingnan ang antas ng langis."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Did you clean the cabins on deck seven?"
+        ],
+        [
+         "M",
+         "Not yet. I've finished deck six. I'm going to deck seven now."
+        ]
+       ],
+       "q": "Which deck has he finished?",
+       "o": [
+        "Decks 6 and 7.",
+        "Deck 6.",
+        "Deck 7."
+       ],
+       "a": 1,
+       "e": "«I've finished deck six» — hindi pa ang deck 7."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Would you like tea or coffee?"
+        ],
+        [
+         "F",
+         "Coffee, please. No sugar, but a little milk."
+        ]
+       ],
+       "q": "How does she want her coffee?",
+       "o": [
+        "With sugar and no milk.",
+        "Black, with sugar.",
+        "With milk and no sugar."
+       ],
+       "a": 2,
+       "e": "«No sugar, but a little milk» = walang asukal, may kaunting gatas."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "The passenger in cabin three-twelve has lost her key card."
+        ],
+        [
+         "M",
+         "OK, tell her to go to reception. They'll give her a new one."
+        ]
+       ],
+       "q": "Where must the passenger go?",
+       "o": [
+        "To reception.",
+        "To her cabin.",
+        "To the restaurant."
+       ],
+       "a": 0,
+       "e": "«tell her to go to reception» = sabihin mong pumunta siya sa reception."
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Part 2",
+     "skill": "listening",
+     "kind": "announcements",
+     "inst": "Listen to the announcements and choose the correct answer.",
+     "itInst": "Pakinggan ang mga anunsiyo at piliin ang tamang sagot.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "Attention all crew. There will be a fire drill at fifteen hundred today. All crew must go to their muster stations with their lifejackets."
+        ]
+       ],
+       "q": "What will happen at 15:00?",
+       "o": [
+        "A crew meeting.",
+        "A fire drill.",
+        "A lifeboat inspection."
+       ],
+       "a": 1,
+       "e": "«a fire drill at fifteen hundred» = fire drill nang 15:00."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "This is the captain speaking. We expect to arrive in Singapore at zero six hundred tomorrow. Shore leave will start at ten."
+        ]
+       ],
+       "q": "When does shore leave start?",
+       "o": [
+        "At 06:00.",
+        "At 12:00.",
+        "At 10:00."
+       ],
+       "a": 2,
+       "e": "Darating ang barko nang 06:00, pero «shore leave will start at ten»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Galley announcement: lunch today will be served thirty minutes late, at twelve thirty, because of the cargo operations."
+        ]
+       ],
+       "q": "Why is lunch late today?",
+       "o": [
+        "Because of the cargo operations.",
+        "Because the cook is ill.",
+        "Because of the bad weather."
+       ],
+       "a": 0,
+       "e": "«because of the cargo operations» = dahil sa operasyon ng kargamento."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Attention please. The weather is getting worse. All loose equipment on deck must be secured before eighteen hundred."
+        ]
+       ],
+       "q": "What must the crew do before 18:00?",
+       "o": [
+        "Close the galley.",
+        "Secure the equipment on deck.",
+        "Go to the lifeboats."
+       ],
+       "a": 1,
+       "e": "«loose equipment… must be secured» = dapat itali ang maluwag na kagamitan."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Crew notice: the laundry on deck two is closed today for repairs. Please use the laundry on deck four."
+        ]
+       ],
+       "q": "Which laundry can the crew use today?",
+       "o": [
+        "The one on deck 2.",
+        "None of them.",
+        "The one on deck 4."
+       ],
+       "a": 2,
+       "e": "Sarado ang nasa deck 2: «use the laundry on deck four»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Safety reminder: when you work aloft or over the side, you must wear a safety harness and tell the officer of the watch."
+        ]
+       ],
+       "q": "What must you do before you work aloft?",
+       "o": [
+        "Tell the officer of the watch.",
+        "Ask the cook.",
+        "Take off your helmet."
+       ],
+       "a": 0,
+       "e": "«wear a safety harness and tell the officer of the watch»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Medical notice: the ship's doctor is available in the hospital every day from nine to eleven in the morning."
+        ]
+       ],
+       "q": "When is the doctor available?",
+       "o": [
+        "All day.",
+        "From 9 to 11 in the morning.",
+        "From 9 to 11 in the evening."
+       ],
+       "a": 1,
+       "e": "«from nine to eleven in the morning» = 9 hanggang 11 ng umaga."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Attention all passengers. For your safety, please do not smoke on your balcony. Smoking is permitted only in the smoking area on deck eleven."
+        ]
+       ],
+       "q": "Where can passengers smoke?",
+       "o": [
+        "On their balconies.",
+        "In their cabins.",
+        "On deck 11."
+       ],
+       "a": 2,
+       "e": "«only in the smoking area on deck eleven» = sa deck 11 lang."
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Part 3",
+     "skill": "listening",
+     "kind": "radio and phone messages",
+     "inst": "Listen to the radio and phone messages and choose the correct answer.",
+     "itInst": "Pakinggan ang mga mensahe sa radyo at telepono at piliin ang tamang sagot.",
+     "items": [
+      {
+       "script": [
+        [
+         "M",
+         "Bridge, this is the engine room. We have a small leak in the cooling water pipe. We need two hours to repair it."
+        ]
+       ],
+       "q": "How long does the repair need?",
+       "o": [
+        "Two hours.",
+        "Two minutes.",
+        "Twenty minutes."
+       ],
+       "a": 0,
+       "e": "«We need two hours to repair it» = dalawang oras ang pag-aayos."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Hello Ramesh, it's Anna from the agency. Your flight to Rotterdam is on Friday at nine fifty in the morning. Please be at the airport two hours before."
+        ]
+       ],
+       "q": "When is the flight?",
+       "o": [
+        "On Sunday at 9:50.",
+        "On Friday at 9:50.",
+        "On Friday at 9:15."
+       ],
+       "a": 1,
+       "e": "«on Friday at nine fifty» = Biyernes, 9:50."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Ocean Star, this is Port Control. Your pilot will board at the pilot station at fourteen hundred. Keep a speed of six knots."
+        ]
+       ],
+       "q": "What speed must the ship keep?",
+       "o": [
+        "16 knots.",
+        "60 knots.",
+        "6 knots."
+       ],
+       "a": 2,
+       "e": "«a speed of six knots» = bilis na anim na knot."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "Joy, this is the chief steward. Please take clean towels to cabins two-oh-five and two-oh-seven, and then come to the office."
+        ]
+       ],
+       "q": "What must Joy do first?",
+       "o": [
+        "Take towels to two cabins.",
+        "Go to the office.",
+        "Clean cabin 205."
+       ],
+       "a": 0,
+       "e": "Una ang tuwalya, «and then come to the office»."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Hi Mark, it's Liza. I can't come to the gym tonight. I'm on watch from eight to twelve. Let's go tomorrow after lunch."
+        ]
+       ],
+       "q": "Why can't Liza go to the gym tonight?",
+       "o": [
+        "She is in port.",
+        "She is on watch.",
+        "She is ill."
+       ],
+       "a": 1,
+       "e": "«I'm on watch from eight to twelve» = naka-relyebo ako mula 8 hanggang 12."
+      },
+      {
+       "script": [
+        [
+         "M",
+         "All stations, this is the chief officer. Loading will stop at midnight. We will continue at six in the morning."
+        ]
+       ],
+       "q": "When will loading continue?",
+       "o": [
+        "At midnight.",
+        "At 6 in the evening.",
+        "At 6 in the morning."
+       ],
+       "a": 2,
+       "e": "Titigil nang hatinggabi, «continue at six in the morning»."
+      },
+      {
+       "script": [
+        [
+         "F",
+         "Pedro, the captain wants to see you in his office after your watch. Bring your passport and your seaman's book."
+        ]
+       ],
+       "q": "What must Pedro bring?",
+       "o": [
+        "His passport and seaman's book.",
+        "His contract.",
+        "His helmet and gloves."
+       ],
+       "a": 0,
+       "e": "«Bring your passport and your seaman's book»."
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Part 4",
+     "skill": "listening",
+     "kind": "time and numbers",
+     "inst": "Listen and choose the time or number you hear.",
+     "itInst": "Makinig at piliin ang oras o numerong narinig mo.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "The ship will arrive at fourteen thirty."
+        ]
+       ],
+       "q": "What time will the ship arrive?",
+       "o": [
+        "4:30",
+        "14:30",
+        "14:13"
+       ],
+       "a": 1,
+       "e": "«fourteen thirty» = 14:30 (24-oras na orasan)."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Your cabin number is four-one-six."
+        ]
+       ],
+       "q": "What is the cabin number?",
+       "o": [
+        "460",
+        "406",
+        "416"
+       ],
+       "a": 2,
+       "e": "«four-one-six»: isa-isang numero."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "The temperature in the engine room is forty-two degrees."
+        ]
+       ],
+       "q": "What is the temperature in the engine room?",
+       "o": [
+        "42 °C",
+        "24 °C",
+        "52 °C"
+       ],
+       "a": 0,
+       "e": "«forty-two» = 42."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Our position is thirty-five degrees fifteen minutes north."
+        ]
+       ],
+       "q": "What is the ship's position?",
+       "o": [
+        "35° 50' N",
+        "35° 15' N",
+        "53° 15' N"
+       ],
+       "a": 1,
+       "e": "«thirty-five degrees fifteen minutes north»; pakinggan ang pagkakaiba ng fifteen (15) at fifty (50)."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "The cargo weighs eighteen thousand tonnes."
+        ]
+       ],
+       "q": "How heavy is the cargo?",
+       "o": [
+        "80,000 tonnes",
+        "8,000 tonnes",
+        "18,000 tonnes"
+       ],
+       "a": 2,
+       "e": "Nasa hulihan ang diin ng «eighteen» (18), nasa unahan sa «eighty» (80)."
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Part 5",
+     "skill": "listening",
+     "kind": "different sounds",
+     "inst": "Listen to the sentence and choose the word you hear.",
+     "itInst": "Pakinggan ang pangungusap at piliin ang salitang narinig mo.",
+     "items": [
+      {
+       "script": [
+        [
+         "N",
+         "Look at that ship."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "ship",
+        "sheep",
+        "chip"
+       ],
+       "a": 0,
+       "e": "Maikli ang «i» sa ship, mahaba sa sheep."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Pull the rope, please."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "full",
+        "pull",
+        "pool"
+       ],
+       "a": 1,
+       "e": "Maikli ang «u» sa pull, mahaba sa pool; nagsisimula sa «f» ang full."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Close the vent."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "bent",
+        "went",
+        "vent"
+       ],
+       "a": 2,
+       "e": "Sa «v», dumidikit ang ngipin sa itaas sa ibabang labi; iba ito sa «b»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "We need a new fan."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "fan",
+        "pan",
+        "van"
+       ],
+       "a": 0,
+       "e": "May hangin ang «f»; iba ito sa «p»."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Wash the deck."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "duck",
+        "deck",
+        "dock"
+       ],
+       "a": 1,
+       "e": "Magkaiba ang patinig: deck, dock, duck."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "The port is open."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "pot",
+        "part",
+        "port"
+       ],
+       "a": 2,
+       "e": "Mahaba ang «o» sa port."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Ring the bell."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "bell",
+        "bill",
+        "ball"
+       ],
+       "a": 0,
+       "e": "Magkaiba ang patinig: bell, bill, ball."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "Hold the line."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "loan",
+        "line",
+        "lane"
+       ],
+       "a": 1,
+       "e": "Magkaiba ang tunog: line, lane, loan."
+      },
+      {
+       "script": [
+        [
+         "N",
+         "This rope is very thin."
+        ]
+       ],
+       "q": "Which word do you hear?",
+       "o": [
+        "tin",
+        "sin",
+        "thin"
+       ],
+       "a": 2,
+       "e": "«th»: nasa pagitan ng ngipin ang dila, hindi «t»."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lang",
+   "jp": "Grammar, vocabulary and reading",
+   "it": "Gramatika, bokabularyo at pagbasa",
+   "min": 35,
+   "score": "lang",
+   "parts": [
+    {
+     "n": 6,
+     "label": "Part 6",
+     "skill": "grammar",
+     "kind": "grammar",
+     "inst": "Choose the correct word or words to complete the sentence.",
+     "itInst": "Piliin ang tamang salita para buuin ang pangungusap.",
+     "items": [
+      {
+       "q": "I ＿＿ from Manila.",
+       "o": [
+        "are",
+        "am",
+        "is"
+       ],
+       "a": 1,
+       "e": "Sa «I»: «am»."
+      },
+      {
+       "q": "There ＿＿ twenty crew members on board.",
+       "o": [
+        "is",
+        "has",
+        "are"
+       ],
+       "a": 2,
+       "e": "Maramihan: «there are»."
+      },
+      {
+       "q": "She ＿＿ in the galley every morning.",
+       "o": [
+        "works",
+        "work",
+        "working"
+       ],
+       "a": 0,
+       "e": "«she» + araw-araw = «works» (may -s)."
+      },
+      {
+       "q": "＿＿ you speak English?",
+       "o": [
+        "Are",
+        "Do",
+        "Does"
+       ],
+       "a": 1,
+       "e": "Tanong na may «you»: «Do»."
+      },
+      {
+       "q": "He ＿＿ like fish.",
+       "o": [
+        "don't",
+        "isn't",
+        "doesn't"
+       ],
+       "a": 2,
+       "e": "«he» + «doesn't» + pandiwa."
+      },
+      {
+       "q": "Look! The pilot ＿＿ on board now.",
+       "o": [
+        "is coming",
+        "comes",
+        "come"
+       ],
+       "a": 0,
+       "e": "«now» = nangyayari ngayon: «is coming»."
+      },
+      {
+       "q": "We ＿＿ in Singapore last week.",
+       "o": [
+        "are",
+        "were",
+        "was"
+       ],
+       "a": 1,
+       "e": "«we» + nakaraan = «were»."
+      },
+      {
+       "q": "I ＿＿ the engine room yesterday.",
+       "o": [
+        "clean",
+        "cleaning",
+        "cleaned"
+       ],
+       "a": 2,
+       "e": "«yesterday» → past: «cleaned»."
+      },
+      {
+       "q": "Did you ＿＿ the alarm?",
+       "o": [
+        "hear",
+        "heard",
+        "hearing"
+       ],
+       "a": 0,
+       "e": "Pagkatapos ng «Did», batayang anyo: «hear»."
+      },
+      {
+       "q": "The ship ＿＿ to Genoa tomorrow.",
+       "o": [
+        "was sailing",
+        "will sail",
+        "sailed"
+       ],
+       "a": 1,
+       "e": "«tomorrow» → hinaharap: «will sail»."
+      },
+      {
+       "q": "I have worked on ships ＿＿ 2019.",
+       "o": [
+        "for",
+        "from",
+        "since"
+       ],
+       "a": 2,
+       "e": "Taon ng simula: «since» 2019."
+      },
+      {
+       "q": "She has been a cook ＿＿ ten years.",
+       "o": [
+        "for",
+        "since",
+        "during"
+       ],
+       "a": 0,
+       "e": "Haba ng panahon: «for» ten years."
+      },
+      {
+       "q": "＿＿ you ever been to Japan?",
+       "o": [
+        "Are",
+        "Have",
+        "Did"
+       ],
+       "a": 1,
+       "e": "«ever» + «been» → «Have you ever been»."
+      },
+      {
+       "q": "You ＿＿ wear a helmet on deck.",
+       "o": [
+        "musts",
+        "must to",
+        "must"
+       ],
+       "a": 2,
+       "e": "«must» + pandiwa, walang «to» at walang -s."
+      },
+      {
+       "q": "You ＿＿ smoke in the engine room.",
+       "o": [
+        "mustn't",
+        "don't must",
+        "not must"
+       ],
+       "a": 0,
+       "e": "Bawal: «mustn't»."
+      },
+      {
+       "q": "The cargo hold is ＿＿ than the store.",
+       "o": [
+        "biggest",
+        "bigger",
+        "more big"
+       ],
+       "a": 1,
+       "e": "Maikling pang-uri + «than»: «bigger»."
+      },
+      {
+       "q": "This is the ＿＿ ship in the fleet.",
+       "o": [
+        "older",
+        "most old",
+        "oldest"
+       ],
+       "a": 2,
+       "e": "«the» … pinaka-: «the oldest»."
+      },
+      {
+       "q": "The fire alarm rang ＿＿ I was sleeping.",
+       "o": [
+        "while",
+        "during",
+        "for"
+       ],
+       "a": 0,
+       "e": "«while» + sugnay; «during» + pangngalan."
+      },
+      {
+       "q": "If the weather is bad, we ＿＿ stay in port.",
+       "o": [
+        "did",
+        "will",
+        "would"
+       ],
+       "a": 1,
+       "e": "«If» + present → «will»."
+      },
+      {
+       "q": "The lifejackets are ＿＿ the bed.",
+       "o": [
+        "at",
+        "among",
+        "under"
+       ],
+       "a": 2,
+       "e": "«under the bed» = sa ilalim ng kama."
+      },
+      {
+       "q": "The meeting is ＿＿ Monday.",
+       "o": [
+        "on",
+        "in",
+        "at"
+       ],
+       "a": 0,
+       "e": "Sa araw: «on»."
+      },
+      {
+       "q": "I was born ＿＿ 1995.",
+       "o": [
+        "at",
+        "in",
+        "on"
+       ],
+       "a": 1,
+       "e": "Sa taon: «in»."
+      },
+      {
+       "q": "Can you give ＿＿ the key, please?",
+       "o": [
+        "I",
+        "my",
+        "me"
+       ],
+       "a": 2,
+       "e": "Pagkatapos ng pandiwa: «me»."
+      },
+      {
+       "q": "This is ＿＿ cabin. It belongs to Pedro.",
+       "o": [
+        "his",
+        "him",
+        "he"
+       ],
+       "a": 0,
+       "e": "Kanino? → «his»."
+      },
+      {
+       "q": "How ＿＿ crew members are there?",
+       "o": [
+        "long",
+        "many",
+        "much"
+       ],
+       "a": 1,
+       "e": "Nabibilang: «How many»."
+      },
+      {
+       "q": "How ＿＿ fresh water do we have?",
+       "o": [
+        "many",
+        "lot",
+        "much"
+       ],
+       "a": 2,
+       "e": "Hindi nabibilang ang «water»: «How much»."
+      },
+      {
+       "q": "The engines ＿＿ checked every day.",
+       "o": [
+        "are",
+        "is",
+        "have"
+       ],
+       "a": 0,
+       "e": "Passive, maramihan: «are checked»."
+      },
+      {
+       "q": "The ship was built ＿＿ Korea.",
+       "o": [
+        "by",
+        "in",
+        "at"
+       ],
+       "a": 1,
+       "e": "Sa bansa: «in»."
+      },
+      {
+       "q": "I'm tired ＿＿ I worked all night.",
+       "o": [
+        "so",
+        "but",
+        "because"
+       ],
+       "a": 2,
+       "e": "Dahilan: «because»."
+      },
+      {
+       "q": "He asked me ＿＿ the door.",
+       "o": [
+        "to close",
+        "close",
+        "closing"
+       ],
+       "a": 0,
+       "e": "«ask someone to» + pandiwa."
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "label": "Part 7",
+     "skill": "grammar",
+     "kind": "vocabulary",
+     "inst": "Choose the correct word.",
+     "itInst": "Piliin ang tamang salita.",
+     "items": [
+      {
+       "q": "The front part of a ship is the ＿＿.",
+       "o": [
+        "deck",
+        "bow",
+        "stern"
+       ],
+       "a": 1,
+       "e": "«bow» = unahan; «stern» = hulihan."
+      },
+      {
+       "q": "The back part of a ship is the ＿＿.",
+       "o": [
+        "bow",
+        "bridge",
+        "stern"
+       ],
+       "a": 2,
+       "e": "«stern» = hulihan ng barko."
+      },
+      {
+       "q": "When you look forward, the right side of the ship is ＿＿.",
+       "o": [
+        "starboard",
+        "port",
+        "aft"
+       ],
+       "a": 0,
+       "e": "«starboard» = kanan, «port» = kaliwa."
+      },
+      {
+       "q": "The ship's kitchen is the ＿＿.",
+       "o": [
+        "hold",
+        "galley",
+        "mess room"
+       ],
+       "a": 1,
+       "e": "«galley» = kusina ng barko."
+      },
+      {
+       "q": "The crew eat in the ＿＿.",
+       "o": [
+        "galley",
+        "hold",
+        "mess room"
+       ],
+       "a": 2,
+       "e": "«mess room» = kainan ng tripulante."
+      },
+      {
+       "q": "The ship is steered from the ＿＿.",
+       "o": [
+        "bridge",
+        "engine room",
+        "hold"
+       ],
+       "a": 0,
+       "e": "«bridge» = tulay, kung saan minamaneho ang barko."
+      },
+      {
+       "q": "The cargo is carried in the ＿＿.",
+       "o": [
+        "bridge",
+        "hold",
+        "galley"
+       ],
+       "a": 1,
+       "e": "«hold» = lagayan ng kargamento."
+      },
+      {
+       "q": "A ship's speed is measured in ＿＿.",
+       "o": [
+        "kilometres",
+        "litres",
+        "knots"
+       ],
+       "a": 2,
+       "e": "«knot» = nautical mile kada oras."
+      },
+      {
+       "q": "You wear a ＿＿ to protect your head.",
+       "o": [
+        "helmet",
+        "harness",
+        "glove"
+       ],
+       "a": 0,
+       "e": "«helmet» = para sa ulo; «harness» = para sa trabaho sa mataas."
+      },
+      {
+       "q": "When the general alarm sounds, everyone goes to the ＿＿.",
+       "o": [
+        "gym",
+        "muster station",
+        "laundry"
+       ],
+       "a": 1,
+       "e": "«muster station» = tipunan sa emergency."
+      },
+      {
+       "q": "A heavy metal object that keeps the ship in one place is an ＿＿.",
+       "o": [
+        "rope",
+        "crane",
+        "anchor"
+       ],
+       "a": 2,
+       "e": "«anchor» = angkla."
+      },
+      {
+       "q": "The officer in command of the ship is the ＿＿.",
+       "o": [
+        "captain",
+        "bosun",
+        "steward"
+       ],
+       "a": 0,
+       "e": "«captain» = kapitan; ang «bosun» ang puno ng deck crew."
+      },
+      {
+       "q": "A machine that lifts cargo is a ＿＿.",
+       "o": [
+        "valve",
+        "crane",
+        "pump"
+       ],
+       "a": 1,
+       "e": "«crane» = grua; ang «pump» ay para sa tubig o langis."
+      },
+      {
+       "q": "The person who guides the ship into port is the ＿＿.",
+       "o": [
+        "cadet",
+        "cook",
+        "pilot"
+       ],
+       "a": 2,
+       "e": "«pilot» = piloto, gumagabay sa barko papasok sa daungan."
+      },
+      {
+       "q": "The port side is the ＿＿ side of the ship.",
+       "o": [
+        "left",
+        "right",
+        "back"
+       ],
+       "a": 0,
+       "e": "«port side» = kaliwa, kapag nakaharap sa unahan."
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "label": "Part 8",
+     "skill": "reading",
+     "kind": "reading",
+     "inst": "Read the notice and choose the correct answer.",
+     "itInst": "Basahin ang paunawa at piliin ang tamang sagot.",
+     "text": "CREW NOTICE\nCrew change in Rotterdam\n\nThe ship will arrive in Rotterdam on Tuesday morning. Eight crew members will sign off and eight new crew members will join. Crew members who are signing off must clean their cabins and give their keys to the chief steward before ten o'clock. The agent will take them to the airport by bus at eleven thirty. Please do not forget your passport, your seaman's book and your medical certificate. New crew members will have a safety familiarisation with the second officer at two o'clock in the afternoon.",
+     "items": [
+      {
+       "q": "What must crew members who are signing off do before 10:00?",
+       "o": [
+        "Take the bus to the airport.",
+        "Clean their cabins and return their keys.",
+        "Meet the second officer."
+       ],
+       "a": 1,
+       "e": "«must clean their cabins and give their keys to the chief steward before ten o'clock»."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": [
+  {
+   "kind": "Speaking · Interview",
+   "time": "3-4 min",
+   "task": "Introduce yourself: your name, where you are from, your rank and your job on board, your last ship and your experience at sea.",
+   "tr": "Pagsasalita: ipakilala ang sarili: pangalan, taga-saan ka, ranggo at trabaho sa barko, huling barko mo at karanasan sa dagat.",
+   "model": "Good morning. My name is Ravi Kumar and I'm from Kochi, in India. I'm an able seaman. I've worked at sea for six years, on container ships and tankers. My last ship was the Ocean Star: I worked there for nine months. My job is to keep watch on the bridge, do maintenance on deck and help with mooring."
+  },
+  {
+   "kind": "Speaking · Procedure",
+   "time": "2-3 min",
+   "task": "Explain what you do when you hear the general alarm: where you go, what you take with you and what you do at the muster station.",
+   "tr": "Pagsasalita: ipaliwanag ang ginagawa mo kapag narinig ang general alarm: saan ka pupunta, ano ang dadalhin mo at ano ang gagawin mo sa muster station.",
+   "model": "When I hear the general alarm, I stop my work and go to my cabin to take my lifejacket, a warm jacket and my helmet. Then I go to muster station B on deck five. I wait for the officer, I answer when he calls my name and I follow his instructions. My duty is to help the passengers put on their lifejackets."
+  },
+  {
+   "kind": "Writing · Report",
+   "time": "10 min",
+   "task": "Write a short report to the chief officer: this morning you found a small oil leak near the windlass. Say when and where you found it, what you did and what is needed. Write 40 words or more.",
+   "tr": "Pagsulat: sumulat ng maikling ulat sa chief officer: kaninang umaga, may nakita kang maliit na tagas ng langis malapit sa windlass. Sabihin kung kailan at saan, ano ang ginawa mo at ano ang kailangan. Hindi bababa sa 40 salita.",
+   "model": "To the Chief Officer. This morning at 08:30 I found a small oil leak near the windlass on the forecastle. I cleaned the oil with rags and put a drip tray under the pipe. I think the hydraulic pipe needs a new seal. Please send the fitter to check it. Juan Reyes, AB"
+  }
+ ]
+}
