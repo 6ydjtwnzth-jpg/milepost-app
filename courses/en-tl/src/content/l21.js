@@ -1,1 +1,43 @@
-EX.l21=[];VOC.l21=[];
+DLG.l21=[["A","Ravi, when do you sign off?","Ravi, kailan ka mag-si-sign off?"],["B","In two months, on the fifteenth of November. I'm going to fly home from Genoa.","Sa loob ng dalawang buwan, sa ika-15 ng Nobyembre. Uuwi ako sakay ng eroplano mula Genoa."],["A","What are you going to do at home?","Ano ang gagawin mo sa bahay?"],["B","First, I'm going to spend time with my family. My sister is getting married in December.","Una, makakasama ko ang pamilya ko. Ikakasal ang kapatid ko sa Disyembre."],["A","Will you come back to the Aurora?","Babalik ka ba sa Aurora?"],["B","I think so. If the agency offers me a new contract, I'll accept it.","Sa tingin ko. Kung bibigyan ako ng ahensiya ng bagong kontrata, tatanggapin ko."],["A","You'll be a great head waiter one day!","Magiging magaling kang head waiter balang araw!"],["B","Thanks! And you? What are your plans?","Salamat! Ikaw? Ano ang mga plano mo?"],["A","I'm going to save money. If I save enough, I'll open a small restaurant in Cebu.","Mag-iipon ako. Kung sapat ang maiipon ko, magbubukas ako ng maliit na restawran sa Cebu."],["B","Then I'll come and eat there! I promise.","E di kakain ako roon! Pangako."]];
+EX.l21=[
+ {q:"Planong napagpasyahan: «Uuwi ako.»",o:["{I'm going to fly home.}", "{I going to fly home.}", "{I will to fly home.}"],e:"{be} + {going to}."},
+ {q:"Alok ngayon: «Ako na ang magbubuhat ng bag ninyo.»",o:["{I'll carry your bag.}", "{I'm going to carry your bag yesterday.}", "{I carry your bag will.}"],e:"Alok: {will}."},
+ {q:"«Kung uulan, mananatili tayo sa loob.»",o:["{If it rains, we'll stay inside.}", "{If it will rain, we'll stay inside.}", "{If it rains, we stay will inside.}"],e:"{if} + kasalukuyan, saka {will}."},
+ {q:"«Hindi ko makakalimutan.»",o:["{I won't forget.}", "{I will not to forget.}", "{I don't will forget.}"],e:"{won't} + …"},
+ {q:"«Ano ang gagawin mo?»",o:["{What are you going to do?}", "{What you going to do?}", "{What do you going to do?}"],e:"{are} + {you} + {going to}."},
+ {q:"Ang ibig sabihin ng {sign off}:",o:["umalis sa barko sa katapusan ng kontrata", "sumakay sa barko", "pumirma sa form"],e:"{sign on} = sumakay; {sign off} = umalis."},
+ {q:"Makinig: kailan mag-si-sign off si Ravi?",au:"In two months, on the fifteenth of November.",o:["Nobyembre 15", "Nobyembre 5", "Disyembre 15"],e:"{the fifteenth of November}."},
+ {q:"Makinig: ano ang gustong buksan ni Joy?",au:"If I save enough, I'll open a small restaurant in Cebu.",o:["isang restawran", "isang tindahan", "isang hotel"],e:"{a small restaurant}."},
+ {t:"type",q:"Kumpletuhin: {If the agency calls, I} ＿ {accept.} (hinaharap)",a:["will", "'ll"],full:"If the agency calls, I will accept."},
+ {t:"ord",q:"Ayusin: «Makakasama ko ang pamilya ko.»",a:["I'm going to spend time with my family."],w:["I'm", "going", "to", "spend", "time", "with", "my", "family."]},
+ {t:"dict",au:"I'm going to save money."},
+ {t:"say",zh:"Sabihin ang plano mo: «Sa susunod na taon, magsisimula ako ng bagong kontrata.»",it:"Next year I'm going to start a new contract."}
+];
+VOC.l21=[
+ ["sign off","mag-sign off",""],
+ ["sign on","mag-sign on",""],
+ ["going to","(plano) gagawin",""],
+ ["will","(hinaharap)",""],
+ ["won't","hindi (hinaharap)",""],
+ ["if","kung",""],
+ ["plan","plano",""],
+ ["fly","lumipad, sumakay ng eroplano",""],
+ ["home","bahay, tahanan",""],
+ ["spend time","gumugol ng oras",""],
+ ["get married","magpakasal",""],
+ ["come back","bumalik",""],
+ ["agency","ahensiya",""],
+ ["offer","mag-alok",""],
+ ["accept","tanggapin",""],
+ ["head waiter","head waiter",""],
+ ["one day","balang araw",""],
+ ["save money","mag-ipon",""],
+ ["enough","sapat",""],
+ ["open","magbukas",""],
+ ["promise","mangako; pangako",""],
+ ["I think so","sa tingin ko",""],
+ ["carry","magbuhat, magdala",""],
+ ["inside","sa loob",""],
+ ["next year","sa susunod na taon",""],
+ ["November","Nobyembre",""]
+];

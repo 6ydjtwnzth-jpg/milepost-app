@@ -1,1 +1,41 @@
-EX.l19=[];VOC.l19=[];
+DLG.l19=[["A","Ravi, is the Aurora bigger than your last ship?","रवि, क्या औरोरा तुम्हारे पिछले जहाज़ से बड़ा है?"],["B","Much bigger! My last ship was a cargo ship. It was smaller and older.","बहुत बड़ा! मेरा पिछला जहाज़ एक मालवाहक जहाज़ था। वह छोटा और पुराना था।"],["A","Is the work easier here?","क्या यहाँ काम आसान है?"],["B","No, it's harder! But the cabins are more comfortable and the food is better.","नहीं, ज़्यादा मुश्किल है! पर केबिन ज़्यादा आरामदायक हैं और खाना बेहतर है।"],["A","What is the best port on our route?","हमारे रास्ते का सबसे अच्छा बंदरगाह कौन-सा है?"],["B","For me, Barcelona. It is the most beautiful city in the Mediterranean.","मेरे लिए, बार्सिलोना। यह भूमध्य सागर का सबसे सुंदर शहर है।"],["A","And the cheapest for shopping?","और ख़रीदारी के लिए सबसे सस्ता?"],["B","Naples! It's cheaper than Barcelona, and the pizza is as good as in Italy… because it is Italy!","नेपल्स! बार्सिलोना से सस्ता है, और पिज़्ज़ा इटली जितना अच्छा है… क्योंकि वह इटली ही है!"]];
+EX.l19=[
+ {q:"«औरोरा पिछले जहाज़ से बड़ा है।»",o:["{The Aurora is bigger than the last ship.}", "{The Aurora is more big than the last ship.}", "{The Aurora is bigger from the last ship.}"],e:"{big} → {bigger} + {than}।"},
+ {q:"{comfortable} → ?",o:["{more comfortable}", "{comfortabler}", "{most comfortabler}"],e:"लंबा शब्द: {more}।"},
+ {q:"{good} → ?",o:["{better}", "{gooder}", "{more good}"],e:"अनियमित: {better}।"},
+ {q:"«सबसे अच्छा बंदरगाह»:",o:["{the best port}", "{the most good port}", "{the better port}"],e:"{good} → {the best}."},
+ {q:"{easy} → ?",o:["{easier}", "{easyer}", "{more easy}"],e:"{-y} → {-ier}।"},
+ {q:"«तुम्हारी जितनी अच्छी»:",o:["{as good as yours}", "{so good like yours}", "{good as like yours}"],e:"{as … as}."},
+ {q:"सुनें: रवि का पिछला जहाज़ कैसा था?",au:"My last ship was a cargo ship. It was smaller and older.",o:["मालवाहक, छोटा और पुराना", "क्रूज़, बड़ा", "नया और तेज़"],e:"{a cargo ship… smaller and older}."},
+ {q:"सुनें: ख़रीदारी के लिए सबसे सस्ता?",au:"Naples! It's cheaper than Barcelona.",o:["{Naples}", "{Barcelona}", "{Genoa}"],e:"{Naples}."},
+ {t:"type",q:"पूरा करें: {The work here is} ＿ {than on the cargo ship.} ({hard})",a:["harder"],full:"The work here is harder than on the cargo ship."},
+ {t:"ord",q:"क्रम में लगाएँ: «यह कंपनी का सबसे बड़ा जहाज़ है।»",a:["It's the biggest ship in the company."],w:["It's", "the", "biggest", "ship", "in", "the", "company."]},
+ {t:"dict",au:"The food is better and the cabins are more comfortable."},
+ {t:"say",zh:"दो बंदरगाहों की तुलना कीजिए: «बार्सिलोना जेनोवा से बड़ा है।»",it:"Barcelona is bigger than Genoa."}
+];
+VOC.l19=[
+ ["than","से (तुलना)",""],
+ ["bigger","बड़ा (तुलना)",""],
+ ["smaller","छोटा (तुलना)",""],
+ ["older","पुराना (तुलना)",""],
+ ["better","बेहतर",""],
+ ["worse","बदतर",""],
+ ["the best","सबसे अच्छा",""],
+ ["the worst","सबसे बुरा",""],
+ ["the most","सबसे ज़्यादा",""],
+ ["as … as","… जितना",""],
+ ["easy","आसान",""],
+ ["hard","मुश्किल",""],
+ ["comfortable","आरामदायक",""],
+ ["expensive","महँगा",""],
+ ["cheap","सस्ता",""],
+ ["old","पुराना; बूढ़ा",""],
+ ["food","खाना",""],
+ ["cargo ship","मालवाहक जहाज़",""],
+ ["cruise ship","क्रूज़ जहाज़",""],
+ ["route","रास्ता (यात्रा का)",""],
+ ["city","शहर",""],
+ ["Mediterranean","भूमध्य सागर",""],
+ ["shopping","ख़रीदारी",""],
+ ["company","कंपनी",""]
+];

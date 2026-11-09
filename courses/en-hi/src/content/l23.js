@@ -1,1 +1,41 @@
-EX.l23=[];VOC.l23=[];
+DLG.l23=[["A","Good morning, Ms Reyes. Please sit down. Tell me about yourself.","सुप्रभात, मिस रेयेस। बैठिए। मुझे अपने बारे में बताइए।"],["B","Good morning. I'm Joy Reyes. I'm thirty-two and I'm from Cebu, in the Philippines.","सुप्रभात। मैं जॉय रेयेस हूँ। मैं बत्तीस साल की हूँ और फ़िलिपींस के सेबू से हूँ।"],["A","How long have you worked on cruise ships?","आप कितने समय से क्रूज़ जहाज़ों पर काम कर रही हैं?"],["B","For six years. Before that, I worked in a hotel which was near the beach.","छह साल से। उससे पहले मैंने एक होटल में काम किया जो समुद्र-तट के पास था।"],["A","Why do you want to be a head waitress?","आप हेड वेट्रेस क्यों बनना चाहती हैं?"],["B","Because I love working with people. I already help the new waiters who join our team.","क्योंकि मुझे लोगों के साथ काम करना बहुत पसंद है। मैं पहले से उन नए वेटरों की मदद करती हूँ जो हमारी टीम में आते हैं।"],["A","What languages do you speak?","आप कौन-सी भाषाएँ बोलती हैं?"],["B","English, Tagalog, Cebuano and some Italian. I've studied Italian for a year.","अंग्रेज़ी, तागालोग, सेबुआनो और थोड़ी इतालवी। मैं एक साल से इतालवी पढ़ रही हूँ।"],["A","Where do you see yourself in five years?","पाँच साल बाद आप ख़ुद को कहाँ देखती हैं?"],["B","I'd like to be a restaurant manager. And one day I'm going to open a restaurant in the city where I grew up.","मैं रेस्टोरेंट मैनेजर बनना चाहूँगी। और एक दिन मैं उस शहर में रेस्टोरेंट खोलूँगी जहाँ मैं बड़ी हुई।"],["A","Thank you, Ms Reyes. We will let you know next week.","धन्यवाद, मिस रेयेस। हम आपको अगले हफ़्ते बताएँगे।"],["B","Thank you for your time.","आपके समय के लिए धन्यवाद।"]];
+EX.l23=[
+ {q:"«वह वेटर जिसने मेरी मदद की»:",o:["{the waiter who helped me}", "{the waiter which helped me}", "{the waiter who he helped me}"],e:"व्यक्ति: {who}।"},
+ {q:"«वह शहर जहाँ मैं बड़ा हुआ»:",o:["{the city where I grew up}", "{the city which I grew up}", "{the city who I grew up}"],e:"जगह: {where}।"},
+ {q:"«वह जहाज़ जिस पर मैं काम करता हूँ»:",o:["{the ship which I work on}", "{the ship who I work on}", "{the ship where I work on it}"],e:"चीज़: {which}।"},
+ {q:"इंटरव्यू की शुरुआत में:",o:["{Tell me about yourself.}", "{Tell me your story now.}", "{Say me who you are.}"],e:"{Tell me about yourself.}"},
+ {q:"«मैं छह साल से वेट्रेस हूँ।»",o:["{I've been a waitress for six years.}", "{I am a waitress since six years.}", "{I was a waitress for six years ago.}"],e:"{present perfect} + {for}।"},
+ {q:"सपना: «मैं मैनेजर बनना चाहूँगी।»",o:["{I'd like to be a manager.}", "{I like to be a manager yesterday.}", "{I would like being manager.}"],e:"{I'd like to} + …"},
+ {q:"सुनें: जॉय पहले कहाँ काम करती थी?",au:"Before that, I worked in a hotel which was near the beach.",o:["समुद्र-तट के पास एक होटल में", "एक दुकान में", "एक अस्पताल में"],e:"{a hotel which was near the beach}."},
+ {q:"सुनें: जॉय कितने समय से इतालवी पढ़ रही है?",au:"I've studied Italian for a year.",o:["एक साल से", "छह साल से", "दो महीने से"],e:"{for a year}."},
+ {t:"type",q:"पूरा करें: {Paolo is the chef} ＿ {makes the best pizza.}",a:["who", "that"],full:"Paolo is the chef who makes the best pizza."},
+ {t:"ord",q:"क्रम में लगाएँ: «कोच्चि वह शहर है जहाँ मैं बड़ा हुआ।»",a:["Kochi is the city where I grew up."],w:["Kochi", "is", "the", "city", "where", "I", "grew", "up."]},
+ {t:"dict",au:"Thank you for your time."},
+ {t:"say",zh:"इंटरव्यू में अपना परिचय दीजिए: «मैं पाँच साल से जहाज़ों पर काम कर रहा हूँ।»",it:"I've worked on ships for five years."}
+];
+VOC.l23=[
+ ["interview","इंटरव्यू",""],
+ ["yourself","ख़ुद को, अपने आप",""],
+ ["tell me about","… के बारे में बताइए",""],
+ ["sit down","बैठना",""],
+ ["who","जो (व्यक्ति)",""],
+ ["which","जो (चीज़)",""],
+ ["that","जो (व्यक्ति/चीज़)",""],
+ ["where","जहाँ",""],
+ ["hotel","होटल",""],
+ ["team","टीम",""],
+ ["join","शामिल होना",""],
+ ["head waitress","हेड वेट्रेस",""],
+ ["manager","मैनेजर",""],
+ ["strength","ख़ूबी, ताक़त",""],
+ ["good at","… में अच्छा",""],
+ ["let you know","आपको बताना",""],
+ ["thank you for your time","आपके समय के लिए धन्यवाद",""],
+ ["I'd like to","मैं … चाहूँगा",""],
+ ["in the future","भविष्य में",""],
+ ["in five years","पाँच साल बाद",""],
+ ["Cebuano","सेबुआनो भाषा",""],
+ ["Ms","सुश्री, मिस",""],
+ ["before that","उससे पहले",""],
+ ["work as","… के रूप में काम करना",""]
+];

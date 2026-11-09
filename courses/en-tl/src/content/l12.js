@@ -17,7 +17,6 @@ VOC.l12=[
  ["now","ngayon",""],
  ["right now","ngayon mismo",""],
  ["at the moment","sa ngayon",""],
- ["look","tumingin",""],
  ["listen","makinig",""],
  ["arrive","dumating",""],
  ["leave","umalis",""],

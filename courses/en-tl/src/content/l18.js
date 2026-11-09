@@ -1,1 +1,42 @@
-EX.l18=[];VOC.l18=[];
+DLG.l18=[["A","Ravi, were you ever in a storm at sea?","Ravi, naranasan mo na bang mabagyo sa dagat?"],["B","Yes, last year. We were sailing near Sicily.","Oo, noong isang taon. Naglalayag kami malapit sa Sicily."],["A","What happened?","Ano ang nangyari?"],["B","It was night and it was raining hard. I was sleeping when the alarm rang.","Gabi noon at malakas ang ulan. Natutulog ako nang tumunog ang alarma."],["A","What did you do?","Ano ang ginawa mo?"],["B","I got up, took my life jacket and went to my muster station.","Bumangon ako, kinuha ang life jacket ko at pumunta sa muster station ko."],["A","Were the passengers scared?","Takot ba ang mga pasahero?"],["B","Some were crying. While we were waiting, we helped them and talked to them.","Umiiyak ang ilan. Habang naghihintay kami, tinulungan namin sila at kinausap."],["A","And then?","At pagkatapos?"],["B","Suddenly the wind stopped. In the end, nobody was hurt.","Biglang huminto ang hangin. Sa huli, walang nasaktan."]];
+EX.l18=[
+ {q:"«Natutulog ako nang tumunog ang alarma.»",o:["{I was sleeping when the alarm rang.}", "{I slept when the alarm was ringing.}", "{I sleeping when the alarm rang.}"],e:"Nagaganap: {was sleeping}; pangyayari: {rang}."},
+ {q:"{They} ＿ {in the bar at midnight.}",o:["{were working}", "{was working}", "{working}"],e:"{they} → {were}."},
+ {q:"«Habang naghihintay kami…»",o:["{While we were waiting…}", "{While we waited were…}", "{When we waiting…}"],e:"{while} + {past continuous}."},
+ {q:"«Biglang huminto ang hangin.»",o:["{Suddenly the wind stopped.}", "{Suddenly the wind was stopping.}", "{Suddenly the wind stop.}"],e:"Biglaang pangyayari: {past simple}."},
+ {q:"{ring} → {past simple}:",o:["{rang}", "{ringed}", "{rung}"],e:"{ring} → {rang}."},
+ {q:"«sa huli»:",o:["{in the end}", "{at the finish}", "{in finally}"],e:"{in the end}."},
+ {q:"Makinig: nasaan sila?",au:"We were sailing near Sicily.",o:["malapit sa Sicily", "malapit sa Genova", "sa daungan"],e:"{near Sicily}."},
+ {q:"Makinig: ano ang ginagawa ni Ravi nang tumunog ang alarma?",au:"I was sleeping when the alarm rang.",o:["natutulog", "nagtatrabaho", "kumakain"],e:"{I was sleeping}."},
+ {t:"type",q:"Kumpletuhin: {It} ＿ {raining hard.} (nakaraan, nagaganap)",a:["was"],full:"It was raining hard."},
+ {t:"ord",q:"Ayusin: «Buti na lang, walang nasaktan.»",a:["Luckily, nobody was hurt."],w:["Luckily,", "nobody", "was", "hurt."]},
+ {t:"dict",au:"I got up, took my life jacket and went to my muster station."},
+ {t:"say",zh:"Sabihin: «Nagtatrabaho ako nang dumating ang kapitan.»",it:"I was working when the captain arrived."}
+];
+VOC.l18=[
+ ["ever","kailanman, na ba",""],
+ ["sail","maglayag",""],
+ ["happen","mangyari",""],
+ ["hard","malakas; mahirap",""],
+ ["ring","tumunog",""],
+ ["rang","tumunog (ring)",""],
+ ["alarm","alarma",""],
+ ["muster station","muster station",""],
+ ["scared","takot",""],
+ ["cry","umiyak",""],
+ ["wait","maghintay",""],
+ ["while","habang",""],
+ ["suddenly","bigla",""],
+ ["luckily","buti na lang",""],
+ ["in the end","sa huli",""],
+ ["after that","pagkatapos noon",""],
+ ["nobody","walang sinuman",""],
+ ["hurt","nasaktan",""],
+ ["wave","alon",""],
+ ["hit","tumama",""],
+ ["wind","hangin",""],
+ ["midnight","hatinggabi",""],
+ ["night","gabi",""],
+ ["move","gumalaw",""],
+ ["last year","noong isang taon",""]
+];

@@ -1,1 +1,42 @@
-EX.l20=[];VOC.l20=[];
+DLG.l20=[["A","Ravi, how many countries have you visited?","रवि, तुम कितने देशों में गए हो?"],["B","About twenty. I've been to Spain, Greece, Norway and Brazil.","लगभग बीस। मैं स्पेन, ग्रीस, नॉर्वे और ब्राज़ील जा चुका हूँ।"],["A","Wow! Have you ever been to Japan?","वाह! क्या तुम कभी जापान गए हो?"],["B","No, I haven't. I've never been to Asia on a ship.","नहीं। मैं कभी जहाज़ से एशिया नहीं गया।"],["A","And you, Joy? How long have you worked on ships?","और तुम, जॉय? तुम कितने समय से जहाज़ों पर काम कर रही हो?"],["B","I've worked on ships for six years, since 2019.","मैं छह साल से जहाज़ों पर काम कर रही हूँ, 2019 से।"],["A","Have you ever seen a whale?","क्या तुमने कभी व्हेल देखी है?"],["B","Yes, many times! And I've just seen dolphins from the deck.","हाँ, कई बार! और मैंने अभी-अभी डेक से डॉल्फ़िन देखीं।"],["A","Really? I haven't seen any dolphins yet!","सच में? मैंने अभी तक कोई डॉल्फ़िन नहीं देखी!"],["B","Quick, go to deck eleven!","जल्दी, डेक ग्यारह पर जाओ!"]];
+EX.l20=[
+ {q:"«मैं स्पेन जा चुका हूँ।»",o:["{I've been to Spain.}", "{I've went to Spain.}", "{I've go to Spain.}"],e:"{have} + {been}।"},
+ {q:"«क्या तुमने कभी व्हेल देखी है?»",o:["{Have you ever seen a whale?}", "{Did you ever saw a whale?}", "{Have you ever saw a whale?}"],e:"{Have} + {seen}."},
+ {q:"«छह साल से»:",o:["{for six years}", "{since six years}", "{from six years}"],e:"अवधि: {for}।"},
+ {q:"«2019 से»:",o:["{since 2019}", "{for 2019}", "{from 2019 years}"],e:"शुरुआत: {since}।"},
+ {q:"ख़ास समय: «मैं पिछले साल स्पेन गया।»",o:["{I went to Spain last year.}", "{I've been to Spain last year.}", "{I've gone to Spain last year.}"],e:"ख़ास समय → {past simple}।"},
+ {q:"«अभी तक नहीं।»",o:["{Not yet.}", "{Not already.}", "{Not just.}"],e:"{yet}."},
+ {q:"{eat} → ({present perfect}) {I have} ＿",o:["{eaten}", "{ate}", "{eated}"],e:"{eat} → {ate} → {eaten}."},
+ {q:"सुनें: रवि कितने देशों में गया है?",au:"About twenty.",o:["20", "12", "2"],e:"{about twenty}."},
+ {q:"सुनें: जॉय कितने समय से जहाज़ों पर है?",au:"I've worked on ships for six years, since 2019.",o:["छह साल", "दो साल", "उन्नीस साल"],e:"{for six years}."},
+ {t:"type",q:"पूरा करें: {I have worked here} ＿ {March.}",a:["since"],full:"I have worked here since March."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं कभी जापान नहीं गया।»",a:["I've never been to Japan."],w:["I've", "never", "been", "to", "Japan."]},
+ {t:"dict",au:"Have you ever been to Japan?"},
+ {t:"say",zh:"अपना अनुभव बताइए: «मैं तीन साल से जहाज़ों पर काम कर रहा हूँ।»",it:"I've worked on ships for three years."}
+];
+VOC.l20=[
+ ["been to","जा चुका",""],
+ ["been","रहा (be का तीसरा रूप)",""],
+ ["seen","देखा (see का तीसरा रूप)",""],
+ ["eaten","खाया (eat का तीसरा रूप)",""],
+ ["gone","चला गया (go का तीसरा रूप)",""],
+ ["for","… से (अवधि)",""],
+ ["since","… से (शुरुआत)",""],
+ ["how long","कितने समय से",""],
+ ["just","अभी-अभी",""],
+ ["already","पहले ही",""],
+ ["yet","अभी तक",""],
+ ["country","देश",""],
+ ["times","बार",""],
+ ["many times","कई बार",""],
+ ["whale","व्हेल",""],
+ ["dolphin","डॉल्फ़िन",""],
+ ["quick","जल्दी",""],
+ ["Spain","स्पेन",""],
+ ["Greece","ग्रीस",""],
+ ["Norway","नॉर्वे",""],
+ ["Brazil","ब्राज़ील",""],
+ ["Japan","जापान",""],
+ ["Asia","एशिया",""],
+ ["experience","अनुभव",""]
+];

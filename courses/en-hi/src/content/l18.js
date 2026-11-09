@@ -1,1 +1,42 @@
-EX.l18=[];VOC.l18=[];
+DLG.l18=[["A","Ravi, were you ever in a storm at sea?","रवि, क्या तुम कभी समुद्र में तूफ़ान में फँसे?"],["B","Yes, last year. We were sailing near Sicily.","हाँ, पिछले साल। हम सिसिली के पास चल रहे थे।"],["A","What happened?","क्या हुआ?"],["B","It was night and it was raining hard. I was sleeping when the alarm rang.","रात थी और तेज़ बारिश हो रही थी। मैं सो रहा था जब अलार्म बजा।"],["A","What did you do?","तुमने क्या किया?"],["B","I got up, took my life jacket and went to my muster station.","मैं उठा, लाइफ़ जैकेट ली और अपने मस्टर स्टेशन गया।"],["A","Were the passengers scared?","क्या यात्री डरे हुए थे?"],["B","Some were crying. While we were waiting, we helped them and talked to them.","कुछ रो रहे थे। जब हम इंतज़ार कर रहे थे, हमने उनकी मदद की और उनसे बात की।"],["A","And then?","और फिर?"],["B","Suddenly the wind stopped. In the end, nobody was hurt.","अचानक हवा रुक गई। आख़िर में, किसी को चोट नहीं लगी।"]];
+EX.l18=[
+ {q:"«मैं सो रहा था जब अलार्म बजा।»",o:["{I was sleeping when the alarm rang.}", "{I slept when the alarm was ringing.}", "{I sleeping when the alarm rang.}"],e:"चलता काम: {was sleeping}; घटना: {rang}।"},
+ {q:"{They} ＿ {in the bar at midnight.}",o:["{were working}", "{was working}", "{working}"],e:"{they} → {were}."},
+ {q:"«जब हम इंतज़ार कर रहे थे…»",o:["{While we were waiting…}", "{While we waited were…}", "{When we waiting…}"],e:"{while} + {past continuous}."},
+ {q:"«अचानक हवा रुक गई।»",o:["{Suddenly the wind stopped.}", "{Suddenly the wind was stopping.}", "{Suddenly the wind stop.}"],e:"अचानक घटना: {past simple}।"},
+ {q:"{ring} → {past simple}:",o:["{rang}", "{ringed}", "{rung}"],e:"{ring} → {rang}."},
+ {q:"«आख़िर में»:",o:["{in the end}", "{at the finish}", "{in finally}"],e:"{in the end}."},
+ {q:"सुनें: वे कहाँ थे?",au:"We were sailing near Sicily.",o:["सिसिली के पास", "जेनोवा के पास", "बंदरगाह में"],e:"{near Sicily}."},
+ {q:"सुनें: अलार्म बजा तब रवि क्या कर रहा था?",au:"I was sleeping when the alarm rang.",o:["सो रहा था", "काम कर रहा था", "खा रहा था"],e:"{I was sleeping}."},
+ {t:"type",q:"पूरा करें: {It} ＿ {raining hard.} (भूत, चल रहा)",a:["was"],full:"It was raining hard."},
+ {t:"ord",q:"क्रम में लगाएँ: «ख़ुशक़िस्मती से किसी को चोट नहीं लगी।»",a:["Luckily, nobody was hurt."],w:["Luckily,", "nobody", "was", "hurt."]},
+ {t:"dict",au:"I got up, took my life jacket and went to my muster station."},
+ {t:"say",zh:"बताइए: «मैं काम कर रहा था जब कप्तान आए।»",it:"I was working when the captain arrived."}
+];
+VOC.l18=[
+ ["ever","कभी",""],
+ ["sail","जहाज़ से चलना",""],
+ ["happen","होना, घटना",""],
+ ["hard","तेज़; कठिन",""],
+ ["ring","बजना",""],
+ ["rang","बजा (ring)",""],
+ ["alarm","अलार्म",""],
+ ["muster station","मस्टर स्टेशन",""],
+ ["scared","डरा हुआ",""],
+ ["cry","रोना",""],
+ ["wait","इंतज़ार करना",""],
+ ["while","जब तक, जबकि",""],
+ ["suddenly","अचानक",""],
+ ["luckily","ख़ुशक़िस्मती से",""],
+ ["in the end","आख़िर में",""],
+ ["after that","उसके बाद",""],
+ ["nobody","कोई नहीं",""],
+ ["hurt","चोट लगी हुई",""],
+ ["wave","लहर",""],
+ ["hit","टकराना",""],
+ ["wind","हवा",""],
+ ["midnight","आधी रात",""],
+ ["night","रात",""],
+ ["move","हिलना",""],
+ ["last year","पिछले साल",""]
+];

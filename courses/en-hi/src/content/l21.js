@@ -1,1 +1,43 @@
-EX.l21=[];VOC.l21=[];
+DLG.l21=[["A","Ravi, when do you sign off?","रवि, तुम कब साइन ऑफ़ करोगे?"],["B","In two months, on the fifteenth of November. I'm going to fly home from Genoa.","दो महीने में, पंद्रह नवंबर को। मैं जेनोवा से घर के लिए उड़ान लूँगा।"],["A","What are you going to do at home?","घर पर क्या करोगे?"],["B","First, I'm going to spend time with my family. My sister is getting married in December.","पहले, मैं परिवार के साथ समय बिताऊँगा। मेरी बहन की दिसंबर में शादी है।"],["A","Will you come back to the Aurora?","क्या तुम औरोरा पर वापस आओगे?"],["B","I think so. If the agency offers me a new contract, I'll accept it.","मुझे ऐसा लगता है। अगर एजेंसी मुझे नया कॉन्ट्रैक्ट देगी, तो मैं मान लूँगा।"],["A","You'll be a great head waiter one day!","तुम एक दिन बढ़िया हेड वेटर बनोगे!"],["B","Thanks! And you? What are your plans?","धन्यवाद! और तुम? तुम्हारी क्या योजनाएँ हैं?"],["A","I'm going to save money. If I save enough, I'll open a small restaurant in Cebu.","मैं पैसे बचाऊँगी। अगर काफ़ी बचा लिए, तो मैं सेबू में एक छोटा रेस्टोरेंट खोलूँगी।"],["B","Then I'll come and eat there! I promise.","तो मैं वहाँ खाने आऊँगा! वादा।"]];
+EX.l21=[
+ {q:"तय योजना: «मैं घर जाने वाला हूँ।»",o:["{I'm going to fly home.}", "{I going to fly home.}", "{I will to fly home.}"],e:"{be} + {going to}."},
+ {q:"अभी का फ़ैसला/मदद: «मैं आपका बैग उठा लेता हूँ।»",o:["{I'll carry your bag.}", "{I'm going to carry your bag yesterday.}", "{I carry your bag will.}"],e:"पेशकश: {will}।"},
+ {q:"«अगर बारिश होगी, तो हम अंदर रहेंगे।»",o:["{If it rains, we'll stay inside.}", "{If it will rain, we'll stay inside.}", "{If it rains, we stay will inside.}"],e:"{if} + वर्तमान, फिर {will}।"},
+ {q:"«मैं नहीं भूलूँगा।»",o:["{I won't forget.}", "{I will not to forget.}", "{I don't will forget.}"],e:"{won't} + …"},
+ {q:"«तुम क्या करने वाले हो?»",o:["{What are you going to do?}", "{What you going to do?}", "{What do you going to do?}"],e:"{are} + {you} + {going to}."},
+ {q:"{sign off} का मतलब:",o:["कॉन्ट्रैक्ट के अंत में जहाज़ छोड़ना", "जहाज़ पर चढ़ना", "फ़ॉर्म पर हस्ताक्षर करना"],e:"{sign on} = जहाज़ पर आना; {sign off} = छोड़ना।"},
+ {q:"सुनें: रवि कब साइन ऑफ़ करेगा?",au:"In two months, on the fifteenth of November.",o:["15 नवंबर", "5 नवंबर", "15 दिसंबर"],e:"{the fifteenth of November}."},
+ {q:"सुनें: जॉय क्या खोलना चाहती है?",au:"If I save enough, I'll open a small restaurant in Cebu.",o:["एक रेस्टोरेंट", "एक दुकान", "एक होटल"],e:"{a small restaurant}."},
+ {t:"type",q:"पूरा करें: {If the agency calls, I} ＿ {accept.} (भविष्य)",a:["will", "'ll"],full:"If the agency calls, I will accept."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं परिवार के साथ समय बिताऊँगा।»",a:["I'm going to spend time with my family."],w:["I'm", "going", "to", "spend", "time", "with", "my", "family."]},
+ {t:"dict",au:"I'm going to save money."},
+ {t:"say",zh:"अपनी योजना बताइए: «अगले साल मैं एक नया कॉन्ट्रैक्ट शुरू करूँगा।»",it:"Next year I'm going to start a new contract."}
+];
+VOC.l21=[
+ ["sign off","कॉन्ट्रैक्ट के अंत में जहाज़ छोड़ना",""],
+ ["sign on","जहाज़ पर काम शुरू करना",""],
+ ["going to","… वाला (योजना)",""],
+ ["will","… गा (भविष्य)",""],
+ ["won't","नहीं … गा",""],
+ ["if","अगर",""],
+ ["plan","योजना",""],
+ ["fly","उड़ना, हवाई जहाज़ से जाना",""],
+ ["home","घर",""],
+ ["spend time","समय बिताना",""],
+ ["get married","शादी करना",""],
+ ["come back","वापस आना",""],
+ ["agency","एजेंसी",""],
+ ["offer","पेशकश करना",""],
+ ["accept","स्वीकार करना",""],
+ ["head waiter","हेड वेटर",""],
+ ["one day","एक दिन",""],
+ ["save money","पैसे बचाना",""],
+ ["enough","काफ़ी",""],
+ ["open","खोलना",""],
+ ["promise","वादा करना; वादा",""],
+ ["I think so","मुझे ऐसा लगता है",""],
+ ["carry","उठाकर ले जाना",""],
+ ["inside","अंदर",""],
+ ["next year","अगले साल",""],
+ ["November","नवंबर",""]
+];

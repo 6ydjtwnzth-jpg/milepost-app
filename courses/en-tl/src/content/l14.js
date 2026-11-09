@@ -16,8 +16,6 @@ EX.l14=[
 VOC.l14=[
  ["store","bodega, imbakan",""],
  ["check","tingnan, suriin",""],
- ["how much","gaano karami",""],
- ["how many","ilan",""],
  ["a lot of","marami",""],
  ["much","marami (hindi nabibilang)",""],
  ["many","marami (nabibilang)",""],
@@ -46,6 +44,5 @@ VOC.l14=[
  ["can","lata",""],
  ["packet","pakete",""],
  ["litre","litro",""],
- ["biscuits","biskwit",""],
- ["chef","chef",""]
+ ["biscuits","biskwit",""]
 ];

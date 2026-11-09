@@ -21,7 +21,6 @@ VOC.l10=[
  ["have breakfast","mag-almusal",""],
  ["go to bed","matulog",""],
  ["have a rest","magpahinga",""],
- ["always","lagi",""],
  ["usually","karaniwan",""],
  ["often","madalas",""],
  ["sometimes","paminsan-minsan",""],

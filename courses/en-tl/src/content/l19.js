@@ -1,1 +1,41 @@
-EX.l19=[];VOC.l19=[];
+DLG.l19=[["A","Ravi, is the Aurora bigger than your last ship?","Ravi, mas malaki ba ang Aurora kaysa sa dati mong barko?"],["B","Much bigger! My last ship was a cargo ship. It was smaller and older.","Mas malaki! Cargo ship ang dati kong barko. Mas maliit at mas luma iyon."],["A","Is the work easier here?","Mas madali ba ang trabaho rito?"],["B","No, it's harder! But the cabins are more comfortable and the food is better.","Hindi, mas mahirap! Pero mas komportable ang mga kabina at mas masarap ang pagkain."],["A","What is the best port on our route?","Ano ang pinakamagandang daungan sa ruta natin?"],["B","For me, Barcelona. It is the most beautiful city in the Mediterranean.","Para sa akin, Barcelona. Ito ang pinakamagandang lungsod sa Mediterranean."],["A","And the cheapest for shopping?","At ang pinakamura para mamili?"],["B","Naples! It's cheaper than Barcelona, and the pizza is as good as in Italy… because it is Italy!","Naples! Mas mura kaysa sa Barcelona, at kasing-sarap ng pizza sa Italya… kasi Italya nga iyon!"]];
+EX.l19=[
+ {q:"«Mas malaki ang Aurora kaysa sa dating barko.»",o:["{The Aurora is bigger than the last ship.}", "{The Aurora is more big than the last ship.}", "{The Aurora is bigger from the last ship.}"],e:"{big} → {bigger} + {than}."},
+ {q:"{comfortable} → ?",o:["{more comfortable}", "{comfortabler}", "{most comfortabler}"],e:"Mahabang salita: {more}."},
+ {q:"{good} → ?",o:["{better}", "{gooder}", "{more good}"],e:"Irregular: {better}."},
+ {q:"«ang pinakamagandang daungan»:",o:["{the best port}", "{the most good port}", "{the better port}"],e:"{good} → {the best}."},
+ {q:"{easy} → ?",o:["{easier}", "{easyer}", "{more easy}"],e:"{-y} → {-ier}."},
+ {q:"«kasing-galing mo»:",o:["{as good as yours}", "{so good like yours}", "{good as like yours}"],e:"{as … as}."},
+ {q:"Makinig: ano ang dating barko ni Ravi?",au:"My last ship was a cargo ship. It was smaller and older.",o:["cargo, mas maliit at mas luma", "cruise, mas malaki", "bago at mabilis"],e:"{a cargo ship… smaller and older}."},
+ {q:"Makinig: pinakamura para mamili?",au:"Naples! It's cheaper than Barcelona.",o:["{Naples}", "{Barcelona}", "{Genoa}"],e:"{Naples}."},
+ {t:"type",q:"Kumpletuhin: {The work here is} ＿ {than on the cargo ship.} ({hard})",a:["harder"],full:"The work here is harder than on the cargo ship."},
+ {t:"ord",q:"Ayusin: «Ito ang pinakamalaking barko sa kompanya.»",a:["It's the biggest ship in the company."],w:["It's", "the", "biggest", "ship", "in", "the", "company."]},
+ {t:"dict",au:"The food is better and the cabins are more comfortable."},
+ {t:"say",zh:"Paghambingin ang dalawang daungan: «Mas malaki ang Barcelona kaysa sa Genoa.»",it:"Barcelona is bigger than Genoa."}
+];
+VOC.l19=[
+ ["than","kaysa",""],
+ ["bigger","mas malaki",""],
+ ["smaller","mas maliit",""],
+ ["older","mas luma, mas matanda",""],
+ ["better","mas mabuti",""],
+ ["worse","mas masama",""],
+ ["the best","pinakamahusay",""],
+ ["the worst","pinakamasama",""],
+ ["the most","pinaka-",""],
+ ["as … as","kasing-",""],
+ ["easy","madali",""],
+ ["hard","mahirap",""],
+ ["comfortable","komportable",""],
+ ["expensive","mahal",""],
+ ["cheap","mura",""],
+ ["old","luma; matanda",""],
+ ["food","pagkain",""],
+ ["cargo ship","cargo ship",""],
+ ["cruise ship","cruise ship",""],
+ ["route","ruta",""],
+ ["city","lungsod",""],
+ ["Mediterranean","Mediterranean",""],
+ ["shopping","pamimili",""],
+ ["company","kompanya",""]
+];

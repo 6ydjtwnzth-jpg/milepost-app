@@ -1,1 +1,40 @@
-EX.l17=[];VOC.l17=[];
+DLG.l17=[["A","Ravi, what was Kochi like when you were a child?","रवि, जब तुम बच्चे थे तब कोच्चि कैसा था?"],["B","It was quieter. My family used to live near the sea, next to the old fishing nets.","ज़्यादा शांत था। मेरा परिवार समुद्र के पास रहता था, पुराने मछली पकड़ने के जालों के बग़ल में।"],["A","Did you use to go fishing?","क्या तुम मछली पकड़ने जाते थे?"],["B","Yes! My father was a fisherman. I used to help him every Sunday.","हाँ! मेरे पिताजी मछुआरे थे। मैं हर रविवार उनकी मदद करता था।"],["A","Could you swim?","क्या तुम तैर सकते थे?"],["B","Of course. I could swim when I was five. And you?","बिल्कुल। मैं पाँच साल की उम्र में तैर सकता था। और तुम?"],["A","I couldn't swim until I was ten! I was afraid of the water.","मैं दस साल की उम्र तक तैर नहीं सकती थी! मुझे पानी से डर लगता था।"],["B","Really? And now you work on a ship!","सच में? और अब तुम जहाज़ पर काम करती हो!"],["A","Life is strange! I didn't use to like the sea. Now I love it.","ज़िंदगी अजीब है! पहले मुझे समुद्र पसंद नहीं था। अब बहुत पसंद है।"]];
+EX.l17=[
+ {q:"«मैं समुद्र के पास रहता था।» (अब नहीं)",o:["{I used to live near the sea.}", "{I use to live near the sea.}", "{I was live near the sea.}"],e:"{used to} + {live}."},
+ {q:"«क्या तुम मछली पकड़ने जाते थे?»",o:["{Did you use to go fishing?}", "{Did you used to go fishing?}", "{Used you to go fishing?}"],e:"{Did} + {use to}."},
+ {q:"«मैं पाँच साल की उम्र में तैर सकता था।»",o:["{I could swim when I was five.}", "{I can swim when I was five.}", "{I could to swim when I was five.}"],e:"भूतकाल: {could} + मूल क्रिया।"},
+ {q:"«वह अंग्रेज़ी नहीं बोल सकती थी।»",o:["{She couldn't speak English.}", "{She didn't could speak English.}", "{She can't spoke English.}"],e:"{couldn't} + …"},
+ {q:"«मैं कोच्चि में बड़ा हुआ।»",o:["{I grew up in Kochi.}", "{I growed up in Kochi.}", "{I was grow in Kochi.}"],e:"{grow} → {grew}।"},
+ {q:"«वह कैसा था?»",o:["{What was it like?}", "{How was it like?}", "{What it was like?}"],e:"{What was it like?}"},
+ {q:"सुनें: रवि के पिताजी क्या थे?",au:"My father was a fisherman.",o:["मछुआरे", "टीचर", "रसोइया"],e:"{a fisherman}."},
+ {q:"सुनें: जॉय कब तक तैर नहीं सकती थी?",au:"I couldn't swim until I was ten!",o:["दस साल की उम्र तक", "पाँच साल तक", "आज तक"],e:"{until I was ten}."},
+ {t:"type",q:"पूरा करें: {My grandmother} ＿ {to tell me stories.}",a:["used"],full:"My grandmother used to tell me stories."},
+ {t:"ord",q:"क्रम में लगाएँ: «जब मैं बच्चा था, मुझे कुत्तों से डर लगता था।»",a:["When I was a child, I was afraid of dogs."],w:["When", "I", "was", "a", "child,", "I", "was", "afraid", "of", "dogs."]},
+ {t:"dict",au:"I used to help him every Sunday."},
+ {t:"say",zh:"अपने बचपन के बारे में बताइए: «जब मैं बच्चा था, मैं समुद्र-तट पर खेलता था।»",it:"When I was a child, I used to play on the beach."}
+];
+VOC.l17=[
+ ["childhood","बचपन",""],
+ ["used to","… करता था (बीती आदत)",""],
+ ["could","सकता था",""],
+ ["couldn't","नहीं सकता था",""],
+ ["grow up","बड़ा होना",""],
+ ["grew up","बड़ा हुआ",""],
+ ["quiet","शांत",""],
+ ["near","पास",""],
+ ["fishing net","मछली पकड़ने का जाल",""],
+ ["fisherman","मछुआरा",""],
+ ["go fishing","मछली पकड़ने जाना",""],
+ ["afraid of","… से डरा हुआ",""],
+ ["really?","सच में?",""],
+ ["life","ज़िंदगी",""],
+ ["strange","अजीब",""],
+ ["beach","समुद्र-तट",""],
+ ["tell","बताना, सुनाना",""],
+ ["story","कहानी",""],
+ ["school","स्कूल",""],
+ ["ride a bike","साइकिल चलाना",""],
+ ["dog","कुत्ता",""],
+ ["TV","टीवी",""],
+ ["what was it like?","वह कैसा था?",""]
+];

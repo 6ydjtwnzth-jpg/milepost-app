@@ -1,1 +1,42 @@
-EX.l20=[];VOC.l20=[];
+DLG.l20=[["A","Ravi, how many countries have you visited?","Ravi, ilang bansa na ang napuntahan mo?"],["B","About twenty. I've been to Spain, Greece, Norway and Brazil.","Mga dalawampu. Nakapunta na ako sa Spain, Greece, Norway at Brazil."],["A","Wow! Have you ever been to Japan?","Wow! Nakapunta ka na ba sa Japan?"],["B","No, I haven't. I've never been to Asia on a ship.","Hindi pa. Hindi pa ako nakapunta sa Asia sakay ng barko."],["A","And you, Joy? How long have you worked on ships?","Ikaw, Joy? Gaano ka na katagal nagtatrabaho sa mga barko?"],["B","I've worked on ships for six years, since 2019.","Anim na taon na akong nagtatrabaho sa mga barko, mula 2019."],["A","Have you ever seen a whale?","Nakakita ka na ba ng balyena?"],["B","Yes, many times! And I've just seen dolphins from the deck.","Oo, maraming beses! At kakakita ko lang ng mga dolphin mula sa deck."],["A","Really? I haven't seen any dolphins yet!","Talaga? Hindi pa ako nakakakita ng dolphin!"],["B","Quick, go to deck eleven!","Bilis, pumunta ka sa deck onse!"]];
+EX.l20=[
+ {q:"«Nakapunta na ako sa Spain.»",o:["{I've been to Spain.}", "{I've went to Spain.}", "{I've go to Spain.}"],e:"{have} + {been}."},
+ {q:"«Nakakita ka na ba ng balyena?»",o:["{Have you ever seen a whale?}", "{Did you ever saw a whale?}", "{Have you ever saw a whale?}"],e:"{Have} + {seen}."},
+ {q:"«anim na taon na»:",o:["{for six years}", "{since six years}", "{from six years}"],e:"Haba: {for}."},
+ {q:"«mula 2019»:",o:["{since 2019}", "{for 2019}", "{from 2019 years}"],e:"Simula: {since}."},
+ {q:"May tiyak na panahon: «Pumunta ako sa Spain noong isang taon.»",o:["{I went to Spain last year.}", "{I've been to Spain last year.}", "{I've gone to Spain last year.}"],e:"Tiyak na panahon → {past simple}."},
+ {q:"«Hindi pa.»",o:["{Not yet.}", "{Not already.}", "{Not just.}"],e:"{yet}."},
+ {q:"{eat} → ({present perfect}) {I have} ＿",o:["{eaten}", "{ate}", "{eated}"],e:"{eat} → {ate} → {eaten}."},
+ {q:"Makinig: ilang bansa na ang napuntahan ni Ravi?",au:"About twenty.",o:["20", "12", "2"],e:"{about twenty}."},
+ {q:"Makinig: gaano na katagal si Joy sa mga barko?",au:"I've worked on ships for six years, since 2019.",o:["anim na taon", "dalawang taon", "labinsiyam na taon"],e:"{for six years}."},
+ {t:"type",q:"Kumpletuhin: {I have worked here} ＿ {March.}",a:["since"],full:"I have worked here since March."},
+ {t:"ord",q:"Ayusin: «Hindi pa ako nakapunta sa Japan.»",a:["I've never been to Japan."],w:["I've", "never", "been", "to", "Japan."]},
+ {t:"dict",au:"Have you ever been to Japan?"},
+ {t:"say",zh:"Sabihin ang karanasan mo: «Tatlong taon na akong nagtatrabaho sa mga barko.»",it:"I've worked on ships for three years."}
+];
+VOC.l20=[
+ ["been to","nakapunta na sa",""],
+ ["been","(ikatlong anyo ng be)",""],
+ ["seen","nakita (see)",""],
+ ["eaten","nakain (eat)",""],
+ ["gone","umalis na (go)",""],
+ ["for","sa loob ng, … na",""],
+ ["since","mula noong",""],
+ ["how long","gaano katagal",""],
+ ["just","kakatapos lang",""],
+ ["already","na",""],
+ ["yet","pa",""],
+ ["country","bansa",""],
+ ["times","beses",""],
+ ["many times","maraming beses",""],
+ ["whale","balyena",""],
+ ["dolphin","dolphin",""],
+ ["quick","bilis",""],
+ ["Spain","Espanya, Spain",""],
+ ["Greece","Gresya",""],
+ ["Norway","Norway",""],
+ ["Brazil","Brasil",""],
+ ["Japan","Hapon, Japan",""],
+ ["Asia","Asya",""],
+ ["experience","karanasan",""]
+];

@@ -18,7 +18,6 @@ VOC.l11=[
  ["like","magustuhan",""],
  ["love","gustong-gusto; mahalin",""],
  ["hate","ayaw na ayaw",""],
- ["enjoy","masiyahan",""],
  ["don't mind","ayos lang",""],
  ["can","kaya, marunong",""],
  ["can't","hindi kaya",""],

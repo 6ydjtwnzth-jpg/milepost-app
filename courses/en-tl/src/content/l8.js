@@ -45,6 +45,5 @@ VOC.l8=[
  ["cheese","keso",""],
  ["drink","inumin; uminom",""],
  ["bar","bar",""],
- ["evening","gabi",""],
  ["I'll be right back","babalik ako agad",""]
 ];

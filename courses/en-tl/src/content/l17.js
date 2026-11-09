@@ -1,1 +1,40 @@
-EX.l17=[];VOC.l17=[];
+DLG.l17=[["A","Ravi, what was Kochi like when you were a child?","Ravi, ano ang itsura ng Kochi noong bata ka?"],["B","It was quieter. My family used to live near the sea, next to the old fishing nets.","Mas tahimik. Nakatira ang pamilya ko malapit sa dagat, katabi ng mga lumang lambat pangisda."],["A","Did you use to go fishing?","Nangingisda ka ba dati?"],["B","Yes! My father was a fisherman. I used to help him every Sunday.","Oo! Mangingisda ang tatay ko. Tinutulungan ko siya tuwing Linggo."],["A","Could you swim?","Marunong ka bang lumangoy noon?"],["B","Of course. I could swim when I was five. And you?","Siyempre. Marunong na akong lumangoy noong limang taon ako. Ikaw?"],["A","I couldn't swim until I was ten! I was afraid of the water.","Hindi ako marunong lumangoy hanggang sampung taon ako! Takot ako sa tubig."],["B","Really? And now you work on a ship!","Talaga? At ngayon, nagtatrabaho ka sa barko!"],["A","Life is strange! I didn't use to like the sea. Now I love it.","Kakaiba ang buhay! Dati, ayaw ko sa dagat. Ngayon, gustong-gusto ko na."]];
+EX.l17=[
+ {q:"«Dati, nakatira ako malapit sa dagat.»",o:["{I used to live near the sea.}", "{I use to live near the sea.}", "{I was live near the sea.}"],e:"{used to} + {live}."},
+ {q:"«Nangingisda ka ba dati?»",o:["{Did you use to go fishing?}", "{Did you used to go fishing?}", "{Used you to go fishing?}"],e:"{Did} + {use to}."},
+ {q:"«Marunong na akong lumangoy noong limang taon ako.»",o:["{I could swim when I was five.}", "{I can swim when I was five.}", "{I could to swim when I was five.}"],e:"Nakaraan: {could} + payak."},
+ {q:"«Hindi siya marunong mag-Ingles noon.»",o:["{She couldn't speak English.}", "{She didn't could speak English.}", "{She can't spoke English.}"],e:"{couldn't} + …"},
+ {q:"«Lumaki ako sa Kochi.»",o:["{I grew up in Kochi.}", "{I growed up in Kochi.}", "{I was grow in Kochi.}"],e:"{grow} → {grew}."},
+ {q:"«Ano ang itsura nito?»",o:["{What was it like?}", "{How was it like?}", "{What it was like?}"],e:"{What was it like?}"},
+ {q:"Makinig: ano ang trabaho ng tatay ni Ravi?",au:"My father was a fisherman.",o:["mangingisda", "guro", "kusinero"],e:"{a fisherman}."},
+ {q:"Makinig: hanggang kailan hindi marunong lumangoy si Joy?",au:"I couldn't swim until I was ten!",o:["hanggang sampung taon", "hanggang limang taon", "hanggang ngayon"],e:"{until I was ten}."},
+ {t:"type",q:"Kumpletuhin: {My grandmother} ＿ {to tell me stories.}",a:["used"],full:"My grandmother used to tell me stories."},
+ {t:"ord",q:"Ayusin: «Noong bata ako, takot ako sa aso.»",a:["When I was a child, I was afraid of dogs."],w:["When", "I", "was", "a", "child,", "I", "was", "afraid", "of", "dogs."]},
+ {t:"dict",au:"I used to help him every Sunday."},
+ {t:"say",zh:"Ikuwento ang pagkabata mo: «Noong bata ako, naglalaro ako sa dalampasigan.»",it:"When I was a child, I used to play on the beach."}
+];
+VOC.l17=[
+ ["childhood","pagkabata",""],
+ ["used to","dati (nakagawian)",""],
+ ["could","kaya noon",""],
+ ["couldn't","hindi kaya noon",""],
+ ["grow up","lumaki",""],
+ ["grew up","lumaki (nakaraan)",""],
+ ["quiet","tahimik",""],
+ ["near","malapit",""],
+ ["fishing net","lambat pangisda",""],
+ ["fisherman","mangingisda",""],
+ ["go fishing","mangisda",""],
+ ["afraid of","takot sa",""],
+ ["really?","talaga?",""],
+ ["life","buhay",""],
+ ["strange","kakaiba",""],
+ ["beach","dalampasigan",""],
+ ["tell","sabihin, ikuwento",""],
+ ["story","kuwento",""],
+ ["school","paaralan",""],
+ ["ride a bike","magbisikleta",""],
+ ["dog","aso",""],
+ ["TV","TV",""],
+ ["what was it like?","ano ang itsura nito?",""]
+];

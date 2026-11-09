@@ -1,1 +1,41 @@
-EX.l23=[];VOC.l23=[];
+DLG.l23=[["A","Good morning, Ms Reyes. Please sit down. Tell me about yourself.","Magandang umaga, Ms Reyes. Maupo po kayo. Magkuwento kayo tungkol sa sarili ninyo."],["B","Good morning. I'm Joy Reyes. I'm thirty-two and I'm from Cebu, in the Philippines.","Magandang umaga po. Ako si Joy Reyes. Tatlumpu't dalawang taon ako at taga-Cebu, sa Pilipinas."],["A","How long have you worked on cruise ships?","Gaano na kayo katagal nagtatrabaho sa mga cruise ship?"],["B","For six years. Before that, I worked in a hotel which was near the beach.","Anim na taon na po. Bago iyon, nagtrabaho ako sa isang hotel na malapit sa dalampasigan."],["A","Why do you want to be a head waitress?","Bakit gusto ninyong maging head waitress?"],["B","Because I love working with people. I already help the new waiters who join our team.","Dahil gustong-gusto kong magtrabaho kasama ang mga tao. Tinutulungan ko na ang mga bagong waiter na sumasali sa team namin."],["A","What languages do you speak?","Anong mga wika ang alam ninyo?"],["B","English, Tagalog, Cebuano and some Italian. I've studied Italian for a year.","Ingles, Tagalog, Cebuano at kaunting Italyano. Isang taon na akong nag-aaral ng Italyano."],["A","Where do you see yourself in five years?","Nasaan kayo pagkalipas ng limang taon?"],["B","I'd like to be a restaurant manager. And one day I'm going to open a restaurant in the city where I grew up.","Gusto kong maging restaurant manager. At balang araw, magbubukas ako ng restawran sa lungsod kung saan ako lumaki."],["A","Thank you, Ms Reyes. We will let you know next week.","Salamat, Ms Reyes. Ipapaalam namin sa inyo sa susunod na linggo."],["B","Thank you for your time.","Salamat po sa oras ninyo."]];
+EX.l23=[
+ {q:"«ang waiter na tumulong sa akin»:",o:["{the waiter who helped me}", "{the waiter which helped me}", "{the waiter who he helped me}"],e:"Tao: {who}."},
+ {q:"«ang lungsod kung saan ako lumaki»:",o:["{the city where I grew up}", "{the city which I grew up}", "{the city who I grew up}"],e:"Lugar: {where}."},
+ {q:"«ang barkong pinagtatrabahuhan ko»:",o:["{the ship which I work on}", "{the ship who I work on}", "{the ship where I work on it}"],e:"Bagay: {which}."},
+ {q:"Sa simula ng interview:",o:["{Tell me about yourself.}", "{Tell me your story now.}", "{Say me who you are.}"],e:"{Tell me about yourself.}"},
+ {q:"«Anim na taon na akong waitress.»",o:["{I've been a waitress for six years.}", "{I am a waitress since six years.}", "{I was a waitress for six years ago.}"],e:"{present perfect} + {for}."},
+ {q:"Pangarap: «Gusto kong maging manager.»",o:["{I'd like to be a manager.}", "{I like to be a manager yesterday.}", "{I would like being manager.}"],e:"{I'd like to} + …"},
+ {q:"Makinig: saan nagtatrabaho si Joy dati?",au:"Before that, I worked in a hotel which was near the beach.",o:["sa hotel malapit sa dalampasigan", "sa isang tindahan", "sa isang ospital"],e:"{a hotel which was near the beach}."},
+ {q:"Makinig: gaano na katagal nag-aaral ng Italyano si Joy?",au:"I've studied Italian for a year.",o:["isang taon", "anim na taon", "dalawang buwan"],e:"{for a year}."},
+ {t:"type",q:"Kumpletuhin: {Paolo is the chef} ＿ {makes the best pizza.}",a:["who", "that"],full:"Paolo is the chef who makes the best pizza."},
+ {t:"ord",q:"Ayusin: «Ang Kochi ang lungsod kung saan ako lumaki.»",a:["Kochi is the city where I grew up."],w:["Kochi", "is", "the", "city", "where", "I", "grew", "up."]},
+ {t:"dict",au:"Thank you for your time."},
+ {t:"say",zh:"Ipakilala ang sarili sa interview: «Anim na taon na akong nagtatrabaho sa mga barko.»",it:"I've worked on ships for six years."}
+];
+VOC.l23=[
+ ["interview","interview, panayam",""],
+ ["yourself","sarili mo/ninyo",""],
+ ["tell me about","magkuwento tungkol sa",""],
+ ["sit down","maupo",""],
+ ["who","na (tao)",""],
+ ["which","na (bagay)",""],
+ ["that","na",""],
+ ["where","kung saan",""],
+ ["hotel","hotel",""],
+ ["team","team, pangkat",""],
+ ["join","sumali",""],
+ ["head waitress","head waitress",""],
+ ["manager","manager, tagapamahala",""],
+ ["strength","kalakasan",""],
+ ["good at","magaling sa",""],
+ ["let you know","ipaalam sa inyo",""],
+ ["thank you for your time","salamat sa oras ninyo",""],
+ ["I'd like to","gusto ko sanang",""],
+ ["in the future","sa hinaharap",""],
+ ["in five years","pagkalipas ng limang taon",""],
+ ["Cebuano","Cebuano",""],
+ ["Ms","Ms",""],
+ ["before that","bago iyon",""],
+ ["work as","magtrabaho bilang",""]
+];
