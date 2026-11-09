@@ -5177,7 +5177,7 @@ function xQ(){var r=secRange(),f=XR.f[XR.pos],o=itemOf(XR.ex,f),s=o.sec,p=o.part
   if(it.text)html+='<div class="xtext" lang="'+TL+'">'+xtx(it.text,sc)+'</div>';
   if(it.img)html+='<div class="xpicq">'+xpic(it.img,"xpic big")+'</div>';
   if(it.scene)html+='<div class="xscene"><span class="arr">➡</span><div><p lang="'+TL+'">'+h(it.scene)+'</p><small>'+h(it.sceneIt)+'</small></div></div>';
-  if(isL){var name=XR.ex.id+"-"+p.n+"-"+(f.i+1),plays=sc.plays||1,pl=XR.played[XR.pos]||0,can=XR.mode!=="full"||pl<plays;
+  if(isL){var name=XR.ex.id+"-"+p.n+"-"+(f.i+1),plays=p.plays||sc.plays||1,pl=XR.played[XR.pos]||0,can=XR.mode!=="full"||pl<plays;
     html+='<div class="xaud"><button class="mp-cta" id="xplay"'+(can?'':' disabled')+'>'+(pl?h(can?(XR.mode!=="full"?EXS.replay:EXS.again):EXS.heard):"▶ "+h(EXS.listen))+'</button><small>'+h(EXS.plays(plays))+'</small></div>'}
   html+='<div class="xq"><span class="xqn">'+(isL?(f.i+1):num)+'</span><div lang="'+TL+'">'+(it.q?xtx(it.q,sc):'')+'</div></div>'+(it.ans?'<div class="xopts"><input class="xin" type="text" lang="'+TL+'" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="'+h(EXS.your)+'" value="'+h(XR.a[XR.pos]||"")+'"></div>':'<div class="xopts'+(it.oi?' xoimg':'')+'">'+(it.oi||it.o).map(function(t,k){
     var inner=it.oi?xpic(t):(isL&&it.say?'':xtx(t,sc));

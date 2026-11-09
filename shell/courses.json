@@ -171,7 +171,6 @@
       "color": "red",
       "levelsLabel": "Da zero all'A2 · 23 lezioni",
       "courseHours": 180,
-      "hidden": true,
       "starts": [
         {
           "skip": 1,
@@ -220,7 +219,6 @@
       "color": "yellow",
       "levelsLabel": "Da zero all'A2 · 23 lezioni",
       "courseHours": 160,
-      "hidden": true,
       "starts": [
         {
           "skip": 1,
@@ -269,7 +267,6 @@
       "color": "green",
       "levelsLabel": "Da zero all'A2 · 23 lezioni",
       "courseHours": 220,
-      "hidden": true,
       "starts": [
         {
           "skip": 1,
@@ -405,18 +402,6 @@
       [
         "한국어",
         "Coreano"
-      ],
-      [
-        "EN",
-        "Inglese"
-      ],
-      [
-        "ES",
-        "Spagnolo"
-      ],
-      [
-        "DE",
-        "Tedesco"
       ]
     ],
     "zh": [
