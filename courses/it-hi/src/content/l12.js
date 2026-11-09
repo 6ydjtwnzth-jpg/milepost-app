@@ -1,2 +1,49 @@
-EX.l12=[];
-VOC.l12=[];
+DLG.l12=[["A","Scusi, signora, c'è una farmacia qui vicino?","माफ़ कीजिए मैडम, क्या यहाँ पास में कोई फ़ार्मेसी है?"],["B","Sì, è in via Roma, vicino alla stazione.","हाँ, वाया रोमा में है, स्टेशन के पास।"],["A","È lontano?","क्या दूर है?"],["B","No, cinque minuti a piedi. Vada dritto e prenda la seconda strada a destra.","नहीं, पैदल पाँच मिनट। सीधे जाइए और दूसरी सड़क पर दाएँ मुड़िए।"],["A","La seconda a destra… E poi?","दूसरी, दाएँ… और फिर?"],["B","La farmacia è sulla sinistra, davanti alla banca.","फ़ार्मेसी बाईं तरफ़ है, बैंक के सामने।"],["A","Grazie! E c'è un negozio di telefoni? Vorrei una SIM italiana.","धन्यवाद! और क्या फ़ोन की कोई दुकान है? मुझे इतालवी सिम चाहिए।"],["B","Sì, nella piazza, accanto al bar.","हाँ, चौक में, बार के बग़ल में।"],["A","Grazie mille, signora!","बहुत-बहुत धन्यवाद, मैडम!"],["B","Prego. Buona giornata!","कोई बात नहीं। आपका दिन अच्छा हो!"]];
+EX.l12=[
+ {q:"{a} + {la}:",o:["{alla}", "{al}", "{a la}"],e:"{a} + {la} = {alla}."},
+ {q:"{in} + {il}:",o:["{nel}", "{inl}", "{nello}"],e:"{in} + {il} = {nel}."},
+ {q:"«बिस्तर पर»:",o:["{sul letto}", "{su il letto}", "{sullo letto}"],e:"{su} + {il} = {sul}।"},
+ {q:"«स्टेशन के पास»:",o:["{vicino alla stazione}", "{la stazione vicino}", "{vicino la stazione}"],e:"{vicino a} + {la} = {vicino alla}।"},
+ {q:"{Giri a sinistra.} का अर्थ:",o:["बाएँ मुड़िए।", "दाएँ मुड़िए।", "सीधे जाइए।"],e:"{sinistra} = बाएँ।"},
+ {q:"«मैं जेनोवा में हूँ»:",o:["{Sono a Genova.}", "{Sono alla Genova.}", "{Sono nella Genova.}"],e:"शहर: {a}, बिना आर्टिकल।"},
+ {q:"«दूसरी सड़क»:",o:["{la seconda strada}", "{il secondo strada}", "{la due strada}"],e:"{strada} स्त्रीलिंग: {seconda}।"},
+ {q:"सुनें: बैंक कहाँ है?",au:"La banca è accanto al supermercato.",o:["सुपरमार्केट के बग़ल में", "सुपरमार्केट के सामने", "सुपरमार्केट के पीछे"],e:"{accanto a} = बग़ल में।"},
+ {t:"type",q:"पूरा करें: {Il negozio è} ＿ {piazza.} ({in} + {la})",a:["nella"],full:"Il negozio è nella piazza."},
+ {t:"ord",q:"क्रम में लगाएँ: «क्या यहाँ पास में कोई फ़ार्मेसी है?»",a:["C'è una farmacia qui vicino?"],w:["C'è", "una", "farmacia", "qui", "vicino?"]},
+ {t:"dict",au:"Vada dritto e giri a destra."},
+ {t:"say",zh:"किसी राहगीर से पूछें: «माफ़ कीजिए, स्टेशन कहाँ है?»",it:"Scusi, dov'è la stazione?"}
+];
+VOC.l12=[
+ ["porto","बंदरगाह","m"],
+ ["farmacia","फ़ार्मेसी","f"],
+ ["qui","यहाँ",""],
+ ["vicino","पास",""],
+ ["lontano","दूर",""],
+ ["stazione","स्टेशन","f"],
+ ["via","सड़क (नाम में)","f"],
+ ["strada","सड़क","f"],
+ ["minuto","मिनट","m"],
+ ["a piedi","पैदल",""],
+ ["dritto","सीधे",""],
+ ["destra","दायाँ","f"],
+ ["sinistra","बायाँ","f"],
+ ["girare","मुड़ना",""],
+ ["davanti a","के सामने",""],
+ ["dietro","के पीछे",""],
+ ["accanto a","के बग़ल में",""],
+ ["banca","बैंक","f"],
+ ["negozio","दुकान","m"],
+ ["piazza","चौक","f"],
+ ["chiesa","चर्च","f"],
+ ["supermercato","सुपरमार्केट","m"],
+ ["fermata","स्टॉप (बस आदि)","f"],
+ ["autobus","बस","m"],
+ ["uscita","निकास","f"],
+ ["posta","डाकघर; डाक","f"],
+ ["telefono","फ़ोन","m"],
+ ["primo","पहला",""],
+ ["secondo","दूसरा",""],
+ ["terzo","तीसरा",""],
+ ["grazie mille","बहुत-बहुत धन्यवाद",""],
+ ["attraversare","पार करना",""]
+];

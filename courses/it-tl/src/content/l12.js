@@ -1,2 +1,49 @@
-EX.l12=[];
-VOC.l12=[];
+DLG.l12=[["A","Scusi, signora, c'è una farmacia qui vicino?","Paumanhin po, ginang, may botika po ba malapit dito?"],["B","Sì, è in via Roma, vicino alla stazione.","Oo, nasa Via Roma, malapit sa istasyon."],["A","È lontano?","Malayo po ba?"],["B","No, cinque minuti a piedi. Vada dritto e prenda la seconda strada a destra.","Hindi, limang minutong lakad. Dumiretso kayo at kunin ang ikalawang kalye sa kanan."],["A","La seconda a destra… E poi?","Ikalawa sa kanan… At pagkatapos?"],["B","La farmacia è sulla sinistra, davanti alla banca.","Nasa kaliwa ang botika, sa harap ng bangko."],["A","Grazie! E c'è un negozio di telefoni? Vorrei una SIM italiana.","Salamat po! May tindahan ba ng telepono? Gusto ko ng Italyanong SIM."],["B","Sì, nella piazza, accanto al bar.","Oo, sa plaza, katabi ng bar."],["A","Grazie mille, signora!","Maraming salamat po, ginang!"],["B","Prego. Buona giornata!","Walang anuman. Magandang araw!"]];
+EX.l12=[
+ {q:"{a} + {la}:",o:["{alla}", "{al}", "{a la}"],e:"{a} + {la} = {alla}."},
+ {q:"{in} + {il}:",o:["{nel}", "{inl}", "{nello}"],e:"{in} + {il} = {nel}."},
+ {q:"«sa kama»:",o:["{sul letto}", "{su il letto}", "{sullo letto}"],e:"{su} + {il} = {sul}."},
+ {q:"«malapit sa istasyon»:",o:["{vicino alla stazione}", "{la stazione vicino}", "{vicino la stazione}"],e:"{vicino a} + {la} = {vicino alla}."},
+ {q:"Ang kahulugan ng {Giri a sinistra.}:",o:["Lumiko kayo sa kaliwa.", "Lumiko kayo sa kanan.", "Dumiretso kayo."],e:"{sinistra} = kaliwa."},
+ {q:"«Nasa Genova ako»:",o:["{Sono a Genova.}", "{Sono alla Genova.}", "{Sono nella Genova.}"],e:"Lungsod: {a}, walang artikulo."},
+ {q:"«ang ikalawang kalye»:",o:["{la seconda strada}", "{il secondo strada}", "{la due strada}"],e:"Pambabae ang {strada}: {seconda}."},
+ {q:"Makinig: nasaan ang bangko?",au:"La banca è accanto al supermercato.",o:["katabi ng supermarket", "sa harap ng supermarket", "sa likod ng supermarket"],e:"{accanto a} = katabi ng."},
+ {t:"type",q:"Kumpletuhin: {Il negozio è} ＿ {piazza.} ({in} + {la})",a:["nella"],full:"Il negozio è nella piazza."},
+ {t:"ord",q:"Ayusin: «May botika ba malapit dito?»",a:["C'è una farmacia qui vicino?"],w:["C'è", "una", "farmacia", "qui", "vicino?"]},
+ {t:"dict",au:"Vada dritto e giri a destra."},
+ {t:"say",zh:"Tanungin ang isang dumaraan: «Paumanhin po, nasaan ang istasyon?»",it:"Scusi, dov'è la stazione?"}
+];
+VOC.l12=[
+ ["porto","daungan","m"],
+ ["farmacia","botika","f"],
+ ["qui","dito",""],
+ ["vicino","malapit",""],
+ ["lontano","malayo",""],
+ ["stazione","istasyon","f"],
+ ["via","kalye (sa pangalan)","f"],
+ ["strada","kalye, daan","f"],
+ ["minuto","minuto","m"],
+ ["a piedi","lakad",""],
+ ["dritto","diretso",""],
+ ["destra","kanan","f"],
+ ["sinistra","kaliwa","f"],
+ ["girare","lumiko",""],
+ ["davanti a","sa harap ng",""],
+ ["dietro","sa likod",""],
+ ["accanto a","katabi ng",""],
+ ["banca","bangko","f"],
+ ["negozio","tindahan","m"],
+ ["piazza","plaza","f"],
+ ["chiesa","simbahan","f"],
+ ["supermercato","supermarket","m"],
+ ["fermata","hintuan","f"],
+ ["autobus","bus","m"],
+ ["uscita","labasan","f"],
+ ["posta","koreo","f"],
+ ["telefono","telepono","m"],
+ ["primo","una",""],
+ ["secondo","ikalawa",""],
+ ["terzo","ikatlo",""],
+ ["grazie mille","maraming salamat",""],
+ ["attraversare","tumawid",""]
+];

@@ -1,2 +1,49 @@
-EX.l13=[];
-VOC.l13=[];
+DLG.l13=[["A","Domani c'è l'esercitazione di sicurezza. Tutti devono partecipare.","Bukas ang safety drill. Kailangang sumali ang lahat."],["B","A che ora? Devo lavorare alle dieci.","Anong oras po? Kailangan kong magtrabaho nang alas-diyes."],["A","Alle nove. Quando suona l'allarme, dovete andare al punto di raccolta.","Alas-nuwebe. Kapag tumunog ang alarma, kailangan ninyong pumunta sa muster station."],["B","Posso prendere l'ascensore?","Puwede po ba akong sumakay sa elevator?"],["A","No, durante l'emergenza non si può usare l'ascensore. Dovete usare le scale.","Hindi, bawal gumamit ng elevator sa emergency. Kailangan ninyong gumamit ng hagdan."],["B","E il giubbotto di salvataggio?","At ang life jacket po?"],["A","È in cabina, sotto il letto. Dovete portare il giubbotto.","Nasa kabina, sa ilalim ng kama. Kailangan ninyong dalhin ang life jacket."],["B","Si può fumare sul ponte?","Puwede po bang manigarilyo sa deck?"],["A","Solo nelle zone fumatori. In cabina è vietato fumare.","Sa smoking area lang. Bawal manigarilyo sa kabina."],["B","Capito. Voglio fare tutto bene!","Naintindihan ko po. Gusto kong gawin nang tama ang lahat!"],["A","Bravo, Mark.","Magaling, Mark."]];
+EX.l13=[
+ {q:"«Kailangan kong magtrabaho»:",o:["{Devo lavorare.}", "{Devo lavoro.}", "{Lavorare devo.}"],e:"{dovere} + pawatas."},
+ {q:"«Puwede ba akong sumakay sa elevator?»",o:["{Posso prendere l'ascensore?}", "{Prendere l'ascensore posso?}", "{Posso prendo l'ascensore?}"],e:"{posso} muna, saka pawatas."},
+ {q:"{tu} + {potere}:",o:["{puoi}", "{poti}", "{può}"],e:"{tu puoi}, {lui può}."},
+ {q:"{loro} + {volere}:",o:["{vogliono}", "{volono}", "{vuolono}"],e:"{loro vogliono}."},
+ {q:"Ang ibig sabihin ng {VIETATO FUMARE}:",o:["Bawal manigarilyo", "Smoking area", "Panganib ng sunog"],e:"{vietato} = bawal."},
+ {q:"Tumunog ang alarma. Saan pupunta?",o:["{al punto di raccolta}", "{in cabina}", "{al bar}"],e:"{punto di raccolta} = muster station."},
+ {q:"Para tulungan ang pasahero:",o:["{Posso aiutarLa?}", "{Voglio aiutare te?}", "{Devi aiutare?}"],e:"Sa {Lei}: {aiutarLa}."},
+ {q:"Makinig: nasaan ang life jacket?",au:"Il giubbotto di salvataggio è sotto il letto.",o:["sa ilalim ng kama", "sa aparador", "sa likod ng pinto"],e:"{sotto il letto} = sa ilalim ng kama."},
+ {t:"type",q:"Kumpletuhin: {Noi} ＿ {usare le scale.} ({dovere})",a:["dobbiamo"],full:"Noi dobbiamo usare le scale."},
+ {t:"ord",q:"Ayusin: «Hindi puwedeng manigarilyo sa kabina.»",a:["In cabina non si può fumare."],w:["In", "cabina", "non", "si", "può", "fumare."]},
+ {t:"dict",au:"Dovete andare al punto di raccolta."},
+ {t:"say",zh:"Tanungin ang pasahero: «Puwede ko po ba kayong tulungan?»",it:"Posso aiutarLa?"}
+];
+VOC.l13=[
+ ["regola","tuntunin","f"],
+ ["dovere","kailangan",""],
+ ["potere","puwede, maaari",""],
+ ["volere","gusto",""],
+ ["sicurezza","kaligtasan","f"],
+ ["esercitazione","drill","f"],
+ ["tutti","lahat",""],
+ ["partecipare","sumali",""],
+ ["allarme","alarma","m"],
+ ["suonare","tumunog",""],
+ ["punto di raccolta","muster station","m"],
+ ["usare","gumamit",""],
+ ["emergenza","emergency","f"],
+ ["durante","habang, sa panahon ng",""],
+ ["giubbotto di salvataggio","life jacket","m"],
+ ["scialuppa","lifeboat","f"],
+ ["sotto","sa ilalim",""],
+ ["portare","dalhin",""],
+ ["fumare","manigarilyo",""],
+ ["vietato","bawal",""],
+ ["obbligatorio","sapilitan",""],
+ ["bisogna","kailangang",""],
+ ["zona","lugar, sona","f"],
+ ["incendio","sunog","m"],
+ ["estintore","fire extinguisher","m"],
+ ["uscita di emergenza","emergency exit","f"],
+ ["aiutare","tumulong",""],
+ ["indossare","isuot",""],
+ ["capito","naintindihan",""],
+ ["tutto","lahat",""],
+ ["calma","kalmado","f"],
+ ["seguire","sumunod",""]
+];

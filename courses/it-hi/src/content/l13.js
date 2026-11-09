@@ -1,2 +1,49 @@
-EX.l13=[];
-VOC.l13=[];
+DLG.l13=[["A","Domani c'è l'esercitazione di sicurezza. Tutti devono partecipare.","कल सुरक्षा ड्रिल है। सबको हिस्सा लेना है।"],["B","A che ora? Devo lavorare alle dieci.","कितने बजे? मुझे दस बजे काम करना है।"],["A","Alle nove. Quando suona l'allarme, dovete andare al punto di raccolta.","नौ बजे। जब अलार्म बजे, तो आप सबको मस्टर स्टेशन जाना है।"],["B","Posso prendere l'ascensore?","क्या मैं लिफ़्ट ले सकता हूँ?"],["A","No, durante l'emergenza non si può usare l'ascensore. Dovete usare le scale.","नहीं, आपातकाल में लिफ़्ट इस्तेमाल नहीं की जा सकती। सीढ़ियाँ इस्तेमाल करनी हैं।"],["B","E il giubbotto di salvataggio?","और लाइफ़ जैकेट?"],["A","È in cabina, sotto il letto. Dovete portare il giubbotto.","केबिन में है, बिस्तर के नीचे। लाइफ़ जैकेट साथ लाना है।"],["B","Si può fumare sul ponte?","क्या डेक पर सिगरेट पी सकते हैं?"],["A","Solo nelle zone fumatori. In cabina è vietato fumare.","सिर्फ़ धूम्रपान क्षेत्र में। केबिन में सिगरेट पीना मना है।"],["B","Capito. Voglio fare tutto bene!","समझ गया। मैं सब कुछ ठीक से करना चाहता हूँ!"],["A","Bravo, Mark.","शाबाश, मार्क।"]];
+EX.l13=[
+ {q:"«मुझे काम करना है»:",o:["{Devo lavorare.}", "{Devo lavoro.}", "{Lavorare devo.}"],e:"{dovere} + मूल क्रिया।"},
+ {q:"«क्या मैं लिफ़्ट ले सकता हूँ?»",o:["{Posso prendere l'ascensore?}", "{Prendere l'ascensore posso?}", "{Posso prendo l'ascensore?}"],e:"{posso} पहले, फिर मूल क्रिया।"},
+ {q:"{tu} + {potere}:",o:["{puoi}", "{poti}", "{può}"],e:"{tu puoi}, {lui può}."},
+ {q:"{loro} + {volere}:",o:["{vogliono}", "{volono}", "{vuolono}"],e:"{loro vogliono}."},
+ {q:"संकेत {VIETATO FUMARE} का अर्थ:",o:["धूम्रपान मना है", "धूम्रपान क्षेत्र", "आग का ख़तरा"],e:"{vietato} = मना।"},
+ {q:"अलार्म बजता है। कहाँ जाना है?",o:["{al punto di raccolta}", "{in cabina}", "{al bar}"],e:"{punto di raccolta} = मस्टर स्टेशन।"},
+ {q:"यात्री से मदद के लिए:",o:["{Posso aiutarLa?}", "{Voglio aiutare te?}", "{Devi aiutare?}"],e:"{Lei} के लिए {aiutarLa}।"},
+ {q:"सुनें: लाइफ़ जैकेट कहाँ है?",au:"Il giubbotto di salvataggio è sotto il letto.",o:["बिस्तर के नीचे", "अलमारी में", "दरवाज़े के पीछे"],e:"{sotto il letto} = बिस्तर के नीचे।"},
+ {t:"type",q:"पूरा करें: {Noi} ＿ {usare le scale.} ({dovere})",a:["dobbiamo"],full:"Noi dobbiamo usare le scale."},
+ {t:"ord",q:"क्रम में लगाएँ: «केबिन में सिगरेट नहीं पी सकते।»",a:["In cabina non si può fumare."],w:["In", "cabina", "non", "si", "può", "fumare."]},
+ {t:"dict",au:"Dovete andare al punto di raccolta."},
+ {t:"say",zh:"यात्री से पूछें: «क्या मैं आपकी मदद कर सकता हूँ?»",it:"Posso aiutarLa?"}
+];
+VOC.l13=[
+ ["regola","नियम","f"],
+ ["dovere","ज़रूर करना; करना पड़ना",""],
+ ["potere","सकना",""],
+ ["volere","चाहना",""],
+ ["sicurezza","सुरक्षा","f"],
+ ["esercitazione","ड्रिल, अभ्यास","f"],
+ ["tutti","सब",""],
+ ["partecipare","हिस्सा लेना",""],
+ ["allarme","अलार्म","m"],
+ ["suonare","बजना",""],
+ ["punto di raccolta","मस्टर स्टेशन","m"],
+ ["usare","इस्तेमाल करना",""],
+ ["emergenza","आपातकाल","f"],
+ ["durante","के दौरान",""],
+ ["giubbotto di salvataggio","लाइफ़ जैकेट","m"],
+ ["scialuppa","लाइफ़बोट","f"],
+ ["sotto","के नीचे",""],
+ ["portare","लाना, ले जाना",""],
+ ["fumare","धूम्रपान करना",""],
+ ["vietato","मना",""],
+ ["obbligatorio","अनिवार्य",""],
+ ["bisogna","ज़रूरी है",""],
+ ["zona","क्षेत्र","f"],
+ ["incendio","आग","m"],
+ ["estintore","अग्निशामक यंत्र","m"],
+ ["uscita di emergenza","आपातकालीन निकास","f"],
+ ["aiutare","मदद करना",""],
+ ["indossare","पहनना",""],
+ ["capito","समझ गया",""],
+ ["tutto","सब कुछ",""],
+ ["calma","शांति","f"],
+ ["seguire","पीछे चलना",""]
+];

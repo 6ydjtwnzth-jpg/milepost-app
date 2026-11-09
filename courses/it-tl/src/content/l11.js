@@ -1,2 +1,47 @@
-EX.l11=[];
-VOC.l11=[];
+DLG.l11=[["A","Joy, cosa fai quando sei libera?","Joy, ano ang ginagawa mo kapag libre ka?"],["B","Vado in palestra o leggo. Mi piace molto leggere.","Pumupunta ako sa gym o nagbabasa. Gustong-gusto kong magbasa."],["A","A me piace il calcio. Il venerdì gioco con i colleghi.","Ako, gusto ko ang football. Tuwing Biyernes, naglalaro ako kasama ang mga kasamahan."],["B","Davvero? E ti piacciono i film?","Talaga? At gusto mo ba ang mga pelikula?"],["A","Sì, mi piacciono i film d'azione. E tu?","Oo, gusto ko ang mga action na pelikula. Ikaw?"],["B","Anche a me. Vado spesso al cinema con Ravi.","Ako rin. Madalas akong manood sa sinehan kasama si Ravi."],["A","I filippini amano il karaoke, vero?","Mahilig ang mga Pilipino sa karaoke, di ba?"],["B","Sì, è vero! Io canto sempre al karaoke.","Oo, totoo! Lagi akong kumakanta sa karaoke."],["A","Io invece non canto mai.","Ako naman, hindi kailanman kumakanta."],["B","Allora andiamo insieme sabato sera!","E di sabay tayong pumunta sa Sabado ng gabi!"],["A","Va bene, ma io ascolto!","Sige, pero makikinig lang ako!"]];
+EX.l11=[
+ {q:"«Gusto ko ang mga pelikula»:",o:["{Mi piacciono i film.}", "{Mi piace i film.}", "{Io piaccio i film.}"],e:"Maramihan → {piacciono}."},
+ {q:"«Gusto kong magbasa»:",o:["{Mi piace leggere.}", "{Mi piacciono leggere.}", "{Piaccio leggere.}"],e:"Sa pandiwa: {piace}."},
+ {q:"Sa pasahero: «Gusto po ba ninyo ang barko?»",o:["{Le piace la nave?}", "{Ti piace la nave?}", "{Lei piace la nave?}"],e:"Sa {Lei}: {Le piace}."},
+ {q:"{noi} + {andare}:",o:["{andiamo}", "{vadiamo}", "{vanno}"],e:"{noi andiamo}."},
+ {q:"«Pupunta ako sa Genova»:",o:["{Vado a Genova.}", "{Vado in Genova.}", "{Vado al Genova.}"],e:"Lungsod: {a}."},
+ {q:"«Hindi ako kailanman kumakanta»:",o:["{Non canto mai.}", "{Canto mai.}", "{Mai non canto.}"],e:"{non} + pandiwa + {mai}."},
+ {q:"{Mi piace il calcio.} — «Ako rin!»",o:["{Anche a me!}", "{Anch'io piace!}", "{Anche mi!}"],e:"Sa {piacere}: {Anche a me}."},
+ {q:"Makinig: ano ang ginagawa ni Paolo tuwing Biyernes?",au:"Il venerdì gioco a calcio con i colleghi.",o:["naglalaro ng football", "kumakanta", "lumalangoy"],e:"{gioco a calcio} = naglalaro ng football."},
+ {t:"type",q:"Kumpletuhin: {Mi} ＿ {le escursioni.} ({piacere})",a:["piacciono"],full:"Mi piacciono le escursioni."},
+ {t:"ord",q:"Ayusin: «Madalas akong tumawag sa bahay.»",a:["Telefono spesso a casa."],w:["Telefono", "spesso", "a", "casa."]},
+ {t:"dict",au:"Vado spesso al cinema con Ravi."},
+ {t:"say",zh:"Sabihin: «Gusto kong makinig ng musika.»",it:"Mi piace ascoltare la musica."}
+];
+VOC.l11=[
+ ["tempo libero","libreng oras","m"],
+ ["piacere","magustuhan",""],
+ ["mi piace","gusto ko",""],
+ ["anche a me","ako rin",""],
+ ["andare","pumunta",""],
+ ["insieme","magkasama, sabay",""],
+ ["leggere","magbasa",""],
+ ["giocare","maglaro",""],
+ ["calcio","football","m"],
+ ["film","pelikula","m"],
+ ["cinema","sinehan","m"],
+ ["karaoke","karaoke","m"],
+ ["ascoltare","makinig",""],
+ ["musica","musika","f"],
+ ["guardare","tumingin, manood",""],
+ ["nuotare","lumangoy",""],
+ ["cucinare","magluto",""],
+ ["telefonare","tumawag",""],
+ ["videochiamata","video call","f"],
+ ["casa","bahay","f"],
+ ["bere","uminom",""],
+ ["escursione","iskursiyon, pasyal","f"],
+ ["amare","mahalin; mahilig",""],
+ ["sempre","lagi",""],
+ ["spesso","madalas",""],
+ ["qualche volta","paminsan-minsan",""],
+ ["mai","kailanman",""],
+ ["davvero","talaga",""],
+ ["vero","totoo",""],
+ ["tempesta","bagyo","f"]
+];

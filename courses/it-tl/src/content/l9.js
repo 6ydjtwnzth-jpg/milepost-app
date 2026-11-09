@@ -1,2 +1,47 @@
-EX.l9=[];
-VOC.l9=[];
+DLG.l9=[["A","Ravi, scusa, dov'è la mensa?","Ravi, sandali, nasaan ang mess?"],["B","È al ponte due. Hai fame?","Nasa deck dos. Gutom ka na?"],["A","Sì! Quando mangiamo?","Oo! Kailan tayo kakain?"],["B","Dopo il servizio. Chi è il tuo capo?","Pagkatapos ng serbisyo. Sino ang boss mo?"],["A","Il signor Ferri. Com'è?","Si G. Ferri. Ano siya bilang tao?"],["B","È severo, ma gentile.","Mahigpit, pero mabait."],["A","Perché parli italiano così bene?","Bakit ang galing mong mag-Italyano?"],["B","Perché studio un po' ogni sera.","Kasi nag-aaral ako nang kaunti tuwing gabi."],["A","E che cosa studi stasera?","At ano ang pag-aaralan mo ngayong gabi?"],["B","Le domande: chi, che cosa, dove, quando, perché…","Ang mga tanong: sino, ano, saan, kailan, bakit…"]];
+EX.l9=[
+ {q:"«Nasaan ang mess?»",o:["{Dov'è la mensa?}", "{La mensa dove è?}", "{Com'è la mensa?}"],e:"Nasa unahan ang pananong."},
+ {q:"«Sino ang boss mo?»",o:["{Chi è il tuo capo?}", "{Che è il tuo capo?}", "{Come è il tuo capo?}"],e:"Sa tao: {chi}."},
+ {q:"«Kailan tayo kakain?»",o:["{Quando mangiamo?}", "{Quanto mangiamo?}", "{Dove mangiamo?}"],e:"{quando} = kailan; {quanto} = magkano / gaano."},
+ {q:"«Ilang bote?»",o:["{Quante bottiglie?}", "{Quanti bottiglie?}", "{Quanto bottiglie?}"],e:"Pambabae at maramihan ang {bottiglie}: {quante}."},
+ {q:"Magandang sagot sa {Perché sei stanco?}:",o:["{Perché lavoro molto.}", "{Al ponte due.}", "{Domani sera.}"],e:"Ang {perché} ay «kasi» rin."},
+ {q:"«Saan nagtatrabaho si Joy?»",o:["{Dove lavora Joy?}", "{Joy dove lavora è?}", "{Dove Joy lavori?}"],e:"Pananong + pandiwa + simuno."},
+ {q:"Makinig: nasaan ang swimming pool?",au:"La piscina è al ponte dieci.",o:["Sa deck 10", "Sa deck 2", "Sa deck 12"],e:"{al ponte dieci} = 10."},
+ {q:"Ano ang {la palestra}?",o:["gym", "labahan", "hagdan"],e:"{palestra} = gym."},
+ {t:"type",q:"Kumpletuhin: ＿ {anni hai?} («ilan»)",a:["Quanti"],full:"Quanti anni hai?"},
+ {t:"ord",q:"Ayusin: «Ano ang kinakain ng mga pasahero?»",a:["Che cosa mangiano i passeggeri?"],w:["Che", "cosa", "mangiano", "i", "passeggeri?"]},
+ {t:"dict",au:"Perché studio un po' ogni sera."},
+ {t:"say",zh:"Tanungin ang kasamahan: «Nasaan ang labahan?»",it:"Dov'è la lavanderia?"}
+];
+VOC.l9=[
+ ["domanda","tanong","f"],
+ ["che cosa","ano",""],
+ ["quando","kailan",""],
+ ["quale","alin",""],
+ ["perché","bakit; kasi",""],
+ ["quanto","magkano, gaano",""],
+ ["mensa","mess, kainan","f"],
+ ["ponte","deck; tulay","m"],
+ ["piscina","swimming pool","f"],
+ ["palestra","gym","f"],
+ ["reception","reception","f"],
+ ["ascensore","elevator","m"],
+ ["scale","hagdan","f"],
+ ["teatro","teatro","m"],
+ ["infermeria","klinika ng barko","f"],
+ ["lavanderia","labahan","f"],
+ ["capo","boss, pinuno","m"],
+ ["servizio","serbisyo","m"],
+ ["dopo","pagkatapos",""],
+ ["mangiare","kumain",""],
+ ["studiare","mag-aral",""],
+ ["arrivare","dumating",""],
+ ["severo","mahigpit",""],
+ ["così","ganito, napaka-",""],
+ ["ogni","bawat, tuwing",""],
+ ["stasera","ngayong gabi",""],
+ ["nuovo","bago",""],
+ ["tempo","oras; panahon","m"],
+ ["comandante","kapitan","m"],
+ ["equipaggio","crew, tripulante","m"]
+];

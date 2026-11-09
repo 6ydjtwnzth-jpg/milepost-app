@@ -1,2 +1,49 @@
-EX.l14=[];
-VOC.l14=[];
+DLG.l14=[["A","Buonasera, signora. Ecco il menù. Cosa prende?","Magandang gabi po, ginang. Heto po ang menu. Ano po ang kukunin ninyo?"],["B","Come primo vorrei gli spaghetti al pomodoro.","Para sa unang putahe, spaghetti na may kamatis."],["A","Benissimo. E come secondo? Oggi abbiamo del pesce fresco.","Napakabuti po. At para sa ikalawang putahe? May sariwang isda po kami ngayon."],["B","Il pesce sì, grazie. Ma sono allergica ai crostacei.","Isda, oo, salamat. Pero allergic ako sa hipon at alimango."],["A","Nessun problema: nel piatto non ci sono crostacei.","Walang problema po: walang hipon o alimango sa putahe."],["B","Perfetto. E vorrei dell'acqua naturale.","Perpekto. At gusto ko ng plain na tubig."],["A","Subito. Vuole anche del pane?","Sige po. Gusto rin po ba ninyo ng tinapay?"],["B","Sì, grazie. Ma niente vino stasera.","Oo, salamat. Pero walang alak ngayong gabi."],["A","Ecco il pane. Ne vuole ancora più tardi?","Heto po ang tinapay. Gusto pa po ba ninyo mamaya?"],["B","Sì, ne prendo ancora un pezzo. Grazie, molto gentile!","Oo, kukuha pa ako ng isang piraso. Salamat, napakabait mo!"]];
+EX.l14=[
+ {q:"«kaunting tinapay»:",o:["{del pane}", "{della pane}", "{dei pane}"],e:"Panlalaki ang {pane}: {del}."},
+ {q:"«kaunting tubig»:",o:["{dell'acqua}", "{della acqua}", "{del acqua}"],e:"Bago ang patinig: {dell'}."},
+ {q:"{Quante mele vuole?} — «Dalawa po.»",o:["{Ne vorrei due.}", "{Vorrei due ne.}", "{Ne vorrei due mele ne.}"],e:"{ne} bago ang pandiwa."},
+ {q:"Saang putahe ang pasta?",o:["{il primo}", "{il secondo}", "{il dolce}"],e:"Pasta, risotto, sopas = {primo}."},
+ {q:"Pasaherong babae: «Allergic ako sa mani.»",o:["{Sono allergica alle noci.}", "{Ho allergica alle noci.}", "{Sono allergico noci.}"],e:"{essere} + {allergica} (babae)."},
+ {q:"Ang ibig sabihin ng {Sono vegetariano}:",o:["Vegetarian ako", "Gutom ako", "May allergy ako"],e:"{vegetariano}."},
+ {q:"«Walang alak, salamat»:",o:["{Niente vino, grazie.}", "{Del vino no, grazie.}", "{Non vino, grazie.}"],e:"{niente} = wala."},
+ {q:"Makinig: ano ang kinukuha ng pasahero?",au:"Come secondo prendo il pollo con le patate.",o:["manok at patatas", "isda at salad", "pasta"],e:"{il pollo con le patate} = manok at patatas."},
+ {t:"type",q:"Kumpletuhin: {Vorrei} ＿ {frutta.} («kaunting»)",a:["della"],full:"Vorrei della frutta."},
+ {t:"ord",q:"Ayusin: «Kukuha pa ako ng isang piraso.»",a:["Ne prendo ancora un pezzo."],w:["Ne", "prendo", "ancora", "un", "pezzo."]},
+ {t:"dict",au:"Questo piatto è senza glutine?"},
+ {t:"say",zh:"Tanungin ang pasahero: «Ano po ang kukunin ninyo?»",it:"Cosa prende?"}
+];
+VOC.l14=[
+ ["cucina","kusina; lutuin","f"],
+ ["menù","menu","m"],
+ ["piatto","plato; putahe","m"],
+ ["primo","unang putahe","m"],
+ ["secondo","ikalawang putahe","m"],
+ ["contorno","pansamahang gulay","m"],
+ ["dolce","panghimagas; matamis","m"],
+ ["antipasto","pampagana","m"],
+ ["pesce","isda","m"],
+ ["carne","karne","f"],
+ ["pollo","manok","m"],
+ ["maiale","baboy","m"],
+ ["crostacei","hipon, alimango at iba pa","m"],
+ ["riso","bigas, kanin","m"],
+ ["pane","tinapay","m"],
+ ["pomodoro","kamatis","m"],
+ ["patata","patatas","f"],
+ ["frutta","prutas","f"],
+ ["latte","gatas","m"],
+ ["fresco","sariwa",""],
+ ["allergico","allergic",""],
+ ["senza","wala, walang",""],
+ ["glutine","gluten","m"],
+ ["vegetariano","vegetarian",""],
+ ["noci","mani, walnut","f"],
+ ["niente","wala",""],
+ ["ancora","pa, ulit",""],
+ ["pezzo","piraso","m"],
+ ["chilo","kilo","m"],
+ ["litro","litro","m"],
+ ["bicchiere","baso","m"],
+ ["nessun problema","walang problema",""]
+];

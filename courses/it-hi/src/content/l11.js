@@ -1,2 +1,47 @@
-EX.l11=[];
-VOC.l11=[];
+DLG.l11=[["A","Joy, cosa fai quando sei libera?","जॉय, जब तुम ख़ाली होती हो तो क्या करती हो?"],["B","Vado in palestra o leggo. Mi piace molto leggere.","जिम जाती हूँ या पढ़ती हूँ। मुझे पढ़ना बहुत पसंद है।"],["A","A me piace il calcio. Il venerdì gioco con i colleghi.","मुझे फ़ुटबॉल पसंद है। हर शुक्रवार साथियों के साथ खेलता हूँ।"],["B","Davvero? E ti piacciono i film?","सच में? और तुम्हें फ़िल्में पसंद हैं?"],["A","Sì, mi piacciono i film d'azione. E tu?","हाँ, मुझे एक्शन फ़िल्में पसंद हैं। और तुम्हें?"],["B","Anche a me. Vado spesso al cinema con Ravi.","मुझे भी। मैं अक्सर रवि के साथ सिनेमा जाती हूँ।"],["A","I filippini amano il karaoke, vero?","फ़िलिपीनी लोगों को कराओके बहुत पसंद है, है ना?"],["B","Sì, è vero! Io canto sempre al karaoke.","हाँ, सच है! मैं हमेशा कराओके में गाती हूँ।"],["A","Io invece non canto mai.","और मैं कभी नहीं गाता।"],["B","Allora andiamo insieme sabato sera!","तो शनिवार शाम साथ चलते हैं!"],["A","Va bene, ma io ascolto!","ठीक है, पर मैं सिर्फ़ सुनूँगा!"]];
+EX.l11=[
+ {q:"«मुझे फ़िल्में पसंद हैं»:",o:["{Mi piacciono i film.}", "{Mi piace i film.}", "{Io piaccio i film.}"],e:"कई चीज़ें → {piacciono}।"},
+ {q:"«मुझे पढ़ना पसंद है»:",o:["{Mi piace leggere.}", "{Mi piacciono leggere.}", "{Piaccio leggere.}"],e:"क्रिया के साथ {piace}।"},
+ {q:"यात्री से: «क्या आपको जहाज़ पसंद है?»",o:["{Le piace la nave?}", "{Ti piace la nave?}", "{Lei piace la nave?}"],e:"{Lei} के लिए {Le piace}।"},
+ {q:"{noi} + {andare}:",o:["{andiamo}", "{vadiamo}", "{vanno}"],e:"{noi andiamo}."},
+ {q:"«मैं जेनोवा जाता हूँ»:",o:["{Vado a Genova.}", "{Vado in Genova.}", "{Vado al Genova.}"],e:"शहर: {a}।"},
+ {q:"«मैं कभी नहीं गाता»:",o:["{Non canto mai.}", "{Canto mai.}", "{Mai non canto.}"],e:"{non} + क्रिया + {mai}।"},
+ {q:"{Mi piace il calcio.} — «मुझे भी!»",o:["{Anche a me!}", "{Anch'io piace!}", "{Anche mi!}"],e:"{piacere} के साथ: {Anche a me}।"},
+ {q:"सुनें: पाओलो शुक्रवार को क्या करता है?",au:"Il venerdì gioco a calcio con i colleghi.",o:["फ़ुटबॉल खेलता है", "गाता है", "तैरता है"],e:"{gioco a calcio} = फ़ुटबॉल खेलता हूँ।"},
+ {t:"type",q:"पूरा करें: {Mi} ＿ {le escursioni.} ({piacere})",a:["piacciono"],full:"Mi piacciono le escursioni."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं अक्सर घर फ़ोन करता हूँ।»",a:["Telefono spesso a casa."],w:["Telefono", "spesso", "a", "casa."]},
+ {t:"dict",au:"Vado spesso al cinema con Ravi."},
+ {t:"say",zh:"बताइए: «मुझे संगीत सुनना पसंद है।»",it:"Mi piace ascoltare la musica."}
+];
+VOC.l11=[
+ ["tempo libero","ख़ाली समय","m"],
+ ["piacere","पसंद आना",""],
+ ["mi piace","मुझे पसंद है",""],
+ ["anche a me","मुझे भी",""],
+ ["andare","जाना",""],
+ ["insieme","साथ, एक साथ",""],
+ ["leggere","पढ़ना",""],
+ ["giocare","खेलना",""],
+ ["calcio","फ़ुटबॉल","m"],
+ ["film","फ़िल्म","m"],
+ ["cinema","सिनेमा","m"],
+ ["karaoke","कराओके","m"],
+ ["ascoltare","सुनना",""],
+ ["musica","संगीत","f"],
+ ["guardare","देखना",""],
+ ["nuotare","तैरना",""],
+ ["cucinare","खाना बनाना",""],
+ ["telefonare","फ़ोन करना",""],
+ ["videochiamata","वीडियो कॉल","f"],
+ ["casa","घर","f"],
+ ["bere","पीना",""],
+ ["escursione","सैर, भ्रमण","f"],
+ ["amare","प्यार करना; बहुत पसंद करना",""],
+ ["sempre","हमेशा",""],
+ ["spesso","अक्सर",""],
+ ["qualche volta","कभी-कभी",""],
+ ["mai","कभी (नहीं)",""],
+ ["davvero","सच में",""],
+ ["vero","सच, सही",""],
+ ["tempesta","तूफ़ान","f"]
+];

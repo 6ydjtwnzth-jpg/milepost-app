@@ -1,2 +1,47 @@
-EX.l9=[];
-VOC.l9=[];
+DLG.l9=[["A","Ravi, scusa, dov'è la mensa?","रवि, माफ़ करना, मेस कहाँ है?"],["B","È al ponte due. Hai fame?","डेक दो पर है। भूख लगी है?"],["A","Sì! Quando mangiamo?","हाँ! हम कब खाते हैं?"],["B","Dopo il servizio. Chi è il tuo capo?","सर्विस के बाद। तुम्हारा बॉस कौन है?"],["A","Il signor Ferri. Com'è?","मिस्टर फ़ेर्री। वह कैसे हैं?"],["B","È severo, ma gentile.","सख़्त हैं, पर अच्छे हैं।"],["A","Perché parli italiano così bene?","तुम इतनी अच्छी इतालवी क्यों बोलते हो?"],["B","Perché studio un po' ogni sera.","क्योंकि मैं हर शाम थोड़ा पढ़ता हूँ।"],["A","E che cosa studi stasera?","और आज शाम क्या पढ़ोगे?"],["B","Le domande: chi, che cosa, dove, quando, perché…","सवाल: कौन, क्या, कहाँ, कब, क्यों…"]];
+EX.l9=[
+ {q:"«मेस कहाँ है?»",o:["{Dov'è la mensa?}", "{La mensa dove è?}", "{Com'è la mensa?}"],e:"सवाल-शब्द सबसे पहले।"},
+ {q:"«तुम्हारा बॉस कौन है?»",o:["{Chi è il tuo capo?}", "{Che è il tuo capo?}", "{Come è il tuo capo?}"],e:"व्यक्ति के लिए {chi}।"},
+ {q:"«हम कब खाते हैं?»",o:["{Quando mangiamo?}", "{Quanto mangiamo?}", "{Dove mangiamo?}"],e:"{quando} = कब; {quanto} = कितना।"},
+ {q:"«कितनी बोतलें?»",o:["{Quante bottiglie?}", "{Quanti bottiglie?}", "{Quanto bottiglie?}"],e:"{bottiglie} स्त्रीलिंग बहुवचन: {quante}।"},
+ {q:"{Perché sei stanco?} का अच्छा जवाब:",o:["{Perché lavoro molto.}", "{Al ponte due.}", "{Domani sera.}"],e:"{perché} = «क्योंकि» भी।"},
+ {q:"«जॉय कहाँ काम करती है?»",o:["{Dove lavora Joy?}", "{Joy dove lavora è?}", "{Dove Joy lavori?}"],e:"सवाल-शब्द + क्रिया + कर्ता।"},
+ {q:"सुनें: स्विमिंग पूल कहाँ है?",au:"La piscina è al ponte dieci.",o:["डेक 10 पर", "डेक 2 पर", "डेक 12 पर"],e:"{al ponte dieci} = 10."},
+ {q:"{la palestra} क्या है?",o:["जिम", "लॉन्ड्री", "सीढ़ियाँ"],e:"{palestra} = जिम।"},
+ {t:"type",q:"पूरा करें: ＿ {anni hai?} («कितने»)",a:["Quanti"],full:"Quanti anni hai?"},
+ {t:"ord",q:"क्रम में लगाएँ: «यात्री क्या खाते हैं?»",a:["Che cosa mangiano i passeggeri?"],w:["Che", "cosa", "mangiano", "i", "passeggeri?"]},
+ {t:"dict",au:"Perché studio un po' ogni sera."},
+ {t:"say",zh:"किसी साथी से पूछें: «लॉन्ड्री कहाँ है?»",it:"Dov'è la lavanderia?"}
+];
+VOC.l9=[
+ ["domanda","सवाल","f"],
+ ["che cosa","क्या",""],
+ ["quando","कब",""],
+ ["quale","कौन-सा",""],
+ ["perché","क्यों; क्योंकि",""],
+ ["quanto","कितना",""],
+ ["mensa","क्रू मेस, भोजनालय","f"],
+ ["ponte","डेक; पुल","m"],
+ ["piscina","स्विमिंग पूल","f"],
+ ["palestra","जिम","f"],
+ ["reception","रिसेप्शन","f"],
+ ["ascensore","लिफ़्ट","m"],
+ ["scale","सीढ़ियाँ","f"],
+ ["teatro","थिएटर","m"],
+ ["infermeria","जहाज़ का अस्पताल","f"],
+ ["lavanderia","लॉन्ड्री","f"],
+ ["capo","बॉस, प्रमुख","m"],
+ ["servizio","सर्विस, सेवा","m"],
+ ["dopo","बाद में; के बाद",""],
+ ["mangiare","खाना",""],
+ ["studiare","पढ़ना, पढ़ाई करना",""],
+ ["arrivare","पहुँचना",""],
+ ["severo","सख़्त",""],
+ ["così","इतना; ऐसे",""],
+ ["ogni","हर",""],
+ ["stasera","आज शाम",""],
+ ["nuovo","नया",""],
+ ["tempo","समय; मौसम","m"],
+ ["comandante","कप्तान","m"],
+ ["equipaggio","क्रू, जहाज़ के कर्मचारी","m"]
+];

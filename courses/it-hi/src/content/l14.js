@@ -1,2 +1,49 @@
-EX.l14=[];
-VOC.l14=[];
+DLG.l14=[["A","Buonasera, signora. Ecco il menù. Cosa prende?","शुभ संध्या, मैडम। यह रहा मेन्यू। आप क्या लेंगी?"],["B","Come primo vorrei gli spaghetti al pomodoro.","पहले कोर्स में मुझे टमाटर वाली स्पैगेटी चाहिए।"],["A","Benissimo. E come secondo? Oggi abbiamo del pesce fresco.","बहुत बढ़िया। और दूसरे कोर्स में? आज हमारे पास ताज़ी मछली है।"],["B","Il pesce sì, grazie. Ma sono allergica ai crostacei.","मछली हाँ, धन्यवाद। पर मुझे झींगे-केकड़े से एलर्जी है।"],["A","Nessun problema: nel piatto non ci sono crostacei.","कोई बात नहीं: इस डिश में झींगे-केकड़े नहीं हैं।"],["B","Perfetto. E vorrei dell'acqua naturale.","बढ़िया। और मुझे थोड़ा सादा पानी चाहिए।"],["A","Subito. Vuole anche del pane?","अभी लाई। क्या आपको ब्रेड भी चाहिए?"],["B","Sì, grazie. Ma niente vino stasera.","हाँ, धन्यवाद। पर आज शाम वाइन नहीं।"],["A","Ecco il pane. Ne vuole ancora più tardi?","यह रही ब्रेड। बाद में और चाहिए?"],["B","Sì, ne prendo ancora un pezzo. Grazie, molto gentile!","हाँ, एक टुकड़ा और लूँगी। धन्यवाद, बहुत मेहरबानी!"]];
+EX.l14=[
+ {q:"«थोड़ी ब्रेड»:",o:["{del pane}", "{della pane}", "{dei pane}"],e:"{pane} पुल्लिंग: {del}।"},
+ {q:"«थोड़ा पानी»:",o:["{dell'acqua}", "{della acqua}", "{del acqua}"],e:"स्वर से पहले {dell'}।"},
+ {q:"{Quante mele vuole?} — «दो चाहिए।»",o:["{Ne vorrei due.}", "{Vorrei due ne.}", "{Ne vorrei due mele ne.}"],e:"{ne} क्रिया से पहले।"},
+ {q:"पास्ता किस कोर्स में आता है?",o:["{il primo}", "{il secondo}", "{il dolce}"],e:"पास्ता, रिसोट्टो, सूप = {primo}।"},
+ {q:"यात्री (महिला): «मुझे मेवों से एलर्जी है।»",o:["{Sono allergica alle noci.}", "{Ho allergica alle noci.}", "{Sono allergico noci.}"],e:"{essere} + {allergica} (महिला)।"},
+ {q:"{Sono vegetariano} का अर्थ:",o:["मैं शाकाहारी हूँ", "मुझे भूख लगी है", "मुझे एलर्जी है"],e:"{vegetariano}."},
+ {q:"«वाइन नहीं, धन्यवाद»:",o:["{Niente vino, grazie.}", "{Del vino no, grazie.}", "{Non vino, grazie.}"],e:"{niente} = कुछ नहीं।"},
+ {q:"सुनें: यात्री क्या लेता है?",au:"Come secondo prendo il pollo con le patate.",o:["चिकन और आलू", "मछली और सलाद", "पास्ता"],e:"{il pollo con le patate} = चिकन और आलू।"},
+ {t:"type",q:"पूरा करें: {Vorrei} ＿ {frutta.} («थोड़े»)",a:["della"],full:"Vorrei della frutta."},
+ {t:"ord",q:"क्रम में लगाएँ: «मैं एक टुकड़ा और लेती हूँ।»",a:["Ne prendo ancora un pezzo."],w:["Ne", "prendo", "ancora", "un", "pezzo."]},
+ {t:"dict",au:"Questo piatto è senza glutine?"},
+ {t:"say",zh:"यात्री से पूछें: «आप क्या लेंगे?»",it:"Cosa prende?"}
+];
+VOC.l14=[
+ ["cucina","रसोई; व्यंजन","f"],
+ ["menù","मेन्यू","m"],
+ ["piatto","प्लेट; डिश","m"],
+ ["primo","पहला कोर्स","m"],
+ ["secondo","दूसरा कोर्स","m"],
+ ["contorno","साथ वाली सब्ज़ी","m"],
+ ["dolce","मिठाई; मीठा","m"],
+ ["antipasto","शुरुआती व्यंजन","m"],
+ ["pesce","मछली","m"],
+ ["carne","मांस","f"],
+ ["pollo","चिकन","m"],
+ ["maiale","सूअर (का मांस)","m"],
+ ["crostacei","झींगे, केकड़े आदि","m"],
+ ["riso","चावल","m"],
+ ["pane","ब्रेड","m"],
+ ["pomodoro","टमाटर","m"],
+ ["patata","आलू","f"],
+ ["frutta","फल","f"],
+ ["latte","दूध","m"],
+ ["fresco","ताज़ा",""],
+ ["allergico","एलर्जी वाला",""],
+ ["senza","बिना",""],
+ ["glutine","ग्लूटेन","m"],
+ ["vegetariano","शाकाहारी",""],
+ ["noci","मेवे, अखरोट","f"],
+ ["niente","कुछ नहीं",""],
+ ["ancora","और; अभी भी",""],
+ ["pezzo","टुकड़ा","m"],
+ ["chilo","किलो","m"],
+ ["litro","लीटर","m"],
+ ["bicchiere","गिलास","m"],
+ ["nessun problema","कोई बात नहीं",""]
+];
