@@ -777,7 +777,7 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="t-green"><b>482</b><span>esercizi</span></div>
     <div class="t-yellow"><b>826</b><span>parole</span></div>
   </div>
-    <p class="note" id="ttsnote">Premi ▶ per ascoltare la frase intera; ogni parola <b style="color:var(--it)">verde</b> si può toccare: la senti e vedi che cosa vuol dire. In alto puoi nascondere la traduzione (per allenare l'orecchio) e rallentare la voce. La voce è francese, femminile, sintetizzata (Siwis).</p>
+    <p class="note" id="ttsnote">Premi ▶ per ascoltare la frase intera; ogni parola <b style="color:var(--it)">verde</b> si può toccare: la senti e vedi che cosa vuol dire. In alto puoi nascondere la traduzione (per allenare l'orecchio) e rallentare la voce. La voce è spagnola di Spagna, femminile, sintetizzata (Dora).</p>
 </header>
 
 <section class="path" id="mappa" aria-label="Il percorso">
@@ -5502,7 +5502,7 @@ if(!window.MPPlan||!window.CATALOG||typeof UNITS==="undefined"||typeof KEY==="un
 var M=MPPlan,C=null;
 CATALOG.courses.forEach(function(c){if(c.storageKey===KEY)C=c});
 if(!C)return;
-var ZH=C.speak==="zh",UI=C.speak; /* UI: the learner's language (it, zh, es) */
+var ZH=C.speak==="zh",UI=C.speak; /* UI: the learner's language (it, zh, es, hi, tl) */
 /* lang attribute of the language being learned */
 var LL={ja:"ja",zh:"zh-CN",it:"it"}[C.learn]||C.learn;
 var S={
@@ -5556,6 +5556,54 @@ es:{locale:"es-ES",tabs:["Hoy","Curso","Examen","Cultura","Herramientas"],hi:["B
   settings:"Ajustes",readingT:"Lectura y voz",
   offT:"Sin conexión",offPages:"Las lecciones ya están guardadas en este dispositivo.",offBtn:function(mb){return "Descargar el audio del curso ("+mb+" MB)"},offBusy:function(a,b){return "Descargando… "+a+" de "+b}
   ,offDone:"Listo: lecciones y audio funcionan también sin conexión.",offErr:"Descarga interrumpida: vuelve a intentarlo con una conexión estable.",offVoice:"La voz es la de tu dispositivo: funciona también sin conexión.",voiceT:"Voz",voiceAuto:"Automática",voiceTip:"",theme:"Tema",themes:["Auto","Claro","Oscuro"],redoPlan:"Rehacer el plan",changeCourse:"Cambiar de curso o de idioma",reset:"Borrar todo y empezar de nuevo",resetQ:"¿Borrar el plan y el progreso guardados en este dispositivo?",close:"Cerrar",back:"Atrás"},
+hi:{locale:"hi-IN",tabs:["आज","कोर्स","परीक्षा","संस्कृति","साधन"],hi:["सुप्रभात","नमस्ते","शुभ संध्या"],
+  steps:{rec:"पिछले शब्द",dlg:"संवाद",voc:"शब्द",rule:"व्याकरण",rev:"दोहराव",snd:"उच्चारण",cult:"संस्कृति",test:"जाँच"},
+  stepSub:{rec:function(n){return "पिछले पाठों के "+n+" शब्द"},dlg:"सुनें, पढ़ें, बोलें",voc:function(n){return n+" नए शब्द"},snd:"सुनें और दोहराएँ",cult:function(n){return n===1?"1 कार्ड":n+" कार्ड"},test:function(n){return n+" सवाल · आपकी पकड़ अपडेट होती है"}},
+  lesson:function(n){return "पाठ "+n},review:"दोहराव",min:"मिनट",left:function(m){return "लगभग "+m+" मिनट बाक़ी"},
+  forToday:"आज के लिए",forTodaySub:function(m){return "आपका समय: "+m+" मिनट"},resume:"जारी रखें",go:"चलें",
+  next:"अगला चरण",reviewT:"शब्दों का दोहराव",reviewS:function(n,m){return "आज दोहराने के लिए "+n+" शब्द · लगभग "+m+" मिनट"},reviewNone:"आज दोहराने को कुछ नहीं: हर शब्द तभी लौटता है जब आप उसे भूलने वाले होते हैं।",
+  memT:"आपकी याददाश्त",memLearned:"दोहराव में शब्द",memSolid:"पक्के (3+ हफ़्ते बाद लौटते हैं)",memRet:function(p,n){return "एक हफ़्ते या उससे ज़्यादा बाद दोहराए गए शब्दों में से आपको "+p+"% याद रहते हैं (पिछले 60 दिनों में "+n+" जाँचें)।"},memNoRet:"याद रखने का प्रतिशत कम से कम एक हफ़्ते के अंतर पर किए गए 10 दोहरावों के बाद दिखता है।",
+  dayCult:"आज की जानकारी",read:"पढ़ें",week:"हफ़्ता",days:"दिन",canDo:"अब आप कर सकते हैं",canDoEmpty:"जैसे-जैसे आप पाठों की जाँच पास करेंगे, यहाँ दिखेगा कि आप क्या-क्या कर सकते हैं।",
+  noPlan:"अपनी योजना बनाएँ",noPlanS:"तीन सवाल, और आप जान जाएँगे कि मंज़िल तक कब पहुँचेंगे।",
+  course:"कोर्स",here:"आप यहाँ हैं",todo:"बाक़ी",inProg:function(a,b){return b+" में से "+a},verified:"पास",
+  knowT:"पाठ के अंत में आप",introT:"इस पाठ में",stepsT:"क़दम-दर-क़दम",stepsS:"हर चरण कुछ ही मिनट का है। सुझाया गया क्रम यही है, पर आप उन्हें जैसे चाहें खोल सकते हैं।",rulesT:"नियम",rulesS:"किसी नियम को यहीं पढ़ने के लिए उसे छुएँ। «अभ्यास» अभ्यासों के साथ पूरी व्याख्या खोलता है।",practiceBtn:"अभ्यास",introR:"परिचय",wordsT:"शब्द",wordsS:"सुनने के लिए ▶ छुएँ, अर्थ देखने के लिए शब्द को छुएँ।",showAll:function(n){return "सब देखें ("+n+")"},ahead:function(n){return "आप सुझाए गए रास्ते से आगे हैं (आप पाठ "+n+" पर हैं)। ऐसा कर सकते हैं: अगर कुछ समझ न आए, तो वहीं से दोहराएँ।"},
+  backTo:"सुझाए गए पाठ पर लौटें",readAll:"पूरा पाठ पढ़ें",cont:function(s){return "जारी रखें: "+s},redo:"जाँच फिर से करें",start:"शुरू करें",
+  exam:"परीक्षा",examNone:"आपने कोई परीक्षा नहीं चुनी है।",examNoneS:"अगर आप किसी परीक्षा की तैयारी कर रहे हैं, तो योजना परीक्षा के दिन तक जाती है।",chooseExam:"परीक्षा चुनें",
+  examIn:function(n){return "दिन"},ready:function(d){return "इस रफ़्तार से आप लगभग "+d+" तक तैयार होंगे।"},margin:function(w){return w<=1?"आप ठीक समय पर पहुँचेंगे।":w+" हफ़्ते का समय बचेगा।"},late:function(w){return "इस रफ़्तार से आप परीक्षा के "+w+" हफ़्ते बाद पहुँचेंगे: थोड़ा ज़्यादा समय दें या बाद की तारीख़ चुनें।"},
+  noDate:"परीक्षा की तारीख़ अभी नहीं चुनी गई।",sections:"हर हिस्से के अनुसार",sectionsSoon:"हिस्सों के अनुसार तैयारी (शब्द, व्याकरण, पढ़ना, सुनना) अभ्यास परीक्षाओं के साथ आती है।",
+  sim:"पूरी अभ्यास परीक्षा",simS:"असली प्रारूप, समय के साथ",soon:"जल्द आ रहा है",mastery:"पास किए गए पाठों पर पकड़",planT:"आपकी योजना",
+  onTrack:"योजना के अनुसार",ahead2:function(n){return n+" दिन आगे"},behind:function(n){return n+" दिन पीछे"},practice:"परीक्षा की तैयारी",
+  cult:"संस्कृति",cultLead:(C.learn==="en"?"अंग्रेज़ी बोलने वाली दुनिया और भारत":"इटली और भारत")+" की तुलना: आदतें, खाना, काम, त्योहार और जहाज़ पर ज़िंदगी। हर कार्ड में सुनने के लिए शब्द और एक सवाल है।",
+  all:"सब",readCount:function(a,b){return b+" में से "+a+" पढ़े"},stories:"कहानियाँ",storiesLead:"ऑडियो के साथ छोटी कहानियाँ: नए शब्दों के अर्थ दिए हैं, और अनुवाद तभी खोलें जब ज़रूरत हो।",afterL:function(n){return "पाठ "+n+" के बाद"},afterR:"दोहराव के बाद",mins:function(m){return m+" मिनट"},soonStories:"और कहानियाँ",soonT:"जल्द आ रहा है",playAll:"सब सुनें",stopAll:"रोकें",trAll:"अनुवाद",trOne:"अनुवाद करें",newWords:function(n){return "नए शब्द · "+n},storyQ:"क्या आप समझ गए?",storyDone:"पढ़ लिया",storyDoneT:"कहानी पढ़ ली",nextStory:"अगली कहानी",backCult:"संस्कृति पर लौटें",storyListen:"वाक्य सुनें",readMark:"पढ़ा गया",fromLesson:function(n){return "पाठ "+n},
+  tools:"साधन",toolList:{flash:["फ़्लैशकार्ड","अंतराल पर दोहराव"],verbi:["क्रिया के रूप","क्रिया के सभी काल"],frasi:["काम के वाक्य","तैयार वाक्य"],vocab:["शब्दावली","कोर्स के सभी शब्द"]},
+  dailyRev:["आज का दोहराव","वे शब्द जिन्हें आप भूलने वाले हैं"],
+  settings:"सेटिंग्स",readingT:"पढ़ना और आवाज़",
+  offT:"बिना इंटरनेट",offPages:"पाठ पहले से इस डिवाइस पर सहेजे हुए हैं।",offBtn:function(mb){return "कोर्स का ऑडियो डाउनलोड करें ("+mb+" MB)"},offBusy:function(a,b){return "डाउनलोड हो रहा है… "+b+" में से "+a}
+  ,offDone:"तैयार: पाठ और ऑडियो बिना इंटरनेट के भी चलते हैं, समुद्र में भी।",offErr:"डाउनलोड रुक गया: अच्छे कनेक्शन के साथ फिर से कोशिश करें।",offVoice:"आवाज़ आपके डिवाइस की है: यह बिना इंटरनेट के भी चलती है।",voiceT:"आवाज़",voiceAuto:"अपने-आप",voiceTip:"",theme:"थीम",themes:["अपने-आप","हल्की","गहरी"],redoPlan:"योजना फिर से बनाएँ",changeCourse:"कोर्स या भाषा बदलें",reset:"सब मिटाकर फिर से शुरू करें",resetQ:"इस डिवाइस पर सहेजी गई योजना और प्रगति मिटा दें?",close:"बंद करें",back:"पीछे"},
+tl:{locale:"fil-PH",tabs:["Ngayon","Kurso","Pagsusulit","Kultura","Kasangkapan"],hi:["Magandang umaga","Magandang hapon","Magandang gabi"],
+  steps:{rec:"Mga salita noon",dlg:"Usapan",voc:"Mga salita",rule:"Gramatika",rev:"Balik-aral",snd:"Bigkas",cult:"Kultura",test:"Pagsubok"},
+  stepSub:{rec:function(n){return n+" salita mula sa mga naunang aralin"},dlg:"Makinig, magbasa, gumanap",voc:function(n){return n+" bagong salita"},snd:"Makinig at ulitin",cult:function(n){return n===1?"1 kard":n+" kard"},test:function(n){return n+" tanong · ina-update ang husay mo"}},
+  lesson:function(n){return "Aralin "+n},review:"Balik-aral",min:"min",left:function(m){return "mga "+m+" min pa"},
+  forToday:"Para ngayon",forTodaySub:function(m){return "Ang oras mo: "+m+" min"},resume:"Magpatuloy",go:"Tara",
+  next:"Susunod na hakbang",reviewT:"Balik-aral ng mga salita",reviewS:function(n,m){return n+" salitang babalikan ngayon · mga "+m+" min"},reviewNone:"Walang babalikan ngayon: bumabalik ang bawat salita kapag malapit mo na itong makalimutan.",
+  memT:"Ang memorya mo",memLearned:"salitang binabalikan",memSolid:"matibay na (bumabalik pagkalipas ng 3+ linggo)",memRet:function(p,n){return "Naaalala mo ang "+p+"% ng mga salitang binalikan pagkalipas ng isang linggo o higit pa ("+n+" pagsusuri sa nakaraang 60 araw)."},memNoRet:"Lalabas ang porsiyento ng naaalala pagkatapos ng 10 balik-aral na may pagitang hindi bababa sa isang linggo.",
+  dayCult:"Kaalaman ng araw",read:"Basahin",week:"Linggo",days:"araw",canDo:"Kaya mo na",canDoEmpty:"Dito lalabas ang mga kaya mo nang gawin, habang pinapasa mo ang mga pagsubok ng mga aralin.",
+  noPlan:"Gawin ang plano mo",noPlanS:"Tatlong tanong at malalaman mo kung kailan mo maaabot ang layunin.",
+  course:"Ang kurso",here:"Nandito ka",todo:"Gagawin pa",inProg:function(a,b){return a+" sa "+b},verified:"Pasado",
+  knowT:"Sa dulo, kaya mo na",introT:"Sa araling ito",stepsT:"Hakbang-hakbang",stepsS:"Ilang minuto lang ang bawat hakbang. Ito ang inirerekomendang ayos, pero puwede mo silang buksan sa anumang ayos.",rulesT:"Mga tuntunin",rulesS:"Pindutin ang isang tuntunin para basahin ito rito. Binubuksan ng «Magsanay» ang paliwanag kasama ang mga pagsasanay.",practiceBtn:"Magsanay",introR:"Panimula",wordsT:"Mga salita",wordsS:"Pindutin ang ▶ para makinig, pindutin ang salita para makita ang kahulugan.",showAll:function(n){return "Tingnan lahat ("+n+")"},ahead:function(n){return "Nauuna ka sa inirerekomendang daan (nasa aralin "+n+" ka). Puwede iyan: kung may hindi malinaw, magbalik-aral mula roon."},
+  backTo:"Bumalik sa inirerekomendang aralin",readAll:"Basahin ang buong aralin",cont:function(s){return "Magpatuloy: "+s},redo:"Ulitin ang pagsubok",start:"Magsimula",
+  exam:"Pagsusulit",examNone:"Wala ka pang napiling pagsusulit.",examNoneS:"Kung naghahanda ka para sa isang pagsusulit, aabot ang plano hanggang sa araw nito.",chooseExam:"Pumili ng pagsusulit",
+  examIn:function(n){return "araw"},ready:function(d){return "Sa kasalukuyang bilis, handa ka bandang "+d+"."},margin:function(w){return w<=1?"Saktong aabot ka.":w+" linggong palugit."},late:function(w){return "Sa kasalukuyang bilis, aabot ka "+w+" linggo pagkatapos ng pagsusulit: maglaan ng kaunting dagdag na oras o pumili ng mas huling petsa."},
+  noDate:"Wala pang napiling petsa ng pagsusulit.",sections:"Ayon sa bahagi",sectionsSoon:"Darating ang paghahanda ayon sa bahagi (bokabularyo, gramatika, pagbasa, pakikinig) kasama ang mga simulasyon ng pagsusulit.",
+  sim:"Buong simulasyon",simS:"Tunay na format, may oras",soon:"Malapit na",mastery:"Husay sa mga pasadong aralin",planT:"Ang plano mo",
+  onTrack:"Sakto sa plano",ahead2:function(n){return "Nauuna nang "+n+" araw"},behind:function(n){return "Nahuhuli nang "+n+" araw"},practice:"Paghahanda sa pagsusulit",
+  cult:"Kultura",cultLead:"Magkatabi ang "+(C.learn==="en"?"mundong nagsasalita ng Ingles":"Italya")+" at Pilipinas: mga kaugalian, pagkain, trabaho, pista at buhay sa barko. Bawat kard ay may mga salitang pakikinggan at isang tanong.",
+  all:"Lahat",readCount:function(a,b){return a+" sa "+b+" nabasa"},stories:"Mga kuwento",storiesLead:"Maiikling babasahin na may audio: may kahulugan ang mga bagong salita, at bubuksan mo lang ang salin kapag kailangan.",afterL:function(n){return "pagkatapos ng aralin "+n},afterR:"pagkatapos ng balik-aral",mins:function(m){return m+" min"},soonStories:"Iba pang kuwento",soonT:"Malapit na",playAll:"Pakinggan lahat",stopAll:"Itigil",trAll:"Salin",trOne:"Isalin",newWords:function(n){return "Mga bagong salita · "+n},storyQ:"Naintindihan mo ba?",storyDone:"Nabasa na",storyDoneT:"Nabasa na ang kuwento",nextStory:"Susunod na kuwento",backCult:"Bumalik sa Kultura",storyListen:"Pakinggan ang pangungusap",readMark:"Nabasa",fromLesson:function(n){return "Aralin "+n},
+  tools:"Kasangkapan",toolList:{flash:["Flashcard","Balik-aral na may pagitan"],verbi:["Mga anyo ng pandiwa","Lahat ng panahunan"],frasi:["Mga handang parirala","Mga pangungusap na magagamit agad"],vocab:["Bokabularyo","Lahat ng salita ng kurso"]},
+  dailyRev:["Balik-aral ngayong araw","Ang mga salitang malapit mo nang makalimutan"],
+  settings:"Mga setting",readingT:"Pagbasa at boses",
+  offT:"Offline",offPages:"Naka-save na sa device na ito ang mga aralin.",offBtn:function(mb){return "I-download ang audio ng kurso ("+mb+" MB)"},offBusy:function(a,b){return "Nagda-download… "+a+" sa "+b}
+  ,offDone:"Handa na: gumagana ang mga aralin at audio kahit offline, kahit nasa laot.",offErr:"Naputol ang download: subukan muli kapag maayos ang koneksyon.",offVoice:"Boses ng device mo ito: gumagana rin kahit offline.",voiceT:"Boses",voiceAuto:"Awtomatiko",voiceTip:"",theme:"Tema",themes:["Awtomatiko","Maliwanag","Madilim"],redoPlan:"Gawin muli ang plano",changeCourse:"Palitan ang kurso o wika",reset:"Burahin lahat at magsimula muli",resetQ:"Burahin ang plano at progresong naka-save sa device na ito?",close:"Isara",back:"Bumalik"},
 zh:{locale:"zh-CN",tabs:["今天","课程","考试","文化","工具"],hi:["早上好","下午好","晚上好"],
   steps:{rec:"复习旧词",dlg:"对话",voc:"单词",rule:"语法",rev:"复习",snd:"发音",cult:"文化",test:"小测验"},
   stepSub:{rec:function(n){return "前几课的 "+n+" 个单词"},dlg:"听、读、跟着说",voc:function(n){return n+" 个新单词"},snd:"听和跟读",cult:function(n){return n+" 张卡片"},test:function(n){return n+" 道题 · 更新掌握度"}},
@@ -5642,7 +5690,7 @@ function dayCult(){var all=allCult();if(!all.length)return null;var hi=Math.max(
   var d=M.today(),n=d.getFullYear()*372+d.getMonth()*31+d.getDate();return pool[n%pool.length]}
 function openCult(x){var c=x.c;
   runStage({title:S.cult+" · "+title(x.u),color:x.u.color,pages:[{gate:!!c.q,draw:function(box,rel){box.innerHTML=cultHTML(c);
-    if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:{zh:"问题",es:"Pregunta"}[UI]||"Domanda",onDone:function(){rel()}})}},go:S.close}],
+    if(c.q){var d=document.createElement("div");d.className="drill cc-q";box.appendChild(d);renderSet(d,{items:[c.q],one:true,head:{zh:"问题",es:"Pregunta",hi:"सवाल",tl:"Tanong"}[UI]||"Domanda",onDone:function(){rel()}})}},go:S.close}],
     done:function(){var r=cultRead();r[x.key]=1;M.store.set(CK,r);render()}})}
 function cultCard(x,big){var r=cultRead()[x.key];
   return '<button class="mp-cc'+(big?' big':'')+'" data-ck="'+h(x.key)+'"><span class="art t-'+x.u.color+'">'+(x.c.s?'<svg viewBox="0 0 320 180" aria-hidden="true"><use href="#sc-'+x.c.s+'"/></svg>':'')+'</span>'+
@@ -5669,7 +5717,7 @@ function storiesBlock(){if(!READ.length)return "";
   return '<h2 class="mp-h2">'+h(S.stories)+'</h2><p class="mp-lead mp-lead0">'+h(S.storiesLead)+'</p><div class="mp-sgrid">'+READ.map(storyCard).join("")+
     '<div class="mp-story soon" aria-disabled="true"><span class="art"><span class="j" aria-hidden="true">…</span></span><span class="tx"><b>'+h(S.soonStories)+'</b><em>'+h(S.soonT)+'</em></span></div></div>'}
 function vStory(id){var r=READ.filter(function(x){return x.id===id})[0];if(!r){location.replace("#/cultura");return}
-  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl={zh:"zh-CN",es:"es"}[UI]||"it";
+  var i=READ.indexOf(r),nx=READ[i+1]||READ[0],tl={zh:"zh-CN",es:"es",hi:"hi",tl:"fil"}[UI]||"it";
   var html='<div class="mp-readbar"><a class="mp-ib" href="#/cultura" aria-label="'+h(S.backCult)+'">'+I.back+'</a><b>'+h(S.stories)+'</b><button class="mp-ib" id="mpset" aria-label="'+h(S.settings)+'">'+I.gear+'</button></div>'+
     '<header class="mp-sh"><div class="mp-k">'+h(r.kind+" · "+storyAfter(r)+" · "+S.mins(r.min))+'</div><h1 tabindex="-1">'+h(r.t)+'</h1><p class="j" lang="'+(ZH?"it":LL)+'">'+h(r.j)+'</p></header>'+
     '<p class="mp-lead">'+sRich(r.intro)+'</p>'+
@@ -5696,7 +5744,7 @@ window.addEventListener("hashchange",function(){if(storyPl&&!/^#\/racconto\//.te
 /* ---------- plan ---------- */
 function myPlan(){return M.load().plans[C.id]||null}
 function weekActive(){var mon=M.addDays(M.today(),-((M.today().getDay()+6)%7)),n=0,cells="";
-  var lbl=ZH?["一","二","三","四","五","六","日"]:UI==="es"?["L","M","X","J","V","S","D"]:["L","M","M","G","V","S","D"];
+  var lbl=ZH?["一","二","三","四","五","六","日"]:UI==="es"?["L","M","X","J","V","S","D"]:UI==="hi"?["सो","मं","बु","गु","शु","श","र"]:UI==="tl"?["L","M","M","H","B","S","L"]:["L","M","M","G","V","S","D"];
   for(var i=0;i<7;i++){var d=M.addDays(mon,i),on=!!P.days[M.iso(d)];if(on)n++;cells+='<span class="'+(on?'on':'')+(M.daysBetween(d,M.today())===0?' td':'')+'"><i></i>'+lbl[i]+'</span>'}
   return {n:n,html:cells}}
 
@@ -5980,6 +6028,21 @@ function IGRID(o){var W=["Ho rispettato la consegna: tipo di testo, destinatario
          ["Ho scelto bene tra du e Sie.","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara: ch, ü, ö, vocali lunghe e corte.","Frasi complete, con il verbo al posto giusto."]]},
   x=L[C.learn]||[["Ho collegato le frasi con i connettivi.","Ho controllato i verbi: tempi e persone.","Ho controllato accordi e ortografia."],["Ho usato il registro giusto (formale o informale).","Nei dialoghi ho fatto almeno una domanda all'altra persona.","Pronuncia chiara.","Frasi complete, con i verbi coniugati correttamente."]];
   return o?O.concat(x[1]):W.concat(x[0])}
+/* writing / speaking self-check grids for learners who speak Hindi or Filipino (targets: Italian, English) */
+function XGRID(o){var G={
+  hi:{W:["मैंने निर्देश का पालन किया: पाठ का प्रकार, किसे लिखना है और माँगी गई लंबाई।","मैंने निर्देश के सभी बिंदुओं पर लिखा।","मैंने सही शब्दों से शुरू और ख़त्म किया (अभिवादन, हस्ताक्षर)।"],
+      O:["मैंने माँगे गए समय तक बात की, लंबे रुकावों के बिना।","मैंने काम की सभी माँगों का जवाब दिया।"],
+      it:[["मैंने वाक्यों को जोड़ने वाले शब्दों से जोड़ा (e, ma, perché, poi, quindi)।","मैंने क्रियाएँ जाँचीं: काल, पुरुष, passato prossimo में essere या avere।","मैंने लिंग, वचन, आर्टिकल (il, la, i, le) और दोहरे व्यंजन जाँचे।"],
+          ["मैंने tu और Lei में सही चुनाव किया।","संवाद में मैंने सामने वाले से कम से कम एक सवाल पूछा।","साफ़ उच्चारण: दोहरे व्यंजन, शब्द के अंत के स्वर साफ़।","पूरे वाक्य, क्रियाओं के सही रूपों के साथ।"]],
+      en:[["मैंने वाक्यों को जोड़ने वाले शब्दों से जोड़ा (and, but, because, so, then)।","मैंने क्रियाएँ जाँचीं: काल (past simple या present perfect), तीसरे पुरुष का -s, do / does / did।","मैंने a / an / the, बहुवचन और वर्तनी जाँची।"],
+          ["मैंने विनम्र शब्द इस्तेमाल किए (please, thank you, could you…?)।","संवाद में मैंने सामने वाले से कम से कम एक सवाल पूछा।","साफ़ उच्चारण: v और w का फ़र्क़, th, शब्द के अंत की ध्वनियाँ।","पूरे वाक्य, क्रियाओं के सही रूपों के साथ।"]]},
+  tl:{W:["Sinunod ko ang panuto: uri ng teksto, padadalhan at hinihinging haba.","Tinalakay ko ang lahat ng puntong hinihingi.","Nagsimula at nagtapos ako sa angkop na pananalita (bati, lagda)."],
+      O:["Nagsalita ako sa hinihinging tagal, nang walang mahahabang paghinto.","Sinagot ko ang lahat ng hinihingi ng gawain."],
+      it:[["Pinag-ugnay ko ang mga pangungusap gamit ang mga pang-ugnay (e, ma, perché, poi, quindi).","Sinuri ko ang mga pandiwa: panahunan, panauhan, passato prossimo na may essere o avere.","Sinuri ko ang kasarian, bilang, mga artikulo (il, la, i, le) at ang dobleng katinig."],
+          ["Tama ang pinili ko sa pagitan ng tu at Lei.","Sa usapan, nagtanong ako kahit isang beses sa kausap.","Malinaw na bigkas: dobleng katinig, e at o na bukas o sarado.","Buong pangungusap, tamang anyo ng pandiwa."]],
+      en:[["Pinag-ugnay ko ang mga pangungusap gamit ang mga pang-ugnay (and, but, because, so, then).","Sinuri ko ang mga pandiwa: panahunan (past simple o present perfect), ang -s ng ikatlong panauhan, do / does / did.","Sinuri ko ang a / an / the, he at she, maramihan at baybay."],
+          ["Gumamit ako ng magagalang na salita (please, thank you, could you…?).","Sa usapan, nagtanong ako kahit isang beses sa kausap.","Malinaw na bigkas: f at p, v at b, th.","Buong pangungusap, tamang anyo ng pandiwa."]]}}[UI];
+  if(!G)return [];var x=G[C.learn]||G.en;return o?G.O.concat(x[1]):G.W.concat(x[0])}
 var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n+" 个部分 · 限时 "+m+" 分钟"},train:"分部分练习",
   last:function(s,t,d){return "上次："+s+"/"+t+" · "+d},none:"做完第一次模拟考试后，这里会显示你每个部分的准备情况。",
   est:"按现在的水平，你大约能得",weak:function(s){return "最需要加强："+s+"。"},hist:"你的考试记录",
@@ -6008,6 +6071,34 @@ var EXS=ZH?{start:"开始",full:"完整模拟考试",secN:function(n,m){return n
   gridT:"Revisa con la parrilla",gridN:"Criterios tomados de las parrillas oficiales de evaluación: marca los que cumpliste y sabrás qué mejorar.",gridS:function(n,m){return n+" de "+m+" criterios"},gridW:["Cumplí la consigna: tipo de texto, destinatario y extensión pedida.", "Traté todos los puntos de la consigna.", "Empecé y terminé con fórmulas adecuadas (Ciao / Gentile…, A presto / Cordiali saluti).", "Uní las frases con conectores (e, ma, perché, poi, quindi).", "Revisé los verbos: tiempos, personas, passato prossimo con essere o avere.", "Revisé artículos (también con los posesivos: il mio), concordancias, consonantes dobles y falsos amigos."],gridO:["Hablé el tiempo pedido, sin pausas largas.", "Respondí a todo lo que pedía la tarea.", "Elegí bien entre tu y Lei.", "En los diálogos hice al menos una pregunta.", "Pronunciación clara: consonantes dobles, vocales abiertas y cerradas.", "Frases completas y verbos bien conjugados (cuidado con stare + gerundio)."],gridB1:"Di mi opinión y la justifiqué con ejemplos.",
    practiceN:"Estas pruebas las evalúa un examinador, aquí no tienen puntuación. Intenta escribir o hablar y luego mira el ejemplo.",model:"Ejemplo de respuesta",
    estShort:function(s,t,p){return "Estimación: "+s+"/"+t+" · aprobado "+p}}
+ :UI==="hi"?{start:"शुरू करें",full:"पूरी अभ्यास परीक्षा",secN:function(n,m){return n+" हिस्से · समय के साथ "+m+" मिनट"},train:"एक हिस्से का अभ्यास करें",
+   last:function(s,t,d){return "पिछली बार: "+s+"/"+t+" · "+d},none:"पहली अभ्यास परीक्षा के बाद यहाँ हर हिस्से की आपकी तैयारी दिखेगी।",
+   est:"आज आपको लगभग इतने अंक मिलते:",weak:function(s){return "सबसे ज़्यादा सुधार चाहिए: "+s+"।"},hist:"आपकी परीक्षाएँ",
+   prev:"पीछे",next:"आगे",finishSec:"हिस्सा जमा करें",finishQ:"हिस्सा जमा करें? बिना जवाब वाले सवाल ग़लत गिने जाएँगे।",
+   exitQ:"अभ्यास परीक्षा से बाहर निकलें? दिए गए जवाब खो जाएँगे।",tr:"अनुवाद",listen:"सुनें",heard:"सुन लिया",again:"फिर से सुनें",replay:"दोबारा सुनें",
+   plays:function(n){return n===1?"असली परीक्षा की तरह, यह सिर्फ़ एक बार सुनाई देगा।":"असली परीक्षा की तरह, हर रिकॉर्डिंग दो बार सुनाई देगी।"},
+   playing:"चल रहा है…",introGo:"हिस्सा शुरू करें",introTime:function(m,n){return m+" मिनट · "+n+" सवाल"},timeUp:"समय ख़त्म: हिस्सा जमा कर दिया गया।",
+   result:"नतीजा",passed:"पास (अनुमान)",notYet:"अभी पास नहीं",min:function(n){return "कम से कम "+n},review:"जवाब देखें",back:"परीक्षा पर लौटें",
+   all:"सभी सवाल",done:function(n,t){return t+" में से "+n+" के जवाब दिए"},legA:"जवाब दिया",legT:"बाक़ी",qLabel:function(n,a){return "सवाल "+n+(a?", जवाब दिया":"")},
+   your:"आपका जवाब",right:"सही जवाब",empty:"कोई जवाब नहीं",script:"लिखित पाठ",soon:function(n){return "अभ्यास परीक्षा "+n+" जल्द आएगी: तब तक जो उपलब्ध है उससे अभ्यास करें।"},
+   secRes:function(c,t){return t+" में से "+c+" सही"},practiceT:"अलग से अभ्यास के लिए: लिखना और बोलना",
+  gridT:"सूची से जाँचें",gridN:"मानदंड आधिकारिक मूल्यांकन सूचियों से लिए गए हैं: जो आपने पूरे किए उन पर निशान लगाएँ, और आप जानेंगे कि क्या सुधारना है।",gridS:function(n,m){return m+" में से "+n+" मानदंड"},gridW:XGRID(0),gridO:XGRID(1),gridB1:"मैंने अपनी राय दी और उसे उदाहरणों से समझाया।",
+   practiceN:"इन हिस्सों को परीक्षक जाँचते हैं, यहाँ इनके अंक नहीं हैं। लिखने या बोलने की कोशिश करें, फिर उदाहरण देखें।",model:"उदाहरण जवाब",
+   estShort:function(s,t,p){return "अनुमान: "+s+"/"+t+" · पास "+p}}
+ :UI==="tl"?{start:"Magsimula",full:"Buong simulasyon",secN:function(n,m){return n+" bahagi · "+m+" min na may oras"},train:"Magsanay sa isang bahagi",
+   last:function(s,t,d){return "Huling beses: "+s+"/"+t+" · "+d},none:"Pagkatapos ng unang simulasyon, makikita mo rito ang paghahanda mo sa bawat bahagi.",
+   est:"Kung ngayon, makakakuha ka ng mga",weak:function(s){return "Pinakakailangan mong palakasin: "+s+"."},hist:"Ang mga pagsusulit mo",
+   prev:"Bumalik",next:"Susunod",finishSec:"Ipasa ang bahagi",finishQ:"Ipasa ang bahagi? Ituturing na mali ang mga tanong na walang sagot.",
+   exitQ:"Lumabas sa simulasyon? Mawawala ang mga naibigay na sagot.",tr:"Isalin",listen:"Makinig",heard:"Napakinggan na",again:"Makinig muli",replay:"Pakinggan muli",
+   plays:function(n){return n===1?"Isang beses lang ito maririnig, gaya sa tunay na pagsusulit.":"Dalawang beses maririnig ang bawat recording, gaya sa tunay na pagsusulit."},
+   playing:"Nagpe-play…",introGo:"Simulan ang bahagi",introTime:function(m,n){return m+" minuto · "+n+" tanong"},timeUp:"Ubos na ang oras: naipasa na ang bahagi.",
+   result:"Resulta",passed:"Pasado (tantiya)",notYet:"Hindi pa pasado",min:function(n){return "pinakamababa "+n},review:"Suriin ang mga sagot",back:"Bumalik sa pagsusulit",
+   all:"Lahat ng tanong",done:function(n,t){return n+" sa "+t+" ang nasagot"},legA:"nasagot",legT:"wala pang sagot",qLabel:function(n,a){return "Tanong "+n+(a?", nasagot":"")},
+   your:"Sagot mo",right:"Tamang sagot",empty:"walang sagot",script:"Transkripsiyon",soon:function(n){return "Malapit nang dumating ang simulasyon "+n+": habang hinihintay, magsanay sa mayroon na."},
+   secRes:function(c,t){return c+" tama sa "+t},practiceT:"Para sa hiwalay na pagsasanay: pagsulat at pagsasalita",
+  gridT:"Suriin gamit ang listahan",gridN:"Hango sa mga opisyal na listahan ng pagmamarka ang mga pamantayan: markahan ang mga nagawa mo at malalaman mo kung ano pa ang dapat pagbutihin.",gridS:function(n,m){return n+" sa "+m+" pamantayan"},gridW:XGRID(0),gridO:XGRID(1),gridB1:"Nagbigay ako ng opinyon at ipinaliwanag ko ito gamit ang mga halimbawa.",
+   practiceN:"Mga tagasuri ang nagmamarka sa mga bahaging ito, kaya walang puntos dito. Subukang sumulat o magsalita, saka tingnan ang halimbawa.",model:"Halimbawang sagot",
+   estShort:function(s,t,p){return "Tantiya: "+s+"/"+t+" · pasado sa "+p}}
  :{start:"Inizia",full:"Simulazione completa",secN:function(n,m){return n+(n===1?" sezione":" sezioni")+" · "+m+" min a tempo"},train:"Allenati su una sezione",
   last:function(s,t,d){return "Ultima volta: "+s+"/"+t+" · "+d},none:"Dopo la prima simulazione qui vedi la tua preparazione, sezione per sezione.",
   est:"Oggi prenderesti circa",weak:function(s){return "Ti manca soprattutto: "+s+"."},hist:"Le tue prove",
