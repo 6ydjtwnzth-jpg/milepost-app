@@ -15,7 +15,7 @@ EX.l18=[
  {t:"say",zh:"Sabihin: «Nagtatrabaho ako nang dumating ang kapitan.»",it:"Lavoravo quando è arrivato il comandante."}
 ];
 VOC.l18=[
- ["hai mai…?","nakapag-… ka na ba?",""],
+ ["hai mai","nakapag-… ka na ba",""],
  ["una volta","minsan",""],
  ["succedere","mangyari",""],
  ["forte","malakas",""],

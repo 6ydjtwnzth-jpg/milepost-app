@@ -15,7 +15,7 @@ EX.l18=[
  {t:"say",zh:"बताइए: «मैं काम कर रहा था जब कप्तान आए।»",it:"Lavoravo quando è arrivato il comandante."}
 ];
 VOC.l18=[
- ["hai mai…?","क्या तुमने कभी…?",""],
+ ["hai mai","क्या तुमने कभी",""],
  ["una volta","एक बार",""],
  ["succedere","होना, घटना",""],
  ["forte","तेज़; मज़बूत",""],
