@@ -1,2 +1,40 @@
-EX.l3=[];
-VOC.l3=[];
+DLG.l3=[["A","Scusi, come si chiama?","Paumanhin po, ano po ang pangalan ninyo?"],["B","Mi chiamo Ravi, signora. Sono il cameriere di cabina.","Ako po si Ravi, ginang. Ako po ang cabin steward."],["A","Piacere. Io sono la signora Bianchi, cabina diciotto.","Ikinagagalak kitang makilala. Ako si Ginang Bianchi, kabina labing-walo."],["B","Piacere, signora! Lei è di Genova?","Ikinagagalak ko rin po, ginang! Taga-Genova po ba kayo?"],["A","No, sono di Torino. E Lei, di dov'è?","Hindi, taga-Turin ako. At kayo, taga-saan kayo?"],["B","Sono indiano, di Kochi.","Indian po ako, taga-Kochi."],["A","Grazie, Ravi. A dopo!","Salamat, Ravi. Mamaya na lang!"],["B","Prego, signora. Buona giornata!","Walang anuman po, ginang. Magandang araw po!"]];
+EX.l3=[
+ {q:"Tinatanong mo ang pangalan ng isang pasahero:",o:["{Come si chiama?}", "{Come ti chiami?}", "{Come chiama?}"],e:"Sa pasahero, {Lei}: {Come si chiama?}"},
+ {q:"Tinatanong mo si Joy (kasamahan) kung taga-saan siya:",o:["{Di dove sei?}", "{Di dov'è?}", "{Dove sei di?}"],e:"Sa kasamahan, {tu}: {Di dove sei?}"},
+ {q:"{Lei} + {essere}:",o:["{è}", "{sei}", "{siete}"],e:"Kasama ng {Lei}, ang anyo ng «siya»: {Lei è}."},
+ {q:"Makinig: anong numero ng kabina?",au:"Cabina diciotto.",o:["18", "8", "80"],e:"{diciotto} = 18; {otto} = 8."},
+ {q:"Makinig: anong numero?",au:"quindici",o:["15", "5", "50"],e:"{quindici} = 15; {cinque} = 5."},
+ {q:"Saan ang diin sa {signora}?",o:["si-GNO-ra", "SI-gno-ra", "si-gno-RA"],e:"Kadalasan, sa pantig bago ang huli."},
+ {q:"Paano nagiging tanong sa Italyano?",o:["Itaas ang tono sa dulo: {Sei nuovo?}", "Ilipat ang pandiwa sa dulo: {Nuovo sei?}", "Maglagay ng {che} sa simula: {Che sei nuovo?}"],e:"Pareho ang mga salita; tono lang ang tumataas."},
+ {t:"type",q:"Kumpletuhin (pormal): {Signora, Lei} ＿ {di Roma?}",a:["è"],full:"Signora, Lei è di Roma?"},
+ {t:"dict",au:"Lei è di Genova?"},
+ {t:"say",zh:"Tanungin ang isang pasahero: «Paumanhin po, ano po ang pangalan ninyo?»",it:"Scusi, come si chiama?"},
+ {t:"say",zh:"Tanungin ang kasamahan: «Taga-saan ka?»",it:"Di dove sei?"}
+];
+VOC.l3=[
+ ["signora","ginang","f"],
+ ["signore","ginoo","m"],
+ ["come","paano; gaya ng",""],
+ ["dove","saan",""],
+ ["di dov'è","taga-saan po kayo?",""],
+ ["a dopo","mamaya na lang",""],
+ ["buona giornata","magandang araw",""],
+ ["passeggero","pasahero","m"],
+ ["passeggera","pasahera","f"],
+ ["cameriere di cabina","cabin steward","m"],
+ ["numero","numero","m"],
+ ["telefono","telepono","m"],
+ ["perché","bakit; dahil",""],
+ ["bagno","banyo","m"],
+ ["undici","labing-isa",""],
+ ["dodici","labindalawa",""],
+ ["tredici","labintatlo",""],
+ ["quattordici","labing-apat",""],
+ ["quindici","labinlima",""],
+ ["sedici","labing-anim",""],
+ ["diciassette","labimpito",""],
+ ["diciotto","labing-walo",""],
+ ["diciannove","labinsiyam",""],
+ ["venti","dalawampu",""]
+];

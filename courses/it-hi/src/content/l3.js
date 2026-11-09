@@ -1,2 +1,40 @@
-EX.l3=[];
-VOC.l3=[];
+DLG.l3=[["A","Scusi, come si chiama?","माफ़ कीजिए, आपका नाम क्या है?"],["B","Mi chiamo Ravi, signora. Sono il cameriere di cabina.","मेरा नाम रवि है, मैडम। मैं केबिन स्टीवर्ड हूँ।"],["A","Piacere. Io sono la signora Bianchi, cabina diciotto.","मिलकर ख़ुशी हुई। मैं मिसेज़ बियांकी हूँ, केबिन अठारह।"],["B","Piacere, signora! Lei è di Genova?","मुझे भी, मैडम! क्या आप जेनोवा से हैं?"],["A","No, sono di Torino. E Lei, di dov'è?","नहीं, मैं तोरीनो से हूँ। और आप कहाँ से हैं?"],["B","Sono indiano, di Kochi.","मैं भारतीय हूँ, कोच्चि से।"],["A","Grazie, Ravi. A dopo!","धन्यवाद, रवि। बाद में मिलते हैं!"],["B","Prego, signora. Buona giornata!","कोई बात नहीं, मैडम। आपका दिन अच्छा हो!"]];
+EX.l3=[
+ {q:"आप एक यात्री से उसका नाम पूछते हैं:",o:["{Come si chiama?}", "{Come ti chiami?}", "{Come chiama?}"],e:"यात्री से {Lei}: {Come si chiama?}"},
+ {q:"आप जॉय (सहकर्मी) से पूछते हैं कि वह कहाँ से है:",o:["{Di dove sei?}", "{Di dov'è?}", "{Dove sei di?}"],e:"साथी से {tu}: {Di dove sei?}"},
+ {q:"{Lei} + {essere}:",o:["{è}", "{sei}", "{siete}"],e:"{Lei} के साथ «वह» वाला रूप: {Lei è}।"},
+ {q:"सुनें: केबिन नंबर क्या है?",au:"Cabina diciotto.",o:["18", "8", "80"],e:"{diciotto} = 18; {otto} = 8।"},
+ {q:"सुनें: कौन-सी संख्या?",au:"quindici",o:["15", "5", "50"],e:"{quindici} = 15; {cinque} = 5."},
+ {q:"{signora} में ज़ोर कहाँ है?",o:["si-GNO-ra", "SI-gno-ra", "si-gno-RA"],e:"आम तौर पर आख़िरी से पहले वाले अक्षर पर।"},
+ {q:"इतालवी में सवाल कैसे बनता है?",o:["आख़िर में आवाज़ ऊपर उठाकर: {Sei nuovo?}", "क्रिया को आख़िर में रखकर: {Nuovo sei?}", "शुरू में {che} लगाकर: {Che sei nuovo?}"],e:"शब्द वही रहते हैं, सिर्फ़ आवाज़ ऊपर जाती है।"},
+ {t:"type",q:"पूरा करें (औपचारिक): {Signora, Lei} ＿ {di Roma?}",a:["è"],full:"Signora, Lei è di Roma?"},
+ {t:"dict",au:"Lei è di Genova?"},
+ {t:"say",zh:"एक यात्री से पूछें: «माफ़ कीजिए, आपका नाम क्या है?»",it:"Scusi, come si chiama?"},
+ {t:"say",zh:"एक साथी से पूछें: «तुम कहाँ से हो?»",it:"Di dove sei?"}
+];
+VOC.l3=[
+ ["signora","मैडम, श्रीमती","f"],
+ ["signore","सर, श्रीमान","m"],
+ ["come","कैसे; जैसे",""],
+ ["dove","कहाँ",""],
+ ["di dov'è","आप कहाँ से हैं? (औपचारिक)",""],
+ ["a dopo","बाद में मिलते हैं",""],
+ ["buona giornata","आपका दिन अच्छा हो",""],
+ ["passeggero","यात्री (पुरुष)","m"],
+ ["passeggera","यात्री (महिला)","f"],
+ ["cameriere di cabina","केबिन स्टीवर्ड","m"],
+ ["numero","नंबर, संख्या","m"],
+ ["telefono","फ़ोन","m"],
+ ["perché","क्यों; क्योंकि",""],
+ ["bagno","बाथरूम, शौचालय","m"],
+ ["undici","ग्यारह",""],
+ ["dodici","बारह",""],
+ ["tredici","तेरह",""],
+ ["quattordici","चौदह",""],
+ ["quindici","पंद्रह",""],
+ ["sedici","सोलह",""],
+ ["diciassette","सत्रह",""],
+ ["diciotto","अठारह",""],
+ ["diciannove","उन्नीस",""],
+ ["venti","बीस",""]
+];
