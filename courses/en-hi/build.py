@@ -168,7 +168,7 @@ def stats(data_js):
 def exams_js():
     """Mock exams in the real format (src/exam/*.json), exposed to the course app as EXAMS."""
     d = os.path.join(SRC, 'exam')
-    ex = [json.load(open(os.path.join(d, f), encoding='utf-8')) for f in sorted(os.listdir(d)) if f.endswith('.json')] if os.path.isdir(d) else []
+    ex = [json.load(open(os.path.join(d, f), encoding='utf-8')) for f in sorted(os.listdir(d), key=lambda f: (not f.startswith('marlins'), f)) if f.endswith('.json')]   # Marlins first: it is the test shipping companies ask for if os.path.isdir(d) else []
     return 'var EXAMS=' + json.dumps(ex, ensure_ascii=False, separators=(',', ':')) + ';'
 
 
