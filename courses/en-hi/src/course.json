@@ -1,0 +1,222 @@
+{
+ "parts": [
+  {
+   "title": "पहला हिस्सा · जहाज़ पर पहले क़दम",
+   "j": "First steps on board",
+   "level": "A1.1",
+   "items": [
+    {
+     "id": "l1",
+     "t": "ध्वनियाँ, अक्षर और अभिवादन",
+     "j": "Welcome aboard!",
+     "icon": "i-abc"
+    },
+    {
+     "id": "l2",
+     "t": "मेरा नाम… : be और राष्ट्रीयताएँ",
+     "j": "I'm Ravi",
+     "icon": "i-tag"
+    },
+    {
+     "id": "l3",
+     "t": "be से सवाल, उम्र और संख्याएँ",
+     "j": "Where are you from?",
+     "icon": "i-wave"
+    },
+    {
+     "id": "l4",
+     "t": "मेरा केबिन: a, an, बहुवचन और there is",
+     "j": "My cabin",
+     "icon": "i-anchor"
+    },
+    {
+     "id": "l5",
+     "t": "मेरा परिवार: have got और my, your",
+     "j": "My family",
+     "icon": "i-family"
+    },
+    {
+     "id": "l6",
+     "t": "कितने बजे हैं? समय, वॉच और दिन",
+     "j": "What time is it?",
+     "icon": "i-clock"
+    },
+    {
+     "id": "l7",
+     "t": "आपका काम: present simple",
+     "j": "What's your job?",
+     "icon": "i-chat"
+    },
+    {
+     "id": "l8",
+     "t": "क्रू मेस और बार में: Can I have…? और दाम",
+     "j": "In the crew mess",
+     "icon": "i-cup"
+    },
+    {
+     "id": "r1",
+     "t": "दोहराव 1",
+     "j": "Review 1",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "दूसरा हिस्सा · जहाज़ पर रोज़ की ज़िंदगी",
+   "j": "Life on board",
+   "level": "A1.2",
+   "items": [
+    {
+     "id": "l9",
+     "t": "सवाल पूछना: do, does और wh- शब्द",
+     "j": "Asking questions",
+     "icon": "i-q"
+    },
+    {
+     "id": "l10",
+     "t": "मेरी दिनचर्या: always, usually, never",
+     "j": "My daily routine",
+     "icon": "i-sun"
+    },
+    {
+     "id": "l11",
+     "t": "ख़ाली समय: like + -ing और can",
+     "j": "Free time",
+     "icon": "i-ball"
+    },
+    {
+     "id": "l12",
+     "t": "अभी इसी पल: present continuous",
+     "j": "Right now",
+     "icon": "i-pin"
+    },
+    {
+     "id": "l13",
+     "t": "जहाज़ पर और बंदरगाह में: दिशाएँ और in, on, at",
+     "j": "Around the ship",
+     "icon": "i-ship"
+    },
+    {
+     "id": "l14",
+     "t": "रसोई और स्टोर: some, any, much, many",
+     "j": "In the galley",
+     "icon": "i-fork"
+    },
+    {
+     "id": "r2",
+     "t": "दोहराव 2",
+     "j": "Review 2",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "तीसरा हिस्सा · अपनी बात बताना",
+   "j": "Telling your story",
+   "level": "A2",
+   "items": [
+    {
+     "id": "l15",
+     "t": "बंदरगाह में छुट्टी: was, were और नियमित past simple",
+     "j": "Shore leave",
+     "icon": "i-ticket"
+    },
+    {
+     "id": "l16",
+     "t": "बंदरगाह से बंदरगाह: अनियमित क्रियाएँ, did और मौसम",
+     "j": "From port to port",
+     "icon": "i-umbrella"
+    },
+    {
+     "id": "l17",
+     "t": "जब मैं छोटा था: used to और could",
+     "j": "When I was a child",
+     "icon": "i-kite"
+    },
+    {
+     "id": "l18",
+     "t": "तूफ़ान की एक रात: past continuous",
+     "j": "A stormy night",
+     "icon": "i-scroll"
+    },
+    {
+     "id": "l19",
+     "t": "तुलना: -er, more, the most",
+     "j": "Bigger and better",
+     "icon": "i-heart"
+    },
+    {
+     "id": "l20",
+     "t": "अनुभव: present perfect",
+     "j": "Have you ever…?",
+     "icon": "i-bag"
+    },
+    {
+     "id": "l21",
+     "t": "कॉन्ट्रैक्ट का अंत: going to, will और if",
+     "j": "End of contract",
+     "icon": "i-suitcase"
+    },
+    {
+     "id": "l22",
+     "t": "सुरक्षा और सेहत: must, have to, should",
+     "j": "Safety and health",
+     "icon": "i-cross"
+    },
+    {
+     "id": "l23",
+     "t": "इंटरव्यू: who, which, where और अपनी कहानी",
+     "j": "The interview",
+     "icon": "i-buoy"
+    },
+    {
+     "id": "r3",
+     "t": "दोहराव 3 और A2 जाँच",
+     "j": "Review 3 and A2 test",
+     "icon": "i-star",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "परिशिष्ट",
+   "j": "Appendices",
+   "items": [
+    {
+     "id": "frasi",
+     "t": "काम के वाक्य और SMCP",
+     "j": "Useful phrases",
+     "icon": "i-lemon",
+     "kind": "app",
+     "letter": "A"
+    },
+    {
+     "id": "flash",
+     "t": "फ़्लैशकार्ड: अंतराल पर दोहराव",
+     "j": "Flashcards",
+     "icon": "i-cards",
+     "kind": "app",
+     "letter": "B"
+    },
+    {
+     "id": "vocab",
+     "t": "शब्दावली",
+     "j": "Vocabulary",
+     "icon": "i-book",
+     "kind": "app",
+     "letter": "C"
+    },
+    {
+     "id": "verbi",
+     "t": "क्रियाएँ: काल और अनियमित रूप",
+     "j": "Verbs",
+     "icon": "i-verb",
+     "kind": "app",
+     "letter": "D"
+    }
+   ]
+  }
+ ]
+}

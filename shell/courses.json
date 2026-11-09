@@ -487,6 +487,118 @@
       ],
       "examNote": "Ilang beses sa isang taon ang CILS: tingnan ang mga petsa sa pinakamalapit na sentro (Istituto Italiano di Cultura o mga sentrong kinikilala ng Università per Stranieri di Siena).",
       "hidden": true
+    },
+    {
+      "id": "en-tl",
+      "learn": "en",
+      "speak": "tl",
+      "storageKey": "english-filipino-v1",
+      "titleField": "t",
+      "native": "English",
+      "color": "red",
+      "courseHours": 180,
+      "name": "Ingles",
+      "the": "Ingles",
+      "levelsLabel": "Mula sa simula hanggang A2 · 23 aralin · Maritime English",
+      "starts": [
+        {
+          "skip": 1,
+          "t": "Mula sa simula",
+          "s": "Kaunti lang ang alam ko sa Ingles"
+        },
+        {
+          "skip": 2,
+          "t": "May alam na ako",
+          "s": "Pagbati, pagpapakilala, numero (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "May A1 na ako",
+          "s": "Naaalala ko ang Ingles sa paaralan"
+        }
+      ],
+      "exams": [
+        {
+          "id": "marlins",
+          "name": "Marlins English Test",
+          "upto": "r3",
+          "hours": 180,
+          "dates": []
+        },
+        {
+          "id": "a2",
+          "name": "Cambridge A2 Key",
+          "upto": "r3",
+          "hours": 180,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "Cambridge B1 Preliminary",
+          "upto": "r3",
+          "hours": 380,
+          "partial": true,
+          "dates": []
+        }
+      ],
+      "examNote": "Ginagamit ng maraming shipping company at manning agency ang Marlins test bago tumanggap ng crew (madalas online). Halos buwan-buwan ang Cambridge A2 Key: tingnan ang mga awtorisadong sentro sa lungsod mo.",
+      "hidden": true
+    },
+    {
+      "id": "en-hi",
+      "learn": "en",
+      "speak": "hi",
+      "storageKey": "english-hindi-v1",
+      "titleField": "t",
+      "native": "English",
+      "color": "red",
+      "courseHours": 180,
+      "name": "अंग्रेज़ी",
+      "the": "अंग्रेज़ी",
+      "levelsLabel": "शून्य से A2 तक · 23 पाठ · समुद्री अंग्रेज़ी",
+      "starts": [
+        {
+          "skip": 1,
+          "t": "शुरुआत से",
+          "s": "मुझे अंग्रेज़ी लगभग नहीं आती"
+        },
+        {
+          "skip": 2,
+          "t": "मुझे बुनियादी अंग्रेज़ी आती है",
+          "s": "अभिवादन, परिचय, संख्याएँ (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "मेरा A1 हो चुका है",
+          "s": "स्कूल की अंग्रेज़ी याद है"
+        }
+      ],
+      "exams": [
+        {
+          "id": "marlins",
+          "name": "Marlins English Test",
+          "upto": "r3",
+          "hours": 180,
+          "dates": []
+        },
+        {
+          "id": "a2",
+          "name": "Cambridge A2 Key",
+          "upto": "r3",
+          "hours": 180,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "Cambridge B1 Preliminary",
+          "upto": "r3",
+          "hours": 380,
+          "partial": true,
+          "dates": []
+        }
+      ],
+      "examNote": "Marlins टेस्ट कई शिपिंग कंपनियाँ और एजेंसियाँ भर्ती से पहले लेती हैं (अक्सर ऑनलाइन)। Cambridge A2 Key लगभग हर महीने होता है: अपने शहर के मान्यता प्राप्त केंद्र देखें।",
+      "hidden": true
     }
   ],
   "soon": {

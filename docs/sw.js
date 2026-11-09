@@ -4,8 +4,8 @@
    - Pages: network-first (always fresh when online), saved copy when offline.
    - Audio: cache-first (file names never change); a course can save all its audio from Settings.
    - Google Fonts: saved copy first, refreshed in the background. */
-var VERSION="540fa0effd93",V="milepost-"+VERSION,AUDIO="milepost-audio-v1",FONTS="milepost-fonts-v1";
-var COURSES=["ja-it", "zh-it", "it-zh", "en-it", "es-it", "de-it", "fr-it", "it-es", "it-hi", "it-tl"];
+var VERSION="415c8ab61998",V="milepost-"+VERSION,AUDIO="milepost-audio-v1",FONTS="milepost-fonts-v1";
+var COURSES=["ja-it", "zh-it", "it-zh", "en-it", "es-it", "de-it", "fr-it", "it-es", "it-hi", "it-tl", "en-tl", "en-hi"];
 var CORE=["./","./index.html","./manifest.webmanifest","./catalog.js","./plan.js","./course-app.css","./sync.js","./sync-config.js","./icons/icon.svg","./icons/icon-192.png","./icons/icon-512.png"];
 self.addEventListener("install",function(e){
   var urls=CORE.concat(COURSES.map(function(id){return "./c/"+id+"/"}));

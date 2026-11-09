@@ -1,0 +1,222 @@
+{
+ "parts": [
+  {
+   "title": "Unang bahagi · Mga unang hakbang sa barko",
+   "j": "First steps on board",
+   "level": "A1.1",
+   "items": [
+    {
+     "id": "l1",
+     "t": "Mga tunog, titik at pagbati",
+     "j": "Welcome aboard!",
+     "icon": "i-abc"
+    },
+    {
+     "id": "l2",
+     "t": "Ako si…: be at mga nasyonalidad",
+     "j": "I'm Ravi",
+     "icon": "i-tag"
+    },
+    {
+     "id": "l3",
+     "t": "Mga tanong sa be, edad at numero",
+     "j": "Where are you from?",
+     "icon": "i-wave"
+    },
+    {
+     "id": "l4",
+     "t": "Ang kabina ko: a, an, maramihan at there is",
+     "j": "My cabin",
+     "icon": "i-anchor"
+    },
+    {
+     "id": "l5",
+     "t": "Ang pamilya ko: have got at my, your",
+     "j": "My family",
+     "icon": "i-family"
+    },
+    {
+     "id": "l6",
+     "t": "Anong oras na? Oras, watch at mga araw",
+     "j": "What time is it?",
+     "icon": "i-clock"
+    },
+    {
+     "id": "l7",
+     "t": "Ang trabaho mo: present simple",
+     "j": "What's your job?",
+     "icon": "i-chat"
+    },
+    {
+     "id": "l8",
+     "t": "Sa crew mess at bar: Can I have…? at presyo",
+     "j": "In the crew mess",
+     "icon": "i-cup"
+    },
+    {
+     "id": "r1",
+     "t": "Balik-aral 1",
+     "j": "Review 1",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "Ikalawang bahagi · Araw-araw sa barko",
+   "j": "Life on board",
+   "level": "A1.2",
+   "items": [
+    {
+     "id": "l9",
+     "t": "Pagtatanong: do, does at mga salitang wh-",
+     "j": "Asking questions",
+     "icon": "i-q"
+    },
+    {
+     "id": "l10",
+     "t": "Ang araw-araw ko: always, usually, never",
+     "j": "My daily routine",
+     "icon": "i-sun"
+    },
+    {
+     "id": "l11",
+     "t": "Libreng oras: like + -ing at can",
+     "j": "Free time",
+     "icon": "i-ball"
+    },
+    {
+     "id": "l12",
+     "t": "Ngayon mismo: present continuous",
+     "j": "Right now",
+     "icon": "i-pin"
+    },
+    {
+     "id": "l13",
+     "t": "Sa barko at daungan: direksyon at in, on, at",
+     "j": "Around the ship",
+     "icon": "i-ship"
+    },
+    {
+     "id": "l14",
+     "t": "Sa galley at bodega: some, any, much, many",
+     "j": "In the galley",
+     "icon": "i-fork"
+    },
+    {
+     "id": "r2",
+     "t": "Balik-aral 2",
+     "j": "Review 2",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "Ikatlong bahagi · Pagkukuwento",
+   "j": "Telling your story",
+   "level": "A2",
+   "items": [
+    {
+     "id": "l15",
+     "t": "Shore leave: was, were at regular na past simple",
+     "j": "Shore leave",
+     "icon": "i-ticket"
+    },
+    {
+     "id": "l16",
+     "t": "Mula daungan hanggang daungan: irregular, did at panahon",
+     "j": "From port to port",
+     "icon": "i-umbrella"
+    },
+    {
+     "id": "l17",
+     "t": "Noong bata pa ako: used to at could",
+     "j": "When I was a child",
+     "icon": "i-kite"
+    },
+    {
+     "id": "l18",
+     "t": "Isang gabi ng bagyo: past continuous",
+     "j": "A stormy night",
+     "icon": "i-scroll"
+    },
+    {
+     "id": "l19",
+     "t": "Paghahambing: -er, more, the most",
+     "j": "Bigger and better",
+     "icon": "i-heart"
+    },
+    {
+     "id": "l20",
+     "t": "Karanasan: present perfect",
+     "j": "Have you ever…?",
+     "icon": "i-bag"
+    },
+    {
+     "id": "l21",
+     "t": "Pagtatapos ng kontrata: going to, will at if",
+     "j": "End of contract",
+     "icon": "i-suitcase"
+    },
+    {
+     "id": "l22",
+     "t": "Kaligtasan at kalusugan: must, have to, should",
+     "j": "Safety and health",
+     "icon": "i-cross"
+    },
+    {
+     "id": "l23",
+     "t": "Ang interview: who, which, where at ang kuwento mo",
+     "j": "The interview",
+     "icon": "i-buoy"
+    },
+    {
+     "id": "r3",
+     "t": "Balik-aral 3 at pagsubok A2",
+     "j": "Review 3 and A2 test",
+     "icon": "i-star",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "Mga apendiks",
+   "j": "Appendices",
+   "items": [
+    {
+     "id": "frasi",
+     "t": "Mga handang parirala at SMCP",
+     "j": "Useful phrases",
+     "icon": "i-lemon",
+     "kind": "app",
+     "letter": "A"
+    },
+    {
+     "id": "flash",
+     "t": "Flashcard: balik-aral na may pagitan",
+     "j": "Flashcards",
+     "icon": "i-cards",
+     "kind": "app",
+     "letter": "B"
+    },
+    {
+     "id": "vocab",
+     "t": "Bokabularyo",
+     "j": "Vocabulary",
+     "icon": "i-book",
+     "kind": "app",
+     "letter": "C"
+    },
+    {
+     "id": "verbi",
+     "t": "Mga pandiwa: panahunan at irregular",
+     "j": "Verbs",
+     "icon": "i-verb",
+     "kind": "app",
+     "letter": "D"
+    }
+   ]
+  }
+ ]
+}
