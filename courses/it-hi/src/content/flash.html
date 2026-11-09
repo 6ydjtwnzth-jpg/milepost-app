@@ -1,0 +1,13 @@
+  <p>फ़्लैशकार्ड में सिर्फ़ उन पाठों के शब्द हैं जो आपने कर लिए हैं (नीचे सीमा बदल सकते हैं)। शब्द पाँच डिब्बों में हैं। सही जवाब पर शब्द अगले डिब्बे में जाता है और कम बार आता है; ग़लत पर डिब्बे 1 में लौटता है। नीचे के डिब्बों के शब्द ज़्यादा आते हैं। लक्ष्य: सब डिब्बे 5 में।</p>
+  <p><b>सुनिए</b>: कार्ड ख़ाली है, सिर्फ़ आवाज़ सुनिए और अर्थ बोलिए। <b>बोलिए</b>: हिंदी देखिए और इतालवी शब्द आर्टिकल के साथ बोलिए। <b>पढ़िए</b>: इतालवी देखिए और अर्थ बोलिए।</p>
+  <div class="seg" role="group" aria-label="कार्ड का मोड">
+    <button class="btn" data-fcm="ear" aria-pressed="true">सुनिए</button>
+    <button class="btn" data-fcm="say" aria-pressed="false">बोलिए</button>
+    <button class="btn" data-fcm="read" aria-pressed="false">पढ़िए</button>
+  </div>
+  <div class="fc-range"><label for="fcrange">शब्द</label><select id="fcrange"></select></div>
+  <div class="fc">
+    <div class="fc-card" id="fccard"></div>
+    <div class="boxes" id="fcboxes"></div>
+    <div class="confirm" id="fcreset"></div>
+  </div>
