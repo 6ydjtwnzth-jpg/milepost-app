@@ -395,6 +395,98 @@
         }
       ],
       "examNote": "El CILS tiene varias convocatorias al año: consulta las fechas en la sede más cercana (Istituto Italiano di Cultura o centros autorizados por la Università per Stranieri di Siena)."
+    },
+    {
+      "id": "it-hi",
+      "learn": "it",
+      "speak": "hi",
+      "storageKey": "italiano-hindi-v1",
+      "titleField": "t",
+      "name": "इतालवी",
+      "native": "Italiano",
+      "the": "इतालवी",
+      "color": "green",
+      "levelsLabel": "शून्य से A2 तक · 23 पाठ",
+      "courseHours": 220,
+      "starts": [
+        {
+          "skip": 1,
+          "t": "शुरुआत से",
+          "s": "मैंने कभी इतालवी नहीं पढ़ी"
+        },
+        {
+          "skip": 2,
+          "t": "मुझे थोड़ी आती है",
+          "s": "अभिवादन, परिचय, संख्याएँ (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "मेरा A1 हो चुका है",
+          "s": "लगभग एक साल की पढ़ाई"
+        }
+      ],
+      "exams": [
+        {
+          "id": "a2",
+          "name": "CILS A2",
+          "upto": "r3",
+          "hours": 220,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "CILS B1",
+          "soon": true
+        }
+      ],
+      "examNote": "CILS परीक्षा साल में कई बार होती है: तारीख़ें नज़दीकी केंद्र पर देखें (इटैलियन कल्चरल इंस्टीट्यूट या Università per Stranieri di Siena से मान्यता प्राप्त केंद्र)।",
+      "hidden": true
+    },
+    {
+      "id": "it-tl",
+      "learn": "it",
+      "speak": "tl",
+      "storageKey": "italiano-filipino-v1",
+      "titleField": "t",
+      "name": "Italyano",
+      "native": "Italiano",
+      "the": "Italyano",
+      "color": "green",
+      "levelsLabel": "Mula sa simula hanggang A2 · 23 aralin",
+      "courseHours": 220,
+      "starts": [
+        {
+          "skip": 1,
+          "t": "Mula sa simula",
+          "s": "Hindi pa ako nakapag-aral ng Italyano"
+        },
+        {
+          "skip": 2,
+          "t": "May alam na ako nang kaunti",
+          "s": "Pagbati, pagpapakilala, mga numero (A1.1)"
+        },
+        {
+          "skip": 3,
+          "t": "May A1 na ako",
+          "s": "Mga isang taon ng pag-aaral"
+        }
+      ],
+      "exams": [
+        {
+          "id": "a2",
+          "name": "CILS A2",
+          "upto": "r3",
+          "hours": 220,
+          "dates": []
+        },
+        {
+          "id": "b1",
+          "name": "CILS B1",
+          "soon": true
+        }
+      ],
+      "examNote": "Ilang beses sa isang taon ang CILS: tingnan ang mga petsa sa pinakamalapit na sentro (Istituto Italiano di Cultura o mga sentrong kinikilala ng Università per Stranieri di Siena).",
+      "hidden": true
     }
   ],
   "soon": {

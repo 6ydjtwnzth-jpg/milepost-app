@@ -1,0 +1,222 @@
+{
+ "parts": [
+  {
+   "title": "पहला हिस्सा · जहाज़ पर पहले क़दम",
+   "j": "Primi passi a bordo",
+   "level": "A1.1",
+   "items": [
+    {
+     "id": "l1",
+     "t": "अक्षर, ध्वनियाँ और अभिवादन",
+     "j": "Benvenuto a bordo!",
+     "icon": "i-abc"
+    },
+    {
+     "id": "l2",
+     "t": "आपका नाम क्या है? essere",
+     "j": "Come ti chiami?",
+     "icon": "i-tag"
+    },
+    {
+     "id": "l3",
+     "t": "tu या Lei? ज़ोर और संख्याएँ",
+     "j": "Tu o Lei?",
+     "icon": "i-wave"
+    },
+    {
+     "id": "l4",
+     "t": "मेरा केबिन: आर्टिकल और c'è",
+     "j": "La mia cabina",
+     "icon": "i-anchor"
+    },
+    {
+     "id": "l5",
+     "t": "मेरा परिवार: avere और मेरा-तुम्हारा",
+     "j": "La mia famiglia",
+     "icon": "i-family"
+    },
+    {
+     "id": "l6",
+     "t": "आप कैसे हैं? stare और avere",
+     "j": "Come stai?",
+     "icon": "i-sun"
+    },
+    {
+     "id": "l7",
+     "t": "जहाज़ पर आपका काम: नियमित क्रियाएँ",
+     "j": "Che lavoro fai a bordo?",
+     "icon": "i-chat"
+    },
+    {
+     "id": "l8",
+     "t": "जहाज़ के बार में: vorrei और दाम",
+     "j": "Al bar della nave",
+     "icon": "i-cup"
+    },
+    {
+     "id": "r1",
+     "t": "दोहराव 1",
+     "j": "Ripasso 1",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "दूसरा हिस्सा · जहाज़ पर रोज़ की ज़िंदगी",
+   "j": "La vita di bordo",
+   "level": "A1.2",
+   "items": [
+    {
+     "id": "l9",
+     "t": "सवाल पूछना",
+     "j": "Fare domande",
+     "icon": "i-q"
+    },
+    {
+     "id": "l10",
+     "t": "मेरी शिफ़्ट: समय और स्वयंवाचक क्रियाएँ",
+     "j": "Il mio turno",
+     "icon": "i-clock"
+    },
+    {
+     "id": "l11",
+     "t": "ख़ाली समय: mi piace और andare",
+     "j": "Il tempo libero",
+     "icon": "i-ball"
+    },
+    {
+     "id": "l12",
+     "t": "बंदरगाह और शहर में: रास्ता पूछना",
+     "j": "In porto",
+     "icon": "i-pin"
+    },
+    {
+     "id": "l13",
+     "t": "जहाज़ के नियम: volere, potere, dovere",
+     "j": "Le regole di bordo",
+     "icon": "i-buoy"
+    },
+    {
+     "id": "l14",
+     "t": "रसोई और रेस्टोरेंट: del, della, ne",
+     "j": "In cucina e al ristorante",
+     "icon": "i-fork"
+    },
+    {
+     "id": "r2",
+     "t": "दोहराव 2",
+     "j": "Ripasso 2",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "तीसरा हिस्सा · अपनी बात बताना",
+   "j": "Raccontare",
+   "level": "A2",
+   "items": [
+    {
+     "id": "l15",
+     "t": "छुट्टी का दिन: avere के साथ passato prossimo",
+     "j": "Il giorno libero",
+     "icon": "i-ticket"
+    },
+    {
+     "id": "l16",
+     "t": "एक बंदरगाह से दूसरे तक: essere के साथ passato prossimo, तारीख़ें, मौसम",
+     "j": "Di porto in porto",
+     "icon": "i-umbrella"
+    },
+    {
+     "id": "l17",
+     "t": "जब मैं छोटा था: imperfetto",
+     "j": "Quando ero piccolo",
+     "icon": "i-kite"
+    },
+    {
+     "id": "l18",
+     "t": "तूफ़ान की एक रात: दोनों भूतकाल",
+     "j": "Una notte di tempesta",
+     "icon": "i-scroll"
+    },
+    {
+     "id": "l19",
+     "t": "पसंद और तुलना: gli, le, più, meno",
+     "j": "Gusti e confronti",
+     "icon": "i-heart"
+    },
+    {
+     "id": "l20",
+     "t": "बंदरगाह में ख़रीदारी: lo, la, li और stare + gerundio",
+     "j": "Spese in porto",
+     "icon": "i-bag"
+    },
+    {
+     "id": "l21",
+     "t": "कॉन्ट्रैक्ट का अंत: futuro और se",
+     "j": "Fine contratto",
+     "icon": "i-suitcase"
+    },
+    {
+     "id": "l22",
+     "t": "सेहत और सुरक्षा: condizionale",
+     "j": "Salute e sicurezza",
+     "icon": "i-cross"
+    },
+    {
+     "id": "l23",
+     "t": "रवि और जॉय: अपनी कहानी सुनाइए",
+     "j": "Ravi e Joy a Genova",
+     "icon": "i-ship"
+    },
+    {
+     "id": "r3",
+     "t": "दोहराव 3 और A2 जाँच",
+     "j": "Ripasso 3 e test A2",
+     "icon": "i-star",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "परिशिष्ट",
+   "j": "Appendici",
+   "items": [
+    {
+     "id": "frasi",
+     "t": "काम के वाक्य",
+     "j": "Frasario",
+     "icon": "i-lemon",
+     "kind": "app",
+     "letter": "A"
+    },
+    {
+     "id": "flash",
+     "t": "फ़्लैशकार्ड: अंतराल पर दोहराव",
+     "j": "Flashcard",
+     "icon": "i-cards",
+     "kind": "app",
+     "letter": "B"
+    },
+    {
+     "id": "vocab",
+     "t": "शब्दावली",
+     "j": "Vocabolario",
+     "icon": "i-book",
+     "kind": "app",
+     "letter": "C"
+    },
+    {
+     "id": "verbi",
+     "t": "क्रियाओं के रूप",
+     "j": "Coniugare i verbi",
+     "icon": "i-verb",
+     "kind": "app",
+     "letter": "D"
+    }
+   ]
+  }
+ ]
+}

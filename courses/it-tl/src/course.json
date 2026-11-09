@@ -1,0 +1,222 @@
+{
+ "parts": [
+  {
+   "title": "Unang bahagi · Mga unang hakbang sa barko",
+   "j": "Primi passi a bordo",
+   "level": "A1.1",
+   "items": [
+    {
+     "id": "l1",
+     "t": "Mga titik, tunog at pagbati",
+     "j": "Benvenuto a bordo!",
+     "icon": "i-abc"
+    },
+    {
+     "id": "l2",
+     "t": "Ano ang pangalan mo? Essere",
+     "j": "Come ti chiami?",
+     "icon": "i-tag"
+    },
+    {
+     "id": "l3",
+     "t": "Tu o Lei? Diin at mga numero",
+     "j": "Tu o Lei?",
+     "icon": "i-wave"
+    },
+    {
+     "id": "l4",
+     "t": "Ang kabina ko: mga artikulo at c'è",
+     "j": "La mia cabina",
+     "icon": "i-anchor"
+    },
+    {
+     "id": "l5",
+     "t": "Ang pamilya ko: avere at mga paari",
+     "j": "La mia famiglia",
+     "icon": "i-family"
+    },
+    {
+     "id": "l6",
+     "t": "Kumusta ka? Stare at avere",
+     "j": "Come stai?",
+     "icon": "i-sun"
+    },
+    {
+     "id": "l7",
+     "t": "Ang trabaho mo sa barko: mga regular na pandiwa",
+     "j": "Che lavoro fai a bordo?",
+     "icon": "i-chat"
+    },
+    {
+     "id": "l8",
+     "t": "Sa bar ng barko: vorrei at mga presyo",
+     "j": "Al bar della nave",
+     "icon": "i-cup"
+    },
+    {
+     "id": "r1",
+     "t": "Balik-aral 1",
+     "j": "Ripasso 1",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "Ikalawang bahagi · Araw-araw sa barko",
+   "j": "La vita di bordo",
+   "level": "A1.2",
+   "items": [
+    {
+     "id": "l9",
+     "t": "Pagtatanong",
+     "j": "Fare domande",
+     "icon": "i-q"
+    },
+    {
+     "id": "l10",
+     "t": "Ang shift ko: oras at mga pandiwang repleksibo",
+     "j": "Il mio turno",
+     "icon": "i-clock"
+    },
+    {
+     "id": "l11",
+     "t": "Libreng oras: mi piace at andare",
+     "j": "Il tempo libero",
+     "icon": "i-ball"
+    },
+    {
+     "id": "l12",
+     "t": "Sa daungan at sa lungsod: pagtatanong ng direksyon",
+     "j": "In porto",
+     "icon": "i-pin"
+    },
+    {
+     "id": "l13",
+     "t": "Mga tuntunin sa barko: volere, potere, dovere",
+     "j": "Le regole di bordo",
+     "icon": "i-buoy"
+    },
+    {
+     "id": "l14",
+     "t": "Sa kusina at restawran: del, della, ne",
+     "j": "In cucina e al ristorante",
+     "icon": "i-fork"
+    },
+    {
+     "id": "r2",
+     "t": "Balik-aral 2",
+     "j": "Ripasso 2",
+     "icon": "i-loop",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "Ikatlong bahagi · Pagkukuwento",
+   "j": "Raccontare",
+   "level": "A2",
+   "items": [
+    {
+     "id": "l15",
+     "t": "Ang day off: passato prossimo na may avere",
+     "j": "Il giorno libero",
+     "icon": "i-ticket"
+    },
+    {
+     "id": "l16",
+     "t": "Mula daungan hanggang daungan: passato prossimo na may essere, petsa at panahon",
+     "j": "Di porto in porto",
+     "icon": "i-umbrella"
+    },
+    {
+     "id": "l17",
+     "t": "Noong bata pa ako: imperfetto",
+     "j": "Quando ero piccolo",
+     "icon": "i-kite"
+    },
+    {
+     "id": "l18",
+     "t": "Isang gabi ng bagyo: ang dalawang pangnagdaan",
+     "j": "Una notte di tempesta",
+     "icon": "i-scroll"
+    },
+    {
+     "id": "l19",
+     "t": "Gusto at paghahambing: gli, le, più, meno",
+     "j": "Gusti e confronti",
+     "icon": "i-heart"
+    },
+    {
+     "id": "l20",
+     "t": "Pamimili sa daungan: lo, la, li at stare + gerundio",
+     "j": "Spese in porto",
+     "icon": "i-bag"
+    },
+    {
+     "id": "l21",
+     "t": "Pagtatapos ng kontrata: futuro at se",
+     "j": "Fine contratto",
+     "icon": "i-suitcase"
+    },
+    {
+     "id": "l22",
+     "t": "Kalusugan at kaligtasan: condizionale",
+     "j": "Salute e sicurezza",
+     "icon": "i-cross"
+    },
+    {
+     "id": "l23",
+     "t": "Sina Ravi at Joy: ikuwento ang buhay mo",
+     "j": "Ravi e Joy a Genova",
+     "icon": "i-ship"
+    },
+    {
+     "id": "r3",
+     "t": "Balik-aral 3 at pagsubok A2",
+     "j": "Ripasso 3 e test A2",
+     "icon": "i-star",
+     "kind": "review"
+    }
+   ]
+  },
+  {
+   "title": "Mga apendiks",
+   "j": "Appendici",
+   "items": [
+    {
+     "id": "frasi",
+     "t": "Mga handang parirala",
+     "j": "Frasario",
+     "icon": "i-lemon",
+     "kind": "app",
+     "letter": "A"
+    },
+    {
+     "id": "flash",
+     "t": "Flashcard: balik-aral na may pagitan",
+     "j": "Flashcard",
+     "icon": "i-cards",
+     "kind": "app",
+     "letter": "B"
+    },
+    {
+     "id": "vocab",
+     "t": "Bokabularyo",
+     "j": "Vocabolario",
+     "icon": "i-book",
+     "kind": "app",
+     "letter": "C"
+    },
+    {
+     "id": "verbi",
+     "t": "Mga anyo ng pandiwa",
+     "j": "Coniugare i verbi",
+     "icon": "i-verb",
+     "kind": "app",
+     "letter": "D"
+    }
+   ]
+  }
+ ]
+}
