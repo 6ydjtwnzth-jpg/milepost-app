@@ -4,7 +4,7 @@ var KEY="english-filipino-v1";
 var LANG={code:"en",name:"Ingles",Name:"Ingles",tts:"en-GB",ttsBest:/^en[-_]gb/i,ttsAny:/^en/i,
   voiceNote:"Kokoro, mga boses na «Emma» at «George» (British English)",
   acc:[],nearMsg:"Pansinin ang baybay (spelling).",caseMatters:false,genders:false,dlg:"Dialogue",hello:"Hello!",
-  groups:["irr","reg"],streak:"days in a row",cmp:["United Kingdom","United Kingdom"],
+  groups:["irr","reg"],streak:"days in a row",cmp:["Britanya","United Kingdom"],
   stepn:{rec:["Mga salita noon","Words from before","i-loop"],dlg:["Usapan","Dialogue","i-ear"],voc:["Mga salita","Vocabulary","i-cards"],rule:["Gramatika","Grammar","i-bulb"],rev:["Balik-aral","Review","i-loop"],snd:["Bigkas","Pronunciation","i-wave"],cult:["Kultura","Culture","i-moka"],test:["Pagsubok","Check","i-check"]},
   cjNote:function(v,t){if(t==="ps"||t==="pp"){return " Tatlong anyo: "+v.i+" – "+psOf(v)+" – "+ppOf(v)+"."}if(t==="pr")return " Sa he / she / it, dinadagdagan ng -s: "+s3(v)+".";if(t==="pg"&&v.stv)return " Pandiwang nagsasaad ng kalagayan ang «"+v.i+"»: karaniwang hindi ito ginagamit sa present continuous. Sinasabing I "+(v.i==="be"?"am":v.i)+", hindi I am "+ingOf(v)+".";return ""}};
 
