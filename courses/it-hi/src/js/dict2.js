@@ -412,4 +412,5 @@ Object.assign(DICT,{"c":"अक्षर c",
 "durata":"अवधि",
 "dura":"चलता है (durare)",
 "chiede":"पूछता है (chiedere)",
-"modo":"तरीक़ा"});
+"modo":"तरीक़ा",
+"termina":"ख़त्म होता है (terminare)"});

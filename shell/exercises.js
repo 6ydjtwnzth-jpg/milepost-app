@@ -10,7 +10,17 @@
 function exLang(){return typeof itHTML==="function"?"it":typeof pyWord==="function"?"zh":"ja"}
 /* the course this page belongs to (shell/courses.json): its interface language and the language being learned */
 function exCourse(){var c=null;try{CATALOG.courses.forEach(function(x){if(x.storageKey===KEY)c=x})}catch(e){}return c||{speak:"it",learn:exLang()}}
-function exS(){var sp=exCourse().speak;if(sp==="es")return {
+function exS(){var sp=exCourse().speak;if(sp==="hi")return {
+    ord:"क्रम लगाएँ",ear:"सुनें और क्रम लगाएँ",gap:"पूरा करें",err:"ग़लती ढूँढें",chr:"बनाएँ",rep:"जवाब दें",tone:"टोन",chk:"जाँचें",rst:"फिर से शुरू करें",ok:"सही!",no:"पूरी तरह सही नहीं।",ans:"जवाब:",
+    play:"सुनें",again:"फिर से सुनें",errQ:"ग़लत शब्द पर टैप करें।",errFine:"यह सही है।",fixed:"सही वाक्य:",earQ:"सुनें और वाक्य का क्रम लगाएँ।",
+    repQ:"सही जवाब चुनें।",useSome:"पहले कुछ शब्द चुनें।",next:"अभी एक हिस्सा बाक़ी है।",chrQ:function(c,m){return c+" बनाएँ («"+m+"»): हिस्से चुनें।"},
+    toneQ:"अक्षर सुनें और टोन चुनें।"};
+  if(sp==="tl")return {
+    ord:"Pagsunud-sunurin",ear:"Makinig at pagsunud-sunurin",gap:"Buuin",err:"Hanapin ang mali",chr:"Buuin",rep:"Sumagot",tone:"Tono",chk:"Suriin",rst:"Ulitin mula sa simula",ok:"Tama!",no:"Hindi pa tama.",ans:"Sagot:",
+    play:"Makinig",again:"Makinig ulit",errQ:"I-tap ang maling salita.",errFine:"Tama ito.",fixed:"Ang tamang pangungusap:",earQ:"Makinig at pagsunud-sunurin ang pangungusap.",
+    repQ:"Piliin ang tamang sagot.",useSome:"Pumili muna ng ilang salita.",next:"May kulang pang bahagi.",chrQ:function(c,m){return "Buuin ang "+c+" («"+m+"»): piliin ang mga bahagi."},
+    toneQ:"Pakinggan ang pantig at piliin ang tono."};
+  if(sp==="es")return {
     ord:"Ordena",ear:"Escucha y ordena",gap:"Completa",err:"Busca el error",chr:"Construye",rep:"Responde",tone:"Tono",chk:"Comprobar",rst:"Empezar de nuevo",ok:"¡Correcto!",no:"No exactamente.",ans:"Respuesta:",
     play:"Escuchar",again:"Escuchar de nuevo",errQ:"Toca la palabra equivocada.",errFine:"Esta está bien.",fixed:"La frase correcta:",earQ:"Escucha y ordena la frase.",
     repQ:"Elige la respuesta adecuada.",useSome:"Elige primero algunas palabras.",next:"Todavía falta una parte.",chrQ:function(c,m){return "Construye "+c+" («"+m+"»): elige las piezas."},
@@ -42,7 +52,7 @@ function exExtra(q,it,i,mark){
   q.classList.add("xq","xq-"+T);
   /* ---- rebuild the sentence: tap tiles in order; one or two tiles are traps ---- */
   if(T==="ord"){
-    exHead(q,i,'<span class="qtag'+(it.ear?' ear-t':'')+'">'+(it.ear?SPK+S.ear:S.ord)+'</span>',it.ear?esc(S.earQ):exRich(String(it.q||"").replace(/^(Componi|Ricomponi|组句|连词成句)\s*[:：]\s*/,"")));
+    exHead(q,i,'<span class="qtag'+(it.ear?' ear-t':'')+'">'+(it.ear?SPK+S.ear:S.ord)+'</span>',it.ear?esc(S.earQ):exRich(String(it.q||"").replace(/^(Componi|Ricomponi|组句|连词成句|Ordena|Ayusin|क्रम में लगाएँ)\s*[:：]\s*/,"")));
     if(it.ear){var pa=document.createElement("div");pa.className="acts";var lb=exBtn("btn pri lsp",SPK+" "+esc(S.play));lb.onclick=function(){speak(it.a[0])};pa.appendChild(lb);q.appendChild(pa)}
     var line=document.createElement("div");line.className="xline";line.setAttribute("aria-label",S.ans);
     var pool=document.createElement("div");pool.className="xpool";

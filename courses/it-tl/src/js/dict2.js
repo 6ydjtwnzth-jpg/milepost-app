@@ -412,4 +412,5 @@ Object.assign(DICT,{"c":"titik c",
 "durata":"haba ng panahon",
 "dura":"tumatagal (durare)",
 "chiede":"nagtatanong (chiedere)",
-"modo":"paraan"});
+"modo":"paraan",
+"termina":"natatapos (terminare)"});
