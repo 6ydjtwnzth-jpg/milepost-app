@@ -5673,7 +5673,7 @@ function runStage(o){/* o: {title,color,pages:[{draw(box,release),gate,go}],done
   show()}
 function quizPage(items,head,cb,mk){return {gate:true,draw:function(box,rel){var d=document.createElement("div");d.className="drill";box.appendChild(d);
   renderSet(d,{items:items,one:true,head:head,onMark:mk,onDone:function(n,m,res){if(cb)cb(n,m,res);rel()}});
-  var f=$(".lsp",d);if(f)setTimeout(function(){f.click()},300)}}}
+  var f=d.querySelector(".q:not([hidden]) .lsp");if(f)setTimeout(function(){f.click()},300)}}}   /* only the question on screen: never a hidden later one */
 
 function markStep(id,key){P.done[id]=P.done[id]||{};var fresh=!P.done[id][key];P.done[id][key]=1;if(fresh)tick();pSave();return fresh}
 function goalMsg(){var t=P.days[dayKey(0)]||0;return t>=P.goal?"Obiettivo di oggi raggiunto":"Oggi "+t+" / "+P.goal+" tappe"}
