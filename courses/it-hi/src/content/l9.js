@@ -25,7 +25,7 @@ VOC.l9=[
  ["palestra","जिम","f"],
  ["reception","रिसेप्शन","f"],
  ["ascensore","लिफ़्ट","m"],
- ["scale","सीढ़ियाँ","f"],
+ ["scale","सीढ़ियाँ","fp"],
  ["teatro","थिएटर","m"],
  ["infermeria","जहाज़ का अस्पताल","f"],
  ["lavanderia","लॉन्ड्री","f"],

@@ -776,7 +776,7 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="t-red"><b>23</b><span>aralin + 3 balik-aral</span></div>
     <div class="t-blue"><b>23</b><span>usapan</span></div>
     <div class="t-green"><b>362</b><span>pagsasanay</span></div>
-    <div class="t-yellow"><b>659</b><span>salita</span></div>
+    <div class="t-yellow"><b>651</b><span>salita</span></div>
   </div>
   <div class="legend"><span>Kulay ng mga pangngalan:</span><b class="m" lang="it"><span lang="fil">panlalaki</span> il libro</b><b class="f" lang="it"><span lang="fil">pambabae</span> la casa</b><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">berde</b> = Italyano: pindutin para marinig at makita ang kahulugan</span></div>
   <p class="note" id="ttsnote">Pindutin ang ▶ para marinig ang buong pangungusap; bawat salitang <b style="color:var(--it)">berde</b> ay puwedeng pindutin: maririnig mo ito at makikita ang kahulugan. Sa itaas, puwede mong itago ang salin (para sanayin ang tainga) at pabagalin ang boses. Italyano ang boses, babae, gawa ng computer (Sara).</p>
@@ -3543,10 +3543,10 @@ VOC.l5=[
  ["madre","ina, nanay","f"],
  ["fratello","kapatid na lalaki","m"],
  ["sorella","kapatid na babae","f"],
- ["genitori","mga magulang","m"],
+ ["genitori","mga magulang","mp"],
  ["figlio","anak na lalaki","m"],
  ["figlia","anak na babae","f"],
- ["figli","mga anak","m"],
+ ["figli","mga anak","mp"],
  ["marito","asawang lalaki","m"],
  ["moglie","asawang babae","f"],
  ["nonna","lola","f"],
@@ -3772,7 +3772,7 @@ VOC.l9=[
  ["palestra","gym","f"],
  ["reception","reception","f"],
  ["ascensore","elevator","m"],
- ["scale","hagdan","f"],
+ ["scale","hagdan","fp"],
  ["teatro","teatro","m"],
  ["infermeria","klinika ng barko","f"],
  ["lavanderia","labahan","f"],
@@ -4019,7 +4019,7 @@ VOC.l14=[
  ["carne","karne","f"],
  ["pollo","manok","m"],
  ["maiale","baboy","m"],
- ["crostacei","hipon, alimango at iba pa","m"],
+ ["crostacei","hipon, alimango at iba pa","mp"],
  ["riso","bigas, kanin","m"],
  ["pane","tinapay","m"],
  ["pomodoro","kamatis","m"],
@@ -4206,7 +4206,7 @@ VOC.l17=[
  ["di solito","karaniwan",""],
  ["estate","tag-init","f"],
  ["inverno","taglamig","m"],
- ["nonni","lolo at lola","m"],
+ ["nonni","lolo at lola","mp"],
  ["giardino","hardin","m"],
  ["stella","bituin","f"],
  ["villaggio","nayon","m"]
@@ -4326,10 +4326,10 @@ VOC.l20=[
  ["credere","maniwala, akala",""],
  ["sconto","diskuwento","m"],
  ["per cento","porsiyento",""],
- ["contanti","cash","m"],
+ ["contanti","cash","mp"],
  ["scontrino","resibo","m"],
  ["scarpa","sapatos","f"],
- ["pantaloni","pantalon","m"],
+ ["pantaloni","pantalon","mp"],
  ["camicia","polo, kamiseta","f"],
  ["vestito","damit, bestida","m"],
  ["biglietto","tiket","m"],
@@ -4371,7 +4371,7 @@ VOC.l21=[
  ["diventare","maging",""],
  ["capo cameriere","head waiter","m"],
  ["abbastanza","sapat",""],
- ["soldi","pera","m"],
+ ["soldi","pera","mp"],
  ["accettare","tanggapin",""],
  ["bisogno","pangangailangan","m"],
  ["avere bisogno","kailanganin",""],
@@ -5481,7 +5481,7 @@ function art(w,g){if(g==="mp")return /^[aeiou]/i.test(w)?"gli ":(/^(s[^aeiou]|z|
   if(g==="m")return /^[aeiouh]/i.test(w)?"l'":(/^(s[^aeiou]|z|gn|ps|y)/i.test(w)?"lo ":"il ");if(g==="f")return /^[aeiou]/i.test(w)?"l'":"la ";return ""}
 function gOf(g){return g?g.charAt(0):""}
 function wordHTML(r){var g=gOf(r[2]),a=art(r[0],r[2]);return g?'<span class="'+g+'"><span class="art">'+a+'</span>'+esc(r[0])+'</span>':esc(r[0])}
-function gLabel(g){return {m:"masculino",f:"femenino",mp:"masculino plural",fp:"femenino plural"}[g]||""}
+function gLabel(g){return {m:"panlalaki",f:"pambabae",mp:"panlalaki, maramihan",fp:"pambabae, maramihan"}[g]||""}
 function lessonLabel(L){return L.kind==="lesson"?"Aralin "+L.n+" · "+L.t:L.t}
 var vt=$("#vocabtbl");
 function buildVocab(){if(!vt||vt.dataset.done)return;vt.dataset.done="1";var rowsV=['<tr><th>Italyano</th><th>Filipino</th><th>Kasarian</th><th></th></tr>'];

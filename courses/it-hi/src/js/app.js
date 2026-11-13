@@ -301,7 +301,7 @@ function art(w,g){if(g==="mp")return /^[aeiou]/i.test(w)?"gli ":(/^(s[^aeiou]|z|
   if(g==="m")return /^[aeiouh]/i.test(w)?"l'":(/^(s[^aeiou]|z|gn|ps|y)/i.test(w)?"lo ":"il ");if(g==="f")return /^[aeiou]/i.test(w)?"l'":"la ";return ""}
 function gOf(g){return g?g.charAt(0):""}
 function wordHTML(r){var g=gOf(r[2]),a=art(r[0],r[2]);return g?'<span class="'+g+'"><span class="art">'+a+'</span>'+esc(r[0])+'</span>':esc(r[0])}
-function gLabel(g){return {m:"masculino",f:"femenino",mp:"masculino plural",fp:"femenino plural"}[g]||""}
+function gLabel(g){return {m:"पुल्लिंग",f:"स्त्रीलिंग",mp:"पुल्लिंग बहुवचन",fp:"स्त्रीलिंग बहुवचन"}[g]||""}
 function lessonLabel(L){return L.kind==="lesson"?"पाठ "+L.n+" · "+L.t:L.t}
 var vt=$("#vocabtbl");
 function buildVocab(){if(!vt||vt.dataset.done)return;vt.dataset.done="1";var rowsV=['<tr><th>इतालवी</th><th>हिंदी</th><th>लिंग</th><th></th></tr>'];

@@ -25,7 +25,7 @@ VOC.l9=[
  ["palestra","gym","f"],
  ["reception","reception","f"],
  ["ascensore","elevator","m"],
- ["scale","hagdan","f"],
+ ["scale","hagdan","fp"],
  ["teatro","teatro","m"],
  ["infermeria","klinika ng barko","f"],
  ["lavanderia","labahan","f"],

@@ -27,7 +27,7 @@ VOC.l14=[
  ["carne","karne","f"],
  ["pollo","manok","m"],
  ["maiale","baboy","m"],
- ["crostacei","hipon, alimango at iba pa","m"],
+ ["crostacei","hipon, alimango at iba pa","mp"],
  ["riso","bigas, kanin","m"],
  ["pane","tinapay","m"],
  ["pomodoro","kamatis","m"],

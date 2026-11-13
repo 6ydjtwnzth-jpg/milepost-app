@@ -776,7 +776,7 @@ setTimeout(hide,Math.max(4000,min))})();
     <div class="t-red"><b>23</b><span>पाठ + 3 दोहराव</span></div>
     <div class="t-blue"><b>23</b><span>संवाद</span></div>
     <div class="t-green"><b>362</b><span>अभ्यास</span></div>
-    <div class="t-yellow"><b>659</b><span>शब्द</span></div>
+    <div class="t-yellow"><b>651</b><span>शब्द</span></div>
   </div>
   <div class="legend"><span>संज्ञाओं के रंग:</span><b class="m" lang="it"><span lang="hi">पुल्लिंग</span> il libro</b><b class="f" lang="it"><span lang="hi">स्त्रीलिंग</span> la casa</b><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">हरा</b> = इतालवी: सुनने और अर्थ देखने के लिए छुएँ</span></div>
   <p class="note" id="ttsnote">पूरा वाक्य सुनने के लिए ▶ दबाएँ; हर <b style="color:var(--it)">हरा</b> शब्द छुआ जा सकता है: आप उसे सुनते हैं और उसका अर्थ देखते हैं। ऊपर आप अनुवाद छिपा सकते हैं (कान के अभ्यास के लिए) और आवाज़ धीमी कर सकते हैं। आवाज़ इतालवी है, महिला की, कंप्यूटर से बनी (Sara)।</p>
@@ -3543,10 +3543,10 @@ VOC.l5=[
  ["madre","माँ","f"],
  ["fratello","भाई","m"],
  ["sorella","बहन","f"],
- ["genitori","माता-पिता","m"],
+ ["genitori","माता-पिता","mp"],
  ["figlio","बेटा; बच्चा","m"],
  ["figlia","बेटी","f"],
- ["figli","बच्चे (बेटे-बेटियाँ)","m"],
+ ["figli","बच्चे (बेटे-बेटियाँ)","mp"],
  ["marito","पति","m"],
  ["moglie","पत्नी","f"],
  ["nonna","दादी, नानी","f"],
@@ -3772,7 +3772,7 @@ VOC.l9=[
  ["palestra","जिम","f"],
  ["reception","रिसेप्शन","f"],
  ["ascensore","लिफ़्ट","m"],
- ["scale","सीढ़ियाँ","f"],
+ ["scale","सीढ़ियाँ","fp"],
  ["teatro","थिएटर","m"],
  ["infermeria","जहाज़ का अस्पताल","f"],
  ["lavanderia","लॉन्ड्री","f"],
@@ -4019,7 +4019,7 @@ VOC.l14=[
  ["carne","मांस","f"],
  ["pollo","चिकन","m"],
  ["maiale","सूअर (का मांस)","m"],
- ["crostacei","झींगे, केकड़े आदि","m"],
+ ["crostacei","झींगे, केकड़े आदि","mp"],
  ["riso","चावल","m"],
  ["pane","ब्रेड","m"],
  ["pomodoro","टमाटर","m"],
@@ -4206,7 +4206,7 @@ VOC.l17=[
  ["di solito","आम तौर पर",""],
  ["estate","गर्मी (मौसम)","f"],
  ["inverno","सर्दी (मौसम)","m"],
- ["nonni","दादा-दादी","m"],
+ ["nonni","दादा-दादी","mp"],
  ["giardino","बग़ीचा","m"],
  ["stella","तारा","f"],
  ["villaggio","गाँव","m"]
@@ -4326,10 +4326,10 @@ VOC.l20=[
  ["credere","मानना, सोचना",""],
  ["sconto","छूट","m"],
  ["per cento","प्रतिशत",""],
- ["contanti","नक़द","m"],
+ ["contanti","नक़द","mp"],
  ["scontrino","रसीद","m"],
  ["scarpa","जूता","f"],
- ["pantaloni","पैंट","m"],
+ ["pantaloni","पैंट","mp"],
  ["camicia","कमीज़","f"],
  ["vestito","कपड़ा; ड्रेस","m"],
  ["biglietto","टिकट","m"],
@@ -4371,7 +4371,7 @@ VOC.l21=[
  ["diventare","बनना",""],
  ["capo cameriere","हेड वेटर","m"],
  ["abbastanza","काफ़ी",""],
- ["soldi","पैसे","m"],
+ ["soldi","पैसे","mp"],
  ["accettare","स्वीकार करना, मानना",""],
  ["bisogno","ज़रूरत","m"],
  ["avere bisogno","ज़रूरत होना",""],
@@ -5481,7 +5481,7 @@ function art(w,g){if(g==="mp")return /^[aeiou]/i.test(w)?"gli ":(/^(s[^aeiou]|z|
   if(g==="m")return /^[aeiouh]/i.test(w)?"l'":(/^(s[^aeiou]|z|gn|ps|y)/i.test(w)?"lo ":"il ");if(g==="f")return /^[aeiou]/i.test(w)?"l'":"la ";return ""}
 function gOf(g){return g?g.charAt(0):""}
 function wordHTML(r){var g=gOf(r[2]),a=art(r[0],r[2]);return g?'<span class="'+g+'"><span class="art">'+a+'</span>'+esc(r[0])+'</span>':esc(r[0])}
-function gLabel(g){return {m:"masculino",f:"femenino",mp:"masculino plural",fp:"femenino plural"}[g]||""}
+function gLabel(g){return {m:"पुल्लिंग",f:"स्त्रीलिंग",mp:"पुल्लिंग बहुवचन",fp:"स्त्रीलिंग बहुवचन"}[g]||""}
 function lessonLabel(L){return L.kind==="lesson"?"पाठ "+L.n+" · "+L.t:L.t}
 var vt=$("#vocabtbl");
 function buildVocab(){if(!vt||vt.dataset.done)return;vt.dataset.done="1";var rowsV=['<tr><th>इतालवी</th><th>हिंदी</th><th>लिंग</th><th></th></tr>'];

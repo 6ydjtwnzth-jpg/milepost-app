@@ -34,7 +34,7 @@ VOC.l17=[
  ["di solito","karaniwan",""],
  ["estate","tag-init","f"],
  ["inverno","taglamig","m"],
- ["nonni","lolo at lola","m"],
+ ["nonni","lolo at lola","mp"],
  ["giardino","hardin","m"],
  ["stella","bituin","f"],
  ["villaggio","nayon","m"]

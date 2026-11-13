@@ -26,7 +26,7 @@ VOC.l21=[
  ["diventare","maging",""],
  ["capo cameriere","head waiter","m"],
  ["abbastanza","sapat",""],
- ["soldi","pera","m"],
+ ["soldi","pera","mp"],
  ["accettare","tanggapin",""],
  ["bisogno","pangangailangan","m"],
  ["avere bisogno","kailanganin",""],

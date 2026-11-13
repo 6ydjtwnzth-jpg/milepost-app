@@ -26,7 +26,7 @@ VOC.l21=[
  ["diventare","बनना",""],
  ["capo cameriere","हेड वेटर","m"],
  ["abbastanza","काफ़ी",""],
- ["soldi","पैसे","m"],
+ ["soldi","पैसे","mp"],
  ["accettare","स्वीकार करना, मानना",""],
  ["bisogno","ज़रूरत","m"],
  ["avere bisogno","ज़रूरत होना",""],
