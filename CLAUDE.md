@@ -114,7 +114,8 @@ ciò che manca si mostra come "In arrivo".
 - Apertura: `shell/splash.css` + `shell/splash.html` (animazione «Germoglio» del logo), inserite dal build nella shell e in ogni
   corso. Parte una volta per avvio (sessionStorage), poi le pagine mostrano il logo fermo finché non hanno disegnato
   (`mpSplashReady()`). Su iPhone/iPad l'avvio da Home mostra le immagini `docs/icons/launch/` (color carta, chiaro e scuro),
-  generate dal build dai token `--paper`.
+  generate dal build dai token `--paper`. Ogni pagina, shell e corsi, dichiara anche icona (`icons/apple-touch-icon.png`, 180 px,
+  opaca), nome «Milepost» e manifest per la schermata Home (`home_screen_head` in `build.py`): si salva spesso da un corso.
 - App Android (`android/`, vedi `android/README.md`): varianti `beta` (apre il sito, codice invito) e `francese` (app a parte
   con il solo corso fr-it dentro l'APK, senza rete: `tools/standalone.py` + `standalone/fonts`; `CATALOG.only` nella shell
   nasconde lingua, altri corsi e download offline).

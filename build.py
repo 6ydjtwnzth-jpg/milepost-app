@@ -57,7 +57,7 @@ def build_course(cid):
     html = (html[:start] + head_js + opener + '\n' + rd(SHELL, 'srs.js') + '\n' + html[start + len(opener):end] + '\n/* ---- Milepost course app ---- */\n' +
             rd(SHELL, 'course-app.js') + '\n' + rd(SHELL, 'exercises.js') + html[end:])
     # the class goes on before the first paint, so the old book layout never flashes while the page loads
-    html = html.replace('</head>', '<link rel="stylesheet" href="../../course-app.css">\n<script>document.documentElement.classList.add("mp")</script>\n' + splash_head() + '\n</head>', 1)
+    html = html.replace('</head>', '<link rel="stylesheet" href="../../course-app.css">\n<script>document.documentElement.classList.add("mp")</script>\n' + splash_head() + '\n' + home_screen_head('../../') + '\n</head>', 1)
     html = re.sub(r'(<body[^>]*>)', lambda m: m.group(1) + '\n' + rd(SHELL, 'splash.html'), html, count=1)
     wr(os.path.join(DOCS, 'c', cid, 'index.html'), html)
     os.remove(os.path.join(cdir, 'index.html'))
@@ -115,7 +115,7 @@ def png_solid(w, h, hexcolor):
             chunk(b'PLTE', bytes.fromhex(hexcolor.lstrip('#'))) + chunk(b'IDAT', zlib.compress(row * h, 9)) + chunk(b'IEND', b''))
 
 
-def launch_images():
+def launch_images(prefix=''):
     css = rd(SHELL, 'app.css')
     light, dark = re.findall(r'--paper:(#[0-9a-fA-F]{6})', css)[:2]
     out = os.path.join(DOCS, 'icons', 'launch')
@@ -128,10 +128,19 @@ def launch_images():
             name = f'{pw}x{ph}-{scheme}.png'
             with open(os.path.join(out, name), 'wb') as f:
                 f.write(png_solid(pw, ph, color))
-            tags.append(f'<link rel="apple-touch-startup-image" href="icons/launch/{name}" media="(device-width: {w}px) and '
+            tags.append(f'<link rel="apple-touch-startup-image" href="{prefix}icons/launch/{name}" media="(device-width: {w}px) and '
                         f'(device-height: {h}px) and (-webkit-device-pixel-ratio: {r}) and (orientation: {o}) and '
                         f'(prefers-color-scheme: {scheme})">')
     return '\n'.join(tags)
+
+
+def home_screen_head(prefix):
+    """What iOS and Android need to save a page on the home screen as Milepost: icon, name, full screen, launch images.
+    Course pages need it too: after onboarding the learner is on a course page, and that is the page they save."""
+    return ('<link rel="manifest" href="' + prefix + 'manifest.webmanifest">\n'
+            '<link rel="apple-touch-icon" sizes="180x180" href="' + prefix + 'icons/apple-touch-icon.png">\n'
+            '<meta name="apple-mobile-web-app-capable" content="yes">\n<meta name="mobile-web-app-capable" content="yes">\n'
+            '<meta name="apple-mobile-web-app-title" content="Milepost">\n' + launch_images(prefix))
 
 
 def build_shell(cat):
